@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+    <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+        الرابعة ثانوي، شعبة اقتصاد وتصرف
+    </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">الحرب العالمية الأولى: الأسباب والنتائج</h1>
+            
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">شكلت الحرب العالمية الأولى منعطفًا حاسمًا في تاريخ القرن العشرين، إذ لم تقتصر آثارها على ساحات القتال بل امتدت لتشمل البشر والاقتصاد والسياسة والجغرافيا. فما هي أبرز نتائج هذه الحرب؟</p>
+            </div>
+            
+            <!-- Part II : Consequences -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">نتائج الحرب العالمية الأولى</span>
+                </h2>
+                
+                <!-- 1. Human and economic consequences -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="result1Title">النتائج البشرية والاقتصادية</span>
+                </h3>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="result1aTitle">الخسائر البشرية</span>
+                </h4>
+                <p data-i18n="result1aIntro">خلفت الحرب العالمية الأولى خسائر بشرية فادحة غير مسبوقة في تاريخ البشرية، إذ تجاوزت أعداد الضحايا كل الحروب السابقة مجتمعة.</p>
+                <ul>
+                    <li data-i18n="result1Bullet1">أفرزت الحرب 9 ملايين قتيل و17 مليون جريح و6 ملايين عاجز.</li>
+                    <li data-i18n="result1Bullet2">تكبدت أوروبا 59% من مجموع القتلى، وتفاوت عدد القتلى بين الدول الأوروبية وتعتبر كل من ألمانيا وروسيا الأكثر تضرراً حيث تراوح عدد القتلى بين 1 و2 مليون.</li>
+                    <li data-i18n="result1Bullet3">كما أفرزت الحرب اختلالات عميقة في البنية الديمغرافية بتراجع نسبة الذكور من السكان النشطين، إلى جانب تراجع نسبة الولادات.</li>
+                </ul>
+                <p data-i18n="result1aConclusion">هذه الخسائر أدت إلى نقص حاد في اليد العاملة، وأثرت على التركيبة السكانية لأجيال، مما عمق الأزمات الاجتماعية والاقتصادية في أوروبا بعد الحرب.</p>
+                
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="result1bTitle">الخسائر الاقتصادية وتغير ميزان القوى</span>
+                </h4>
+                <p data-i18n="result1bIntro">لم تقتصر الخسائر على الأرواح، بل شملت البنية الاقتصادية للقارة الأوروبية بأكملها، وأدت إلى تحول جذري في موازين القوى العالمية.</p>
+                <p><strong data-i18n="result1bEconomic1Title">تدمير أوروبا:</strong> <span data-i18n="result1bEconomic1Text">تدمير البنى الأساسية من طرقات وجسور... وعجز ميزانية الدول الأوروبية التي لجأت إلى التداين من قبل الولايات المتحدة الأمريكية، ولتسديد ديونها تم اعتماد سياسة التضخم المالي مما أدى إلى تراجع قيمة الفرنك الفرنسي بنسبة 75% والجنيه الإسترليني بنسبة 20% والمارك الألماني بنسبة 90%.</span></p>
+                <p><strong data-i18n="result1bEconomic2Title">استفادة دول جديدة:</strong> <span data-i18n="result1bEconomic2Text">استفادت دول جديدة من الحرب العالمية الأولى من بينها اليابان والأرجنتين وكندا، وتعتبر الولايات المتحدة الأمريكية الأكثر استفادة حيث تضاعف إنتاجها الصناعي والفلاحي، ومع نهاية الحرب أصبحت تمتلك نصف المخزون العالمي من الذهب فتحول بذلك مركز الثقل المالي العالمي من لندن إلى نيويورك.</span></p>
+                <p data-i18n="result1bConclusion">هكذا خرجت الولايات المتحدة الأمريكية من الحرب كأكبر قوة اقتصادية في العالم، بينما تراجعت القوى الأوروبية التقليدية، مما مهد لانتقال الزعامة العالمية من أوروبا إلى أمريكا.</p>
+                
+                <!-- 2. Political and geopolitical consequences -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="result2Title">النتائج السياسية والجيوسياسية</span>
+                </h3>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="result2aTitle">مؤتمر الصلح في باريس وصعوبة تسوية النزاع</span>
+                </h4>
+                <p data-i18n="result2aIntro">بعد انتهاء القتال، اجتمع المنتصرون لرسم ملامح النظام العالمي الجديد، لكن مصالحهم المتضاربة جعلت التسوية صعبة ومعقدة.</p>
+                <p data-i18n="result2aText">انعقد مؤتمر الصلح في باريس بقصر فرساي يوم 18 جانفي 1919 واستمرت مداولاته إلى 1920. هيمن عليه الأربعة الكبار من الدول المنتصرة (إنجلترا - فرنسا - إيطاليا - الولايات المتحدة الأمريكية) بينما تم إقصاء الدول المنهزمة وروسيا.</p>
+                <p data-i18n="result2aPositionsIntro">اختلفت مواقف الدول الكبار بسبب تضارب مصالحها:</p>
+                <ul>
+                    <li><strong data-i18n="result2aPositionUSTitle">الموقف الأمريكي:</strong> <span data-i18n="result2aPositionUSText">مثله الرئيس الأمريكي ولسن الذي تقدم ببرنامج يتضمن 14 نقطة ويهدف إلى إرساء السلم في العالم، من أبرز نقاطه الحد من الدبلوماسية السرية والحد من التسلح وحق الشعوب في تقرير مصيرها وتكوين جمعية الأمم.</span></li>
+                    <li><strong data-i18n="result2aPositionFranceTitle">الموقف الفرنسي:</strong> <span data-i18n="result2aPositionFranceText">تمثل في إضعاف ألمانيا وتحميلها مسؤولية اندلاع الحرب وإجبارها على دفع التعويضات.</span></li>
+                    <li><strong data-i18n="result2aPositionBritainTitle">الموقف الإنجليزي:</strong> <span data-i18n="result2aPositionBritainText">كان ضد إضعاف ألمانيا خوفاً من الهيمنة الفرنسية على القارة الأوروبية.</span></li>
+                    <li><strong data-i18n="result2aPositionItalyTitle">الموقف الإيطالي:</strong> <span data-i18n="result2aPositionItalyText">طالبت إيطاليا بتحقيق الوعود الترابية التي تلقتها من الوفاق الثلاثي مقابل تضحياتها أثناء الحرب.</span></li>
+                </ul>
+                <p data-i18n="result2aConclusion">هذا التضارب في المواقف جعل مؤتمر الصلح مسرحاً للصراع الدبلوماسي، وأثّر بشكل مباشر على طبيعة المعاهدات التي أُبرمت لاحقاً.</p>
+                
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="result2bTitle">جمعية الأمم ومعاهدات السلم</span>
+                </h4>
+                <p data-i18n="result2bLeagueIntro">من أبرز نتائج مؤتمر الصلح إنشاء جمعية الأمم، التي مثلت أول محاولة جادة لتنظيم العلاقات الدولية على أساس جماعي.</p>
+                <p data-i18n="result2bLeagueText">تأسست جمعية الأمم تطبيقاً للمادة 14 من برنامج الرئيس الأمريكي ولسن، وهي تهدف إلى الحد من التسلح وإرساء السلم في العالم، ولكنها تحولت إلى "نادٍ للمنتصرين" بإقصائها الدول المنهزمة، كما أنها افتقرت إلى وسائل الردع العسكرية ولم تنخرط فيها الولايات المتحدة الأمريكية بسبب رفض الكونغرس الأمريكي، ومن ناحية أخرى خيبت جمعية الأمم آمال الشعوب المستعمرة بسبب مصادقتها على الانتداب الفرنسي والإنجليزي في المشرق العربي والمستعمرات الألمانية.</p>
+                <p data-i18n="result2bTreatiesIntro">إلى جانب الجمعية، فرضت على الدول المنهزمة معاهدات سلم قاسية أدت إلى تفكيكها والحد من قوتها العسكرية والتخلي عن جزء من أراضيها:</p>
+                <ul>
+                    <li><strong data-i18n="treatyVersaillesTitle">معاهدة فرساي:</strong> <span data-i18n="result2bTreatyVersailles">فرضت على ألمانيا في 28 جوان 1919 وتضمنت شروطاً قاسية اعتبرها الألمان سلماً مملاة، وأدت إلى خسارة جزء كبير من أراضيها والتخلي عن مستعمراتها والحد من قوتها العسكرية، كما أجبرت على دفع تعويضات مالية بقيمة 132 مليار مارك.</span></li>
+                    <li><strong data-i18n="treatySaintGermainTitle">معاهدة سان جرمان:</strong> <span data-i18n="result2bTreatySaintGermain">فرضت على النمسا في سبتمبر 1919.</span></li>
+                    <li><strong data-i18n="treatyTrianonTitle">معاهدة تريانون:</strong> <span data-i18n="result2bTreatyTrianon">فرضت على المجر في جوان 1920.</span></li>
+                    <li><strong data-i18n="treatyNeuillyTitle">معاهدة نويي:</strong> <span data-i18n="result2bTreatyNeuilly">فرضت على بلغاريا في نوفمبر 1919.</span></li>
+                    <li><strong data-i18n="treatySevresTitle">معاهدة سيفر:</strong> <span data-i18n="result2bTreatySevres">فرضت على الإمبراطورية العثمانية في أوت 1920 وأدت إلى تفكيكها، وعلى إثر المقاومة التركية بقيادة مصطفى كمال تم تعويضها بمعاهدة لوزان 1923.</span></li>
+                </ul>
+                <p data-i18n="result2bConclusion">هذه المعاهدات، رغم قسوتها، فشلت في تحقيق سلام دائم، بل زرعت بذور النزاعات المستقبلية، خاصة في ألمانيا التي شعرت بالإذلال.</p>
+                
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="result2cTitle">الخريطة الجيوسياسية الجديدة</span>
+                </h4>
+                <p data-i18n="result2cIntro">أدت الحرب والمعاهدات إلى إعادة رسم خريطة أوروبا والشرق الأوسط بشكل جذري، حيث انهارت إمبراطوريات قديمة وظهرت دول جديدة.</p>
+                <ul>
+                    <li data-i18n="result2cPoint1">انهيار الإمبراطوريات القديمة وزوالها: الإمبراطورية الروسية والنمساوية المجرية والعثمانية.</li>
+                    <li>
+                        <span data-i18n="result2cPoint2Title">ظهور دول جديدة، مثل:</span>
+                        <ul>
+                            <li data-i18n="result2cPoint2a">بولونيا التي ظهرت على حساب ألمانيا وروسيا.</li>
+                            <li data-i18n="result2cPoint2b">تشيكوسلوفاكيا التي تكونت على حساب النمسا وألمانيا.</li>
+                            <li data-i18n="result2cPoint2c">يوغوسلافيا التي جمعت بين صربيا وكرواتيا وسلوفينيا والجبل الأسود والبوسنة والهرسك.</li>
+                            <li data-i18n="result2cPoint2d">دول البلطيق الثلاثة: ليتونيا ولتوانيا وإستونيا التي استقلت عن روسيا البلشفية.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p data-i18n="result2cConclusion">هذه التغيرات الجيوسياسية لم تكن مجرد تعديل حدود، بل أعادت تشكيل الهوية السياسية للقارة الأوروبية وأثرت على العلاقات الدولية لعقود قادمة.</p>
+            </div>
+            
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">أسفرت الحرب العالمية الأولى عن تغييرات جيوسياسية عميقة ساهمت في زرع بذور خلافات جديدة مهدت لاندلاع الحرب العالمية الثانية.</p>
+            </div>
+            
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defWilson">ولسن (وودرو ويلسون)</strong>: <span data-i18n="defWilsonDesc">رئيس الولايات المتحدة الأمريكية (1913–1921). تقدم في جانفي 1918 ببرنامج «النقاط الأربعة عشر» الذي دعا إلى الدبلوماسية المفتوحة، والحد من التسلح، وحق الشعوب في تقرير مصيرها، وإنشاء جمعية الأمم لضمان السلام. شارك في مؤتمر الصلح بباريس وحاول فرض رؤيته، لكنه فشل في إقناع الكونغرس الأمريكي بالانضمام إلى عصبة الأمم، مما أضعف المنظمة الجديدة.</span></li>
+                        <li><strong class="key-person" data-i18n="defMustafaKemal">مصطفى كمال (أتاتورك)</strong>: <span data-i18n="defMustafaKemalDesc">قائد عسكري تركي وقائد المقاومة الوطنية ضد تقسيم الدولة العثمانية بعد الحرب العالمية الأولى. رفض معاهدة سيفر عام 1920 وقاد حرب الاستقلال التركية التي انتهت بإلغاء السلطنة، وتوقيع معاهدة لوزان 1923 التي اعترفت بتركيا الحديثة. أصبح أول رئيس للجمهورية التركية وأجرى إصلاحات علمانية شاملة غيرت بنية الدولة والمجتمع.</span></li>
+                    </ul>
+                </div>
+                
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defParisPeaceConference">مؤتمر الصلح في باريس (1919)</strong>: <span data-i18n="defParisPeaceConferenceDesc">انعقد في جانفي 1919 بقصر فرساي بحضور ممثلي الدول المنتصرة وعلى رأسهم «الأربعة الكبار» (فرنسا، إنجلترا، إيطاليا، الولايات المتحدة) بينما أُقصيت الدول المنهزمة وروسيا البلشفية. أسفر عن سلسلة من معاهدات السلام التي أعادت رسم خريطة أوروبا والشرق الأوسط، وقررت إنشاء عصبة الأمم، لكن إملاء شروط قاسية على المنهزمين زرع بذور الحرب العالمية الثانية.</span></li>
+                    </ul>
+                </div>
+                
+                <div class="definition-category key-treaties">
+                    <h3 data-i18n="defTreaty">📜 معاهدات</h3>
+                    <ul>
+                        <li><strong class="key-treaty" data-i18n="defVersailles">معاهدة فرساي (1919)</strong>: <span data-i18n="defVersaillesDesc">وُقعت في 28 جوان 1919، وفرضت على ألمانيا شروطاً قاسية: الاعتراف بمسؤوليتها عن الحرب (المادة 231)، دفع تعويضات مالية ضخمة (132 مليار مارك ذهبي)، فقدان الألزاس واللوران لصالح فرنسا وممر دانزيغ لصالح بولونيا، وتجريد جيشها من السلاح الثقيل مع تقليص عدده إلى 100 ألف جندي. اعتبرها الألمان «سلاماً مُذِلاً» وكانت أحد أسباب صعود النازية لاحقاً.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defSaintGermain">معاهدة سان جرمان (1919)</strong>: <span data-i18n="defSaintGermainDesc">وُقعت في سبتمبر 1919 مع النمسا، وقضت بتفكيك ما تبقى من الإمبراطورية النمساوية المجرية، واعترفت بدول جديدة مثل تشيكوسلوفاكيا وبولونيا ويوغوسلافيا، وحظرت اتحاد النمسا بألمانيا (الأنشلوس)، وفرضت قيوداً عسكرية وتعويضات على النمسا.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defTrianon">معاهدة تريانون (1920)</strong>: <span data-i18n="defTrianonDesc">وُقعت مع المجر في جوان 1920، فقدت بموجبها المجر حوالي ثلثي أراضيها السابقة لمصلحة رومانيا وتشيكوسلوفاكيا ويوغوسلافيا، مما ترك أقلية مجرية كبيرة خارج حدودها وأثار شعوراً عميقاً بالظلم في الأوساط القومية المجرية.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defNeuilly">معاهدة نويي (1919)</strong>: <span data-i18n="defNeuillyDesc">عقدت في نوفمبر 1919 مع بلغاريا، ألزمتها بالتنازل عن أراضٍ لليونان ويوغوسلافيا، وفرضت عليها قيوداً عسكرية صارمة إلى جانب دفع تعويضات مالية، مما جعلها من أكثر الدول تضرراً في البلقان بعد الحرب.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defSevres">معاهدة سيفر (1920)</strong>: <span data-i18n="defSevresDesc">فُرضت على الدولة العثمانية في أوت 1920، وقضت بتجريدها من أراضيها غير التركية: وضع مناطق عربية تحت الانتداب، ومنحت اليونان إدارة إزمير، وفتحت مضيقي البوسفور والدردنيل للملاحة الدولية، ووعدت بإنشاء دولة أرمينية وكيان كردي. رفضها مصطفى كمال وقاد حرب الاستقلال التي أسقطتها.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defLausanne">معاهدة لوزان (1923)</strong>: <span data-i18n="defLausanneDesc">حلت محل معاهدة سيفر في جويلية 1923 بعد انتصار الأتراك في حرب الاستقلال. اعترفت بحدود تركيا الحديثة، وألغت الامتيازات الأجنبية، وضمنت السيادة التركية على إزمير وتراقيا الشرقية، وأبقت على نظام المضايق مقيداً، وشكلت الأساس القانوني للجمهورية التركية الوليدة.</span></li>
+                    </ul>
+                </div>
+                
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defLeagueOfNations">جمعية الأمم</strong>: <span data-i18n="defLeagueOfNationsDesc">منظمة دولية أنشئت بموجب معاهدة فرساي عام 1920 ومقرها جنيف، استناداً إلى المبدأ الرابع عشر من برنامج ولسن. هدفها المعلن هو ضمان الأمن الجماعي والحد من التسلح وتسوية النزاعات سلمياً. لكنها افتقرت إلى جيش دائم، وتطلبت قراراتها الإجماع، ولم تنضم إليها الولايات المتحدة، فتحولت فعلياً إلى أداة بيد الدول المنتصرة وعجزت عن منع العدوانيات التي أدت لاحقاً إلى الحرب العالمية الثانية.</span></li>
+                        <li><strong class="key-other" data-i18n="defMandate">الانتداب</strong>: <span data-i18n="defMandateDesc">نظام وصاية استعماري أقره ميثاق عصبة الأمم (المادة 22) لإدارة الأراضي المنتزعة من الدول المنهزمة (المستعمرات الألمانية والأقاليم العثمانية غير التركية). صُنفت الانتدابات إلى فئات (أ، ب، ج) بحسب درجة «نضجها السياسي». في المشرق العربي، وضعت سوريا ولبنان تحت الانتداب الفرنسي، وفلسطين والعراق تحت الانتداب البريطاني. رُفع شعار «مساعدة الشعوب على بلوغ الاستقلال»، لكن الانتداب طُبق كاستعمار مقنع.</span></li>
+                    </ul>
+                </div>
+                
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1919</strong>: <span data-i18n="defYear1919Desc">انعقاد مؤتمر الصلح في باريس وتوقيع معاهدات فرساي وسان جرمان ونويي.</span></li>
+                        <li><strong class="key-year">1920</strong>: <span data-i18n="defYear1920Desc">توقيع معاهدتي تريانون وسيفر وإنشاء جمعية الأمم.</span></li>
+                        <li><strong class="key-year">1923</strong>: <span data-i18n="defYear1923Desc">توقيع معاهدة لوزان التي اعترفت بتركيا الحديثة.</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: أسفرت الحرب العالمية الأولى عن خسائر بشرية واقتصادية فادحة، وأدت مؤتمرات السلام ومعاهداته إلى إعادة رسم خريطة أوروبا والشرق الأوسط، كما أرست أسس نظام دولي جديد هش مهد لاحقاً لاندلاع الحرب العالمية الثانية.</div>
+            
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <img src="assets2/lessons/history/4th/www1events.png" alt="سلم زمني للحرب العالمية الأولى" data-i18n-alt="galleryAlt1" loading="lazy">
+                    <img src="assets2/lessons/history/4th/Wilson.png" alt="الرئيس وودرو ويلسون" data-i18n-alt="galleryAlt2" loading="lazy">
+                </div>
+            </div>
+            
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y4sec_secLet_his_exercisess_mod1_lesson1_part2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+    <a href="index.html" class="go-link return-main-link">
+        🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+    </a>
+            </div>
+        </div>
+    </main>
+    
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+    yearSection: "4th Secondary, Section: Economy & Management",
+    moduleName: "History / Module 1: The Contemporary World from 1914 to World War II",
+    lessonTitleSample: "World War I: Causes and Consequences",
+    sectionIntro: "Introduction",
+    introText: "World War I was a decisive turning point in the history of the twentieth century. Its effects were not limited to the battlefields but extended to people, economy, politics, and geography. What were the most significant consequences of this war?",
+    sectionPart2: "Consequences of World War I",
+    sectionConclusion: "Conclusion",
+    summaryText: "Key takeaway: World War I caused enormous human and economic losses. The peace conferences and treaties redrew the map of Europe and the Middle East and created a fragile new international order that later contributed to the outbreak of World War II.",
+    sectionDefinitions: "📖 Definitions",
+    sectionGallery: "🗺️ Maps and Visuals",
+    result1Title: "Human and Economic Consequences",
+    result1aTitle: "Human Losses",
+    result1aIntro: "World War I left unprecedented human losses in the history of humanity, exceeding the casualties of all previous wars combined.",
+    result1Bullet1: "The war left 9 million dead, 17 million wounded, and 6 million disabled.",
+    result1Bullet2: "Europe suffered 59% of total deaths, with the number of dead varying among European countries. Germany and Russia were the most affected, each losing between 1 and 2 million people.",
+    result1Bullet3: "The war also caused deep demographic imbalances, including a decline in the proportion of males among the active population and a drop in birth rates.",
+    result1aConclusion: "These losses led to a severe shortage of labor and affected the demographic structure for generations, deepening social and economic crises in post-war Europe.",
+    result1bTitle: "Economic Losses and the Shifting Balance of Power",
+    result1bIntro: "The losses were not limited to human lives; they also encompassed the entire economic structure of the European continent and brought about a fundamental shift in the global balance of power.",
+    result1bEconomic1Title: "Destruction of Europe:",
+    result1bEconomic1Text: "The war destroyed basic infrastructure such as roads and bridges. European states faced budget deficits and borrowed from the United States. To repay their debts, they adopted inflationary policies, causing the French franc to lose 75% of its value, the pound sterling 20%, and the German mark 90%.",
+    result1bEconomic2Title: "Benefit to new countries:",
+    result1bEconomic2Text: "New countries benefited from the war, including Japan, Argentina, and Canada. The United States benefited the most: its industrial and agricultural production doubled, and by the end of the war it held half of the world's gold reserves. The world's financial center shifted from London to New York.",
+    result1bConclusion: "Thus the United States emerged from the war as the world's largest economic power, while the traditional European powers declined, paving the way for the transfer of global leadership from Europe to America.",
+    result2Title: "Political and Geopolitical Consequences",
+    result2aTitle: "The Paris Peace Conference and the Difficulty of Settling the Conflict",
+    result2aIntro: "After the fighting ended, the victors gathered to draw the outlines of a new world order, but their conflicting interests made the settlement difficult and complex.",
+    result2aText: "The Peace Conference convened in Paris at the Palace of Versailles on 18 January 1919 and continued until 1920. It was dominated by the Big Four victorious powers (Britain, France, Italy, and the United States), while the defeated countries and Russia were excluded.",
+    result2aPositionsIntro: "The positions of the great powers differed due to their conflicting interests:",
+    result2aPositionUSTitle: "American position:",
+    result2aPositionUSText: "Represented by President Wilson, who presented a 14-point program aimed at establishing world peace. Its most important points included limiting secret diplomacy, reducing armaments, the right of peoples to self-determination, and the creation of a League of Nations.",
+    result2aPositionFranceTitle: "French position:",
+    result2aPositionFranceText: "France sought to weaken Germany, hold it responsible for starting the war, and force it to pay reparations.",
+    result2aPositionBritainTitle: "British position:",
+    result2aPositionBritainText: "Britain opposed weakening Germany for fear of French hegemony over the European continent.",
+    result2aPositionItalyTitle: "Italian position:",
+    result2aPositionItalyText: "Italy demanded the territorial promises it had received from the Triple Entente in exchange for its sacrifices during the war.",
+    result2aConclusion: "This clash of positions turned the Peace Conference into an arena of diplomatic struggle and directly influenced the nature of the treaties concluded later.",
+    result2bTitle: "The League of Nations and the Peace Treaties",
+    result2bLeagueIntro: "One of the most notable outcomes of the Peace Conference was the creation of the League of Nations, which represented the first serious attempt to organize international relations on a collective basis.",
+    result2bLeagueText: "The League of Nations was established in application of Article 14 of President Wilson's program. It aimed to reduce armaments and establish world peace, but it turned into a \"club of victors\" by excluding the defeated countries. It lacked military means of deterrence and the United States did not join because of the refusal of the U.S. Congress. Moreover, the League disappointed colonized peoples by approving the French and British mandates in the Arab East and the former German colonies.",
+    result2bTreatiesIntro: "Alongside the League, harsh peace treaties were imposed on the defeated countries, leading to their disintegration, the limitation of their military power, and the loss of part of their territories:",
+    result2bTreatyVersailles: "Imposed on Germany on 28 June 1919. It included harsh conditions that Germans considered a dictated peace. Germany lost a large part of its territory, gave up its colonies, had its military power limited, and was forced to pay reparations of 132 billion marks.",
+    result2bTreatySaintGermain: "Imposed on Austria in September 1919.",
+    result2bTreatyTrianon: "Imposed on Hungary in June 1920.",
+    result2bTreatyNeuilly: "Imposed on Bulgaria in November 1919.",
+    result2bTreatySevres: "Imposed on the Ottoman Empire in August 1920 and led to its disintegration. Following Turkish resistance led by Mustafa Kemal, it was replaced by the Treaty of Lausanne in 1923.",
+    treatyVersaillesTitle: "Treaty of Versailles:",
+    treatySaintGermainTitle: "Treaty of Saint-Germain:",
+    treatyTrianonTitle: "Treaty of Trianon:",
+    treatyNeuillyTitle: "Treaty of Neuilly:",
+    treatySevresTitle: "Treaty of Sèvres:",
+    result2bConclusion: "These treaties, despite their harshness, failed to achieve lasting peace and instead planted the seeds of future conflicts, especially in Germany, which felt humiliated.",
+    result2cTitle: "The New Geopolitical Map",
+    result2cIntro: "The war and the treaties led to a radical redrawing of the map of Europe and the Middle East, with old empires collapsing and new states emerging.",
+    result2cPoint1: "The collapse and disappearance of the old empires: the Russian, Austro-Hungarian, and Ottoman empires.",
+    result2cPoint2Title: "The emergence of new states, such as:",
+    result2cPoint2a: "Poland, which was created at the expense of Germany and Russia.",
+    result2cPoint2b: "Czechoslovakia, which was formed at the expense of Austria and Germany.",
+    result2cPoint2c: "Yugoslavia, which united Serbia, Croatia, Slovenia, Montenegro, Bosnia, and Herzegovina.",
+    result2cPoint2d: "The three Baltic states: Lithuania, Latvia, and Estonia, which became independent from Bolshevik Russia.",
+    result2cConclusion: "These geopolitical changes were not merely border adjustments; they reshaped the political identity of the European continent and influenced international relations for decades to come.",
+    conclusionText: "World War I brought profound geopolitical changes that sowed the seeds of new conflicts and paved the way for the outbreak of World War II.",
+    defPersons: "👤 Persons",
+    defEvents: "⚔️ Key Events",
+    defTreaty: "📜 Treaties",
+    defOthers: "📌 Other",
+    defYears: "📅 Years & Periods",
+    defWilson: "Woodrow Wilson",
+    defWilsonDesc: "President of the United States (1913–1921). In January 1918 he presented the Fourteen Points program calling for open diplomacy, arms reduction, the right of peoples to self-determination, and the creation of a League of Nations to ensure peace. He participated in the Paris Peace Conference and tried to impose his vision, but failed to convince Congress to join the League of Nations, weakening the new organization.",
+    defMustafaKemal: "Mustafa Kemal (Atatürk)",
+    defMustafaKemalDesc: "Turkish military commander and leader of the national resistance against the partition of the Ottoman Empire after World War I. He rejected the Treaty of Sèvres in 1920 and led the Turkish War of Independence, which ended with the abolition of the sultanate and the signing of the Treaty of Lausanne in 1923, which recognized modern Turkey. He became the first president of the Turkish Republic and carried out comprehensive secular reforms.",
+    defParisPeaceConference: "Paris Peace Conference (1919)",
+    defParisPeaceConferenceDesc: "Convened in January 1919 at the Palace of Versailles, attended by the victorious powers, notably the Big Four (France, Britain, Italy, and the United States), while the defeated countries and Bolshevik Russia were excluded. It resulted in a series of peace treaties that redrew the map of Europe and the Middle East and established the League of Nations. The harsh terms imposed on the defeated sowed the seeds of World War II.",
+    defVersailles: "Treaty of Versailles (1919)",
+    defVersaillesDesc: "Signed on 28 June 1919, it imposed harsh conditions on Germany: acceptance of responsibility for the war (Article 231), payment of huge reparations (132 billion gold marks), loss of Alsace-Lorraine to France and the Danzig Corridor to Poland, and severe military restrictions, including reducing the army to 100,000 men. Germans considered it a humiliating peace, and it contributed to the rise of Nazism.",
+    defSaintGermain: "Treaty of Saint-Germain (1919)",
+    defSaintGermainDesc: "Signed with Austria in September 1919, it dismantled the Austro-Hungarian Empire, recognized new states such as Czechoslovakia, Poland, and Yugoslavia, prohibited the union of Austria with Germany (Anschluss), and imposed military restrictions and reparations on Austria.",
+    defTrianon: "Treaty of Trianon (1920)",
+    defTrianonDesc: "Signed with Hungary in June 1920. Hungary lost about two-thirds of its former territory to Romania, Czechoslovakia, and Yugoslavia, leaving a large Hungarian minority outside its borders and causing deep resentment among Hungarian nationalists.",
+    defNeuilly: "Treaty of Neuilly (1919)",
+    defNeuillyDesc: "Signed with Bulgaria in November 1919. Bulgaria ceded territory to Greece and Yugoslavia, faced strict military limitations, and was required to pay reparations, making it one of the most affected Balkan states after the war.",
+    defSevres: "Treaty of Sèvres (1920)",
+    defSevresDesc: "Imposed on the Ottoman Empire in August 1920. It stripped the empire of its non-Turkish territories, placed Arab regions under mandate, granted Greece administration of Izmir, opened the Bosporus and Dardanelles to international navigation, and promised an Armenian state and a Kurdish entity. Mustafa Kemal rejected it and led the War of Independence that eventually annulled it.",
+    defLausanne: "Treaty of Lausanne (1923)",
+    defLausanneDesc: "Replaced the Treaty of Sèvres in July 1923 after the Turkish victory in the War of Independence. It recognized modern Turkey's borders, abolished foreign capitulations, ensured Turkish sovereignty over Izmir and Eastern Thrace, maintained restrictions on the Straits, and formed the legal basis of the new Turkish Republic.",
+    defLeagueOfNations: "League of Nations",
+    defLeagueOfNationsDesc: "An international organization created by the Treaty of Versailles in 1920, headquartered in Geneva, based on the Fourteenth Point of Wilson's program. Its declared goal was collective security, arms reduction, and peaceful settlement of disputes. However, it lacked a standing army, required unanimous decisions, and the United States never joined. It effectively became a tool of the victorious powers and failed to prevent the aggressions that led to World War II.",
+    defMandate: "Mandate",
+    defMandateDesc: "A colonial trusteeship system established by Article 22 of the Covenant of the League of Nations to administer territories taken from defeated powers (German colonies and non-Turkish Ottoman territories). Mandates were classified into classes (A, B, C) according to their degree of political maturity. In the Arab East, Syria and Lebanon were placed under French mandate, while Palestine and Iraq were placed under British mandate. The slogan was to help peoples achieve independence, but the mandate was applied as disguised colonialism.",
+    defYear1919Desc: "Convening of the Paris Peace Conference and signing of the Treaties of Versailles, Saint-Germain, and Neuilly.",
+    defYear1920Desc: "Signing of the Treaties of Trianon and Sèvres and the creation of the League of Nations.",
+    defYear1923Desc: "Signing of the Treaty of Lausanne, which recognized modern Turkey.",
+    printButton: "🖨️ Print / Save as PDF",
+    printHeaderTitle: "History & Geography Hub – Lesson",
+    printFooterText: "© History & Geography Hub",
+    goToExercise: "Go to Exercise",
+    returnMain: "Return to Main",
+    galleryAlt1: "World War I timeline",
+    galleryAlt2: "President Woodrow Wilson"
+},
+
+fr: {
+    yearSection: "4ème secondaire, section économie et gestion",
+    moduleName: "Histoire / Module 1 : Le monde contemporain de 1914 à la Seconde Guerre mondiale",
+    lessonTitleSample: "La Première Guerre mondiale : causes et conséquences",
+    sectionIntro: "Introduction",
+    introText: "La Première Guerre mondiale a constitué un tournant décisif dans l'histoire du XXe siècle. Ses effets ne se sont pas limités aux champs de bataille mais se sont étendus aux populations, à l'économie, à la politique et à la géographie. Quelles en furent les conséquences les plus marquantes ?",
+    sectionPart2: "Les conséquences de la Première Guerre mondiale",
+    sectionConclusion: "Conclusion",
+    summaryText: "À retenir : la Première Guerre mondiale a causé des pertes humaines et économiques énormes. Les conférences de paix et les traités ont redessiné la carte de l'Europe et du Moyen-Orient et créé un nouvel ordre international fragile qui a contribué plus tard au déclenchement de la Seconde Guerre mondiale.",
+    sectionDefinitions: "📖 Définitions",
+    sectionGallery: "🗺️ Cartes et visuels",
+    result1Title: "Conséquences humaines et économiques",
+    result1aTitle: "Pertes humaines",
+    result1aIntro: "La Première Guerre mondiale a infligé des pertes humaines sans précédent dans l'histoire de l'humanité, dépassant les victimes de toutes les guerres précédentes réunies.",
+    result1Bullet1: "La guerre fit 9 millions de morts, 17 millions de blessés et 6 millions d'invalides.",
+    result1Bullet2: "L'Europe subit 59 % du total des morts. Le nombre de morts varia selon les pays européens ; l'Allemagne et la Russie furent les plus touchées, avec entre 1 et 2 millions de morts chacune.",
+    result1Bullet3: "La guerre provoqua aussi de profonds déséquilibres démographiques, avec une baisse de la proportion d'hommes dans la population active et une chute de la natalité.",
+    result1aConclusion: "Ces pertes entraînèrent une grave pénurie de main-d'œuvre et affectèrent la structure démographique pour des générations, aggravant les crises sociales et économiques dans l'Europe d'après-guerre.",
+    result1bTitle: "Pertes économiques et changement de l'équilibre des puissances",
+    result1bIntro: "Les pertes ne se limitèrent pas aux vies humaines ; elles touchèrent également toute la structure économique du continent européen et provoquèrent un bouleversement fondamental de l'équilibre mondial des puissances.",
+    result1bEconomic1Title: "Destruction de l'Europe :",
+    result1bEconomic1Text: "La guerre détruisit les infrastructures de base (routes, ponts…). Les États européens connurent des déficits budgétaires et empruntèrent aux États-Unis. Pour rembourser leurs dettes, ils adoptèrent des politiques inflationnistes, faisant perdre au franc français 75 % de sa valeur, à la livre sterling 20 % et au mark allemand 90 %.",
+    result1bEconomic2Title: "Profit de nouveaux pays :",
+    result1bEconomic2Text: "De nouveaux pays profitèrent de la guerre, dont le Japon, l'Argentine et le Canada. Les États-Unis en profitèrent le plus : leur production industrielle et agricole doubla et, à la fin de la guerre, ils détenaient la moitié du stock mondial d'or. Le centre financier mondial se déplaça de Londres à New York.",
+    result1bConclusion: "Ainsi, les États-Unis sortirent de la guerre comme la première puissance économique mondiale, tandis que les puissances européennes traditionnelles déclinèrent, ouvrant la voie au transfert du leadership mondial de l'Europe vers l'Amérique.",
+    result2Title: "Conséquences politiques et géopolitiques",
+    result2aTitle: "La conférence de paix de Paris et la difficulté de régler le conflit",
+    result2aIntro: "Après la fin des combats, les vainqueurs se réunirent pour dessiner les contours d'un nouvel ordre mondial, mais leurs intérêts contradictoires rendirent le règlement difficile et complexe.",
+    result2aText: "La conférence de paix se réunit à Paris, au château de Versailles, le 18 janvier 1919 et ses travaux se poursuivirent jusqu'en 1920. Elle fut dominée par les Quatre Grands (Grande-Bretagne, France, Italie et États-Unis), tandis que les pays vaincus et la Russie furent exclus.",
+    result2aPositionsIntro: "Les positions des grandes puissances divergèrent en raison de leurs intérêts contradictoires :",
+    result2aPositionUSTitle: "Position américaine :",
+    result2aPositionUSText: "Représentée par le président Wilson, qui présenta un programme en 14 points visant à instaurer la paix dans le monde. Parmi ses points les plus importants figuraient la limitation de la diplomatie secrète, la réduction des armements, le droit des peuples à disposer d'eux-mêmes et la création d'une Société des Nations.",
+    result2aPositionFranceTitle: "Position française :",
+    result2aPositionFranceText: "Elle visait à affaiblir l'Allemagne, à la tenir responsable du déclenchement de la guerre et à la forcer à payer des réparations.",
+    result2aPositionBritainTitle: "Position britannique :",
+    result2aPositionBritainText: "Elle s'opposait à l'affaiblissement de l'Allemagne par crainte d'une hégémonie française sur le continent européen.",
+    result2aPositionItalyTitle: "Position italienne :",
+    result2aPositionItalyText: "L'Italie exigeait la réalisation des promesses territoriales reçues de la Triple Entente en échange de ses sacrifices pendant la guerre.",
+    result2aConclusion: "Ce conflit de positions fit de la conférence de paix une arène de lutte diplomatique et influença directement la nature des traités conclus par la suite.",
+    result2bTitle: "La Société des Nations et les traités de paix",
+    result2bLeagueIntro: "L'un des résultats les plus notables de la conférence de paix fut la création de la Société des Nations, qui représenta la première tentative sérieuse d'organiser les relations internationales sur une base collective.",
+    result2bLeagueText: "La Société des Nations fut créée en application de l'article 14 du programme du président Wilson. Elle visait à réduire les armements et à instaurer la paix dans le monde, mais elle devint un « club des vainqueurs » en excluant les pays vaincus. Elle manquait de moyens militaires de dissuasion et les États-Unis n'y adhérèrent pas en raison du refus du Congrès américain. Par ailleurs, la Société déçut les peuples colonisés en approuvant les mandats français et britanniques au Moyen-Orient arabe et dans les anciennes colonies allemandes.",
+    result2bTreatiesIntro: "Outre la Société, des traités de paix sévères furent imposés aux pays vaincus, entraînant leur démantèlement, la limitation de leur puissance militaire et l'abandon d'une partie de leurs territoires :",
+    result2bTreatyVersailles: "Imposé à l'Allemagne le 28 juin 1919. Il comprenait des conditions sévères que les Allemands considérèrent comme une paix dictée. L'Allemagne perdit une grande partie de son territoire, abandonna ses colonies, vit sa puissance militaire limitée et fut contrainte de payer des réparations de 132 milliards de marks.",
+    result2bTreatySaintGermain: "Imposé à l'Autriche en septembre 1919.",
+    result2bTreatyTrianon: "Imposé à la Hongrie en juin 1920.",
+    result2bTreatyNeuilly: "Imposé à la Bulgarie en novembre 1919.",
+    result2bTreatySevres: "Imposé à l'Empire ottoman en août 1920 et entraîna son démantèlement. À la suite de la résistance turque menée par Mustafa Kemal, il fut remplacé par le traité de Lausanne en 1923.",
+    treatyVersaillesTitle: "Traité de Versailles :",
+    treatySaintGermainTitle: "Traité de Saint-Germain :",
+    treatyTrianonTitle: "Traité de Trianon :",
+    treatyNeuillyTitle: "Traité de Neuilly :",
+    treatySevresTitle: "Traité de Sèvres :",
+    result2bConclusion: "Ces traités, malgré leur dureté, ne parvinrent pas à instaurer une paix durable et semèrent au contraire les germes de conflits futurs, en particulier en Allemagne qui se sentit humiliée.",
+    result2cTitle: "La nouvelle carte géopolitique",
+    result2cIntro: "La guerre et les traités aboutirent à une refonte radicale de la carte de l'Europe et du Moyen-Orient, avec l'effondrement des anciens empires et l'émergence de nouveaux États.",
+    result2cPoint1: "L'effondrement et la disparition des anciens empires : les empires russe, austro-hongrois et ottoman.",
+    result2cPoint2Title: "L'apparition de nouveaux États, tels que :",
+    result2cPoint2a: "La Pologne, créée aux dépens de l'Allemagne et de la Russie.",
+    result2cPoint2b: "La Tchécoslovaquie, formée aux dépens de l'Autriche et de l'Allemagne.",
+    result2cPoint2c: "La Yougoslavie, qui réunit la Serbie, la Croatie, la Slovénie, le Monténégro, la Bosnie et l'Herzégovine.",
+    result2cPoint2d: "Les trois États baltes : la Lituanie, la Lettonie et l'Estonie, devenus indépendants de la Russie bolchevique.",
+    result2cConclusion: "Ces changements géopolitiques ne furent pas de simples ajustements de frontières ; ils remodelèrent l'identité politique du continent européen et influencèrent les relations internationales pendant des décennies.",
+    conclusionText: "La Première Guerre mondiale entraîna de profonds changements géopolitiques qui semèrent les germes de nouveaux conflits et ouvrirent la voie à la Seconde Guerre mondiale.",
+    defPersons: "👤 Personnes",
+    defEvents: "⚔️ Événements clés",
+    defTreaty: "📜 Traités",
+    defOthers: "📌 Autres",
+    defYears: "📅 Années & Périodes",
+    defWilson: "Woodrow Wilson",
+    defWilsonDesc: "Président des États-Unis (1913–1921). En janvier 1918, il présenta le programme des Quatorze Points appelant à une diplomatie ouverte, à la réduction des armements, au droit des peuples à disposer d'eux-mêmes et à la création d'une Société des Nations pour garantir la paix. Il participa à la conférence de paix de Paris et tenta d'imposer sa vision, mais échoua à convaincre le Congrès d'adhérer à la Société des Nations, affaiblissant ainsi la nouvelle organisation.",
+    defMustafaKemal: "Mustafa Kemal (Atatürk)",
+    defMustafaKemalDesc: "Commandant militaire turc et chef de la résistance nationale contre le partage de l'Empire ottoman après la Première Guerre mondiale. Il rejeta le traité de Sèvres en 1920 et mena la guerre d'indépendance turque, qui aboutit à l'abolition du sultanat et à la signature du traité de Lausanne en 1923, reconnaissant la Turquie moderne. Il devint le premier président de la République turque et mena de vastes réformes laïques.",
+    defParisPeaceConference: "Conférence de paix de Paris (1919)",
+    defParisPeaceConferenceDesc: "Réunie en janvier 1919 au château de Versailles, en présence des puissances victorieuses, notamment les Quatre Grands (France, Grande-Bretagne, Italie et États-Unis), tandis que les pays vaincus et la Russie bolchevique furent exclus. Elle aboutit à une série de traités de paix qui redessinèrent la carte de l'Europe et du Moyen-Orient et créa la Société des Nations. Les conditions sévères imposées aux vaincus semèrent les germes de la Seconde Guerre mondiale.",
+    defVersailles: "Traité de Versailles (1919)",
+    defVersaillesDesc: "Signé le 28 juin 1919, il imposa à l'Allemagne des conditions sévères : reconnaissance de sa responsabilité dans la guerre (article 231), paiement d'énormes réparations (132 milliards de marks-or), perte de l'Alsace-Lorraine au profit de la France et du couloir de Dantzig au profit de la Pologne, et sévères restrictions militaires, dont la réduction de l'armée à 100 000 hommes. Les Allemands le considérèrent comme une paix humiliante, ce qui contribua à la montée du nazisme.",
+    defSaintGermain: "Traité de Saint-Germain (1919)",
+    defSaintGermainDesc: "Signé avec l'Autriche en septembre 1919, il démantela l'Empire austro-hongrois, reconnut de nouveaux États comme la Tchécoslovaquie, la Pologne et la Yougoslavie, interdit l'union de l'Autriche avec l'Allemagne (Anschluss) et imposa des restrictions militaires et des réparations à l'Autriche.",
+    defTrianon: "Traité de Trianon (1920)",
+    defTrianonDesc: "Signé avec la Hongrie en juin 1920. La Hongrie perdit environ les deux tiers de son ancien territoire au profit de la Roumanie, de la Tchécoslovaquie et de la Yougoslavie, laissant une grande minorité hongroise hors de ses frontières et provoquant un profond ressentiment chez les nationalistes hongrois.",
+    defNeuilly: "Traité de Neuilly (1919)",
+    defNeuillyDesc: "Signé avec la Bulgarie en novembre 1919. La Bulgarie céda des territoires à la Grèce et à la Yougoslavie, subit de sévères restrictions militaires et dut payer des réparations, devenant l'un des pays balkaniques les plus touchés après la guerre.",
+    defSevres: "Traité de Sèvres (1920)",
+    defSevresDesc: "Imposé à l'Empire ottoman en août 1920. Il dépouilla l'empire de ses territoires non turcs, plaça les régions arabes sous mandat, accorda à la Grèce l'administration d'Izmir, ouvrit les détroits du Bosphore et des Dardanelles à la navigation internationale et promit un État arménien et une entité kurde. Mustafa Kemal le rejeta et mena la guerre d'indépendance qui finit par l'annuler.",
+    defLausanne: "Traité de Lausanne (1923)",
+    defLausanneDesc: "Remplaça le traité de Sèvres en juillet 1923 après la victoire turque dans la guerre d'indépendance. Il reconnut les frontières de la Turquie moderne, abolit les capitulations étrangères, assura la souveraineté turque sur Izmir et la Thrace orientale, maintint des restrictions sur les détroits et constitua la base juridique de la nouvelle République turque.",
+    defLeagueOfNations: "Société des Nations",
+    defLeagueOfNationsDesc: "Organisation internationale créée par le traité de Versailles en 1920, dont le siège était à Genève, sur la base du quatorzième point du programme de Wilson. Son objectif déclaré était la sécurité collective, la réduction des armements et le règlement pacifique des différends. Cependant, elle ne disposait pas d'une armée permanente, exigeait l'unanimité pour ses décisions et les États-Unis n'y adhérèrent jamais. Elle devint en fait un instrument des puissances victorieuses et échoua à empêcher les agressions qui menèrent à la Seconde Guerre mondiale.",
+    defMandate: "Mandat",
+    defMandateDesc: "Système de tutelle coloniale établi par l'article 22 du Pacte de la Société des Nations pour administrer les territoires pris aux puissances vaincues (colonies allemandes et territoires ottomans non turcs). Les mandats étaient classés en catégories (A, B, C) selon leur degré de maturité politique. Au Moyen-Orient arabe, la Syrie et le Liban furent placés sous mandat français, tandis que la Palestine et l'Irak furent placés sous mandat britannique. Le slogan était d'aider les peuples à atteindre l'indépendance, mais le mandat fut appliqué comme un colonialisme déguisé.",
+    defYear1919Desc: "Réunion de la conférence de paix de Paris et signature des traités de Versailles, Saint-Germain et Neuilly.",
+    defYear1920Desc: "Signature des traités de Trianon et de Sèvres et création de la Société des Nations.",
+    defYear1923Desc: "Signature du traité de Lausanne, reconnaissant la Turquie moderne.",
+    printButton: "🖨️ Imprimer / Enregistrer en PDF",
+    printHeaderTitle: "History & Geography Hub – Leçon",
+    printFooterText: "© History & Geography Hub",
+    goToExercise: "Aller à l'exercice",
+    returnMain: "Retour à l'accueil",
+    galleryAlt1: "Chronologie de la Première Guerre mondiale",
+    galleryAlt2: "Le président Woodrow Wilson"
+},
+            ar: {
+    yearSection: "الرابعة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية",
+                lessonTitleSample: "الحرب العالمية الأولى: الأسباب والنتائج",
+                sectionIntro: "مقدمة",
+                introText: "شكلت الحرب العالمية الأولى منعطفًا حاسمًا في تاريخ القرن العشرين، إذ لم تقتصر آثارها على ساحات القتال بل امتدت لتشمل البشر والاقتصاد والسياسة والجغرافيا. فما هي أبرز نتائج هذه الحرب؟",
+                sectionPart2: "نتائج الحرب العالمية الأولى",
+                sectionConclusion: "خاتمة",
+                summaryText: "خلاصة: أسفرت الحرب العالمية الأولى عن خسائر بشرية واقتصادية فادحة، وأدت مؤتمرات السلام ومعاهداته إلى إعادة رسم خريطة أوروبا والشرق الأوسط، كما أرست أسس نظام دولي جديد هش مهد لاحقاً لاندلاع الحرب العالمية الثانية.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                result1Title: "النتائج البشرية والاقتصادية",
+                result1aTitle: "الخسائر البشرية",
+                result1aIntro: "خلفت الحرب العالمية الأولى خسائر بشرية فادحة غير مسبوقة في تاريخ البشرية، إذ تجاوزت أعداد الضحايا كل الحروب السابقة مجتمعة.",
+                result1Bullet1: "أفرزت الحرب 9 ملايين قتيل و17 مليون جريح و6 ملايين عاجز.",
+                result1Bullet2: "تكبدت أوروبا 59% من مجموع القتلى، وتفاوت عدد القتلى بين الدول الأوروبية وتعتبر كل من ألمانيا وروسيا الأكثر تضرراً حيث تراوح عدد القتلى بين 1 و2 مليون.",
+                result1Bullet3: "كما أفرزت الحرب اختلالات عميقة في البنية الديمغرافية بتراجع نسبة الذكور من السكان النشطين، إلى جانب تراجع نسبة الولادات.",
+                result1aConclusion: "هذه الخسائر أدت إلى نقص حاد في اليد العاملة، وأثرت على التركيبة السكانية لأجيال، مما عمق الأزمات الاجتماعية والاقتصادية في أوروبا بعد الحرب.",
+                result1bTitle: "الخسائر الاقتصادية وتغير ميزان القوى",
+                result1bIntro: "لم تقتصر الخسائر على الأرواح، بل شملت البنية الاقتصادية للقارة الأوروبية بأكملها، وأدت إلى تحول جذري في موازين القوى العالمية.",
+                result1bEconomic1Title: "تدمير أوروبا:",
+                result1bEconomic1Text: "تدمير البنى الأساسية من طرقات وجسور... وعجز ميزانية الدول الأوروبية التي لجأت إلى التداين من قبل الولايات المتحدة الأمريكية، ولتسديد ديونها تم اعتماد سياسة التضخم المالي مما أدى إلى تراجع قيمة الفرنك الفرنسي بنسبة 75% والجنيه الإسترليني بنسبة 20% والمارك الألماني بنسبة 90%.",
+                result1bEconomic2Title: "استفادة دول جديدة:",
+                result1bEconomic2Text: "استفادت دول جديدة من الحرب العالمية الأولى من بينها اليابان والأرجنتين وكندا، وتعتبر الولايات المتحدة الأمريكية الأكثر استفادة حيث تضاعف إنتاجها الصناعي والفلاحي، ومع نهاية الحرب أصبحت تمتلك نصف المخزون العالمي من الذهب فتحول بذلك مركز الثقل المالي العالمي من لندن إلى نيويورك.",
+                result1bConclusion: "هكذا خرجت الولايات المتحدة الأمريكية من الحرب كأكبر قوة اقتصادية في العالم، بينما تراجعت القوى الأوروبية التقليدية، مما مهد لانتقال الزعامة العالمية من أوروبا إلى أمريكا.",
+                result2Title: "النتائج السياسية والجيوسياسية",
+                result2aTitle: "مؤتمر الصلح في باريس وصعوبة تسوية النزاع",
+                result2aIntro: "بعد انتهاء القتال، اجتمع المنتصرون لرسم ملامح النظام العالمي الجديد، لكن مصالحهم المتضاربة جعلت التسوية صعبة ومعقدة.",
+                result2aText: "انعقد مؤتمر الصلح في باريس بقصر فرساي يوم 18 جانفي 1919 واستمرت مداولاته إلى 1920. هيمن عليه الأربعة الكبار من الدول المنتصرة (إنجلترا - فرنسا - إيطاليا - الولايات المتحدة الأمريكية) بينما تم إقصاء الدول المنهزمة وروسيا.",
+                result2aPositionsIntro: "اختلفت مواقف الدول الكبار بسبب تضارب مصالحها:",
+                result2aPositionUSTitle: "الموقف الأمريكي:",
+                result2aPositionUSText: "مثله الرئيس الأمريكي ولسن الذي تقدم ببرنامج يتضمن 14 نقطة ويهدف إلى إرساء السلم في العالم، من أبرز نقاطه الحد من الدبلوماسية السرية والحد من التسلح وحق الشعوب في تقرير مصيرها وتكوين جمعية الأمم.",
+                result2aPositionFranceTitle: "الموقف الفرنسي:",
+                result2aPositionFranceText: "تمثل في إضعاف ألمانيا وتحميلها مسؤولية اندلاع الحرب وإجبارها على دفع التعويضات.",
+                result2aPositionBritainTitle: "الموقف الإنجليزي:",
+                result2aPositionBritainText: "كان ضد إضعاف ألمانيا خوفاً من الهيمنة الفرنسية على القارة الأوروبية.",
+                result2aPositionItalyTitle: "الموقف الإيطالي:",
+                result2aPositionItalyText: "طالبت إيطاليا بتحقيق الوعود الترابية التي تلقتها من الوفاق الثلاثي مقابل تضحياتها أثناء الحرب.",
+                result2aConclusion: "هذا التضارب في المواقف جعل مؤتمر الصلح مسرحاً للصراع الدبلوماسي، وأثّر بشكل مباشر على طبيعة المعاهدات التي أُبرمت لاحقاً.",
+                result2bTitle: "جمعية الأمم ومعاهدات السلم",
+                result2bLeagueIntro: "من أبرز نتائج مؤتمر الصلح إنشاء جمعية الأمم، التي مثلت أول محاولة جادة لتنظيم العلاقات الدولية على أساس جماعي.",
+                result2bLeagueText: "تأسست جمعية الأمم تطبيقاً للمادة 14 من برنامج الرئيس الأمريكي ولسن، وهي تهدف إلى الحد من التسلح وإرساء السلم في العالم، ولكنها تحولت إلى \"نادٍ للمنتصرين\" بإقصائها الدول المنهزمة، كما أنها افتقرت إلى وسائل الردع العسكرية ولم تنخرط فيها الولايات المتحدة الأمريكية بسبب رفض الكونغرس الأمريكي، ومن ناحية أخرى خيبت جمعية الأمم آمال الشعوب المستعمرة بسبب مصادقتها على الانتداب الفرنسي والإنجليزي في المشرق العربي والمستعمرات الألمانية.",
+                result2bTreatiesIntro: "إلى جانب الجمعية، فرضت على الدول المنهزمة معاهدات سلم قاسية أدت إلى تفكيكها والحد من قوتها العسكرية والتخلي عن جزء من أراضيها:",
+                result2bTreatyVersailles: "فرضت على ألمانيا في 28 جوان 1919 وتضمنت شروطاً قاسية اعتبرها الألمان سلماً مملاة، وأدت إلى خسارة جزء كبير من أراضيها والتخلي عن مستعمراتها والحد من قوتها العسكرية، كما أجبرت على دفع تعويضات مالية بقيمة 132 مليار مارك.",
+                result2bTreatySaintGermain: "فرضت على النمسا في سبتمبر 1919.",
+                result2bTreatyTrianon: "فرضت على المجر في جوان 1920.",
+                result2bTreatyNeuilly: "فرضت على بلغاريا في نوفمبر 1919.",
+                result2bTreatySevres: "فرضت على الإمبراطورية العثمانية في أوت 1920 وأدت إلى تفكيكها، وعلى إثر المقاومة التركية بقيادة مصطفى كمال تم تعويضها بمعاهدة لوزان 1923.",
+                treatyVersaillesTitle: "معاهدة فرساي:",
+                treatySaintGermainTitle: "معاهدة سان جرمان:",
+                treatyTrianonTitle: "معاهدة تريانون:",
+                treatyNeuillyTitle: "معاهدة نويي:",
+                treatySevresTitle: "معاهدة سيفر:",
+                result2bConclusion: "هذه المعاهدات، رغم قسوتها، فشلت في تحقيق سلام دائم، بل زرعت بذور النزاعات المستقبلية، خاصة في ألمانيا التي شعرت بالإذلال.",
+                result2cTitle: "الخريطة الجيوسياسية الجديدة",
+                result2cIntro: "أدت الحرب والمعاهدات إلى إعادة رسم خريطة أوروبا والشرق الأوسط بشكل جذري، حيث انهارت إمبراطوريات قديمة وظهرت دول جديدة.",
+                result2cPoint1: "انهيار الإمبراطوريات القديمة وزوالها: الإمبراطورية الروسية والنمساوية المجرية والعثمانية.",
+                result2cPoint2Title: "ظهور دول جديدة، مثل:",
+                result2cPoint2a: "بولونيا التي ظهرت على حساب ألمانيا وروسيا.",
+                result2cPoint2b: "تشيكوسلوفاكيا التي تكونت على حساب النمسا وألمانيا.",
+                result2cPoint2c: "يوغوسلافيا التي جمعت بين صربيا وكرواتيا وسلوفينيا والجبل الأسود والبوسنة والهرسك.",
+                result2cPoint2d: "دول البلطيق الثلاثة: ليتونيا ولتوانيا وإستونيا التي استقلت عن روسيا البلشفية.",
+                result2cConclusion: "هذه التغيرات الجيوسياسية لم تكن مجرد تعديل حدود، بل أعادت تشكيل الهوية السياسية للقارة الأوروبية وأثرت على العلاقات الدولية لعقود قادمة.",
+                conclusionText: "أسفرت الحرب العالمية الأولى عن تغييرات جيوسياسية عميقة ساهمت في زرع بذور خلافات جديدة مهدت لاندلاع الحرب العالمية الثانية.",
+                defPersons: "👤 شخصيات",
+                defEvents: "⚔️ أحداث هامة",
+                defTreaty: "📜 معاهدات",
+                defOthers: "📌 أخرى",
+                defYears: "📅 سنوات وفترات",
+                defWilson: "ولسن (وودرو ويلسون)",
+                defWilsonDesc: "رئيس الولايات المتحدة الأمريكية (1913–1921). تقدم في جانفي 1918 ببرنامج «النقاط الأربعة عشر» الذي دعا إلى الدبلوماسية المفتوحة، والحد من التسلح، وحق الشعوب في تقرير مصيرها، وإنشاء جمعية الأمم لضمان السلام. شارك في مؤتمر الصلح بباريس وحاول فرض رؤيته، لكنه فشل في إقناع الكونغرس الأمريكي بالانضمام إلى عصبة الأمم، مما أضعف المنظمة الجديدة.",
+                defMustafaKemal: "مصطفى كمال (أتاتورك)",
+                defMustafaKemalDesc: "قائد عسكري تركي وقائد المقاومة الوطنية ضد تقسيم الدولة العثمانية بعد الحرب العالمية الأولى. رفض معاهدة سيفر عام 1920 وقاد حرب الاستقلال التركية التي انتهت بإلغاء السلطنة، وتوقيع معاهدة لوزان 1923 التي اعترفت بتركيا الحديثة. أصبح أول رئيس للجمهورية التركية وأجرى إصلاحات علمانية شاملة غيرت بنية الدولة والمجتمع.",
+                defParisPeaceConference: "مؤتمر الصلح في باريس (1919)",
+                defParisPeaceConferenceDesc: "انعقد في جانفي 1919 بقصر فرساي بحضور ممثلي الدول المنتصرة وعلى رأسهم «الأربعة الكبار» (فرنسا، إنجلترا، إيطاليا، الولايات المتحدة) بينما أُقصيت الدول المنهزمة وروسيا البلشفية. أسفر عن سلسلة من معاهدات السلام التي أعادت رسم خريطة أوروبا والشرق الأوسط، وقررت إنشاء عصبة الأمم، لكن إملاء شروط قاسية على المنهزمين زرع بذور الحرب العالمية الثانية.",
+                defVersailles: "معاهدة فرساي (1919)",
+                defVersaillesDesc: "وُقعت في 28 جوان 1919، وفرضت على ألمانيا شروطاً قاسية: الاعتراف بمسؤوليتها عن الحرب (المادة 231)، دفع تعويضات مالية ضخمة (132 مليار مارك ذهبي)، فقدان الألزاس واللوران لصالح فرنسا وممر دانزيغ لصالح بولونيا، وتجريد جيشها من السلاح الثقيل مع تقليص عدده إلى 100 ألف جندي. اعتبرها الألمان «سلاماً مُذِلاً» وكانت أحد أسباب صعود النازية لاحقاً.",
+                defSaintGermain: "معاهدة سان جرمان (1919)",
+                defSaintGermainDesc: "وُقعت في سبتمبر 1919 مع النمسا، وقضت بتفكيك ما تبقى من الإمبراطورية النمساوية المجرية، واعترفت بدول جديدة مثل تشيكوسلوفاكيا وبولونيا ويوغوسلافيا، وحظرت اتحاد النمسا بألمانيا (الأنشلوس)، وفرضت قيوداً عسكرية وتعويضات على النمسا.",
+                defTrianon: "معاهدة تريانون (1920)",
+                defTrianonDesc: "وُقعت مع المجر في جوان 1920، فقدت بموجبها المجر حوالي ثلثي أراضيها السابقة لمصلحة رومانيا وتشيكوسلوفاكيا ويوغوسلافيا، مما ترك أقلية مجرية كبيرة خارج حدودها وأثار شعوراً عميقاً بالظلم في الأوساط القومية المجرية.",
+                defNeuilly: "معاهدة نويي (1919)",
+                defNeuillyDesc: "عقدت في نوفمبر 1919 مع بلغاريا، ألزمتها بالتنازل عن أراضٍ لليونان ويوغوسلافيا، وفرضت عليها قيوداً عسكرية صارمة إلى جانب دفع تعويضات مالية، مما جعلها من أكثر الدول تضرراً في البلقان بعد الحرب.",
+                defSevres: "معاهدة سيفر (1920)",
+                defSevresDesc: "فُرضت على الدولة العثمانية في أوت 1920، وقضت بتجريدها من أراضيها غير التركية: وضع مناطق عربية تحت الانتداب، ومنحت اليونان إدارة إزمير، وفتحت مضيقي البوسفور والدردنيل للملاحة الدولية، ووعدت بإنشاء دولة أرمينية وكيان كردي. رفضها مصطفى كمال وقاد حرب الاستقلال التي أسقطتها.",
+                defLausanne: "معاهدة لوزان (1923)",
+                defLausanneDesc: "حلت محل معاهدة سيفر في جويلية 1923 بعد انتصار الأتراك في حرب الاستقلال. اعترفت بحدود تركيا الحديثة، وألغت الامتيازات الأجنبية، وضمنت السيادة التركية على إزمير وتراقيا الشرقية، وأبقت على نظام المضايق مقيداً، وشكلت الأساس القانوني للجمهورية التركية الوليدة.",
+                defLeagueOfNations: "جمعية الأمم",
+                defLeagueOfNationsDesc: "منظمة دولية أنشئت بموجب معاهدة فرساي عام 1920 ومقرها جنيف، استناداً إلى المبدأ الرابع عشر من برنامج ولسن. هدفها المعلن هو ضمان الأمن الجماعي والحد من التسلح وتسوية النزاعات سلمياً. لكنها افتقرت إلى جيش دائم، وتطلبت قراراتها الإجماع، ولم تنضم إليها الولايات المتحدة، فتحولت فعلياً إلى أداة بيد الدول المنتصرة وعجزت عن منع العدوانيات التي أدت لاحقاً إلى الحرب العالمية الثانية.",
+                defMandate: "الانتداب",
+                defMandateDesc: "نظام وصاية استعماري أقره ميثاق عصبة الأمم (المادة 22) لإدارة الأراضي المنتزعة من الدول المنهزمة (المستعمرات الألمانية والأقاليم العثمانية غير التركية). صُنفت الانتدابات إلى فئات (أ، ب، ج) بحسب درجة «نضجها السياسي». في المشرق العربي، وضعت سوريا ولبنان تحت الانتداب الفرنسي، وفلسطين والعراق تحت الانتداب البريطاني. رُفع شعار «مساعدة الشعوب على بلوغ الاستقلال»، لكن الانتداب طُبق كاستعمار مقنع.",
+                defYear1919Desc: "انعقاد مؤتمر الصلح في باريس وتوقيع معاهدات فرساي وسان جرمان ونويي.",
+                defYear1920Desc: "توقيع معاهدتي تريانون وسيفر وإنشاء جمعية الأمم.",
+                defYear1923Desc: "توقيع معاهدة لوزان التي اعترفت بتركيا الحديثة.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+    returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "سلم زمني للحرب العالمية الأولى",
+                galleryAlt2: "الرئيس وودرو ويلسون"
+            }
+        };
+    </script>
+    <script>
+        const keywordMap = {
+  en: [
+    // Locations
+    { text: "Germany", class: "key-location", i18n: null },
+    { text: "Austria", class: "key-location", i18n: null },
+    { text: "Austria-Hungary", class: "key-location", i18n: null },
+    { text: "Ottoman Empire", class: "key-location", i18n: null },
+    { text: "Russia", class: "key-location", i18n: null },
+    { text: "United States", class: "key-location", i18n: null },
+    { text: "USA", class: "key-location", i18n: null },
+    { text: "France", class: "key-location", i18n: null },
+    { text: "Britain", class: "key-location", i18n: null },
+    { text: "Great Britain", class: "key-location", i18n: null },
+    { text: "Bulgaria", class: "key-location", i18n: null },
+    { text: "Japan", class: "key-location", i18n: null },
+    { text: "Argentina", class: "key-location", i18n: null },
+    { text: "Canada", class: "key-location", i18n: null },
+    { text: "Poland", class: "key-location", i18n: null },
+    { text: "Czechoslovakia", class: "key-location", i18n: null },
+    { text: "Yugoslavia", class: "key-location", i18n: null },
+    { text: "Lithuania", class: "key-location", i18n: null },
+    { text: "Latvia", class: "key-location", i18n: null },
+    { text: "Estonia", class: "key-location", i18n: null },
+    { text: "London", class: "key-location", i18n: null },
+    { text: "New York", class: "key-location", i18n: null },
+
+    // Persons
+    { text: "Woodrow Wilson", class: "key-person", i18n: "defWilson" },
+    { text: "Wilson", class: "key-person", i18n: "defWilson" },
+    { text: "Mustafa Kemal", class: "key-person", i18n: "defMustafaKemal" },
+    { text: "Atatürk", class: "key-person", i18n: "defMustafaKemal" },
+
+    // Events
+    { text: "Paris Peace Conference", class: "key-event", i18n: "defParisPeaceConference" },
+
+    // Treaties
+    { text: "Treaty of Versailles", class: "key-treaty", i18n: "defVersailles" },
+    { text: "Treaty of Saint-Germain", class: "key-treaty", i18n: "defSaintGermain" },
+    { text: "Treaty of Trianon", class: "key-treaty", i18n: "defTrianon" },
+    { text: "Treaty of Neuilly", class: "key-treaty", i18n: "defNeuilly" },
+    { text: "Treaty of Sèvres", class: "key-treaty", i18n: "defSevres" },
+    { text: "Treaty of Lausanne", class: "key-treaty", i18n: "defLausanne" },
+
+    // Other
+    { text: "League of Nations", class: "key-other", i18n: "defLeagueOfNations" },
+    { text: "Mandate", class: "key-other", i18n: "defMandate" },
+    { text: "mandates", class: "key-other", i18n: null },
+
+    // Years (highlight only)
+    { text: "1919", class: "key-year", i18n: null },
+    { text: "1920", class: "key-year", i18n: null },
+    { text: "1923", class: "key-year", i18n: null }
+  ],
+
+  fr: [
+    // Locations
+    { text: "Allemagne", class: "key-location", i18n: null },
+    { text: "Autriche", class: "key-location", i18n: null },
+    { text: "Autriche-Hongrie", class: "key-location", i18n: null },
+    { text: "Empire ottoman", class: "key-location", i18n: null },
+    { text: "Russie", class: "key-location", i18n: null },
+    { text: "États-Unis", class: "key-location", i18n: null },
+    { text: "USA", class: "key-location", i18n: null },
+    { text: "France", class: "key-location", i18n: null },
+    { text: "Grande-Bretagne", class: "key-location", i18n: null },
+    { text: "Angleterre", class: "key-location", i18n: null },
+    { text: "Bulgarie", class: "key-location", i18n: null },
+    { text: "Japon", class: "key-location", i18n: null },
+    { text: "Argentine", class: "key-location", i18n: null },
+    { text: "Canada", class: "key-location", i18n: null },
+    { text: "Pologne", class: "key-location", i18n: null },
+    { text: "Tchécoslovaquie", class: "key-location", i18n: null },
+    { text: "Yougoslavie", class: "key-location", i18n: null },
+    { text: "Lituanie", class: "key-location", i18n: null },
+    { text: "Lettonie", class: "key-location", i18n: null },
+    { text: "Estonie", class: "key-location", i18n: null },
+    { text: "Londres", class: "key-location", i18n: null },
+    { text: "New York", class: "key-location", i18n: null },
+
+    // Persons
+    { text: "Woodrow Wilson", class: "key-person", i18n: "defWilson" },
+    { text: "Wilson", class: "key-person", i18n: "defWilson" },
+    { text: "Mustafa Kemal", class: "key-person", i18n: "defMustafaKemal" },
+    { text: "Atatürk", class: "key-person", i18n: "defMustafaKemal" },
+
+    // Events
+    { text: "Conférence de paix de Paris", class: "key-event", i18n: "defParisPeaceConference" },
+
+    // Treaties
+    { text: "Traité de Versailles", class: "key-treaty", i18n: "defVersailles" },
+    { text: "Traité de Saint-Germain", class: "key-treaty", i18n: "defSaintGermain" },
+    { text: "Traité de Trianon", class: "key-treaty", i18n: "defTrianon" },
+    { text: "Traité de Neuilly", class: "key-treaty", i18n: "defNeuilly" },
+    { text: "Traité de Sèvres", class: "key-treaty", i18n: "defSevres" },
+    { text: "Traité de Lausanne", class: "key-treaty", i18n: "defLausanne" },
+
+    // Other
+    { text: "Société des Nations", class: "key-other", i18n: "defLeagueOfNations" },
+    { text: "Mandat", class: "key-other", i18n: "defMandate" },
+    { text: "mandats", class: "key-other", i18n: null },
+
+    // Years (highlight only)
+    { text: "1919", class: "key-year", i18n: null },
+    { text: "1920", class: "key-year", i18n: null },
+    { text: "1923", class: "key-year", i18n: null }
+  ],
+
+  ar: [
+    // Locations
+    { text: "ألمانيا", class: "key-location", i18n: null },
+    { text: "النمسا", class: "key-location", i18n: null },
+    { text: "الإمبراطورية العثمانية", class: "key-location", i18n: null },
+    { text: "روسيا", class: "key-location", i18n: null },
+    { text: "الولايات المتحدة الأمريكية", class: "key-location", i18n: null },
+    { text: "الولايات المتحدة", class: "key-location", i18n: null },
+    { text: "فرنسا", class: "key-location", i18n: null },
+    { text: "إنجلترا", class: "key-location", i18n: null },
+    { text: "بريطانيا", class: "key-location", i18n: null },
+    { text: "بلغاريا", class: "key-location", i18n: null },
+    { text: "اليابان", class: "key-location", i18n: null },
+    { text: "الأرجنتين", class: "key-location", i18n: null },
+    { text: "كندا", class: "key-location", i18n: null },
+    { text: "بولونيا", class: "key-location", i18n: null },
+    { text: "تشيكوسلوفاكيا", class: "key-location", i18n: null },
+    { text: "يوغوسلافيا", class: "key-location", i18n: null },
+    { text: "ليتونيا", class: "key-location", i18n: null },
+    { text: "لتوانيا", class: "key-location", i18n: null },
+    { text: "إستونيا", class: "key-location", i18n: null },
+    { text: "لندن", class: "key-location", i18n: null },
+    { text: "نيويورك", class: "key-location", i18n: null },
+
+    // Persons
+    { text: "ولسن", class: "key-person", i18n: "defWilson" },
+    { text: "وودرو ويلسون", class: "key-person", i18n: "defWilson" },
+    { text: "مصطفى كمال", class: "key-person", i18n: "defMustafaKemal" },
+    { text: "أتاتورك", class: "key-person", i18n: "defMustafaKemal" },
+
+    // Events
+    { text: "مؤتمر الصلح في باريس", class: "key-event", i18n: "defParisPeaceConference" },
+
+    // Treaties
+    { text: "معاهدة فرساي", class: "key-treaty", i18n: "defVersailles" },
+    { text: "معاهدة سان جرمان", class: "key-treaty", i18n: "defSaintGermain" },
+    { text: "معاهدة تريانون", class: "key-treaty", i18n: "defTrianon" },
+    { text: "معاهدة نويي", class: "key-treaty", i18n: "defNeuilly" },
+    { text: "معاهدة سيفر", class: "key-treaty", i18n: "defSevres" },
+    { text: "معاهدة لوزان", class: "key-treaty", i18n: "defLausanne" },
+
+    // Other
+    { text: "جمعية الأمم", class: "key-other", i18n: "defLeagueOfNations" },
+    { text: "الانتداب", class: "key-other", i18n: "defMandate" },
+    { text: "انتدابات", class: "key-other", i18n: null },
+
+    // Years (highlight only)
+    { text: "1919", class: "key-year", i18n: null },
+    { text: "1920", class: "key-year", i18n: null },
+    { text: "1923", class: "key-year", i18n: null }
+  ]
+};
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

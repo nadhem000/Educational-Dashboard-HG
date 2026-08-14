@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – الحرب العالمية الأولى: الأسباب والنتائج</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+			--ED-General-color-bg: #f5f1eb;
+			--ED-General-color-bg-secondary: #ede7df;
+			--ED-General-color-surface: #ffffff;
+			--ED-General-color-surface-hover: #fafaf8;
+			--ED-General-color-text-primary: #1e293b;
+			--ED-General-color-text-secondary: #5a6c7d;
+			--ED-General-color-text-tertiary: #8b9aab;
+			--ED-General-color-border: #e2dcd4;
+			--ED-General-color-border-hover: #cbc3b8;
+			--ED-General-color-shadow-rgb: 60, 50, 40;
+			--ED-General-color-accent-default: #4a7fd9;
+			--ED-General-color-accent-light: #e8f1fb;
+			--ED-General-color-accent-soft: #f0f5fc;
+			--ED-General-color-header-gradient-start: #fefdfb;
+			--ED-General-color-header-gradient-mid1: #faf8f4;
+			--ED-General-color-header-gradient-mid2: #f6f3ee;
+			--ED-General-color-header-gradient-end: #f2efe8;
+			--ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+			--ED-General-color-accent-rgb: 74,127,217;
+			--ED-General-color-icon-sun: #e8a840;
+			--ED-General-color-icon-moon: #7b8cb0;
+			--ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+			--ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+			--ED-General-color-text-on-accent: #ffffff;
+			--ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+			--ED-General-transition-speed: 0.3s;
+			}
+			[data-theme="dark"] {
+			--ED-General-color-bg: #171a20;
+			--ED-General-color-bg-secondary: #1e2129;
+			--ED-General-color-surface: #23262f;
+			--ED-General-color-surface-hover: #2a2e38;
+			--ED-General-color-text-primary: #e2e4ea;
+			--ED-General-color-text-secondary: #b0b5c2;
+			--ED-General-color-text-tertiary: #7d8494;
+			--ED-General-color-border: #32353e;
+			--ED-General-color-border-hover: #454952;
+			--ED-General-color-shadow-rgb: 0,0,0;
+			--ED-General-color-accent-default: #7aafff;
+			--ED-General-color-accent-light: #1e2d45;
+			--ED-General-color-accent-soft: #1a2535;
+			--ED-General-color-header-gradient-start: #1f222d;
+			--ED-General-color-header-gradient-mid1: #1c1f29;
+			--ED-General-color-header-gradient-mid2: #191c24;
+			--ED-General-color-header-gradient-end: #171a20;
+			--ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+			--ED-General-color-accent-rgb: 122,175,255;
+			--ED-General-color-icon-sun: #e8a840;
+			--ED-General-color-icon-moon: #c4d0f0;
+			--ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+			--ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+			--ED-General-color-text-on-accent: #12151c;
+			}
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        
+			/* ══════ PRINT MODAL STYLES ══════ */
+			.print-modal-overlay {
+			position: fixed;
+			top: 0; left: 0; right: 0; bottom: 0;
+			background: rgba(0,0,0,0.55);
+			backdrop-filter: blur(6px);
+			-webkit-backdrop-filter: blur(6px);
+			z-index: 99999;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			animation: pmFadeIn 0.25s ease-out;
+			padding: 1rem;
+			}
+			@keyframes pmFadeIn {
+			from { opacity: 0; } to { opacity: 1; }
+			}
+			.print-modal-content {
+			background: var(--ED-General-color-surface);
+			border-radius: 20px;
+			padding: 2rem 2.2rem;
+			max-width: 480px;
+			width: 100%;
+			box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+			border: 1px solid var(--ED-General-color-border);
+			animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+			}
+			@keyframes pmSlideUp {
+			from { transform: translateY(30px); opacity: 0; }
+			to { transform: translateY(0); opacity: 1; }
+			}
+			.print-modal-title {
+			margin: 0 0 0.3rem 0;
+			font-size: 1.4rem;
+			font-weight: 750;
+			}
+			.print-modal-subtitle {
+			margin: 0 0 1.5rem 0;
+			font-size: 0.9rem;
+			color: var(--ED-General-color-text-tertiary);
+			}
+			.print-modal-options {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			margin-bottom: 1.8rem;
+			}
+			.print-option {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			padding: 0.9rem 1.1rem;
+			border-radius: 14px;
+			cursor: pointer;
+			border: 2px solid var(--ED-General-color-border);
+			background: var(--ED-General-color-bg-secondary);
+			transition: all 0.2s ease;
+			user-select: none;
+			}
+			.print-option.disabled-option {
+			opacity: 0.5;
+			pointer-events: none;
+			background: var(--ED-General-color-bg-secondary);
+			border-color: var(--ED-General-color-border);
+			}
+			.print-option:not(.disabled-option):hover {
+			border-color: var(--ED-General-color-accent-default);
+			background: var(--ED-General-color-accent-soft);
+			}
+			.print-option:has(input:checked) {
+			border-color: var(--ED-General-color-accent-default);
+			background: var(--ED-General-color-accent-soft);
+			box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1);
+			}
+			.print-option input[type="radio"] {
+			appearance: none;
+			-webkit-appearance: none;
+			width: 22px; height: 22px;
+			border: 2px solid var(--ED-General-color-border-hover);
+			border-radius: 50%;
+			flex-shrink: 0;
+			cursor: pointer;
+			background: var(--ED-General-color-surface);
+			}
+			.print-option input[type="radio"]:checked {
+			background: var(--ED-General-color-accent-default);
+			border-color: var(--ED-General-color-accent-default);
+			}
+			.print-option input[type="radio"]:checked::after {
+			content: '';
+			position: absolute;
+			left: 6px; top: 6px;
+			width: 6px; height: 6px;
+			background: #fff;
+			border-radius: 50%;
+			}
+			.print-option-label {
+			font-weight: 700;
+			font-size: 1rem;
+			}
+			.print-option-desc {
+			font-size: 0.82rem;
+			color: var(--ED-General-color-text-tertiary);
+			margin-left: auto;
+			}
+			[dir="rtl"] .print-option-desc {
+			margin-left: 0; margin-right: auto;
+			}
+			.print-modal-actions {
+			display: flex;
+			gap: 0.8rem;
+			justify-content: flex-end;
+			}
+			.print-modal-cancel, .print-modal-confirm {
+			padding: 0.7rem 1.6rem;
+			border-radius: 25px;
+			font-weight: 650;
+			font-size: 0.95rem;
+			cursor: pointer;
+			}
+			.print-modal-cancel {
+			background: transparent;
+			border: 2px solid var(--ED-General-color-border);
+			color: var(--ED-General-color-text-secondary);
+			}
+			.print-modal-confirm {
+			background: linear-gradient(135deg, #4a7fd9, #3b6dc5);
+			color: #fff;
+			border: none;
+			box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3);
+			}
+			/* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+			.print-header-content, .print-footer-content {
+			display: none;
+			}
+        @media print {
+			html,
+body {
+    color-scheme: light !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+:root,
+[data-theme="dark"] {
+    color-scheme: light !important;
+
+    --ED-General-color-bg: #ffffff !important;
+    --ED-General-color-bg-secondary: #f5f5f5 !important;
+    --ED-General-color-surface: #ffffff !important;
+    --ED-General-color-surface-hover: #fafafa !important;
+    --ED-General-color-text-primary: #000000 !important;
+    --ED-General-color-text-secondary: #333333 !important;
+    --ED-General-color-text-tertiary: #666666 !important;
+    --ED-General-color-border: #cccccc !important;
+    --ED-General-color-border-hover: #999999 !important;
+    --ED-General-color-accent-default: #1a1a1a !important;
+    --ED-General-color-accent-light: #e8e8e8 !important;
+    --ED-General-color-accent-soft: #f0f0f0 !important;
+    --ED-General-color-accent-rgb: 26, 26, 26 !important;
+    --ED-General-color-text-on-accent: #ffffff !important;
+    --ED-General-color-shadow-rgb: 0, 0, 0 !important;
+
+    --ED-General-color-header-gradient-start: #ffffff !important;
+    --ED-General-color-header-gradient-mid1: #fafafa !important;
+    --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+    --ED-General-color-header-gradient-end: #eeeeee !important;
+    --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+    --ED-General-color-icon-sun: #e8a840 !important;
+    --ED-General-color-icon-moon: #7b8cb0 !important;
+    --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+    --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+}
+			@page {
+			margin-top: 80px;
+			margin-bottom: 60px;
+			@top-center {
+			content: element(printHeader);
+			}
+			@bottom-center {
+			content: element(printFooter);
+			}
+			}
+			.print-header-content {
+			display: block !important;
+			position: running(printHeader);
+			text-align: left;
+			border-bottom: 2px solid #000;
+			padding: 0.6rem 1.5rem;
+			background: #fff;
+			font-size: 1.1rem;
+			font-weight: 700;
+			width: 100%;
+			box-sizing: border-box;
+			}
+			.print-header-content .print-header-inner {
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
+			}
+			.print-header-content img {
+			width: 28px;
+			height: 28px;
+			}
+			.print-footer-content {
+			display: block !important;
+			position: running(printFooter);
+			text-align: center;
+			border-top: 1px solid #000;
+			padding: 0.4rem 1.5rem;
+			background: #fff;
+			font-size: 0.85rem;
+			color: #333;
+			width: 100%;
+			box-sizing: border-box;
+			}
+			#print-header, #print-footer {
+			display: none !important;
+			}
+			body {
+			background: #fff;
+			color: #000;
+			font-size: 11pt;
+			margin: 0;
+			}
+			.exercise-container {
+			box-shadow: none;
+			border: 1px solid #ccc;
+			margin: 0;
+			padding: 1.5rem;
+			border-radius: 0;
+			max-width: 100%;
+			background: #fff;
+			}
+			.print-button,
+			.go-link,
+			.go-link-container,
+			.hgh-exercices-type1-button,
+			.hgh-exercices-type2-button,
+			.hgh-exercices-type3-tabToHistogram-button,
+			.hgh-exercices-type4-analyseParagraph-button,
+			.hgh-exercices-type5-articleWriting-button,
+			.hgh-exercices-type6-timeline-button,
+			header, footer, #header-container, #footer-container,
+			.ED-General-header, .ED-General-footer,
+			.ED-General-offline-banner, .ED-General-update-banner,
+			#enableNotifications, #enablePeriodicSync, #installBtn,
+			#themeToggle, #langSelect, #welcome-bar, #connection-status,
+			#gallery-zoom-modal, .gzm-controls,
+			#print-modal, .print-modal-overlay,
+			.print-modal-content, .print-modal-actions,
+			.print-modal-cancel, .print-modal-confirm,
+			.hidden-old-print {
+			display: none !important;
+			}
+			.hgh-exercices-type3-tabToHistogram-bar {
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+			color-adjust: exact;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			}
+			.hgh-exercices-type6-timeline-canvas {
+			background: #ffffff !important;
+			border: 1px solid #ccc;
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+			}
+			.hgh-exercices-type6-timeline-canvas-container {
+			background: #ffffff;
+			}
+			.hgh-exercices-type6-timeline-answer {
+			background: #f5f5f5;
+			}
+			.hgh-exercices-type1-answer.visible,
+			.hgh-exercices-type2-answer.visible,
+			.hgh-exercices-type3-tabToHistogram-answer.visible,
+			.hgh-exercices-type4-analyseParagraph-answer.visible,
+			.hgh-exercices-type5-articleWriting-answer.visible,
+			.hgh-exercices-type6-timeline-answer.visible {
+			display: block;
+			}
+			.hgh-exercices-type1-answer,
+			.hgh-exercices-type2-answer,
+			.hgh-exercices-type3-tabToHistogram-answer,
+			.hgh-exercices-type4-analyseParagraph-answer,
+			.hgh-exercices-type5-articleWriting-answer,
+			.hgh-exercices-type6-timeline-answer {
+			display: none;
+			}
+			a {
+			color: #000;
+			text-decoration: underline;
+			}
+			}
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+    <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+        الرابعة ثانوي، شعبة اقتصاد وتصرف
+    </div>
+            <h1 data-i18n="exerciseTitle">تمارين – الحرب العالمية الأولى: الأسباب والنتائج</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: السياسة العالمية (Weltpolitik)، الحلف الثلاثي، جمعية الأمم.</span>
+                </div>
+                <button class="hgh-exercices-type1-button"
+                        onclick="hghExercicesToggleAnswer('ex1answer', this)"
+                        data-i18n="showAnswer">
+                    💡 إظهار الإجابة
+                </button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">السياسة العالمية (Weltpolitik):</dt>
+                        <dd data-i18n="ex1_def1_subtitle">استراتيجية توسعية انتهجها الإمبراطور الألماني <strong>غليوم الثاني</strong> بعد إقالة بسمارك عام 1890، هدفت إلى بناء أسطول بحري ضخم، واقتناص مستعمرات في إفريقيا وآسيا، ومد النفوذ الاقتصادي عبر مشروع سكة حديد برلين-بغداد. أدت هذه السياسة إلى صدام مباشر مع المصالح البريطانية والفرنسية والروسية، وساهمت في تشكيل أحلاف مضادة لألمانيا.</dd>
+                        <dt data-i18n="ex1_def2_title">الحلف الثلاثي:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">تحالف عسكري دفاعي نشأ بين <strong>ألمانيا والإمبراطورية النمساوية المجرية</strong> (أكتوبر 1879)، وانضمت إليه <strong>إيطاليا</strong> (مارس 1882). هدف إلى عزل فرنسا والحفاظ على الوضع القائم في أوروبا. انسحبت إيطاليا منه عام 1915، وتدعم الحلف لاحقاً بانضمام <strong>الدولة العثمانية</strong> (1914) و<strong>بلغاريا</strong> (1915) ليشكل نواة "دول المركز" خلال الحرب العالمية الأولى.</dd>
+                        <dt data-i18n="ex1_def3_title">جمعية الأمم:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">منظمة دولية تأسست عام 1920 بموجب <strong>معاهدة فرساي</strong> ومقرها <strong>جنيف</strong>، استناداً إلى المبدأ الرابع عشر من برنامج الرئيس الأمريكي <strong>وودرو ويلسون</strong>. هدفت إلى ضمان الأمن الجماعي، والحد من التسلح، وتسوية النزاعات سلمياً. لكنها افتقرت إلى جيش دائم، وتطلبت قراراتها الإجماع، ولم تنضم إليها <strong>الولايات المتحدة</strong>، مما أضعف فعاليتها وجعلها عاجزة عن منع الحرب العالمية الثانية.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 2: Map / Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">أكمل الخريطة التالية: خريطة أوروبا قبل الحرب العالمية الأولى.</span>
+                </div>
+                <img src="assets2/exercises/history/worldBeforeWWI1.jpg"
+                     alt="خريطة أوروبا قبل الحرب العالمية الأولى – غير مكتملة"
+                     class="hgh-exercices-type2-doc" />
+                <button class="hgh-exercices-type2-button"
+                        onclick="hghExercicesToggleAnswer('ex2answer', this)"
+                        data-i18n="showAnswer">
+                    🗺️ إظهار الإجابة
+                </button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <img src="assets2/exercises/history/worldBeforeWWI2.jpg"
+                         alt="الخريطة المكتملة – نموذج الإجابة"
+                         class="hgh-exercices-type2-answer-img" />
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        الخريطة المكتملة – نموذج الإجابة
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل البيانات التالية إلى مخطط بالأعمدة: الإنفاق العسكري (مليون جنيه إسترليني): ألمانيا 80، روسيا 60، بريطانيا 50، فرنسا 45.</span>
+                </div>
+                <table class="hgh-exercices-type3-tabToHistogram-table">
+                    <tr>
+                        <th data-i18n="ex3Q_table_country">الدولة</th>
+                        <th data-i18n="ex3Q_table_spending">الإنفاق (مليون £)</th>
+                    </tr>
+                    <tr><td data-i18n="ex3Q_germany">ألمانيا</td><td>80</td></tr>
+                    <tr><td data-i18n="ex3Q_russia">روسيا</td><td>60</td></tr>
+                    <tr><td data-i18n="ex3Q_uk">بريطانيا</td><td>50</td></tr>
+                    <tr><td data-i18n="ex3Q_france">فرنسا</td><td>45</td></tr>
+                </table>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: بيانات تاريخية من سباق التسلح قبل الحرب العالمية الأولى</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button"
+                        onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">
+                    📊 <span data-i18n="showAnswer">إظهار الإجابة</span>
+                </button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل أسباب احتدام التنافس الاستعماري بين القوى الأوروبية في الربع الأخير من القرن التاسع عشر في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button"
+                        onclick="hghExercicesToggleAnswer('ex4answer', this)">
+                    📝 <span data-i18n="showAnswer">إظهار الإجابة</span>
+                </button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        أسباب التنافس الاستعماري:
+                        - نضج الثورة الصناعية وتزايد الحاجة إلى الأسواق الخارجية لتصدير الفوائض.
+                        - الكساد الكبير (1873-1886) وتراجع الأرباح مما دفع للبحث عن مجالات استثمار جديدة.
+                        - ظهور قوى جديدة (ألمانيا وإيطاليا) تطالب بحقها في المستعمرات.
+                        - اشتداد التنافس الألماني-الإنجليزي خاصة بعد تبنّي ألمانيا للسياسة العالمية.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        اشتد التنافس الاستعماري بين القوى الأوروبية في أواخر القرن التاسع عشر نتيجة نضج الثورة الصناعية وتزايد الحاجة إلى أسواق خارجية، إضافة إلى الكساد الكبير الذي دفع الدول إلى البحث عن مجالات جديدة للاستثمار. كما ساهم ظهور قوى جديدة كألمانيا وإيطاليا في زيادة التوتر، خاصة مع تبنّي ألمانيا للسياسة العالمية التي هددت المصالح البريطانية والفرنسية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول دور نظام الأحلاف في اندلاع الحرب العالمية الأولى.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button"
+                        onclick="hghExercicesToggleAnswer('ex5answer', this)">
+                    ✍️ <span data-i18n="showAnswer">إظهار الإجابة</span>
+                </button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        نظام الأحلاف العسكرية قبل عام 1914 حوّل النزاعات الثنائية إلى حرب عالمية. حلّل كيف أدّى الحلف الثلاثي والوفاق الثلاثي إلى استقطاب القوى الكبرى، وكيف ساهمت التحالفات في توسيع رقعة الحرب بعد حادثة سراييفو.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul data-i18n="ex5A_plan_li1|ex5A_plan_li2|ex5A_plan_li3">
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم فكرة أن الأحلاف حولت الحرب من نزاع محلي إلى صراع عالمي.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. الحلف الثلاثي والوفاق الثلاثي؛ ثانياً. تأثير الأحلاف على توسيع الحرب.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: الأحلاف كانت سبباً مباشراً في تحويل الأزمة إلى حرب عالمية.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">قبل الحرب العالمية الأولى، كان نظام الأحلاف العسكرية قد قسّم أوروبا إلى معسكرين متنافسين: الحلف الثلاثي والوفاق الثلاثي. هذه التحالفات جعلت أي نزاع محلي قابلاً للتحول إلى حرب شاملة، وهو ما حدث بالفعل عام 1914.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_alliances">أولاً. الحلف الثلاثي والوفاق الثلاثي</h4>
+                        <h5 class="hgh-exercices-type5-articleWriting-subsubtitle" data-i18n="ex5A_production_h5_triple">الحلف الثلاثي</h5>
+                        <p data-i18n="ex5A_production_p_triple">تشكل الحلف الثلاثي بين ألمانيا والنمسا-المجر وإيطاليا بهدف عزل فرنسا، بينما جاء الوفاق الثلاثي بين فرنسا وبريطانيا وروسيا لتطويق ألمانيا.</p>
+                        <h5 class="hgh-exercices-type5-articleWriting-subsubtitle" data-i18n="ex5A_production_h5_entente">الوفاق الثلاثي</h5>
+                        <p data-i18n="ex5A_production_p_entente">الوفاق الثلاثي عمل على مواجهة التوسع الألماني، مما خلق جواً من التوتر والاستقطاب في أوروبا.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_impact">ثانياً. تأثير الأحلاف على توسيع الحرب</h4>
+                        <h5 class="hgh-exercices-type5-articleWriting-subsubtitle" data-i18n="ex5A_production_h5_trigger">حادثة سراييفو</h5>
+                        <p data-i18n="ex5A_production_p_trigger">عندما اغتيل ولي العهد النمساوي، أعلنت النمسا الحرب على صربيا، فدخلت روسيا دفاعاً عن صربيا، ثم تدخلت ألمانيا ضد روسيا وفرنسا، مما جعل الحرب عالمية بسبب شبكة التحالفات.</p>
+                        <h5 class="hgh-exercices-type5-articleWriting-subsubtitle" data-i18n="ex5A_production_h5_escalation">التصعيد</h5>
+                        <p data-i18n="ex5A_production_p_escalation">التحالفات حوّلت أزمة إقليمية إلى صراع شامل، إذ انضمت بريطانيا بعد خرق ألمانيا لحياد بلجيكا، ثم دول أخرى.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا كانت الأحلاف العسكرية عاملاً حاسماً في اندلاع الحرب العالمية الأولى، إذ جعلت السلام هشاً وأي نزاع محلي قابلاً للتحول إلى حرب مدمرة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: الحلف الثنائي (1879)، الحلف الثلاثي (1882)، الوفاق الودي (1904)، أزمة طنجة (1905)، ضم البوسنة والهرسك (1908)، حادثة سراييفو (1914).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button"
+                        onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">
+                    🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span>
+                </button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1879: الحلف الثنائي ...
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+					<a href="HGH_y4sec_secLet_his_lessons_mod1_lesson1_part1.html" class="go-link">
+                    📖 <span data-i18n="goToLesson">العودة إلى الدرس</span>
+                </a>
+    <a href="index.html" class="go-link return-main-link">
+        🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+    </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">
+                ⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+				en: {
+					appTitle: "History & Geography Hub",
+					lessonPageTitle: "Lesson",
+					exercisePageTitle: "Exercise",
+					goToExercise: "Go to Exercise",
+					goToLesson: "Go to Lesson",
+    returnMain: "Return to Main",
+					"printModalTitle": "Print Options",
+					"printModalSubtitle": "Choose how you want to print the exercise:",
+					"printOptionQuestionsOnly": "📝 Questions Only",
+					"printOptionQuestionsOnlyDesc": "Print without answers",
+					"printOptionWithAnswers": "✅ Questions with Answers",
+					"printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+					"authWarningPrint": "⚠️ You must be signed in to print with answers.",
+					"printModalCancel": "Cancel",
+					"printModalConfirm": "🖨️ Print",
+					welcomeMessage: "Welcome to History & Geography Hub",
+					onlineStatus: "Online",
+					offlineStatus: "Offline",
+					installBtn: "📲 Install App",
+					themeToggleTitle: "Dark/Light Theme",
+					offlineBanner: "You are offline. Some features may be unavailable.",
+					updateNotification: "A new version is available.",
+					updateReloadBtn: "Reload",
+					enablePeriodicSyncBtn: "Enable Background Updates",
+					disablePeriodicSyncBtn: "Disable Background Updates",
+					enableNotificationsBtn: "Enable Notifications",
+					footer: {
+						version: "version '0.0.1'",
+						confidentiality: "Confidentiality Politics",
+						terms: "Terms of Use",
+						contact: "Contact",
+						developer: "developed by: Mejri Ziad.",
+						hosted: "Hosted on Github and Netlify.",
+						rateLabel: "Rate this app"
+					},
+					auth: {
+						signIn: "Sign in",
+						signUp: "Create account",
+						signOut: "Sign out",
+						emailPlaceholder: "Email",
+						passwordPlaceholder: "Password",
+						cancel: "Cancel",
+						continue: "Continue",
+						switchToSignUp: "Create an account",
+						switchToSignIn: "Already have an account? Sign in",
+						forgotPassword: "Forgot password?",
+						forgotPasswordSent: "Password reset email sent.",
+						forgotPasswordError: "Failed to send reset email.",
+						profile: {
+							button: "Profile",
+							buttonTitle: "View and edit your profile",
+							title: "My Profile",
+							loading: "Loading profile…",
+							saveChanges: "Save Changes",
+							completeTitle: "Complete your profile",
+							usernamePlaceholder: "Username",
+							avatarLabel: "Choose an avatar",
+							uploadAvatar: "📷 Upload",
+							removeAvatar: "✕ Remove",
+							createAnimatedAvatar: "Create animated avatar",
+							experimentalNote: "still experimental",
+							professionLabel: "Profession",
+							studentOption: "Student",
+							teacherOption: "Teacher",
+							otherOption: "Other",
+							classLabel: "Class / Grade",
+							birthdayLabel: "Birthday",
+							languageLabel: "Preferred language",
+							langEnglish: "English",
+							langFrench: "Français",
+							langArabic: "العربية",
+							modeLabel: "Preferred mode",
+							modeLight: "Light",
+							modeDark: "Dark",
+							howKnowLabel: "How did you get to know the site?",
+							howFriend: "From a friend",
+							howSocial: "Social media",
+							howSearch: "Search engine",
+							howOther: "Other",
+							saveContinue: "Save & Continue",
+							back: "Back",
+							usernameRequired: "Please enter a username.",
+							professionRequired: "Please select a profession.",
+							grade7: "7th grade",
+							grade8: "8th grade",
+							grade9: "9th grade",
+							grade10: "10th grade",
+							grade11: "11th grade",
+							grade12: "12th grade",
+							saving: "Saving…",
+							saveSuccess: "Profile saved successfully!",
+							loadError: "Failed to load profile.",
+							imageTooLarge: "Image must be smaller than 5 MB.",
+							imageProcessError: "Failed to process image. Please try a different one.",
+							saveError: "Failed to save profile."
+						}
+					},
+					programs: {
+						history: "History",
+						geography: "Geography",
+						modules: "modules",
+						lessons: "lessons"
+					}
+				},
+				fr: {
+					appTitle: "Hub d'Histoire et Géographie",
+					lessonPageTitle: "Leçon",
+					exercisePageTitle: "Exercice",
+					goToExercise: "Aller à l'exercice",
+					goToLesson: "Aller à la leçon",
+    returnMain: "Retour à l'accueil",
+					"printModalTitle": "Options d'impression",
+					"printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+					"printOptionQuestionsOnly": "📝 Questions uniquement",
+					"printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+					"printOptionWithAnswers": "✅ Questions avec réponses",
+					"printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+					"authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+					"printModalCancel": "Annuler",
+					"printModalConfirm": "🖨️ Imprimer",
+					welcomeMessage: "Bienvenue sur History & Geography Hub",
+					onlineStatus: "En ligne",
+					offlineStatus: "Hors ligne",
+					installBtn: "📲 Installer l'application",
+					themeToggleTitle: "Thème Sombre/Clair",
+					offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+					updateNotification: "Une nouvelle version est disponible.",
+					updateReloadBtn: "Recharger",
+					enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+					disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+					enableNotificationsBtn: "Activer les notifications",
+					footer: {
+						version: "version '0.0.1'",
+						confidentiality: "Politique de confidentialité",
+						terms: "Conditions d'utilisation",
+						contact: "Contact",
+						developer: "développé par : Mejri Ziad.",
+						hosted: "Hébergé sur Github et Netlify.",
+						rateLabel: "Noter cette application"
+					},
+					auth: {
+						signIn: "Se connecter",
+						signUp: "Créer un compte",
+						signOut: "Se déconnecter",
+						emailPlaceholder: "Email",
+						passwordPlaceholder: "Mot de passe",
+						cancel: "Annuler",
+						continue: "Continuer",
+						switchToSignUp: "Créer un compte",
+						switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+						forgotPassword: "Mot de passe oublié ?",
+						forgotPasswordSent: "Email de réinitialisation envoyé.",
+						forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+						profile: {
+							button: "Profil",
+							buttonTitle: "Voir et modifier votre profil",
+							title: "Mon Profil",
+							loading: "Chargement du profil…",
+							saveChanges: "Enregistrer les modifications",
+							completeTitle: "Complétez votre profil",
+							usernamePlaceholder: "Nom d'utilisateur",
+							avatarLabel: "Choisissez un avatar",
+							uploadAvatar: "📷 Télécharger",
+							removeAvatar: "✕ Supprimer",
+							createAnimatedAvatar: "Créer un avatar animé",
+							experimentalNote: "encore expérimental",
+							professionLabel: "Profession",
+							studentOption: "Élève",
+							teacherOption: "Enseignant",
+							otherOption: "Autre",
+							classLabel: "Classe / Niveau",
+							birthdayLabel: "Date de naissance",
+							languageLabel: "Langue préférée",
+							modeLabel: "Mode préféré",
+							lightOption: "Clair",
+							darkOption: "Sombre",
+							howKnowLabel: "Comment avez-vous connu le site ?",
+							howFriend: "Par un ami",
+							howSocial: "Réseaux sociaux",
+							howSearch: "Moteur de recherche",
+							howOther: "Autre",
+							saveContinue: "Enregistrer et continuer",
+							back: "Retour",
+							usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+							professionRequired: "Veuillez sélectionner une profession.",
+							grade7: "5ème",
+							grade8: "4ème",
+							grade9: "3ème",
+							grade10: "Seconde",
+							grade11: "Première",
+							grade12: "Terminale",
+							saving: "Enregistrement…",
+							saveSuccess: "Profil enregistré avec succès !",
+							loadError: "Échec du chargement du profil.",
+							imageTooLarge: "L'image doit faire moins de 5 Mo.",
+							imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+							saveError: "Échec de l'enregistrement du profil."
+						}
+					},
+					programs: {
+						history: "Histoire",
+						geography: "Géographie",
+						modules: "modules",
+						lessons: "leçons"
+					}
+				},
+				ar: {
+					appTitle: "مركز التاريخ والجغرافيا",
+					lessonPageTitle: "درس",
+					exercisePageTitle: "تمرين",
+					goToExercise: "الذهاب إلى التمرين",
+					goToLesson: "الذهاب إلى الدرس",
+    returnMain: "العودة إلى الرئيسية",
+					"printModalTitle": "خيارات الطباعة",
+					"printModalSubtitle": "اختر كيفية طباعة التمرين:",
+					"printOptionQuestionsOnly": "📝 الأسئلة فقط",
+					"printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+					"printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+					"printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+					"authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+					"printModalCancel": "إلغاء",
+					"printModalConfirm": "🖨️ طباعة",
+					welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+					onlineStatus: "متصل",
+					offlineStatus: "غير متصل",
+					installBtn: "📲 تثبيت التطبيق",
+					themeToggleTitle: "المظهر الداكن/الفاتح",
+					offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+					updateNotification: "نسخة جديدة متاحة.",
+					updateReloadBtn: "إعادة التحميل",
+					enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+					disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+					enableNotificationsBtn: "تفعيل الإشعارات",
+					footer: {
+						version: "الإصدار '0.0.1'",
+						confidentiality: "سياسة الخصوصية",
+						terms: "شروط الاستخدام",
+						contact: "اتصل بنا",
+						developer: "طور بواسطة: ماجري زياد.",
+						hosted: "مستضاف على Github و Netlify.",
+						rateLabel: "قيّم هذا التطبيق"
+					},
+					auth: {
+						signIn: "تسجيل الدخول",
+						signUp: "إنشاء حساب",
+						signOut: "تسجيل الخروج",
+						emailPlaceholder: "البريد الإلكتروني",
+						passwordPlaceholder: "كلمة المرور",
+						cancel: "إلغاء",
+						continue: "متابعة",
+						switchToSignUp: "إنشاء حساب",
+						switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+						forgotPassword: "نسيت كلمة المرور؟",
+						forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+						forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+						profile: {
+							button: "الملف الشخصي",
+							buttonTitle: "عرض وتعديل ملفك الشخصي",
+							title: "ملفي الشخصي",
+							loading: "جارٍ تحميل الملف الشخصي…",
+							saveChanges: "حفظ التغييرات",
+							completeTitle: "أكمل ملفك الشخصي",
+							usernamePlaceholder: "اسم المستخدم",
+							avatarLabel: "اختر صورة رمزية",
+							uploadAvatar: "📷 رفع",
+							removeAvatar: "✕ إزالة",
+							createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+							experimentalNote: "لا يزال تجريبيًا",
+							professionLabel: "المهنة",
+							studentOption: "طالب",
+							teacherOption: "معلم",
+							otherOption: "أخرى",
+							classLabel: "الصف / المستوى",
+							birthdayLabel: "تاريخ الميلاد",
+							languageLabel: "اللغة المفضلة",
+							modeLabel: "الوضع المفضل",
+							lightOption: "فاتح",
+							darkOption: "داكن",
+							howKnowLabel: "كيف تعرفت على الموقع؟",
+							howFriend: "من صديق",
+							howSocial: "وسائل التواصل الاجتماعي",
+							howSearch: "محرك بحث",
+							howOther: "أخرى",
+							saveContinue: "حفظ ومتابعة",
+							back: "رجوع",
+							usernameRequired: "يرجى إدخال اسم مستخدم.",
+							professionRequired: "يرجى اختيار مهنة.",
+							grade7: "الصف السابع",
+							grade8: "الصف الثامن",
+							grade9: "الصف التاسع",
+							grade10: "الصف العاشر",
+							grade11: "الصف الحادي عشر",
+							grade12: "الصف الثاني عشر",
+							saving: "جارٍ الحفظ…",
+							saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+							loadError: "فشل تحميل الملف الشخصي.",
+							imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+							imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+							saveError: "فشل حفظ الملف الشخصي."
+						}
+					},
+					programs: {
+						history: "تاريخ",
+						geography: "جغرافيا",
+						modules: "وحدات",
+						lessons: "دروس"
+					}
+				}
+			};
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+    yearSection: "4th Secondary, Section: Economy & Management",
+                exerciseTitle: "Exercises – World War I: Causes and Consequences",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Weltpolitik, Triple Alliance, League of Nations.",
+                ex1_def1_title: "Weltpolitik:",
+                ex1_def1_subtitle: "Expansionist strategy pursued by German Emperor Wilhelm II after dismissing Bismarck in 1890, aiming to build a massive navy, acquire colonies in Africa and Asia, and extend economic influence through the Berlin-Baghdad Railway. This policy led to direct clashes with British, French, and Russian interests and contributed to the formation of opposing alliances.",
+                ex1_def2_title: "Triple Alliance:",
+                ex1_def2_subtitle: "Defensive military alliance formed between Germany and Austria-Hungary (October 1879), joined by Italy (March 1882). Its aim was to isolate France and maintain the status quo in Europe. Italy left in 1915; later the Ottoman Empire (1914) and Bulgaria (1915) joined, forming the core of the Central Powers during WWI.",
+                ex1_def3_title: "League of Nations:",
+                ex1_def3_subtitle: "International organization founded in 1920 under the Treaty of Versailles, based in Geneva, following the 14th point of US President Woodrow Wilson's program. It sought to ensure collective security, disarmament, and peaceful settlement of disputes but lacked a standing army, required unanimous decisions, and the United States never joined, weakening its effectiveness.",
+                ex2Q: "Complete the following map: Europe before World War I.",
+                ex2A: "Completed map – answer key.",
+                ex3Q: "Convert the following data into a bar chart: Military spending (million £): Germany 80, Russia 60, Britain 50, France 45.",
+                ex3Q_table_country: "Country",
+                ex3Q_table_spending: "Spending (million £)",
+                ex3Q_germany: "Germany",
+                ex3Q_russia: "Russia",
+                ex3Q_uk: "Britain",
+                ex3Q_france: "France",
+                ex3Q_source: "Source: Historical data from the pre-WWI arms race",
+                ex3A_title: "Military Spending of European Powers (pre-1914)",
+                ex3A_source: "Source: Historical archives",
+                ex3A_scale: "Scale: 0–80 million £; column height proportional to spending.",
+                ex3A_key_label: "Key:",
+                ex3A_key_germany: "Germany",
+                ex3A_key_russia: "Russia",
+                ex3A_key_uk: "Britain",
+                ex3A_key_france: "France",
+                ex4Q: "Analyse the causes of intensified colonial rivalry among European powers in the last quarter of the 19th century in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Causes of colonial rivalry:\n- Maturation of the Industrial Revolution and need for foreign markets.\n- Great Depression (1873-1886) and declining profits.\n- Emergence of new powers (Germany and Italy).\n- Anglo-German rivalry after Germany's Weltpolitik.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "Colonial rivalry intensified due to the Industrial Revolution and the search for new markets, the Great Depression which pushed powers to seek new investment fields, and the rise of new powers like Germany and Italy, especially after Germany adopted Weltpolitik, threatening British and French interests.",
+                ex5Q: "Write a short article (150 words) on the role of the alliance system in leading to World War I.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "The alliance system transformed bilateral disputes into a world war. Analyse how the Triple Alliance and Triple Entente polarized the great powers and how alliances expanded the war after Sarajevo.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Present the idea that alliances turned a local conflict into a global one.",
+                ex5A_plan_li2: "Development: I. Triple Alliance and Triple Entente; II. Impact on expanding the war.",
+                ex5A_plan_li3: "Conclusion: Alliances were a direct cause of the war's escalation.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Before WWI, the alliance system had divided Europe into two rival camps: the Triple Alliance and the Triple Entente. These alliances made any local conflict capable of turning into a full-scale war, which happened in 1914.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_alliances: "I. Triple Alliance and Triple Entente",
+                ex5A_production_h5_triple: "Triple Alliance",
+                ex5A_production_p_triple: "The Triple Alliance formed between Germany, Austria-Hungary, and Italy to isolate France, while the Triple Entente formed between France, Britain, and Russia to encircle Germany.",
+                ex5A_production_h5_entente: "Triple Entente",
+                ex5A_production_p_entente: "The Triple Entente aimed to counter German expansion, creating tension and polarization.",
+                ex5A_production_h4_impact: "II. Impact on Expanding the War",
+                ex5A_production_h5_trigger: "Sarajevo Incident",
+                ex5A_production_p_trigger: "When the Austrian heir was assassinated, Austria declared war on Serbia, Russia entered to defend Serbia, then Germany entered against Russia and France, making the war global due to alliances.",
+                ex5A_production_h5_escalation: "Escalation",
+                ex5A_production_p_escalation: "Alliances turned a regional crisis into a total conflict, as Britain joined after Germany violated Belgian neutrality, and other countries followed.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus, the alliance system was a decisive factor in causing WWI, making peace fragile and any local conflict capable of escalating into a devastating war.",
+                ex6Q: "Create a timeline of the following events: Dual Alliance (1879), Triple Alliance (1882), Entente Cordiale (1904), Tangier Crisis (1905), Bosnia Annexation (1908), Sarajevo Assassination (1914).",
+                ex6A: "Timeline: 1879: Dual Alliance...",
+                ex6_timeline_title: "WWI Causes Timeline (1879–1914)",
+                ex6_event_dual_label: "Dual Alliance",
+                ex6_event_dual_sub: "1879",
+                ex6_event_triple_label: "Triple Alliance",
+                ex6_event_triple_sub: "1882",
+                ex6_event_entente_label: "Entente Cordiale",
+                ex6_event_entente_sub: "1904",
+                ex6_event_tangier_label: "Tangier Crisis",
+                ex6_event_tangier_sub: "1905",
+                ex6_event_bosnia_label: "Bosnia Annexation",
+                ex6_event_bosnia_sub: "1908",
+                ex6_event_sarajevo_label: "Sarajevo Assassination",
+                ex6_event_sarajevo_sub: "1914",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+    returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+    yearSection: "4ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – La Première Guerre mondiale : causes et conséquences",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Weltpolitik, Triple Alliance, Société des Nations.",
+                ex1_def1_title: "Weltpolitik :",
+                ex1_def1_subtitle: "Stratégie expansionniste menée par l'empereur allemand Guillaume II après le renvoi de Bismarck en 1890, visant à construire une flotte puissante, acquérir des colonies en Afrique et en Asie, et étendre son influence économique via le chemin de fer Berlin-Bagdad. Cette politique a provoqué des tensions avec la Grande-Bretagne, la France et la Russie.",
+                ex1_def2_title: "Triple Alliance :",
+                ex1_def2_subtitle: "Alliance militaire défensive entre l'Allemagne et l'Autriche-Hongrie (octobre 1879), rejointe par l'Italie (mars 1882). Elle visait à isoler la France. L'Italie s'en retira en 1915 ; l'Empire ottoman (1914) et la Bulgarie (1915) s'y joignirent, formant le noyau des Empires centraux.",
+                ex1_def3_title: "Société des Nations :",
+                ex1_def3_subtitle: "Organisation internationale fondée en 1920 par le traité de Versailles, siège à Genève, inspirée du 14e point de Wilson. Elle visait la sécurité collective, le désarmement et le règlement pacifique des conflits, mais sans armée, avec l'exigence de l'unanimité et l'absence des États-Unis, elle fut inefficace.",
+                ex2Q: "Complétez la carte suivante : l'Europe avant la Première Guerre mondiale.",
+                ex2A: "Carte complétée – corrigé.",
+                ex3Q: "Convertissez les données suivantes en diagramme à barres : Dépenses militaires (millions £) : Allemagne 80, Russie 60, Grande-Bretagne 50, France 45.",
+                ex3Q_table_country: "Pays",
+                ex3Q_table_spending: "Dépenses (millions £)",
+                ex3Q_germany: "Allemagne",
+                ex3Q_russia: "Russie",
+                ex3Q_uk: "Grande-Bretagne",
+                ex3Q_france: "France",
+                ex3Q_source: "Source : Données historiques de la course aux armements avant 1914",
+                ex3A_title: "Dépenses militaires des puissances européennes (avant 1914)",
+                ex3A_source: "Source : Archives historiques",
+                ex3A_scale: "Échelle : 0–80 millions £ ; hauteur des colonnes proportionnelle aux dépenses.",
+                ex3A_key_label: "Légende :",
+                ex3A_key_germany: "Allemagne",
+                ex3A_key_russia: "Russie",
+                ex3A_key_uk: "Grande-Bretagne",
+                ex3A_key_france: "France",
+                ex4Q: "Analysez les causes de l'intensification de la rivalité coloniale entre les puissances européennes dans le dernier quart du XIXe siècle en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Causes de la rivalité coloniale :\n- Maturation de la révolution industrielle et besoin de débouchés.\n- Grande Dépression (1873-1886) et baisse des profits.\n- Émergence de nouvelles puissances (Allemagne et Italie).\n- Rivalité anglo-allemande après la Weltpolitik.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "La rivalité coloniale s'intensifia en raison de la révolution industrielle et de la recherche de nouveaux marchés, de la Grande Dépression qui poussa les puissances à chercher de nouveaux champs d'investissement, et de l'émergence de nouvelles puissances comme l'Allemagne et l'Italie, surtout après l'adoption de la Weltpolitik par l'Allemagne, menaçant les intérêts britanniques et français.",
+                ex5Q: "Rédigez un court article (150 mots) sur le rôle du système d'alliances dans le déclenchement de la Première Guerre mondiale.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Le système d'alliances a transformé les différends bilatéraux en guerre mondiale. Analysez comment la Triple Alliance et la Triple Entente ont polarisé les grandes puissances et comment les alliances ont élargi la guerre après Sarajevo.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter l'idée que les alliances ont transformé un conflit local en guerre mondiale.",
+                ex5A_plan_li2: "Développement : I. Triple Alliance et Triple Entente ; II. Impact sur l'élargissement de la guerre.",
+                ex5A_plan_li3: "Conclusion : Les alliances furent une cause directe de l'escalade.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Avant la Première Guerre mondiale, le système d'alliances avait divisé l'Europe en deux camps rivaux : la Triple Alliance et la Triple Entente. Ces alliances rendaient tout conflit local susceptible de se transformer en guerre totale, ce qui arriva en 1914.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_alliances: "I. Triple Alliance et Triple Entente",
+                ex5A_production_h5_triple: "Triple Alliance",
+                ex5A_production_p_triple: "La Triple Alliance se forma entre l'Allemagne, l'Autriche-Hongrie et l'Italie pour isoler la France, tandis que la Triple Entente se forma entre la France, la Grande-Bretagne et la Russie pour encercler l'Allemagne.",
+                ex5A_production_h5_entente: "Triple Entente",
+                ex5A_production_p_entente: "La Triple Entente visait à contrer l'expansion allemande, créant tension et polarisation.",
+                ex5A_production_h4_impact: "II. Impact sur l'élargissement de la guerre",
+                ex5A_production_h5_trigger: "Incident de Sarajevo",
+                ex5A_production_p_trigger: "Lorsque l'héritier autrichien fut assassiné, l'Autriche déclara la guerre à la Serbie, la Russie entra pour défendre la Serbie, puis l'Allemagne entra contre la Russie et la France, rendant la guerre mondiale à cause des alliances.",
+                ex5A_production_h5_escalation: "Escalade",
+                ex5A_production_p_escalation: "Les alliances transformèrent une crise régionale en conflit total, la Grande-Bretagne rejoignant après la violation de la neutralité belge par l'Allemagne, suivie d'autres pays.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi, le système d'alliances fut un facteur décisif dans le déclenchement de la Première Guerre mondiale, rendant la paix fragile et tout conflit local susceptible de dégénérer en guerre dévastatrice.",
+                ex6Q: "Créez une chronologie des événements suivants : Duplice (1879), Triple Alliance (1882), Entente cordiale (1904), Crise de Tanger (1905), Annexion de la Bosnie (1908), Attentat de Sarajevo (1914).",
+                ex6A: "Chronologie : 1879 : Duplice...",
+                ex6_timeline_title: "Chronologie des causes de la Première Guerre mondiale (1879–1914)",
+                ex6_event_dual_label: "Duplice",
+                ex6_event_dual_sub: "1879",
+                ex6_event_triple_label: "Triple Alliance",
+                ex6_event_triple_sub: "1882",
+                ex6_event_entente_label: "Entente cordiale",
+                ex6_event_entente_sub: "1904",
+                ex6_event_tangier_label: "Crise de Tanger",
+                ex6_event_tangier_sub: "1905",
+                ex6_event_bosnia_label: "Annexion de la Bosnie",
+                ex6_event_bosnia_sub: "1908",
+                ex6_event_sarajevo_label: "Attentat de Sarajevo",
+                ex6_event_sarajevo_sub: "1914",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+    returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+    yearSection: "الرابعة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – الحرب العالمية الأولى: الأسباب والنتائج",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: السياسة العالمية (Weltpolitik)، الحلف الثلاثي، جمعية الأمم.",
+                ex1_def1_title: "السياسة العالمية (Weltpolitik):",
+                ex1_def1_subtitle: "استراتيجية توسعية انتهجها الإمبراطور الألماني <strong>غليوم الثاني</strong> بعد إقالة بسمارك عام 1890، هدفت إلى بناء أسطول بحري ضخم، واقتناص مستعمرات في إفريقيا وآسيا، ومد النفوذ الاقتصادي عبر مشروع سكة حديد برلين-بغداد. أدت هذه السياسة إلى صدام مباشر مع المصالح البريطانية والفرنسية والروسية، وساهمت في تشكيل أحلاف مضادة لألمانيا.",
+                ex1_def2_title: "الحلف الثلاثي:",
+                ex1_def2_subtitle: "تحالف عسكري دفاعي نشأ بين <strong>ألمانيا والإمبراطورية النمساوية المجرية</strong> (أكتوبر 1879)، وانضمت إليه <strong>إيطاليا</strong> (مارس 1882). هدف إلى عزل فرنسا والحفاظ على الوضع القائم في أوروبا. انسحبت إيطاليا منه عام 1915، وتدعم الحلف لاحقاً بانضمام <strong>الدولة العثمانية</strong> (1914) و<strong>بلغاريا</strong> (1915) ليشكل نواة \"دول المركز\" خلال الحرب العالمية الأولى.",
+                ex1_def3_title: "جمعية الأمم:",
+                ex1_def3_subtitle: "منظمة دولية تأسست عام 1920 بموجب <strong>معاهدة فرساي</strong> ومقرها <strong>جنيف</strong>، استناداً إلى المبدأ الرابع عشر من برنامج الرئيس الأمريكي <strong>وودرو ويلسون</strong>. هدفت إلى ضمان الأمن الجماعي، والحد من التسلح، وتسوية النزاعات سلمياً. لكنها افتقرت إلى جيش دائم، وتطلبت قراراتها الإجماع، ولم تنضم إليها <strong>الولايات المتحدة</strong>، مما أضعف فعاليتها وجعلها عاجزة عن منع الحرب العالمية الثانية.",
+                ex2Q: "أكمل الخريطة التالية: خريطة أوروبا قبل الحرب العالمية الأولى.",
+                ex2A: "الخريطة المكتملة – نموذج الإجابة",
+                ex3Q: "حوّل البيانات التالية إلى مخطط بالأعمدة: الإنفاق العسكري (مليون جنيه إسترليني): ألمانيا 80، روسيا 60، بريطانيا 50، فرنسا 45.",
+                ex3Q_table_country: "الدولة",
+                ex3Q_table_spending: "الإنفاق (مليون £)",
+                ex3Q_germany: "ألمانيا",
+                ex3Q_russia: "روسيا",
+                ex3Q_uk: "بريطانيا",
+                ex3Q_france: "فرنسا",
+                ex3Q_source: "المصدر: بيانات تاريخية من سباق التسلح قبل الحرب العالمية الأولى",
+                ex3A_title: "الإنفاق العسكري للقوى الأوروبية (قبل 1914)",
+                ex3A_source: "المصدر: أرشيف تاريخي",
+                ex3A_scale: "المقياس: 0–80 مليون £؛ ارتفاع الأعمدة يتناسب مع الإنفاق.",
+                ex3A_key_label: "المفتاح:",
+                ex3A_key_germany: "ألمانيا",
+                ex3A_key_russia: "روسيا",
+                ex3A_key_uk: "بريطانيا",
+                ex3A_key_france: "فرنسا",
+                ex4Q: "حلّل أسباب احتدام التنافس الاستعماري بين القوى الأوروبية في الربع الأخير من القرن التاسع عشر في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "أسباب التنافس الاستعماري:\n- نضج الثورة الصناعية وتزايد الحاجة إلى الأسواق الخارجية لتصدير الفوائض.\n- الكساد الكبير (1873-1886) وتراجع الأرباح مما دفع للبحث عن مجالات استثمار جديدة.\n- ظهور قوى جديدة (ألمانيا وإيطاليا) تطالب بحقها في المستعمرات.\n- اشتداد التنافس الألماني-الإنجليزي خاصة بعد تبنّي ألمانيا للسياسة العالمية.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "اشتد التنافس الاستعماري بين القوى الأوروبية في أواخر القرن التاسع عشر نتيجة نضج الثورة الصناعية وتزايد الحاجة إلى أسواق خارجية، إضافة إلى الكساد الكبير الذي دفع الدول إلى البحث عن مجالات جديدة للاستثمار. كما ساهم ظهور قوى جديدة كألمانيا وإيطاليا في زيادة التوتر، خاصة مع تبنّي ألمانيا للسياسة العالمية التي هددت المصالح البريطانية والفرنسية.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول دور نظام الأحلاف في اندلاع الحرب العالمية الأولى.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "نظام الأحلاف العسكرية قبل عام 1914 حوّل النزاعات الثنائية إلى حرب عالمية. حلّل كيف أدّى الحلف الثلاثي والوفاق الثلاثي إلى استقطاب القوى الكبرى، وكيف ساهمت التحالفات في توسيع رقعة الحرب بعد حادثة سراييفو.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم فكرة أن الأحلاف حولت الحرب من نزاع محلي إلى صراع عالمي.",
+                ex5A_plan_li2: "تطوير: أولاً. الحلف الثلاثي والوفاق الثلاثي؛ ثانياً. تأثير الأحلاف على توسيع الحرب.",
+                ex5A_plan_li3: "خاتمة: الأحلاف كانت سبباً مباشراً في تحويل الأزمة إلى حرب عالمية.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "قبل الحرب العالمية الأولى، كان نظام الأحلاف العسكرية قد قسّم أوروبا إلى معسكرين متنافسين: الحلف الثلاثي والوفاق الثلاثي. هذه التحالفات جعلت أي نزاع محلي قابلاً للتحول إلى حرب شاملة، وهو ما حدث بالفعل عام 1914.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_alliances: "أولاً. الحلف الثلاثي والوفاق الثلاثي",
+                ex5A_production_h5_triple: "الحلف الثلاثي",
+                ex5A_production_p_triple: "تشكل الحلف الثلاثي بين ألمانيا والنمسا-المجر وإيطاليا بهدف عزل فرنسا، بينما جاء الوفاق الثلاثي بين فرنسا وبريطانيا وروسيا لتطويق ألمانيا.",
+                ex5A_production_h5_entente: "الوفاق الثلاثي",
+                ex5A_production_p_entente: "الوفاق الثلاثي عمل على مواجهة التوسع الألماني، مما خلق جواً من التوتر والاستقطاب في أوروبا.",
+                ex5A_production_h4_impact: "ثانياً. تأثير الأحلاف على توسيع الحرب",
+                ex5A_production_h5_trigger: "حادثة سراييفو",
+                ex5A_production_p_trigger: "عندما اغتيل ولي العهد النمساوي، أعلنت النمسا الحرب على صربيا، فدخلت روسيا دفاعاً عن صربيا، ثم تدخلت ألمانيا ضد روسيا وفرنسا، مما جعل الحرب عالمية بسبب شبكة التحالفات.",
+                ex5A_production_h5_escalation: "التصعيد",
+                ex5A_production_p_escalation: "التحالفات حوّلت أزمة إقليمية إلى صراع شامل، إذ انضمت بريطانيا بعد خرق ألمانيا لحياد بلجيكا، ثم دول أخرى.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا كانت الأحلاف العسكرية عاملاً حاسماً في اندلاع الحرب العالمية الأولى، إذ جعلت السلام هشاً وأي نزاع محلي قابلاً للتحول إلى حرب مدمرة.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: الحلف الثنائي (1879)، الحلف الثلاثي (1882)، الوفاق الودي (1904)، أزمة طنجة (1905)، ضم البوسنة والهرسك (1908)، حادثة سراييفو (1914).",
+                ex6A: "الخط الزمني: 1879: الحلف الثنائي ...",
+                ex6_timeline_title: "الخط الزمني لأسباب الحرب العالمية الأولى (1879–1914)",
+                ex6_event_dual_label: "الحلف الثنائي",
+                ex6_event_dual_sub: "1879",
+                ex6_event_triple_label: "الحلف الثلاثي",
+                ex6_event_triple_sub: "1882",
+                ex6_event_entente_label: "الوفاق الودي",
+                ex6_event_entente_sub: "1904",
+                ex6_event_tangier_label: "أزمة طنجة",
+                ex6_event_tangier_sub: "1905",
+                ex6_event_bosnia_label: "ضم البوسنة والهرسك",
+                ex6_event_bosnia_sub: "1908",
+                ex6_event_sarajevo_label: "حادثة سراييفو",
+                ex6_event_sarajevo_sub: "1914",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+    returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        // Config objects for Type 3 and Type 6
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: 'Germany', value: 80, labelKey: 'ex3A_key_germany', valueFormatted: '80' },
+                { label: 'Russia', value: 60, labelKey: 'ex3A_key_russia', valueFormatted: '60' },
+                { label: 'Britain', value: 50, labelKey: 'ex3A_key_uk', valueFormatted: '50' },
+                { label: 'France', value: 45, labelKey: 'ex3A_key_france', valueFormatted: '45' }
+            ],
+            maxValue: 80,
+            ySteps: [80, 60, 40, 20, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1879, labelKey: 'ex6_event_dual_label', subKey: 'ex6_event_dual_sub' },
+                { year: 1882, labelKey: 'ex6_event_triple_label', subKey: 'ex6_event_triple_sub' },
+                { year: 1904, labelKey: 'ex6_event_entente_label', subKey: 'ex6_event_entente_sub' },
+                { year: 1905, labelKey: 'ex6_event_tangier_label', subKey: 'ex6_event_tangier_sub' },
+                { year: 1908, labelKey: 'ex6_event_bosnia_label', subKey: 'ex6_event_bosnia_sub' },
+                { year: 1914, labelKey: 'ex6_event_sarajevo_label', subKey: 'ex6_event_sarajevo_sub' }
+            ],
+            startYear: 1879,
+            endYear: 1914,
+            scaleYears: [1880, 1890, 1900, 1910]
+        };
+		window.__hghExerciseGraphicConfigs = {
+    ex3answer: {
+        type: 'chart',
+        containerId: 'ex3chartContainer',
+        chartOptions: ex3ChartOptions
+    },
+    ex6answer: {
+        type: 'timeline',
+        containerId: 'ex6timelineCanvas',
+        timelineConfig: ex6TimelineOptions
+    }
+};
+    </script>
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonTitle">WWI: Causes - History & Geography Hub</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <style>
+        /* ---------- History palette (scoped to lesson container) ---------- */
+        .lesson-theme-history {
+            --HGH-History-bg-color: #fdfaf3;
+            --HGH-History-surface-color: #ffffff;
+            --HGH-History-text-color: #1a1a1a;
+            --HGH-History-text-secondary: #3a3a3a;
+            --HGH-History-heading-color: #1a1a1a;
+            --HGH-History-border-color: #e0d8c8;
+            --HGH-History-shadow-color: rgba(0,0,0,0.07);
+            --HGH-History-accent-color: #8b6914;
+            --HGH-History-accent-light: #f3e8cc;
+            --HGH-History-bullet-color: #8b6914;
+            --HGH-History-toggle-bg: #e8e0d0;
+            --HGH-History-toggle-icon: #5c4a1f;
+            --HGH-History-code-bg: #f9f5ec;
+            --HGH-History-divider-color: #d4c8a8;
+            --HGH-History-highlight-bg: #fef9ef;
+            --HGH-History-card-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --HGH-History-num-roman-color: #6b3a2a;
+            --HGH-History-num-numeric-color: #4a6741;
+            --HGH-History-num-alpha-color: #5c3d6e;
+            --HGH-History-bullet-marker-color: #8b6914;
+            --HGH-History-country-color: #b5452c;
+            --HGH-History-country-bg: #ffeae5;
+            --HGH-History-personality-color: #1e6b4b;
+            --HGH-History-personality-bg: #e3f5ec;
+            --HGH-History-treaty-color: #5f4b6e;
+            --HGH-History-treaty-bg: #f1ebf5;
+            --HGH-History-event-color: #8b6820;
+            --HGH-History-event-bg: #fff6e5;
+            --HGH-History-print-bg: #ffffff;
+            --HGH-History-print-text: #000000;
+            --HGH-History-print-secondary-text: #333333;
+            --HGH-History-print-border: #cccccc;
+            --HGH-History-print-answer-bg: #fafafa;
+            --HGH-History-exercise-map-border: #cccccc;
+            --HGH-History-exercise-map-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            --HGH-History-lightbox-overlay-bg: rgba(0,0,0,0.85);
+            --HGH-History-lightbox-close-color: #ffffff;
+            --HGH-History-lightbox-close-hover-color: #cccccc;
+            --HGH-History-pdf-overlay-bg: rgba(0,0,0,0.7);
+            --HGH-History-btn-primary-text: #ffffff;
+            --HGH-History-btn-primary-hover-bg: #7a5c12;
+            --HGH-History-btn-hover-shadow: 0 6px 20px rgba(0,0,0,0.13);
+            --HGH-History-pdf-modal-shadow: 0 8px 40px rgba(0,0,0,0.25);
+        }
+
+        [data-theme="dark"] .lesson-theme-history {
+            --HGH-History-bg-color: #1a1a1f;
+            --HGH-History-surface-color: #23232a;
+            --HGH-History-text-color: #e0ddd5;
+            --HGH-History-text-secondary: #c4c0b5;
+            --HGH-History-heading-color: #f0ede4;
+            --HGH-History-border-color: #3a3830;
+            --HGH-History-shadow-color: rgba(0,0,0,0.3);
+            --HGH-History-accent-color: #d4a843;
+            --HGH-History-accent-light: #2e2a1f;
+            --HGH-History-bullet-color: #d4a843;
+            --HGH-History-toggle-bg: #3a3830;
+            --HGH-History-toggle-icon: #d4a843;
+            --HGH-History-code-bg: #28282e;
+            --HGH-History-divider-color: #3e3c34;
+            --HGH-History-highlight-bg: #282820;
+            --HGH-History-card-shadow: 0 2px 16px rgba(0,0,0,0.35);
+            --HGH-History-num-roman-color: #d4947a;
+            --HGH-History-num-numeric-color: #8db87f;
+            --HGH-History-num-alpha-color: #b892d4;
+            --HGH-History-bullet-marker-color: #d4a843;
+            --HGH-History-country-color: #e07b64;
+            --HGH-History-country-bg: #3d2622;
+            --HGH-History-personality-color: #72c9a1;
+            --HGH-History-personality-bg: #1d352a;
+            --HGH-History-treaty-color: #b498c4;
+            --HGH-History-treaty-bg: #2a2330;
+            --HGH-History-event-color: #d4a843;
+            --HGH-History-event-bg: #302818;
+            --HGH-History-exercise-map-border: #555555;
+            --HGH-History-exercise-map-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            --HGH-History-lightbox-overlay-bg: rgba(0,0,0,0.85);
+            --HGH-History-lightbox-close-color: #ffffff;
+            --HGH-History-lightbox-close-hover-color: #cccccc;
+            --HGH-History-pdf-overlay-bg: rgba(0,0,0,0.7);
+            --HGH-History-btn-primary-text: #1a1a1f;
+            --HGH-History-btn-primary-hover-bg: #c09430;
+            --HGH-History-btn-hover-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            --HGH-History-pdf-modal-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        }
+
+        body { margin: 0; font-family: var(--ED-General-font-stack, sans-serif); }
+
+        .lesson-theme-history {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            color: var(--HGH-History-text-color);
+        }
+
+        .lesson-section-card {
+            background: var(--HGH-History-surface-color);
+            border: 1px solid var(--HGH-History-border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--HGH-History-card-shadow);
+        }
+
+        /* Multi‑level numbering */
+        .HGH-History-level-roman {
+            color: var(--HGH-History-num-roman-color);
+            font-weight: bold;
+            margin: 1.5rem 0 1rem 0;
+        }
+        .HGH-History-level-numeric {
+            color: var(--HGH-History-num-numeric-color);
+            font-weight: bold;
+            margin: 1.2rem 0 0.8rem 0;
+        }
+        .HGH-History-level-alpha {
+            color: var(--HGH-History-num-alpha-color);
+            font-weight: bold;
+            margin: 0.8rem 0 0.5rem 0;
+        }
+        .HGH-History-level-bullet {
+            color: var(--HGH-History-bullet-marker-color);
+            margin-left: 1.5rem;
+        }
+
+        /* Semantic inline tags */
+        .HGH-History-country {
+            color: var(--HGH-History-country-color);
+            background: var(--HGH-History-country-bg);
+            padding: 0.1em 0.4em;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .HGH-History-personality {
+            color: var(--HGH-History-personality-color);
+            background: var(--HGH-History-personality-bg);
+            padding: 0.1em 0.4em;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .HGH-History-treaty {
+            color: var(--HGH-History-treaty-color);
+            background: var(--HGH-History-treaty-bg);
+            padding: 0.1em 0.4em;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .HGH-History-event {
+            color: var(--HGH-History-event-color);
+            background: var(--HGH-History-event-bg);
+            padding: 0.1em 0.4em;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Print */
+        @media print {
+            header, footer, .no-print { display: none; }
+            body { background: white; }
+            .lesson-theme-history { background: white; color: black; max-width: 100%; }
+            .lesson-section-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+        }
+
+        /* Gallery & Lightbox */
+        .HGH-History-gallery {
+            display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;
+        }
+        .HGH-History-gallery-item {
+            width: 180px; border: 1px solid var(--HGH-History-border-color);
+            border-radius: 8px; overflow: hidden; cursor: pointer; text-align: center;
+        }
+        .HGH-History-gallery-item img {
+            width: 100%; height: 120px; object-fit: cover; display: block;
+        }
+        .HGH-History-gallery-caption {
+            margin: 0.4rem; font-size: 0.85rem; color: var(--HGH-History-text-secondary);
+        }
+        .HGH-History-lightbox-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--HGH-History-lightbox-overlay-bg); z-index: 10000;
+            align-items: center; justify-content: center; cursor: zoom-out;
+        }
+        .HGH-History-lightbox-overlay.active { display: flex; }
+        .HGH-History-lightbox-close {
+            position: absolute; top: 20px; right: 20px; background: none; border: none;
+            font-size: 3rem; color: var(--HGH-History-lightbox-close-color); cursor: pointer;
+        }
+        .HGH-History-lightbox-close:hover { color: var(--HGH-History-lightbox-close-hover-color); }
+        .HGH-History-lightbox-container img {
+            max-width: 90vw; max-height: 90vh; transition: transform 0.3s; cursor: zoom-in;
+        }
+        .HGH-History-lightbox-container img.zoomed {
+            transform: scale(2); cursor: zoom-out;
+        }
+        .HGH-History-placeholder { padding: 2rem; color: #999; font-style: italic; }
+
+        /* PDF Modal */
+        .HGH-History-pdf-modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--HGH-History-pdf-overlay-bg); z-index: 9999;
+            align-items: center; justify-content: center;
+        }
+        .HGH-History-pdf-modal-overlay.active { display: flex; }
+        .HGH-History-pdf-modal {
+            background: var(--HGH-History-surface-color); border-radius: 16px;
+            padding: 2rem; max-width: 500px; width: 90%;
+            box-shadow: var(--HGH-History-pdf-modal-shadow);
+            color: var(--HGH-History-text-color);
+            position: relative; /* so close button can be positioned */
+        }
+        .HGH-History-pdf-modal-close {
+            position: absolute; top: 10px; right: 15px; background: none; border: none;
+            font-size: 2rem; cursor: pointer; color: var(--HGH-History-text-color);
+        }
+        .HGH-History-pdf-options { margin: 1.5rem 0; }
+        .HGH-History-pdf-option { display: flex; align-items: center; margin: 0.8rem 0; }
+        .HGH-History-pdf-checkbox { margin-right: 0.5rem; }
+        .HGH-History-pdf-loading-spinner {
+            display: none; margin: 1rem auto; border: 4px solid var(--HGH-History-border-color);
+            border-top: 4px solid var(--HGH-History-accent-color); border-radius: 50%;
+            width: 30px; height: 30px; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .HGH-History-pdf-modal-actions { display: flex; gap: 1rem; justify-content: flex-end; }
+        .HGH-History-pdf-modal-btn {
+            padding: 0.5rem 1.5rem; border: 1px solid var(--HGH-History-border-color);
+            border-radius: 8px; background: var(--HGH-History-surface-color);
+            color: var(--HGH-History-text-color); cursor: pointer;
+        }
+        .primary-btn {
+            background: var(--HGH-History-accent-color);
+            color: var(--HGH-History-btn-primary-text); border: none;
+        }
+        .primary-btn:hover { background: var(--HGH-History-btn-primary-hover-bg); }
+
+        /* Exercises */
+        .HGH-History-exercise-section-title { color: var(--HGH-History-heading-color); }
+        .HGH-History-exercise-item { margin-bottom: 1.5rem; }
+        .HGH-History-exercise-number {
+            display: inline-block; background: var(--HGH-History-accent-light);
+            padding: 0.2rem 0.6rem; border-radius: 4px; margin-right: 0.4rem;
+        }
+        .HGH-History-exercise-answer-wrapper {
+            margin-top: 0.5rem; padding: 0.8rem; background: var(--HGH-History-highlight-bg);
+            border-radius: 6px; display: none;
+        }
+        .HGH-History-exercise-answer-wrapper-visible { display: block; }
+        .HGH-History-exercise-map-wrapper { margin-top: 1rem; }
+        .HGH-History-exercise-map-img {
+            width: 100%; max-width: 500px; border: 1px solid var(--HGH-History-exercise-map-border);
+            box-shadow: var(--HGH-History-exercise-map-shadow);
+        }
+    </style>
+</head>
+<body>
+    <header id="header-container"></header>
+
+    <main class="lesson-theme-history">
+        <!-- Lesson Heading -->
+        <div class="lesson-section-card">
+            <h1 data-i18n="lessonTitle">WWI: Causes</h1>
+        </div>
+
+        <!-- Introduction -->
+        <div class="lesson-section-card">
+            <h2 data-i18n="sectionIntroduction">Introduction</h2>
+            <p data-i18n="introText">World War I (1914‑1918) was a global conflict that reshaped the political map of the world. To understand its outbreak, historians examine long‑term tensions – militarism, alliances, imperialism, nationalism – and a single spark that ignited the powder keg. This lesson explores those intertwined causes.</p>
+        </div>
+
+        <!-- Main Content (Causes) -->
+        <div class="lesson-section-card">
+            <p class="HGH-History-level-roman">I) Causes of World War I</p>
+
+            <p class="HGH-History-level-numeric">1. Intensified Colonial Rivalry</p>
+            <p data-i18n="colRivalIntro">A. Rivalry between European colonial powers intensified in the last quarter of the 19th century due to several reasons:</p>
+            <p class="HGH-History-level-bullet">• The maturation of the Industrial Revolution and Europe's growing need for external markets to export surplus industrial production.</p>
+            <p class="HGH-History-level-bullet">• The European economy suffered the "Great Depression" between 1873 and 1886, reducing profits on investment and forcing a search for new outlets for capital.</p>
+            <p class="HGH-History-level-bullet">• The emergence of new European powers such as <span class="HGH-History-country">Germany</span> and <span class="HGH-History-country">Italy</span>, which demanded a re‑division of the world and their right to colonies.</p>
+            <p>B. Anglo‑German rivalry intensified when <span class="HGH-History-country">Germany</span>'s Emperor <span class="HGH-History-personality">Wilhelm II</span> adopted a new economic policy called "Weltpolitik" (world policy), which believed Germany's future lay on the water. He strengthened the German navy and expanded economic influence into the Ottoman Empire and Asia, alarming <span class="HGH-History-country">Britain</span>.</p>
+            <p>C. The colonial rivalry led to international crises that almost turned into wars:</p>
+            <p class="HGH-History-level-bullet">• The <span class="HGH-History-event">Fashoda Incident (1898)</span> between <span class="HGH-History-country">France</span> and <span class="HGH-History-country">Britain</span>, resolved by the <span class="HGH-History-treaty">Entente Cordiale</span>.</p>
+            <p class="HGH-History-level-bullet">• The <span class="HGH-History-event">Moroccan Crises</span> between <span class="HGH-History-country">Germany</span> and <span class="HGH-History-country">France</span>: Tangier (1905) and Agadir (1911), settled by compromise – France ceded part of Congo to Germany in exchange for a protectorate over Morocco (1912).</p>
+
+            <p class="HGH-History-level-numeric">2. The Alliance System and the Arms Race</p>
+            <p>A. Alliances:</p>
+            <p class="HGH-History-level-bullet">• <span class="HGH-History-treaty">Triple Alliance</span>: <span class="HGH-History-country">Germany</span> allied with <span class="HGH-History-country">Austria‑Hungary</span> (1879) to isolate <span class="HGH-History-country">France</span> and prevent it from recovering Alsace‑Lorraine. <span class="HGH-History-country">Italy</span> joined in 1882, angered by the French protectorate over <span class="HGH-History-country">Tunisia</span> (1881). Italy later signed a secret neutrality pact with France (1902) and left the alliance in 1915, joining the Entente after the secret Treaty of London promised territorial gains. The alliance later included the <span class="HGH-History-country">Ottoman Empire</span> (1914) and <span class="HGH-History-country">Bulgaria</span> (1915).</p>
+            <p class="HGH-History-level-bullet">• <span class="HGH-History-treaty">Triple Entente</span>: To break its isolation, <span class="HGH-History-country">France</span> formed agreements with <span class="HGH-History-country">Britain</span> (1904) and <span class="HGH-History-country">Russia</span>. The Entente aimed to encircle <span class="HGH-History-country">Germany</span> and end French isolation. It later expanded to include <span class="HGH-History-country">Japan</span> (1914), <span class="HGH-History-country">Romania</span>, <span class="HGH-History-country">Portugal</span>, <span class="HGH-History-country">Italy</span> (1915), and the <span class="HGH-History-country">United States</span> (1917).</p>
+            <p>B. Arms race:</p>
+            <p class="HGH-History-level-bullet">• Military service was extended from two to three years; army sizes soared. By 1913, <span class="HGH-History-country">Germany</span> had 820,000 soldiers and <span class="HGH-History-country">Russia</span> 1.8 million. Naval rivalry between <span class="HGH-History-country">Britain</span> and <span class="HGH-History-country">Germany</span> escalated. Defence budgets and military spending multiplied.</p>
+
+            <p class="HGH-History-level-numeric">3. Nationalism in Central Europe and the Balkans</p>
+            <p>Tensions in the region stemmed from:</p>
+            <p class="HGH-History-level-bullet">• The presence of multiple ethnic groups (Slavs, Czechs, Hungarians) seeking independent states, especially the South Slavs supported by <span class="HGH-History-country">Serbia</span>.</p>
+            <p class="HGH-History-level-bullet">• Rivalry between <span class="HGH-History-country">Russia</span> (which wanted access to warm waters via the Bosphorus) and <span class="HGH-History-country">Austria‑Hungary</span> (which aimed to reach the Adriatic by occupying <span class="HGH-History-country">Bosnia‑Herzegovina</span> in 1908).</p>
+            <p>The resulting tension led to the Balkan Wars (1912‑1913) and the growth of Slavic nationalism.</p>
+
+            <p class="HGH-History-level-numeric">4. The Sarajevo Incident and the Outbreak of the Great War</p>
+            <p>On 28 June 1914, <span class="HGH-History-personality">Archduke Franz Ferdinand</span>, heir to the Austro‑Hungarian throne, was assassinated by a Bosnian student belonging to a Slavic nationalist movement.</p>
+            <p><span class="HGH-History-country">Austria</span> blamed <span class="HGH-History-country">Serbia</span> and demanded to send judges to participate in the investigation; <span class="HGH-History-country">Serbia</span> refused, considering it a violation of its sovereignty.</p>
+            <p>Encouraged by <span class="HGH-History-country">Germany</span>, <span class="HGH-History-country">Austria‑Hungary</span> declared war on <span class="HGH-History-country">Serbia</span> on 28 July 1914. Through the alliance system, the conflict escalated into a world war. Other states joined the alliances: <span class="HGH-History-country">Japan</span> (1914), <span class="HGH-History-country">Italy</span> (1915), <span class="HGH-History-country">Romania</span>, <span class="HGH-History-country">Portugal</span>, and the <span class="HGH-History-country">USA</span> (1917) sided with the Entente; the <span class="HGH-History-country">Ottoman Empire</span> (1914) and <span class="HGH-History-country">Bulgaria</span> (1915) joined the Central Powers.</p>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="lesson-section-card">
+            <h2 data-i18n="sectionConclusion">Conclusion</h2>
+            <p data-i18n="conclusionText">World War I was not caused by a single event but by a combination of deep‑seated factors: the arms race, the alliance system, colonial rivalries, and fervent nationalism. The assassination of Archduke Franz Ferdinand provided the immediate trigger, setting off a chain reaction through the alliances that plunged Europe into war.</p>
+        </div>
+
+        <!-- Definitions -->
+        <div class="lesson-section-card" id="definitions-section">
+            <h2 data-i18n="definitionsHeading">Definitions</h2>
+            <dl>
+                <dt data-i18n="defMilitarism">Militarism</dt>
+                <dd data-i18n="defMilitarismDesc">The belief that a country should maintain a strong military and be prepared to use it aggressively.</dd>
+                <dt data-i18n="defAlliance">Alliance System</dt>
+                <dd data-i18n="defAllianceDesc">A formal agreement between nations to cooperate and support each other, especially in war.</dd>
+                <dt data-i18n="defImperialism">Imperialism</dt>
+                <dd data-i18n="defImperialismDesc">A policy of extending a country's power through diplomacy or military force, often by acquiring colonies.</dd>
+                <dt data-i18n="defNationalism">Nationalism</dt>
+                <dd data-i18n="defNationalismDesc">A strong sense of pride and devotion to one's nation, sometimes leading to the desire for independence or dominance.</dd>
+            </dl>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="lesson-section-card" id="gallery-section">
+            <h2 data-i18n="galleryHeading">🗺️ Maps & Visual Data</h2>
+            <div class="HGH-History-gallery">
+                <div class="HGH-History-gallery-item">
+                    <img src="assets/lessons/history/4th/europe1914.jpg" alt="Map of Europe 1914" onclick="HGH_openLightbox(this.src)">
+                    <p class="HGH-History-gallery-caption">Europe 1914</p>
+                </div>
+                <div class="HGH-History-gallery-item">
+                    <img src="assets/lessons/history/4th/ww1timeline.jpg" alt="WWI Timeline" onclick="HGH_openLightbox(this.src)">
+                    <p class="HGH-History-gallery-caption">WWI Timeline</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expandable Correction -->
+        <div class="lesson-section-card">
+            <details>
+                <summary data-i18n="correctionTitle">Correction (click to expand)</summary>
+                <p data-i18n="corEx1"><strong>1.</strong> The alliance system turned a local conflict into a continental war because countries were bound to defend their allies.</p>
+                <p data-i18n="corEx2"><strong>2.</strong> Two examples: the Anglo‑German naval race and the massive army build‑ups through conscription.</p>
+                <p data-i18n="corEx3"><strong>3.</strong> The assassination of Archduke Franz Ferdinand – it gave Austria‑Hungary a pretext to attack Serbia.</p>
+                <p data-i18n="corEx4"><strong>4.</strong> Nationalism is intense pride in one's nation; Slavic nationalism in the Balkans encouraged Serbia to challenge Austria‑Hungary.</p>
+            </details>
+        </div>
+
+        <!-- Interactive Exercises -->
+        <div class="lesson-section-card no-print" id="exercises-section">
+            <h2 data-i18n="exercisesHeading">📝 Exercises</h2>
+            <div id="HGH-exercise-container">
+                <!-- Rendered dynamically by HGH_EXERCISE_CUSTOM_BUILDERS -->
+            </div>
+        </div>
+
+        <!-- PDF Download Button -->
+        <div class="no-print" style="text-align: right; margin-bottom: 1rem;">
+            <button class="HGH-History-pdf-modal-btn primary-btn" id="openPdfModalBtn">📥 Download PDF</button>
+        </div>
+    </main>
+
+    <footer id="footer-container"></footer>
+
+    <!-- Shared scripts (same as index) -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+
+    <!-- Lesson‑specific translations -->
+    <script>
+        const LESSON_TRANSLATIONS = {
+            en: {
+                lessonTitle: "WWI: Causes",
+                sectionIntroduction: "Introduction",
+                introText: "World War I (1914‑1918) was a global conflict that reshaped the political map of the world. To understand its outbreak, historians examine long‑term tensions – militarism, alliances, imperialism, nationalism – and a single spark that ignited the powder keg. This lesson explores those intertwined causes.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "World War I was not caused by a single event but by a combination of deep‑seated factors: the arms race, the alliance system, colonial rivalries, and fervent nationalism. The assassination of Archduke Franz Ferdinand provided the immediate trigger, setting off a chain reaction through the alliances that plunged Europe into war.",
+                definitionsHeading: "Definitions",
+                defMilitarism: "Militarism",
+                defMilitarismDesc: "The belief that a country should maintain a strong military and be prepared to use it aggressively.",
+                defAlliance: "Alliance System",
+                defAllianceDesc: "A formal agreement between nations to cooperate and support each other, especially in war.",
+                defImperialism: "Imperialism",
+                defImperialismDesc: "A policy of extending a country's power through diplomacy or military force, often by acquiring colonies.",
+                defNationalism: "Nationalism",
+                defNationalismDesc: "A strong sense of pride and devotion to one's nation, sometimes leading to the desire for independence or dominance.",
+                galleryHeading: "🗺️ Maps & Visual Data",
+                correctionTitle: "Correction (click to expand)",
+                corEx1: "1. The alliance system turned a local conflict into a continental war because countries were bound to defend their allies.",
+                corEx2: "2. Two examples: the Anglo‑German naval race and the massive army build‑ups through conscription.",
+                corEx3: "3. The assassination of Archduke Franz Ferdinand – it gave Austria‑Hungary a pretext to attack Serbia.",
+                corEx4: "4. Nationalism is intense pride in one's nation; Slavic nationalism in the Balkans encouraged Serbia to challenge Austria‑Hungary.",
+                exercisesHeading: "📝 Exercises"
+            },
+            fr: {
+                lessonTitle: "Première Guerre mondiale : les causes",
+                sectionIntroduction: "Introduction",
+                introText: "La Première Guerre mondiale (1914‑1918) est un conflit mondial qui a redessiné la carte politique du monde. Pour comprendre son déclenchement, les historiens examinent des tensions à long terme – militarisme, alliances, impérialisme, nationalisme – et une étincelle qui a mis le feu aux poudres. Cette leçon explore ces causes entremêlées.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La guerre n’a pas été causée par un seul événement, mais par une combinaison de facteurs profonds : la course aux armements, le système d’alliances, les rivalités coloniales et un nationalisme ardent. L’assassinat de l’archiduc François‑Ferdinand a servi de déclencheur immédiat, entraînant une réaction en chaîne à travers les alliances qui a plongé l’Europe dans la guerre.",
+                definitionsHeading: "Définitions",
+                defMilitarism: "Militarisme",
+                defMilitarismDesc: "Croyance selon laquelle un pays doit entretenir une armée puissante et être prêt à l'utiliser de manière agressive.",
+                defAlliance: "Système d'alliances",
+                defAllianceDesc: "Accord formel entre nations pour coopérer et se soutenir mutuellement, en particulier en temps de guerre.",
+                defImperialism: "Impérialisme",
+                defImperialismDesc: "Politique d'extension de la puissance d'un pays par la diplomatie ou la force militaire, souvent par l'acquisition de colonies.",
+                defNationalism: "Nationalisme",
+                defNationalismDesc: "Sentiment fort de fierté et d'attachement à sa nation, pouvant mener à des désirs d'indépendance ou de domination.",
+                galleryHeading: "Cartes et données visuelles",
+                correctionTitle: "Correction (cliquez pour afficher)",
+                corEx1: "1. Le système d'alliances a transformé un conflit local en guerre continentale car les pays étaient tenus de défendre leurs alliés.",
+                corEx2: "2. Deux exemples : la rivalité navale anglo-allemande et la constitution massive d'armées via la conscription.",
+                corEx3: "3. L'assassinat de l'archiduc François‑Ferdinand – il a donné à l'Autriche‑Hongrie un prétexte pour attaquer la Serbie.",
+                corEx4: "4. Le nationalisme est une fierté intense envers sa nation ; le nationalisme slave dans les Balkans a encouragé la Serbie à défier l'Autriche‑Hongrie.",
+                exercisesHeading: "Exercices"
+            },
+            ar: {
+                lessonTitle: "الحرب العالمية الأولى: الأسباب",
+                sectionIntroduction: "مقدمة",
+                introText: "كانت الحرب العالمية الأولى (1914‑1918) صراعًا عالميًا أعاد تشكيل الخريطة السياسية للعالم. لفهم أسباب نشوبها، يدرس المؤرخون توترات طويلة الأمد – النزعة العسكرية، الأحلاف، الإمبريالية، القومية – والشرارة التي أشعلت برميل البارود. يستعرض هذا الدرس هذه الأسباب المتشابكة.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "لم تندلع الحرب العالمية الأولى بسبب حدث واحد، بل بمزيج من العوامل العميقة: سباق التسلح، نظام الأحلاف، التنافس الاستعماري، والقومية المتأججة. كان اغتيال الأرشيدوق فرانز فرديناند الشرارة المباشرة التي أدت إلى سلسلة من ردود الفعل عبر الأحلاف وأغرقت أوروبا في الحرب.",
+                definitionsHeading: "تعريفات",
+                defMilitarism: "النزعة العسكرية",
+                defMilitarismDesc: "الاعتقاد بأنه يجب على الدولة الاحتفاظ بجيش قوي وأن تكون مستعدة لاستخدامه بقوة.",
+                defAlliance: "نظام الأحلاف",
+                defAllianceDesc: "اتفاق رسمي بين الأمم للتعاون ودعم بعضها البعض، خاصة في الحرب.",
+                defImperialism: "الإمبريالية",
+                defImperialismDesc: "سياسة توسيع نفوذ دولة ما عن طريق الدبلوماسية أو القوة العسكرية، غالباً بالاستيلاء على المستعمرات.",
+                defNationalism: "القومية",
+                defNationalismDesc: "شعور قوي بالفخر والولاء للأمة، مما قد يؤدي إلى الرغبة في الاستقلال أو الهيمنة.",
+                galleryHeading: "خرائط ومعطيات مصورة",
+                correctionTitle: "التصحيح (انقر للتوسيع)",
+                corEx1: "١. حوّل نظام الأحلاف نزاعاً محلياً إلى حرب قارية لأن الدول كانت ملزمة بالدفاع عن حلفائها.",
+                corEx2: "٢. مثالان: التنافس البحري الأنجلو-ألماني والبناء الهائل للجيوش من خلال التجنيد الإجباري.",
+                corEx3: "٣. اغتيال الأرشيدوق فرانز فرديناند – أعطى النمسا-المجر ذريعة لمهاجمة صربيا.",
+                corEx4: "٤. القومية هي الفخر الشديد بالأمة؛ شجعت القومية السلافية في البلقان صربيا على تحدي النمسا-المجر.",
+                exercisesHeading: "تمارين"
+            }
+        };
+
+        // Merge into global dictionary (used by ED-general-translation.js)
+        if (typeof window.HGH_UI_TEXT === 'object') {
+            for (const lang of Object.keys(LESSON_TRANSLATIONS)) {
+                if (!window.HGH_UI_TEXT[lang]) window.HGH_UI_TEXT[lang] = {};
+                Object.assign(window.HGH_UI_TEXT[lang], LESSON_TRANSLATIONS[lang]);
+            }
+        } else {
+            window.HGH_UI_TEXT = LESSON_TRANSLATIONS;
+        }
+    </script>
+
+    <!-- Exercise data & builders -->
+    <script>
+        // User registration status (should come from auth; here set to true for demonstration)
+        window.userRegister = true;
+
+        window.HGH_EXERCISE_CUSTOM_BUILDERS = {
+            'definition-list': function(data) {
+                const showAnswers = window.userRegister === true;
+                let html = '<div class="HGH-History-section-card" id="print-' + data._id + '">';
+                html += '<h2 class="HGH-History-exercise-section-title">' + data.title + '</h2>';
+                data.items.forEach(function(item, idx) {
+                    html += '<div class="HGH-History-exercise-item">';
+                    html += '<div><span class="HGH-History-exercise-number">' + (idx + 1) + '</span> ' + item.term + '</div>';
+                    if (showAnswers) {
+                        html += '<div class="HGH-History-exercise-answer-wrapper HGH-History-exercise-answer-wrapper-visible">';
+                        html += '<strong>📖 Definition:</strong> ' + item.answer + '</div>';
+                    }
+                    html += '</div>';
+                });
+                html += '</div>';
+                return html;
+            },
+            'map-completion': function(data) {
+                const showAnswers = window.userRegister === true;
+                let html = '<div class="HGH-History-section-card" id="print-' + data._id + '">';
+                html += '<h2 class="HGH-History-exercise-section-title">' + data.title + '</h2>';
+                html += '<div class="HGH-History-exercise-map-wrapper">';
+                html += '<img src="' + data.incompleteMap + '" alt="Incomplete map" class="HGH-History-exercise-map-img">';
+                html += '<p class="HGH-History-gallery-caption">' + data.caption + '</p>';
+                html += '</div>';
+                if (showAnswers) {
+                    html += '<div class="HGH-History-exercise-answer-wrapper HGH-History-exercise-answer-wrapper-visible" style="margin-top:1rem">';
+                    html += '<strong>🗺️ Answer:</strong>';
+                    html += '<div class="HGH-History-exercise-map-wrapper">';
+                    html += '<img src="' + data.completeMap + '" alt="Completed map" class="HGH-History-exercise-map-img">';
+                    html += '<p class="HGH-History-gallery-caption">' + data.answerCaption + '</p>';
+                    html += '</div></div>';
+                }
+                html += '</div>';
+                return html;
+            }
+        };
+
+        // Example exercise data (replace with real content)
+        window.HGH_EXERCISE_DATA = {
+            sections: [
+                {
+                    type: 'definition-list',
+                    title: '📝 Define the following terms',
+                    _id: 'def1',
+                    items: [
+                        { term: 'Weltpolitik', answer: 'Expansionist strategy adopted by German Emperor Wilhelm II, aiming to make Germany a global power through naval strength and colonial acquisitions.' },
+                        { term: 'Triple Entente', answer: 'Military alliance formed in the early 20th century between France, Russia, and Britain, designed to counter the Triple Alliance.' }
+                    ]
+                },
+                {
+                    type: 'map-completion',
+                    title: '🗺️ Complete the map of Europe before WWI',
+                    _id: 'map1',
+                    incompleteMap: 'assets/exercises/europeBlank.jpg',
+                    completeMap: 'assets/exercises/europeComplete.jpg',
+                    caption: 'Label the major powers and alliances',
+                    answerCaption: 'Completed map with alliances marked'
+                }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('HGH-exercise-container');
+            if (container && window.HGH_EXERCISE_DATA && window.HGH_EXERCISE_CUSTOM_BUILDERS) {
+                window.HGH_EXERCISE_DATA.sections.forEach(function(section) {
+                    const builder = window.HGH_EXERCISE_CUSTOM_BUILDERS[section.type];
+                    if (builder) {
+                        container.innerHTML += builder(section);
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- External print & lightbox script (replaces inline code) -->
+    <script src="HGH-print.js"></script>
+	<script>
+(function() {
+    // Fallback: if header/footer are not loaded by hgh-init.js, load them manually
+    async function loadIncludes() {
+        if (!document.getElementById('header-container') || document.getElementById('header-container').innerHTML.trim() !== '') return;
+
+        try {
+            const headerResp = await fetch('header.html');
+            if (headerResp.ok) {
+                document.getElementById('header-container').innerHTML = await headerResp.text();
+            }
+            const footerResp = await fetch('footer.html');
+            if (footerResp.ok) {
+                document.getElementById('footer-container').innerHTML = await footerResp.text();
+            }
+        } catch (e) {
+            console.error('Header/footer fallback failed:', e);
+        }
+    }
+    // Wait a tiny bit to give hgh-init.js a chance first
+    setTimeout(loadIncludes, 100);
+})();
+</script>
+</body>
+</html>
