@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Avatar Creator – Step 1, 2 &amp; 3</title>
+    <script src="ED-admin-monitor.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-64x64.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/ED-general-common.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow: rgba(60, 50, 40, 0.07);
+            --ED-General-color-shadow-hover: rgba(60, 50, 40, 0.14);
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-bg: #ffffff;
+            --ED-General-color-header-border: #e8e2d9;
+            --ED-General-color-toggle-bg: #e8e2d9;
+            --ED-General-color-toggle-text: #4a5568;
+            --ED-General-color-toggle-active-bg: #4a7fd9;
+            --ED-General-color-toggle-active-text: #ffffff;
+            --ED-General-color-badge-bg: #f0ece5;
+            --ED-General-color-badge-text: #5a6c7d;
+            --ED-General-color-badge-hover-bg: #e4ded5;
+            --ED-General-color-btn-primary-bg: #4a7fd9;
+            --ED-General-color-btn-primary-text: #ffffff;
+            --ED-General-color-btn-primary-hover: #3b6ec4;
+            --ED-General-color-btn-shadow: rgba(0, 0, 0, 0.2);
+            --ED-General-color-icon-container-bg: #f0f4f9;
+            --ED-General-card-radius: 16px;
+            --ED-General-card-padding: 1.5rem;
+            --ED-General-transition-speed: 0.3s;
+            --ED-General-grid-gap: 1.25rem;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+                "Noto Sans", "Noto Sans Arabic", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            --card-accent-r: 60;
+            --card-accent-g: 50;
+            --card-accent-b: 40;
+            --card-shadow-opacity: 0.10;
+            --card-shadow-opacity-hover: 0.22;
+            --card-shadow-blur: 10px;
+            --card-shadow-blur-hover: 30px;
+            --card-shadow-offset-x: 0px;
+            --card-shadow-offset-y: 3px;
+            --card-shadow-offset-y-hover: 8px;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow: rgba(0, 0, 0, 0.25);
+            --ED-General-color-shadow-hover: rgba(0, 0, 0, 0.45);
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-bg: #1c1f28;
+            --ED-General-color-header-border: #2a2e38;
+            --ED-General-color-toggle-bg: #2a2e38;
+            --ED-General-color-toggle-text: #b0b5c2;
+            --ED-General-color-toggle-active-bg: #7aafff;
+            --ED-General-color-toggle-active-text: #12151c;
+            --ED-General-color-badge-bg: #2a2e38;
+            --ED-General-color-badge-text: #b0b5c2;
+            --ED-General-color-badge-hover-bg: #353a45;
+            --ED-General-color-btn-primary-bg: #7aafff;
+            --ED-General-color-btn-primary-text: #12151c;
+            --ED-General-color-btn-primary-hover: #6199f0;
+            --ED-General-color-btn-shadow: rgba(0, 0, 0, 0.5);
+            --ED-General-color-icon-container-bg: #252b38;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+        /* ---------- Animation creator specific ---------- */
+        .step-container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        .step-box {
+            background: var(--ED-General-color-surface);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(var(--ED-General-color-shadow-rgb), 0.12);
+            margin-bottom: 2rem;
+        }
+        .step-title {
+            margin: 0 0 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 650;
+            color: var(--ED-General-color-text-primary);
+        }
+        .step-description {
+            margin-bottom: 1rem;
+            color: var(--ED-General-color-text-secondary);
+        }
+        .images-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .image-item {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .image-item.selected {
+            border-color: var(--ED-General-color-accent-default);
+        }
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-check {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: white;
+            border-radius: 4px;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            color: var(--ED-General-color-text-primary);
+        }
+        .actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.65rem 1.5rem;
+            border-radius: 24px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--ED-General-font-stack);
+        }
+        .btn-primary {
+            background: var(--ED-General-color-accent-default);
+            color: var(--ED-General-color-text-on-accent);
+        }
+        .btn-secondary {
+            background: var(--ED-General-color-border);
+            color: var(--ED-General-color-text-primary);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .empty-message {
+            text-align: center;
+            color: var(--ED-General-color-text-secondary);
+            padding: 2rem;
+            display: none;
+        }
+        /* ---------- Preview / Ordering section ---------- */
+        .preview-section {
+            display: none;
+        }
+        .preview-grid,
+        .order-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .preview-item,
+        .order-item {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--ED-General-color-border);
+        }
+        .order-item {
+            cursor: pointer;
+            position: relative;
+        }
+        .order-item.ordered {
+            cursor: default;
+            opacity: 0.7;
+            border-color: var(--ED-General-color-accent-default);
+        }
+        .order-item .order-number {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: var(--ED-General-color-accent-default);
+            color: var(--ED-General-color-text-on-accent);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+        .order-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* ---------- Back button styling ---------- */
+        .ED-General-back-home-wrapper {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        [dir="rtl"] .ED-General-back-home-wrapper {
+            text-align: right;
+        }
+        .ED-General-back-home-wrapper .ED-General-header-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--ED-General-color-surface);
+            border: 1.5px solid var(--ED-General-color-border);
+            border-radius: 32px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            transition: all 0.22s ease;
+            text-decoration: none;
+            color: var(--ED-General-color-text-primary);
+            font-family: var(--ED-General-font-stack);
+            font-size: 0.85rem;
+        }
+        .ED-General-back-home-wrapper .ED-General-header-btn:hover {
+            border-color: var(--ED-General-color-accent-default);
+            background: var(--ED-General-color-accent-soft);
+            box-shadow: 0 2px 8px rgba(var(--ED-General-color-accent-rgb), 0.12);
+            transform: translateY(-1px);
+        }
+        .ED-General-back-home-wrapper .ED-General-header-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* ---- Editor (Step 3) new classes, all using site variables ---- */
+        .editor-box {
+            display: none;
+        }
+        .editor-thumbnail-strip {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 6px 14px;
+            min-height: 110px;
+            align-items: flex-start;
+        }
+        .editor-thumbnail-strip .count {
+            background: var(--ED-General-color-text-primary);
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+        .editor-thumb-wrapper {
+            flex-shrink: 0;
+            position: relative;
+            cursor: grab;
+            border-radius: 8px;
+            border: 3px solid transparent;
+            background: var(--ED-General-color-surface);
+            box-shadow: 0 1px 3px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 4px;
+            user-select: none;
+        }
+        .editor-thumb-wrapper.selected {
+            border-color: var(--ED-General-color-accent-default);
+        }
+        .editor-thumb-wrapper img {
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            border-radius: 5px;
+            pointer-events: none;
+        }
+        .editor-thumb-index {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            background: var(--ED-General-color-text-primary);
+            color: #fff;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 0.65rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .editor-thumb-remove {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 22px;
+            height: 22px;
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .editor-thumb-wrapper:hover .editor-thumb-remove {
+            opacity: 1;
+        }
+        .editor-workspace {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 18px;
+        }
+        @media (max-width: 850px) {
+            .editor-workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+        .editor-preview-panel {
+            background: var(--ED-General-color-bg-secondary);
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid var(--ED-General-color-border);
+            min-height: 340px;
+            justify-content: center;
+        }
+        .editor-preview-panel canvas {
+            max-width: 100%;
+            max-height: 380px;
+            border-radius: 8px;
+            background: #fff;
+        }
+        .editor-control-group {
+            background: var(--ED-General-color-bg-secondary);
+            border-radius: 14px;
+            padding: 16px 18px;
+            border: 1px solid var(--ED-General-color-border);
+            margin-bottom: 16px;
+        }
+        .editor-control-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .editor-control-row label {
+            font-weight: 500;
+            font-size: 0.85rem;
+            min-width: 75px;
+        }
+        .editor-control-row input[type="range"] {
+            flex: 1;
+            accent-color: var(--ED-General-color-accent-default);
+        }
+        .editor-btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        .editor-gif-settings {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: flex-end;
+            margin-top: 18px;
+            padding: 16px 18px;
+            background: var(--ED-General-color-bg-secondary);
+            border-radius: 14px;
+            border: 1px solid var(--ED-General-color-border);
+        }
+        .editor-progress-bar {
+            display: none;
+            width: 200px;
+            height: 8px;
+            background: var(--ED-General-color-border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .editor-progress-bar.active {
+            display: block;
+        }
+        .editor-progress-bar-fill {
+            height: 100%;
+            background: var(--ED-General-color-accent-default);
+            border-radius: 4px;
+            transition: width 0.3s;
+            width: 0%;
+        }
+        .editor-message {
+            text-align: center;
+            margin: 0.5rem 0;
+            color: var(--ED-General-color-accent-default);
+            font-weight: 600;
+        }
+
+        /* Dark‑mode friendly inputs inside the editor */
+        .editor-control-row input[type="number"],
+        .editor-control-row input[type="text"],
+        .editor-control-row select,
+        .editor-gif-settings input[type="number"] {
+            background: var(--ED-General-color-surface);
+            color: var(--ED-General-color-text-primary);
+            border: 1px solid var(--ED-General-color-border);
+            border-radius: 8px;
+            padding: 4px 8px;
+            font-family: var(--ED-General-font-stack);
+        }
+        .editor-gif-settings select {
+            background: var(--ED-General-color-surface);
+            color: var(--ED-General-color-text-primary);
+            border: 1px solid var(--ED-General-color-border);
+            border-radius: 8px;
+            padding: 4px 8px;
+        }
+
+        /* Single‑image editor tweaks */
+        .editor-single-box {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .step-container {
+                padding: 0 1rem;
+            }
+            .image-item {
+                width: 100px;
+                height: 100px;
+            }
+            .ED-General-back-home-wrapper .ED-General-header-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header-container"></header>
+    <main class="step-container">
+        <!-- Step 1: Selection -->
+        <div class="step-box" id="step1-box">
+            <h2 class="step-title" data-i18n="animation.step1.title">Step 1 – Choose images</h2>
+            <p class="step-description" data-i18n="animation.step1.description">Select one or more images for your animated avatar.</p>
+            <div id="imagesContainer" class="images-grid"></div>
+            <div id="emptyMessage" class="empty-message" data-i18n="animation.step1.noImages">No images found. Please go to your Profile and upload a folder first.</div>
+            <div class="actions">
+                <button id="nextBtn" class="btn btn-primary" disabled data-i18n="animation.step1.nextBtn">Next →</button>
+            </div>
+        </div>
+        <!-- Preview / Ordering section (hidden initially) -->
+        <div class="step-box preview-section" id="preview-box">
+            <h2 class="step-title" id="preview-title" data-i18n="animation.preview.title">Selected images</h2>
+            <p class="step-description" id="preview-description" data-i18n="animation.preview.description">These are the images you'll use for your animated avatar.</p>
+            <div id="previewGrid" class="preview-grid"></div>
+            <div id="orderGrid" class="order-grid" style="display:none;"></div>
+            <div class="actions" id="preview-actions">
+                <button id="backToStep1Btn" class="btn btn-secondary" data-i18n="animation.preview.backBtn">← Back</button>
+                <button id="setOrderBtn" class="btn btn-secondary" style="display:none;" data-i18n="animation.preview.setOrderBtn">Set Order</button>
+                <button id="resetOrderBtn" class="btn btn-secondary" style="display:none;" data-i18n="animation.preview.resetOrderBtn">Reset Order</button>
+                <button id="continueBtn" class="btn btn-primary" data-i18n="animation.preview.continueBtn">Continue</button>
+            </div>
+        </div>
+
+        <!-- ============ STEP 3 – Multi‑frame Editor ============ -->
+        <div class="step-box editor-box" id="editor-box">
+            <h2 class="step-title" data-i18n="editor.title">Step 3 – Edit &amp; Animate</h2>
+            <p class="step-description" data-i18n="editor.description">Adjust colours, timing, overlays and generate your GIF.</p>
+            <div class="editor-message" id="editorMessage"></div>
+            <div class="editor-thumbnail-strip" id="editorThumbnailStrip"></div>
+            <div class="editor-workspace">
+                <div class="editor-preview-panel">
+                    <canvas id="editorPreviewCanvas" width="400" height="300" style="display:none;"></canvas>
+                    <span id="editorPreviewPlaceholder" data-i18n="editor.preview.placeholder">Select an image to preview</span>
+                    <div style="display:flex; gap:8px; margin-top:12px;">
+                        <button id="editorPlayBtn" class="btn btn-secondary" data-i18n="editor.playback.play">▶ Play</button>
+                        <button id="editorStopBtn" class="btn btn-secondary" disabled data-i18n="editor.playback.stop">⏹ Stop</button>
+                    </div>
+                </div>
+                <div>
+                    <!-- Edit Mode -->
+                    <div style="margin-bottom:16px; display:flex; align-items:center; gap:10px;">
+                        <span data-i18n="editor.mode.label">Edit Mode:</span>
+                        <button id="editorModeToggle" class="btn btn-secondary" style="font-size:0.85rem;" data-i18n="editor.mode.individual">🎯 Individual</button>
+                    </div>
+                    <!-- Colour -->
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.color.header">🎨 Colour Adjustments</h4>
+                        <div class="editor-control-row"><label data-i18n="editor.brightness">Brightness</label><input type="range" id="editorBrightness" min="0" max="200" value="100" step="1"><span id="editorBrightnessVal">100%</span></div>
+                        <div class="editor-control-row"><label data-i18n="editor.contrast">Contrast</label><input type="range" id="editorContrast" min="0" max="200" value="100" step="1"><span id="editorContrastVal">100%</span></div>
+                        <div class="editor-control-row"><label data-i18n="editor.saturation">Saturation</label><input type="range" id="editorSaturation" min="0" max="200" value="100" step="1"><span id="editorSaturationVal">100%</span></div>
+                        <div class="editor-control-row"><label data-i18n="editor.hueRotate">Hue Rotate</label><input type="range" id="editorHue" min="-180" max="180" value="0" step="1"><span id="editorHueVal">0°</span></div>
+                        <div class="editor-btn-row"><button id="editorResetColorsBtn" class="btn btn-secondary" data-i18n="editor.resetColors">↺ Reset Colors</button></div>
+                    </div>
+                    <!-- Geometry -->
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.geometry.header">📐 Geometry</h4>
+                        <div class="editor-btn-row">
+                            <button id="editorRotateLeftBtn" class="btn btn-secondary" data-i18n="editor.rotateLeft">↺ Rotate Left</button>
+                            <button id="editorRotateRightBtn" class="btn btn-secondary" data-i18n="editor.rotateRight">↻ Rotate Right</button>
+                            <button id="editorFlipHBtn" class="btn btn-secondary" data-i18n="editor.flipH">↔ Flip H</button>
+                            <button id="editorFlipVBtn" class="btn btn-secondary" data-i18n="editor.flipV">↕ Flip V</button>
+                        </div>
+                        <div class="editor-btn-row" style="margin-top:8px;"><button id="editorResetGeoBtn" class="btn btn-secondary" data-i18n="editor.resetGeo">↺ Reset Geometry</button></div>
+                    </div>
+                    <!-- Timing -->
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.timing.header">⏱️ Timing (per frame)</h4>
+                        <div class="editor-control-row">
+                            <label data-i18n="editor.frameDelay">Frame delay</label>
+                            <input type="number" id="editorPerFrameDelay" value="200" min="10" max="5000" step="10" style="width:80px;">
+                            <span data-i18n="editor.ms">ms</span>
+                        </div>
+                        <div class="editor-btn-row">
+                            <button id="editorCopyDelayToAllBtn" class="btn btn-secondary" data-i18n="editor.copyDelayAll">📋 Copy to All</button>
+                            <button id="editorSetGlobalDelayBtn" class="btn btn-secondary" data-i18n="editor.setGlobalDelay">🌐 Set All to Default</button>
+                        </div>
+                    </div>
+                    <!-- Overlay -->
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.overlay.header">🖌 Overlay Text</h4>
+                        <div class="editor-control-row">
+                            <label data-i18n="editor.overlay.text">Text</label><input type="text" id="editorOverlayText" placeholder="e.g. My GIF" style="width:120px;">
+                            <label data-i18n="editor.overlay.color">Color</label><input type="color" id="editorOverlayColor" value="#ffffff" style="width:40px;">
+                            <label data-i18n="editor.overlay.size">Size</label><input type="number" id="editorOverlaySize" value="24" min="8" max="100" step="1" style="width:60px;">
+                        </div>
+                        <div class="editor-btn-row">
+                            <button id="editorSetOverlayBtn" class="btn btn-secondary" data-i18n="editor.setOverlay">Set Overlay</button>
+                            <button id="editorCopyOverlayAllBtn" class="btn btn-secondary" data-i18n="editor.copyOverlayAll">📋 Copy Overlay to All</button>
+                            <button id="editorClearOverlayBtn" class="btn btn-secondary" data-i18n="editor.clearOverlay">✕ Clear</button>
+                        </div>
+                    </div>
+                    <!-- Crop -->
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.crop.header">✂ Crop</h4>
+                        <div class="editor-control-row">
+                            <label data-i18n="editor.crop.aspectRatio">Aspect Ratio</label>
+                            <select id="editorCropAspectSelect">
+                                <option value="original" data-i18n="editor.crop.original">Original</option>
+                                <option value="1:1" data-i18n="editor.crop.square">1:1 Square</option>
+                                <option value="4:3" data-i18n="editor.crop.ratio43">4:3</option>
+                                <option value="16:9" data-i18n="editor.crop.ratio169">16:9</option>
+                            </select>
+                            <button id="editorApplyCropBtn" class="btn btn-secondary" data-i18n="editor.applyCrop">Apply Crop</button>
+                        </div>
+                    </div>
+                    <!-- Bulk Actions -->
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.bulk.header">📦 Bulk Actions</h4>
+                        <div class="editor-btn-row">
+                            <button id="editorApplyToAllBtn" class="btn btn-secondary" data-i18n="editor.copySettingsAll">📋 Copy Settings to All</button>
+                            <button id="editorDuplicateSelectedBtn" class="btn btn-secondary" data-i18n="editor.duplicate">📑 Duplicate</button>
+                            <button id="editorReverseOrderBtn" class="btn btn-secondary" data-i18n="editor.reverse">↺ Reverse Order</button>
+                            <button id="editorShuffleOrderBtn" class="btn btn-secondary" data-i18n="editor.shuffle">🔀 Shuffle</button>
+                        </div>
+                        <div class="editor-btn-row" style="margin-top:8px;">
+                            <button id="editorInsertBlankBtn" class="btn btn-secondary" data-i18n="editor.insertBlank">+ Blank Frame</button>
+                            <button id="editorResetAllBtn" class="btn btn-secondary" style="background:#c0392b; color:#fff;" data-i18n="editor.resetAll">🗑 Reset All Images</button>
+                            <button id="editorRemoveAllBtn" class="btn btn-secondary" style="background:#c0392b; color:#fff;" data-i18n="editor.clearAll">✕ Clear All</button>
+                        </div>
+                    </div>
+                    <!-- History -->
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.history.header">↩ History</h4>
+                        <div class="editor-btn-row">
+                            <button id="editorUndoBtn" class="btn btn-secondary" disabled data-i18n="editor.undo">↩ Undo</button>
+                            <button id="editorRedoBtn" class="btn btn-secondary" disabled data-i18n="editor.redo">↪ Redo</button>
+                        </div>
+                    </div>
+                    <!-- Notes -->
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.notes.header">📝 Frame Notes</h4>
+                        <div class="editor-control-row">
+                            <label data-i18n="editor.note">Note</label><input type="text" id="editorFrameNoteInput" placeholder="e.g. intro scene" style="width:140px;">
+                            <button id="editorSaveNoteBtn" class="btn btn-secondary" data-i18n="editor.saveNote">Save Note</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- GIF Settings -->
+            <div class="editor-gif-settings">
+                <div><label data-i18n="editor.gif.defaultDelay">Default Frame Delay</label><input type="range" id="editorFrameDelaySlider" min="50" max="2000" value="200" step="10"><span id="editorFrameDelayVal">200 ms</span></div>
+                <div><label data-i18n="editor.gif.outputWidth">Output Width</label><input type="range" id="editorOutputWidthSlider" min="100" max="800" value="400" step="10"><span id="editorOutputWidthVal">400 px</span></div>
+                <div><label data-i18n="editor.gif.loopCount">Loop Count</label><input type="number" id="editorLoopCount" value="0" min="0" max="20" step="1" style="width:70px;"> <span data-i18n="editor.gif.infinite">0 = infinite</span></div>
+                <div><label data-i18n="editor.gif.background">Background</label><input type="color" id="editorBgColor" value="#ffffff"></div>
+                <div style="display:flex; align-items:center; gap:12px; margin-left:auto;">
+                    <div class="editor-progress-bar" id="editorProgressBar"><div class="editor-progress-bar-fill" id="editorProgressBarFill"></div></div>
+                    <button id="editorGenerateGifBtn" class="btn btn-primary" disabled data-i18n="editor.generate">🎬 Generate GIF</button>
+                    <button id="editorDownloadGifBtn" class="btn btn-primary" style="display:none;" data-i18n="editor.download">⬇ Download GIF</button>
+                </div>
+            </div>
+            <div class="actions" style="margin-top:1.5rem;">
+                <button id="editorBackToSelectionBtn" class="btn btn-secondary" data-i18n="editor.backToSelection">← Back to Selection</button>
+            </div>
+        </div>
+
+        <!-- ============ STEP 3 – Single‑image Editor ============ -->
+        <div class="step-box editor-single-box" id="editor-single-box">
+            <h2 class="step-title" data-i18n="editor.single.title">Step 3 – Animate your photo</h2>
+            <p class="step-description" data-i18n="editor.single.description">Choose an effect and create a moving GIF from your single image.</p>
+            <div class="editor-message" id="editorSingleMessage"></div>
+            <div class="editor-workspace">
+                <div class="editor-preview-panel">
+                    <canvas id="editorSinglePreviewCanvas" width="400" height="300" style="display:none;"></canvas>
+                    <span id="editorSinglePreviewPlaceholder" data-i18n="editor.preview.placeholder">Select an image to preview</span>
+                </div>
+                <div>
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.single.effect.label">✨ Animation Effect</h4>
+                        <div class="editor-control-row">
+                            <label data-i18n="editor.single.effect.select">Effect</label>
+                            <select id="editorSingleEffectSelect">
+                                <option value="zoom-in" data-i18n="editor.single.effect.zoomIn">Zoom In</option>
+                                <option value="zoom-out" data-i18n="editor.single.effect.zoomOut">Zoom Out</option>
+                                <option value="pan-left" data-i18n="editor.single.effect.panLeft">Pan Left</option>
+                                <option value="pan-right" data-i18n="editor.single.effect.panRight">Pan Right</option>
+                                <option value="pan-up" data-i18n="editor.single.effect.panUp">Pan Up</option>
+                                <option value="pan-down" data-i18n="editor.single.effect.panDown">Pan Down</option>
+                                <option value="ken-burns-in" data-i18n="editor.single.effect.kenBurnsIn">Ken Burns (Zoom In)</option>
+                                <option value="ken-burns-out" data-i18n="editor.single.effect.kenBurnsOut">Ken Burns (Zoom Out)</option>
+                                <option value="rotate-cw" data-i18n="editor.single.effect.rotateCw">Rotate Clockwise</option>
+                                <option value="rotate-ccw" data-i18n="editor.single.effect.rotateCcw">Rotate Counter‑Clockwise</option>
+                                <option value="fade-in" data-i18n="editor.single.effect.fadeIn">Fade In</option>
+                                <option value="fade-out" data-i18n="editor.single.effect.fadeOut">Fade Out</option>
+                                <option value="slide-left" data-i18n="editor.single.effect.slideLeft">Slide Left</option>
+                                <option value="slide-right" data-i18n="editor.single.effect.slideRight">Slide Right</option>
+                                <option value="slide-up" data-i18n="editor.single.effect.slideUp">Slide Up</option>
+                                <option value="slide-down" data-i18n="editor.single.effect.slideDown">Slide Down</option>
+                                <option value="pulse" data-i18n="editor.single.effect.pulse">Pulse</option>
+                                <option value="wobble" data-i18n="editor.single.effect.wobble">Wobble</option>
+                                <option value="shake" data-i18n="editor.single.effect.shake">Shake</option>
+                                <option value="rain" data-i18n="editor.single.effect.rain">🌧 Rain</option>
+                                <option value="stars" data-i18n="editor.single.effect.stars">⭐ Stars</option>
+                                <option value="snow" data-i18n="editor.single.effect.snow">❄️ Snow</option>
+                                <option value="bubbles" data-i18n="editor.single.effect.bubbles">🫧 Bubbles</option>
+                                <option value="confetti" data-i18n="editor.single.effect.confetti">🎉 Confetti</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="editor-control-group">
+                        <h4 data-i18n="editor.single.settings.header">⚙️ Settings</h4>
+                        <div class="editor-control-row">
+                            <label data-i18n="editor.single.duration">Duration (s)</label>
+                            <input type="range" id="editorSingleDuration" min="0.5" max="5" value="2" step="0.1">
+                            <span class="value-badge" id="editorSingleDurationVal">2 s</span>
+                        </div>
+                        <div class="editor-control-row">
+                            <label data-i18n="editor.single.frameCount">Frames</label>
+                            <input type="range" id="editorSingleFrameCount" min="5" max="50" value="20" step="1">
+                            <span class="value-badge" id="editorSingleFrameCountVal">20</span>
+                        </div>
+                        <div class="editor-control-row">
+                            <label data-i18n="editor.single.outputWidth">Output Width</label>
+                            <input type="range" id="editorSingleOutputWidth" min="100" max="600" value="400" step="10">
+                            <span class="value-badge" id="editorSingleOutputWidthVal">400 px</span>
+                        </div>
+                        <div class="editor-control-row">
+                            <label data-i18n="editor.single.background">Background</label>
+                            <input type="color" id="editorSingleBgColor" value="#000000">
+                        </div>
+                    </div>
+                    <div class="editor-btn-row" style="align-items:center; gap:12px;">
+                        <button id="editorSingleGenerateGifBtn" class="btn btn-primary" disabled data-i18n="editor.single.generate">🎬 Generate Animated GIF</button>
+                        <button id="editorSingleDownloadGifBtn" class="btn btn-primary" style="display:none;" data-i18n="editor.single.download">⬇ Download GIF</button>
+                        <div class="editor-progress-bar" id="editorSingleProgressBar"><div class="editor-progress-bar-fill" id="editorSingleProgressBarFill"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions" style="margin-top:1.5rem;">
+                <button id="editorSingleBackToSelectionBtn" class="btn btn-secondary" data-i18n="editor.backToSelection">← Back to Selection</button>
+            </div>
+        </div>
+    </main>
+    <!-- Back to Dashboard button -->
+    <div class="ED-General-back-home-wrapper">
+        <a href="index.html" class="ED-General-header-btn" data-i18n="backToHome">← Back to Dashboard</a>
+    </div>
+    <footer id="footer-container"></footer>
+    <!-- Offline banner -->
+    <div id="offline-banner" class="ED-General-offline-banner" data-i18n="offlineBanner">You are offline. Some features may be unavailable.</div>
+    <div id="update-banner" class="ED-General-update-banner" style="display:none;">
+        <span id="update-banner-text" data-i18n="updateNotification">A new version is available.</span>
+        <button id="update-reload-btn" data-i18n="updateReloadBtn">Reload</button>
+    </div>
+    <!-- Load shared translation data -->
+  <!-- Shared scripts -->
+<script src="ED-general-translations-data.js"></script>  <!-- shared strings (optional) -->
+<script src="ED-general-translation.js"></script>
+<script src="ED-general-auth.js"></script>
+<script src="ED-general-profile.js"></script>
+<script src="ED-general-encrypted-backup.js"></script>
+<script src="hgh-pwa.js"></script>          <!-- custom PWA for HGH -->
+<script src="hgh-analytics.js"></script>
+<script src="hgh-init.js"></script>
+    <!-- ========== TRANSLATION DICTIONARY ========== -->
+    <script>
+        const PAGE_UI_TEXT = {
+            en: {
+                animation: {
+                    step1: {
+                        title: "Step 1 – Choose images",
+                        description: "Select one or more images for your animated avatar.",
+                        noImages: "No images found. Please go to your Profile and upload a folder first.",
+                        nextBtn: "Next →"
+                    },
+                    preview: {
+                        title: "Selected images",
+                        description: "These are the images you'll use for your animated avatar.",
+                        descriptionOrder: "Click images in the desired order. Click an image to assign the next number.",
+                        backBtn: "← Back",
+                        setOrderBtn: "Set Order",
+                        resetOrderBtn: "Reset Order",
+                        continueBtn: "Continue"
+                    }
+                },
+                editor: {
+                    title: "Step 3 – Edit & Animate",
+                    description: "Adjust colours, timing, overlays and generate your GIF.",
+  saveAsAvatar: "🖼 Save as Avatar",
+  savingAvatar: "⏳ Saving…",
+  avatarSaved: "🖼 Saved ✓",
+  avatarSaveFailed: "❌ Failed to save avatar",
+                    single: {
+                        title: "Step 3 – Animate your photo",
+                        description: "Choose an effect and create a moving GIF from your single image.",
+                        effect: {
+                            label: "✨ Animation Effect",
+                            select: "Effect",
+                            zoomIn: "Zoom In",
+                            zoomOut: "Zoom Out",
+                            panLeft: "Pan Left",
+                            panRight: "Pan Right",
+                            panUp: "Pan Up",
+                            panDown: "Pan Down",
+                            kenBurnsIn: "Ken Burns (Zoom In)",
+                            kenBurnsOut: "Ken Burns (Zoom Out)",
+                            rotateCw: "Rotate Clockwise",
+                            rotateCcw: "Rotate Counter‑Clockwise",
+                            fadeIn: "Fade In",
+                            fadeOut: "Fade Out",
+                            slideLeft: "Slide Left",
+                            slideRight: "Slide Right",
+                            slideUp: "Slide Up",
+                            slideDown: "Slide Down",
+                            pulse: "Pulse",
+                            wobble: "Wobble",
+                            shake: "Shake",
+                            rain: "🌧 Rain",
+                            stars: "⭐ Stars",
+                            snow: "❄️ Snow",
+                            bubbles: "🫧 Bubbles",
+                            confetti: "🎉 Confetti"
+                        },
+                        settings: {
+                            header: "⚙️ Settings"
+                        },
+                        duration: "Duration (s)",
+                        frameCount: "Frames",
+                        outputWidth: "Output Width",
+                        background: "Background",
+                        generate: "🎬 Generate Animated GIF",
+                        download: "⬇ Download GIF",
+                        msgGifGenerated: "✅ GIF generated! Click Download.",
+                        msgGifFailed: "❌ GIF generation failed",
+                        msgGenerateFirst: "⚠️ Generate a GIF first"
+                    },
+                    thumbnail: {
+                        label: "📷 Image Sequence",
+                        reorder: "— drag to reorder"
+                    },
+                    preview: { placeholder: "Select an image to preview" },
+                    playback: { play: "▶ Play", stop: "⏹ Stop" },
+                    mode: { label: "Edit Mode:", individual: "🎯 Individual", bulk: "📦 Bulk (All)" },
+                    color: { header: "🎨 Colour Adjustments" },
+                    brightness: "Brightness",
+                    contrast: "Contrast",
+                    saturation: "Saturation",
+                    hueRotate: "Hue Rotate",
+                    resetColors: "↺ Reset Colors",
+                    geometry: { header: "📐 Geometry" },
+                    rotateLeft: "↺ Rotate Left",
+                    rotateRight: "↻ Rotate Right",
+                    flipH: "↔ Flip H",
+                    flipV: "↕ Flip V",
+                    resetGeo: "↺ Reset Geometry",
+                    timing: { header: "⏱️ Timing (per frame)" },
+                    frameDelay: "Frame delay",
+                    ms: "ms",
+                    copyDelayAll: "📋 Copy to All",
+                    setGlobalDelay: "🌐 Set All to Default",
+                    overlay: { header: "🖌 Overlay Text", text: "Text", color: "Color", size: "Size" },
+                    setOverlay: "Set Overlay",
+                    copyOverlayAll: "📋 Copy Overlay to All",
+                    clearOverlay: "✕ Clear",
+                    crop: {
+                        header: "✂ Crop",
+                        aspectRatio: "Aspect Ratio",
+                        original: "Original",
+                        square: "1:1 Square",
+                        ratio43: "4:3",
+                        ratio169: "16:9"
+                    },
+                    applyCrop: "Apply Crop",
+                    bulk: { header: "📦 Bulk Actions" },
+                    copySettingsAll: "📋 Copy Settings to All",
+                    duplicate: "📑 Duplicate",
+                    reverse: "↺ Reverse Order",
+                    shuffle: "🔀 Shuffle",
+                    insertBlank: "+ Blank Frame",
+                    resetAll: "🗑 Reset All Images",
+                    clearAll: "✕ Clear All",
+                    history: { header: "↩ History" },
+                    undo: "↩ Undo",
+                    redo: "↪ Redo",
+                    notes: { header: "📝 Frame Notes" },
+                    note: "Note",
+                    saveNote: "Save Note",
+                    gif: {
+                        defaultDelay: "Default Frame Delay",
+                        outputWidth: "Output Width",
+                        loopCount: "Loop Count",
+                        infinite: "0 = infinite",
+                        background: "Background"
+                    },
+                    generate: "🎬 Generate GIF",
+                    download: "⬇ Download GIF",
+                    backToSelection: "← Back to Selection",
+                    // Messages
+                    msgImageAdded: "✅ {count} image(s) added",
+                    msgSequenceReordered: "🔄 Sequence reordered",
+                    msgImageRemoved: "🗑 Image removed",
+                    msgImageDuplicated: "📑 Image duplicated",
+                    msgDelayCopied: "📋 Delay copied to all",
+                    msgAllGlobalDelay: "🌐 All frames set to default delay",
+                    msgOverlaySet: "🖌 Overlay set",
+                    msgOverlayCopied: "📋 Overlay copied to all",
+                    msgOverlayCleared: "Overlay cleared",
+                    msgCropApplied: "✂ Crop applied",
+                    msgOrderReversed: "↺ Order reversed",
+                    msgOrderShuffled: "🔀 Order shuffled",
+                    msgBlankInserted: "⬜ Blank frame inserted",
+                    msgSettingsCopied: "📋 Settings copied to all",
+                    msgAllReset: "🔄 All images reset",
+                    msgAllCleared: "🗑 All cleared",
+                    msgUndo: "↩ Undo",
+                    msgRedo: "↪ Redo",
+                    msgNoteSaved: "📝 Note saved",
+                    msgGifGenerated: "✅ GIF generated! Click Download.",
+                    msgGifDownloaded: "⬇ GIF downloaded",
+                    msgNoSelection: "⚠️ Select a frame first",
+                    msgNeedImages: "⚠️ Please select image files",
+                    msgNeedTwoImages: "⚠️ Need at least 2 images",
+                    msgEnterOverlayText: "⚠️ Enter overlay text",
+                    msgGifFailed: "❌ GIF generation failed",
+                    msgGenerateFirst: "⚠️ Generate a GIF first",
+                    msgBulkMode: "📦 Bulk mode: changes apply to ALL images",
+                    msgIndividualMode: "🎯 Individual mode"
+                },
+                backToHome: "← Back to Dashboard"
+            },
+            fr: {
+                animation: {
+                    step1: {
+                        title: "Étape 1 – Choisissez des images",
+                        description: "Sélectionnez une ou plusieurs images pour votre avatar animé.",
+                        noImages: "Aucune image trouvée. Veuillez d'abord importer un dossier depuis votre profil.",
+                        nextBtn: "Suivant →"
+                    },
+                    preview: {
+                        title: "Images sélectionnées",
+                        description: "Voici les images que vous utiliserez pour votre avatar animé.",
+                        descriptionOrder: "Cliquez sur les images dans l'ordre souhaité. Cliquez pour attribuer le numéro suivant.",
+                        backBtn: "← Retour",
+                        setOrderBtn: "Définir l'ordre",
+                        resetOrderBtn: "Réinitialiser l'ordre",
+                        continueBtn: "Continuer"
+                    }
+                },
+                editor: {
+                    title: "Étape 3 – Modifier & Animer",
+                    description: "Réglez les couleurs, le timing, les superpositions et générez votre GIF.",
+saveAsAvatar: "🖼 Enregistrer comme avatar",
+savingAvatar: "⏳ Enregistrement…",
+avatarSaved: "🖼 Enregistré ✓",
+avatarSaveFailed: "❌ Échec de l'enregistrement",
+                    single: {
+                        title: "Étape 3 – Animez votre photo",
+                        description: "Choisissez un effet et créez un GIF animé à partir de votre image unique.",
+                        effect: {
+                            label: "✨ Effet d'animation",
+                            select: "Effet",
+                            zoomIn: "Zoom avant",
+                            zoomOut: "Zoom arrière",
+                            panLeft: "Pan gauche",
+                            panRight: "Pan droite",
+                            panUp: "Pan haut",
+                            panDown: "Pan bas",
+                            kenBurnsIn: "Ken Burns (Zoom avant)",
+                            kenBurnsOut: "Ken Burns (Zoom arrière)",
+                            rotateCw: "Rotation horaire",
+                            rotateCcw: "Rotation anti‑horaire",
+                            fadeIn: "Fondu entrant",
+                            fadeOut: "Fondu sortant",
+                            slideLeft: "Glisser à gauche",
+                            slideRight: "Glisser à droite",
+                            slideUp: "Glisser vers le haut",
+                            slideDown: "Glisser vers le bas",
+                            pulse: "Pulsation",
+                            wobble: "Oscillation",
+                            shake: "Secousse",
+                            rain: "🌧 Pluie",
+                            stars: "⭐ Étoiles",
+                            snow: "❄️ Neige",
+                            bubbles: "🫧 Bulles",
+                            confetti: "🎉 Confettis"
+                        },
+                        settings: {
+                            header: "⚙️ Paramètres"
+                        },
+                        duration: "Durée (s)",
+                        frameCount: "Images",
+                        outputWidth: "Largeur de sortie",
+                        background: "Arrière‑plan",
+                        generate: "🎬 Générer un GIF animé",
+                        download: "⬇ Télécharger le GIF",
+                        msgGifGenerated: "✅ GIF généré ! Cliquez pour télécharger.",
+                        msgGifFailed: "❌ Échec de la génération du GIF",
+                        msgGenerateFirst: "⚠️ Générez d'abord un GIF"
+                    },
+                    thumbnail: {
+                        label: "📷 Séquence d'images",
+                        reorder: "— glissez pour réorganiser"
+                    },
+                    preview: { placeholder: "Sélectionnez une image à prévisualiser" },
+                    playback: { play: "▶ Lecture", stop: "⏹ Arrêt" },
+                    mode: { label: "Mode d'édition :", individual: "🎯 Individuel", bulk: "📦 Lot (Tout)" },
+                    color: { header: "🎨 Réglages des couleurs" },
+                    brightness: "Luminosité",
+                    contrast: "Contraste",
+                    saturation: "Saturation",
+                    hueRotate: "Rotation de teinte",
+                    resetColors: "↺ Réinitialiser les couleurs",
+                    geometry: { header: "📐 Géométrie" },
+                    rotateLeft: "↺ Rotation gauche",
+                    rotateRight: "↻ Rotation droite",
+                    flipH: "↔ Miroir horizontal",
+                    flipV: "↕ Miroir vertical",
+                    resetGeo: "↺ Réinitialiser la géométrie",
+                    timing: { header: "⏱️ Temporisation (par image)" },
+                    frameDelay: "Délai d'image",
+                    ms: "ms",
+                    copyDelayAll: "📋 Copier à toutes",
+                    setGlobalDelay: "🌐 Appliquer le délai par défaut",
+                    overlay: { header: "🖌 Texte superposé", text: "Texte", color: "Couleur", size: "Taille" },
+                    setOverlay: "Appliquer",
+                    copyOverlayAll: "📋 Copier partout",
+                    clearOverlay: "✕ Effacer",
+                    crop: {
+                        header: "✂ Recadrage",
+                        aspectRatio: "Ratio d'aspect",
+                        original: "Original",
+                        square: "1:1 Carré",
+                        ratio43: "4:3",
+                        ratio169: "16:9"
+                    },
+                    applyCrop: "Appliquer",
+                    bulk: { header: "📦 Actions groupées" },
+                    copySettingsAll: "📋 Copier les réglages",
+                    duplicate: "📑 Dupliquer",
+                    reverse: "↺ Inverser l'ordre",
+                    shuffle: "🔀 Mélanger",
+                    insertBlank: "+ Image vierge",
+                    resetAll: "🗑 Réinitialiser tout",
+                    clearAll: "✕ Tout effacer",
+                    history: { header: "↩ Historique" },
+                    undo: "↩ Annuler",
+                    redo: "↪ Rétablir",
+                    notes: { header: "📝 Notes d'image" },
+                    note: "Note",
+                    saveNote: "Enregistrer",
+                    gif: {
+                        defaultDelay: "Délai par défaut",
+                        outputWidth: "Largeur de sortie",
+                        loopCount: "Nombre de boucles",
+                        infinite: "0 = infini",
+                        background: "Arrière‑plan"
+                    },
+                    generate: "🎬 Générer le GIF",
+                    download: "⬇ Télécharger le GIF",
+                    backToSelection: "← Retour à la sélection",
+                    msgImageAdded: "✅ {count} image(s) ajoutée(s)",
+                    msgSequenceReordered: "🔄 Séquence réorganisée",
+                    msgImageRemoved: "🗑 Image supprimée",
+                    msgImageDuplicated: "📑 Image dupliquée",
+                    msgDelayCopied: "📋 Délai copié partout",
+                    msgAllGlobalDelay: "🌐 Toutes les images au délai par défaut",
+                    msgOverlaySet: "🖌 Superposition définie",
+                    msgOverlayCopied: "📋 Superposition copiée partout",
+                    msgOverlayCleared: "Superposition effacée",
+                    msgCropApplied: "✂ Recadrage appliqué",
+                    msgOrderReversed: "↺ Ordre inversé",
+                    msgOrderShuffled: "🔀 Ordre mélangé",
+                    msgBlankInserted: "⬜ Image vierge insérée",
+                    msgSettingsCopied: "📋 Réglages copiés partout",
+                    msgAllReset: "🔄 Toutes les images réinitialisées",
+                    msgAllCleared: "🗑 Tout effacé",
+                    msgUndo: "↩ Annulation",
+                    msgRedo: "↪ Rétablissement",
+                    msgNoteSaved: "📝 Note enregistrée",
+                    msgGifGenerated: "✅ GIF généré ! Cliquez pour télécharger.",
+                    msgGifDownloaded: "⬇ GIF téléchargé",
+                    msgNoSelection: "⚠️ Sélectionnez d'abord une image",
+                    msgNeedImages: "⚠️ Veuillez sélectionner des fichiers image",
+                    msgNeedTwoImages: "⚠️ Il faut au moins 2 images",
+                    msgEnterOverlayText: "⚠️ Entrez le texte de superposition",
+                    msgGifFailed: "❌ Échec de la génération du GIF",
+                    msgGenerateFirst: "⚠️ Générez d'abord un GIF",
+                    msgBulkMode: "📦 Mode lot : les modifications s'appliquent à TOUTES les images",
+                    msgIndividualMode: "🎯 Mode individuel"
+                },
+                backToHome: "← Retour au tableau de bord"
+            },
+            ar: {
+                animation: {
+                    step1: {
+                        title: "الخطوة 1 – اختر الصور",
+                        description: "حدد صورة واحدة أو أكثر لصورتك الرمزية المتحركة.",
+                        noImages: "لم يتم العثور على صور. يرجى تحميل مجلد من صفحة الملف الشخصي أولاً.",
+                        nextBtn: "التالي ←"
+                    },
+                    preview: {
+                        title: "الصور المحددة",
+                        description: "هذه هي الصور التي ستستخدمها لصورتك الرمزية المتحركة.",
+                        descriptionOrder: "انقر على الصور بالترتيب المطلوب. انقر لتعيين الرقم التالي.",
+                        backBtn: "→ رجوع",
+                        setOrderBtn: "تعيين الترتيب",
+                        resetOrderBtn: "إعادة تعيين الترتيب",
+                        continueBtn: "متابعة"
+                    }
+                },
+                editor: {
+                    title: "الخطوة 3 – تعديل وتحريك",
+                    description: "اضبط الألوان والتوقيت والتراكبات وأنشئ GIF.",
+saveAsAvatar: "🖼 حفظ كصورة رمزية",
+savingAvatar: "⏳ جارٍ الحفظ…",
+avatarSaved: "🖼 تم الحفظ ✓",
+avatarSaveFailed: "❌ فشل حفظ الصورة الرمزية",
+                    single: {
+                        title: "الخطوة 3 – حرّك صورتك",
+                        description: "اختر تأثيرًا وأنشئ GIF متحركًا من صورتك الواحدة.",
+                        effect: {
+                            label: "✨ تأثير الحركة",
+                            select: "التأثير",
+                            zoomIn: "تكبير",
+                            zoomOut: "تصغير",
+                            panLeft: "تحريك لليسار",
+                            panRight: "تحريك لليمين",
+                            panUp: "تحريك للأعلى",
+                            panDown: "تحريك للأسفل",
+                            kenBurnsIn: "كين بيرنز (تكبير)",
+                            kenBurnsOut: "كين بيرنز (تصغير)",
+                            rotateCw: "دوران مع عقارب الساعة",
+                            rotateCcw: "دوران عكس عقارب الساعة",
+                            fadeIn: "ظهور تدريجي",
+                            fadeOut: "اختفاء تدريجي",
+                            slideLeft: "انزلاق لليسار",
+                            slideRight: "انزلاق لليمين",
+                            slideUp: "انزلاق للأعلى",
+                            slideDown: "انزلاق للأسفل",
+                            pulse: "نبض",
+                            wobble: "تذبذب",
+                            shake: "اهتزاز",
+                            rain: "🌧 مطر",
+                            stars: "⭐ نجوم",
+                            snow: "❄️ ثلج",
+                            bubbles: "🫧 فقاعات",
+                            confetti: "🎉 قصاصات"
+                        },
+                        settings: {
+                            header: "⚙️ الإعدادات"
+                        },
+                        duration: "المدة (ثانية)",
+                        frameCount: "عدد الإطارات",
+                        outputWidth: "عرض الإخراج",
+                        background: "الخلفية",
+                        generate: "🎬 توليد GIF متحرك",
+                        download: "⬇ تنزيل GIF",
+                        msgGifGenerated: "✅ تم توليد GIF! انقر للتنزيل.",
+                        msgGifFailed: "❌ فشل توليد GIF",
+                        msgGenerateFirst: "⚠️ قم بتوليد GIF أولاً"
+                    },
+                    thumbnail: {
+                        label: "📷 تسلسل الصور",
+                        reorder: "— اسحب لإعادة الترتيب"
+                    },
+                    preview: { placeholder: "اختر صورة للمعاينة" },
+                    playback: { play: "▶ تشغيل", stop: "⏹ إيقاف" },
+                    mode: { label: "وضع التحرير:", individual: "🎯 فردي", bulk: "📦 شامل (الكل)" },
+                    color: { header: "🎨 تعديلات الألوان" },
+                    brightness: "السطوع",
+                    contrast: "التباين",
+                    saturation: "التشبع",
+                    hueRotate: "تدوير درجة اللون",
+                    resetColors: "↺ إعادة ضبط الألوان",
+                    geometry: { header: "📐 الهندسة" },
+                    rotateLeft: "↺ تدوير لليسار",
+                    rotateRight: "↻ تدوير لليمين",
+                    flipH: "↔ انعكاس أفقي",
+                    flipV: "↕ انعكاس رأسي",
+                    resetGeo: "↺ إعادة ضبط الهندسة",
+                    timing: { header: "⏱️ التوقيت (لكل إطار)" },
+                    frameDelay: "تأخير الإطار",
+                    ms: "مللي ثانية",
+                    copyDelayAll: "📋 نسخ للكل",
+                    setGlobalDelay: "🌐 تعيين الكل للافتراضي",
+                    overlay: { header: "🖌 نص متراكب", text: "النص", color: "اللون", size: "الحجم" },
+                    setOverlay: "تعيين",
+                    copyOverlayAll: "📋 نسخ للكل",
+                    clearOverlay: "✕ مسح",
+                    crop: {
+                        header: "✂ قص",
+                        aspectRatio: "نسبة العرض",
+                        original: "الأصلي",
+                        square: "1:1 مربع",
+                        ratio43: "4:3",
+                        ratio169: "16:9"
+                    },
+                    applyCrop: "تطبيق",
+                    bulk: { header: "📦 إجراءات شاملة" },
+                    copySettingsAll: "📋 نسخ الإعدادات",
+                    duplicate: "📑 تكرار",
+                    reverse: "↺ عكس الترتيب",
+                    shuffle: "🔀 خلط",
+                    insertBlank: "+ إطار فارغ",
+                    resetAll: "🗑 إعادة ضبط الكل",
+                    clearAll: "✕ مسح الكل",
+                    history: { header: "↩ السجل" },
+                    undo: "↩ تراجع",
+                    redo: "↪ إعادة",
+                    notes: { header: "📝 ملاحظات الإطار" },
+                    note: "ملاحظة",
+                    saveNote: "حفظ",
+                    gif: {
+                        defaultDelay: "التأخير الافتراضي",
+                        outputWidth: "عرض الإخراج",
+                        loopCount: "عدد التكرارات",
+                        infinite: "0 = لا نهائي",
+                        background: "الخلفية"
+                    },
+                    generate: "🎬 توليد GIF",
+                    download: "⬇ تنزيل GIF",
+                    backToSelection: "→ العودة إلى الاختيار",
+                    msgImageAdded: "✅ تمت إضافة {count} صورة",
+                    msgSequenceReordered: "🔄 تمت إعادة ترتيب التسلسل",
+                    msgImageRemoved: "🗑 تمت إزالة الصورة",
+                    msgImageDuplicated: "📑 تم تكرار الصورة",
+                    msgDelayCopied: "📋 تم نسخ التأخير للكل",
+                    msgAllGlobalDelay: "🌐 تم تعيين الكل للتأخير الافتراضي",
+                    msgOverlaySet: "🖌 تم تعيين التراكب",
+                    msgOverlayCopied: "📋 تم نسخ التراكب للكل",
+                    msgOverlayCleared: "تم مسح التراكب",
+                    msgCropApplied: "✂ تم تطبيق القص",
+                    msgOrderReversed: "↺ تم عكس الترتيب",
+                    msgOrderShuffled: "🔀 تم خلط الترتيب",
+                    msgBlankInserted: "⬜ تم إدراج إطار فارغ",
+                    msgSettingsCopied: "📋 تم نسخ الإعدادات للكل",
+                    msgAllReset: "🔄 تمت إعادة ضبط جميع الصور",
+                    msgAllCleared: "🗑 تم مسح الكل",
+                    msgUndo: "↩ تراجع",
+                    msgRedo: "↪ إعادة",
+                    msgNoteSaved: "📝 تم حفظ الملاحظة",
+                    msgGifGenerated: "✅ تم توليد GIF! انقر للتنزيل.",
+                    msgGifDownloaded: "⬇ تم تنزيل GIF",
+                    msgNoSelection: "⚠️ اختر إطاراً أولاً",
+                    msgNeedImages: "⚠️ الرجاء اختيار ملفات صور",
+                    msgNeedTwoImages: "⚠️ تحتاج إلى صورتين على الأقل",
+                    msgEnterOverlayText: "⚠️ أدخل نص التراكب",
+                    msgGifFailed: "❌ فشل توليد GIF",
+                    msgGenerateFirst: "⚠️ قم بتوليد GIF أولاً",
+                    msgBulkMode: "📦 الوضع الشامل: التغييرات تطبق على جميع الصور",
+                    msgIndividualMode: "🎯 الوضع الفردي"
+                },
+                backToHome: "→ العودة إلى الرئيسية"
+            }
+        };
+
+        // Merge shared + page‑specific into the final UI_TEXT
+        window.UI_TEXT = {
+            en: { ...SHARED_UI_TEXT.en, ...PAGE_UI_TEXT.en },
+            fr: { ...SHARED_UI_TEXT.fr, ...PAGE_UI_TEXT.fr },
+            ar: { ...SHARED_UI_TEXT.ar, ...PAGE_UI_TEXT.ar }
+        };
+window.HGH_UI_TEXT = window.UI_TEXT;
+    </script>
+    <!-- Translation engine and shared init -->
+    <!-- gif.js local library -->
+    <script src="gif.js"></script>
+    <!-- Page‑specific logic -->
+    <script>
+        (function() {
+            const DB_NAME = 'ED_ImageFolderCache';
+            const STORE_NAME = 'images';
+
+            // ---------- STEPS 1 & 2 (unchanged) ----------
+            const imagesContainer = document.getElementById('imagesContainer');
+            const emptyMessage = document.getElementById('emptyMessage');
+            const nextBtn = document.getElementById('nextBtn');
+            const step1Box = document.getElementById('step1-box');
+            const previewBox = document.getElementById('preview-box');
+            const previewGrid = document.getElementById('previewGrid');
+            const orderGrid = document.getElementById('orderGrid');
+            const backToStep1Btn = document.getElementById('backToStep1Btn');
+            const setOrderBtn = document.getElementById('setOrderBtn');
+            const resetOrderBtn = document.getElementById('resetOrderBtn');
+            const continueBtn = document.getElementById('continueBtn');
+            const previewTitle = document.getElementById('preview-title');
+            const previewDescription = document.getElementById('preview-description');
+            let allImages = [];
+            let selectedImages = new Set();
+            let orderArray = [];
+            let nextOrderNumber = 1;
+
+            function openDB() {
+                return new Promise((resolve, reject) => {
+                    const req = indexedDB.open(DB_NAME, 1);
+                    req.onupgradeneeded = (e) => {
+                        const db = e.target.result;
+                        if (!db.objectStoreNames.contains(STORE_NAME)) {
+                            db.createObjectStore(STORE_NAME, { keyPath: 'name' });
+                        }
+                    };
+                    req.onsuccess = () => resolve(req.result);
+                    req.onerror = () => reject(req.error);
+                });
+            }
+            async function loadImages() {
+                try {
+                    const db = await openDB();
+                    const tx = db.transaction(STORE_NAME, 'readonly');
+                    const store = tx.objectStore(STORE_NAME);
+                    const all = await new Promise((resolve, reject) => {
+                        const request = store.getAll();
+                        request.onsuccess = () => resolve(request.result);
+                        request.onerror = () => reject(request.error);
+                    });
+                    if (!all || all.length === 0) {
+                        emptyMessage.style.display = 'block';
+                        return;
+                    }
+                    allImages = all;
+                    renderImages(allImages);
+                } catch (err) {
+                    console.error('Failed to load images:', err);
+                    emptyMessage.textContent = 'Could not access stored images.';
+                    emptyMessage.style.display = 'block';
+                }
+            }
+            function renderImages(imageList) {
+                imagesContainer.innerHTML = '';
+                imageList.forEach(imgObj => {
+                    const item = document.createElement('div');
+                    item.className = 'image-item';
+                    item.dataset.name = imgObj.name;
+                    item.innerHTML = `
+                        <img src="${imgObj.data}" alt="${imgObj.name}">
+                        <div class="image-check">${selectedImages.has(imgObj.name) ? '✓' : ''}</div>
+                    `;
+                    item.addEventListener('click', () => toggleImage(imgObj.name, item));
+                    imagesContainer.appendChild(item);
+                });
+            }
+            function toggleImage(name, element) {
+                if (selectedImages.has(name)) {
+                    selectedImages.delete(name);
+                    element.classList.remove('selected');
+                    element.querySelector('.image-check').textContent = '';
+                } else {
+                    selectedImages.add(name);
+                    element.classList.add('selected');
+                    element.querySelector('.image-check').textContent = '✓';
+                }
+                nextBtn.disabled = selectedImages.size === 0;
+            }
+
+            nextBtn.addEventListener('click', async () => {
+                if (selectedImages.size === 0) return;
+                const db = await openDB();
+                const tx = db.transaction(STORE_NAME, 'readwrite');
+                const store = tx.objectStore(STORE_NAME);
+                const toDelete = allImages.filter(img => !selectedImages.has(img.name));
+                for (const img of toDelete) {
+                    store.delete(img.name);
+                }
+                await new Promise((resolve, reject) => {
+                    tx.oncomplete = resolve;
+                    tx.onerror = reject;
+                });
+                allImages = allImages.filter(img => selectedImages.has(img.name));
+                step1Box.style.display = 'none';
+                previewBox.style.display = 'block';
+                orderArray = [];
+                nextOrderNumber = 1;
+                setOrderBtn.style.display = 'none';
+                resetOrderBtn.style.display = 'none';
+                orderGrid.style.display = 'none';
+                previewGrid.style.display = 'flex';
+                continueBtn.disabled = allImages.length === 0;
+                if (allImages.length > 1) {
+                    setOrderBtn.style.display = 'inline-flex';
+                }
+                if (window.EDTranslation) EDTranslation.translatePage();
+                renderPreview();
+            });
+            function renderPreview() {
+                previewGrid.innerHTML = '';
+                allImages.forEach(imgObj => {
+                    const item = document.createElement('div');
+                    item.className = 'preview-item';
+                    item.innerHTML = `<img src="${imgObj.data}" alt="${imgObj.name}">`;
+                    previewGrid.appendChild(item);
+                });
+            }
+            setOrderBtn.addEventListener('click', () => {
+                previewGrid.style.display = 'none';
+                orderGrid.style.display = 'flex';
+                setOrderBtn.style.display = 'none';
+                resetOrderBtn.style.display = 'inline-flex';
+                orderArray = [];
+                nextOrderNumber = 1;
+                if (window.EDTranslation) EDTranslation.translatePage();
+                renderOrderGrid();
+            });
+            function renderOrderGrid() {
+                orderGrid.innerHTML = '';
+                allImages.forEach(imgObj => {
+                    const item = document.createElement('div');
+                    item.className = 'order-item';
+                    item.dataset.name = imgObj.name;
+                    item.innerHTML = `<img src="${imgObj.data}" alt="${imgObj.name}">`;
+                    const orderIndex = orderArray.indexOf(imgObj.name);
+                    if (orderIndex !== -1) {
+                        item.classList.add('ordered');
+                        const numSpan = document.createElement('div');
+                        numSpan.className = 'order-number';
+                        numSpan.textContent = orderIndex + 1;
+                        item.appendChild(numSpan);
+                    } else {
+                        item.addEventListener('click', () => assignOrder(imgObj.name, item));
+                    }
+                    orderGrid.appendChild(item);
+                });
+            }
+            function assignOrder(name, element) {
+                if (orderArray.includes(name)) return;
+                orderArray.push(name);
+                element.classList.add('ordered');
+                const numSpan = document.createElement('div');
+                numSpan.className = 'order-number';
+                numSpan.textContent = nextOrderNumber;
+                element.appendChild(numSpan);
+                nextOrderNumber++;
+                element.removeEventListener('click', assignOrder);
+            }
+            resetOrderBtn.addEventListener('click', () => {
+                orderArray = [];
+                nextOrderNumber = 1;
+                renderOrderGrid();
+            });
+            backToStep1Btn.addEventListener('click', () => {
+                step1Box.style.display = 'block';
+                previewBox.style.display = 'none';
+                loadImages();
+            });
+
+            // ---------- CONTINUE TO EDITOR (Step 3) ----------
+            continueBtn.addEventListener('click', () => {
+                if (orderArray.length === 0) {
+                    orderArray = allImages.map(img => img.name);
+                }
+                previewBox.style.display = 'none';
+
+                if (orderArray.length === 1) {
+                    // Show single‑image editor
+                    document.getElementById('editor-single-box').style.display = 'block';
+                    initSingleEditor(allImages.find(img => img.name === orderArray[0]));
+                } else {
+                    // Show multi‑frame editor
+                    document.getElementById('editor-box').style.display = 'block';
+                    const editorImages = orderArray.map((name, idx) => {
+                        const found = allImages.find(img => img.name === name);
+                        return {
+                            id: idx + 1,
+                            originalDataUrl: found ? found.data : '',
+                            width: 0, height: 0,
+                            mods: { brightness:100, contrast:100, saturation:100, hue:0, rotation:0, flipH:false, flipV:false },
+                            delay: 200,
+                            overlay: null,
+                            note: ''
+                        };
+                    });
+                    const loadPromises = editorImages.map(img => {
+                        return new Promise(resolve => {
+                            const image = new Image();
+                            image.onload = () => { img.width = image.naturalWidth; img.height = image.naturalHeight; resolve(); };
+                            image.onerror = resolve;
+                            image.src = img.originalDataUrl;
+                        });
+                    });
+                    Promise.all(loadPromises).then(() => {
+                        initMultiEditor(editorImages);
+                    });
+                }
+            });
+
+            // ===================== MULTI‑FRAME EDITOR =====================
+            function initMultiEditor(initialImages) {
+                // Editor state
+                let editorImages = initialImages;
+                let editorSelectedIndex = initialImages.length > 0 ? 0 : -1;
+                let editorBulkMode = false;
+                let editorGeneratedGifBlob = null;
+                let editorIdCounter = editorImages.length;
+                let editorHistory = [];
+                let editorHistoryIndex = -1;
+                let editorIsPlaying = false;
+                let editorPlayInterval = null;
+                let editorPlayIndex = 0;
+                const defaultMods = { brightness:100, contrast:100, saturation:100, hue:0, rotation:0, flipH:false, flipV:false };
+                const defaultDelay = 200;
+                const MAX_HISTORY = 30;
+
+                // DOM refs (multi‑editor)
+                const editorBox = document.getElementById('editor-box');
+                const editorMessageEl = document.getElementById('editorMessage');
+                const editorThumbnailStrip = document.getElementById('editorThumbnailStrip');
+                const editorPreviewCanvas = document.getElementById('editorPreviewCanvas');
+                const editorPreviewPlaceholder = document.getElementById('editorPreviewPlaceholder');
+                const editorModeToggle = document.getElementById('editorModeToggle');
+                const editorGenerateGifBtn = document.getElementById('editorGenerateGifBtn');
+                const editorDownloadGifBtn = document.getElementById('editorDownloadGifBtn');
+                const editorProgressBar = document.getElementById('editorProgressBar');
+                const editorProgressBarFill = document.getElementById('editorProgressBarFill');
+                const editorBrightnessSlider = document.getElementById('editorBrightness');
+                const editorContrastSlider = document.getElementById('editorContrast');
+                const editorSaturationSlider = document.getElementById('editorSaturation');
+                const editorHueSlider = document.getElementById('editorHue');
+                const editorBrightnessVal = document.getElementById('editorBrightnessVal');
+                const editorContrastVal = document.getElementById('editorContrastVal');
+                const editorSaturationVal = document.getElementById('editorSaturationVal');
+                const editorHueVal = document.getElementById('editorHueVal');
+                const editorFrameDelaySlider = document.getElementById('editorFrameDelaySlider');
+                const editorFrameDelayVal = document.getElementById('editorFrameDelayVal');
+                const editorOutputWidthSlider = document.getElementById('editorOutputWidthSlider');
+                const editorOutputWidthVal = document.getElementById('editorOutputWidthVal');
+                const editorPerFrameDelay = document.getElementById('editorPerFrameDelay');
+                const editorCopyDelayToAllBtn = document.getElementById('editorCopyDelayToAllBtn');
+                const editorSetGlobalDelayBtn = document.getElementById('editorSetGlobalDelayBtn');
+                const editorOverlayText = document.getElementById('editorOverlayText');
+                const editorOverlayColor = document.getElementById('editorOverlayColor');
+                const editorOverlaySize = document.getElementById('editorOverlaySize');
+                const editorSetOverlayBtn = document.getElementById('editorSetOverlayBtn');
+                const editorCopyOverlayAllBtn = document.getElementById('editorCopyOverlayAllBtn');
+                const editorClearOverlayBtn = document.getElementById('editorClearOverlayBtn');
+                const editorCropAspectSelect = document.getElementById('editorCropAspectSelect');
+                const editorApplyCropBtn = document.getElementById('editorApplyCropBtn');
+                const editorDuplicateSelectedBtn = document.getElementById('editorDuplicateSelectedBtn');
+                const editorReverseOrderBtn = document.getElementById('editorReverseOrderBtn');
+                const editorShuffleOrderBtn = document.getElementById('editorShuffleOrderBtn');
+                const editorInsertBlankBtn = document.getElementById('editorInsertBlankBtn');
+                const editorApplyToAllBtn = document.getElementById('editorApplyToAllBtn');
+                const editorResetAllBtn = document.getElementById('editorResetAllBtn');
+                const editorRemoveAllBtn = document.getElementById('editorRemoveAllBtn');
+                const editorUndoBtn = document.getElementById('editorUndoBtn');
+                const editorRedoBtn = document.getElementById('editorRedoBtn');
+                const editorFrameNoteInput = document.getElementById('editorFrameNoteInput');
+                const editorSaveNoteBtn = document.getElementById('editorSaveNoteBtn');
+                const editorLoopCountInput = document.getElementById('editorLoopCount');
+                const editorBgColorInput = document.getElementById('editorBgColor');
+                const editorPlayBtn = document.getElementById('editorPlayBtn');
+                const editorStopBtn = document.getElementById('editorStopBtn');
+                const editorBackToSelectionBtn = document.getElementById('editorBackToSelectionBtn');
+
+                // Helper to get translation
+                function getMsg(key, placeholders) {
+                    let str = EDTranslation.getText(key);
+                    if (!str) str = key;
+                    if (placeholders) {
+                        Object.keys(placeholders).forEach(k => { str = str.replace(`{${k}}`, placeholders[k]); });
+                    }
+                    return str;
+                }
+
+                function showEditorMessage(msgKey, placeholders) {
+                    const txt = getMsg(msgKey, placeholders);
+                    editorMessageEl.textContent = txt;
+                    setTimeout(() => {
+                        if (editorMessageEl.textContent === txt) editorMessageEl.textContent = '';
+                    }, 2800);
+                }
+
+                function pushEditorHistory() {
+                    if (editorHistoryIndex < editorHistory.length - 1) editorHistory = editorHistory.slice(0, editorHistoryIndex + 1);
+                    const snapshot = editorImages.map(img => ({ ...img, mods: { ...img.mods }, overlay: img.overlay ? { ...img.overlay } : null }));
+                    editorHistory.push(snapshot);
+                    if (editorHistory.length > MAX_HISTORY) editorHistory.shift();
+                    editorHistoryIndex = editorHistory.length - 1;
+                    updateEditorUndoRedo();
+                }
+
+                function editorUndo() {
+                    if (editorHistoryIndex <= 0) return;
+                    editorHistoryIndex--;
+                    editorImages = editorHistory[editorHistoryIndex].map(img => ({ ...img, mods: { ...img.mods }, overlay: img.overlay ? { ...img.overlay } : null }));
+                    if (editorSelectedIndex >= editorImages.length) editorSelectedIndex = editorImages.length - 1;
+                    renderEditorThumbnails();
+                    if (editorSelectedIndex >= 0) { updateEditorSlidersFromImage(editorImages[editorSelectedIndex]); renderEditorPreview(); }
+                    updateEditorUndoRedo();
+                    showEditorMessage('editor.msgUndo');
+                }
+                function editorRedo() {
+                    if (editorHistoryIndex >= editorHistory.length - 1) return;
+                    editorHistoryIndex++;
+                    editorImages = editorHistory[editorHistoryIndex].map(img => ({ ...img, mods: { ...img.mods }, overlay: img.overlay ? { ...img.overlay } : null }));
+                    if (editorSelectedIndex >= editorImages.length) editorSelectedIndex = editorImages.length - 1;
+                    renderEditorThumbnails();
+                    if (editorSelectedIndex >= 0) { updateEditorSlidersFromImage(editorImages[editorSelectedIndex]); renderEditorPreview(); }
+                    updateEditorUndoRedo();
+                    showEditorMessage('editor.msgRedo');
+                }
+                function updateEditorUndoRedo() {
+                    editorUndoBtn.disabled = editorHistoryIndex <= 0;
+                    editorRedoBtn.disabled = editorHistoryIndex >= editorHistory.length - 1;
+                }
+
+                function updateEditorImageCount() {
+                    editorGenerateGifBtn.disabled = editorImages.length < 2;
+                    if (editorImages.length === 0) { editorSelectedIndex = -1; hideEditorPreview(); stopEditorPlayback(); }
+                    if (editorSelectedIndex >= editorImages.length) editorSelectedIndex = editorImages.length - 1;
+                    updateEditorModeToggleUI();
+                    updateEditorPerFrameDelayInput();
+                }
+                function updateEditorModeToggleUI() {
+                    const key = editorBulkMode ? 'editor.mode.bulk' : 'editor.mode.individual';
+                    editorModeToggle.textContent = getMsg(key);
+                }
+                function hideEditorPreview() { editorPreviewCanvas.style.display = 'none'; editorPreviewPlaceholder.style.display = 'block'; }
+                function showEditorPreview() { editorPreviewCanvas.style.display = 'block'; editorPreviewPlaceholder.style.display = 'none'; }
+                function updateEditorPerFrameDelayInput() {
+                    if (editorSelectedIndex >= 0 && editorSelectedIndex < editorImages.length && !editorBulkMode) {
+                        editorPerFrameDelay.value = editorImages[editorSelectedIndex].delay;
+                        editorPerFrameDelay.disabled = false;
+                        editorFrameNoteInput.value = editorImages[editorSelectedIndex].note || '';
+                    } else {
+                        editorPerFrameDelay.value = '';
+                        editorPerFrameDelay.disabled = true;
+                        editorFrameNoteInput.value = '';
+                    }
+                }
+
+                function renderEditorThumbnails() {
+                    editorThumbnailStrip.innerHTML = '';
+                    if (editorImages.length === 0) {
+                        editorThumbnailStrip.innerHTML = '<span style="color:var(--ED-General-color-text-tertiary);">' + getMsg('editor.noImages') + '</span>';
+                        updateEditorImageCount(); return;
+                    }
+                    const label = document.createElement('div');
+                    label.style.cssText = 'font-weight:600;font-size:0.85rem;color:var(--ED-General-color-text-secondary);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;';
+                    label.innerHTML = getMsg('editor.thumbnail.label') + ' <span class="count">' + editorImages.length + '</span>';
+                    editorThumbnailStrip.appendChild(label);
+                    const strip = document.createElement('div');
+                    strip.style.cssText = 'display:flex;gap:10px;overflow-x:auto;padding:10px 6px 14px;';
+                    editorImages.forEach((img, idx) => {
+                        const wrapper = document.createElement('div');
+                        wrapper.className = 'editor-thumb-wrapper';
+                        if (idx === editorSelectedIndex) wrapper.classList.add('selected');
+                        wrapper.draggable = true; wrapper.dataset.index = idx;
+                        wrapper.addEventListener('dragstart', editorHandleDragStart);
+                        wrapper.addEventListener('dragover', editorHandleDragOver);
+                        wrapper.addEventListener('drop', editorHandleDrop);
+                        wrapper.addEventListener('dragend', editorHandleDragEnd);
+                        wrapper.addEventListener('click', (e) => { if (!e.target.classList.contains('editor-thumb-remove')) editorSelectImage(idx); });
+                        const imgEl = document.createElement('img'); imgEl.src = img.originalDataUrl; imgEl.draggable = false;
+                        const badge = document.createElement('span'); badge.className = 'editor-thumb-index'; badge.textContent = idx + 1;
+                        const removeBtn = document.createElement('button'); removeBtn.className = 'editor-thumb-remove'; removeBtn.textContent = '×';
+                        removeBtn.addEventListener('click', (e) => { e.stopPropagation(); editorRemoveImage(idx); });
+                        wrapper.appendChild(imgEl); wrapper.appendChild(badge); wrapper.appendChild(removeBtn);
+                        strip.appendChild(wrapper);
+                    });
+                    editorThumbnailStrip.appendChild(strip);
+                    updateEditorImageCount();
+                }
+
+                let editorDragSrcIndex = -1;
+                function editorHandleDragStart(e) { editorDragSrcIndex = parseInt(this.dataset.index); this.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; }
+                function editorHandleDragOver(e) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; }
+                function editorHandleDrop(e) {
+                    e.preventDefault();
+                    const targetIdx = parseInt(this.dataset.index);
+                    if (editorDragSrcIndex >= 0 && editorDragSrcIndex !== targetIdx) {
+                        const [moved] = editorImages.splice(editorDragSrcIndex, 1);
+                        editorImages.splice(targetIdx, 0, moved);
+                        if (editorSelectedIndex === editorDragSrcIndex) editorSelectedIndex = targetIdx;
+                        else if (editorDragSrcIndex < editorSelectedIndex && targetIdx >= editorSelectedIndex) editorSelectedIndex--;
+                        else if (editorDragSrcIndex > editorSelectedIndex && targetIdx <= editorSelectedIndex) editorSelectedIndex++;
+                        renderEditorThumbnails();
+                        if (editorSelectedIndex >= 0) { updateEditorSlidersFromImage(editorImages[editorSelectedIndex]); renderEditorPreview(); }
+                        pushEditorHistory();
+                        showEditorMessage('editor.msgSequenceReordered');
+                    }
+                    editorDragSrcIndex = -1;
+                }
+                function editorHandleDragEnd(e) { this.classList.remove('dragging'); editorDragSrcIndex = -1; }
+
+                function editorRemoveImage(idx) {
+                    if (idx < 0 || idx >= editorImages.length) return;
+                    editorImages.splice(idx, 1);
+                    if (editorSelectedIndex >= editorImages.length) editorSelectedIndex = editorImages.length - 1;
+                    if (editorSelectedIndex < 0) { hideEditorPreview(); resetEditorSliders(); }
+                    else { updateEditorSlidersFromImage(editorImages[editorSelectedIndex]); renderEditorPreview(); }
+                    renderEditorThumbnails(); pushEditorHistory();
+                    showEditorMessage('editor.msgImageRemoved');
+                }
+
+                function editorSelectImage(idx) {
+                    if (idx < 0 || idx >= editorImages.length) return;
+                    editorSelectedIndex = idx;
+                    updateEditorSlidersFromImage(editorImages[editorSelectedIndex]);
+                    renderEditorThumbnails();
+                    renderEditorPreview();
+                    showEditorPreview();
+                    updateEditorPerFrameDelayInput();
+                    if (editorImages[editorSelectedIndex].overlay) {
+                        editorOverlayText.value = editorImages[editorSelectedIndex].overlay.text || '';
+                        editorOverlayColor.value = editorImages[editorSelectedIndex].overlay.color || '#ffffff';
+                        editorOverlaySize.value = editorImages[editorSelectedIndex].overlay.size || 24;
+                    } else {
+                        editorOverlayText.value = ''; editorOverlayColor.value = '#ffffff'; editorOverlaySize.value = 24;
+                    }
+                }
+
+                function updateEditorSlidersFromImage(img) {
+                    editorBrightnessSlider.value = img.mods.brightness;
+                    editorContrastSlider.value = img.mods.contrast;
+                    editorSaturationSlider.value = img.mods.saturation;
+                    editorHueSlider.value = img.mods.hue;
+                    updateEditorSliderLabels();
+                }
+                function resetEditorSliders() {
+                    editorBrightnessSlider.value = defaultMods.brightness;
+                    editorContrastSlider.value = defaultMods.contrast;
+                    editorSaturationSlider.value = defaultMods.saturation;
+                    editorHueSlider.value = defaultMods.hue;
+                    updateEditorSliderLabels();
+                }
+                function updateEditorSliderLabels() {
+                    editorBrightnessVal.textContent = editorBrightnessSlider.value + '%';
+                    editorContrastVal.textContent = editorContrastSlider.value + '%';
+                    editorSaturationVal.textContent = editorSaturationSlider.value + '%';
+                    editorHueVal.textContent = editorHueSlider.value + '°';
+                    editorFrameDelayVal.textContent = editorFrameDelaySlider.value + ' ms';
+                    editorOutputWidthVal.textContent = editorOutputWidthSlider.value + ' px';
+                }
+
+                function getEditorTargetIndices() {
+                    return editorBulkMode ? editorImages.map((_, i) => i) : (editorSelectedIndex >= 0 ? [editorSelectedIndex] : []);
+                }
+
+                function editorApplyColorMods(indices) {
+                    const b = parseInt(editorBrightnessSlider.value), c = parseInt(editorContrastSlider.value),
+                          s = parseInt(editorSaturationSlider.value), h = parseInt(editorHueSlider.value);
+                    indices.forEach(i => {
+                        if (i >= 0 && i < editorImages.length) {
+                            editorImages[i].mods.brightness = b;
+                            editorImages[i].mods.contrast = c;
+                            editorImages[i].mods.saturation = s;
+                            editorImages[i].mods.hue = h;
+                        }
+                    });
+                    updateEditorSliderLabels(); renderEditorPreview(); pushEditorHistory();
+                }
+
+                function editorApplyGeoMod(transformFn) {
+                    const indices = getEditorTargetIndices();
+                    indices.forEach(i => {
+                        if (i >= 0 && i < editorImages.length) {
+                            transformFn(editorImages[i].mods);
+                            editorImages[i].mods.rotation = ((editorImages[i].mods.rotation % 360) + 360) % 360;
+                        }
+                    });
+                    if (!editorBulkMode && editorSelectedIndex >= 0) updateEditorSlidersFromImage(editorImages[editorSelectedIndex]);
+                    renderEditorPreview(); pushEditorHistory();
+                }
+
+                function renderEditorPreview() {
+                    if (editorSelectedIndex < 0 || editorSelectedIndex >= editorImages.length) { hideEditorPreview(); return; }
+                    editorDrawImageToCanvas(editorImages[editorSelectedIndex], editorPreviewCanvas, editorCropAspectSelect.value);
+                    showEditorPreview();
+                }
+                function editorDrawImageToCanvas(imgData, canvas, cropAspect) {
+                    const mods = imgData.mods;
+                    const srcImg = new Image();
+                    srcImg.onload = function() {
+                        const maxW = 420, maxH = 380;
+                        const isRot90 = mods.rotation === 90 || mods.rotation === 270;
+                        const srcW = isRot90 ? imgData.height : imgData.width;
+                        const srcH = isRot90 ? imgData.width : imgData.height;
+                        let drawW = srcW, drawH = srcH;
+                        if (cropAspect && cropAspect !== 'original') {
+                            const [wR, hR] = cropAspect.split(':').map(Number);
+                            const targetRatio = wR / hR;
+                            const currentRatio = drawW / drawH;
+                            if (currentRatio > targetRatio) drawW = drawH * targetRatio;
+                            else if (currentRatio < targetRatio) drawH = drawW / targetRatio;
+                        }
+                        const scale = Math.min(maxW / drawW, maxH / drawH);
+                        canvas.width = Math.round(drawW * scale); canvas.height = Math.round(drawH * scale);
+                        const ctx = canvas.getContext('2d');
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        ctx.fillStyle = editorBgColorInput.value; ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        ctx.save();
+                        ctx.filter = `brightness(${mods.brightness}%) contrast(${mods.contrast}%) saturate(${mods.saturation}%) hue-rotate(${mods.hue}deg)`;
+                        ctx.translate(canvas.width / 2, canvas.height / 2);
+                        ctx.rotate((mods.rotation * Math.PI) / 180);
+                        ctx.scale(mods.flipH ? -1 : 1, mods.flipV ? -1 : 1);
+                        const srcDrawW = srcW * scale, srcDrawH = srcH * scale;
+                        ctx.drawImage(srcImg, -srcDrawW / 2, -srcDrawH / 2, srcDrawW, srcDrawH);
+                        ctx.restore();
+                        ctx.filter = 'none';
+                        if (imgData.overlay && imgData.overlay.text) {
+                            ctx.fillStyle = imgData.overlay.color;
+                            ctx.font = `${imgData.overlay.size}px var(--ED-General-font-stack)`;
+                            ctx.textAlign = 'center';
+                            ctx.fillText(imgData.overlay.text, canvas.width / 2, canvas.height - 15);
+                        }
+                    };
+                    srcImg.onerror = function() { canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height); };
+                    srcImg.src = imgData.originalDataUrl;
+                }
+
+                function startEditorPlayback() {
+                    if (editorImages.length < 2 || editorIsPlaying) return;
+                    editorIsPlaying = true; editorPlayBtn.disabled = true; editorStopBtn.disabled = false;
+                    editorPlayIndex = 0; editorDrawPlayFrame();
+                    editorPlayInterval = setInterval(() => {
+                        editorPlayIndex = (editorPlayIndex + 1) % editorImages.length;
+                        editorDrawPlayFrame();
+                    }, editorImages[editorPlayIndex].delay);
+                }
+                function stopEditorPlayback() {
+                    if (!editorIsPlaying) return;
+                    clearInterval(editorPlayInterval); editorIsPlaying = false;
+                    editorPlayBtn.disabled = false; editorStopBtn.disabled = true;
+                    if (editorSelectedIndex >= 0) renderEditorPreview();
+                }
+                function editorDrawPlayFrame() {
+                    if (!editorIsPlaying) return;
+                    const imgData = editorImages[editorPlayIndex];
+                    editorDrawImageToCanvas(imgData, editorPreviewCanvas, editorCropAspectSelect.value);
+                    showEditorPreview();
+                }
+
+                async function editorGenerateGif() {
+                    if (editorImages.length < 2) { showEditorMessage('editor.msgNeedTwoImages'); return; }
+                    editorGenerateGifBtn.disabled = true;
+                    editorGenerateGifBtn.textContent = '⏳ ' + getMsg('editor.generate');
+                    editorProgressBar.classList.add('active');
+                    editorProgressBarFill.style.width = '0%';
+                    editorDownloadGifBtn.style.display = 'none';
+                    editorGeneratedGifBlob = null;
+                    const outputWidth = parseInt(editorOutputWidthSlider.value);
+                    const cropAspect = editorCropAspectSelect.value;
+                    const first = editorImages[0];
+                    const firstRot = first.mods.rotation === 90 || first.mods.rotation === 270;
+                    const fnw = firstRot ? first.height : first.width, fnh = firstRot ? first.width : first.height;
+                    const outputHeight = Math.round(outputWidth * (fnh / fnw)) || outputWidth;
+                    const bgColor = editorBgColorInput.value;
+                    const loopCount = parseInt(editorLoopCountInput.value) || 0;
+
+                    try {
+                        const gif = new GIF({
+                            workers: 2, quality: 10,
+                            width: outputWidth, height: outputHeight,
+                            workerScript: 'gif.worker.js',
+                            repeat: loopCount
+                        });
+                        gif.on('progress', p => { editorProgressBarFill.style.width = Math.round(p * 100) + '%'; });
+                        gif.on('finished', blob => {
+                            editorGeneratedGifBlob = blob;
+                            editorProgressBarFill.style.width = '100%';
+                            editorGenerateGifBtn.textContent = getMsg('editor.generate');
+                            editorGenerateGifBtn.disabled = false;
+                            editorProgressBar.classList.remove('active');
+                            editorDownloadGifBtn.style.display = 'inline-flex';
+                            // Show the Save as Avatar button if it exists
+                            const saveBtn = document.getElementById('editorSaveAsAvatarBtn');
+                            if (saveBtn) saveBtn.style.display = 'inline-flex';
+                            showEditorMessage('editor.msgGifGenerated');
+                        });
+
+                        for (let i = 0; i < editorImages.length; i++) {
+                            const imgData = editorImages[i];
+                            const frameCanvas = document.createElement('canvas');
+                            frameCanvas.width = outputWidth; frameCanvas.height = outputHeight;
+                            const ctx = frameCanvas.getContext('2d');
+                            ctx.fillStyle = bgColor; ctx.fillRect(0, 0, outputWidth, outputHeight);
+                            await new Promise(resolve => {
+                                const srcImg = new Image();
+                                srcImg.onload = function() {
+                                    const mods = imgData.mods;
+                                    const isRot90 = mods.rotation === 90 || mods.rotation === 270;
+                                    const srcW = isRot90 ? imgData.height : imgData.width;
+                                    const srcH = isRot90 ? imgData.width : imgData.height;
+                                    let drawW = srcW, drawH = srcH;
+                                    if (cropAspect && cropAspect !== 'original') {
+                                        const [wR, hR] = cropAspect.split(':').map(Number);
+                                        const targetRatio = wR / hR;
+                                        const currentRatio = drawW / drawH;
+                                        if (currentRatio > targetRatio) drawW = drawH * targetRatio;
+                                        else if (currentRatio < targetRatio) drawH = drawW / targetRatio;
+                                    }
+                                    const scale = Math.min(outputWidth / drawW, outputHeight / drawH);
+                                    ctx.save();
+                                    ctx.filter = `brightness(${mods.brightness}%) contrast(${mods.contrast}%) saturate(${mods.saturation}%) hue-rotate(${mods.hue}deg)`;
+                                    ctx.translate(outputWidth / 2, outputHeight / 2);
+                                    ctx.rotate((mods.rotation * Math.PI) / 180);
+                                    ctx.scale(mods.flipH ? -1 : 1, mods.flipV ? -1 : 1);
+                                    const srcDrawW = srcW * scale, srcDrawH = srcH * scale;
+                                    ctx.drawImage(srcImg, -srcDrawW / 2, -srcDrawH / 2, srcDrawW, srcDrawH);
+                                    ctx.restore();
+                                    ctx.filter = 'none';
+                                    if (imgData.overlay && imgData.overlay.text) {
+                                        ctx.fillStyle = imgData.overlay.color;
+                                        ctx.font = `${imgData.overlay.size}px var(--ED-General-font-stack)`;
+                                        ctx.textAlign = 'center';
+                                        ctx.fillText(imgData.overlay.text, outputWidth / 2, outputHeight - 15);
+                                    }
+                                    resolve();
+                                };
+                                srcImg.onerror = () => { ctx.fillStyle = bgColor; ctx.fillRect(0, 0, outputWidth, outputHeight); resolve(); };
+                                srcImg.src = imgData.originalDataUrl;
+                            });
+                            gif.addFrame(frameCanvas, { delay: imgData.delay, copy: true });
+                        }
+                        gif.render();
+                    } catch (e) {
+                        console.error(e);
+                        showEditorMessage('editor.msgGifFailed');
+                        editorGenerateGifBtn.textContent = getMsg('editor.generate');
+                        editorGenerateGifBtn.disabled = false;
+                        editorProgressBar.classList.remove('active');
+                    }
+                }
+
+                function editorDownloadGif() {
+                    if (!editorGeneratedGifBlob) { showEditorMessage('editor.msgGenerateFirst'); return; }
+                    const url = URL.createObjectURL(editorGeneratedGifBlob);
+                    const a = document.createElement('a');
+                    a.href = url; a.download = 'animated_avatar_' + Date.now() + '.gif';
+                    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    showEditorMessage('editor.msgGifDownloaded');
+                }
+
+                // Initialize
+                resetEditorSliders();
+                if (editorSelectedIndex >= 0) {
+                    updateEditorSlidersFromImage(editorImages[0]);
+                    editorSelectImage(0);
+                }
+                renderEditorThumbnails();
+                updateEditorImageCount();
+                pushEditorHistory();
+                EDTranslation.translatePage();
+
+                // Event listeners for multi editor controls
+                document.addEventListener('translationsApplied', function() {
+                    if (editorBox.style.display !== 'none') {
+                        EDTranslation.translatePage();
+                        updateEditorModeToggleUI();
+                        renderEditorThumbnails();
+                        if (editorSelectedIndex >= 0) {
+                            updateEditorSlidersFromImage(editorImages[editorSelectedIndex]);
+                            renderEditorPreview();
+                        }
+                    }
+                });
+
+                editorBackToSelectionBtn.addEventListener('click', () => {
+                    editorBox.style.display = 'none';
+                    previewBox.style.display = 'block';
+                });
+
+                editorModeToggle.addEventListener('click', () => {
+                    if (editorImages.length === 0) return;
+                    editorBulkMode = !editorBulkMode;
+                    updateEditorModeToggleUI();
+                    if (editorBulkMode) { resetEditorSliders(); showEditorMessage('editor.msgBulkMode'); }
+                    else { if (editorSelectedIndex >= 0) updateEditorSlidersFromImage(editorImages[editorSelectedIndex]); showEditorMessage('editor.msgIndividualMode'); }
+                    updateEditorPerFrameDelayInput(); renderEditorPreview();
+                });
+
+                [editorBrightnessSlider, editorContrastSlider, editorSaturationSlider, editorHueSlider].forEach(s =>
+                    s.addEventListener('input', () => editorApplyColorMods(getEditorTargetIndices()))
+                );
+                document.getElementById('editorRotateLeftBtn').addEventListener('click', () => editorApplyGeoMod(m => m.rotation -= 90));
+                document.getElementById('editorRotateRightBtn').addEventListener('click', () => editorApplyGeoMod(m => m.rotation += 90));
+                document.getElementById('editorFlipHBtn').addEventListener('click', () => editorApplyGeoMod(m => m.flipH = !m.flipH));
+                document.getElementById('editorFlipVBtn').addEventListener('click', () => editorApplyGeoMod(m => m.flipV = !m.flipV));
+                document.getElementById('editorResetColorsBtn').addEventListener('click', () => {
+                    getEditorTargetIndices().forEach(i => { if (i >= 0 && i < editorImages.length) editorImages[i].mods = { ...defaultMods }; });
+                    if (!editorBulkMode && editorSelectedIndex >= 0) updateEditorSlidersFromImage(editorImages[editorSelectedIndex]);
+                    else resetEditorSliders();
+                    renderEditorPreview(); pushEditorHistory();
+                });
+                document.getElementById('editorResetGeoBtn').addEventListener('click', () => {
+                    getEditorTargetIndices().forEach(i => { if (i >= 0 && i < editorImages.length) { editorImages[i].mods.rotation = defaultMods.rotation; editorImages[i].mods.flipH = defaultMods.flipH; editorImages[i].mods.flipV = defaultMods.flipV; } });
+                    renderEditorPreview(); pushEditorHistory();
+                });
+
+                editorPerFrameDelay.addEventListener('input', () => {
+                    if (editorBulkMode || editorSelectedIndex < 0) return;
+                    const val = parseInt(editorPerFrameDelay.value);
+                    if (!isNaN(val) && val >= 10 && val <= 5000) { editorImages[editorSelectedIndex].delay = val; renderEditorThumbnails(); pushEditorHistory(); }
+                });
+                editorCopyDelayToAllBtn.addEventListener('click', () => {
+                    if (editorSelectedIndex < 0) { showEditorMessage('editor.msgNoSelection'); return; }
+                    const delayVal = editorImages[editorSelectedIndex].delay;
+                    editorImages.forEach(img => img.delay = delayVal);
+                    renderEditorThumbnails(); pushEditorHistory(); showEditorMessage('editor.msgDelayCopied');
+                });
+                editorSetGlobalDelayBtn.addEventListener('click', () => {
+                    const globalDelay = parseInt(editorFrameDelaySlider.value);
+                    editorImages.forEach(img => img.delay = globalDelay);
+                    if (editorSelectedIndex >= 0) editorPerFrameDelay.value = globalDelay;
+                    renderEditorThumbnails(); pushEditorHistory(); showEditorMessage('editor.msgAllGlobalDelay');
+                });
+
+                editorSetOverlayBtn.addEventListener('click', () => {
+                    if (editorSelectedIndex < 0) return;
+                    const text = editorOverlayText.value.trim();
+                    if (!text) { showEditorMessage('editor.msgEnterOverlayText'); return; }
+                    editorImages[editorSelectedIndex].overlay = { text, color: editorOverlayColor.value, size: parseInt(editorOverlaySize.value) };
+                    renderEditorThumbnails(); renderEditorPreview(); pushEditorHistory(); showEditorMessage('editor.msgOverlaySet');
+                });
+                editorCopyOverlayAllBtn.addEventListener('click', () => {
+                    if (editorSelectedIndex < 0) { showEditorMessage('editor.msgNoSelection'); return; }
+                    const overlay = editorImages[editorSelectedIndex].overlay;
+                    editorImages.forEach(img => img.overlay = overlay ? { ...overlay } : null);
+                    renderEditorThumbnails(); renderEditorPreview(); pushEditorHistory(); showEditorMessage('editor.msgOverlayCopied');
+                });
+                editorClearOverlayBtn.addEventListener('click', () => {
+                    if (editorSelectedIndex < 0) return;
+                    editorImages[editorSelectedIndex].overlay = null;
+                    renderEditorThumbnails(); renderEditorPreview(); pushEditorHistory(); showEditorMessage('editor.msgOverlayCleared');
+                });
+                editorApplyCropBtn.addEventListener('click', () => { renderEditorPreview(); showEditorMessage('editor.msgCropApplied'); });
+                editorReverseOrderBtn.addEventListener('click', () => {
+                    if (editorImages.length < 2) return;
+                    editorImages.reverse(); editorSelectedIndex = editorImages.length - 1 - editorSelectedIndex;
+                    renderEditorThumbnails(); if (editorSelectedIndex >= 0) { updateEditorSlidersFromImage(editorImages[editorSelectedIndex]); renderEditorPreview(); }
+                    pushEditorHistory(); showEditorMessage('editor.msgOrderReversed');
+                });
+                editorShuffleOrderBtn.addEventListener('click', () => {
+                    if (editorImages.length < 2) return;
+                    for (let i = editorImages.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [editorImages[i], editorImages[j]] = [editorImages[j], editorImages[i]]; }
+                    editorSelectedIndex = 0; renderEditorThumbnails(); updateEditorSlidersFromImage(editorImages[0]); renderEditorPreview(); pushEditorHistory(); showEditorMessage('editor.msgOrderShuffled');
+                });
+                editorInsertBlankBtn.addEventListener('click', () => {
+                    const color = editorBgColorInput.value; const delay = parseInt(editorFrameDelaySlider.value);
+                    const canvas = document.createElement('canvas'); canvas.width = 400; canvas.height = 300;
+                    const ctx = canvas.getContext('2d'); ctx.fillStyle = color; ctx.fillRect(0, 0, 400, 300);
+                    const dataUrl = canvas.toDataURL();
+                    const newImg = { id: ++editorIdCounter, originalDataUrl: dataUrl, width: 400, height: 300, mods: { ...defaultMods }, delay, overlay: null, note: '' };
+                    if (editorSelectedIndex >= 0 && editorSelectedIndex < editorImages.length) { editorImages.splice(editorSelectedIndex + 1, 0, newImg); editorSelectedIndex++; }
+                    else { editorImages.push(newImg); editorSelectedIndex = editorImages.length - 1; }
+                    renderEditorThumbnails(); updateEditorSlidersFromImage(newImg); renderEditorPreview(); pushEditorHistory(); showEditorMessage('editor.msgBlankInserted');
+                });
+                editorApplyToAllBtn.addEventListener('click', () => {
+                    if (editorSelectedIndex < 0) { showEditorMessage('editor.msgNoSelection'); return; }
+                    const srcMods = { ...editorImages[editorSelectedIndex].mods };
+                    editorImages.forEach((img, i) => { if (i !== editorSelectedIndex) img.mods = { ...srcMods }; });
+                    renderEditorPreview(); renderEditorThumbnails(); pushEditorHistory(); showEditorMessage('editor.msgSettingsCopied');
+                });
+                editorResetAllBtn.addEventListener('click', () => {
+                    if (editorImages.length === 0) return;
+                    if (confirm(getMsg('editor.confirmResetAll') || 'Reset all images?')) {
+                        editorImages.forEach(img => { img.mods = { ...defaultMods }; img.delay = parseInt(editorFrameDelaySlider.value); img.overlay = null; img.note = ''; });
+                        if (editorSelectedIndex >= 0) updateEditorSlidersFromImage(editorImages[editorSelectedIndex]);
+                        renderEditorPreview(); renderEditorThumbnails(); pushEditorHistory(); showEditorMessage('editor.msgAllReset');
+                    }
+                });
+                editorRemoveAllBtn.addEventListener('click', () => {
+                    if (editorImages.length === 0) return;
+                    if (confirm(getMsg('editor.confirmClearAll') || 'Remove all images?')) {
+                        editorImages = []; editorSelectedIndex = -1; resetEditorSliders(); hideEditorPreview(); renderEditorThumbnails();
+                        editorGeneratedGifBlob = null; editorDownloadGifBtn.style.display = 'none'; 
+                        const saveBtn = document.getElementById('editorSaveAsAvatarBtn');
+                        if (saveBtn) saveBtn.style.display = 'none';
+                        pushEditorHistory(); showEditorMessage('editor.msgAllCleared');
+                    }
+                });
+                editorUndoBtn.addEventListener('click', editorUndo);
+                editorRedoBtn.addEventListener('click', editorRedo);
+                editorSaveNoteBtn.addEventListener('click', () => {
+                    if (editorSelectedIndex < 0) return;
+                    editorImages[editorSelectedIndex].note = editorFrameNoteInput.value.trim();
+                    renderEditorThumbnails(); pushEditorHistory(); showEditorMessage('editor.msgNoteSaved');
+                });
+                editorPlayBtn.addEventListener('click', startEditorPlayback);
+                editorStopBtn.addEventListener('click', stopEditorPlayback);
+                editorFrameDelaySlider.addEventListener('input', updateEditorSliderLabels);
+                editorOutputWidthSlider.addEventListener('input', updateEditorSliderLabels);
+                editorGenerateGifBtn.addEventListener('click', editorGenerateGif);
+                editorDownloadGifBtn.addEventListener('click', editorDownloadGif);
+
+                // ===== NEW: Save GIF as profile avatar =====
+                 const editorSaveAsAvatarBtn = document.createElement('button');
+            editorSaveAsAvatarBtn.id = 'editorSaveAsAvatarBtn';
+            editorSaveAsAvatarBtn.className = 'btn btn-primary';
+            editorSaveAsAvatarBtn.style.display = 'none';
+
+            function setSaveAsAvatarText(status) {
+                const key = status === 'saving' ? 'editor.savingAvatar' :
+                            status === 'saved' ? 'editor.avatarSaved' :
+                            'editor.saveAsAvatar';
+                editorSaveAsAvatarBtn.textContent = getMsg(key) || '🖼 Save as Avatar';
+            }
+            setSaveAsAvatarText('default');
+
+            document.addEventListener('translationsApplied', () => {
+                if (editorSaveAsAvatarBtn.disabled && editorSaveAsAvatarBtn.textContent.includes('Saving')) {
+                    setSaveAsAvatarText('saving');
+                } else if (editorSaveAsAvatarBtn.textContent === getMsg('editor.avatarSaved')) {
+                    setSaveAsAvatarText('saved');
+                } else {
+                    setSaveAsAvatarText('default');
+                }
+            });
+
+            editorSaveAsAvatarBtn.addEventListener('click', async () => {
+                if (!editorGeneratedGifBlob) {
+                    showEditorMessage('editor.msgGenerateFirst');
+                    return;
+                }
+                editorSaveAsAvatarBtn.disabled = true;
+                setSaveAsAvatarText('saving');
+
+                const reader = new FileReader();
+                reader.onload = async (e) => {
+                    const base64Gif = e.target.result;
+                    const SUPABASE_URL = 'https://hmjbzzuresgzwzefjpyt.supabase.co';
+                    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhtamJ6enVyZXNnend6ZWZqcHl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwMjczNDUsImV4cCI6MjA5NTYwMzM0NX0.44Q-Hkl4Rr9LuQhwryrQklFi809xYGteHgsS9nMG0ro';
+                    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+                    try {
+                        const { data: { session }, error: authError } = await supabase.auth.getSession();
+                        if (authError || !session) throw new Error('Not logged in');
+                        const { error: updateError } = await supabase
+                            .from('profiles')
+                            .upsert({
+                                id: session.user.id,
+                                avatar_url: base64Gif,
+                                avatar: '🦉'
+                            }, { onConflict: 'id' });
+                        if (updateError) throw updateError;
+                        showEditorMessage('✅ ' + (getMsg('editor.avatarSaved') || 'Avatar updated!'));
+                        setSaveAsAvatarText('saved');
+                        window.postMessage({ type: 'avatar-updated' }, '*');
+                    } catch (err) {
+                        console.error(err);
+                        showEditorMessage(getMsg('editor.avatarSaveFailed') || '❌ Failed to save avatar: ' + err.message);
+                        setSaveAsAvatarText('default');
+                    } finally {
+                        editorSaveAsAvatarBtn.disabled = false;
+                    }
+                };
+                reader.readAsDataURL(editorGeneratedGifBlob);
+            });
+
+            // Insert button next to download button (after editorGenerateGifBtn listener, same as before)
+            const editorDownloadBtn = document.getElementById('editorDownloadGifBtn');
+            if (editorDownloadBtn && editorDownloadBtn.parentNode) {
+                editorDownloadBtn.parentNode.insertBefore(editorSaveAsAvatarBtn, editorDownloadBtn.nextSibling);
+            }
+
+                document.addEventListener('keydown', e => {
+                    if (e.target.tagName === 'INPUT' && e.target.type !== 'range') return;
+                    if (editorBox.style.display !== 'none') {
+                        if (e.key === 'ArrowLeft' && editorSelectedIndex > 0) { e.preventDefault(); editorSelectImage(editorSelectedIndex - 1); }
+                        else if (e.key === 'ArrowRight' && editorSelectedIndex < editorImages.length - 1) { e.preventDefault(); editorSelectImage(editorSelectedIndex + 1); }
+                        else if (e.key === 'Delete' && editorSelectedIndex >= 0) { e.preventDefault(); editorRemoveImage(editorSelectedIndex); }
+                    }
+                });
+            }
+
+            // ===================== SINGLE‑IMAGE EDITOR =====================
+            function initSingleEditor(imgObj) {
+                let singleImage = null;
+                let singleGeneratedBlob = null;
+
+                const singleBox = document.getElementById('editor-single-box');
+                const singleMsg = document.getElementById('editorSingleMessage');
+                const singleCanvas = document.getElementById('editorSinglePreviewCanvas');
+                const singlePlaceholder = document.getElementById('editorSinglePreviewPlaceholder');
+                const singleEffectSelect = document.getElementById('editorSingleEffectSelect');
+                const singleDuration = document.getElementById('editorSingleDuration');
+                const singleDurationVal = document.getElementById('editorSingleDurationVal');
+                const singleFrameCount = document.getElementById('editorSingleFrameCount');
+                const singleFrameCountVal = document.getElementById('editorSingleFrameCountVal');
+                const singleOutputWidth = document.getElementById('editorSingleOutputWidth');
+                const singleOutputWidthVal = document.getElementById('editorSingleOutputWidthVal');
+                const singleBgColor = document.getElementById('editorSingleBgColor');
+                const singleGenerateBtn = document.getElementById('editorSingleGenerateGifBtn');
+                const singleDownloadBtn = document.getElementById('editorSingleDownloadGifBtn');
+                const singleProgressBar = document.getElementById('editorSingleProgressBar');
+                const singleProgressBarFill = document.getElementById('editorSingleProgressBarFill');
+                const singleBackBtn = document.getElementById('editorSingleBackToSelectionBtn');
+
+                function singleShowMsg(msgKey, placeholders) {
+                    let str = EDTranslation.getText(msgKey) || msgKey;
+                    if (placeholders) Object.keys(placeholders).forEach(k => str = str.replace(`{${k}}`, placeholders[k]));
+                    singleMsg.textContent = str;
+                    setTimeout(() => { if (singleMsg.textContent === str) singleMsg.textContent = ''; }, 2800);
+                }
+
+                // Seeded random for particle effects
+                function mulberry32(seed) {
+                    return function() {
+                        seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+                        var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+                        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+                        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+                    };
+                }
+
+                function drawSingleFrame(frameIndex, totalFrames, effect, width, height, canvas) {
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = width;
+                    canvas.height = height;
+                    const t = totalFrames > 1 ? frameIndex / (totalFrames - 1) : 0;
+                    const bgColor = singleBgColor.value;
+                    ctx.clearRect(0, 0, width, height);
+                    ctx.fillStyle = bgColor; ctx.fillRect(0, 0, width, height);
+
+                    if (['rain','stars','snow','bubbles','confetti'].includes(effect)) {
+                        // Draw image as cover
+                        const imgW = singleImage.naturalWidth;
+                        const imgH = singleImage.naturalHeight;
+                        const scale = Math.max(width / imgW, height / imgH);
+                        const dw = imgW * scale, dh = imgH * scale;
+                        ctx.drawImage(singleImage, (width - dw)/2, (height - dh)/2, dw, dh);
+                        // Particle effects
+                        const seed = effect.charCodeAt(0) + frameIndex * 1000;
+                        const rng = mulberry32(seed);
+                        if (effect === 'rain') {
+                            for (let i=0; i<120; i++) {
+                                const x = rng()*width, speed = 20+rng()*25, y = (rng()*(height+50)+speed*frameIndex)%(height+50)-25;
+                                ctx.strokeStyle = `rgba(180,200,255,${0.3+rng()*0.5})`;
+                                ctx.lineWidth = 1.2;
+                                ctx.beginPath();
+                                ctx.moveTo(x,y); ctx.lineTo(x-1.5,y+12);
+                                ctx.stroke();
+                            }
+                        } else if (effect === 'stars') {
+                            for (let i=0; i<60; i++) {
+                                const x=rng()*width, y=rng()*height;
+                                const op = 0.2+rng()*0.5+0.3*Math.sin(frameIndex*0.3+rng()*Math.PI*2);
+                                ctx.fillStyle = `rgba(255,255,200,${Math.max(0,op)})`;
+                                ctx.beginPath(); ctx.arc(x,y,1+rng()*2.5,0,Math.PI*2); ctx.fill();
+                            }
+                        } else if (effect === 'snow') {
+                            for (let i=0; i<80; i++) {
+                                const x=rng()*width, speed=8+rng()*15, y=(rng()*(height+30)+speed*frameIndex)%(height+30)-15;
+                                ctx.fillStyle = `rgba(255,255,255,${0.5+rng()*0.5})`;
+                                ctx.beginPath(); ctx.arc(x+Math.sin(frameIndex*0.2+i)*15,y,2+rng()*5,0,Math.PI*2); ctx.fill();
+                            }
+                        } else if (effect === 'bubbles') {
+                            for (let i=0; i<40; i++) {
+                                const x=rng()*width, speed=6+rng()*10, y=((rng()*(height+40)-speed*frameIndex)%(height+40)+20);
+                                ctx.strokeStyle = `rgba(255,255,255,${0.3+rng()*0.4})`;
+                                ctx.fillStyle = `rgba(255,255,255,${0.1+rng()*0.2})`;
+                                ctx.lineWidth=1;
+                                ctx.beginPath(); ctx.arc(x,y,3+rng()*8,0,Math.PI*2); ctx.fill(); ctx.stroke();
+                            }
+                        } else if (effect === 'confetti') {
+                            const colors=['#FF6B6B','#4ECDC4','#FFE66D','#A78BFA','#F472B6','#60A5FA'];
+                            for (let i=0; i<60; i++) {
+                                const x=rng()*width, speed=15+rng()*25, y=(rng()*(height+30)+speed*frameIndex)%(height+30)-15;
+                                ctx.save(); ctx.translate(x,y); ctx.rotate(rng()*360*Math.PI/180);
+                                ctx.fillStyle = colors[Math.floor(rng()*colors.length)];
+                                ctx.globalAlpha = 0.7+rng()*0.3;
+                                ctx.fillRect(-(4+rng()*6)/2,-(4+rng()*6)/4,4+rng()*6,(4+rng()*6)/2);
+                                ctx.restore();
+                            }
+                        }
+                    } else {
+                        // Transformation effects
+                        let scale = 1.0, angle = 0, ox = 0, oy = 0, alpha = 1.0;
+                        switch(effect) {
+                            case 'zoom-in': scale = 1.0 + t*0.5; break;
+                            case 'zoom-out': scale = 1.5 - t*0.5; break;
+                            case 'pan-left': ox = (0.5 - t)*0.3*singleImage.naturalWidth; break;
+                            case 'pan-right': ox = (-0.5 + t)*0.3*singleImage.naturalWidth; break;
+                            case 'pan-up': oy = (0.5 - t)*0.3*singleImage.naturalHeight; break;
+                            case 'pan-down': oy = (-0.5 + t)*0.3*singleImage.naturalHeight; break;
+                            case 'ken-burns-in': scale = 1.0 + t*0.5; ox = t*0.05*singleImage.naturalWidth; oy = t*0.05*singleImage.naturalHeight; break;
+                            case 'ken-burns-out': scale = 1.5 - t*0.5; ox = (1-t)*0.05*singleImage.naturalWidth; oy = (1-t)*0.05*singleImage.naturalHeight; break;
+                            case 'rotate-cw': angle = t*Math.PI*2; break;
+                            case 'rotate-ccw': angle = -t*Math.PI*2; break;
+                            case 'fade-in': alpha = t; break;
+                            case 'fade-out': alpha = 1 - t; break;
+                            case 'slide-left': ox = -t*width; break;
+                            case 'slide-right': ox = t*width; break;
+                            case 'slide-up': oy = -t*height; break;
+                            case 'slide-down': oy = t*height; break;
+                            case 'pulse': scale = 1 + 0.15*Math.sin(t*Math.PI*2*2); break;
+                            case 'wobble': angle = 5*(Math.PI/180)*Math.sin(t*Math.PI*2*3); break;
+                            case 'shake': ox = 10*Math.sin(t*Math.PI*2*4); oy = 8*Math.cos(t*Math.PI*2*4); break;
+                        }
+                        ctx.save();
+                        ctx.globalAlpha = alpha;
+                        ctx.translate(width/2, height/2);
+                        if (angle) ctx.rotate(angle);
+                        if (scale !== 1.0) ctx.scale(scale, scale);
+                        ctx.drawImage(singleImage, -singleImage.naturalWidth/2 + ox, -singleImage.naturalHeight/2 + oy, singleImage.naturalWidth, singleImage.naturalHeight);
+                        ctx.restore();
+                    }
+                }
+
+                function renderSingleStill() {
+                    if (!singleImage) return;
+                    const w = parseInt(singleOutputWidth.value);
+                    const h = Math.round(w * (singleImage.naturalHeight / singleImage.naturalWidth));
+                    drawSingleFrame(0, parseInt(singleFrameCount.value), singleEffectSelect.value, w, h, singleCanvas);
+                    singleCanvas.style.display = 'block';
+                    singlePlaceholder.style.display = 'none';
+                }
+
+                function updateSingleUI() {
+                    singleDurationVal.textContent = parseFloat(singleDuration.value).toFixed(1) + ' s';
+                    singleFrameCountVal.textContent = singleFrameCount.value;
+                    singleOutputWidthVal.textContent = singleOutputWidth.value + ' px';
+                    renderSingleStill();
+                }
+
+                // Load the image
+                const img = new Image();
+                img.onload = function() {
+                    singleImage = img;
+                    singleGenerateBtn.disabled = false;
+                    updateSingleUI();
+                };
+                img.src = imgObj.data;
+
+                // Event listeners
+                singleEffectSelect.addEventListener('change', updateSingleUI);
+                singleDuration.addEventListener('input', updateSingleUI);
+                singleFrameCount.addEventListener('input', updateSingleUI);
+                singleOutputWidth.addEventListener('input', updateSingleUI);
+                singleBgColor.addEventListener('input', updateSingleUI);
+
+                singleBackBtn.addEventListener('click', () => {
+                    singleBox.style.display = 'none';
+                    previewBox.style.display = 'block';
+                });
+
+                singleGenerateBtn.addEventListener('click', async () => {
+                    if (!singleImage) { singleShowMsg('editor.single.msgGenerateFirst'); return; }
+                    singleGenerateBtn.disabled = true;
+                    singleGenerateBtn.textContent = '⏳ ' + (EDTranslation.getText('editor.single.generate') || 'Generating…');
+                    singleProgressBar.classList.add('active');
+                    singleProgressBarFill.style.width = '0%';
+                    singleDownloadBtn.style.display = 'none';
+                    const effect = singleEffectSelect.value;
+                    const totalFrames = parseInt(singleFrameCount.value);
+                    const duration = parseFloat(singleDuration.value);
+                    const frameDelay = Math.round((duration * 1000) / totalFrames);
+                    const outW = parseInt(singleOutputWidth.value);
+                    const outH = Math.round(outW * (singleImage.naturalHeight / singleImage.naturalWidth));
+                    const bg = singleBgColor.value;
+
+                    try {
+                        const gif = new GIF({
+                            workers: 2, quality: 10,
+                            width: outW, height: outH,
+                            workerScript: 'gif.worker.js',
+                            repeat: 0
+                        });
+                        gif.on('progress', p => { singleProgressBarFill.style.width = Math.round(p*100) + '%'; });
+                        gif.on('finished', blob => {
+                            singleGeneratedBlob = blob;
+                            singleProgressBarFill.style.width = '100%';
+                            singleGenerateBtn.textContent = EDTranslation.getText('editor.single.generate') || '🎬 Generate Animated GIF';
+                            singleGenerateBtn.disabled = false;
+                            singleProgressBar.classList.remove('active');
+                            singleDownloadBtn.style.display = 'inline-flex';
+                            singleShowMsg('editor.single.msgGifGenerated');
+                        });
+                        for (let i=0; i<totalFrames; i++) {
+                            const canvas = document.createElement('canvas');
+                            drawSingleFrame(i, totalFrames, effect, outW, outH, canvas);
+                            gif.addFrame(canvas, { delay: frameDelay, copy: true });
+                        }
+                        gif.render();
+                    } catch(e) {
+                        console.error(e);
+                        singleShowMsg('editor.single.msgGifFailed');
+                        singleGenerateBtn.textContent = EDTranslation.getText('editor.single.generate') || '🎬 Generate Animated GIF';
+                        singleGenerateBtn.disabled = false;
+                        singleProgressBar.classList.remove('active');
+                    }
+                });
+
+                singleDownloadBtn.addEventListener('click', () => {
+                    if (!singleGeneratedBlob) { singleShowMsg('editor.single.msgGenerateFirst'); return; }
+                    const url = URL.createObjectURL(singleGeneratedBlob);
+                    const a = document.createElement('a');
+                    a.href = url; a.download = 'animated_single_' + Date.now() + '.gif';
+                    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    singleShowMsg('editor.msgGifDownloaded');
+                });
+
+                EDTranslation.translatePage();
+            }
+
+            // Start page
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', loadImages);
+            } else {
+                loadImages();
+            }
+        })();
+    </script>
+</body>
+</html>

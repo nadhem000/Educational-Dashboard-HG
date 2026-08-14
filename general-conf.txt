@@ -1,0 +1,209 @@
+# GENERAL CONFIGURATION & CODING STANDARDS
+# This file contains all conventions and constraints for building/maintaining HGH‑History lesson and exercise pages.
+# It is intended to be read by both developers and AI agents to ensure consistency.
+
+============================================================
+GENERAL RULES (apply to both lesson and exercise pages)
+============================================================
+
+1. CSS COLOR VARIABLES (NO DIRECT COLOR VALUES)
+- All colors must be defined as custom properties inside :root and [data-theme="dark"].
+- Never use a raw hex, rgb, rgba, hsl, or named color directly in a CSS rule (except for fully transparent “transparent”).
+- This applies to ALL contexts – normal screen, lightbox, buttons, modals, print rules, etc.
+- Define sensible semantic names:
+    --HGH-History-bg-color, --HGH-History-surface-color,
+    --HGH-History-text-color, --HGH-History-text-secondary,
+    --HGH-History-heading-color, --HGH-History-border-color,
+    --HGH-History-accent-color, --HGH-History-accent-light, …
+- For print styles create dedicated variables (these are NOT themed, they override everything):
+    --HGH-History-print-bg: #ffffff;
+    --HGH-History-print-text: #000000;
+    --HGH-History-print-secondary-text: #333333;
+    --HGH-History-print-border: #cccccc;
+    --HGH-History-print-answer-bg: #fafafa;
+    etc.
+- Any element that needs a color must use var(--xxx). Example: background-color: var(--HGH-History-exercise-answer-bg);
+
+2. NO INLINE STYLES (EVER)
+- style="…" attributes on HTML elements are forbidden.
+- All styling must reside in the <style> block or external CSS files (via classes).
+- JavaScript shall NOT set element.style.* – use classList.add/remove/toggle instead.
+- If a state needs to override a CSS value, create a dedicated CSS class with the override,
+  then toggle that class from JavaScript.
+- Example (good):
+  CSS: .zoomed-container { overflow: auto; }
+  JS:  container.classList.add('zoomed-container');
+- Example (bad):
+  JS:  container.style.overflow = 'auto';
+
+3. NAMING CONVENTIONS
+- CSS custom properties: --HGH-History-<descriptive-name>
+- CSS classes: HGH-History-<descriptive-name> (single or double dash, consistent within the project)
+- JavaScript functions: HGH_<verbNoun> (e.g. HGH_initOptions, HGH_setupExercisePrint)
+- Data attributes: data-i18n="key" for translation targets.
+- Global configuration objects (for lesson print): window.HGH_EXERCISE_DATA
+- Custom exercise builders (optional): window.HGH_EXERCISE_CUSTOM_BUILDERS
+
+4. DARK THEME SUPPORT
+- Every color variable set in :root MUST have a counterpart in [data-theme="dark"].
+- The dark theme is triggered by adding data-theme="dark" to <html> (done by external script).
+- Do not create separate dark‑only rules; rely solely on the variables.
+
+5. PRINT STYLES
+- Use @media print { … } for print‑specific overrides.
+- Print rules must also use var() from the print‑dedicated variables (no hard‑coded #fff, #000, etc.).
+- Elements that should not appear in print receive the class .no-print (or are explicitly hidden in print media).
+- Exercise answer wrappers must be forced open (max‑height: none; opacity: 1; overflow: visible) in print.
+- For lesson pages: dynamically inserted printable elements (#print-exercise-0, #print-exercise-1, etc.) must be styled with print variables.
+- For exercise pages: containers are hidden via body.no-type-XX classes defined dynamically (see exercise‑specific rules). No manual CSS needed.
+
+6. RESPONSIVE DESIGN
+- Provide at least two breakpoints: @media (max-width: 768px) and (max-width: 420px).
+- Adjust padding, font‑size, flex‑wrap, and image max‑heights.
+- RTL/LTR handling must be maintained at all breakpoints.
+
+7. RTL / LTR SUPPORT
+- The default direction is RTL (dir="rtl" on <html>). A body class .HGH-History-ltr switches to LTR.
+- Use these classes in CSS to flip margins, paddings, flex‑direction, text‑align, border‑side, etc.
+- Example:
+    .some-element { padding-right: 20px; }
+    body.HGH-History-ltr .some-element { padding-right: 0; padding-left: 20px; }
+- Always think about both directions when adding layout‑related CSS.
+
+8. HTML SKELETON (COMMON TO ALL PAGES)
+Every page (lesson or exercise) must contain:
+- <header class="HGH-History-site-header"> with:
+    * HGH-History-header-right (icon)
+    * HGH-History-header-center (title lines with data-i18n attributes)
+    * HGH-History-header-left (theme toggle button + language <select>)
+- <div class="HGH-History-main-container"> wrapping all content.
+- <footer class="HGH-History-site-footer"> with three .HGH-History-footer-item divs.
+- The PDF modal: <div class="HGH-History-pdf-modal-overlay no-print" id="pdfModalOverlay"> …
+  Inside the modal, the options area must be a container with id="pdfModalOptionsContainer" (empty, to be filled by JS).
+  The modal must contain the buttons: #pdfModalClose, #pdfModalCancel, #pdfModalGenerate.
+- Script includes (in order):
+    * HGH-i18n.js
+    * HGH-options.js
+    * [For lesson pages only] HGH-print.js
+    * [For exercise pages only] HGH-print-exercises.js
+- The inline script that calls HGH_initOptions(PAGE_TRANSLATIONS).
+- The lightbox script (self‑executing, creating overlay and window.openLightbox).
+- theme‑color meta tag updated via JS.
+
+13. JAVASCRIPT RULES
+- Avoid global variables; use the HGH_ prefix or wrap in IIFEs.
+- All user‑facing strings that may need translation must use data-i18n attributes and be defined in PAGE_TRANSLATIONS.
+- External scripts provide:
+    * HGH_initOptions(PAGE_TRANSLATIONS) – sets up theme toggle, language selector, and text replacement.
+    * HGH_setupExercisePrint(config) – connects the exercise page PDF modal (config must be an object with a `types` array).
+    * HGH-print.js (for lessons) handles the lesson PDF modal automatically when #openPdfModalBtn is clicked.
+- For lesson pages, the generate button inside HGH-print.js uses a waitForImages() helper to ensure images are loaded before printing.
+- Custom exercise builders (for lesson print) can be added via window.HGH_EXERCISE_CUSTOM_BUILDERS, a map of type -> builder function.
+
+14. ACCESSIBILITY & META
+- Include <meta name="theme-color" content=""> and set it dynamically to the accent color with JS.
+- Use appropriate ARIA labels (aria-label, aria-labelledby) on modals and interactive elements.
+- All images must have meaningful alt text.
+- Placeholder for missing images: <div class="HGH-History-placeholder">ستعرض لاحقا</div> (can be localised).
+
+15. FILE ORGANISATION
+- Assets: assets/icon-96x96.png, assets2/lessons/history/…, assets2/exercises/history/…
+- Shared scripts:
+    HGH-i18n.js
+    HGH-options.js
+    HGH-print.js           (print logic for LESSON pages)
+    HGH-print-exercises.js (print logic for EXERCISE pages)
+- Each lesson/exercise is a standalone .html file.
+- This conf file (general-conf.txt) should be placed in the project root.
+
+16. FINAL CHECKLIST WHEN CREATING A NEW PAGE
+(Items marked with [L] apply primarily to lesson pages, [E] to exercise pages; the rest are universal.)
+[ ] All colors are defined as --var and used via var() (including print and modal overlays)
+[ ] No inline style attributes in HTML
+[ ] JavaScript does not set element.style.* directly
+[ ] Full dark theme variables defined
+[ ] Print media uses print-specific variables
+[ ] Header & footer present with theme/language controls
+[ ] RTL/LTR tested (add body.HGH-History-ltr class temporarily to check)
+[ ] Responsive breakpoints included
+[ ] Lightbox script present; images use onclick="openLightbox(this.src)"
+[ ] PDF modal with #pdfModalOptionsContainer (exercise) or static checkboxes (lesson)
+[E] For exercise pages: HGH_setupExercisePrint called with correct types array
+[L] For lesson pages: HGH_EXERCISE_DATA defined if exercises are printable
+[ ] Translation keys set in data-i18n and PAGE_TRANSLATIONS object
+[ ] Theme-color meta tag updated dynamically
+[ ] Placeholder for missing images
+[ ] Page‑specific JavaScript does not pollute global namespace
+[ ] Test print functionality: verify answers are shown and unwanted sections hidden according to checkboxes
+
+============================================================
+LESSON‑SPECIFIC RULES
+============================================================
+
+9. LESSON PAGE SPECIFIC
+- Use .HGH-History-section-card to wrap each major block (intro, causes, results, definitions, gallery).
+- Semantic heading classes: .HGH-History-level-roman, .HGH-History-level-numeric, .HGH-History-level-alpha, .HGH-History-level-summary, .HGH-History-level-bullet.
+- In‑text highlights: .HGH-History-country, .HGH-History-personality, .HGH-History-treaty, .HGH-History-event.
+- Definitions section: id="definitions-section", sub‑class .HGH-History-definitions-group, .HGH-History-definitions-category.
+- Gallery section: id="gallery-section", .HGH-History-gallery with .HGH-History-gallery-item images (onclick="openLightbox(this.src)") and captions.
+- Download button + exercise link button with class .no-print.
+- PDF modal checkboxes: #chkDefinitions, #chkImages, #chkExercises (static HTML).
+- Exercise data must be defined as window.HGH_EXERCISE_DATA before the closing </body> tag, using the new “sections” format:
+    window.HGH_EXERCISE_DATA = {
+      sections: [
+        { type: 'definition-list', title: '...', items: [...] },
+        { type: 'map-completion', ... }
+      ]
+    };
+- The generate button logic is entirely inside HGH-print.js. It reads HGH_EXERCISE_DATA.sections, uses internal builders (or custom builders from HGH_EXERCISE_CUSTOM_BUILDERS) to create printable elements, waits for images, then prints.
+- To add a new exercise type for lesson print, register a builder function in HGH_EXERCISE_CUSTOM_BUILDERS with the same type name. The builder receives the section data and returns an HTML string (a card with id "print-exercise-N"). See HGH-print.js for examples.
+- **IMPORTANT – CSS for printed exercise elements:** If the lesson defines window.HGH_EXERCISE_DATA (i.e. it will insert exercise content when printing), the page's <style> block MUST include the styling for the dynamic elements: 
+    .HGH-History-exercise-item, .HGH-History-exercise-term, .HGH-History-exercise-answer-wrapper-visible (and its margin variants), .HGH-History-exercise-map-img, .HGH-History-exercise-map-answer-div, .HGH-History-exercise-section-title, etc.
+    Copy the relevant CSS rules from an existing lesson that already has them (e.g. the World War I lesson). These rules should use the project’s color variables and the print-specific variables where appropriate.
+
+12. ADDING A NEW LESSON
+1. Copy the skeleton from an existing lesson page.
+2. Replace the content inside .HGH-History-main-container with the new lesson text, using the semantic heading classes.
+3. Update the PAGE_TRANSLATIONS object with the lesson title and subtitle for each language.
+4. If the lesson includes exercises that can be printed, define window.HGH_EXERCISE_DATA with the sections (see section 9). The PDF modal must contain #chkExercises checkbox. Also ensure the CSS for exercise elements is present.
+5. If the lesson has NO exercises, remove the #chkExercises checkbox and the exercise link button, and do NOT define HGH_EXERCISE_DATA. The extra CSS rules for exercises are not needed.
+6. The generate button functionality is generic (HGH-print.js); no script modifications needed.
+7. Ensure all images use onclick="openLightbox(this.src)" and have meaningful alt text.
+
+============================================================
+EXERCISE‑SPECIFIC RULES
+============================================================
+
+10. EXERCISE PAGE SPECIFIC
+- Container divs with fixed IDs for each exercise type (e.g. #exercise-type01-container, #exercise-type02-container).
+- Render exercises using the reusable functions historyExType01(), historyExType02(), etc. These functions MUST be defined in the exercise page (either directly or included from a shared script), before they are called.
+- PDF modal:
+    - The modal must contain an empty <div class="HGH-History-pdf-options" id="pdfModalOptionsContainer"></div>.
+    - No static checkboxes; they are generated dynamically by HGH_setupExercisePrint.
+- After rendering exercises and on DOMContentLoaded, call HGH_setupExercisePrint with a types array:
+    HGH_setupExercisePrint({
+      types: [
+        { id: '01', label: '📝 تعريفات', hint: 'تمارين النوع الأول', containerId: 'exercise-type01-container' },
+        { id: '02', label: '🗺️ خريطة', hint: 'تمرين إكمال الخريطة', containerId: 'exercise-type02-container' }
+      ]
+    });
+- HGH_setupExercisePrint will:
+    * Build the checkboxes (#chkType01, #chkType02…) automatically inside #pdfModalOptionsContainer.
+    * Inject CSS rules: @media print { body.no-type-01 #exercise-type01-container { display: none !important; } } etc.
+    * On generate, add 'revealed' class to all answer wrappers, hide the show buttons, apply no-type-XX classes based on checkbox state, then print.
+    * Clean up after print.
+- The ‘revealed’ class toggles answer visibility; printing always reveals.
+- Script order for exercise pages: HGH-i18n.js → HGH-options.js → HGH-print-exercises.js → (inline scripts including definitions of historyExType01/02 and their calls, then HGH_setupExercisePrint activation after DOM ready).
+
+11. ADDING A NEW EXERCISE TYPE (FOR EXERCISE PAGES)
+1. Create a rendering function historyExTypeNN(config) following the pattern of historyExType01/02.
+   - config must include containerId, title, the specific data for the type.
+   - Use standard classes: .HGH-History-exercise-section-title, .HGH-History-exercise-item, .HGH-History-exercise-answer-wrapper, .HGH-History-exercise-show-btn, etc.
+   - Toggle answer visibility via class ‘revealed’.
+2. Add a container <div id="exercise-typeNN-container" class="HGH-History-section-card"></div> in the HTML.
+3. Call the rendering function with the data and the containerId.
+4. Add an entry in the types array passed to HGH_setupExercisePrint:
+   { id: 'NN', label: 'Your Label', hint: 'optional hint', containerId: 'exercise-typeNN-container' }
+   The checkbox and CSS hiding rule are generated automatically.
+5. Ensure any new layout classes introduced in the rendering function follow the naming convention and use color variables.
+6. If the new type requires additional CSS that is not already in the exercise page’s stylesheet, add it (following all color and naming rules) to the <style> block.

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="appTitle">History & Geography Hub</title>
+  <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="ED-general-common.css">
+  <style>
+    :root {
+      --ED-General-color-bg: #f5f1eb;
+      --ED-General-color-bg-secondary: #ede7df;
+      --ED-General-color-surface: #ffffff;
+      --ED-General-color-surface-hover: #fafaf8;
+      --ED-General-color-text-primary: #1e293b;
+      --ED-General-color-text-secondary: #5a6c7d;
+      --ED-General-color-text-tertiary: #8b9aab;
+      --ED-General-color-border: #e2dcd4;
+      --ED-General-color-border-hover: #cbc3b8;
+      --ED-General-color-shadow-rgb: 60, 50, 40;
+      --ED-General-color-accent-default: #4a7fd9;
+      --ED-General-color-accent-light: #e8f1fb;
+      --ED-General-color-accent-soft: #f0f5fc;
+      --ED-General-color-header-gradient-start: #fefdfb;
+      --ED-General-color-header-gradient-mid1: #faf8f4;
+      --ED-General-color-header-gradient-mid2: #f6f3ee;
+      --ED-General-color-header-gradient-end: #f2efe8;
+      --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+      --ED-General-color-accent-rgb: 74,127,217;
+      --ED-General-color-icon-sun: #e8a840;
+      --ED-General-color-icon-moon: #7b8cb0;
+      --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+      --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+      --ED-General-color-text-on-accent: #ffffff;
+      --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+      --ED-General-transition-speed: 0.3s;
+    }
+    [data-theme="dark"] {
+      --ED-General-color-bg: #171a20;
+      --ED-General-color-bg-secondary: #1e2129;
+      --ED-General-color-surface: #23262f;
+      --ED-General-color-surface-hover: #2a2e38;
+      --ED-General-color-text-primary: #e2e4ea;
+      --ED-General-color-text-secondary: #b0b5c2;
+      --ED-General-color-text-tertiary: #7d8494;
+      --ED-General-color-border: #32353e;
+      --ED-General-color-border-hover: #454952;
+      --ED-General-color-shadow-rgb: 0,0,0;
+      --ED-General-color-accent-default: #7aafff;
+      --ED-General-color-accent-light: #1e2d45;
+      --ED-General-color-accent-soft: #1a2535;
+      --ED-General-color-header-gradient-start: #1f222d;
+      --ED-General-color-header-gradient-mid1: #1c1f29;
+      --ED-General-color-header-gradient-mid2: #191c24;
+      --ED-General-color-header-gradient-end: #171a20;
+      --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+      --ED-General-color-accent-rgb: 122,175,255;
+      --ED-General-color-icon-sun: #e8a840;
+      --ED-General-color-icon-moon: #c4d0f0;
+      --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+      --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+      --ED-General-color-text-on-accent: #12151c;
+    }
+    [dir="rtl"] {
+      direction: rtl;
+      text-align: right;
+    }
+    body {
+      margin: 0;
+      font-family: var(--ED-General-font-stack);
+      background-color: var(--ED-General-color-bg);
+      color: var(--ED-General-color-text-primary);
+    }
+    #welcome-bar {
+      font-size: 0.9rem;
+    }
+    #welcome-avatar-img {
+      max-width: 32px;
+      max-height: 32px;
+    }
+  </style>
+</head>
+<body>
+  <header id="header-container"></header>
+
+  <main>
+    <h2 data-i18n="welcomeMessage">Welcome to History & Geography Hub</h2>
+    <div id="year-programs-container" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap:1.5rem; padding:1.5rem;"></div>
+  </main>
+
+  <footer id="footer-container"></footer>
+
+  <!-- ══════════ SCRIPTS – MUST BE IN THIS ORDER ══════════ -->
+  <!-- 1. Translation engine (no dependencies) -->
+  <script src="ED-general-translations-data.js"></script>
+  <script src="ED-general-translation.js"></script>
+
+  <!-- 2. Auth & profile (need translation) -->
+  <script src="ED-general-auth.js"></script>
+  <script src="ED-general-profile.js"></script>
+
+  <!-- 3. Encrypted backup (needs auth) -->
+  <script src="ED-general-encrypted-backup.js"></script>
+
+  <!-- 4. PWA & Analytics (standalone) -->
+  <script src="hgh-pwa.js"></script>
+  <script src="hgh-analytics.js"></script>
+
+  <!-- 5. Page initialisation (uses everything above) -->
+  <script src="hgh-init.js"></script>
+
+  <!-- 6. Programs data -->
+  <script src="HGH-programs-data.js"></script>
+
+  <!-- 7. UI text dictionary -->
+  <script>
+    const HGH_UI_TEXT = {
+      en: {
+        appTitle: "History & Geography Hub",
+        welcomeMessage: "Welcome to History & Geography Hub",
+        onlineStatus: "Online",
+        offlineStatus: "Offline",
+        installBtn: "📲 Install App",
+        themeToggleTitle: "Dark/Light Theme",
+        offlineBanner: "You are offline. Some features may be unavailable.",
+        updateNotification: "A new version is available.",
+        updateReloadBtn: "Reload",
+        enablePeriodicSyncBtn: "Enable Background Updates",
+        disablePeriodicSyncBtn: "Disable Background Updates",
+        enableNotificationsBtn: "Enable Notifications",
+programs: {
+  history: "History",
+  geography: "Geography",
+  modules: "modules",
+  lessons: "lessons"
+},
+        footer: {
+          version: "version '0.0.1'",
+          confidentiality: "Confidentiality Politics",
+          terms: "Terms of Use",
+          contact: "Contact",
+          developer: "developed by: Mejri Ziad.",
+          hosted: "Hosted on Github and Netlify.",
+          rateLabel: "Rate this app"
+        },
+        auth: {
+          signIn: "Sign in",
+          signUp: "Create account",
+          signOut: "Sign out",
+          emailPlaceholder: "Email",
+          passwordPlaceholder: "Password",
+          cancel: "Cancel",
+          continue: "Continue",
+          switchToSignUp: "Create an account",
+          switchToSignIn: "Already have an account? Sign in",
+          forgotPassword: "Forgot password?",
+          forgotPasswordSent: "Password reset email sent.",
+          forgotPasswordError: "Failed to send reset email.",
+          profile: {
+            button: "Profile",
+            buttonTitle: "View and edit your profile",
+            title: "My Profile",
+            loading: "Loading profile…",
+            saveChanges: "Save Changes",
+            completeTitle: "Complete your profile",
+            usernamePlaceholder: "Username",
+            avatarLabel: "Choose an avatar",
+            uploadAvatar: "📷 Upload",
+            removeAvatar: "✕ Remove",
+            createAnimatedAvatar: "Create animated avatar",
+            experimentalNote: "still experimental",
+            professionLabel: "Profession",
+            studentOption: "Student",
+            teacherOption: "Teacher",
+            otherOption: "Other",
+            classLabel: "Class / Grade",
+            birthdayLabel: "Birthday",
+            languageLabel: "Preferred language",
+            langEnglish: "English",
+            langFrench: "Français",
+            langArabic: "العربية",
+            modeLabel: "Preferred mode",
+            modeLight: "Light",
+            modeDark: "Dark",
+            howKnowLabel: "How did you get to know the site?",
+            howFriend: "From a friend",
+            howSocial: "Social media",
+            howSearch: "Search engine",
+            howOther: "Other",
+            saveContinue: "Save & Continue",
+            back: "Back",
+            usernameRequired: "Please enter a username.",
+            professionRequired: "Please select a profession.",
+            grade7: "7th grade",
+            grade8: "8th grade",
+            grade9: "9th grade",
+            grade10: "10th grade",
+            grade11: "11th grade",
+            grade12: "12th grade",
+            saving: "Saving…",
+            saveSuccess: "Profile saved successfully!",
+            loadError: "Failed to load profile.",
+            imageTooLarge: "Image must be smaller than 5 MB.",
+            imageProcessError: "Failed to process image. Please try a different one.",
+            saveError: "Failed to save profile."
+          }
+        }
+      },
+      fr: {
+        appTitle: "Hub d'Histoire et Géographie",
+        welcomeMessage: "Bienvenue sur History & Geography Hub",
+        onlineStatus: "En ligne",
+        offlineStatus: "Hors ligne",
+        installBtn: "📲 Installer l'application",
+        themeToggleTitle: "Thème Sombre/Clair",
+        offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+        updateNotification: "Une nouvelle version est disponible.",
+        updateReloadBtn: "Recharger",
+        enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+        disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+        enableNotificationsBtn: "Activer les notifications",
+programs: {
+  history: "Histoire",
+  geography: "Géographie",
+  modules: "modules",
+  lessons: "leçons"
+},
+        footer: {
+          version: "version '0.0.1'",
+          confidentiality: "Politique de confidentialité",
+          terms: "Conditions d'utilisation",
+          contact: "Contact",
+          developer: "développé par : Mejri Ziad.",
+          hosted: "Hébergé sur Github et Netlify.",
+          rateLabel: "Noter cette application"
+        },
+        auth: {
+          signIn: "Se connecter",
+          signUp: "Créer un compte",
+          signOut: "Se déconnecter",
+          emailPlaceholder: "Email",
+          passwordPlaceholder: "Mot de passe",
+          cancel: "Annuler",
+          continue: "Continuer",
+          switchToSignUp: "Créer un compte",
+          switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+          forgotPassword: "Mot de passe oublié ?",
+          forgotPasswordSent: "Email de réinitialisation envoyé.",
+          forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+          profile: {
+            button: "Profil",
+            buttonTitle: "Voir et modifier votre profil",
+            title: "Mon Profil",
+            loading: "Chargement du profil…",
+            saveChanges: "Enregistrer les modifications",
+            completeTitle: "Complétez votre profil",
+            usernamePlaceholder: "Nom d'utilisateur",
+            avatarLabel: "Choisissez un avatar",
+            uploadAvatar: "📷 Télécharger",
+            removeAvatar: "✕ Supprimer",
+            createAnimatedAvatar: "Créer un avatar animé",
+            experimentalNote: "encore expérimental",
+            professionLabel: "Profession",
+            studentOption: "Élève",
+            teacherOption: "Enseignant",
+            otherOption: "Autre",
+            classLabel: "Classe / Niveau",
+            birthdayLabel: "Date de naissance",
+            languageLabel: "Langue préférée",
+            modeLabel: "Mode préféré",
+            lightOption: "Clair",
+            darkOption: "Sombre",
+            howKnowLabel: "Comment avez-vous connu le site ?",
+            howFriend: "Par un ami",
+            howSocial: "Réseaux sociaux",
+            howSearch: "Moteur de recherche",
+            howOther: "Autre",
+            saveContinue: "Enregistrer et continuer",
+            back: "Retour",
+            usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+            professionRequired: "Veuillez sélectionner une profession.",
+            grade7: "5ème",
+            grade8: "4ème",
+            grade9: "3ème",
+            grade10: "Seconde",
+            grade11: "Première",
+            grade12: "Terminale",
+            saving: "Enregistrement…",
+            saveSuccess: "Profil enregistré avec succès !",
+            loadError: "Échec du chargement du profil.",
+            imageTooLarge: "L'image doit faire moins de 5 Mo.",
+            imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+            saveError: "Échec de l'enregistrement du profil."
+          }
+        }
+      },
+      ar: {
+        appTitle: "مركز التاريخ والجغرافيا",
+        welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+        onlineStatus: "متصل",
+        offlineStatus: "غير متصل",
+        installBtn: "📲 تثبيت التطبيق",
+        themeToggleTitle: "المظهر الداكن/الفاتح",
+        offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+        updateNotification: "نسخة جديدة متاحة.",
+        updateReloadBtn: "إعادة التحميل",
+        enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+        disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+        enableNotificationsBtn: "تفعيل الإشعارات",
+programs: {
+  history: "تاريخ",
+  geography: "جغرافيا",
+  modules: "وحدات",
+  lessons: "دروس"
+},
+        footer: {
+          version: "الإصدار '0.0.1'",
+          confidentiality: "سياسة الخصوصية",
+          terms: "شروط الاستخدام",
+          contact: "اتصل بنا",
+          developer: "طور بواسطة: ماجري زياد.",
+          hosted: "مستضاف على Github و Netlify.",
+          rateLabel: "قيّم هذا التطبيق"
+        },
+        auth: {
+          signIn: "تسجيل الدخول",
+          signUp: "إنشاء حساب",
+          signOut: "تسجيل الخروج",
+          emailPlaceholder: "البريد الإلكتروني",
+          passwordPlaceholder: "كلمة المرور",
+          cancel: "إلغاء",
+          continue: "متابعة",
+          switchToSignUp: "إنشاء حساب",
+          switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+          forgotPassword: "نسيت كلمة المرور؟",
+          forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+          forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+          profile: {
+            button: "الملف الشخصي",
+            buttonTitle: "عرض وتعديل ملفك الشخصي",
+            title: "ملفي الشخصي",
+            loading: "جارٍ تحميل الملف الشخصي…",
+            saveChanges: "حفظ التغييرات",
+            completeTitle: "أكمل ملفك الشخصي",
+            usernamePlaceholder: "اسم المستخدم",
+            avatarLabel: "اختر صورة رمزية",
+            uploadAvatar: "📷 رفع",
+            removeAvatar: "✕ إزالة",
+            createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+            experimentalNote: "لا يزال تجريبيًا",
+            professionLabel: "المهنة",
+            studentOption: "طالب",
+            teacherOption: "معلم",
+            otherOption: "أخرى",
+            classLabel: "الصف / المستوى",
+            birthdayLabel: "تاريخ الميلاد",
+            languageLabel: "اللغة المفضلة",
+            modeLabel: "الوضع المفضل",
+            lightOption: "فاتح",
+            darkOption: "داكن",
+            howKnowLabel: "كيف تعرفت على الموقع؟",
+            howFriend: "من صديق",
+            howSocial: "وسائل التواصل الاجتماعي",
+            howSearch: "محرك بحث",
+            howOther: "أخرى",
+            saveContinue: "حفظ ومتابعة",
+            back: "رجوع",
+            usernameRequired: "يرجى إدخال اسم مستخدم.",
+            professionRequired: "يرجى اختيار مهنة.",
+            grade7: "الصف السابع",
+            grade8: "الصف الثامن",
+            grade9: "الصف التاسع",
+            grade10: "الصف العاشر",
+            grade11: "الصف الحادي عشر",
+            grade12: "الصف الثاني عشر",
+            saving: "جارٍ الحفظ…",
+            saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+            loadError: "فشل تحميل الملف الشخصي.",
+            imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+            imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+            saveError: "فشل حفظ الملف الشخصي."
+          }
+        }
+      }
+    };
+    window.HGH_UI_TEXT = HGH_UI_TEXT;
+  </script>
+
+  <!-- 8. Card builder (needs data + HGH_UI_TEXT) -->
+  <script src="hgh-programs-cards.js"></script>
+</body>
+</html>
