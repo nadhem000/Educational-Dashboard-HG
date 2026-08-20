@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – الأدفاق التجارية العالمية: المظاهر والعوامل</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+			--ED-General-color-bg: #f5f1eb;
+			--ED-General-color-bg-secondary: #ede7df;
+			--ED-General-color-surface: #ffffff;
+			--ED-General-color-surface-hover: #fafaf8;
+			--ED-General-color-text-primary: #1e293b;
+			--ED-General-color-text-secondary: #5a6c7d;
+			--ED-General-color-text-tertiary: #8b9aab;
+			--ED-General-color-border: #e2dcd4;
+			--ED-General-color-border-hover: #cbc3b8;
+			--ED-General-color-shadow-rgb: 60, 50, 40;
+			--ED-General-color-accent-default: #4a7fd9;
+			--ED-General-color-accent-light: #e8f1fb;
+			--ED-General-color-accent-soft: #f0f5fc;
+			--ED-General-color-header-gradient-start: #fefdfb;
+			--ED-General-color-header-gradient-mid1: #faf8f4;
+			--ED-General-color-header-gradient-mid2: #f6f3ee;
+			--ED-General-color-header-gradient-end: #f2efe8;
+			--ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+			--ED-General-color-accent-rgb: 74,127,217;
+			--ED-General-color-icon-sun: #e8a840;
+			--ED-General-color-icon-moon: #7b8cb0;
+			--ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+			--ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+			--ED-General-color-text-on-accent: #ffffff;
+			--ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+			--ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+			--ED-General-color-bg: #171a20;
+			--ED-General-color-bg-secondary: #1e2129;
+			--ED-General-color-surface: #23262f;
+			--ED-General-color-surface-hover: #2a2e38;
+			--ED-General-color-text-primary: #e2e4ea;
+			--ED-General-color-text-secondary: #b0b5c2;
+			--ED-General-color-text-tertiary: #7d8494;
+			--ED-General-color-border: #32353e;
+			--ED-General-color-border-hover: #454952;
+			--ED-General-color-shadow-rgb: 0,0,0;
+			--ED-General-color-accent-default: #7aafff;
+			--ED-General-color-accent-light: #1e2d45;
+			--ED-General-color-accent-soft: #1a2535;
+			--ED-General-color-header-gradient-start: #1f222d;
+			--ED-General-color-header-gradient-mid1: #1c1f29;
+			--ED-General-color-header-gradient-mid2: #191c24;
+			--ED-General-color-header-gradient-end: #171a20;
+			--ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+			--ED-General-color-accent-rgb: 122,175,255;
+			--ED-General-color-icon-sun: #e8a840;
+			--ED-General-color-icon-moon: #c4d0f0;
+			--ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+			--ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+			--ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        
+		/* ══════ PRINT MODAL STYLES ══════ */
+		.print-modal-overlay {
+			position: fixed;
+			top: 0; left: 0; right: 0; bottom: 0;
+			background: rgba(0,0,0,0.55);
+			backdrop-filter: blur(6px);
+			-webkit-backdrop-filter: blur(6px);
+			z-index: 99999;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			animation: pmFadeIn 0.25s ease-out;
+			padding: 1rem;
+		}
+		@keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+		.print-modal-content {
+			background: var(--ED-General-color-surface);
+			border-radius: 20px;
+			padding: 2rem 2.2rem;
+			max-width: 480px;
+			width: 100%;
+			box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+			border: 1px solid var(--ED-General-color-border);
+			animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+		}
+		@keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+		.print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+		.print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+		.print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+		.print-option {
+			display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+			border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+			background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+		}
+		.print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+		.print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+		.print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+		.print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+		.print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+		.print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+		.print-option-label { font-weight: 700; font-size: 1rem; }
+		.print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+		[dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+		.print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+		.print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+		.print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+		.print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+		/* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+		.print-header-content, .print-footer-content { display: none; }
+        @media print {
+		html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+		:root, [data-theme="dark"] {
+			color-scheme: light !important;
+			--ED-General-color-bg: #ffffff !important;
+			--ED-General-color-bg-secondary: #f5f5f5 !important;
+			--ED-General-color-surface: #ffffff !important;
+			--ED-General-color-surface-hover: #fafafa !important;
+			--ED-General-color-text-primary: #000000 !important;
+			--ED-General-color-text-secondary: #333333 !important;
+			--ED-General-color-text-tertiary: #666666 !important;
+			--ED-General-color-border: #cccccc !important;
+			--ED-General-color-border-hover: #999999 !important;
+			--ED-General-color-accent-default: #1a1a1a !important;
+			--ED-General-color-accent-light: #e8e8e8 !important;
+			--ED-General-color-accent-soft: #f0f0f0 !important;
+			--ED-General-color-accent-rgb: 26, 26, 26 !important;
+			--ED-General-color-text-on-accent: #ffffff !important;
+			--ED-General-color-shadow-rgb: 0,0,0 !important;
+			--ED-General-color-header-gradient-start: #ffffff !important;
+			--ED-General-color-header-gradient-mid1: #fafafa !important;
+			--ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+			--ED-General-color-header-gradient-end: #eeeeee !important;
+			--ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+			--ED-General-color-icon-sun: #e8a840 !important;
+			--ED-General-color-icon-moon: #7b8cb0 !important;
+			--ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+			--ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+		}
+		@page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+		.print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+		.print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+		.print-header-content img { width:28px; height:28px; }
+		.print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+		#print-header, #print-footer { display:none !important; }
+		body { background:#fff; color:#000; font-size:11pt; margin:0; }
+		.exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+		.print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+		.hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+		.hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+		.hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+		.hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+		.hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+		.hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+		a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+    <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+        الرابعة ثانوي، شعبة آداب
+    </div>
+            <h1 data-i18n="exerciseTitle">تمارين – الأدفاق التجارية العالمية: المظاهر والعوامل</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: العولمة، الشركات عبر القطرية، الصندقة، التصنيع الحاث على التصدير.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">العولمة:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">عملية تزايد الترابط والاندماج بين اقتصاديات العالم وثقافاته وسكانه.</dd>
+                        <dt data-i18n="ex1_def2_title">الشركات عبر القطرية:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">شركة كبرى تمارس أنشطتها مباشرة أو عن طريق فروعها في الخارج مع الحفاظ على مقرها الاجتماعي في بلدها الأصلي.</dd>
+                        <dt data-i18n="ex1_def3_title">الصندقة:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">نظام النقل بالحاويات الموحدة الذي سهل الشحن وزاد من حمولة السفن وخفض تكاليف النقل البحري.</dd>
+                        <dt data-i18n="ex1_def4_title">التصنيع الحاث على التصدير:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">سياسة تنموية اعتمدتها بلدان الجنوب تقوم على توجيه الصناعات نحو الأسواق الخارجية لتحقيق النمو.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الوثيقة 1 إلى مخطط بالأعمدة يبيّن تطور إجمالي الأدفاق التجارية العالمية بين 1980 و2023.</span>
+                </div>
+                <table class="hgh-exercices-type3-tabToHistogram-table">
+                    <tr>
+                        <th data-i18n="ex2_table_year">السنة</th>
+                        <th>1980</th>
+                        <th>1990</th>
+                        <th>2000</th>
+                        <th>2010</th>
+                        <th>2015</th>
+                        <th>2019</th>
+                        <th>2020</th>
+                        <th>2021</th>
+                        <th>2022</th>
+                        <th>2023</th>
+                    </tr>
+                    <tr>
+                        <td data-i18n="ex2_table_goods">أدفاق السلع</td>
+                        <td>2050</td>
+                        <td>3495</td>
+                        <td>6452</td>
+                        <td>15302</td>
+                        <td>17000</td>
+                        <td>18500</td>
+                        <td>16000</td>
+                        <td>21000</td>
+                        <td>25263</td>
+                        <td>24010</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="ex2_table_services">أدفاق الخدمات التجارية</td>
+                        <td>395</td>
+                        <td>813</td>
+                        <td>1521</td>
+                        <td>3935</td>
+                        <td>5000</td>
+                        <td>6100</td>
+                        <td>5900</td>
+                        <td>6800</td>
+                        <td>7542</td>
+                        <td>7500</td>
+                    </tr>
+                    <tr>
+                        <td data-i18n="ex2_table_total">إجمالي الأدفاق التجارية</td>
+                        <td>2445</td>
+                        <td>4308</td>
+                        <td>7973</td>
+                        <td>19237</td>
+                        <td>22000</td>
+                        <td>24600</td>
+                        <td>21900</td>
+                        <td>27800</td>
+                        <td>32805</td>
+                        <td>31510</td>
+                    </tr>
+                </table>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: إحصائيات المنظمة العالمية للتجارة 2024 والأونكتاد 2023</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Map / Document (with two documents) -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">من خلال الوثيقتين، قارن بين الأدفاق ضمن الإقليمية والأدفاق بين الإقليمية، وأبرز حدود عولمة الأدفاق التجارية.</span>
+                </div>
+                <img src="assets2/exercises/geography/intraRegionalTrade1.png" alt="الوثيقة 1: صادرات السلع ضمن الإقليمية" class="hgh-exercices-type2-doc" />
+                <img src="assets2/exercises/geography/intraRegionalTrade2.png" alt="الوثيقة 2: صادرات السلع بين الإقليمية" class="hgh-exercices-type2-doc" />
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <img src="assets2/exercises/geography/globalTradeIntraRegionalAnswer.png" alt="نموذج الإجابة – حدود عولمة الأدفاق التجارية" class="hgh-exercices-type2-answer-img" />
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        تتميز الأدفاق التجارية بهيمنة الأدفاق ضمن الإقليمية، حيث تمثل أكثر من ثلثي المبادلات الأوروبية سنة 2022. ويؤكد ذلك أن العولمة لم تصل إلى عولمة كاملة، وأن التجارة العالمية تتركز أساساً داخل الأقاليم والتكتلات الكبرى، بينما تبقى مناطق مثل أفريقيا وأمريكا اللاتينية هامشية في التجارة العالمية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل خصائص تطور الأدفاق التجارية العالمية.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        خصائص تطور الأدفاق التجارية العالمية:
+                        - تضاعف إجمالي الأدفاق التجارية العالمية قرابة 13 مرة بين 1980 و2024.
+                        - تضاعفت قيمة أدفاق السلع قرابة 12 مرة، بينما تضاعفت أدفاق الخدمات التجارية 19 مرة.
+                        - شمل النمو كل أجزاء العالم، لكنه كان أسرع في بلدان الجنوب خاصة آسيا.
+                        - ارتفاع حصة الأدفاق التجارية من الناتج الداخلي الخام العالمي من قرابة الربع سنة 1980 إلى قرابة الثلث (29%) سنة 2024.
+                        - يتسم النمو بالتذبذب نتيجة الأزمات العالمية مثل جائحة كورونا.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تتميز الأدفاق التجارية العالمية بنمو سريع ومتسارع، إذ تضاعف إجماليها قرابة 13 مرة بين 1980 و2024. وقد تضاعفت أدفاق السلع 12 مرة وأدفاق الخدمات التجارية 19 مرة، وكان النمو أسرع في بلدان الجنوب خاصة آسيا، كما ارتفعت حصة الأدفاق التجارية من الناتج العالمي من الربع إلى الثلث (29%). ورغم ذلك يبقى هذا النمو متذبذباً بتأثير الأزمات العالمية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول عوامل نمو الأدفاق التجارية العالمية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        لفهم عوامل نمو الأدفاق التجارية العالمية، حلّل تحولات الاقتصاد العالمي وعولمة الاستثمار، تحرير التجارة العالمية، والعوامل التقنية المساعدة.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم الأدفاق التجارية كظاهرة عالمية متنامية.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. تحولات الاقتصاد العالمي وعولمة الاستثمار؛ ثانياً. تحرير التجارة العالمية؛ ثالثاً. العوامل التقنية.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: تفاعل العوامل يفسر النمو السريع للأدفاق التجارية.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">تضاعفت الأدفاق التجارية العالمية قرابة 13 مرة بين 1980 و2024، ويعزى هذا النمو إلى عوامل اقتصادية وتجارية وتقنية مترابطة.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_econ">أولاً. تحولات الاقتصاد العالمي وعولمة الاستثمار</h4>
+                        <p data-i18n="ex5A_production_p_econ">ارتفع عدد فروع الشركات عبر القطرية التي تسعى إلى تجزئة الإنتاج وتوطين الفروع في الخارج، مما كثّف المبادلات التجارية، وساهم انفتاح بلدان أوروبا الشرقية والدول النامية في توسيع التجارة العالمية.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_trade">ثانياً. تحرير التجارة العالمية</h4>
+                        <p data-i18n="ex5A_production_p_trade">ساهمت جولات الغات وإنشاء المنظمة العالمية للتجارة في خفض الرسوم الجمركية على المنتجات الصناعية من 40% بعد الحرب العالمية الثانية إلى 3.9% فقط، كما أبرمت اتفاقيات وأنشئت مناطق تبادل حر.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_tech">ثالثاً. العوامل التقنية المساعدة</h4>
+                        <p data-i18n="ex5A_production_p_tech">أحدثت الحاويات ثورة في النقل البحري، وساهم تعميم الطابع البحري للتجارة وتطور تكنولوجيات المعلومات والاتصال في تسهيل الربط بين الفاعلين وتقليص تكاليف النقل.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا تتفاعل تحولات الاقتصاد العالمي وتحرير التجارة والتطور التقني لتفسير النمو السريع للأدفاق التجارية العالمية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y4sec_secLet_geo_lessons_mod1_lesson1_part1.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+    <a href="index.html" class="go-link return-main-link">
+        🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+    </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+    returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+    returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+    returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+    yearSection: "4th Secondary, Arts Section",
+                exerciseTitle: "Exercises – Global Trade Flows: Manifestations and Factors",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: globalization, transnational corporations, containerization, export-oriented industrialization.",
+                ex1_def1_title: "Globalization:",
+                ex1_def1_subtitle: "Process of increasing interdependence and integration of world economies, cultures, and populations.",
+                ex1_def2_title: "Transnational Corporations:",
+                ex1_def2_subtitle: "Large companies operating directly or through subsidiaries abroad while keeping their headquarters in the home country.",
+                ex1_def3_title: "Containerization:",
+                ex1_def3_subtitle: "Standardized container shipping system that facilitated maritime transport, increased ship capacity, and lowered costs.",
+                ex1_def4_title: "Export-oriented Industrialization:",
+                ex1_def4_subtitle: "Development policy adopted by Southern countries directing industries toward foreign markets to achieve growth.",
+                ex2Q: "Convert document 1 data into a bar chart showing the evolution of total global trade flows between 1980 and 2023.",
+                ex2_table_year: "Year",
+                ex2_table_goods: "Goods flows",
+                ex2_table_services: "Commercial services flows",
+                ex2_table_total: "Total trade flows",
+                ex2Q_source: "Source: WTO 2024 and UNCTAD 2023 statistics",
+                ex2A_title: "Evolution of Total Global Trade Flows (1980–2023, billion USD)",
+                ex2A_source: "Source: WTO 2024 and UNCTAD 2023 statistics",
+                ex2A_scale: "Scale: 0–35,000 billion USD; column height proportional to value.",
+                ex2A_key_label: "Key:",
+                ex3Q: "Using the two documents, compare intra-regional and inter-regional trade flows and highlight the limits of the globalization of trade flows.",
+                ex3A: "Trade flows are dominated by intra-regional flows, which represent more than two-thirds of European exchanges in 2022. This confirms that globalization has not led to full globalization, and that world trade is concentrated mainly within major regions and blocs, while regions such as Africa and Latin America remain marginal in world trade.",
+                ex4Q: "Analyse the characteristics of the evolution of global trade flows.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Characteristics of the evolution of global trade flows:\n- Total global trade flows multiplied about 13 times between 1980 and 2024.\n- Goods flows multiplied about 12 times, while commercial services flows multiplied 19 times.\n- Growth covered all parts of the world, but was faster in the Global South, especially Asia.\n- The share of trade flows in global GDP rose from about a quarter in 1980 to about a third (29%) in 2024.\n- Growth is marked by volatility due to global crises such as the COVID-19 pandemic.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "Global trade flows are characterized by rapid and accelerating growth, with the total multiplying about 13 times between 1980 and 2024. Goods flows multiplied 12 times and commercial services flows 19 times. Growth was faster in the Global South, especially Asia, and the share of trade flows in global GDP rose from about a quarter to about a third (29%). However, this growth remains volatile because of global crises.",
+                ex5Q: "Write a short article on the factors of growth of global trade flows.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "To understand the factors of growth of global trade flows, analyse the transformations of the world economy and investment globalization, trade liberalization, and supportive technological factors.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Present global trade flows as a growing global phenomenon.",
+                ex5A_plan_li2: "Development: I. Transformations of the world economy and investment globalization; II. Liberalization of world trade; III. Technological factors.",
+                ex5A_plan_li3: "Conclusion: The combination of factors explains the rapid growth of trade flows.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Global trade flows multiplied about 13 times between 1980 and 2024, driven by interconnected economic, commercial, and technological factors.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_econ: "I. Transformations of the World Economy and Investment Globalization",
+                ex5A_production_p_econ: "The number of branches of transnational corporations rose, seeking a new global division of labor based on production fragmentation and offshoring, while the opening of Eastern European and developing countries expanded world trade.",
+                ex5A_production_h4_trade: "II. Liberalization of World Trade",
+                ex5A_production_p_trade: "GATT negotiation rounds and the creation of the WTO reduced tariffs on industrial products from 40% after World War II to only 3.9%, while bilateral agreements and free trade zones further liberalized trade.",
+                ex5A_production_h4_tech: "III. Supportive Technological Factors",
+                ex5A_production_p_tech: "The container revolution transformed maritime transport, and the spread of maritime trade and new ICT facilitated connections between actors and reduced transport costs.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus, transformations of the world economy, trade liberalization, and technological progress together explain the rapid growth of global trade flows.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+    returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+    yearSection: "4ème secondaire, section Lettres",
+                exerciseTitle: "Exercices – Les flux commerciaux mondiaux : manifestations et facteurs",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : mondialisation, firmes transnationales, conteneurisation, industrialisation tournée vers l'exportation.",
+                ex1_def1_title: "Mondialisation :",
+                ex1_def1_subtitle: "Processus d'interdépendance et d'intégration croissantes des économies, cultures et populations mondiales.",
+                ex1_def2_title: "Firmes transnationales :",
+                ex1_def2_subtitle: "Grandes entreprises opérant directement ou via des filiales à l'étranger tout en gardant leur siège dans le pays d'origine.",
+                ex1_def3_title: "Conteneurisation :",
+                ex1_def3_subtitle: "Système de transport par conteneurs standardisés qui a facilité le transport maritime, augmenté la capacité des navires et réduit les coûts.",
+                ex1_def4_title: "Industrialisation tournée vers l'exportation :",
+                ex1_def4_subtitle: "Politique de développement adoptée par les pays du Sud orientant les industries vers les marchés extérieurs pour atteindre la croissance.",
+                ex2Q: "Convertissez les données du document 1 en diagramme à barres montrant l'évolution du total des flux commerciaux mondiaux entre 1980 et 2023.",
+                ex2_table_year: "Année",
+                ex2_table_goods: "Flux de biens",
+                ex2_table_services: "Flux de services commerciaux",
+                ex2_table_total: "Total des flux commerciaux",
+                ex2Q_source: "Source : statistiques OMC 2024 et CNUCED 2023",
+                ex2A_title: "Évolution du total des flux commerciaux mondiaux (1980–2023, milliards USD)",
+                ex2A_source: "Source : statistiques OMC 2024 et CNUCED 2023",
+                ex2A_scale: "Échelle : 0–35 000 milliards USD ; hauteur des colonnes proportionnelle à la valeur.",
+                ex2A_key_label: "Légende :",
+                ex3Q: "À l'aide des deux documents, comparez les flux intra-régionaux et inter-régionaux et mettez en évidence les limites de la mondialisation des flux commerciaux.",
+                ex3A: "Les flux commerciaux sont dominés par les flux intra-régionaux, qui représentent plus des deux tiers des échanges européens en 2022. Cela confirme que la mondialisation n'a pas conduit à une mondialisation complète et que le commerce mondial est concentré principalement dans les grandes régions et blocs, tandis que des régions comme l'Afrique et l'Amérique latine restent marginales dans le commerce mondial.",
+                ex4Q: "Analysez les caractéristiques de l'évolution des flux commerciaux mondiaux.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Caractéristiques de l'évolution des flux commerciaux mondiaux :\n- Le total des flux commerciaux mondiaux a été multiplié par environ 13 entre 1980 et 2024.\n- Les flux de biens ont été multipliés par environ 12, tandis que les flux de services commerciaux ont été multipliés par 19.\n- La croissance a touché toutes les parties du monde, mais a été plus rapide dans les pays du Sud, surtout en Asie.\n- La part des flux commerciaux dans le PIB mondial est passée d'environ un quart en 1980 à environ un tiers (29%) en 2024.\n- La croissance est marquée par la volatilité en raison des crises mondiales comme la pandémie de COVID-19.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Les flux commerciaux mondiaux se caractérisent par une croissance rapide et soutenue, le total ayant été multiplié par environ 13 entre 1980 et 2024. Les flux de biens ont été multipliés par 12 et les flux de services commerciaux par 19. La croissance a été plus rapide dans le Sud, surtout en Asie, et la part des flux commerciaux dans le PIB mondial est passée d'environ un quart à un tiers (29%). Cette croissance reste toutefois volatile en raison des crises mondiales.",
+                ex5Q: "Rédigez un court article sur les facteurs de croissance des flux commerciaux mondiaux.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Pour comprendre les facteurs de croissance des flux commerciaux mondiaux, analysez les transformations de l'économie mondiale et la mondialisation de l'investissement, la libéralisation du commerce mondial et les facteurs techniques favorables.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter les flux commerciaux mondiaux comme un phénomène mondial croissant.",
+                ex5A_plan_li2: "Développement : I. Transformations de l'économie mondiale et mondialisation de l'investissement ; II. Libéralisation du commerce mondial ; III. Facteurs techniques.",
+                ex5A_plan_li3: "Conclusion : La combinaison des facteurs explique la croissance rapide des flux commerciaux.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Les flux commerciaux mondiaux ont été multipliés par environ 13 entre 1980 et 2024, sous l'effet de facteurs économiques, commerciaux et techniques interdépendants.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_econ: "I. Transformations de l'économie mondiale et mondialisation de l'investissement",
+                ex5A_production_p_econ: "Le nombre de filiales des firmes transnationales a augmenté, cherchant une nouvelle division mondiale du travail fondée sur la fragmentation de la production et la délocalisation, tandis que l'ouverture des pays d'Europe de l'Est et des pays en développement a élargi le commerce mondial.",
+                ex5A_production_h4_trade: "II. Libéralisation du commerce mondial",
+                ex5A_production_p_trade: "Les cycles du GATT et la création de l'OMC ont réduit les droits de douane sur les produits industriels de 40% après la Seconde Guerre mondiale à seulement 3,9%, tandis que les accords bilatéraux et les zones de libre-échange ont davantage libéralisé le commerce.",
+                ex5A_production_h4_tech: "III. Facteurs techniques favorables",
+                ex5A_production_p_tech: "La révolution du conteneur a transformé le transport maritime, et la généralisation du commerce maritime et les nouvelles TIC ont facilité les connexions entre acteurs et réduit les coûts de transport.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi, les transformations de l'économie mondiale, la libéralisation du commerce et le progrès technique expliquent ensemble la croissance rapide des flux commerciaux mondiaux.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+    returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+    yearSection: "الرابعة ثانوي، شعبة آداب",
+                exerciseTitle: "تمارين – الأدفاق التجارية العالمية: المظاهر والعوامل",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: العولمة، الشركات عبر القطرية، الصندقة، التصنيع الحاث على التصدير.",
+                ex1_def1_title: "العولمة:",
+                ex1_def1_subtitle: "عملية تزايد الترابط والاندماج بين اقتصاديات العالم وثقافاته وسكانه.",
+                ex1_def2_title: "الشركات عبر القطرية:",
+                ex1_def2_subtitle: "شركة كبرى تمارس أنشطتها مباشرة أو عن طريق فروعها في الخارج مع الحفاظ على مقرها الاجتماعي في بلدها الأصلي.",
+                ex1_def3_title: "الصندقة:",
+                ex1_def3_subtitle: "نظام النقل بالحاويات الموحدة الذي سهل الشحن وزاد من حمولة السفن وخفض تكاليف النقل البحري.",
+                ex1_def4_title: "التصنيع الحاث على التصدير:",
+                ex1_def4_subtitle: "سياسة تنموية اعتمدتها بلدان الجنوب تقوم على توجيه الصناعات نحو الأسواق الخارجية لتحقيق النمو.",
+                ex2Q: "حوّل بيانات الوثيقة 1 إلى مخطط بالأعمدة يبيّن تطور إجمالي الأدفاق التجارية العالمية بين 1980 و2023.",
+                ex2_table_year: "السنة",
+                ex2_table_goods: "أدفاق السلع",
+                ex2_table_services: "أدفاق الخدمات التجارية",
+                ex2_table_total: "إجمالي الأدفاق التجارية",
+                ex2Q_source: "المصدر: إحصائيات المنظمة العالمية للتجارة 2024 والأونكتاد 2023",
+                ex2A_title: "تطور إجمالي الأدفاق التجارية العالمية (1980–2023، مليار دولار)",
+                ex2A_source: "المصدر: إحصائيات المنظمة العالمية للتجارة 2024 والأونكتاد 2023",
+                ex2A_scale: "المقياس: 0–35000 مليار دولار؛ ارتفاع الأعمدة يتناسب مع القيمة.",
+                ex2A_key_label: "المفتاح:",
+                ex3Q: "من خلال الوثيقتين، قارن بين الأدفاق ضمن الإقليمية والأدفاق بين الإقليمية، وأبرز حدود عولمة الأدفاق التجارية.",
+                ex3A: "تتميز الأدفاق التجارية بهيمنة الأدفاق ضمن الإقليمية، حيث تمثل أكثر من ثلثي المبادلات الأوروبية سنة 2022. ويؤكد ذلك أن العولمة لم تصل إلى عولمة كاملة، وأن التجارة العالمية تتركز أساساً داخل الأقاليم والتكتلات الكبرى، بينما تبقى مناطق مثل أفريقيا وأمريكا اللاتينية هامشية في التجارة العالمية.",
+                ex4Q: "حلّل خصائص تطور الأدفاق التجارية العالمية.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "خصائص تطور الأدفاق التجارية العالمية:\n- تضاعف إجمالي الأدفاق التجارية العالمية قرابة 13 مرة بين 1980 و2024.\n- تضاعفت قيمة أدفاق السلع قرابة 12 مرة، بينما تضاعفت أدفاق الخدمات التجارية 19 مرة.\n- شمل النمو كل أجزاء العالم، لكنه كان أسرع في بلدان الجنوب خاصة آسيا.\n- ارتفاع حصة الأدفاق التجارية من الناتج الداخلي الخام العالمي من قرابة الربع سنة 1980 إلى قرابة الثلث (29%) سنة 2024.\n- يتسم النمو بالتذبذب نتيجة الأزمات العالمية مثل جائحة كورونا.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تتميز الأدفاق التجارية العالمية بنمو سريع ومتسارع، إذ تضاعف إجماليها قرابة 13 مرة بين 1980 و2024. وقد تضاعفت أدفاق السلع 12 مرة وأدفاق الخدمات التجارية 19 مرة، وكان النمو أسرع في بلدان الجنوب خاصة آسيا، كما ارتفعت حصة الأدفاق التجارية من الناتج العالمي من الربع إلى الثلث (29%). ورغم ذلك يبقى هذا النمو متذبذباً بتأثير الأزمات العالمية.",
+                ex5Q: "اكتب مقالاً قصيراً حول عوامل نمو الأدفاق التجارية العالمية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "لفهم عوامل نمو الأدفاق التجارية العالمية، حلّل تحولات الاقتصاد العالمي وعولمة الاستثمار، تحرير التجارة العالمية، والعوامل التقنية المساعدة.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم الأدفاق التجارية كظاهرة عالمية متنامية.",
+                ex5A_plan_li2: "تطوير: أولاً. تحولات الاقتصاد العالمي وعولمة الاستثمار؛ ثانياً. تحرير التجارة العالمية؛ ثالثاً. العوامل التقنية.",
+                ex5A_plan_li3: "خاتمة: تفاعل العوامل يفسر النمو السريع للأدفاق التجارية.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "تضاعفت الأدفاق التجارية العالمية قرابة 13 مرة بين 1980 و2024، ويعزى هذا النمو إلى عوامل اقتصادية وتجارية وتقنية مترابطة.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_econ: "أولاً. تحولات الاقتصاد العالمي وعولمة الاستثمار",
+                ex5A_production_p_econ: "ارتفع عدد فروع الشركات عبر القطرية التي تسعى إلى تجزئة الإنتاج وتوطين الفروع في الخارج، مما كثّف المبادلات التجارية، وساهم انفتاح بلدان أوروبا الشرقية والدول النامية في توسيع التجارة العالمية.",
+                ex5A_production_h4_trade: "ثانياً. تحرير التجارة العالمية",
+                ex5A_production_p_trade: "ساهمت جولات الغات وإنشاء المنظمة العالمية للتجارة في خفض الرسوم الجمركية على المنتجات الصناعية من 40% بعد الحرب العالمية الثانية إلى 3.9% فقط، كما أبرمت اتفاقيات وأنشئت مناطق تبادل حر.",
+                ex5A_production_h4_tech: "ثالثاً. العوامل التقنية المساعدة",
+                ex5A_production_p_tech: "أحدثت الحاويات ثورة في النقل البحري، وساهم تعميم الطابع البحري للتجارة وتطور تكنولوجيات المعلومات والاتصال في تسهيل الربط بين الفاعلين وتقليص تكاليف النقل.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا تتفاعل تحولات الاقتصاد العالمي وتحرير التجارة والتطور التقني لتفسير النمو السريع للأدفاق التجارية العالمية.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+    returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '1980', value: 2445, valueFormatted: '2445' },
+                { label: '1990', value: 4308, valueFormatted: '4308' },
+                { label: '2000', value: 7973, valueFormatted: '7973' },
+                { label: '2010', value: 19237, valueFormatted: '19237' },
+                { label: '2015', value: 22000, valueFormatted: '22000' },
+                { label: '2019', value: 24600, valueFormatted: '24600' },
+                { label: '2020', value: 21900, valueFormatted: '21900' },
+                { label: '2021', value: 27800, valueFormatted: '27800' },
+                { label: '2022', value: 32805, valueFormatted: '32805' },
+                { label: '2023', value: 31510, valueFormatted: '31510' }
+            ],
+            maxValue: 35000,
+            ySteps: [35000, 28000, 21000, 14000, 7000, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            }
+        };
+    </script>
+</body>
+</html>
