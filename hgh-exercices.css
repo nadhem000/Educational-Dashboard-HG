@@ -398,6 +398,16 @@ padding: 2.5rem;
 	.hidden-old-print {
 		display: none !important;
 	}
+	.table-scroll-wrapper,
+.hgh-exercices-type3-tabToHistogram-answer,
+.hgh-exercices-type6-timeline-canvas-container {
+    overflow: visible;
+}
+
+.hgh-exercices-type3-tabToHistogram-table {
+    display: table;
+    white-space: normal;
+}
 	/* ── Preserve bar chart colours ── */
 	.hgh-exercices-type3-tabToHistogram-bar {
 		-webkit-print-color-adjust: exact;
@@ -441,6 +451,31 @@ padding: 2.5rem;
 		color: #000;
 		text-decoration: underline;
 	}
+	.hgh-exercices-type3-tabToHistogram-table {
+  display: table;
+  overflow: visible;
+  white-space: normal;
+  min-width: auto;
+}
+.hgh-exercices-type3-tabToHistogram-answer,
+.hgh-exercices-type6-timeline-canvas-container {
+  overflow: visible;
+}
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.gallery img {
+  cursor: zoom-in;
+  max-width: 100%;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+.gallery img:hover {
+  transform: scale(1.02);
 }
 /* ──────────────────────────────────────────
 	HGH EXERCISES – TYPE 1: Definitions
@@ -741,6 +776,11 @@ padding: 2.5rem;
 	border-radius: 14px;
 	overflow: hidden;
 	box-shadow: 0 4px 14px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;      /* keeps table cells from wrapping */
+  min-width: 400px;         /* ensures a usable table width on small screens */
 }
 .hgh-exercices-type3-tabToHistogram-table th {
 	background: var(--ED-General-color-accent-default);
@@ -793,6 +833,9 @@ padding: 2.5rem;
 	border-radius: 18px;
 	border-left: 5px solid var(--ED-General-color-accent-default);
 	animation: hgh-exercices-type3-fade-in 0.3s ease-out;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 .hgh-exercices-type3-tabToHistogram-answer.visible {
 	display: block;
@@ -1237,10 +1280,16 @@ padding: 2.5rem;
 	to   { opacity: 1; transform: translateY(0); }
 }
 /* Canvas container */
+#ex3chartContainer {
+  min-width: 400px;
+}
 .hgh-exercices-type6-timeline-canvas-container {
 	width: 100%;
 	max-width: 850px;
 	margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 .hgh-exercices-type6-timeline-canvas {
 	display: block;
@@ -1249,6 +1298,7 @@ padding: 2.5rem;
 	border-radius: 10px;
 	background: var(--ED-General-color-surface);
 	border: 1px solid var(--ED-General-color-border);
+  max-width: none;
 }
 /* Fallback text (hidden) */
 .hgh-exercices-type6-timeline-fallback {
@@ -1258,4 +1308,30 @@ padding: 2.5rem;
 	.hgh-exercices-type6-timeline-canvas {
 		background: #fff;
 	}
+}
+/* ── Horizontal scrolling for tables and diagrams ── */
+.table-scroll-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+.hgh-exercices-type3-tabToHistogram-answer {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+.hgh-exercices-type6-timeline-canvas-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+#ex3chartContainer {
+    min-width: 400px;   /* adjust if needed */
+}
+
+.hgh-exercices-type6-timeline-canvas {
+    max-width: none;
 }
