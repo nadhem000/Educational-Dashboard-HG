@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                الثورة البلشفية ونشأة الاتحاد السوفياتي
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    بعد تفاقم الأزمة الروسية، مرّت الثورة البلشفية بمرحلتين أساسيتين من ثورة فيفري الليبرالية إلى ثورة أكتوبر الاشتراكية، ثم واجهت تحديات وصعوبات كبيرة تجاوزتها بفضل إجراءات استثنائية.
+                </p>
+            </div>
+
+            <!-- Part II : Stages and challenges -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">مراحل الثورة والصعوبات التي واجهتها</span>
+                </h2>
+
+                <!-- 1. Stages of the revolution -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part2Title1">مراحل الثورة: من الثورة الليبرالية إلى الاشتراكية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part2A1">ثورة فيفري 1917</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part2A1Li1">تدهور الأوضاع الاقتصادية والاجتماعية والسياسية في 1917 أدى إلى تصاعد المظاهرات والاضطرابات مطالبة بالسلم والخبز ومعاداة القيصر نيقولا الثاني.</li>
+                    <li data-i18n="part2A1Li2">أفضى ذلك إلى اندلاع انتفاضة عمالية في 17 فيفري 1917 دفعت القيصر إلى الاستقالة في 2 مارس 1917 وتكوين حكومة مؤقتة ترأسها لفوف وسيطرت عليها البورجوازية، وفي نفس الوقت تكونت مجالس للعمال والجنود والفلاحين وهي السوفياتات.</li>
+                    <li data-i18n="part2A1Li3">قررت الحكومة الجديدة مواصلة الحرب في ظل عجزها عن إصلاح الأوضاع الداخلية، مما ساهم في عودة الاضطرابات فاستغل البلاشفة هذا الوضع.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part2B1">ثورة أكتوبر 1917</span>
+                </h4>
+                <p data-i18n="part2B1Text">
+                    تمكن ثوار البلاشفة في 24 أكتوبر 1917 من السيطرة على أهم المواقع الاستراتيجية في بيتروغراد (لينينغراد)، ورفعوا الشعارات المعبرة عن مطالب الجماهير "الأرض والخبز والسلم"، فتمت الإطاحة بالحكومة المؤقتة وتأسيس "مجلس مفوضي الشعب" برئاسة لينين، وتم القضاء على بقايا النظام القديم وإرساء النظام الاشتراكي، وتمت مصادرة أراضي النبلاء ورجال الكنيسة وتوزيعها على الفلاحين، وتأميم المصانع والبنوك، وإعلان المساواة بين الجنسين وبين القوميات، ومنح السلطة للسوفياتات، والانسحاب من الحرب العالمية إثر التوقيع على معاهدة صلح براستليتوفسك في مارس 1918 مع ألمانيا.
+                </p>
+
+                <!-- 2. Challenges -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part2Title2">تحديات الثورة ومواجهتها</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part2A2">الحرب الأهلية و"شيوعية الحرب" (1918 – 1921)</span>
+                </h4>
+                <p data-i18n="part2A2Text">
+                    تعرضت الثورة البلشفية لعدة صعوبات تمثلت في التدخل الأجنبي (فرنسا + إنجلترا) وفي الحركة المضادة التي قادها أنصار القيصرية الذين كونوا فرقًا عسكرية مضادة سميت "الجيش الأبيض". كان لهذه الحركة انعكاسات سلبية حيث انخفض الإنتاج الفلاحي والصناعي، وانتشرت المجاعة وتدهورت الحركة التجارية.
+                </p>
+                <p data-i18n="part2A2Measures">أمام هذه الصعوبات طبق لينين سياسة أكثر صرامة "شيوعية الحرب" شملت الإجراءات التالية:</p>
+                <ul>
+                    <li data-i18n="part2A2Li1">مصادرة فائض الإنتاج الفلاحي.</li>
+                    <li data-i18n="part2A2Li2">تنظيم الجيش الأحمر بقيادة تروتسكي.</li>
+                    <li data-i18n="part2A2Li3">إقرار العمل الإجباري وتأميم الصناعات والتجارة الداخلية.</li>
+                </ul>
+                <p data-i18n="part2A2Cheka">
+                    تزامنت هذه الإجراءات مع سياسة قمعية شديدة ضد كل المعارضين السياسيين بواسطة جهاز "التشيكا" (الشرطة السياسية). واحتضنت موسكو المؤتمر الأول للأممية الثالثة في مارس 1919 والذي أعلن دعمه لكل الحركات الثورية في العالم وحركات التحرر الوطني في المستعمرات.
+                </p>
+                <p data-i18n="part2A2Result">
+                    مكنت هذه الإجراءات من إنقاذ الثورة والانتصار على الأعداء في الداخل وإجبار القوات الأجنبية على الانسحاب، فانتهت الحرب الأهلية لكنها خلفت وضعًا اقتصاديًا واجتماعيًا ينذر بالانفجار، مما دفع البلاشفة إلى التخلي عن سياسة "شيوعية الحرب" وانتهاج "سياسة اقتصادية جديدة".
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part2B2">السياسة الاقتصادية الجديدة (1921 – 1927)</span>
+                </h4>
+                <p data-i18n="part2B2Intro">
+                    اعتمدها لينين عندما ظهر لدى الشعب اتجاه لرفض الشيوعية، حيث اقتنع بضرورة العودة إلى تطبيق الرأسمالية بشكل محدود وذلك بـ:
+                </p>
+                <ul>
+                    <li data-i18n="part2B2Li1">إلغاء مصادرة الحبوب وحرية ترويج الإنتاج الفلاحي.</li>
+                    <li data-i18n="part2B2Li2">إعادة المؤسسات الصغرى لأصحابها.</li>
+                    <li data-i18n="part2B2Li3">السماح بالاستثمارات الأجنبية تحت مراقبة الدولة.</li>
+                </ul>
+                <p data-i18n="part2B2Result">
+                    مكنت هذه السياسة من انتعاش الوضع الاقتصادي فارتفع الإنتاج الفلاحي والصناعي وخفت حدة التوتر الاجتماعي واستقر الأمر للبلاشفة.
+                </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    هكذا انتقلت الثورة من المرحلة الليبرالية إلى الاشتراكية، وتمكن البلاشفة من تجاوز التحديات الداخلية والخارجية، مما مهد لبناء النظام السوفياتي الجديد.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚡ أحداث</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defFebruaryRevolution">ثورة فيفري 1917</strong>: <span data-i18n="defFebruaryRevolutionDesc">انتفاضة شعبية اندلعت في روسيا في فيفري 1917، وأسقطت حكم القيصر نيقولا الثاني ومهدت لتكوين الحكومة المؤقتة.</span></li>
+                        <li><strong class="key-event" data-i18n="defOctoberRevolution">ثورة أكتوبر 1917</strong>: <span data-i18n="defOctoberRevolutionDesc">ثورة قادها البلاشفة بزعامة لينين في أكتوبر 1917، أطاحت بالحكومة المؤقتة وأقامت النظام الاشتراكي.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defProvisionalGovernment">الحكومة المؤقتة</strong>: <span data-i18n="defProvisionalGovernmentDesc">حكومة تشكلت في روسيا بعد ثورة فيفري 1917، ترأسها لفوف وسيطرت عليها البورجوازية.</span></li>
+                        <li><strong class="key-other" data-i18n="defCouncilCommissars">مجلس مفوضي الشعب</strong>: <span data-i18n="defCouncilCommissarsDesc">هيئة حكومية أسسها البلاشفة بعد ثورة أكتوبر 1917 برئاسة لينين.</span></li>
+                        <li><strong class="key-other" data-i18n="defBrestLitovsk">معاهدة براستليتوفسك</strong>: <span data-i18n="defBrestLitovskDesc">معاهدة صلح وقعتها روسيا السوفياتية مع ألمانيا في مارس 1918، وانسحبت بموجبها من الحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-other" data-i18n="defWarCommunism">شيوعية الحرب</strong>: <span data-i18n="defWarCommunismDesc">سياسة اقتصادية طبقها لينين أثناء الحرب الأهلية (1918-1921) تقوم على المصادرة والتأميم والعمل الإجباري.</span></li>
+                        <li><strong class="key-other" data-i18n="defNEP">السياسة الاقتصادية الجديدة (النيب)</strong>: <span data-i18n="defNEPDesc">سياسة اقتصادية انتقالية اعتمدها لينين من 1921 إلى 1927، سمحت بعودة جزئية للرأسمالية لإنقاذ الاقتصاد السوفياتي.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defWhiteArmy">الجيش الأبيض</strong>: <span data-i18n="defWhiteArmyDesc">فرق عسكرية مضادة للثورة قادها أنصار القيصرية خلال الحرب الأهلية الروسية.</span></li>
+                        <li><strong class="key-organization" data-i18n="defRedArmy">الجيش الأحمر</strong>: <span data-i18n="defRedArmyDesc">الجيش النظامي السوفياتي الذي أسسه البلاشفة بقيادة تروتسكي لمواجهة الأعداء الداخليين والخارجيين.</span></li>
+                        <li><strong class="key-organization" data-i18n="defCheka">التشيكا</strong>: <span data-i18n="defChekaDesc">الشرطة السياسية السوفياتية التي أنشئت سنة 1917 لقمع المعارضين وحماية الثورة.</span></li>
+                        <li><strong class="key-organization" data-i18n="defComintern">الأممية الثالثة (الكومنترن)</strong>: <span data-i18n="defCominternDesc">منظمة أممية أسست في موسكو سنة 1919 لتوحيد الأحزاب الشيوعية ودعم الحركات الثورية في العالم.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Bolshevik+Revolution+Stages"
+                             alt="مراحل الثورة البلشفية – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryStagesAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryStagesCaption">مراحل الثورة البلشفية – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 1: The Contemporary World from 1914 to World War II",
+                lessonTitleSample: "The Bolshevik Revolution and the Emergence of the Soviet Union",
+                sectionIntro: "Introduction",
+                sectionPart2: "Stages of the Revolution and Challenges",
+                part2Title1: "Stages of the revolution: from liberal to socialist",
+                part2A1: "The February 1917 Revolution",
+                part2A1Li1: "The deterioration of economic, social, and political conditions in 1917 led to growing demonstrations and unrest demanding peace and bread and opposing Tsar Nicholas II.",
+                part2A1Li2: "This led to a workers' uprising on February 17, 1917, forcing the Tsar to abdicate on March 2, 1917, and a provisional government headed by Lvov and controlled by the bourgeoisie was formed; at the same time, councils of workers, soldiers, and peasants (Soviets) were established.",
+                part2A1Li3: "The new government decided to continue the war while unable to reform internal conditions, causing renewed unrest that the Bolsheviks exploited.",
+                part2B1: "The October 1917 Revolution",
+                part2B1Text: "On October 24, 1917, Bolshevik revolutionaries seized key strategic sites in Petrograd (Leningrad), raising slogans expressing the masses' demands: 'Land, Bread, and Peace.' The provisional government was overthrown and the 'Council of People's Commissars' was established under Lenin. The remnants of the old regime were eliminated, the socialist system established, noble and church lands confiscated and distributed to peasants, factories and banks nationalized, equality between sexes and nationalities declared, power given to the Soviets, and withdrawal from World War I through the Treaty of Brest-Litovsk in March 1918 with Germany.",
+                part2Title2: "Challenges of the revolution and confronting them",
+                part2A2: "Civil war and 'War Communism' (1918–1921)",
+                part2A2Text: "The Bolshevik revolution faced several difficulties: foreign intervention (France + England) and a counter-movement led by Tsarist supporters who formed anti-revolutionary military units called the 'White Army.' These had negative repercussions: agricultural and industrial production declined, famine spread, and trade deteriorated.",
+                part2A2Measures: "Faced with these difficulties, Lenin applied a stricter policy called 'War Communism' which included:",
+                part2A2Li1: "Confiscation of surplus agricultural production.",
+                part2A2Li2: "Organization of the Red Army under Trotsky.",
+                part2A2Li3: "Imposition of compulsory labor and nationalization of industries and internal trade.",
+                part2A2Cheka: "These measures coincided with a severe repressive policy against all political opponents through the 'Cheka' (political police). Moscow hosted the first congress of the Third International in March 1919, which declared support for all revolutionary movements worldwide and national liberation movements in colonies.",
+                part2A2Result: "These measures saved the revolution, defeated internal enemies, and forced foreign troops to withdraw; the civil war ended but left an explosive economic and social situation, pushing the Bolsheviks to abandon 'War Communism' and adopt the 'New Economic Policy.'",
+                part2B2: "The New Economic Policy (1921–1927)",
+                part2B2Intro: "Lenin adopted it when people showed rejection of communism; he became convinced of the need to reintroduce limited capitalism through:",
+                part2B2Li1: "Abolition of grain requisitioning and free marketing of agricultural produce.",
+                part2B2Li2: "Returning small enterprises to their owners.",
+                part2B2Li3: "Allowing foreign investments under state supervision.",
+                part2B2Result: "This policy revived the economy; agricultural and industrial production rose, social tensions eased, and the Bolsheviks' position stabilized.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus, the revolution moved from the liberal stage to the socialist stage, and the Bolsheviks succeeded in overcoming internal and external challenges, paving the way for building the new Soviet system.",
+                sectionDefinitions: "📖 Definitions",
+                defEvents: "⚡ Events",
+                defOthers: "🔖 Key Terms",
+                defOrganizations: "🏛️ Organizations and Institutions",
+                defFebruaryRevolution: "February Revolution 1917",
+                defFebruaryRevolutionDesc: "A popular uprising that broke out in Russia in February 1917, overthrew Tsar Nicholas II, and paved the way for the provisional government.",
+                defOctoberRevolution: "October Revolution 1917",
+                defOctoberRevolutionDesc: "A revolution led by the Bolsheviks under Lenin in October 1917, overthrowing the provisional government and establishing the socialist system.",
+                defProvisionalGovernment: "Provisional Government",
+                defProvisionalGovernmentDesc: "A government formed in Russia after the February 1917 Revolution, headed by Lvov and controlled by the bourgeoisie.",
+                defCouncilCommissars: "Council of People's Commissars",
+                defCouncilCommissarsDesc: "A governmental body established by the Bolsheviks after the October 1917 Revolution, chaired by Lenin.",
+                defBrestLitovsk: "Treaty of Brest-Litovsk",
+                defBrestLitovskDesc: "A peace treaty signed by Soviet Russia with Germany in March 1918, leading to Russia's withdrawal from World War I.",
+                defWarCommunism: "War Communism",
+                defWarCommunismDesc: "An economic policy applied by Lenin during the Civil War (1918-1921) based on confiscation, nationalization, and compulsory labor.",
+                defNEP: "New Economic Policy (NEP)",
+                defNEPDesc: "A transitional economic policy adopted by Lenin from 1921 to 1927, allowing a partial return to capitalism to save the Soviet economy.",
+                defWhiteArmy: "White Army",
+                defWhiteArmyDesc: "Counter-revolutionary military units led by Tsarist supporters during the Russian Civil War.",
+                defRedArmy: "Red Army",
+                defRedArmyDesc: "The regular Soviet army established by the Bolsheviks under Trotsky to confront internal and external enemies.",
+                defCheka: "Cheka",
+                defChekaDesc: "The Soviet political police created in 1917 to suppress opponents and protect the revolution.",
+                defComintern: "Third International (Comintern)",
+                defCominternDesc: "An international organization founded in Moscow in 1919 to unite communist parties and support revolutionary movements worldwide.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryStagesAlt: "Stages of the Bolshevik Revolution – illustrative image",
+                galleryStagesCaption: "Stages of the Bolshevik Revolution – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 1 : Le monde contemporain de 1914 à la Seconde Guerre mondiale",
+                lessonTitleSample: "La révolution bolchevique et la naissance de l'Union soviétique",
+                sectionIntro: "Introduction",
+                sectionPart2: "Les étapes de la révolution et les défis",
+                part2Title1: "Les étapes de la révolution : de la libérale à la socialiste",
+                part2A1: "La révolution de février 1917",
+                part2A1Li1: "La détérioration des conditions économiques, sociales et politiques en 1917 entraîna la multiplication des manifestations et des troubles réclamant la paix et le pain et s'opposant au tsar Nicolas II.",
+                part2A1Li2: "Cela aboutit à un soulèvement ouvrier le 17 février 1917 qui poussa le tsar à abdiquer le 2 mars 1917 ; un gouvernement provisoire dirigé par Lvov et contrôlé par la bourgeoisie fut formé, tandis que des conseils d'ouvriers, de soldats et de paysans (soviets) furent créés.",
+                part2A1Li3: "Le nouveau gouvernement décida de poursuivre la guerre tout en étant incapable de réformer les conditions internes, ce qui contribua à la reprise des troubles que les bolcheviks exploitèrent.",
+                part2B1: "La révolution d'octobre 1917",
+                part2B1Text: "Le 24 octobre 1917, les révolutionnaires bolcheviks s'emparèrent des principaux sites stratégiques de Petrograd (Leningrad), brandissant les slogans exprimant les revendications des masses : « La terre, le pain et la paix ». Le gouvernement provisoire fut renversé et le « Conseil des commissaires du peuple » fut fondé sous la direction de Lénine ; les restes de l'ancien régime furent éliminés, le système socialiste instauré, les terres des nobles et de l'Église confisquées et distribuées aux paysans, les usines et les banques nationalisées, l'égalité entre les sexes et les nationalités proclamée, le pouvoir donné aux soviets, et le retrait de la guerre mondiale après la signature du traité de Brest-Litovsk en mars 1918 avec l'Allemagne.",
+                part2Title2: "Les défis de la révolution et leur affrontement",
+                part2A2: "La guerre civile et le « communisme de guerre » (1918-1921)",
+                part2A2Text: "La révolution bolchevique fit face à plusieurs difficultés : l'intervention étrangère (France + Angleterre) et un mouvement contre-révolutionnaire mené par les partisans du tsarisme qui formèrent des unités militaires hostiles appelées « Armée blanche ». Ces événements eurent des répercussions négatives : la production agricole et industrielle baissa, la famine se répandit et le commerce se détériora.",
+                part2A2Measures: "Face à ces difficultés, Lénine appliqua une politique plus stricte appelée « communisme de guerre » qui comprenait :",
+                part2A2Li1: "La confiscation des surplus de production agricole.",
+                part2A2Li2: "L'organisation de l'Armée rouge sous Trotsky.",
+                part2A2Li3: "L'imposition du travail obligatoire et la nationalisation des industries et du commerce intérieur.",
+                part2A2Cheka: "Ces mesures s'accompagnèrent d'une politique répressive sévère contre tous les opposants politiques par le biais de la « Tchéka » (police politique). Moscou accueillit le premier congrès de la Troisième Internationale en mars 1919, qui déclara son soutien à tous les mouvements révolutionnaires dans le monde et aux mouvements de libération nationale dans les colonies.",
+                part2A2Result: "Ces mesures sauvèrent la révolution, vainquirent les ennemis intérieurs et forcèrent les troupes étrangères à se retirer ; la guerre civile prit fin mais laissa une situation économique et sociale explosive, poussant les bolcheviks à abandonner le « communisme de guerre » et à adopter la « Nouvelle politique économique ».",
+                part2B2: "La Nouvelle Politique Économique (NEP) (1921-1927)",
+                part2B2Intro: "Lénine l'adopta lorsque le peuple montra un rejet du communisme ; il se convainquit de la nécessité de réintroduire un capitalisme limité par :",
+                part2B2Li1: "L'abolition de la réquisition des céréales et la libre commercialisation de la production agricole.",
+                part2B2Li2: "La restitution des petites entreprises à leurs propriétaires.",
+                part2B2Li3: "L'autorisation des investissements étrangers sous contrôle de l'État.",
+                part2B2Result: "Cette politique permit la relance économique ; la production agricole et industrielle augmenta, les tensions sociales s'apaisèrent et la position des bolcheviks se stabilisa.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi, la révolution passa de l'étape libérale à l'étape socialiste, et les bolcheviks réussirent à surmonter les défis intérieurs et extérieurs, ouvrant la voie à la construction du nouveau système soviétique.",
+                sectionDefinitions: "📖 Définitions",
+                defEvents: "⚡ Événements",
+                defOthers: "🔖 Termes clés",
+                defOrganizations: "🏛️ Organisations et institutions",
+                defFebruaryRevolution: "Révolution de février 1917",
+                defFebruaryRevolutionDesc: "Soulèvement populaire éclaté en Russie en février 1917, renversant le tsar Nicolas II et ouvrant la voie au gouvernement provisoire.",
+                defOctoberRevolution: "Révolution d'octobre 1917",
+                defOctoberRevolutionDesc: "Révolution menée par les bolcheviks de Lénine en octobre 1917, renversant le gouvernement provisoire et instaurant le système socialiste.",
+                defProvisionalGovernment: "Gouvernement provisoire",
+                defProvisionalGovernmentDesc: "Gouvernement formé en Russie après la révolution de février 1917, dirigé par Lvov et contrôlé par la bourgeoisie.",
+                defCouncilCommissars: "Conseil des commissaires du peuple",
+                defCouncilCommissarsDesc: "Organe gouvernemental établi par les bolcheviks après la révolution d'octobre 1917, présidé par Lénine.",
+                defBrestLitovsk: "Traité de Brest-Litovsk",
+                defBrestLitovskDesc: "Traité de paix signé par la Russie soviétique avec l'Allemagne en mars 1918, entraînant le retrait russe de la Première Guerre mondiale.",
+                defWarCommunism: "Communisme de guerre",
+                defWarCommunismDesc: "Politique économique appliquée par Lénine pendant la guerre civile (1918-1921), fondée sur la confiscation, la nationalisation et le travail obligatoire.",
+                defNEP: "Nouvelle politique économique (NEP)",
+                defNEPDesc: "Politique économique transitoire adoptée par Lénine de 1921 à 1927, permettant un retour partiel au capitalisme pour sauver l'économie soviétique.",
+                defWhiteArmy: "Armée blanche",
+                defWhiteArmyDesc: "Unités militaires contre-révolutionnaires dirigées par les partisans du tsarisme pendant la guerre civile russe.",
+                defRedArmy: "Armée rouge",
+                defRedArmyDesc: "L'armée régulière soviétique créée par les bolcheviks sous Trotsky pour affronter les ennemis intérieurs et extérieurs.",
+                defCheka: "Tchéka",
+                defChekaDesc: "La police politique soviétique créée en 1917 pour réprimer les opposants et protéger la révolution.",
+                defComintern: "Troisième Internationale (Komintern)",
+                defCominternDesc: "Organisation internationale fondée à Moscou en 1919 pour unir les partis communistes et soutenir les mouvements révolutionnaires dans le monde.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryStagesAlt: "Étapes de la révolution bolchevique – image illustrative",
+                galleryStagesCaption: "Étapes de la révolution bolchevique – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية",
+                lessonTitleSample: "الثورة البلشفية ونشأة الاتحاد السوفياتي",
+                sectionIntro: "مقدمة",
+                sectionPart2: "مراحل الثورة والصعوبات التي واجهتها",
+                part2Title1: "مراحل الثورة: من الثورة الليبرالية إلى الاشتراكية",
+                part2A1: "ثورة فيفري 1917",
+                part2A1Li1: "تدهور الأوضاع الاقتصادية والاجتماعية والسياسية في 1917 أدى إلى تصاعد المظاهرات والاضطرابات مطالبة بالسلم والخبز ومعاداة القيصر نيقولا الثاني.",
+                part2A1Li2: "أفضى ذلك إلى اندلاع انتفاضة عمالية في 17 فيفري 1917 دفعت القيصر إلى الاستقالة في 2 مارس 1917 وتكوين حكومة مؤقتة ترأسها لفوف وسيطرت عليها البورجوازية، وفي نفس الوقت تكونت مجالس للعمال والجنود والفلاحين وهي السوفياتات.",
+                part2A1Li3: "قررت الحكومة الجديدة مواصلة الحرب في ظل عجزها عن إصلاح الأوضاع الداخلية، مما ساهم في عودة الاضطرابات فاستغل البلاشفة هذا الوضع.",
+                part2B1: "ثورة أكتوبر 1917",
+                part2B1Text: "تمكن ثوار البلاشفة في 24 أكتوبر 1917 من السيطرة على أهم المواقع الاستراتيجية في بيتروغراد (لينينغراد)، ورفعوا الشعارات المعبرة عن مطالب الجماهير \"الأرض والخبز والسلم\"، فتمت الإطاحة بالحكومة المؤقتة وتأسيس \"مجلس مفوضي الشعب\" برئاسة لينين، وتم القضاء على بقايا النظام القديم وإرساء النظام الاشتراكي، وتمت مصادرة أراضي النبلاء ورجال الكنيسة وتوزيعها على الفلاحين، وتأميم المصانع والبنوك، وإعلان المساواة بين الجنسين وبين القوميات، ومنح السلطة للسوفياتات، والانسحاب من الحرب العالمية إثر التوقيع على معاهدة صلح براستليتوفسك في مارس 1918 مع ألمانيا.",
+                part2Title2: "تحديات الثورة ومواجهتها",
+                part2A2: "الحرب الأهلية و\"شيوعية الحرب\" (1918 – 1921)",
+                part2A2Text: "تعرضت الثورة البلشفية لعدة صعوبات تمثلت في التدخل الأجنبي (فرنسا + إنجلترا) وفي الحركة المضادة التي قادها أنصار القيصرية الذين كونوا فرقًا عسكرية مضادة سميت \"الجيش الأبيض\". كان لهذه الحركة انعكاسات سلبية حيث انخفض الإنتاج الفلاحي والصناعي، وانتشرت المجاعة وتدهورت الحركة التجارية.",
+                part2A2Measures: "أمام هذه الصعوبات طبق لينين سياسة أكثر صرامة \"شيوعية الحرب\" شملت الإجراءات التالية:",
+                part2A2Li1: "مصادرة فائض الإنتاج الفلاحي.",
+                part2A2Li2: "تنظيم الجيش الأحمر بقيادة تروتسكي.",
+                part2A2Li3: "إقرار العمل الإجباري وتأميم الصناعات والتجارة الداخلية.",
+                part2A2Cheka: "تزامنت هذه الإجراءات مع سياسة قمعية شديدة ضد كل المعارضين السياسيين بواسطة جهاز \"التشيكا\" (الشرطة السياسية). واحتضنت موسكو المؤتمر الأول للأممية الثالثة في مارس 1919 والذي أعلن دعمه لكل الحركات الثورية في العالم وحركات التحرر الوطني في المستعمرات.",
+                part2A2Result: "مكنت هذه الإجراءات من إنقاذ الثورة والانتصار على الأعداء في الداخل وإجبار القوات الأجنبية على الانسحاب، فانتهت الحرب الأهلية لكنها خلفت وضعًا اقتصاديًا واجتماعيًا ينذر بالانفجار، مما دفع البلاشفة إلى التخلي عن سياسة \"شيوعية الحرب\" وانتهاج \"سياسة اقتصادية جديدة\".",
+                part2B2: "السياسة الاقتصادية الجديدة (1921 – 1927)",
+                part2B2Intro: "اعتمدها لينين عندما ظهر لدى الشعب اتجاه لرفض الشيوعية، حيث اقتنع بضرورة العودة إلى تطبيق الرأسمالية بشكل محدود وذلك بـ:",
+                part2B2Li1: "إلغاء مصادرة الحبوب وحرية ترويج الإنتاج الفلاحي.",
+                part2B2Li2: "إعادة المؤسسات الصغرى لأصحابها.",
+                part2B2Li3: "السماح بالاستثمارات الأجنبية تحت مراقبة الدولة.",
+                part2B2Result: "مكنت هذه السياسة من انتعاش الوضع الاقتصادي فارتفع الإنتاج الفلاحي والصناعي وخفت حدة التوتر الاجتماعي واستقر الأمر للبلاشفة.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "هكذا انتقلت الثورة من المرحلة الليبرالية إلى الاشتراكية، وتمكن البلاشفة من تجاوز التحديات الداخلية والخارجية، مما مهد لبناء النظام السوفياتي الجديد.",
+                sectionDefinitions: "📖 تعريفات",
+                defEvents: "⚡ أحداث",
+                defOthers: "🔖 مصطلحات أساسية",
+                defOrganizations: "🏛️ منظمات ومؤسسات",
+                defFebruaryRevolution: "ثورة فيفري 1917",
+                defFebruaryRevolutionDesc: "انتفاضة شعبية اندلعت في روسيا في فيفري 1917، وأسقطت حكم القيصر نيقولا الثاني ومهدت لتكوين الحكومة المؤقتة.",
+                defOctoberRevolution: "ثورة أكتوبر 1917",
+                defOctoberRevolutionDesc: "ثورة قادها البلاشفة بزعامة لينين في أكتوبر 1917، أطاحت بالحكومة المؤقتة وأقامت النظام الاشتراكي.",
+                defProvisionalGovernment: "الحكومة المؤقتة",
+                defProvisionalGovernmentDesc: "حكومة تشكلت في روسيا بعد ثورة فيفري 1917، ترأسها لفوف وسيطرت عليها البورجوازية.",
+                defCouncilCommissars: "مجلس مفوضي الشعب",
+                defCouncilCommissarsDesc: "هيئة حكومية أسسها البلاشفة بعد ثورة أكتوبر 1917 برئاسة لينين.",
+                defBrestLitovsk: "معاهدة براستليتوفسك",
+                defBrestLitovskDesc: "معاهدة صلح وقعتها روسيا السوفياتية مع ألمانيا في مارس 1918، وانسحبت بموجبها من الحرب العالمية الأولى.",
+                defWarCommunism: "شيوعية الحرب",
+                defWarCommunismDesc: "سياسة اقتصادية طبقها لينين أثناء الحرب الأهلية (1918-1921) تقوم على المصادرة والتأميم والعمل الإجباري.",
+                defNEP: "السياسة الاقتصادية الجديدة (النيب)",
+                defNEPDesc: "سياسة اقتصادية انتقالية اعتمدها لينين من 1921 إلى 1927، سمحت بعودة جزئية للرأسمالية لإنقاذ الاقتصاد السوفياتي.",
+                defWhiteArmy: "الجيش الأبيض",
+                defWhiteArmyDesc: "فرق عسكرية مضادة للثورة قادها أنصار القيصرية خلال الحرب الأهلية الروسية.",
+                defRedArmy: "الجيش الأحمر",
+                defRedArmyDesc: "الجيش النظامي السوفياتي الذي أسسه البلاشفة بقيادة تروتسكي لمواجهة الأعداء الداخليين والخارجيين.",
+                defCheka: "التشيكا",
+                defChekaDesc: "الشرطة السياسية السوفياتية التي أنشئت سنة 1917 لقمع المعارضين وحماية الثورة.",
+                defComintern: "الأممية الثالثة (الكومنترن)",
+                defCominternDesc: "منظمة أممية أسست في موسكو سنة 1919 لتوحيد الأحزاب الشيوعية ودعم الحركات الثورية في العالم.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryStagesAlt: "مراحل الثورة البلشفية – صورة توضيحية",
+                galleryStagesCaption: "مراحل الثورة البلشفية – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "February Revolution", class: "key-event", i18n: "defFebruaryRevolution" },
+                { text: "October Revolution", class: "key-event", i18n: "defOctoberRevolution" },
+                { text: "Provisional Government", class: "key-other", i18n: "defProvisionalGovernment" },
+                { text: "Council of People's Commissars", class: "key-other", i18n: "defCouncilCommissars" },
+                { text: "Brest-Litovsk", class: "key-other", i18n: "defBrestLitovsk" },
+                { text: "War Communism", class: "key-other", i18n: "defWarCommunism" },
+                { text: "New Economic Policy", class: "key-other", i18n: "defNEP" },
+                { text: "White Army", class: "key-organization", i18n: "defWhiteArmy" },
+                { text: "Red Army", class: "key-organization", i18n: "defRedArmy" },
+                { text: "Cheka", class: "key-organization", i18n: "defCheka" },
+                { text: "Comintern", class: "key-organization", i18n: "defComintern" }
+            ],
+            fr: [
+                { text: "Révolution de février", class: "key-event", i18n: "defFebruaryRevolution" },
+                { text: "Révolution d'octobre", class: "key-event", i18n: "defOctoberRevolution" },
+                { text: "Gouvernement provisoire", class: "key-other", i18n: "defProvisionalGovernment" },
+                { text: "Conseil des commissaires du peuple", class: "key-other", i18n: "defCouncilCommissars" },
+                { text: "Brest-Litovsk", class: "key-other", i18n: "defBrestLitovsk" },
+                { text: "Communisme de guerre", class: "key-other", i18n: "defWarCommunism" },
+                { text: "Nouvelle politique économique", class: "key-other", i18n: "defNEP" },
+                { text: "Armée blanche", class: "key-organization", i18n: "defWhiteArmy" },
+                { text: "Armée rouge", class: "key-organization", i18n: "defRedArmy" },
+                { text: "Tchéka", class: "key-organization", i18n: "defCheka" },
+                { text: "Komintern", class: "key-organization", i18n: "defComintern" }
+            ],
+            ar: [
+                { text: "ثورة فيفري", class: "key-event", i18n: "defFebruaryRevolution" },
+                { text: "ثورة أكتوبر", class: "key-event", i18n: "defOctoberRevolution" },
+                { text: "الحكومة المؤقتة", class: "key-other", i18n: "defProvisionalGovernment" },
+                { text: "مجلس مفوضي الشعب", class: "key-other", i18n: "defCouncilCommissars" },
+                { text: "براستليتوفسك", class: "key-other", i18n: "defBrestLitovsk" },
+                { text: "شيوعية الحرب", class: "key-other", i18n: "defWarCommunism" },
+                { text: "السياسة الاقتصادية الجديدة", class: "key-other", i18n: "defNEP" },
+                { text: "الجيش الأبيض", class: "key-organization", i18n: "defWhiteArmy" },
+                { text: "الجيش الأحمر", class: "key-organization", i18n: "defRedArmy" },
+                { text: "التشيكا", class: "key-organization", i18n: "defCheka" },
+                { text: "الأممية الثالثة", class: "key-organization", i18n: "defComintern" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
