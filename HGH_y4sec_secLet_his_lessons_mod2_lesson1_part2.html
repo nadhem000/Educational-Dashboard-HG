@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                تونس في العشرينات
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    شهدت تونس في العشرينات تطورًا ملحوظًا للحركة الوطنية، تمثل في تأسيس أول حزب سياسي تونسي منظم، وهو الحزب الحر الدستوري التونسي، وفي بروز النضال الاجتماعي والنقابي من خلال جامعة عموم العملة التونسية. فما هي ظروف نشأة الحزب الحر الدستوري؟ وما هو برنامجه ونشاطه؟ وكيف تعاملت سلطات الحماية معه؟ وما هي ظروف تأسيس جامعة عموم العملة التونسية والصعوبات التي واجهتها؟
+                </p>
+            </div>
+
+            <!-- II. الحزب الحر الدستوري التونسي -->
+            <div class="lesson-part" id="partDestour" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPartDestour">الحزب الحر الدستوري التونسي: نشأته – برنامجه – نشاطه وردود فعل سلط الحماية</span>
+                </h2>
+
+                <!-- 1. ظروف نشأة الحزب -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="destour1Title">ظروف نشأة الحزب الحر الدستوري التونسي</span>
+                </h3>
+                <p data-i18n="destour1Text">
+                    تضافرت عدة عوامل داخلية وخارجية لتوفير الأرضية الملائمة لنشأة الحزب الحر الدستوري التونسي، من أبرزها:
+                </p>
+                <ul>
+                    <li data-i18n="destour1Li1">تنامي الوعي الوطني في صفوف المثقفين التونسيين المتأثرين بالمبادئ الويلسونية وحركات التحرر في تركيا ومصر.</li>
+                    <li data-i18n="destour1Li2">عودة الشيخ عبد العزيز الثعالبي من منفاه، ونشره لكتابه الشهير "تونس الشهيدة" سنة 1920، الذي فضح السياسة الاستعمارية وطالب بإصلاحات دستورية.</li>
+                    <li data-i18n="destour1Li3">تفاقم الأوضاع الاقتصادية والاجتماعية بعد الحرب العالمية الأولى، وما خلفته من فقر وغلاء معيشة.</li>
+                    <li data-i18n="destour1Li4">تعمق الشعور بالغبن لدى التونسيين بسبب قوانين التمييز مثل قانون الثلث الاستعماري وسياسة انتزاع الأراضي.</li>
+                    <li data-i18n="destour1Li5">ظهور نخبة شابة متعلمة ناضلت من أجل الحصول على حقوقها في الوظيفة العمومية والمشاركة في تسيير البلاد.</li>
+                </ul>
+
+                <!-- 2. برنامج الحزب -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="destour2Title">برنامج الحزب الحر الدستوري التونسي</span>
+                </h3>
+                <p data-i18n="destour2Text">
+                    تمركز برنامج الحزب الحر الدستوري حول المطالبة باسترجاع السيادة التونسية وإقامة نظام دستوري يستجيب لتطلعات الشعب التونسي، ويمكن تلخيص أبرز مطالبه فيما يلي:
+                </p>
+                <ul>
+                    <li data-i18n="destour2Li1">إصدار دستور تونسي يضمن الحريات العامة والفردية.</li>
+                    <li data-i18n="destour2Li2">إنشاء مجلس نيابي تونسي منتخب انتخابًا حرًا، يساهم في تسيير شؤون البلاد.</li>
+                    <li data-i18n="destour2Li3">فتح باب الوظائف الإدارية أمام التونسيين على أساس المساواة مع الفرنسيين.</li>
+                    <li data-i18n="destour2Li4">إلزامية التعليم ومجانيته لعموم التونسيين.</li>
+                    <li data-i18n="destour2Li5">تحسين ظروف الفلاحين والعمال التونسيين ورفع المظالم عنهم.</li>
+                    <li data-i18n="destour2Li6">المساواة في الأجور بين التونسيين والفرنسيين.</li>
+                    <li data-i18n="destour2Li7">حرية الصحافة والاجتماع وتكوين الجمعيات.</li>
+                </ul>
+
+                <!-- 3. نشاط الحزب -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>
+                    <span data-i18n="destour3Title">نشاط الحزب الحر الدستوري التونسي</span>
+                </h3>
+                <p data-i18n="destour3Text">
+                    انطلق نشاط الحزب الحر الدستوري التونسي منذ تأسيسه، واتخذ أشكالًا متعددة من النضال السلمي لتحقيق مطالبه:
+                </p>
+                <ul>
+                    <li data-i18n="destour3Li1">تأسيس الحزب رسميًا في 4 جوان 1920، وانتخاب الشيخ عبد العزيز الثعالبي رئيسًا له.</li>
+                    <li data-i18n="destour3Li2">إصدار صحف ناطقة باسم الحزب مثل "لسان الشعب" و"الصواب" و"مرشد الأمة" للتعريف بمطالبه ونشر الوعي الوطني.</li>
+                    <li data-i18n="destour3Li3">إرسال وفد عن الحزب إلى باريس سنة 1920 لتقديم المطالب التونسية إلى الحكومة الفرنسية والبرلمان الفرنسي.</li>
+                    <li data-i18n="destour3Li4">تنظيم اجتماعات ومؤتمرات شعبية في مختلف أنحاء البلاد لشرح أهداف الحزب وتعبئة الجماهير.</li>
+                    <li data-i18n="destour3Li5">تقديم عرائض إلى الباي وإلى المقيم العام الفرنسي للمطالبة بالإصلاحات الدستورية.</li>
+                    <li data-i18n="destour3Li6">التعاون مع الحركات الوطنية في المغرب العربي والمشرق العربي.</li>
+                </ul>
+
+                <!-- 4. ردود فعل سلط الحماية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">4</span>
+                    <span data-i18n="destour4Title">ردود فعل سلط الحماية الفرنسية</span>
+                </h3>
+                <p data-i18n="destour4Text">
+                    واجهت سلطات الحماية الفرنسية نشاط الحزب الحر الدستوري بإجراءات قمعية وتنازلات محدودة في نفس الوقت:
+                </p>
+                <ul>
+                    <li data-i18n="destour4Li1">اعتقال زعماء الحزب وعلى رأسهم الشيخ عبد العزيز الثعالبي ونفيه خارج البلاد سنة 1923.</li>
+                    <li data-i18n="destour4Li2">مصادرة الصحف التابعة للحزب وإيقاف صدورها.</li>
+                    <li data-i18n="destour4Li3">منع الاجتماعات والمؤتمرات الشعبية التي ينظمها الحزب.</li>
+                    <li data-i18n="destour4Li4">إصدار "الإصلاحات" المحدودة سنة 1922، ومنها إحداث المجلس الأكبر الذي يضم ممثلين تونسيين لكن بصلاحيات استشارية فقط، في محاولة لامتصاص غضب الوطنيين.</li>
+                    <li data-i18n="destour4Li5">العمل على إحداث انشقاقات داخل الحزب بين الجناح المعتدل والجناح المتشدد.</li>
+                    <li data-i18n="destour4Li6">المراقبة المستمرة لنشاط الحزب وأعضائه وملاحقتهم قضائيًا.</li>
+                </ul>
+            </div>
+
+            <!-- III. جامعة عموم العملة التونسية -->
+            <div class="lesson-part" id="partCGTT" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span> <span data-i18n="sectionPartCGTT">جامعة عموم العملة التونسية: النضال الاجتماعي</span>
+                </h2>
+
+                <!-- 1. ظروف نشأتها -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="cgtt1Title">ظروف نشأة جامعة عموم العملة التونسية</span>
+                </h3>
+                <p data-i18n="cgtt1Text">
+                    نشأت جامعة عموم العملة التونسية في سياق اجتماعي واقتصادي متأزم، تظافرت فيه عدة عوامل:
+                </p>
+                <ul>
+                    <li data-i18n="cgtt1Li1">تدهور أوضاع العمال التونسيين بسبب غلاء المعيشة وتدني الأجور وطول ساعات العمل.</li>
+                    <li data-i18n="cgtt1Li2">نمو طبقة عمالية تونسية في المدن الكبرى خاصة في تونس العاصمة وبنزرت وصفاقس.</li>
+                    <li data-i18n="cgtt1Li3">تأثير الحركة النقابية الفرنسية (الكنفدرالية العامة للشغل CGT) وانتشار الفكر الاشتراكي والنقابي بين العمال.</li>
+                    <li data-i18n="cgtt1Li4">عودة محمد علي الحامي من ألمانيا حيث تأثر بالأفكار الاشتراكية والنقابية.</li>
+                    <li data-i18n="cgtt1Li5">شعور العمال التونسيين بالتمييز داخل النقابات الفرنسية التي كانت تهمل مطالبهم.</li>
+                </ul>
+
+                <!-- 2. تأسيس الجامعة -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="cgtt2Title">تأسيس جامعة عموم العملة التونسية</span>
+                </h3>
+                <p data-i18n="cgtt2Text">
+                    تأسست جامعة عموم العملة التونسية (CGTT) في ديسمبر 1924 بقيادة محمد علي الحامي، وتميزت بما يلي:
+                </p>
+                <ul>
+                    <li data-i18n="cgtt2Li1">كانت أول نقابة عمالية تونسية مستقلة عن النقابات الفرنسية.</li>
+                    <li data-i18n="cgtt2Li2">اعتمدت في نضالها على مبدأي الجهر بالحق والدفاع عن مصالح العمال التونسيين.</li>
+                    <li data-i18n="cgtt2Li3">نمت الجامعة بسرعة حيث انخرط فيها آلاف العمال في مختلف المهن.</li>
+                    <li data-i18n="cgtt2Li4">نظمت الجامعة عدة إضرابات عمالية كبرى في تونس العاصمة وبنزرت للمطالبة بتحسين الأجور وظروف العمل.</li>
+                    <li data-i18n="cgtt2Li5">حظيت الجامعة بدعم الحزب الحر الدستوري وبعض القوى الوطنية الأخرى.</li>
+                </ul>
+
+                <!-- 3. الصعوبات التي واجهتها -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>
+                    <span data-i18n="cgtt3Title">الصعوبات التي واجهتها الجامعة</span>
+                </h3>
+                <p data-i18n="cgtt3Text">
+                    واجهت جامعة عموم العملة التونسية صعوبات جمة أدت في النهاية إلى حلها، ومن أبرزها:
+                </p>
+                <ul>
+                    <li data-i18n="cgtt3Li1">القمع الشديد من قبل سلطات الحماية الفرنسية التي اعتبرت الجامعة تهديدًا لمصالحها.</li>
+                    <li data-i18n="cgtt3Li2">اعتقال محمد علي الحامي ونفيه خارج البلاد سنة 1925.</li>
+                    <li data-i18n="cgtt3Li3">حل الجامعة نهائيًا من قبل السلطات الاستعمارية سنة 1925.</li>
+                    <li data-i18n="cgtt3Li4">منافسة النقابات الفرنسية (CGT) التي حاولت استقطاب العمال التونسيين.</li>
+                    <li data-i18n="cgtt3Li5">الضغوط الاقتصادية على العمال المضربين من خلال التهديد بفقدان مواطن الشغل.</li>
+                    <li data-i18n="cgtt3Li6">انقسام الصف الوطني بين داعم للجامعة ومعارض لنشاطها في بعض الأوساط التقليدية.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    مثل الحزب الحر الدستوري التونسي وجامعة عموم العملة التونسية أهم تجليات تطور الحركة الوطنية التونسية في العشرينات، حيث جمعت بين النضال السياسي المطالب بالإصلاحات الدستورية والنضال الاجتماعي المدافع عن حقوق العمال. ورغم قمع سلطات الحماية لهذين التنظيمين، فإنهما أرسيا أسس حركة وطنية منظمة ستتطور لاحقًا في الثلاثينات مع الحزب الحر الدستوري الجديد.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات وأحزاب</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defDestour">الحزب الحر الدستوري التونسي</strong>: <span data-i18n="defDestourDesc">أول حزب سياسي تونسي تأسس سنة 1920 بقيادة عبد العزيز الثعالبي، طالب بإصدار دستور وإقامة نظام نيابي.</span></li>
+                        <li><strong class="key-organization" data-i18n="defCGTT">جامعة عموم العملة التونسية</strong>: <span data-i18n="defCGTTDesc">نقابة عمالية تونسية مستقلة أسسها محمد علي الحامي سنة 1924 للدفاع عن حقوق العمال التونسيين.</span></li>
+                        <li><strong class="key-organization" data-i18n="defGrandCouncil">المجلس الأكبر</strong>: <span data-i18n="defGrandCouncilDesc">مجلس استشاري أحدثته سلطات الحماية سنة 1922 يضم ممثلين تونسيين وفرنسيين بصلاحيات محدودة.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defConstitution">الدستور</strong>: <span data-i18n="defConstitutionDesc">مجموعة القوانين الأساسية التي تحدد نظام الحكم وتضمن الحقوق والحريات العامة.</span></li>
+                        <li><strong class="key-other" data-i18n="defSyndicalism">النقابية</strong>: <span data-i18n="defSyndicalismDesc">حركة اجتماعية تهدف إلى تنظيم العمال في نقابات للدفاع عن مصالحهم المهنية والاجتماعية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Destour+Party+1920"
+                             alt="الحزب الحر الدستوري التونسي – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryDestourAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryDestourCaption">الحزب الحر الدستوري التونسي – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 1: The Contemporary World from 1914 to World War II",
+                lessonTitleSample: "Tunisia in the 1920s",
+                sectionIntro: "Introduction",
+                introText: "In the 1920s, Tunisia witnessed a significant development of the national movement, represented by the establishment of the first organized Tunisian political party, the Destour (Constitutional) Party, and by the rise of social and trade union struggle through the Tunisian General Labor Union (CGTT). What were the conditions for the emergence of the Destour Party? What was its program and activity? How did the protectorate authorities deal with it? And what were the conditions for the creation of the CGTT and the difficulties it faced?",
+                sectionPartDestour: "The Destour (Constitutional) Party: Emergence – Program – Activity and Reactions of the Protectorate Authorities",
+                destour1Title: "Conditions for the Emergence of the Destour Party",
+                destour1Text: "Several internal and external factors combined to provide a suitable ground for the emergence of the Destour Party, notably:",
+                destour1Li1: "Growth of national consciousness among Tunisian intellectuals influenced by Wilsonian principles and liberation movements in Turkey and Egypt.",
+                destour1Li2: "Return of Sheikh Abdelaziz Thâalbi from exile and his publication of the famous book 'Tunisia the Martyr' in 1920, which exposed colonial policy and called for constitutional reforms.",
+                destour1Li3: "Worsening economic and social conditions after World War I, with poverty and high cost of living.",
+                destour1Li4: "Deepening sense of injustice among Tunisians due to discriminatory laws such as the Colonial Third law and land seizure policies.",
+                destour1Li5: "Emergence of a young educated elite that fought for its rights in public service and participation in governing the country.",
+                destour2Title: "Program of the Destour Party",
+                destour2Text: "The Destour Party's program focused on demanding the recovery of Tunisian sovereignty and the establishment of a constitutional system. Its main demands included:",
+                destour2Li1: "Issuing a Tunisian constitution guaranteeing public and individual freedoms.",
+                destour2Li2: "Creating an elected Tunisian parliamentary council to participate in governing the country.",
+                destour2Li3: "Opening administrative positions to Tunisians on an equal basis with the French.",
+                destour2Li4: "Compulsory and free education for all Tunisians.",
+                destour2Li5: "Improving the conditions of Tunisian farmers and workers.",
+                destour2Li6: "Equal pay between Tunisians and French.",
+                destour2Li7: "Freedom of press, assembly, and association.",
+                destour3Title: "Activity of the Destour Party",
+                destour3Text: "The Destour Party engaged in various forms of peaceful struggle to achieve its demands:",
+                destour3Li1: "Officially founded on June 4, 1920, with Sheikh Abdelaziz Thâalbi as president.",
+                destour3Li2: "Publishing party newspapers such as 'Lissan Echaab', 'Essawab', and 'Mourchid El Oumma' to spread national awareness.",
+                destour3Li3: "Sending a delegation to Paris in 1920 to present Tunisian demands to the French government and parliament.",
+                destour3Li4: "Organizing popular meetings and conferences across the country to explain party goals and mobilize the masses.",
+                destour3Li5: "Submitting petitions to the Bey and the French Resident-General demanding constitutional reforms.",
+                destour3Li6: "Cooperating with national movements in the Maghreb and the Arab East.",
+                destour4Title: "Reactions of the French Protectorate Authorities",
+                destour4Text: "The French protectorate authorities responded to the Destour Party's activity with repressive measures and limited concessions:",
+                destour4Li1: "Arresting party leaders, including Sheikh Abdelaziz Thâalbi, and exiling him in 1923.",
+                destour4Li2: "Confiscating party newspapers and stopping their publication.",
+                destour4Li3: "Banning popular meetings and conferences organized by the party.",
+                destour4Li4: "Issuing limited 'reforms' in 1922, including the creation of the Grand Council with Tunisian representatives but only advisory powers.",
+                destour4Li5: "Working to create divisions within the party between moderates and radicals.",
+                destour4Li6: "Continuous surveillance of party activities and legal persecution of members.",
+                sectionPartCGTT: "The Tunisian General Labor Union (CGTT): Social Struggle",
+                cgtt1Title: "Conditions for the Emergence of the CGTT",
+                cgtt1Text: "The CGTT emerged in a tense social and economic context, with several contributing factors:",
+                cgtt1Li1: "Deterioration of Tunisian workers' conditions due to high cost of living, low wages, and long working hours.",
+                cgtt1Li2: "Growth of a Tunisian working class in major cities such as Tunis, Bizerte, and Sfax.",
+                cgtt1Li3: "Influence of French trade unionism (CGT) and the spread of socialist and syndicalist ideas.",
+                cgtt1Li4: "Return of Mohamed Ali El Hammi from Germany where he was influenced by socialist and syndicalist ideas.",
+                cgtt1Li5: "Tunisian workers' feeling of discrimination within French unions that neglected their demands.",
+                cgtt2Title: "Foundation of the CGTT",
+                cgtt2Text: "The CGTT was founded in December 1924 under the leadership of Mohamed Ali El Hammi, characterized by:",
+                cgtt2Li1: "Being the first independent Tunisian workers' union separate from French unions.",
+                cgtt2Li2: "Adopting principles of defending Tunisian workers' rights.",
+                cgtt2Li3: "Rapid growth with thousands of workers joining from various professions.",
+                cgtt2Li4: "Organizing major strikes in Tunis and Bizerte demanding better wages and working conditions.",
+                cgtt2Li5: "Receiving support from the Destour Party and other national forces.",
+                cgtt3Title: "Difficulties Faced by the CGTT",
+                cgtt3Text: "The CGTT faced severe difficulties that ultimately led to its dissolution:",
+                cgtt3Li1: "Harsh repression by French protectorate authorities who saw the union as a threat.",
+                cgtt3Li2: "Arrest and exile of Mohamed Ali El Hammi in 1925.",
+                cgtt3Li3: "Final dissolution of the union by colonial authorities in 1925.",
+                cgtt3Li4: "Competition from French unions (CGT) attempting to attract Tunisian workers.",
+                cgtt3Li5: "Economic pressure on striking workers through threats of losing their jobs.",
+                cgtt3Li6: "Divisions within the national movement between supporters and opponents of the union.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Destour Party and the CGTT represented the most important manifestations of the Tunisian national movement's development in the 1920s, combining political struggle for constitutional reforms and social struggle for workers' rights. Despite the protectorate authorities' repression, they laid the foundations of an organized national movement that would later develop in the 1930s with the Neo-Destour Party.",
+                sectionDefinitions: "📖 Definitions",
+                defOrganizations: "🏛️ Organizations and Parties",
+                defDestour: "Destour (Constitutional) Party",
+                defDestourDesc: "The first Tunisian political party founded in 1920 under Abdelaziz Thâalbi, demanding a constitution and a parliamentary system.",
+                defCGTT: "Tunisian General Labor Union (CGTT)",
+                defCGTTDesc: "An independent Tunisian workers' union founded by Mohamed Ali El Hammi in 1924 to defend Tunisian workers' rights.",
+                defGrandCouncil: "Grand Council",
+                defGrandCouncilDesc: "A consultative council created by the protectorate authorities in 1922 with Tunisian and French representatives but limited powers.",
+                defOthers: "🔖 Key Terms",
+                defConstitution: "Constitution",
+                defConstitutionDesc: "The set of fundamental laws defining the system of government and guaranteeing public rights and freedoms.",
+                defSyndicalism: "Syndicalism",
+                defSyndicalismDesc: "A social movement aimed at organizing workers into unions to defend their professional and social interests.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryDestourAlt: "Destour Party 1920 – illustrative image",
+                galleryDestourCaption: "Destour Party 1920 – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 1 : Le monde contemporain de 1914 à la Seconde Guerre mondiale",
+                lessonTitleSample: "La Tunisie dans les années 1920",
+                sectionIntro: "Introduction",
+                introText: "Dans les années 1920, la Tunisie connut un développement important du mouvement national, représenté par la création du premier parti politique tunisien organisé, le Destour, et par l'essor de la lutte sociale et syndicale à travers la Confédération Générale des Travailleurs Tunisiens (CGTT). Quelles furent les conditions de l'émergence du Destour ? Quel était son programme et son activité ? Comment les autorités du protectorat y réagirent-elles ? Et quelles furent les conditions de création de la CGTT et les difficultés rencontrées ?",
+                sectionPartDestour: "Le Destour : Émergence – Programme – Activité et réactions des autorités du protectorat",
+                destour1Title: "Conditions de l'émergence du Destour",
+                destour1Text: "Plusieurs facteurs internes et externes se combinèrent pour fournir un terrain propice à l'émergence du Destour, notamment :",
+                destour1Li1: "Croissance de la conscience nationale parmi les intellectuels tunisiens influencés par les principes wilsoniens et les mouvements de libération en Turquie et en Égypte.",
+                destour1Li2: "Retour d'exil du cheikh Abdelaziz Thâalbi et publication de son célèbre livre « La Tunisie martyre » en 1920, dénonçant la politique coloniale et réclamant des réformes constitutionnelles.",
+                destour1Li3: "Aggravation des conditions économiques et sociales après la Première Guerre mondiale.",
+                destour1Li4: "Sentiment croissant d'injustice dû aux lois discriminatoires telles que le tiers colonial et la saisie des terres.",
+                destour1Li5: "Émergence d'une jeune élite instruite luttant pour ses droits dans la fonction publique et la participation au gouvernement.",
+                destour2Title: "Programme du Destour",
+                destour2Text: "Le programme du Destour se concentrait sur la récupération de la souveraineté tunisienne et l'établissement d'un système constitutionnel :",
+                destour2Li1: "Établir une constitution tunisienne garantissant les libertés publiques et individuelles.",
+                destour2Li2: "Créer un conseil parlementaire tunisien élu pour participer au gouvernement.",
+                destour2Li3: "Ouvrir les postes administratifs aux Tunisiens sur un pied d'égalité avec les Français.",
+                destour2Li4: "Rendre l'éducation obligatoire et gratuite pour tous les Tunisiens.",
+                destour2Li5: "Améliorer les conditions des agriculteurs et ouvriers tunisiens.",
+                destour2Li6: "Égalité des salaires entre Tunisiens et Français.",
+                destour2Li7: "Liberté de presse, de réunion et d'association.",
+                destour3Title: "Activité du Destour",
+                destour3Text: "Le Destour mena diverses formes de lutte pacifique :",
+                destour3Li1: "Fondation officielle le 4 juin 1920, avec le cheikh Abdelaziz Thâalbi comme président.",
+                destour3Li2: "Publication de journaux du parti pour diffuser la conscience nationale.",
+                destour3Li3: "Envoi d'une délégation à Paris en 1920 pour présenter les revendications tunisiennes.",
+                destour3Li4: "Organisation de réunions et conférences populaires à travers le pays.",
+                destour3Li5: "Soumission de pétitions au bey et au résident général.",
+                destour3Li6: "Coopération avec les mouvements nationaux du Maghreb et du Machrek.",
+                destour4Title: "Réactions des autorités du protectorat",
+                destour4Text: "Les autorités du protectorat répondirent par la répression et des concessions limitées :",
+                destour4Li1: "Arrestation et exil d'Abdelaziz Thâalbi en 1923.",
+                destour4Li2: "Confiscation des journaux du parti.",
+                destour4Li3: "Interdiction des réunions populaires.",
+                destour4Li4: "Réformes limitées de 1922 avec la création du Grand Conseil aux pouvoirs consultatifs.",
+                destour4Li5: "Tentatives de division du parti entre modérés et radicaux.",
+                destour4Li6: "Surveillance continue et persécution judiciaire des membres.",
+                sectionPartCGTT: "La CGTT : Lutte sociale",
+                cgtt1Title: "Conditions de l'émergence de la CGTT",
+                cgtt1Text: "La CGTT émergea dans un contexte social et économique tendu :",
+                cgtt1Li1: "Détérioration des conditions des ouvriers tunisiens.",
+                cgtt1Li2: "Croissance d'une classe ouvrière tunisienne dans les grandes villes.",
+                cgtt1Li3: "Influence du syndicalisme français et diffusion des idées socialistes.",
+                cgtt1Li4: "Retour de Mohamed Ali El Hammi d'Allemagne avec des idées syndicalistes.",
+                cgtt1Li5: "Sentiment de discrimination des ouvriers tunisiens dans les syndicats français.",
+                cgtt2Title: "Fondation de la CGTT",
+                cgtt2Text: "Fondée en décembre 1924 sous la direction de Mohamed Ali El Hammi :",
+                cgtt2Li1: "Premier syndicat ouvrier tunisien indépendant.",
+                cgtt2Li2: "Adoption de principes de défense des droits des ouvriers tunisiens.",
+                cgtt2Li3: "Croissance rapide avec des milliers d'adhérents.",
+                cgtt2Li4: "Organisation de grandes grèves à Tunis et Bizerte.",
+                cgtt2Li5: "Soutien du Destour et d'autres forces nationales.",
+                cgtt3Title: "Difficultés rencontrées par la CGTT",
+                cgtt3Text: "La CGTT fit face à des difficultés sévères menant à sa dissolution :",
+                cgtt3Li1: "Répression sévère des autorités du protectorat.",
+                cgtt3Li2: "Arrestation et exil de Mohamed Ali El Hammi en 1925.",
+                cgtt3Li3: "Dissolution définitive du syndicat en 1925.",
+                cgtt3Li4: "Concurrence des syndicats français (CGT).",
+                cgtt3Li5: "Pression économique sur les grévistes.",
+                cgtt3Li6: "Divisions au sein du mouvement national.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Le Destour et la CGTT représentèrent les manifestations les plus importantes du développement du mouvement national tunisien dans les années 1920, combinant lutte politique et lutte sociale. Malgré la répression, ils posèrent les bases d'un mouvement national organisé qui se développera dans les années 1930 avec le Néo-Destour.",
+                sectionDefinitions: "📖 Définitions",
+                defOrganizations: "🏛️ Organisations et partis",
+                defDestour: "Destour",
+                defDestourDesc: "Premier parti politique tunisien fondé en 1920 sous Abdelaziz Thâalbi.",
+                defCGTT: "Confédération Générale des Travailleurs Tunisiens (CGTT)",
+                defCGTTDesc: "Syndicat ouvrier tunisien indépendant fondé par Mohamed Ali El Hammi en 1924.",
+                defGrandCouncil: "Grand Conseil",
+                defGrandCouncilDesc: "Conseil consultatif créé en 1922 avec des représentants tunisiens et français.",
+                defOthers: "🔖 Termes clés",
+                defConstitution: "Constitution",
+                defConstitutionDesc: "Ensemble des lois fondamentales définissant le régime politique et garantissant les droits.",
+                defSyndicalism: "Syndicalisme",
+                defSyndicalismDesc: "Mouvement social visant à organiser les travailleurs en syndicats.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryDestourAlt: "Parti Destour 1920 – image illustrative",
+                galleryDestourCaption: "Parti Destour 1920 – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية",
+                lessonTitleSample: "تونس في العشرينات",
+                sectionIntro: "مقدمة",
+                introText: "شهدت تونس في العشرينات تطورًا ملحوظًا للحركة الوطنية، تمثل في تأسيس أول حزب سياسي تونسي منظم، وهو الحزب الحر الدستوري التونسي، وفي بروز النضال الاجتماعي والنقابي من خلال جامعة عموم العملة التونسية. فما هي ظروف نشأة الحزب الحر الدستوري؟ وما هو برنامجه ونشاطه؟ وكيف تعاملت سلطات الحماية معه؟ وما هي ظروف تأسيس جامعة عموم العملة التونسية والصعوبات التي واجهتها؟",
+                sectionPartDestour: "الحزب الحر الدستوري التونسي: نشأته – برنامجه – نشاطه وردود فعل سلط الحماية",
+                destour1Title: "ظروف نشأة الحزب الحر الدستوري التونسي",
+                destour1Text: "تضافرت عدة عوامل داخلية وخارجية لتوفير الأرضية الملائمة لنشأة الحزب الحر الدستوري التونسي، من أبرزها:",
+                destour1Li1: "تنامي الوعي الوطني في صفوف المثقفين التونسيين المتأثرين بالمبادئ الويلسونية وحركات التحرر في تركيا ومصر.",
+                destour1Li2: "عودة الشيخ عبد العزيز الثعالبي من منفاه، ونشره لكتابه الشهير \"تونس الشهيدة\" سنة 1920، الذي فضح السياسة الاستعمارية وطالب بإصلاحات دستورية.",
+                destour1Li3: "تفاقم الأوضاع الاقتصادية والاجتماعية بعد الحرب العالمية الأولى، وما خلفته من فقر وغلاء معيشة.",
+                destour1Li4: "تعمق الشعور بالغبن لدى التونسيين بسبب قوانين التمييز مثل قانون الثلث الاستعماري وسياسة انتزاع الأراضي.",
+                destour1Li5: "ظهور نخبة شابة متعلمة ناضلت من أجل الحصول على حقوقها في الوظيفة العمومية والمشاركة في تسيير البلاد.",
+                destour2Title: "برنامج الحزب الحر الدستوري التونسي",
+                destour2Text: "تمركز برنامج الحزب الحر الدستوري حول المطالبة باسترجاع السيادة التونسية وإقامة نظام دستوري يستجيب لتطلعات الشعب التونسي، ويمكن تلخيص أبرز مطالبه فيما يلي:",
+                destour2Li1: "إصدار دستور تونسي يضمن الحريات العامة والفردية.",
+                destour2Li2: "إنشاء مجلس نيابي تونسي منتخب انتخابًا حرًا، يساهم في تسيير شؤون البلاد.",
+                destour2Li3: "فتح باب الوظائف الإدارية أمام التونسيين على أساس المساواة مع الفرنسيين.",
+                destour2Li4: "إلزامية التعليم ومجانيته لعموم التونسيين.",
+                destour2Li5: "تحسين ظروف الفلاحين والعمال التونسيين ورفع المظالم عنهم.",
+                destour2Li6: "المساواة في الأجور بين التونسيين والفرنسيين.",
+                destour2Li7: "حرية الصحافة والاجتماع وتكوين الجمعيات.",
+                destour3Title: "نشاط الحزب الحر الدستوري التونسي",
+                destour3Text: "انطلق نشاط الحزب الحر الدستوري التونسي منذ تأسيسه، واتخذ أشكالًا متعددة من النضال السلمي لتحقيق مطالبه:",
+                destour3Li1: "تأسيس الحزب رسميًا في 4 جوان 1920، وانتخاب الشيخ عبد العزيز الثعالبي رئيسًا له.",
+                destour3Li2: "إصدار صحف ناطقة باسم الحزب مثل \"لسان الشعب\" و\"الصواب\" و\"مرشد الأمة\" للتعريف بمطالبه ونشر الوعي الوطني.",
+                destour3Li3: "إرسال وفد عن الحزب إلى باريس سنة 1920 لتقديم المطالب التونسية إلى الحكومة الفرنسية والبرلمان الفرنسي.",
+                destour3Li4: "تنظيم اجتماعات ومؤتمرات شعبية في مختلف أنحاء البلاد لشرح أهداف الحزب وتعبئة الجماهير.",
+                destour3Li5: "تقديم عرائض إلى الباي وإلى المقيم العام الفرنسي للمطالبة بالإصلاحات الدستورية.",
+                destour3Li6: "التعاون مع الحركات الوطنية في المغرب العربي والمشرق العربي.",
+                destour4Title: "ردود فعل سلط الحماية الفرنسية",
+                destour4Text: "واجهت سلطات الحماية الفرنسية نشاط الحزب الحر الدستوري بإجراءات قمعية وتنازلات محدودة في نفس الوقت:",
+                destour4Li1: "اعتقال زعماء الحزب وعلى رأسهم الشيخ عبد العزيز الثعالبي ونفيه خارج البلاد سنة 1923.",
+                destour4Li2: "مصادرة الصحف التابعة للحزب وإيقاف صدورها.",
+                destour4Li3: "منع الاجتماعات والمؤتمرات الشعبية التي ينظمها الحزب.",
+                destour4Li4: "إصدار \"الإصلاحات\" المحدودة سنة 1922، ومنها إحداث المجلس الأكبر الذي يضم ممثلين تونسيين لكن بصلاحيات استشارية فقط، في محاولة لامتصاص غضب الوطنيين.",
+                destour4Li5: "العمل على إحداث انشقاقات داخل الحزب بين الجناح المعتدل والجناح المتشدد.",
+                destour4Li6: "المراقبة المستمرة لنشاط الحزب وأعضائه وملاحقتهم قضائيًا.",
+                sectionPartCGTT: "جامعة عموم العملة التونسية: النضال الاجتماعي",
+                cgtt1Title: "ظروف نشأة جامعة عموم العملة التونسية",
+                cgtt1Text: "نشأت جامعة عموم العملة التونسية في سياق اجتماعي واقتصادي متأزم، تظافرت فيه عدة عوامل:",
+                cgtt1Li1: "تدهور أوضاع العمال التونسيين بسبب غلاء المعيشة وتدني الأجور وطول ساعات العمل.",
+                cgtt1Li2: "نمو طبقة عمالية تونسية في المدن الكبرى خاصة في تونس العاصمة وبنزرت وصفاقس.",
+                cgtt1Li3: "تأثير الحركة النقابية الفرنسية (الكنفدرالية العامة للشغل CGT) وانتشار الفكر الاشتراكي والنقابي بين العمال.",
+                cgtt1Li4: "عودة محمد علي الحامي من ألمانيا حيث تأثر بالأفكار الاشتراكية والنقابية.",
+                cgtt1Li5: "شعور العمال التونسيين بالتمييز داخل النقابات الفرنسية التي كانت تهمل مطالبهم.",
+                cgtt2Title: "تأسيس جامعة عموم العملة التونسية",
+                cgtt2Text: "تأسست جامعة عموم العملة التونسية (CGTT) في ديسمبر 1924 بقيادة محمد علي الحامي، وتميزت بما يلي:",
+                cgtt2Li1: "كانت أول نقابة عمالية تونسية مستقلة عن النقابات الفرنسية.",
+                cgtt2Li2: "اعتمدت في نضالها على مبدأي الجهر بالحق والدفاع عن مصالح العمال التونسيين.",
+                cgtt2Li3: "نمت الجامعة بسرعة حيث انخرط فيها آلاف العمال في مختلف المهن.",
+                cgtt2Li4: "نظمت الجامعة عدة إضرابات عمالية كبرى في تونس العاصمة وبنزرت للمطالبة بتحسين الأجور وظروف العمل.",
+                cgtt2Li5: "حظيت الجامعة بدعم الحزب الحر الدستوري وبعض القوى الوطنية الأخرى.",
+                cgtt3Title: "الصعوبات التي واجهتها الجامعة",
+                cgtt3Text: "واجهت جامعة عموم العملة التونسية صعوبات جمة أدت في النهاية إلى حلها، ومن أبرزها:",
+                cgtt3Li1: "القمع الشديد من قبل سلطات الحماية الفرنسية التي اعتبرت الجامعة تهديدًا لمصالحها.",
+                cgtt3Li2: "اعتقال محمد علي الحامي ونفيه خارج البلاد سنة 1925.",
+                cgtt3Li3: "حل الجامعة نهائيًا من قبل السلطات الاستعمارية سنة 1925.",
+                cgtt3Li4: "منافسة النقابات الفرنسية (CGT) التي حاولت استقطاب العمال التونسيين.",
+                cgtt3Li5: "الضغوط الاقتصادية على العمال المضربين من خلال التهديد بفقدان مواطن الشغل.",
+                cgtt3Li6: "انقسام الصف الوطني بين داعم للجامعة ومعارض لنشاطها في بعض الأوساط التقليدية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "مثل الحزب الحر الدستوري التونسي وجامعة عموم العملة التونسية أهم تجليات تطور الحركة الوطنية التونسية في العشرينات، حيث جمعت بين النضال السياسي المطالب بالإصلاحات الدستورية والنضال الاجتماعي المدافع عن حقوق العمال. ورغم قمع سلطات الحماية لهذين التنظيمين، فإنهما أرسيا أسس حركة وطنية منظمة ستتطور لاحقًا في الثلاثينات مع الحزب الحر الدستوري الجديد.",
+                sectionDefinitions: "📖 تعريفات",
+                defOrganizations: "🏛️ منظمات وأحزاب",
+                defDestour: "الحزب الحر الدستوري التونسي",
+                defDestourDesc: "أول حزب سياسي تونسي تأسس سنة 1920 بقيادة عبد العزيز الثعالبي، طالب بإصدار دستور وإقامة نظام نيابي.",
+                defCGTT: "جامعة عموم العملة التونسية",
+                defCGTTDesc: "نقابة عمالية تونسية مستقلة أسسها محمد علي الحامي سنة 1924 للدفاع عن حقوق العمال التونسيين.",
+                defGrandCouncil: "المجلس الأكبر",
+                defGrandCouncilDesc: "مجلس استشاري أحدثته سلطات الحماية سنة 1922 يضم ممثلين تونسيين وفرنسيين بصلاحيات محدودة.",
+                defOthers: "🔖 مصطلحات أساسية",
+                defConstitution: "الدستور",
+                defConstitutionDesc: "مجموعة القوانين الأساسية التي تحدد نظام الحكم وتضمن الحقوق والحريات العامة.",
+                defSyndicalism: "النقابية",
+                defSyndicalismDesc: "حركة اجتماعية تهدف إلى تنظيم العمال في نقابات للدفاع عن مصالحهم المهنية والاجتماعية.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryDestourAlt: "الحزب الحر الدستوري التونسي – صورة توضيحية",
+                galleryDestourCaption: "الحزب الحر الدستوري التونسي – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Destour", class: "key-organization", i18n: "defDestour" },
+                { text: "CGTT", class: "key-organization", i18n: "defCGTT" },
+                { text: "Grand Council", class: "key-organization", i18n: "defGrandCouncil" },
+                { text: "Constitution", class: "key-other", i18n: "defConstitution" },
+                { text: "Syndicalism", class: "key-other", i18n: "defSyndicalism" }
+            ],
+            fr: [
+                { text: "Destour", class: "key-organization", i18n: "defDestour" },
+                { text: "CGTT", class: "key-organization", i18n: "defCGTT" },
+                { text: "Grand Conseil", class: "key-organization", i18n: "defGrandCouncil" },
+                { text: "Constitution", class: "key-other", i18n: "defConstitution" },
+                { text: "Syndicalisme", class: "key-other", i18n: "defSyndicalism" }
+            ],
+            ar: [
+                { text: "الحزب الحر الدستوري", class: "key-organization", i18n: "defDestour" },
+                { text: "جامعة عموم العملة التونسية", class: "key-organization", i18n: "defCGTT" },
+                { text: "المجلس الأكبر", class: "key-organization", i18n: "defGrandCouncil" },
+                { text: "الدستور", class: "key-other", i18n: "defConstitution" },
+                { text: "النقابية", class: "key-other", i18n: "defSyndicalism" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

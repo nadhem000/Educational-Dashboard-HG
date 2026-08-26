@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 6: بناء الدولة وتحديث المجتمع
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                بناء الدولة وتحديث المجتمع
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    بعد نيل الاستقلال، شرعت تونس في بناء دولة عصرية تستكمل سيادتها الوطنية، عبر إرساء نظام جمهوري وتونسة دواليب الدولة وتحديث مؤسساتها. فما هي أهم الإجراءات التي اتخذتها الحركة الوطنية لبناء الدولة العصرية؟
+                </p>
+            </div>
+
+            <!-- I. بناء الدولة العصرية واستكمال السيادة الوطنية -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">بناء الدولة العصرية واستكمال السيادة الوطنية</span>
+                </h2>
+
+                <!-- 1. بناء الدولة العصرية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part1Title1">بناء الدولة العصرية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part1A1">إرساء النظام الجمهوري</span>
+                </h4>
+                <p data-i18n="part1A1Text1">
+                    سعت الحركة الوطنية إلى إحياء الحياة الدستورية، فسارعت بعد الحصول على الاستقلال الداخلي إلى استصدار أمر من الباي "محمد المن" (29 ديسمبر 1955) بالدعوة إلى انتخاب "مجلس قومي تأسيسي" لإعداد دستور للبلاد.
+                </p>
+                <p data-i18n="part1A1Text2">
+                    انبثق هذا المجلس عن انتخابات 25 مارس 1956 التي فازت فيها قائمات "الجبهة القومية" (تضم الحزب الحر الدستوري التونسي والمنظمات الوطنية المتحالفة معه). وعقد أولى جلساته يوم 8 أفريل 1956 وانتخب الحبيب بورقيبة رئيساً له.
+                </p>
+                <ul>
+                    <li data-i18n="part1A1Li1"><strong>14 أفريل 1956:</strong> تشكيل أول حكومة ائتلافية بعد الاستقلال برئاسة الحبيب بورقيبة (بعد تخليه عن رئاسة المجلس القومي التأسيسي لفائدة جلولي فارس).</li>
+                    <li data-i18n="part1A1Li2"><strong>30 ماي 1956:</strong> إلغاء الامتيازات الجبائية والحصانة القضائية التي كانت تتمتع بها العائلة الحسينية المالكة.</li>
+                    <li data-i18n="part1A1Li3"><strong>25 جويلية 1957:</strong> إعلان المجلس القومي التأسيسي عن "إلغاء النظام الملكي وقيام النظام الجمهوري" برئاسة الحبيب بورقيبة الذي احتفظ أيضاً بمنصب رئيس الحكومة.</li>
+                    <li data-i18n="part1A1Li4"><strong>1 جوان 1959:</strong> الإعلان عن الدستور الذي أقر النظام الجمهوري والتفريق بين السلط لكنه منح رئيس الجمهورية صلاحيات واسعة.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part1B1">تونسة دواليب الدولة</span>
+                </h4>
+                <p data-i18n="part1B1Text">
+                    عملت الحكومة الوطنية على تونسة مختلف مؤسسات الدولة لضمان سيادتها الكاملة:
+                </p>
+                <ul>
+                    <li data-i18n="part1B1Li1"><strong>الإدارة:</strong> إرساء إطار إداري جديد (21 جوان 1956) يتكون من الولاة (14 ولاية) والمعتمدين، وتعويض 12 ألف موظف فرنسي تدريجياً بموظفين تونسيين.</li>
+                    <li data-i18n="part1B1Li2"><strong>الأمن الداخلي والخارجي:</strong> بعث الوحدات الأولى لقوات الأمن الداخلي (الحرس والشرطة) (18 أفريل 1956)، وتشكيل نواة الجيش الوطني (24 جوان 1956).</li>
+                    <li data-i18n="part1B1Li3"><strong>الإعلام:</strong> إصدار مجلة قانونية جديدة للصحافة (فيفري 1956) وتونسة مؤسسة الإذاعة التونسية (13 أوت 1956).</li>
+                    <li data-i18n="part1B1Li4"><strong>القضاء:</strong> توحيد المحاكم وتعصيرها وحذف المحاكم الفرنسية (1 جويلية 1957).</li>
+                    <li data-i18n="part1B1Li5"><strong>السياسة الخارجية:</strong> اعتراف فرنسا بحق تونس في ممارسة سيادتها الخارجية (15 جوان 1956).</li>
+                    <li data-i18n="part1B1Li6">انخراط تونس في منظمة الأمم المتحدة (12 نوفمبر 1956) وفي الجامعة العربية (1 أكتوبر 1958) وإقامة علاقات دبلوماسية مع عدد كبير من البلدان.</li>
+                    <li data-i18n="part1B1Li7">انتخاب المنجي سليم رئيساً للدورة الـ16 للجمعية العامة للأمم المتحدة (سبتمبر 1961 – أوت 1962) تجسيداً لإشعاع تونس الدولي.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    نجحت تونس بعد الاستقلال في بناء أسس الدولة العصرية من خلال إرساء النظام الجمهوري وتونسة دواليب الدولة، مما مكنها من استكمال سيادتها الوطنية والانخراط في المجتمع الدولي.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ مؤسسات وهيئات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defNCA">المجلس القومي التأسيسي</strong>: <span data-i18n="defNCADesc">مجلس منتخب تأسس سنة 1956 لتولي إعداد دستور تونس وإعلان النظام الجمهوري.</span></li>
+                        <li><strong class="key-organization" data-i18n="defNationalFront">الجبهة القومية</strong>: <span data-i18n="defNationalFrontDesc">تحالف سياسي ضم الحزب الحر الدستوري والمنظمات الوطنية، فاز في انتخابات 25 مارس 1956.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defRepublic">النظام الجمهوري</strong>: <span data-i18n="defRepublicDesc">نظام سياسي تكون فيه السلطة للشعب وتنتخب فيه رئاسة الدولة بدلاً من الوراثة الملكية.</span></li>
+                        <li><strong class="key-other" data-i18n="defTunisification">تونسة</strong>: <span data-i18n="defTunisificationDesc">عملية إحلال الموظفين التونسيين مكان الموظفين الفرنسيين في الإدارات والمؤسسات.</span></li>
+                        <li><strong class="key-other" data-i18n="defInternalAutonomy">الاستقلال الداخلي</strong>: <span data-i18n="defInternalAutonomyDesc">مرحلة انتقالية حصلت فيها تونس على إدارة شؤونها الداخلية قبل الاستقلال التام.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Tunisian+Republic+1957"
+                             alt="قيام الجمهورية التونسية – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryRepublicAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryRepublicCaption">قيام الجمهورية التونسية – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمؤسسات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 6: State Building and Modernization of Society",
+                lessonTitleSample: "State Building and Modernization of Society",
+                sectionIntro: "Introduction",
+                introText: "After independence, Tunisia embarked on building a modern state to complete its national sovereignty, by establishing a republican system and Tunisifying the state apparatus. What were the main measures taken by the national movement to build a modern state?",
+                sectionPart1: "Building the Modern State and Completing National Sovereignty",
+                part1Title1: "Building the Modern State",
+                part1A1: "Establishment of the Republican System",
+                part1A1Text1: "The national movement sought to revive constitutional life; after internal autonomy it obtained an order from Bey Mohamed Lamine (29 December 1955) calling for the election of a 'National Constituent Assembly' to draft the country's constitution.",
+                part1A1Text2: "This assembly emerged from the elections of 25 March 1956, won by the 'National Front' lists (including the Free Destourian Party and allied national organizations). It held its first session on 8 April 1956 and elected Habib Bourguiba as its president.",
+                part1A1Li1: "<strong>14 April 1956:</strong> Formation of the first coalition government after independence under Habib Bourguiba (after he gave up the presidency of the Constituent Assembly to Jellouli Fares).",
+                part1A1Li2: "<strong>30 May 1956:</strong> Abolition of the tax privileges and judicial immunity enjoyed by the ruling Husseinite family.",
+                part1A1Li3: "<strong>25 July 1957:</strong> The Constituent Assembly declared the 'abolition of the monarchy and the establishment of the republican system' with Habib Bourguiba as president, who also kept the position of head of government.",
+                part1A1Li4: "<strong>1 June 1959:</strong> Proclamation of the Constitution, which established the republican system and separation of powers but granted the President of the Republic broad powers.",
+                part1B1: "Tunisification of the State Apparatus",
+                part1B1Text: "The national government worked to Tunisify various state institutions to ensure full sovereignty:",
+                part1B1Li1: "<strong>Administration:</strong> Establishment of a new administrative framework (21 June 1956) consisting of governors (14 governorates) and delegates, gradually replacing 12,000 French civil servants with Tunisian ones.",
+                part1B1Li2: "<strong>Internal and external security:</strong> Creation of the first units of internal security forces (National Guard and police) (18 April 1956) and formation of the nucleus of the national army (24 June 1956).",
+                part1B1Li3: "<strong>Media:</strong> Issuance of a new press law (February 1956) and Tunisification of the Tunisian Radio institution (13 August 1956).",
+                part1B1Li4: "<strong>Judiciary:</strong> Unification and modernization of courts and removal of French courts (1 July 1957).",
+                part1B1Li5: "<strong>Foreign policy:</strong> France recognized Tunisia's right to exercise its external sovereignty (15 June 1956).",
+                part1B1Li6: "Tunisia joined the United Nations (12 November 1956) and the Arab League (1 October 1958), establishing diplomatic relations with many countries.",
+                part1B1Li7: "Mongi Slim was elected President of the 16th session of the UN General Assembly (September 1961 – August 1962), reflecting Tunisia's international standing.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "After independence, Tunisia succeeded in building the foundations of a modern state through the establishment of a republican system and the Tunisification of state apparatus, enabling it to complete its national sovereignty and integrate into the international community.",
+                sectionDefinitions: "📖 Definitions",
+                defOrganizations: "🏛️ Institutions and Bodies",
+                defNCA: "National Constituent Assembly",
+                defNCADesc: "An elected assembly established in 1956 to draft Tunisia's constitution and declare the republican system.",
+                defNationalFront: "National Front",
+                defNationalFrontDesc: "A political alliance including the Free Destourian Party and national organizations, which won the elections of 25 March 1956.",
+                defOthers: "🔖 Key Terms",
+                defRepublic: "Republican System",
+                defRepublicDesc: "A political system where power belongs to the people and the head of state is elected instead of hereditary monarchy.",
+                defTunisification: "Tunisification",
+                defTunisificationDesc: "The process of replacing French civil servants with Tunisian ones in administrations and institutions.",
+                defInternalAutonomy: "Internal Autonomy",
+                defInternalAutonomyDesc: "A transitional phase where Tunisia gained management of its internal affairs before full independence.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryRepublicAlt: "Establishment of the Tunisian Republic – illustrative image",
+                galleryRepublicCaption: "Establishment of the Tunisian Republic – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms and institutions",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 6 : Construction de l'État et modernisation de la société",
+                lessonTitleSample: "Construction de l'État et modernisation de la société",
+                sectionIntro: "Introduction",
+                introText: "Après l'indépendance, la Tunisie entreprit de construire un État moderne afin de compléter sa souveraineté nationale, en instaurant un régime républicain et en tunisifiant les rouages de l'État. Quelles furent les principales mesures prises par le mouvement national pour bâtir un État moderne ?",
+                sectionPart1: "Construction de l'État moderne et achèvement de la souveraineté nationale",
+                part1Title1: "Construction de l'État moderne",
+                part1A1: "Instauration du régime républicain",
+                part1A1Text1: "Le mouvement national chercha à raviver la vie constitutionnelle ; après l'autonomie interne, il obtint du bey Mohamed Lamine (29 décembre 1955) un décret convoquant l'élection d'une « Assemblée nationale constituante » chargée de rédiger la constitution du pays.",
+                part1A1Text2: "Cette assemblée émana des élections du 25 mars 1956 remportées par les listes du « Front national » (comprenant le Parti libre destourien et les organisations nationales alliées). Elle tint sa première séance le 8 avril 1956 et élut Habib Bourguiba à sa présidence.",
+                part1A1Li1: "<strong>14 avril 1956 :</strong> Formation du premier gouvernement de coalition après l'indépendance sous la direction de Habib Bourguiba (après qu'il eut cédé la présidence de la Constituante à Jellouli Fares).",
+                part1A1Li2: "<strong>30 mai 1956 :</strong> Suppression des privilèges fiscaux et de l'immunité judiciaire dont jouissait la famille husseinite régnante.",
+                part1A1Li3: "<strong>25 juillet 1957 :</strong> L'Assemblée constituante proclama « l'abolition de la monarchie et l'instauration du régime républicain » avec Habib Bourguiba comme président, qui conserva également le poste de chef du gouvernement.",
+                part1A1Li4: "<strong>1er juin 1959 :</strong> Proclamation de la Constitution, qui établit le régime républicain et la séparation des pouvoirs mais accorda de larges prérogatives au Président de la République.",
+                part1B1: "Tunisification des rouages de l'État",
+                part1B1Text: "Le gouvernement national œuvra à tunisifier les différentes institutions de l'État pour garantir la pleine souveraineté :",
+                part1B1Li1: "<strong>Administration :</strong> Mise en place d'un nouveau cadre administratif (21 juin 1956) composé de gouverneurs (14 gouvernorats) et de délégués, remplaçant progressivement 12 000 fonctionnaires français par des Tunisiens.",
+                part1B1Li2: "<strong>Sécurité intérieure et extérieure :</strong> Création des premières unités des forces de sécurité intérieure (Garde nationale et police) (18 avril 1956) et formation du noyau de l'armée nationale (24 juin 1956).",
+                part1B1Li3: "<strong>Médias :</strong> Promulgation d'un nouveau code de la presse (février 1956) et tunisification de la Radio tunisienne (13 août 1956).",
+                part1B1Li4: "<strong>Justice :</strong> Unification et modernisation des tribunaux et suppression des juridictions françaises (1er juillet 1957).",
+                part1B1Li5: "<strong>Politique étrangère :</strong> La France reconnut le droit de la Tunisie à exercer sa souveraineté extérieure (15 juin 1956).",
+                part1B1Li6: "Adhésion de la Tunisie à l'Organisation des Nations unies (12 novembre 1956) et à la Ligue arabe (1er octobre 1958), et établissement de relations diplomatiques avec de nombreux pays.",
+                part1B1Li7: "Élection de Mongi Slim à la présidence de la 16e session de l'Assemblée générale de l'ONU (septembre 1961 – août 1962), témoignant du rayonnement international de la Tunisie.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Après l'indépendance, la Tunisie réussit à jeter les bases de l'État moderne par l'instauration du régime républicain et la tunisification des rouages de l'État, lui permettant d'achever sa souveraineté nationale et de s'intégrer à la communauté internationale.",
+                sectionDefinitions: "📖 Définitions",
+                defOrganizations: "🏛️ Institutions et organismes",
+                defNCA: "Assemblée nationale constituante",
+                defNCADesc: "Assemblée élue créée en 1956 pour rédiger la constitution tunisienne et proclamer le régime républicain.",
+                defNationalFront: "Front national",
+                defNationalFrontDesc: "Alliance politique comprenant le Parti libre destourien et les organisations nationales, victorieuse aux élections du 25 mars 1956.",
+                defOthers: "🔖 Termes clés",
+                defRepublic: "Régime républicain",
+                defRepublicDesc: "Système politique où le pouvoir appartient au peuple et où le chef de l'État est élu au lieu d'être héréditaire.",
+                defTunisification: "Tunisification",
+                defTunisificationDesc: "Processus de remplacement des fonctionnaires français par des Tunisiens dans les administrations et institutions.",
+                defInternalAutonomy: "Autonomie interne",
+                defInternalAutonomyDesc: "Phase transitoire où la Tunisie géra ses affaires internes avant l'indépendance totale.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryRepublicAlt: "Instauration de la République tunisienne – image illustrative",
+                galleryRepublicCaption: "Instauration de la République tunisienne – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés et institutions",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 6: بناء الدولة وتحديث المجتمع",
+                lessonTitleSample: "بناء الدولة وتحديث المجتمع",
+                sectionIntro: "مقدمة",
+                introText: "بعد نيل الاستقلال، شرعت تونس في بناء دولة عصرية تستكمل سيادتها الوطنية، عبر إرساء نظام جمهوري وتونسة دواليب الدولة وتحديث مؤسساتها. فما هي أهم الإجراءات التي اتخذتها الحركة الوطنية لبناء الدولة العصرية؟",
+                sectionPart1: "بناء الدولة العصرية واستكمال السيادة الوطنية",
+                part1Title1: "بناء الدولة العصرية",
+                part1A1: "إرساء النظام الجمهوري",
+                part1A1Text1: "سعت الحركة الوطنية إلى إحياء الحياة الدستورية، فسارعت بعد الحصول على الاستقلال الداخلي إلى استصدار أمر من الباي \"محمد المن\" (29 ديسمبر 1955) بالدعوة إلى انتخاب \"مجلس قومي تأسيسي\" لإعداد دستور للبلاد.",
+                part1A1Text2: "انبثق هذا المجلس عن انتخابات 25 مارس 1956 التي فازت فيها قائمات \"الجبهة القومية\" (تضم الحزب الحر الدستوري التونسي والمنظمات الوطنية المتحالفة معه). وعقد أولى جلساته يوم 8 أفريل 1956 وانتخب الحبيب بورقيبة رئيساً له.",
+                part1A1Li1: "<strong>14 أفريل 1956:</strong> تشكيل أول حكومة ائتلافية بعد الاستقلال برئاسة الحبيب بورقيبة (بعد تخليه عن رئاسة المجلس القومي التأسيسي لفائدة جلولي فارس).",
+                part1A1Li2: "<strong>30 ماي 1956:</strong> إلغاء الامتيازات الجبائية والحصانة القضائية التي كانت تتمتع بها العائلة الحسينية المالكة.",
+                part1A1Li3: "<strong>25 جويلية 1957:</strong> إعلان المجلس القومي التأسيسي عن \"إلغاء النظام الملكي وقيام النظام الجمهوري\" برئاسة الحبيب بورقيبة الذي احتفظ أيضاً بمنصب رئيس الحكومة.",
+                part1A1Li4: "<strong>1 جوان 1959:</strong> الإعلان عن الدستور الذي أقر النظام الجمهوري والتفريق بين السلط لكنه منح رئيس الجمهورية صلاحيات واسعة.",
+                part1B1: "تونسة دواليب الدولة",
+                part1B1Text: "عملت الحكومة الوطنية على تونسة مختلف مؤسسات الدولة لضمان سيادتها الكاملة:",
+                part1B1Li1: "<strong>الإدارة:</strong> إرساء إطار إداري جديد (21 جوان 1956) يتكون من الولاة (14 ولاية) والمعتمدين، وتعويض 12 ألف موظف فرنسي تدريجياً بموظفين تونسيين.",
+                part1B1Li2: "<strong>الأمن الداخلي والخارجي:</strong> بعث الوحدات الأولى لقوات الأمن الداخلي (الحرس والشرطة) (18 أفريل 1956)، وتشكيل نواة الجيش الوطني (24 جوان 1956).",
+                part1B1Li3: "<strong>الإعلام:</strong> إصدار مجلة قانونية جديدة للصحافة (فيفري 1956) وتونسة مؤسسة الإذاعة التونسية (13 أوت 1956).",
+                part1B1Li4: "<strong>القضاء:</strong> توحيد المحاكم وتعصيرها وحذف المحاكم الفرنسية (1 جويلية 1957).",
+                part1B1Li5: "<strong>السياسة الخارجية:</strong> اعتراف فرنسا بحق تونس في ممارسة سيادتها الخارجية (15 جوان 1956).",
+                part1B1Li6: "انخراط تونس في منظمة الأمم المتحدة (12 نوفمبر 1956) وفي الجامعة العربية (1 أكتوبر 1958) وإقامة علاقات دبلوماسية مع عدد كبير من البلدان.",
+                part1B1Li7: "انتخاب المنجي سليم رئيساً للدورة الـ16 للجمعية العامة للأمم المتحدة (سبتمبر 1961 – أوت 1962) تجسيداً لإشعاع تونس الدولي.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "نجحت تونس بعد الاستقلال في بناء أسس الدولة العصرية من خلال إرساء النظام الجمهوري وتونسة دواليب الدولة، مما مكنها من استكمال سيادتها الوطنية والانخراط في المجتمع الدولي.",
+                sectionDefinitions: "📖 تعريفات",
+                defOrganizations: "🏛️ مؤسسات وهيئات",
+                defNCA: "المجلس القومي التأسيسي",
+                defNCADesc: "مجلس منتخب تأسس سنة 1956 لتولي إعداد دستور تونس وإعلان النظام الجمهوري.",
+                defNationalFront: "الجبهة القومية",
+                defNationalFrontDesc: "تحالف سياسي ضم الحزب الحر الدستوري والمنظمات الوطنية، فاز في انتخابات 25 مارس 1956.",
+                defOthers: "🔖 مصطلحات أساسية",
+                defRepublic: "النظام الجمهوري",
+                defRepublicDesc: "نظام سياسي تكون فيه السلطة للشعب وتنتخب فيه رئاسة الدولة بدلاً من الوراثة الملكية.",
+                defTunisification: "تونسة",
+                defTunisificationDesc: "عملية إحلال الموظفين التونسيين مكان الموظفين الفرنسيين في الإدارات والمؤسسات.",
+                defInternalAutonomy: "الاستقلال الداخلي",
+                defInternalAutonomyDesc: "مرحلة انتقالية حصلت فيها تونس على إدارة شؤونها الداخلية قبل الاستقلال التام.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryRepublicAlt: "قيام الجمهورية التونسية – صورة توضيحية",
+                galleryRepublicCaption: "قيام الجمهورية التونسية – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمؤسسات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "National Constituent Assembly", class: "key-organization", i18n: "defNCA" },
+                { text: "National Front", class: "key-organization", i18n: "defNationalFront" },
+                { text: "Republican System", class: "key-other", i18n: "defRepublic" },
+                { text: "Tunisification", class: "key-other", i18n: "defTunisification" },
+                { text: "Internal Autonomy", class: "key-other", i18n: "defInternalAutonomy" }
+            ],
+            fr: [
+                { text: "Assemblée nationale constituante", class: "key-organization", i18n: "defNCA" },
+                { text: "Front national", class: "key-organization", i18n: "defNationalFront" },
+                { text: "Régime républicain", class: "key-other", i18n: "defRepublic" },
+                { text: "Tunisification", class: "key-other", i18n: "defTunisification" },
+                { text: "Autonomie interne", class: "key-other", i18n: "defInternalAutonomy" }
+            ],
+            ar: [
+                { text: "المجلس القومي التأسيسي", class: "key-organization", i18n: "defNCA" },
+                { text: "الجبهة القومية", class: "key-organization", i18n: "defNationalFront" },
+                { text: "النظام الجمهوري", class: "key-other", i18n: "defRepublic" },
+                { text: "تونسة", class: "key-other", i18n: "defTunisification" },
+                { text: "الاستقلال الداخلي", class: "key-other", i18n: "defInternalAutonomy" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

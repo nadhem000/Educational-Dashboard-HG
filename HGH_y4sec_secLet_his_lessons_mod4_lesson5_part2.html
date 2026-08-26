@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 6: بناء الدولة وتحديث المجتمع
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                بناء الدولة وتحديث المجتمع
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    واصلت تونس بعد الاستقلال استكمال سيادتها الوطنية، فخاضت معركة الجلاء العسكري مع فرنسا ثم حققت الاستقلال الاقتصادي والجلاء الزراعي. فما هي أبرز مراحل الجلاء العسكري؟ وما هي إجراءات تحقيق الاستقلال الاقتصادي والزراعي؟
+                </p>
+            </div>
+
+            <!-- I. بناء الدولة العصرية واستكمال السيادة الوطنية -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">بناء الدولة العصرية واستكمال السيادة الوطنية</span>
+                </h2>
+
+                <!-- 2. استكمال السيادة الوطنية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part1Title2">استكمال السيادة الوطنية</span>
+                </h3>
+
+                <!-- أ. الجلاء العسكري -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part1A2">الجلاء العسكري</span>
+                </h4>
+                <p data-i18n="part1A2Text1">
+                    احتفظت فرنسا بـ20 ألف جندي ضمن 5 قواعد عسكرية بالتراب التونسي لحماية مصالحها وتضييق الخناق على الثورة الجزائرية. رفضت فرنسا مطلب تونس (خطاب بورقيبة بتطاوين، جوان 1956) بجلاء قواتها المسلحة عن البلاد. فانتظمت مظاهرات كثيرة (بداية من سبتمبر 1957) للضغط عليها خاصة بعد الاعتداءات الفرنسية المتكررة على القرى الحدودية التونسية في إطار ملاحقة الثوار الجزائريين وأخطرها الاعتداء على ساقية سيدي يوسف (8 فيفري 1958).
+                </p>
+                <p data-i18n="part1A2Text2">
+                    منع تحركات الجيش الفرنسي خارج ثكناته مما فجر معركة رمادة (8 ماي 1958) ومن شهدائها المقاوم مصباح الجربوع. تم إجبار فرنسا على جلاء قواتها من كامل البلاد باستثناء قواعدها العسكرية ببنزرت (17 جوان 1958) بعد تقديم تونس شكوى إلى مجلس الأمن الدولي.
+                </p>
+                <p data-i18n="part1A2Text3">
+                    معركة الجلاء ببنزرت (19-23 جويلية 1961): حصول مجزرة في صفوف التونسيين (670 قتيلاً) وانعقاد دورة استثنائية للجمعية العامة للأمم المتحدة لوقف القتال. وعقد مفاوضات تونسية-فرنسية بروما انتهت بالاتفاق على الجلاء في أجل أقصاه 15 أكتوبر 1963 (أي بعد حصول الجزائر على استقلالها).
+                </p>
+                <p data-i18n="part1A2Conclusion">
+                    تباينت التقييمات حول "معركة الجلاء ببنزرت" لكنها حققت مكاسب عديدة: جلاء القوات الفرنسية (15 أكتوبر 1963)، دعم اللحمة الوطنية، إكساب تونس مكانة هامة ضمن الدول المقاومة للاستعمار والمساندة لحركات التحرر الوطني (عودة الدفء إلى العلاقات مع مصر بعد القطيعة بسبب دعم القاهرة لخصم بورقيبة صالح بن يوسف قبل اغتياله).
+                </p>
+
+                <!-- ب. تحقيق الاستقلال الاقتصادي والجلاء الزراعي -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part1B2">تحقيق الاستقلال الاقتصادي والجلاء الزراعي</span>
+                </h4>
+                <p data-i18n="part1B2Text1">
+                    الاستقلال النقدي وتونسة الجهاز البنكي: إحداث البنك المركزي التونسي (سبتمبر 1958) وإصدار وحدة نقدية تونسية "الدينار" (18 أكتوبر 1958) بدل "الفرنك الفرنسي"، الانخراط في صندوق النقد الدولي والبنك العالمي (أفريل 1958)، وإلغاء الوحدة الجمركية مع فرنسا (20 أوت 1959).
+                </p>
+                <p data-i18n="part1B2Text2">
+                    تأميم القطاعات الاقتصادية الحيوية (السكك الحديدية، الموانئ، إنتاج وتوزيع المياه والكهرباء والغاز)، بعث دواوين عمومية (مثل ديوان المناجم، ديوان إحياء أراضي وادي مجردة...).
+                </p>
+                <p data-i18n="part1B2Text3">
+                    الجلاء الزراعي: استحوذ المعمرون في أوج العهد الاستعماري على 85 ألف هكتار من أخصب الأراضي الزراعية في الشمال خاصة. وسعت الدولة لاسترجاعها منذ 1956 على مراحل وبصيغ مختلفة:
+                </p>
+                <ul>
+                    <li data-i18n="part1B2Li1">ضم الأراضي المهجورة من قبل المعمرين في المناطق الحدودية مع الجزائر.</li>
+                    <li data-i18n="part1B2Li2">شراء الدولة لـ 100 ألف هكتار بالاتفاق مع فرنسا (إلى غاية 1960).</li>
+                    <li data-i18n="part1B2Li3">إصدار قانون 12 ماي 1964 القاضي بتأميم ما تبقى من أراضي المعمرين (حوالي 165 ألف هكتار).</li>
+                    <li data-i18n="part1B2Li4">التوقيع على اتفاقية مع الفاتيكان (9 جويلية 1964) استرجعت بموجبها الدولة أغلب أراضي الكنيسة المسيحية بتونس.</li>
+                </ul>
+                <p data-i18n="part1B2Conclusion">
+                    رد الفعل الفرنسي: إلغاء إعانتها لتونس والتراجع عن التزاماتها التجارية معها.
+                </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    تمكنت تونس من استكمال سيادتها الوطنية عبر الجلاء العسكري والاستقلال الاقتصادي والزراعي، مما رسخ استقلالها وعزز مكانتها كدولة ذات سيادة كاملة.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ مؤسسات وهيئات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defBCT">البنك المركزي التونسي</strong>: <span data-i18n="defBCTDesc">مؤسسة نقدية أحدثت في سبتمبر 1958 لإدارة السياسة النقدية وإصدار العملة الوطنية.</span></li>
+                        <li><strong class="key-organization" data-i18n="defCentralBank">الدينار التونسي</strong>: <span data-i18n="defCentralBankDesc">العملة الوطنية التونسية التي حلت محل الفرنك الفرنسي في 18 أكتوبر 1958.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚡ أحداث</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defSakiet">أحداث ساقية سيدي يوسف</strong>: <span data-i18n="defSakietDesc">اعتداء فرنسي على قرية تونسية حدودية في 8 فيفري 1958 أثناء ملاحقة الثوار الجزائريين.</span></li>
+                        <li><strong class="key-event" data-i18n="defBizerte">معركة الجلاء ببنزرت</strong>: <span data-i18n="defBizerteDesc">مواجهة عسكرية وقعت بين 19 و23 جويلية 1961 بين الجيش التونسي والقوات الفرنسية، انتهت باتفاق الجلاء.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defMilitaryEvacuation">الجلاء العسكري</strong>: <span data-i18n="defMilitaryEvacuationDesc">انسحاب القوات الأجنبية من الأراضي التونسية واستعادة السيادة الكاملة عليها.</span></li>
+                        <li><strong class="key-other" data-i18n="defAgriculturalEvacuation">الجلاء الزراعي</strong>: <span data-i18n="defAgriculturalEvacuationDesc">استرجاع الأراضي الزراعية من المعمرين الأجانب وإعادتها إلى التونسيين.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Bizerte+Evacuation+1961"
+                             alt="معركة الجلاء ببنزرت – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryBizerteAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryBizerteCaption">معركة الجلاء ببنزرت – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمؤسسات والأحداث</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 6: State Building and Modernization of Society",
+                lessonTitleSample: "State Building and Modernization of Society",
+                sectionIntro: "Introduction",
+                introText: "After independence, Tunisia continued to complete its national sovereignty, engaging in the military evacuation battle with France and then achieving economic and agricultural independence. What were the main stages of military evacuation? And what were the measures taken to achieve economic and agricultural independence?",
+                sectionPart1: "Building the Modern State and Completing National Sovereignty",
+                part1Title2: "Completing National Sovereignty",
+                part1A2: "Military Evacuation",
+                part1A2Text1: "France retained 20,000 soldiers in 5 military bases on Tunisian soil to protect its interests and tighten the noose on the Algerian revolution. France refused Tunisia's demand (Bourguiba's speech in Tataouine, June 1956) for the evacuation of its armed forces from the country. Many demonstrations were organized (starting from September 1957) to pressure it, especially after repeated French attacks on Tunisian border villages in pursuit of Algerian revolutionaries, the most serious being the attack on Sakiet Sidi Youssef (February 8, 1958).",
+                part1A2Text2: "Restricting the movements of the French army outside its barracks triggered the Battle of Remada (May 8, 1958), among whose martyrs was the resistance fighter Mosbah Jarbou. France was forced to evacuate its forces from the entire country except its military bases in Bizerte (June 17, 1958) after Tunisia filed a complaint with the UN Security Council.",
+                part1A2Text3: "The Battle of Bizerte Evacuation (July 19-23, 1961): a massacre of Tunisians (670 killed) and the convening of an extraordinary session of the UN General Assembly to stop the fighting. Tunisian-French negotiations were held in Rome and ended with an agreement on evacuation by October 15, 1963 at the latest (i.e., after Algeria gained independence).",
+                part1A2Conclusion: "Assessments of the 'Battle of Bizerte Evacuation' varied, but it achieved many gains: the evacuation of French forces (October 15, 1963), strengthening national unity, and giving Tunisia an important position among anti-colonial countries supporting national liberation movements (restoring warmth to relations with Egypt after the rupture caused by Cairo's support for Bourguiba's rival Salah Ben Youssef before his assassination).",
+                part1B2: "Achieving Economic Independence and Agricultural Evacuation",
+                part1B2Text1: "Monetary independence and Tunisification of the banking system: establishment of the Central Bank of Tunisia (September 1958) and issuance of a Tunisian currency unit 'the dinar' (October 18, 1958) instead of the 'French franc', joining the International Monetary Fund and the World Bank (April 1958), and abolishing the customs union with France (August 20, 1959).",
+                part1B2Text2: "Nationalization of vital economic sectors (railways, ports, water, electricity and gas production and distribution), and creation of public offices (such as the Mining Office, the Office for the Revival of Medjerda Valley Lands...).",
+                part1B2Text3: "Agricultural evacuation: at the height of the colonial era, settlers held 85,000 hectares of the most fertile agricultural lands in the north especially. The state worked to recover them from 1956 in stages and various forms:",
+                part1B2Li1: "Annexing lands abandoned by settlers in border areas with Algeria.",
+                part1B2Li2: "State purchase of 100,000 hectares in agreement with France (until 1960).",
+                part1B2Li3: "Issuance of the law of May 12, 1964, nationalizing the remaining settler lands (about 165,000 hectares).",
+                part1B2Li4: "Signing an agreement with the Vatican (July 9, 1964) by which the state recovered most of the Christian Church lands in Tunisia.",
+                part1B2Conclusion: "French reaction: cancellation of its aid to Tunisia and withdrawal from its trade commitments with it.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Tunisia succeeded in completing its national sovereignty through military evacuation and economic and agricultural independence, consolidating its independence and enhancing its position as a fully sovereign state.",
+                sectionDefinitions: "📖 Definitions",
+                defOrganizations: "🏛️ Institutions and Bodies",
+                defBCT: "Central Bank of Tunisia",
+                defBCTDesc: "A monetary institution created in September 1958 to manage monetary policy and issue the national currency.",
+                defCentralBank: "Tunisian Dinar",
+                defCentralBankDesc: "The Tunisian national currency that replaced the French franc on October 18, 1958.",
+                defEvents: "⚡ Events",
+                defSakiet: "Sakiet Sidi Youssef Events",
+                defSakietDesc: "A French attack on a Tunisian border village on February 8, 1958, while pursuing Algerian revolutionaries.",
+                defBizerte: "Battle of Bizerte Evacuation",
+                defBizerteDesc: "Military confrontation between the Tunisian army and French forces from July 19 to 23, 1961, ending with an evacuation agreement.",
+                defOthers: "🔖 Key Terms",
+                defMilitaryEvacuation: "Military Evacuation",
+                defMilitaryEvacuationDesc: "Withdrawal of foreign troops from Tunisian territory and restoration of full sovereignty.",
+                defAgriculturalEvacuation: "Agricultural Evacuation",
+                defAgriculturalEvacuationDesc: "Recovery of agricultural lands from foreign settlers and returning them to Tunisians.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryBizerteAlt: "Battle of Bizerte Evacuation – illustrative image",
+                galleryBizerteCaption: "Battle of Bizerte Evacuation – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, institutions, and events",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 6 : Construction de l'État et modernisation de la société",
+                lessonTitleSample: "Construction de l'État et modernisation de la société",
+                sectionIntro: "Introduction",
+                introText: "Après l'indépendance, la Tunisie continua de compléter sa souveraineté nationale, menant la bataille de l'évacuation militaire avec la France puis réalisant l'indépendance économique et agricole. Quelles furent les principales étapes de l'évacuation militaire ? Et quelles furent les mesures prises pour réaliser l'indépendance économique et agricole ?",
+                sectionPart1: "Construction de l'État moderne et achèvement de la souveraineté nationale",
+                part1Title2: "Achèvement de la souveraineté nationale",
+                part1A2: "Évacuation militaire",
+                part1A2Text1: "La France conserva 20 000 soldats dans 5 bases militaires sur le sol tunisien pour protéger ses intérêts et resserrer l'étau sur la révolution algérienne. La France refusa la demande tunisienne (discours de Bourguiba à Tataouine, juin 1956) d'évacuer ses forces armées du pays. De nombreuses manifestations furent organisées (à partir de septembre 1957) pour faire pression, surtout après les attaques françaises répétées contre les villages frontaliers tunisiens dans la poursuite des révolutionnaires algériens, la plus grave étant l'attaque de Sakiet Sidi Youssef (8 février 1958).",
+                part1A2Text2: "La restriction des mouvements de l'armée française hors de ses casernes déclencha la bataille de Remada (8 mai 1958), dont l'un des martyrs fut le résistant Mosbah Jarbou. La France fut contrainte d'évacuer ses forces de tout le pays à l'exception de ses bases militaires de Bizerte (17 juin 1958) après que la Tunisie eut déposé une plainte au Conseil de sécurité de l'ONU.",
+                part1A2Text3: "La bataille de l'évacuation de Bizerte (19-23 juillet 1961) : massacre de Tunisiens (670 morts) et convocation d'une session extraordinaire de l'Assemblée générale de l'ONU pour arrêter les combats. Des négociations tuniso-françaises eurent lieu à Rome et aboutirent à un accord d'évacuation au plus tard le 15 octobre 1963 (c'est-à-dire après l'indépendance de l'Algérie).",
+                part1A2Conclusion: "Les évaluations de la « bataille de l'évacuation de Bizerte » varièrent, mais elle réalisa de nombreux acquis : l'évacuation des forces françaises (15 octobre 1963), le renforcement de l'unité nationale, et l'obtention pour la Tunisie d'une place importante parmi les pays anticolonialistes soutenant les mouvements de libération nationale (retour de la chaleur dans les relations avec l'Égypte après la rupture due au soutien du Caire au rival de Bourguiba Salah Ben Youssef avant son assassinat).",
+                part1B2: "Réalisation de l'indépendance économique et évacuation agricole",
+                part1B2Text1: "Indépendance monétaire et tunisification du système bancaire : création de la Banque centrale de Tunisie (septembre 1958) et émission d'une unité monétaire tunisienne « le dinar » (18 octobre 1958) à la place du « franc français », adhésion au Fonds monétaire international et à la Banque mondiale (avril 1958), et abolition de l'union douanière avec la France (20 août 1959).",
+                part1B2Text2: "Nationalisation des secteurs économiques vitaux (chemins de fer, ports, production et distribution d'eau, d'électricité et de gaz), création d'offices publics (tels que l'Office des mines, l'Office de mise en valeur des terres de la vallée de la Medjerda...).",
+                part1B2Text3: "Évacuation agricole : à l'apogée de l'ère coloniale, les colons détenaient 85 000 hectares des terres agricoles les plus fertiles du nord surtout. L'État œuvra à les récupérer à partir de 1956 par étapes et sous différentes formes :",
+                part1B2Li1: "Annexion des terres abandonnées par les colons dans les zones frontalières avec l'Algérie.",
+                part1B2Li2: "Achat par l'État de 100 000 hectares en accord avec la France (jusqu'en 1960).",
+                part1B2Li3: "Promulgation de la loi du 12 mai 1964 nationalisant le reste des terres des colons (environ 165 000 hectares).",
+                part1B2Li4: "Signature d'un accord avec le Vatican (9 juillet 1964) par lequel l'État récupéra la plupart des terres de l'Église chrétienne en Tunisie.",
+                part1B2Conclusion: "Réaction française : annulation de son aide à la Tunisie et retrait de ses engagements commerciaux envers elle.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La Tunisie réussit à achever sa souveraineté nationale par l'évacuation militaire et l'indépendance économique et agricole, consolidant son indépendance et renforçant sa position d'État pleinement souverain.",
+                sectionDefinitions: "📖 Définitions",
+                defOrganizations: "🏛️ Institutions et organismes",
+                defBCT: "Banque centrale de Tunisie",
+                defBCTDesc: "Institution monétaire créée en septembre 1958 pour gérer la politique monétaire et émettre la monnaie nationale.",
+                defCentralBank: "Dinar tunisien",
+                defCentralBankDesc: "La monnaie nationale tunisienne qui remplaça le franc français le 18 octobre 1958.",
+                defEvents: "⚡ Événements",
+                defSakiet: "Événements de Sakiet Sidi Youssef",
+                defSakietDesc: "Attaque française contre un village frontalier tunisien le 8 février 1958, lors de la poursuite des révolutionnaires algériens.",
+                defBizerte: "Bataille de l'évacuation de Bizerte",
+                defBizerteDesc: "Affrontement militaire entre l'armée tunisienne et les forces françaises du 19 au 23 juillet 1961, se terminant par un accord d'évacuation.",
+                defOthers: "🔖 Termes clés",
+                defMilitaryEvacuation: "Évacuation militaire",
+                defMilitaryEvacuationDesc: "Retrait des troupes étrangères du territoire tunisien et restauration de la pleine souveraineté.",
+                defAgriculturalEvacuation: "Évacuation agricole",
+                defAgriculturalEvacuationDesc: "Récupération des terres agricoles des colons étrangers et leur restitution aux Tunisiens.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryBizerteAlt: "Bataille de l'évacuation de Bizerte – image illustrative",
+                galleryBizerteCaption: "Bataille de l'évacuation de Bizerte – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, institutions et événements",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 6: بناء الدولة وتحديث المجتمع",
+                lessonTitleSample: "بناء الدولة وتحديث المجتمع",
+                sectionIntro: "مقدمة",
+                introText: "واصلت تونس بعد الاستقلال استكمال سيادتها الوطنية، فخاضت معركة الجلاء العسكري مع فرنسا ثم حققت الاستقلال الاقتصادي والجلاء الزراعي. فما هي أبرز مراحل الجلاء العسكري؟ وما هي إجراءات تحقيق الاستقلال الاقتصادي والزراعي؟",
+                sectionPart1: "بناء الدولة العصرية واستكمال السيادة الوطنية",
+                part1Title2: "استكمال السيادة الوطنية",
+                part1A2: "الجلاء العسكري",
+                part1A2Text1: "احتفظت فرنسا بـ20 ألف جندي ضمن 5 قواعد عسكرية بالتراب التونسي لحماية مصالحها وتضييق الخناق على الثورة الجزائرية. رفضت فرنسا مطلب تونس (خطاب بورقيبة بتطاوين، جوان 1956) بجلاء قواتها المسلحة عن البلاد. فانتظمت مظاهرات كثيرة (بداية من سبتمبر 1957) للضغط عليها خاصة بعد الاعتداءات الفرنسية المتكررة على القرى الحدودية التونسية في إطار ملاحقة الثوار الجزائريين وأخطرها الاعتداء على ساقية سيدي يوسف (8 فيفري 1958).",
+                part1A2Text2: "منع تحركات الجيش الفرنسي خارج ثكناته مما فجر معركة رمادة (8 ماي 1958) ومن شهدائها المقاوم مصباح الجربوع. تم إجبار فرنسا على جلاء قواتها من كامل البلاد باستثناء قواعدها العسكرية ببنزرت (17 جوان 1958) بعد تقديم تونس شكوى إلى مجلس الأمن الدولي.",
+                part1A2Text3: "معركة الجلاء ببنزرت (19-23 جويلية 1961): حصول مجزرة في صفوف التونسيين (670 قتيلاً) وانعقاد دورة استثنائية للجمعية العامة للأمم المتحدة لوقف القتال. وعقد مفاوضات تونسية-فرنسية بروما انتهت بالاتفاق على الجلاء في أجل أقصاه 15 أكتوبر 1963 (أي بعد حصول الجزائر على استقلالها).",
+                part1A2Conclusion: "تباينت التقييمات حول \"معركة الجلاء ببنزرت\" لكنها حققت مكاسب عديدة: جلاء القوات الفرنسية (15 أكتوبر 1963)، دعم اللحمة الوطنية، إكساب تونس مكانة هامة ضمن الدول المقاومة للاستعمار والمساندة لحركات التحرر الوطني (عودة الدفء إلى العلاقات مع مصر بعد القطيعة بسبب دعم القاهرة لخصم بورقيبة صالح بن يوسف قبل اغتياله).",
+                part1B2: "تحقيق الاستقلال الاقتصادي والجلاء الزراعي",
+                part1B2Text1: "الاستقلال النقدي وتونسة الجهاز البنكي: إحداث البنك المركزي التونسي (سبتمبر 1958) وإصدار وحدة نقدية تونسية \"الدينار\" (18 أكتوبر 1958) بدل \"الفرنك الفرنسي\"، الانخراط في صندوق النقد الدولي والبنك العالمي (أفريل 1958)، وإلغاء الوحدة الجمركية مع فرنسا (20 أوت 1959).",
+                part1B2Text2: "تأميم القطاعات الاقتصادية الحيوية (السكك الحديدية، الموانئ، إنتاج وتوزيع المياه والكهرباء والغاز)، بعث دواوين عمومية (مثل ديوان المناجم، ديوان إحياء أراضي وادي مجردة...).",
+                part1B2Text3: "الجلاء الزراعي: استحوذ المعمرون في أوج العهد الاستعماري على 85 ألف هكتار من أخصب الأراضي الزراعية في الشمال خاصة. وسعت الدولة لاسترجاعها منذ 1956 على مراحل وبصيغ مختلفة:",
+                part1B2Li1: "ضم الأراضي المهجورة من قبل المعمرين في المناطق الحدودية مع الجزائر.",
+                part1B2Li2: "شراء الدولة لـ 100 ألف هكتار بالاتفاق مع فرنسا (إلى غاية 1960).",
+                part1B2Li3: "إصدار قانون 12 ماي 1964 القاضي بتأميم ما تبقى من أراضي المعمرين (حوالي 165 ألف هكتار).",
+                part1B2Li4: "التوقيع على اتفاقية مع الفاتيكان (9 جويلية 1964) استرجعت بموجبها الدولة أغلب أراضي الكنيسة المسيحية بتونس.",
+                part1B2Conclusion: "رد الفعل الفرنسي: إلغاء إعانتها لتونس والتراجع عن التزاماتها التجارية معها.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "تمكنت تونس من استكمال سيادتها الوطنية عبر الجلاء العسكري والاستقلال الاقتصادي والزراعي، مما رسخ استقلالها وعزز مكانتها كدولة ذات سيادة كاملة.",
+                sectionDefinitions: "📖 تعريفات",
+                defOrganizations: "🏛️ مؤسسات وهيئات",
+                defBCT: "البنك المركزي التونسي",
+                defBCTDesc: "مؤسسة نقدية أحدثت في سبتمبر 1958 لإدارة السياسة النقدية وإصدار العملة الوطنية.",
+                defCentralBank: "الدينار التونسي",
+                defCentralBankDesc: "العملة الوطنية التونسية التي حلت محل الفرنك الفرنسي في 18 أكتوبر 1958.",
+                defEvents: "⚡ أحداث",
+                defSakiet: "أحداث ساقية سيدي يوسف",
+                defSakietDesc: "اعتداء فرنسي على قرية تونسية حدودية في 8 فيفري 1958 أثناء ملاحقة الثوار الجزائريين.",
+                defBizerte: "معركة الجلاء ببنزرت",
+                defBizerteDesc: "مواجهة عسكرية وقعت بين 19 و23 جويلية 1961 بين الجيش التونسي والقوات الفرنسية، انتهت باتفاق الجلاء.",
+                defOthers: "🔖 مصطلحات أساسية",
+                defMilitaryEvacuation: "الجلاء العسكري",
+                defMilitaryEvacuationDesc: "انسحاب القوات الأجنبية من الأراضي التونسية واستعادة السيادة الكاملة عليها.",
+                defAgriculturalEvacuation: "الجلاء الزراعي",
+                defAgriculturalEvacuationDesc: "استرجاع الأراضي الزراعية من المعمرين الأجانب وإعادتها إلى التونسيين.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryBizerteAlt: "معركة الجلاء ببنزرت – صورة توضيحية",
+                galleryBizerteCaption: "معركة الجلاء ببنزرت – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمؤسسات والأحداث",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Central Bank of Tunisia", class: "key-organization", i18n: "defBCT" },
+                { text: "Tunisian Dinar", class: "key-organization", i18n: "defCentralBank" },
+                { text: "Sakiet Sidi Youssef", class: "key-event", i18n: "defSakiet" },
+                { text: "Bizerte Evacuation", class: "key-event", i18n: "defBizerte" },
+                { text: "Military Evacuation", class: "key-other", i18n: "defMilitaryEvacuation" },
+                { text: "Agricultural Evacuation", class: "key-other", i18n: "defAgriculturalEvacuation" }
+            ],
+            fr: [
+                { text: "Banque centrale de Tunisie", class: "key-organization", i18n: "defBCT" },
+                { text: "Dinar tunisien", class: "key-organization", i18n: "defCentralBank" },
+                { text: "Sakiet Sidi Youssef", class: "key-event", i18n: "defSakiet" },
+                { text: "Évacuation de Bizerte", class: "key-event", i18n: "defBizerte" },
+                { text: "Évacuation militaire", class: "key-other", i18n: "defMilitaryEvacuation" },
+                { text: "Évacuation agricole", class: "key-other", i18n: "defAgriculturalEvacuation" }
+            ],
+            ar: [
+                { text: "البنك المركزي التونسي", class: "key-organization", i18n: "defBCT" },
+                { text: "الدينار التونسي", class: "key-organization", i18n: "defCentralBank" },
+                { text: "ساقية سيدي يوسف", class: "key-event", i18n: "defSakiet" },
+                { text: "جلاء بنزرت", class: "key-event", i18n: "defBizerte" },
+                { text: "الجلاء العسكري", class: "key-other", i18n: "defMilitaryEvacuation" },
+                { text: "الجلاء الزراعي", class: "key-other", i18n: "defAgriculturalEvacuation" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

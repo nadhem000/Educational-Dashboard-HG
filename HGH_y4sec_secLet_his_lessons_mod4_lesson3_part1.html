@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 4: القضية الفلسطينية والصراع العربي الإسرائيلي
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                القضية الفلسطينية
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    كانت فلسطين هدفاً للمشروع الاستيطاني الصهيوني. وعلى خلاف بقية المستعمرات، كانت الظرفية المنبثقة عن الحرب العالمية الثانية غير مواتية للفلسطينيين بقدر ما كانت ملائمة للصهاينة لإعلان دولتهم في ماي 1948، مما جعل من القضية الفلسطينية أبرز قضايا التحرر في العالم المعاصر. فما هي جذور القضية الفلسطينية؟ وكيف تطورت المقاومة الفلسطينية قبل إعلان دولة إسرائيل؟
+                </p>
+            </div>
+
+            <!-- I. جذور القضية الفلسطينية والمقاومة قبل الحرب الثانية -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">جذور القضية الفلسطينية والمقاومة قبل الحرب الثانية</span>
+                </h2>
+
+                <!-- 1. فلسطين هدف للأطماع الإمبريالية والصهيونية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part1Title1">فلسطين هدف للأطماع الإمبريالية والصهيونية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part1A1">الأطماع الإمبريالية</span>
+                </h4>
+                <p data-i18n="part1A1Text">
+                    ارتبطت الأطماع الإمبريالية في فلسطين بأهمية موقعها الاستراتيجي على مفترق المسالك التجارية بين الشرق والغرب. وازدادت أهميتها بعد حفر قناة السويس (1869) واكتشاف النفط في منطقة الشرق الأوسط (1932). تجسدت هذه الأطماع في اتفاقية سايكس-بيكو السرية (16 ماي 1916) بين إنجلترا وفرنسا، والتي منحت الأراضي الفلسطينية لبريطانيا. وتدعمت بإقرار نظام الانتداب البريطاني على فلسطين في مؤتمر سان ريمو (أفريل 1920).
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part1B1">الحركة الصهيونية</span>
+                </h4>
+                <p data-i18n="part1B1Text1">
+                    الصهيونية اسم مشتق من لفظ "صهيون" وهو جبل يقع شرق القدس بفلسطين. وهي حركة قومية يهودية نشأت بأوروبا في نهاية القرن التاسع عشر كرد فعل على النزعة "اللاسامية" المعادية لليهود باعتبارهم "عنصراً غير قابل للاندماج" (وهو نفس الموقف الذي تبناه الحزب النازي في ألمانيا لاحقاً).
+                </p>
+                <p data-i18n="part1B1Text2">
+                    استغل اليهود ذلك العداء، فدعى الصحفي اليهودي النمساوي-المجري "تيودور هرتزل" في كتابه "الدولة اليهودية" (1896) إلى ضرورة إقامة دولة يهودية تضم شتات اليهود في العالم وتحميهم من الاضطهاد.
+                </p>
+                <p data-i18n="part1B1Text3">
+                    انتظم المؤتمر الصهيوني الأول ببازل السويسرية (أوت 1897) وانبثقت عنه "المنظمة الصهيونية العالمية" التي رعت عبر جهازها التنفيذي (الوكالة اليهودية) جمع الأموال في صندوق قومي لشراء الأراضي وإرسال المهاجرين لإقامة المستعمرات لليهود في فلسطين. وذلك بدعم من القوى الإمبريالية الكبرى (بريطانيا والولايات المتحدة الأمريكية).
+                </p>
+
+                <!-- 2. التحالف بين الصهيونية والإمبريالية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part1Title2">التحالف بين الصهيونية والإمبريالية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part1A2">الدعم البريطاني إلى غاية الحرب العالمية الثانية</span>
+                </h4>
+                <p data-i18n="part1A2Text">
+                    أقرت بريطانيا بمقتضى وعد بلفور (2 نوفمبر 1917) تأسيس "وطن قومي" لليهود بفلسطين مقابل دعم الحركة الصهيونية لها في الحرب العالمية الأولى. وأقرت القوى الاستعمارية وعد بلفور خلال مؤتمر سان ريمو ثم في صك الانتداب الصادر عن جمعية الأمم (جويلية 1922). ثم عينت بريطانيا اليهودي المنحاز للصهيونية "هربرت صموئيل" كأول مندوب سامي لها بفلسطين، وقد عمل على تأمين الظروف الملائمة للاستيطان الصهيوني هناك.
+                </p>
+                <ul>
+                    <li data-i18n="part1A2Li1">تضاعف الحجم السنوي للهجرة اليهودية نحو فلسطين أكثر من ثلاثة أضعاف بين 1917 و1938.</li>
+                    <li data-i18n="part1A2Li2">وصل عدد اليهود إلى 650 ألفاً (سنة 1948).</li>
+                    <li data-i18n="part1A2Li3">تضاعفت مساحة المستعمرات الصهيونية في ظل الانتداب البريطاني إلى 200 ألف هكتار (1948).</li>
+                </ul>
+                <p data-i18n="part1A2Conclusion">
+                    لكن تناقضت المصالح البريطانية-الصهيونية أثناء الحرب العالمية الثانية، حين حاولت بريطانيا استمالة العرب لتجنب قيام تحالف عربي-ألماني ضدها. فقد أصدرت "الكتاب الأبيض الثالث" (ماي 1939) الذي أقر مبدأ استقلال فلسطين وتحديد الهجرة اليهودية. أفىض تغير السياسة البريطانية إلى دخول الصهاينة في صراع مع بريطانيا والتفاتهم إلى الولايات المتحدة الأمريكية.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part1B2">الدعم الأمريكي غداة الحرب العالمية الثانية</span>
+                </h4>
+                <p data-i18n="part1B2Text">
+                    نشأ التحالف الأمريكي-الصهيوني على أساس التزام الولايات المتحدة بدعم المشروع الصهيوني مقابل دعم الحركة الصهيونية للمصالح الأمريكية في الشرق الأوسط وإزاحة بريطانيا من المنطقة. تجلى الدعم الأمريكي من خلال:
+                </p>
+                <ul>
+                    <li data-i18n="part1B2Li1">الضغط على بريطانيا للتخلي عن سياسة الكتاب الأبيض الثالث.</li>
+                    <li data-i18n="part1B2Li2">إعلان الكونغرس الأمريكي (ديسمبر 1945) تأييده لإنشاء وطن قومي لليهود بفلسطين ودعم الهجرة اليهودية إليها.</li>
+                    <li data-i18n="part1B2Li3">مساندة الرئيس الأمريكي ترومان للمشروع الصهيوني.</li>
+                </ul>
+
+                <!-- 3. المقاومة الفلسطينية قبل إعلان دولة إسرائيل -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>
+                    <span data-i18n="part1Title3">المقاومة الفلسطينية قبل إعلان دولة إسرائيل</span>
+                </h3>
+                <p data-i18n="part1Text3">
+                    بدأت المقاومة الفلسطينية منذ تغير طبيعة الوجود اليهودي في فلسطين إلى "استيطان" (مهاجمة المطرودين من أراضيهم للمستعمرات اليهودية منذ 1886). واحتدت بعد صدور وعد بلفور، ثم الانتداب البريطاني لفلسطين:
+                </p>
+                <ul>
+                    <li data-i18n="part1Text3Li1">وجه المؤتمر العربي الفلسطيني الأول بالقدس (وهو أول مؤسسة وطنية تمثل عرب فلسطين) برقية احتجاج إلى مؤتمر الصلح بباريس ضد وعد بلفور (فيفري 1919).</li>
+                    <li data-i18n="part1Text3Li2">اندلعت مواجهات مع اليهود والإنجليز (ماي 1921) وبين العرب واليهود حول حائط المبكى (1929).</li>
+                    <li data-i18n="part1Text3Li3">عقد المؤتمرات مثل المؤتمر الإسلامي (1931) الذي نظمه مفتي القدس الحاج أمين الحسيني.</li>
+                    <li data-i18n="part1Text3Li4">تأسست الأحزاب وأبرزها: حزب الاستقلال (1932)، حزب الدفاع (1934) والحزب العربي (1935) حول عائلة الحسيني وكان أقواها وأكثرها شعبية.</li>
+                    <li data-i18n="part1Text3Li5">الكفاح المسلح مثل حركة الشيخ عز الدين القسام (1935).</li>
+                </ul>
+                <p data-i18n="part1Text3Conclusion">
+                    بلغت المقاومة أوجها خلال "الثورة الفلسطينية الكبرى" (1936-1939) بزعامة الضابط السوري فوزي القاوقجي ومشاركة عدد من المتطوعين العرب بسبب تكثف الهجرة اليهودية وتفاقم التناقضات الاقتصادية والاجتماعية بين العرب واليهود. وفي انطلاقتها تشكلت "اللجنة العربية العليا" (أفريل 1936) برئاسة الحاج أمين الحسيني لقيادة الحركة الوطنية الفلسطينية. كان رد فعل السلطات البريطانية عنيفاً: اعتقال الزعماء الوطنيين وتدمير الممتلكات وإعلان حالة الطوارئ. وانتهت الثورة عند اندلاع الحرب العالمية الثانية وبعد صدور الكتاب الأبيض الثالث.
+                </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    شكلت القضية الفلسطينية منذ جذورها الأولى نموذجاً فريداً في الصراع ضد الاستعمار الاستيطاني، حيث تظافرت الأطماع الإمبريالية مع الحركة الصهيونية لحرمان الشعب الفلسطيني من أرضه وحقوقه. وقد واجه الفلسطينيون هذه المؤامرة بمقاومة شعبية متصاعدة توجت بالثورة الفلسطينية الكبرى، مما أكد عمق الوعي الوطني الفلسطيني ووضع أسس النضال المستمر حتى اليوم.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defZionism">الصهيونية</strong>: <span data-i18n="defZionismDesc">حركة قومية يهودية نشأت في أوروبا نهاية القرن التاسع عشر، تهدف إلى إقامة دولة يهودية في فلسطين.</span></li>
+                        <li><strong class="key-other" data-i18n="defAntiSemitism">اللاسامية</strong>: <span data-i18n="defAntiSemitismDesc">نزعة عدائية ضد اليهود، انتشرت في أوروبا وبلغت ذروتها مع النازية.</span></li>
+                        <li><strong class="key-other" data-i18n="defMandate">الانتداب</strong>: <span data-i18n="defMandateDesc">نظام حكم استعماري أقرته عصبة الأمم بعد الحرب العالمية الأولى لإدارة أراضي معينة.</span></li>
+                        <li><strong class="key-other" data-i18n="defBalfour">وعد بلفور</strong>: <span data-i18n="defBalfourDesc">تعهد بريطاني صدر في 2 نوفمبر 1917 بتأسيس "وطن قومي" لليهود في فلسطين.</span></li>
+                        <li><strong class="key-other" data-i18n="defWhitePaper">الكتاب الأبيض الثالث</strong>: <span data-i18n="defWhitePaperDesc">وثيقة بريطانية صدرت سنة 1939 نصت على استقلال فلسطين وتحديد الهجرة اليهودية.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات وهيئات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defWZO">المنظمة الصهيونية العالمية</strong>: <span data-i18n="defWZODesc">منظمة تأسست سنة 1897 في مؤتمر بازل لتنسيق الجهود الصهيونية.</span></li>
+                        <li><strong class="key-organization" data-i18n="defHAC">اللجنة العربية العليا</strong>: <span data-i18n="defHACDesc">هيئة قيادية للحركة الوطنية الفلسطينية تأسست سنة 1936 برئاسة الحاج أمين الحسيني.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defHerzl">تيودور هرتزل</strong>: <span data-i18n="defHerzlDesc">صحفي يهودي نمساوي-مجري، يعتبر مؤسس الحركة الصهيونية الحديثة، ألف كتاب "الدولة اليهودية".</span></li>
+                        <li><strong class="key-person" data-i18n="defHusseini">الحاج أمين الحسيني</strong>: <span data-i18n="defHusseiniDesc">مفتي القدس وقائد الحركة الوطنية الفلسطينية خلال فترة الانتداب البريطاني.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Palestine+Question"
+                             alt="القضية الفلسطينية – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryPalestineAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryPalestineCaption">القضية الفلسطينية – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمنظمات والشخصيات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 4: The Palestinian Question and the Arab-Israeli Conflict",
+                lessonTitleSample: "The Palestinian Question",
+                sectionIntro: "Introduction",
+                introText: "Palestine was a target of the Zionist settlement project. Unlike other colonies, the post-World War II context was unfavorable to Palestinians as much as it was favorable to Zionists for declaring their state in May 1948, making the Palestinian question the most prominent liberation issue in the contemporary world. What are the roots of the Palestinian question? And how did Palestinian resistance develop before the declaration of the State of Israel?",
+                sectionPart1: "Roots of the Palestinian Question and Resistance before World War II",
+                part1Title1: "Palestine as a Target of Imperialist and Zionist Ambitions",
+                part1A1: "Imperialist Ambitions",
+                part1A1Text: "Imperialist ambitions in Palestine were linked to its strategic location at the crossroads of trade routes between East and West. Its importance increased after the digging of the Suez Canal (1869) and the discovery of oil in the Middle East (1932). These ambitions materialized in the secret Sykes-Picot Agreement (May 16, 1916) between Britain and France, granting Palestinian lands to Britain. They were reinforced by the establishment of the British Mandate over Palestine at the San Remo Conference (April 1920).",
+                part1B1: "The Zionist Movement",
+                part1B1Text1: "Zionism is derived from 'Zion,' a mountain east of Jerusalem. It is a Jewish nationalist movement that emerged in Europe in the late 19th century as a reaction to anti-Semitic hostility against Jews as an 'unassimilable element' (the same position later adopted by the Nazi party).",
+                part1B1Text2: "Jews exploited this hostility; Austrian-Hungarian Jewish journalist Theodor Herzl called in his book 'The Jewish State' (1896) for the establishment of a Jewish state to gather the Jewish diaspora and protect them from persecution.",
+                part1B1Text3: "The First Zionist Congress was organized in Basel, Switzerland (August 1897), giving birth to the World Zionist Organization, which through its executive body (the Jewish Agency) collected funds in a national fund to buy land and send immigrants to establish colonies for Jews in Palestine, with support from major imperialist powers (Britain and the USA).",
+                part1Title2: "The Alliance between Zionism and Imperialism",
+                part1A2: "British Support until World War II",
+                part1A2Text: "Britain, through the Balfour Declaration (November 2, 1917), approved the establishment of a 'national home' for Jews in Palestine in exchange for Zionist support in World War I. Colonial powers endorsed the Balfour Declaration at the San Remo Conference and in the Mandate Charter issued by the League of Nations (July 1922). Britain then appointed the pro-Zionist Jew Herbert Samuel as its first High Commissioner in Palestine, working to secure favorable conditions for Zionist settlement.",
+                part1A2Li1: "Annual Jewish immigration to Palestine more than tripled between 1917 and 1938.",
+                part1A2Li2: "The Jewish population reached 650,000 by 1948.",
+                part1A2Li3: "Zionist colony areas under the British Mandate doubled to 200,000 hectares (1948).",
+                part1A2Conclusion: "But British-Zionist interests conflicted during World War II when Britain tried to win Arab support to avoid an Arab-German alliance. It issued the 'Third White Paper' (May 1939) recognizing the principle of Palestinian independence and limiting Jewish immigration. This policy shift led Zionists into conflict with Britain and turned them toward the USA.",
+                part1B2: "American Support after World War II",
+                part1B2Text: "The American-Zionist alliance was based on US commitment to the Zionist project in exchange for Zionist support for American interests in the Middle East and the displacement of Britain. American support manifested through:",
+                part1B2Li1: "Pressuring Britain to abandon the Third White Paper policy.",
+                part1B2Li2: "The US Congress declaring its support for a Jewish national home in Palestine and Jewish immigration (December 1945).",
+                part1B2Li3: "President Truman's support for the Zionist project.",
+                part1Title3: "Palestinian Resistance before the Declaration of the State of Israel",
+                part1Text3: "Palestinian resistance began when Jewish presence in Palestine turned into 'settlement' (attacks on those expelled from their lands against Jewish colonies since 1886). It intensified after the Balfour Declaration and the British Mandate:",
+                part1Text3Li1: "The First Palestinian Arab Congress in Jerusalem (the first national institution representing Palestinian Arabs) sent a protest telegram to the Paris Peace Conference against the Balfour Declaration (February 1919).",
+                part1Text3Li2: "Clashes broke out with Jews and the British (May 1921) and between Arabs and Jews over the Wailing Wall (1929).",
+                part1Text3Li3: "Conferences were held such as the Islamic Conference (1931) organized by the Mufti of Jerusalem Hajj Amin al-Husseini.",
+                part1Text3Li4: "Parties were established, notably: the Independence Party (1932), the Defense Party (1934), and the Arab Party (1935) around the Husseini family, which was the strongest and most popular.",
+                part1Text3Li5: "Armed struggle, such as the movement of Sheikh Izz al-Din al-Qassam (1935).",
+                part1Text3Conclusion: "Resistance reached its peak during the 'Great Palestinian Revolt' (1936-1939) under the leadership of Syrian officer Fawzi al-Qawuqji with the participation of Arab volunteers, due to intensified Jewish immigration and worsening economic and social contradictions between Arabs and Jews. At its outset, the 'Arab Higher Committee' was formed (April 1936) under Hajj Amin al-Husseini to lead the Palestinian national movement. The British response was violent: arresting national leaders, destroying property, and declaring a state of emergency. The revolt ended with the outbreak of World War II and after the Third White Paper.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Palestinian question from its earliest roots represented a unique model of struggle against settler colonialism, where imperialist ambitions combined with the Zionist movement to deprive the Palestinian people of their land and rights. Palestinians faced this conspiracy with escalating popular resistance culminating in the Great Palestinian Revolt, confirming the depth of Palestinian national awareness and laying the foundations for the ongoing struggle to this day.",
+                sectionDefinitions: "📖 Definitions",
+                defOthers: "🔖 Key Terms",
+                defZionism: "Zionism",
+                defZionismDesc: "A Jewish nationalist movement that emerged in Europe in the late 19th century, aiming to establish a Jewish state in Palestine.",
+                defAntiSemitism: "Anti-Semitism",
+                defAntiSemitismDesc: "Hostile prejudice against Jews, spread in Europe and reached its peak with Nazism.",
+                defMandate: "Mandate",
+                defMandateDesc: "A colonial governance system established by the League of Nations after World War I to administer certain territories.",
+                defBalfour: "Balfour Declaration",
+                defBalfourDesc: "A British commitment issued on November 2, 1917, to establish a 'national home' for Jews in Palestine.",
+                defWhitePaper: "Third White Paper",
+                defWhitePaperDesc: "A British document issued in 1939 recognizing Palestinian independence and limiting Jewish immigration.",
+                defOrganizations: "🏛️ Organizations and Bodies",
+                defWZO: "World Zionist Organization",
+                defWZODesc: "An organization founded in 1897 at the Basel Congress to coordinate Zionist efforts.",
+                defHAC: "Arab Higher Committee",
+                defHACDesc: "A leadership body of the Palestinian national movement founded in 1936 under Hajj Amin al-Husseini.",
+                defPersons: "👤 Personalities",
+                defHerzl: "Theodor Herzl",
+                defHerzlDesc: "Austrian-Hungarian Jewish journalist, considered the founder of modern Zionism, author of 'The Jewish State.'",
+                defHusseini: "Hajj Amin al-Husseini",
+                defHusseiniDesc: "Mufti of Jerusalem and leader of the Palestinian national movement during the British Mandate.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryPalestineAlt: "Palestinian Question – illustrative image",
+                galleryPalestineCaption: "Palestinian Question – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, organizations, and personalities",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 4 : La question palestinienne et le conflit arabo-israélien",
+                lessonTitleSample: "La question palestinienne",
+                sectionIntro: "Introduction",
+                introText: "La Palestine fut la cible du projet de colonisation sioniste. Contrairement aux autres colonies, le contexte issu de la Seconde Guerre mondiale fut défavorable aux Palestiniens autant qu'il fut favorable aux sionistes pour déclarer leur État en mai 1948, faisant de la question palestinienne la plus importante question de libération dans le monde contemporain. Quelles sont les racines de la question palestinienne ? Et comment la résistance palestinienne s'est-elle développée avant la déclaration de l'État d'Israël ?",
+                sectionPart1: "Racines de la question palestinienne et résistance avant la Seconde Guerre mondiale",
+                part1Title1: "La Palestine, cible des ambitions impérialistes et sionistes",
+                part1A1: "Ambitions impérialistes",
+                part1A1Text: "Les ambitions impérialistes en Palestine étaient liées à sa position stratégique au carrefour des routes commerciales entre Orient et Occident. Son importance s'accrut après le percement du canal de Suez (1869) et la découverte du pétrole au Moyen-Orient (1932). Ces ambitions se matérialisèrent dans l'accord secret Sykes-Picot (16 mai 1916) entre la Grande-Bretagne et la France, accordant les terres palestiniennes à la Grande-Bretagne. Elles furent renforcées par l'établissement du mandat britannique sur la Palestine à la conférence de San Remo (avril 1920).",
+                part1B1: "Le mouvement sioniste",
+                part1B1Text1: "Le sionisme dérive de « Sion », une montagne à l'est de Jérusalem. C'est un mouvement nationaliste juif né en Europe à la fin du XIXe siècle en réaction à l'antisémitisme considérant les Juifs comme « inassimilables ».",
+                part1B1Text2: "Les Juifs exploitèrent cette hostilité ; le journaliste juif austro-hongrois Theodor Herzl appela dans son livre « L'État juif » (1896) à l'établissement d'un État juif pour rassembler la diaspora juive.",
+                part1B1Text3: "Le premier congrès sioniste se tint à Bâle (août 1897), donnant naissance à l'Organisation sioniste mondiale.",
+                part1Title2: "L'alliance entre sionisme et impérialisme",
+                part1A2: "Soutien britannique jusqu'à la Seconde Guerre mondiale",
+                part1A2Text: "La Grande-Bretagne, par la déclaration Balfour (2 novembre 1917), approuva l'établissement d'un « foyer national » juif en Palestine en échange du soutien sioniste. Les puissances coloniales confirmèrent cette déclaration à San Remo puis dans la charte du mandat (juillet 1922).",
+                part1A2Li1: "L'immigration juive annuelle vers la Palestine tripla entre 1917 et 1938.",
+                part1A2Li2: "La population juive atteignit 650 000 en 1948.",
+                part1A2Li3: "Les colonies sionistes s'étendirent sur 200 000 hectares (1948).",
+                part1A2Conclusion: "Mais les intérêts britanniques et sionistes divergèrent pendant la Seconde Guerre mondiale. La Grande-Bretagne publia le « Troisième Livre blanc » (mai 1939) reconnaissant l'indépendance palestinienne et limitant l'immigration juive.",
+                part1B2: "Soutien américain après la Seconde Guerre mondiale",
+                part1B2Text: "L'alliance américano-sioniste reposait sur l'engagement américain envers le projet sioniste en échange du soutien sioniste aux intérêts américains au Moyen-Orient. Le soutien américain se manifesta par :",
+                part1B2Li1: "Pression sur la Grande-Bretagne pour abandonner le Troisième Livre blanc.",
+                part1B2Li2: "Déclaration du Congrès américain (décembre 1945) soutenant un foyer national juif en Palestine.",
+                part1B2Li3: "Soutien du président Truman au projet sioniste.",
+                part1Title3: "Résistance palestinienne avant la déclaration de l'État d'Israël",
+                part1Text3: "La résistance palestinienne commença lorsque la présence juive devint « colonisation ». Elle s'intensifia après la déclaration Balfour et le mandat britannique :",
+                part1Text3Li1: "Le premier congrès arabe palestinien de Jérusalem envoya un télégramme de protestation à la conférence de paix de Paris contre la déclaration Balfour (février 1919).",
+                part1Text3Li2: "Des affrontements éclatèrent avec les Juifs et les Britanniques (mai 1921) et autour du mur des Lamentations (1929).",
+                part1Text3Li3: "Des conférences furent organisées comme la conférence islamique (1931) par le mufti de Jérusalem Hajj Amin al-Husseini.",
+                part1Text3Li4: "Des partis furent fondés : le Parti de l'indépendance (1932), le Parti de la défense (1934) et le Parti arabe (1935).",
+                part1Text3Li5: "La lutte armée, comme le mouvement du cheikh Izz al-Din al-Qassam (1935).",
+                part1Text3Conclusion: "La résistance atteignit son apogée durant la « Grande Révolte palestinienne » (1936-1939) sous la direction de Fawzi al-Qawuqji. Le « Haut Comité arabe » fut formé (avril 1936) sous Hajj Amin al-Husseini. La réponse britannique fut violente : arrestations, destruction de biens et état d'urgence. La révolte prit fin avec la Seconde Guerre mondiale et le Troisième Livre blanc.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La question palestinienne représenta un modèle unique de lutte contre le colonialisme de peuplement. Les Palestiniens affrontèrent cette conspiration par une résistance populaire croissante culminant dans la Grande Révolte palestinienne, confirmant la profondeur de la conscience nationale palestinienne.",
+                sectionDefinitions: "📖 Définitions",
+                defOthers: "🔖 Termes clés",
+                defZionism: "Sionisme",
+                defZionismDesc: "Mouvement nationaliste juif né en Europe à la fin du XIXe siècle, visant à établir un État juif en Palestine.",
+                defAntiSemitism: "Antisémitisme",
+                defAntiSemitismDesc: "Préjugé hostile contre les Juifs, répandu en Europe et culminant avec le nazisme.",
+                defMandate: "Mandat",
+                defMandateDesc: "Système colonial établi par la SDN après la Première Guerre mondiale.",
+                defBalfour: "Déclaration Balfour",
+                defBalfourDesc: "Engagement britannique du 2 novembre 1917 d'établir un « foyer national » juif en Palestine.",
+                defWhitePaper: "Troisième Livre blanc",
+                defWhitePaperDesc: "Document britannique de 1939 reconnaissant l'indépendance palestinienne et limitant l'immigration juive.",
+                defOrganizations: "🏛️ Organisations",
+                defWZO: "Organisation sioniste mondiale",
+                defWZODesc: "Organisation fondée en 1897 au congrès de Bâle.",
+                defHAC: "Haut Comité arabe",
+                defHACDesc: "Organe dirigeant du mouvement national palestinien fondé en 1936.",
+                defPersons: "👤 Personnalités",
+                defHerzl: "Theodor Herzl",
+                defHerzlDesc: "Journaliste juif austro-hongrois, fondateur du sionisme moderne.",
+                defHusseini: "Hajj Amin al-Husseini",
+                defHusseiniDesc: "Mufti de Jérusalem et leader du mouvement national palestinien.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryPalestineAlt: "Question palestinienne – image illustrative",
+                galleryPalestineCaption: "Question palestinienne – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, organisations et personnalités",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 4: القضية الفلسطينية والصراع العربي الإسرائيلي",
+                lessonTitleSample: "القضية الفلسطينية",
+                sectionIntro: "مقدمة",
+                introText: "كانت فلسطين هدفاً للمشروع الاستيطاني الصهيوني. وعلى خلاف بقية المستعمرات، كانت الظرفية المنبثقة عن الحرب العالمية الثانية غير مواتية للفلسطينيين بقدر ما كانت ملائمة للصهاينة لإعلان دولتهم في ماي 1948، مما جعل من القضية الفلسطينية أبرز قضايا التحرر في العالم المعاصر. فما هي جذور القضية الفلسطينية؟ وكيف تطورت المقاومة الفلسطينية قبل إعلان دولة إسرائيل؟",
+                sectionPart1: "جذور القضية الفلسطينية والمقاومة قبل الحرب الثانية",
+                part1Title1: "فلسطين هدف للأطماع الإمبريالية والصهيونية",
+                part1A1: "الأطماع الإمبريالية",
+                part1A1Text: "ارتبطت الأطماع الإمبريالية في فلسطين بأهمية موقعها الاستراتيجي على مفترق المسالك التجارية بين الشرق والغرب. وازدادت أهميتها بعد حفر قناة السويس (1869) واكتشاف النفط في منطقة الشرق الأوسط (1932). تجسدت هذه الأطماع في اتفاقية سايكس-بيكو السرية (16 ماي 1916) بين إنجلترا وفرنسا، والتي منحت الأراضي الفلسطينية لبريطانيا. وتدعمت بإقرار نظام الانتداب البريطاني على فلسطين في مؤتمر سان ريمو (أفريل 1920).",
+                part1B1: "الحركة الصهيونية",
+                part1B1Text1: "الصهيونية اسم مشتق من لفظ \"صهيون\" وهو جبل يقع شرق القدس بفلسطين. وهي حركة قومية يهودية نشأت بأوروبا في نهاية القرن التاسع عشر كرد فعل على النزعة \"اللاسامية\" المعادية لليهود باعتبارهم \"عنصراً غير قابل للاندماج\" (وهو نفس الموقف الذي تبناه الحزب النازي في ألمانيا لاحقاً).",
+                part1B1Text2: "استغل اليهود ذلك العداء، فدعى الصحفي اليهودي النمساوي-المجري \"تيودور هرتزل\" في كتابه \"الدولة اليهودية\" (1896) إلى ضرورة إقامة دولة يهودية تضم شتات اليهود في العالم وتحميهم من الاضطهاد.",
+                part1B1Text3: "انتظم المؤتمر الصهيوني الأول ببازل السويسرية (أوت 1897) وانبثقت عنه \"المنظمة الصهيونية العالمية\" التي رعت عبر جهازها التنفيذي (الوكالة اليهودية) جمع الأموال في صندوق قومي لشراء الأراضي وإرسال المهاجرين لإقامة المستعمرات لليهود في فلسطين. وذلك بدعم من القوى الإمبريالية الكبرى (بريطانيا والولايات المتحدة الأمريكية).",
+                part1Title2: "التحالف بين الصهيونية والإمبريالية",
+                part1A2: "الدعم البريطاني إلى غاية الحرب العالمية الثانية",
+                part1A2Text: "أقرت بريطانيا بمقتضى وعد بلفور (2 نوفمبر 1917) تأسيس \"وطن قومي\" لليهود بفلسطين مقابل دعم الحركة الصهيونية لها في الحرب العالمية الأولى. وأقرت القوى الاستعمارية وعد بلفور خلال مؤتمر سان ريمو ثم في صك الانتداب الصادر عن جمعية الأمم (جويلية 1922). ثم عينت بريطانيا اليهودي المنحاز للصهيونية \"هربرت صموئيل\" كأول مندوب سامي لها بفلسطين، وقد عمل على تأمين الظروف الملائمة للاستيطان الصهيوني هناك.",
+                part1A2Li1: "تضاعف الحجم السنوي للهجرة اليهودية نحو فلسطين أكثر من ثلاثة أضعاف بين 1917 و1938.",
+                part1A2Li2: "وصل عدد اليهود إلى 650 ألفاً (سنة 1948).",
+                part1A2Li3: "تضاعفت مساحة المستعمرات الصهيونية في ظل الانتداب البريطاني إلى 200 ألف هكتار (1948).",
+                part1A2Conclusion: "لكن تناقضت المصالح البريطانية-الصهيونية أثناء الحرب العالمية الثانية، حين حاولت بريطانيا استمالة العرب لتجنب قيام تحالف عربي-ألماني ضدها. فقد أصدرت \"الكتاب الأبيض الثالث\" (ماي 1939) الذي أقر مبدأ استقلال فلسطين وتحديد الهجرة اليهودية. أفىض تغير السياسة البريطانية إلى دخول الصهاينة في صراع مع بريطانيا والتفاتهم إلى الولايات المتحدة الأمريكية.",
+                part1B2: "الدعم الأمريكي غداة الحرب العالمية الثانية",
+                part1B2Text: "نشأ التحالف الأمريكي-الصهيوني على أساس التزام الولايات المتحدة بدعم المشروع الصهيوني مقابل دعم الحركة الصهيونية للمصالح الأمريكية في الشرق الأوسط وإزاحة بريطانيا من المنطقة. تجلى الدعم الأمريكي من خلال:",
+                part1B2Li1: "الضغط على بريطانيا للتخلي عن سياسة الكتاب الأبيض الثالث.",
+                part1B2Li2: "إعلان الكونغرس الأمريكي (ديسمبر 1945) تأييده لإنشاء وطن قومي لليهود بفلسطين ودعم الهجرة اليهودية إليها.",
+                part1B2Li3: "مساندة الرئيس الأمريكي ترومان للمشروع الصهيوني.",
+                part1Title3: "المقاومة الفلسطينية قبل إعلان دولة إسرائيل",
+                part1Text3: "بدأت المقاومة الفلسطينية منذ تغير طبيعة الوجود اليهودي في فلسطين إلى \"استيطان\" (مهاجمة المطرودين من أراضيهم للمستعمرات اليهودية منذ 1886). واحتدت بعد صدور وعد بلفور، ثم الانتداب البريطاني لفلسطين:",
+                part1Text3Li1: "وجه المؤتمر العربي الفلسطيني الأول بالقدس (وهو أول مؤسسة وطنية تمثل عرب فلسطين) برقية احتجاج إلى مؤتمر الصلح بباريس ضد وعد بلفور (فيفري 1919).",
+                part1Text3Li2: "اندلعت مواجهات مع اليهود والإنجليز (ماي 1921) وبين العرب واليهود حول حائط المبكى (1929).",
+                part1Text3Li3: "عقد المؤتمرات مثل المؤتمر الإسلامي (1931) الذي نظمه مفتي القدس الحاج أمين الحسيني.",
+                part1Text3Li4: "تأسست الأحزاب وأبرزها: حزب الاستقلال (1932)، حزب الدفاع (1934) والحزب العربي (1935) حول عائلة الحسيني وكان أقواها وأكثرها شعبية.",
+                part1Text3Li5: "الكفاح المسلح مثل حركة الشيخ عز الدين القسام (1935).",
+                part1Text3Conclusion: "بلغت المقاومة أوجها خلال \"الثورة الفلسطينية الكبرى\" (1936-1939) بزعامة الضابط السوري فوزي القاوقجي ومشاركة عدد من المتطوعين العرب بسبب تكثف الهجرة اليهودية وتفاقم التناقضات الاقتصادية والاجتماعية بين العرب واليهود. وفي انطلاقتها تشكلت \"اللجنة العربية العليا\" (أفريل 1936) برئاسة الحاج أمين الحسيني لقيادة الحركة الوطنية الفلسطينية. كان رد فعل السلطات البريطانية عنيفاً: اعتقال الزعماء الوطنيين وتدمير الممتلكات وإعلان حالة الطوارئ. وانتهت الثورة عند اندلاع الحرب العالمية الثانية وبعد صدور الكتاب الأبيض الثالث.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "شكلت القضية الفلسطينية منذ جذورها الأولى نموذجاً فريداً في الصراع ضد الاستعمار الاستيطاني، حيث تظافرت الأطماع الإمبريالية مع الحركة الصهيونية لحرمان الشعب الفلسطيني من أرضه وحقوقه. وقد واجه الفلسطينيون هذه المؤامرة بمقاومة شعبية متصاعدة توجت بالثورة الفلسطينية الكبرى، مما أكد عمق الوعي الوطني الفلسطيني ووضع أسس النضال المستمر حتى اليوم.",
+                sectionDefinitions: "📖 تعريفات",
+                defOthers: "🔖 مصطلحات أساسية",
+                defZionism: "الصهيونية",
+                defZionismDesc: "حركة قومية يهودية نشأت في أوروبا نهاية القرن التاسع عشر، تهدف إلى إقامة دولة يهودية في فلسطين.",
+                defAntiSemitism: "اللاسامية",
+                defAntiSemitismDesc: "نزعة عدائية ضد اليهود، انتشرت في أوروبا وبلغت ذروتها مع النازية.",
+                defMandate: "الانتداب",
+                defMandateDesc: "نظام حكم استعماري أقرته عصبة الأمم بعد الحرب العالمية الأولى لإدارة أراضي معينة.",
+                defBalfour: "وعد بلفور",
+                defBalfourDesc: "تعهد بريطاني صدر في 2 نوفمبر 1917 بتأسيس \"وطن قومي\" لليهود في فلسطين.",
+                defWhitePaper: "الكتاب الأبيض الثالث",
+                defWhitePaperDesc: "وثيقة بريطانية صدرت سنة 1939 نصت على استقلال فلسطين وتحديد الهجرة اليهودية.",
+                defOrganizations: "🏛️ منظمات وهيئات",
+                defWZO: "المنظمة الصهيونية العالمية",
+                defWZODesc: "منظمة تأسست سنة 1897 في مؤتمر بازل لتنسيق الجهود الصهيونية.",
+                defHAC: "اللجنة العربية العليا",
+                defHACDesc: "هيئة قيادية للحركة الوطنية الفلسطينية تأسست سنة 1936 برئاسة الحاج أمين الحسيني.",
+                defPersons: "👤 شخصيات",
+                defHerzl: "تيودور هرتزل",
+                defHerzlDesc: "صحفي يهودي نمساوي-مجري، يعتبر مؤسس الحركة الصهيونية الحديثة، ألف كتاب \"الدولة اليهودية\".",
+                defHusseini: "الحاج أمين الحسيني",
+                defHusseiniDesc: "مفتي القدس وقائد الحركة الوطنية الفلسطينية خلال فترة الانتداب البريطاني.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryPalestineAlt: "القضية الفلسطينية – صورة توضيحية",
+                galleryPalestineCaption: "القضية الفلسطينية – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمنظمات والشخصيات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Zionism", class: "key-other", i18n: "defZionism" },
+                { text: "Anti-Semitism", class: "key-other", i18n: "defAntiSemitism" },
+                { text: "Mandate", class: "key-other", i18n: "defMandate" },
+                { text: "Balfour Declaration", class: "key-other", i18n: "defBalfour" },
+                { text: "White Paper", class: "key-other", i18n: "defWhitePaper" },
+                { text: "World Zionist Organization", class: "key-organization", i18n: "defWZO" },
+                { text: "Arab Higher Committee", class: "key-organization", i18n: "defHAC" },
+                { text: "Theodor Herzl", class: "key-person", i18n: "defHerzl" },
+                { text: "Hajj Amin al-Husseini", class: "key-person", i18n: "defHusseini" }
+            ],
+            fr: [
+                { text: "Sionisme", class: "key-other", i18n: "defZionism" },
+                { text: "Antisémitisme", class: "key-other", i18n: "defAntiSemitism" },
+                { text: "Mandat", class: "key-other", i18n: "defMandate" },
+                { text: "Déclaration Balfour", class: "key-other", i18n: "defBalfour" },
+                { text: "Livre blanc", class: "key-other", i18n: "defWhitePaper" },
+                { text: "Organisation sioniste mondiale", class: "key-organization", i18n: "defWZO" },
+                { text: "Haut Comité arabe", class: "key-organization", i18n: "defHAC" },
+                { text: "Theodor Herzl", class: "key-person", i18n: "defHerzl" },
+                { text: "Hajj Amin al-Husseini", class: "key-person", i18n: "defHusseini" }
+            ],
+            ar: [
+                { text: "الصهيونية", class: "key-other", i18n: "defZionism" },
+                { text: "اللاسامية", class: "key-other", i18n: "defAntiSemitism" },
+                { text: "الانتداب", class: "key-other", i18n: "defMandate" },
+                { text: "وعد بلفور", class: "key-other", i18n: "defBalfour" },
+                { text: "الكتاب الأبيض", class: "key-other", i18n: "defWhitePaper" },
+                { text: "المنظمة الصهيونية العالمية", class: "key-organization", i18n: "defWZO" },
+                { text: "اللجنة العربية العليا", class: "key-organization", i18n: "defHAC" },
+                { text: "تيودور هرتزل", class: "key-person", i18n: "defHerzl" },
+                { text: "الحاج أمين الحسيني", class: "key-person", i18n: "defHusseini" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

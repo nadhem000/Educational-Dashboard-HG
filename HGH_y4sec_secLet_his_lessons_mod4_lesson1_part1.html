@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 3: استقلال المستعمرات وتأسيس العالم الثالث
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                استقلال المستعمرات
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    انبثقت عن الحرب العالمية الثانية ظرفية جديدة ساعدت على تجذر حركات التحرر الوطني بكل من أفريقيا وآسيا، وأفرزت موجة لاستقلال المستعمرات. فما هي العوامل المساعدة على استقلالها؟ وفيم تتمثل موجة استقلال آسيا وأفريقيا بعد الحرب العالمية الثانية؟
+                </p>
+            </div>
+
+            <!-- I. عوامل استقلال المستعمرات -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">عوامل استقلال المستعمرات</span>
+                </h2>
+
+                <!-- 1. عوامل خارجية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part1Title1">عوامل خارجية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part1A1">ضعف القوى الاستعمارية غداة الحرب العالمية الثانية</span>
+                </h4>
+                <p data-i18n="part1A1Text">
+                    خرجت القوى الاستعمارية الكبرى من الحرب العالمية الثانية منهكة اقتصادياً وعسكرياً، وخاصة فرنسا وبريطانيا اللتين فقدتا جزءاً كبيراً من قدراتهما المادية والبشرية. كما اهتزت هيبتهما الاستعمارية بعد الهزائم التي لحقت بهما أثناء الحرب، مما شجع شعوب المستعمرات على المطالبة بالاستقلال. وقد أدى الدمار الذي لحق بأوروبا إلى تركيز هذه الدول على إعادة بناء أراضيها بدلاً من التمسك بمستعمراتها.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part1B1">مناهضة العملاقين للاستعمار</span>
+                </h4>
+                <p data-i18n="part1B1Text">
+                    اتخذت القوتان العظميان بعد الحرب العالمية الثانية موقفاً مناهضاً للاستعمار التقليدي، وإن اختلفت دوافعهما:
+                </p>
+                <ul>
+                    <li data-i18n="part1B1Li1">الولايات المتحدة الأمريكية: تبنت خطاباً مناهضاً للاستعمار التقليدي انطلاقاً من مبادئها الديمقراطية وحرصاً على فتح أسواق جديدة أمام منتجاتها.</li>
+                    <li data-i18n="part1B1Li2">الاتحاد السوفياتي: ناهض الاستعمار انطلاقاً من أيديولوجيته الاشتراكية ودعمه لحركات التحرر الوطني.</li>
+                    <li data-i18n="part1B1Li3">التنافس بين العملاقين دفعهما إلى كسب ود شعوب المستعمرات ودعم قضاياها.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>
+                    <span data-i18n="part1C1">دعم المنظمات الدولية لحركات التحرر</span>
+                </h4>
+                <p data-i18n="part1C1Text">
+                    لعبت المنظمات الدولية دوراً مهماً في دعم حركات التحرر الوطني، ومن أبرزها:
+                </p>
+                <ul>
+                    <li data-i18n="part1C1Li1">هيئة الأمم المتحدة: التي أقرت في ميثاقها مبدأ حق الشعوب في تقرير مصيرها.</li>
+                    <li data-i18n="part1C1Li2">اللجنة الخاصة بإنهاء الاستعمار التي أنشأتها الأمم المتحدة سنة 1961.</li>
+                    <li data-i18n="part1C1Li3">منظمة اليونسكو وغيرها من الوكالات الدولية التي ساهمت في نشر الوعي ودعم التعليم في المستعمرات.</li>
+                </ul>
+
+                <!-- 2. عوامل داخلية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part1Title2">العوامل الداخلية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part1A2">استفحال الأزمة الاقتصادية والاجتماعية</span>
+                </h4>
+                <p data-i18n="part1A2Text">
+                    عانت شعوب المستعمرات من أوضاع اقتصادية واجتماعية صعبة، حيث تعمق الفقر وانتشرت البطالة وتدهورت ظروف العيش. وقد زادت الحرب العالمية الثانية من حدة هذه الأزمة، إذ استنزفت موارد المستعمرات لتمويل المجهود الحربي، مما أدى إلى ارتفاع الأسعار ونقص المواد الغذائية، وفاقم السخط الشعبي على الاستعمار.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part1B2">التنكر لتضحيات شعوب المستعمرات في المجهود الحربي</span>
+                </h4>
+                <p data-i18n="part1B2Text">
+                    شاركت شعوب المستعمرات بكثافة في المجهود الحربي إلى جانب القوى الاستعمارية، إذ قدمت الجنود والموارد المالية والمادية. فمثلاً شارك مئات الآلاف من الأفارقة والآسيويين في القتال دفاعاً عن الحلفاء. وبعد نهاية الحرب، توقعت هذه الشعوب أن تكافأ تضحياتها بالاعتراف بحقوقها، لكن القوى الاستعمارية تنكرت لهذه التضحيات وواصلت سياساتها الاستغلالية، مما أثار خيبة الأمل ودفع الشعوب إلى النضال من أجل الاستقلال.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>
+                    <span data-i18n="part1C2">انفتاح آفاق شعوب المستعمرات</span>
+                </h4>
+                <p data-i18n="part1C2Text">
+                    أتاحت الحرب العالمية الثانية لشعوب المستعمرات فرصة الانفتاح على العالم الخارجي والاطلاع على أفكار جديدة. فقد تعرف الجنود الذين شاركوا في الحرب على ثقافات وأفكار مختلفة، واكتشفوا قيم الحرية والديمقراطية التي تنادي بها القوى الغربية. كما ساهم انتشار التعليم والصحافة في رفع مستوى الوعي وتوسيع آفاق شعوب المستعمرات.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>
+                    <span data-i18n="part1D2">نمو الوعي الوطني</span>
+                </h4>
+                <p data-i18n="part1D2Text">
+                    شهدت المستعمرات نمواً ملحوظاً في الوعي الوطني، تجلى في:
+                </p>
+                <ul>
+                    <li data-i18n="part1D2Li1">ظهور نخب مثقفة قادت الحركات الوطنية وطالبت بالاستقلال.</li>
+                    <li data-i18n="part1D2Li2">تأسيس الأحزاب والتنظيمات السياسية المطالبة بحقوق الشعوب.</li>
+                    <li data-i18n="part1D2Li3">انتشار الأفكار القومية والديمقراطية بين صفوف الشعب.</li>
+                    <li data-i18n="part1D2Li4">تنامي الشعور بالهوية الوطنية والانتماء الحضاري المشترك.</li>
+                </ul>
+                <p data-i18n="part1D2Conclusion">
+                    تضافرت هذه العوامل الداخلية والخارجية لتخلق الظروف الملائمة لاندلاع موجة الاستقلال في آسيا وأفريقيا بعد الحرب العالمية الثانية.
+                </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    شكلت العوامل الخارجية والداخلية أرضية صلبة لانطلاق حركات التحرر الوطني في آسيا وأفريقيا بعد الحرب العالمية الثانية. وقد مهدت هذه العوامل الطريق أمام موجة واسعة من الاستقلالات غيّرت الخريطة السياسية للعالم وأسهمت في نشأة العالم الثالث.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defDecolonization">إنهاء الاستعمار</strong>: <span data-i18n="defDecolonizationDesc">عملية حصول المستعمرات على استقلالها السياسي وتحررها من السيطرة الاستعمارية.</span></li>
+                        <li><strong class="key-other" data-i18n="defNationalLiberation">حركات التحرر الوطني</strong>: <span data-i18n="defNationalLiberationDesc">حركات سياسية ونضالية قادتها شعوب المستعمرات للمطالبة بالاستقلال وتقرير المصير.</span></li>
+                        <li><strong class="key-other" data-i18n="defSelfDetermination">حق تقرير المصير</strong>: <span data-i18n="defSelfDeterminationDesc">حق الشعوب في اختيار نظامها السياسي ومصيرها بحرية دون تدخل خارجي.</span></li>
+                        <li><strong class="key-other" data-i18n="defThirdWorld">العالم الثالث</strong>: <span data-i18n="defThirdWorldDesc">مصطلح ظهر بعد الحرب العالمية الثانية للإشارة إلى الدول المستقلة حديثاً في آسيا وأفريقيا وأمريكا اللاتينية.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات دولية</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defUN">هيئة الأمم المتحدة</strong>: <span data-i18n="defUNDesc">منظمة دولية تأسست سنة 1945، لعبت دوراً في دعم حق الشعوب في تقرير المصير وإنهاء الاستعمار.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Decolonization"
+                             alt="استقلال المستعمرات – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryDecolonizationAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryDecolonizationCaption">استقلال المستعمرات – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 3: Independence of Colonies and the Emergence of the Third World",
+                lessonTitleSample: "Independence of Colonies",
+                sectionIntro: "Introduction",
+                introText: "World War II gave rise to a new context that helped national liberation movements take root in Africa and Asia, producing a wave of colonial independence. What were the factors that helped achieve independence? And what characterized the wave of Asian and African independence after World War II?",
+                sectionPart1: "Factors of Colonial Independence",
+                part1Title1: "External Factors",
+                part1A1: "Weakening of Colonial Powers after World War II",
+                part1A1Text: "The major colonial powers emerged from World War II economically and militarily exhausted, especially France and Britain, which lost much of their material and human capacities. Their colonial prestige was also shaken by defeats suffered during the war, encouraging colonized peoples to demand independence. The devastation in Europe led these countries to focus on rebuilding their own territories rather than holding onto colonies.",
+                part1B1: "Opposition of the Superpowers to Colonialism",
+                part1B1Text: "The two superpowers after World War II adopted anti-colonial positions, though their motivations differed:",
+                part1B1Li1: "United States: adopted an anti-colonial discourse based on its democratic principles and its desire to open new markets for its products.",
+                part1B1Li2: "Soviet Union: opposed colonialism based on its socialist ideology and support for national liberation movements.",
+                part1B1Li3: "Competition between the superpowers drove them to win the favor of colonized peoples and support their causes.",
+                part1C1: "Support of International Organizations for Liberation Movements",
+                part1C1Text: "International organizations played an important role in supporting national liberation movements, notably:",
+                part1C1Li1: "The United Nations: which affirmed in its Charter the principle of the right of peoples to self-determination.",
+                part1C1Li2: "The Special Committee on Decolonization established by the UN in 1961.",
+                part1C1Li3: "UNESCO and other international agencies that contributed to spreading awareness and supporting education in colonies.",
+                part1Title2: "Internal Factors",
+                part1A2: "Worsening Economic and Social Crisis",
+                part1A2Text: "Colonized peoples suffered from difficult economic and social conditions, with deepening poverty, rising unemployment, and deteriorating living conditions. World War II intensified this crisis by draining colonial resources to finance the war effort, leading to rising prices and food shortages, and exacerbating popular resentment against colonialism.",
+                part1B2: "Disregard for the Sacrifices of Colonized Peoples in the War Effort",
+                part1B2Text: "Colonized peoples participated heavily in the war effort alongside colonial powers, providing soldiers, financial and material resources. Hundreds of thousands of Africans and Asians fought for the Allies. After the war, these peoples expected their sacrifices to be rewarded with recognition of their rights, but colonial powers disregarded these sacrifices and continued their exploitative policies, causing disappointment and pushing peoples to struggle for independence.",
+                part1C2: "Opening of Horizons for Colonized Peoples",
+                part1C2Text: "World War II gave colonized peoples the opportunity to open up to the outside world and learn about new ideas. Soldiers who participated in the war were exposed to different cultures and ideas, discovering the values of freedom and democracy advocated by Western powers. The spread of education and the press also contributed to raising awareness and broadening the horizons of colonized peoples.",
+                part1D2: "Growth of National Awareness",
+                part1D2Text: "Colonies witnessed notable growth in national awareness, manifested in:",
+                part1D2Li1: "Emergence of educated elites who led national movements and demanded independence.",
+                part1D2Li2: "Establishment of political parties and organizations demanding people's rights.",
+                part1D2Li3: "Spread of nationalist and democratic ideas among the population.",
+                part1D2Li4: "Growing sense of national identity and shared civilizational belonging.",
+                part1D2Conclusion: "These internal and external factors combined to create conditions conducive to the wave of independence in Asia and Africa after World War II.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "External and internal factors formed a solid foundation for the launch of national liberation movements in Asia and Africa after World War II. These factors paved the way for a broad wave of independence that changed the world's political map and contributed to the emergence of the Third World.",
+                sectionDefinitions: "📖 Definitions",
+                defOthers: "🔖 Key Terms",
+                defDecolonization: "Decolonization",
+                defDecolonizationDesc: "The process by which colonies gained political independence and freed themselves from colonial control.",
+                defNationalLiberation: "National Liberation Movements",
+                defNationalLiberationDesc: "Political and militant movements led by colonized peoples to demand independence and self-determination.",
+                defSelfDetermination: "Right to Self-Determination",
+                defSelfDeterminationDesc: "The right of peoples to freely choose their political system and destiny without external interference.",
+                defThirdWorld: "Third World",
+                defThirdWorldDesc: "A term that emerged after World War II to refer to newly independent countries in Asia, Africa, and Latin America.",
+                defOrganizations: "🏛️ International Organizations",
+                defUN: "United Nations",
+                defUNDesc: "An international organization founded in 1945 that played a role in supporting peoples' right to self-determination and decolonization.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryDecolonizationAlt: "Decolonization – illustrative image",
+                galleryDecolonizationCaption: "Decolonization – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 3 : L'indépendance des colonies et l'émergence du tiers-monde",
+                lessonTitleSample: "L'indépendance des colonies",
+                sectionIntro: "Introduction",
+                introText: "La Seconde Guerre mondiale donna naissance à un nouveau contexte qui favorisa l'enracinement des mouvements de libération nationale en Afrique et en Asie, produisant une vague d'indépendance des colonies. Quels furent les facteurs de cette indépendance ? Et comment se caractérisa la vague d'indépendance asiatique et africaine après la Seconde Guerre mondiale ?",
+                sectionPart1: "Facteurs de l'indépendance des colonies",
+                part1Title1: "Facteurs externes",
+                part1A1: "Affaiblissement des puissances coloniales après la Seconde Guerre mondiale",
+                part1A1Text: "Les grandes puissances coloniales sortirent de la Seconde Guerre mondiale épuisées économiquement et militairement, notamment la France et la Grande-Bretagne. Leur prestige colonial fut ébranlé par les défaites subies pendant la guerre, encourageant les peuples colonisés à réclamer l'indépendance.",
+                part1B1: "Opposition des superpuissances au colonialisme",
+                part1B1Text: "Les deux superpuissances adoptèrent des positions anticoloniales, avec des motivations différentes :",
+                part1B1Li1: "États-Unis : discours anticolonial fondé sur les principes démocratiques et l'ouverture de nouveaux marchés.",
+                part1B1Li2: "Union soviétique : opposition au colonialisme fondée sur l'idéologie socialiste et le soutien aux mouvements de libération.",
+                part1B1Li3: "La concurrence entre les superpuissances les poussa à gagner la faveur des peuples colonisés.",
+                part1C1: "Soutien des organisations internationales aux mouvements de libération",
+                part1C1Text: "Les organisations internationales jouèrent un rôle important dans le soutien aux mouvements de libération :",
+                part1C1Li1: "L'ONU : affirmation dans sa Charte du droit des peuples à l'autodétermination.",
+                part1C1Li2: "Le Comité spécial de la décolonisation créé par l'ONU en 1961.",
+                part1C1Li3: "L'UNESCO et d'autres agences internationales contribuèrent à diffuser la conscience et à soutenir l'éducation.",
+                part1Title2: "Facteurs internes",
+                part1A2: "Aggravation de la crise économique et sociale",
+                part1A2Text: "Les peuples colonisés souffrirent de conditions économiques et sociales difficiles. La guerre intensifia cette crise en drainant les ressources coloniales, provoquant hausse des prix et pénuries.",
+                part1B2: "Mépris des sacrifices des peuples colonisés dans l'effort de guerre",
+                part1B2Text: "Les peuples colonisés participèrent massivement à l'effort de guerre. Après la guerre, ils attendaient une reconnaissance de leurs droits, mais les puissances coloniales ignorèrent leurs sacrifices, provoquant déception et lutte pour l'indépendance.",
+                part1C2: "Ouverture des horizons des peuples colonisés",
+                part1C2Text: "La guerre offrit aux peuples colonisés l'occasion de s'ouvrir au monde extérieur et de découvrir de nouvelles idées de liberté et de démocratie.",
+                part1D2: "Croissance de la conscience nationale",
+                part1D2Text: "Les colonies connurent une croissance notable de la conscience nationale :",
+                part1D2Li1: "Émergence d'élites instruites dirigeant les mouvements nationaux.",
+                part1D2Li2: "Création de partis et d'organisations politiques.",
+                part1D2Li3: "Diffusion des idées nationalistes et démocratiques.",
+                part1D2Li4: "Développement du sentiment d'identité nationale.",
+                part1D2Conclusion: "Ces facteurs internes et externes se combinèrent pour créer les conditions de la vague d'indépendance.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Les facteurs externes et internes formèrent une base solide pour le lancement des mouvements de libération nationale en Asie et en Afrique, ouvrant la voie à une large vague d'indépendance qui changea la carte politique du monde.",
+                sectionDefinitions: "📖 Définitions",
+                defOthers: "🔖 Termes clés",
+                defDecolonization: "Décolonisation",
+                defDecolonizationDesc: "Processus par lequel les colonies obtinrent leur indépendance politique.",
+                defNationalLiberation: "Mouvements de libération nationale",
+                defNationalLiberationDesc: "Mouvements politiques et militants menés par les peuples colonisés pour l'indépendance.",
+                defSelfDetermination: "Droit à l'autodétermination",
+                defSelfDeterminationDesc: "Droit des peuples à choisir librement leur système politique et leur destin.",
+                defThirdWorld: "Tiers-monde",
+                defThirdWorldDesc: "Terme apparu après la Seconde Guerre mondiale pour désigner les pays nouvellement indépendants.",
+                defOrganizations: "🏛️ Organisations internationales",
+                defUN: "Organisation des Nations unies",
+                defUNDesc: "Organisation internationale fondée en 1945 ayant soutenu le droit à l'autodétermination.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryDecolonizationAlt: "Décolonisation – image illustrative",
+                galleryDecolonizationCaption: "Décolonisation – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 3: استقلال المستعمرات وتأسيس العالم الثالث",
+                lessonTitleSample: "استقلال المستعمرات",
+                sectionIntro: "مقدمة",
+                introText: "انبثقت عن الحرب العالمية الثانية ظرفية جديدة ساعدت على تجذر حركات التحرر الوطني بكل من أفريقيا وآسيا، وأفرزت موجة لاستقلال المستعمرات. فما هي العوامل المساعدة على استقلالها؟ وفيم تتمثل موجة استقلال آسيا وأفريقيا بعد الحرب العالمية الثانية؟",
+                sectionPart1: "عوامل استقلال المستعمرات",
+                part1Title1: "عوامل خارجية",
+                part1A1: "ضعف القوى الاستعمارية غداة الحرب العالمية الثانية",
+                part1A1Text: "خرجت القوى الاستعمارية الكبرى من الحرب العالمية الثانية منهكة اقتصادياً وعسكرياً، وخاصة فرنسا وبريطانيا اللتين فقدتا جزءاً كبيراً من قدراتهما المادية والبشرية. كما اهتزت هيبتهما الاستعمارية بعد الهزائم التي لحقت بهما أثناء الحرب، مما شجع شعوب المستعمرات على المطالبة بالاستقلال. وقد أدى الدمار الذي لحق بأوروبا إلى تركيز هذه الدول على إعادة بناء أراضيها بدلاً من التمسك بمستعمراتها.",
+                part1B1: "مناهضة العملاقين للاستعمار",
+                part1B1Text: "اتخذت القوتان العظميان بعد الحرب العالمية الثانية موقفاً مناهضاً للاستعمار التقليدي، وإن اختلفت دوافعهما:",
+                part1B1Li1: "الولايات المتحدة الأمريكية: تبنت خطاباً مناهضاً للاستعمار التقليدي انطلاقاً من مبادئها الديمقراطية وحرصاً على فتح أسواق جديدة أمام منتجاتها.",
+                part1B1Li2: "الاتحاد السوفياتي: ناهض الاستعمار انطلاقاً من أيديولوجيته الاشتراكية ودعمه لحركات التحرر الوطني.",
+                part1B1Li3: "التنافس بين العملاقين دفعهما إلى كسب ود شعوب المستعمرات ودعم قضاياها.",
+                part1C1: "دعم المنظمات الدولية لحركات التحرر",
+                part1C1Text: "لعبت المنظمات الدولية دوراً مهماً في دعم حركات التحرر الوطني، ومن أبرزها:",
+                part1C1Li1: "هيئة الأمم المتحدة: التي أقرت في ميثاقها مبدأ حق الشعوب في تقرير مصيرها.",
+                part1C1Li2: "اللجنة الخاصة بإنهاء الاستعمار التي أنشأتها الأمم المتحدة سنة 1961.",
+                part1C1Li3: "منظمة اليونسكو وغيرها من الوكالات الدولية التي ساهمت في نشر الوعي ودعم التعليم في المستعمرات.",
+                part1Title2: "العوامل الداخلية",
+                part1A2: "استفحال الأزمة الاقتصادية والاجتماعية",
+                part1A2Text: "عانت شعوب المستعمرات من أوضاع اقتصادية واجتماعية صعبة، حيث تعمق الفقر وانتشرت البطالة وتدهورت ظروف العيش. وقد زادت الحرب العالمية الثانية من حدة هذه الأزمة، إذ استنزفت موارد المستعمرات لتمويل المجهود الحربي، مما أدى إلى ارتفاع الأسعار ونقص المواد الغذائية، وفاقم السخط الشعبي على الاستعمار.",
+                part1B2: "التنكر لتضحيات شعوب المستعمرات في المجهود الحربي",
+                part1B2Text: "شاركت شعوب المستعمرات بكثافة في المجهود الحربي إلى جانب القوى الاستعمارية، إذ قدمت الجنود والموارد المالية والمادية. فمثلاً شارك مئات الآلاف من الأفارقة والآسيويين في القتال دفاعاً عن الحلفاء. وبعد نهاية الحرب، توقعت هذه الشعوب أن تكافأ تضحياتها بالاعتراف بحقوقها، لكن القوى الاستعمارية تنكرت لهذه التضحيات وواصلت سياساتها الاستغلالية، مما أثار خيبة الأمل ودفع الشعوب إلى النضال من أجل الاستقلال.",
+                part1C2: "انفتاح آفاق شعوب المستعمرات",
+                part1C2Text: "أتاحت الحرب العالمية الثانية لشعوب المستعمرات فرصة الانفتاح على العالم الخارجي والاطلاع على أفكار جديدة. فقد تعرف الجنود الذين شاركوا في الحرب على ثقافات وأفكار مختلفة، واكتشفوا قيم الحرية والديمقراطية التي تنادي بها القوى الغربية. كما ساهم انتشار التعليم والصحافة في رفع مستوى الوعي وتوسيع آفاق شعوب المستعمرات.",
+                part1D2: "نمو الوعي الوطني",
+                part1D2Text: "شهدت المستعمرات نمواً ملحوظاً في الوعي الوطني، تجلى في:",
+                part1D2Li1: "ظهور نخب مثقفة قادت الحركات الوطنية وطالبت بالاستقلال.",
+                part1D2Li2: "تأسيس الأحزاب والتنظيمات السياسية المطالبة بحقوق الشعوب.",
+                part1D2Li3: "انتشار الأفكار القومية والديمقراطية بين صفوف الشعب.",
+                part1D2Li4: "تنامي الشعور بالهوية الوطنية والانتماء الحضاري المشترك.",
+                part1D2Conclusion: "تضافرت هذه العوامل الداخلية والخارجية لتخلق الظروف الملائمة لاندلاع موجة الاستقلال في آسيا وأفريقيا بعد الحرب العالمية الثانية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "شكلت العوامل الخارجية والداخلية أرضية صلبة لانطلاق حركات التحرر الوطني في آسيا وأفريقيا بعد الحرب العالمية الثانية. وقد مهدت هذه العوامل الطريق أمام موجة واسعة من الاستقلالات غيّرت الخريطة السياسية للعالم وأسهمت في نشأة العالم الثالث.",
+                sectionDefinitions: "📖 تعريفات",
+                defOthers: "🔖 مصطلحات أساسية",
+                defDecolonization: "إنهاء الاستعمار",
+                defDecolonizationDesc: "عملية حصول المستعمرات على استقلالها السياسي وتحررها من السيطرة الاستعمارية.",
+                defNationalLiberation: "حركات التحرر الوطني",
+                defNationalLiberationDesc: "حركات سياسية ونضالية قادتها شعوب المستعمرات للمطالبة بالاستقلال وتقرير المصير.",
+                defSelfDetermination: "حق تقرير المصير",
+                defSelfDeterminationDesc: "حق الشعوب في اختيار نظامها السياسي ومصيرها بحرية دون تدخل خارجي.",
+                defThirdWorld: "العالم الثالث",
+                defThirdWorldDesc: "مصطلح ظهر بعد الحرب العالمية الثانية للإشارة إلى الدول المستقلة حديثاً في آسيا وأفريقيا وأمريكا اللاتينية.",
+                defOrganizations: "🏛️ منظمات دولية",
+                defUN: "هيئة الأمم المتحدة",
+                defUNDesc: "منظمة دولية تأسست سنة 1945، لعبت دوراً في دعم حق الشعوب في تقرير المصير وإنهاء الاستعمار.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryDecolonizationAlt: "استقلال المستعمرات – صورة توضيحية",
+                galleryDecolonizationCaption: "استقلال المستعمرات – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Decolonization", class: "key-other", i18n: "defDecolonization" },
+                { text: "National Liberation Movements", class: "key-other", i18n: "defNationalLiberation" },
+                { text: "Self-Determination", class: "key-other", i18n: "defSelfDetermination" },
+                { text: "Third World", class: "key-other", i18n: "defThirdWorld" },
+                { text: "United Nations", class: "key-organization", i18n: "defUN" }
+            ],
+            fr: [
+                { text: "Décolonisation", class: "key-other", i18n: "defDecolonization" },
+                { text: "Mouvements de libération nationale", class: "key-other", i18n: "defNationalLiberation" },
+                { text: "Autodétermination", class: "key-other", i18n: "defSelfDetermination" },
+                { text: "Tiers-monde", class: "key-other", i18n: "defThirdWorld" },
+                { text: "Nations unies", class: "key-organization", i18n: "defUN" }
+            ],
+            ar: [
+                { text: "إنهاء الاستعمار", class: "key-other", i18n: "defDecolonization" },
+                { text: "حركات التحرر الوطني", class: "key-other", i18n: "defNationalLiberation" },
+                { text: "تقرير المصير", class: "key-other", i18n: "defSelfDetermination" },
+                { text: "العالم الثالث", class: "key-other", i18n: "defThirdWorld" },
+                { text: "الأمم المتحدة", class: "key-organization", i18n: "defUN" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

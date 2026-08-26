@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                تونس في الثلاثينات
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    في ظل ظرفية الثلاثينات الصعبة، شهدت الحركة الوطنية التونسية تطورًا ملحوظًا على المستوى السياسي والنقابي. تميزت هذه الفترة بتنامي النضال السياسي في النصف الأول من الثلاثينات، ثم إحياء جامعة عموم العملة التونسية، وأخيرًا بروز الحزب الحر الدستوري الجديد الذي قاد المواجهة مع الإدارة الاستعمارية خلال حكومة الجبهة الشعبية (1936-1938). فما هي أبرز ملامح هذا التطور؟
+                </p>
+            </div>
+
+            <!-- II. تطور الحركة الوطنية في الثلاثينات -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">تطور الحركة الوطنية في الثلاثينات</span>
+                </h2>
+
+                <!-- 1. تطور النضال السياسي في النصف الاول من الثلاثينات -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part2Title1">تطور النضال السياسي في النصف الأول من الثلاثينات</span>
+                </h3>
+                <p data-i18n="part2Text1Intro">
+                    شهد النصف الأول من الثلاثينات تحولات مهمة في النضال السياسي الوطني، حيث تعزز حضور الحزب الحر الدستوري التونسي وتوسعت قاعدته الشعبية، وتصاعدت المطالب الوطنية.
+                </p>
+                <ul>
+                    <li data-i18n="part2Li1">تواصل نشاط الحزب الحر الدستوري رغم القمع، مع تركيزه على نشر الوعي الوطني في الأوساط الشعبية.</li>
+                    <li data-i18n="part2Li2">ظهور جيل جديد من المناضلين داخل الحزب يطالب بأساليب نضالية أكثر فعالية وبرنامج أكثر جذرية.</li>
+                    <li data-i18n="part2Li3">اتساع نطاق الاحتجاجات الشعبية ضد السياسة الاستعمارية، خاصة في المناطق الريفية والمدن الكبرى.</li>
+                    <li data-i18n="part2Li4">تزايد دور الصحافة الوطنية في تعبئة الرأي العام والتصدي للدعاية الاستعمارية.</li>
+                    <li data-i18n="part2Li5">تأثر النضال الوطني بالأحداث الدولية مثل صعود الفاشية في أوروبا وتهديداتها للقيم الديمقراطية.</li>
+                    <li data-i18n="part2Li6">بروز انقسامات داخل الحزب الحر الدستوري بين المحافظين والمجددين، مما مهد لظهور تيار جديد.</li>
+                </ul>
+                <p data-i18n="part2Text1Conclusion">
+                    أدى هذا التطور إلى انشقاق داخل الحزب الحر الدستوري، نتج عنه تأسيس الحزب الحر الدستوري الجديد سنة 1934، والذي سيصبح القوة السياسية الرئيسية في البلاد.
+                </p>
+
+                <!-- 2. احياء جامعة عموم العملة التونسية الثانية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part2Title2">إحياء جامعة عموم العملة التونسية الثانية</span>
+                </h3>
+                <p data-i18n="part2Text2Intro">
+                    بعد حل جامعة عموم العملة التونسية الأولى سنة 1925، ظلت الحركة النقابية التونسية حاضرة رغم القمع. وفي الثلاثينات، أعيد إحياء التنظيم النقابي التونسي المستقل، وتميزت هذه المرحلة بما يلي:
+                </p>
+                <ul>
+                    <li data-i18n="part2Li7">أعيد تأسيس جامعة عموم العملة التونسية سنة 1936 بقيادة بلقاسم القناوي، كثاني تنظيم نقابي تونسي مستقل.</li>
+                    <li data-i18n="part2Li8">اعتمدت الجامعة على مبدأ الاستقلال عن النقابات الفرنسية وتمثيل العمال التونسيين.</li>
+                    <li data-i18n="part2Li9">نظمت الجامعة عدة إضرابات في المدن الكبرى للمطالبة بتحسين الأجور وظروف العمل.</li>
+                    <li data-i18n="part2Li10">تعاونت الجامعة مع الحزب الحر الدستوري الجديد في دعم الحركة الوطنية والمطالب الاجتماعية.</li>
+                    <li data-i18n="part2Li11">واجهت الجامعة قمعًا استعماريًا شديدًا، حيث تم اعتقال قياداتها ومحاولة إخماد نشاطها.</li>
+                    <li data-i18n="part2Li12">ساهمت في ترسيخ الوعي الطبقي وربط النضال الاجتماعي بالنضال الوطني ضد الاستعمار.</li>
+                </ul>
+                <p data-i18n="part2Text2Conclusion">
+                    شكلت جامعة عموم العملة التونسية الثانية حلقة مهمة في تاريخ الحركة النقابية التونسية، رغم قصر عمرها، إذ أرست تقاليد النقابية المستقلة التي ستستمر لاحقًا.
+                </p>
+
+                <!-- 3. الحزب الحر الدستوري الجديد و حكومة الجبهة الشعبية 1936-1938 -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>
+                    <span data-i18n="part2Title3">الحزب الحر الدستوري الجديد وحكومة الجبهة الشعبية 1936-1938</span>
+                </h3>
+                <p data-i18n="part2Text3Intro">
+                    مثل تأسيس الحزب الحر الدستوري الجديد في 2 مارس 1934 نقطة تحول في النضال الوطني، حيث قاده الحبيب بورقيبة ومجموعة من الشباب الوطني. وقد مرت العلاقة بين الحزب وحكومة الجبهة الشعبية الفرنسية بعدة مراحل:
+                </p>
+                <ul>
+                    <li data-i18n="part2Li13">تأسس الحزب الحر الدستوري الجديد على يد شباب منشق عن الحزب القديم، وتبنى برنامجًا يركز على الاستقلال التام والتحرر الوطني.</li>
+                    <li data-i18n="part2Li14">اعتمد الحزب أساليب نضالية جديدة مثل الاجتماعات الشعبية، والصحافة، وتنظيم الخلايا في مختلف أنحاء البلاد.</li>
+                    <li data-i18n="part2Li15">مع وصول الجبهة الشعبية إلى الحكم في فرنسا سنة 1936 بقيادة ليون بلوم، انفتحت آمال جديدة لدى الوطنيين التونسيين.</li>
+                    <li data-i18n="part2Li16">سمحت حكومة الجبهة الشعبية ببعض الحريات، وأفرجت عن المعتقلين السياسيين، واعترفت بحق التنظيم النقابي.</li>
+                    <li data-i18n="part2Li17">قدم الحزب الحر الدستوري الجديد مطالب وطنية واضحة شملت إصلاحات سياسية واقتصادية واجتماعية.</li>
+                    <li data-i18n="part2Li18">لكن الحكومة الفرنسية لم تستجب للمطالب الجوهرية، مما أدى إلى تزايد الاحتقان الشعبي.</li>
+                    <li data-i18n="part2Li19">شهدت الفترة تصاعد الإضرابات والمظاهرات، خاصة في صائفة 1936، مما عبر عن مطالب اجتماعية وسياسية واسعة.</li>
+                    <li data-i18n="part2Li20">انتهت المرحلة بأحداث 9 أفريل 1938 الدامية، حيث قمعت القوات الاستعمارية المظاهرات بعنف، واعتقلت قادة الحزب وعلى رأسهم الحبيب بورقيبة، مما أدى إلى تراجع النشاط السياسي مؤقتًا.</li>
+                </ul>
+                <p data-i18n="part2Text3Conclusion">
+                    رغم القمع، نجح الحزب الحر الدستوري الجديد في ترسيخ مكانته كقائد للحركة الوطنية، ووضع أسس النضال الذي سيتواصل حتى الاستقلال.
+                </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    شهدت الثلاثينات تحولًا نوعيًا في الحركة الوطنية التونسية، حيث انتقلت من النضال النخبوي إلى النضال الشعبي المنظم، وتأسست أبرز التنظيمات السياسية والنقابية التي قادت الكفاح الوطني. ورغم القمع الاستعماري، رسخت هذه المرحلة الوعي الوطني وأعدت الأرضية لمرحلة ما بعد الحرب العالمية الثانية.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ أحزاب ومنظمات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defNeoDestour">الحزب الحر الدستوري الجديد</strong>: <span data-i18n="defNeoDestourDesc">حزب سياسي تونسي تأسس سنة 1934 بقيادة الحبيب بورقيبة، تبنى المطالبة بالاستقلال التام وقاد النضال الوطني.</span></li>
+                        <li><strong class="key-organization" data-i18n="defCGTT2">جامعة عموم العملة التونسية الثانية</strong>: <span data-i18n="defCGTT2Desc">نقابة عمالية تونسية مستقلة أعيد تأسيسها سنة 1936 بقيادة بلقاسم القناوي للدفاع عن حقوق العمال.</span></li>
+                        <li><strong class="key-organization" data-i18n="defPopularFront">الجبهة الشعبية</strong>: <span data-i18n="defPopularFrontDesc">ائتلاف حكومي فرنسي يساري تولى الحكم بين 1936 و1938 بقيادة ليون بلوم، وأدخل بعض الإصلاحات الاجتماعية والسياسية.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defApril9Events">أحداث 9 أفريل 1938</strong>: <span data-i18n="defApril9EventsDesc">مظاهرات شعبية كبرى قمعتها القوات الاستعمارية بعنف، واعتقلت على إثرها قيادات الحركة الوطنية.</span></li>
+                        <li><strong class="key-other" data-i18n="defBourguiba">الحبيب بورقيبة</strong>: <span data-i18n="defBourguibaDesc">زعيم وطني تونسي، أسس الحزب الحر الدستوري الجديد وقاد تونس نحو الاستقلال.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Tunisia+1930s+National+Movement"
+                             alt="الحركة الوطنية التونسية في الثلاثينات – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryMovement30Alt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryMovement30Caption">الحركة الوطنية التونسية في الثلاثينات – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 1: The Contemporary World from 1914 to World War II",
+                lessonTitleSample: "Tunisia in the 1930s",
+                sectionIntro: "Introduction",
+                introText: "In the difficult context of the 1930s, the Tunisian national movement witnessed notable development on political and trade union levels. This period was marked by the growth of political struggle in the first half of the 1930s, then the revival of the Tunisian General Labor Union (CGTT), and finally the emergence of the Neo-Destour party which led the confrontation with the colonial administration during the Popular Front government (1936-1938). What are the main features of this development?",
+                sectionPart2: "Development of the National Movement in the 1930s",
+                part2Title1: "Development of Political Struggle in the First Half of the 1930s",
+                part2Text1Intro: "The first half of the 1930s witnessed important transformations in national political struggle, as the Destour party strengthened its presence and popular base, and national demands escalated.",
+                part2Li1: "The Destour party continued its activities despite repression, focusing on spreading national awareness among the masses.",
+                part2Li2: "A new generation of activists emerged within the party demanding more effective methods and a more radical program.",
+                part2Li3: "Popular protests against colonial policies expanded, especially in rural areas and major cities.",
+                part2Li4: "The role of the national press grew in mobilizing public opinion and countering colonial propaganda.",
+                part2Li5: "The national struggle was influenced by international events such as the rise of fascism in Europe and its threat to democratic values.",
+                part2Li6: "Divisions emerged within the Destour party between conservatives and reformers, paving the way for a new current.",
+                part2Text1Conclusion: "This development led to a split within the Destour party, resulting in the founding of the Neo-Destour party in 1934, which would become the main political force in the country.",
+                part2Title2: "Revival of the Second Tunisian General Labor Union",
+                part2Text2Intro: "After the dissolution of the first CGTT in 1925, the Tunisian labor movement remained present despite repression. In the 1930s, the independent Tunisian union was revived, characterized by:",
+                part2Li7: "The second CGTT was re-established in 1936 under Belgacem Gnaoui as the second independent Tunisian union.",
+                part2Li8: "The union adopted the principle of independence from French unions and representation of Tunisian workers.",
+                part2Li9: "It organized several strikes in major cities demanding better wages and working conditions.",
+                part2Li10: "The union cooperated with the Neo-Destour party in supporting the national movement and social demands.",
+                part2Li11: "It faced severe colonial repression, with its leaders arrested and activities suppressed.",
+                part2Li12: "It contributed to establishing class consciousness and linking social struggle to the national struggle against colonialism.",
+                part2Text2Conclusion: "The second CGTT represented an important chapter in the history of the Tunisian labor movement, despite its short life, establishing traditions of independent unionism.",
+                part2Title3: "The Neo-Destour Party and the Popular Front Government 1936-1938",
+                part2Text3Intro: "The founding of the Neo-Destour party on March 2, 1934, led by Habib Bourguiba and a group of young nationalists, marked a turning point in the national struggle. The relationship between the party and the French Popular Front government went through several phases:",
+                part2Li13: "The Neo-Destour was founded by youth who split from the old party, adopting a program focused on full independence and national liberation.",
+                part2Li14: "The party adopted new methods such as popular meetings, press, and organizing cells across the country.",
+                part2Li15: "With the rise of the Popular Front to power in France in 1936 under Léon Blum, new hopes opened for Tunisian nationalists.",
+                part2Li16: "The Popular Front government allowed some freedoms, released political prisoners, and recognized trade union rights.",
+                part2Li17: "The Neo-Destour presented clear national demands including political, economic, and social reforms.",
+                part2Li18: "However, the French government did not respond to core demands, leading to growing popular discontent.",
+                part2Li19: "The period witnessed an escalation of strikes and demonstrations, especially in the summer of 1936.",
+                part2Li20: "The phase ended with the bloody events of April 9, 1938, when colonial forces violently suppressed demonstrations and arrested party leaders including Habib Bourguiba, temporarily halting political activity.",
+                part2Text3Conclusion: "Despite repression, the Neo-Destour succeeded in establishing itself as the leader of the national movement and laid the foundations for the struggle that would continue until independence.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The 1930s witnessed a qualitative transformation in the Tunisian national movement, moving from elite struggle to organized popular struggle, and the establishment of major political and trade union organizations that led the national struggle. Despite colonial repression, this phase deepened national awareness and prepared the ground for the post-World War II era.",
+                sectionDefinitions: "📖 Definitions",
+                defOrganizations: "🏛️ Parties and Organizations",
+                defNeoDestour: "Neo-Destour Party",
+                defNeoDestourDesc: "A Tunisian political party founded in 1934 under Habib Bourguiba, advocating full independence and leading the national struggle.",
+                defCGTT2: "Second Tunisian General Labor Union (CGTT)",
+                defCGTT2Desc: "An independent Tunisian trade union re-established in 1936 under Belgacem Gnaoui to defend workers' rights.",
+                defPopularFront: "Popular Front",
+                defPopularFrontDesc: "A French left-wing government coalition that ruled between 1936 and 1938 under Léon Blum, introducing social and political reforms.",
+                defOthers: "🔖 Key Terms",
+                defApril9Events: "April 9, 1938 Events",
+                defApril9EventsDesc: "Major popular demonstrations violently suppressed by colonial forces, leading to the arrest of national movement leaders.",
+                defBourguiba: "Habib Bourguiba",
+                defBourguibaDesc: "Tunisian national leader, founder of the Neo-Destour party, who led Tunisia towards independence.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryMovement30Alt: "Tunisian national movement in the 1930s – illustrative image",
+                galleryMovement30Caption: "Tunisian national movement in the 1930s – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 1 : Le monde contemporain de 1914 à la Seconde Guerre mondiale",
+                lessonTitleSample: "La Tunisie dans les années 1930",
+                sectionIntro: "Introduction",
+                introText: "Dans le contexte difficile des années 1930, le mouvement national tunisien connut un développement notable sur les plans politique et syndical. Cette période fut marquée par la croissance de la lutte politique dans la première moitié des années 1930, puis par la renaissance de la Confédération Générale des Travailleurs Tunisiens (CGTT), et enfin par l'émergence du Néo-Destour qui mena la confrontation avec l'administration coloniale pendant le gouvernement du Front populaire (1936-1938). Quels sont les principaux traits de ce développement ?",
+                sectionPart2: "Développement du mouvement national dans les années 1930",
+                part2Title1: "Développement de la lutte politique dans la première moitié des années 1930",
+                part2Text1Intro: "La première moitié des années 1930 connut d'importantes transformations dans la lutte politique nationale, le Destour renforçant sa présence et sa base populaire, et les revendications nationales s'intensifiant.",
+                part2Li1: "Le Destour poursuivit ses activités malgré la répression, se concentrant sur la diffusion de la conscience nationale parmi les masses.",
+                part2Li2: "Une nouvelle génération de militants émergea au sein du parti exigeant des méthodes plus efficaces et un programme plus radical.",
+                part2Li3: "Les protestations populaires contre les politiques coloniales s'étendirent, en particulier dans les zones rurales et les grandes villes.",
+                part2Li4: "Le rôle de la presse nationale grandit dans la mobilisation de l'opinion publique et la lutte contre la propagande coloniale.",
+                part2Li5: "La lutte nationale fut influencée par les événements internationaux tels que la montée du fascisme en Europe.",
+                part2Li6: "Des divisions apparurent au sein du Destour entre conservateurs et réformateurs, ouvrant la voie à un nouveau courant.",
+                part2Text1Conclusion: "Ce développement aboutit à une scission au sein du Destour et à la fondation du Néo-Destour en 1934.",
+                part2Title2: "Renaissance de la deuxième Confédération Générale des Travailleurs Tunisiens",
+                part2Text2Intro: "Après la dissolution de la première CGTT en 1925, le mouvement ouvrier tunisien resta présent malgré la répression. Dans les années 1930, le syndicat indépendant fut relancé :",
+                part2Li7: "La deuxième CGTT fut rétablie en 1936 sous la direction de Belgacem Gnaoui.",
+                part2Li8: "Le syndicat adopta le principe d'indépendance vis-à-vis des syndicats français.",
+                part2Li9: "Il organisa plusieurs grèves dans les grandes villes pour de meilleurs salaires et conditions de travail.",
+                part2Li10: "Il coopéra avec le Néo-Destour pour soutenir le mouvement national et les revendications sociales.",
+                part2Li11: "Il fit face à une répression coloniale sévère, ses dirigeants étant arrêtés.",
+                part2Li12: "Il contribua à établir la conscience de classe et à lier la lutte sociale à la lutte nationale.",
+                part2Text2Conclusion: "La deuxième CGTT représenta un chapitre important de l'histoire du mouvement ouvrier tunisien.",
+                part2Title3: "Le Néo-Destour et le gouvernement du Front populaire 1936-1938",
+                part2Text3Intro: "La fondation du Néo-Destour le 2 mars 1934 par Habib Bourguiba marqua un tournant. La relation entre le parti et le gouvernement français du Front populaire passa par plusieurs phases :",
+                part2Li13: "Le Néo-Destour fut fondé par des jeunes issus de l'ancien parti, avec un programme axé sur l'indépendance complète.",
+                part2Li14: "Le parti adopta de nouvelles méthodes : réunions populaires, presse, cellules dans tout le pays.",
+                part2Li15: "Avec l'arrivée du Front populaire au pouvoir en France en 1936, de nouveaux espoirs apparurent.",
+                part2Li16: "Le gouvernement autorisa certaines libertés, libéra les prisonniers politiques et reconnut les droits syndicaux.",
+                part2Li17: "Le Néo-Destour présenta des revendications nationales claires incluant des réformes politiques, économiques et sociales.",
+                part2Li18: "Cependant, le gouvernement français ne répondit pas aux demandes essentielles, entraînant un mécontentement croissant.",
+                part2Li19: "La période vit une escalade des grèves et des manifestations, surtout à l'été 1936.",
+                part2Li20: "La phase se termina par les événements sanglants du 9 avril 1938 et l'arrestation des dirigeants.",
+                part2Text3Conclusion: "Malgré la répression, le Néo-Destour s'imposa comme leader du mouvement national.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Les années 1930 furent marquées par une transformation qualitative du mouvement national tunisien, passant d'une lutte d'élite à une lutte populaire organisée, avec la création des principales organisations politiques et syndicales.",
+                sectionDefinitions: "📖 Définitions",
+                defOrganizations: "🏛️ Partis et organisations",
+                defNeoDestour: "Néo-Destour",
+                defNeoDestourDesc: "Parti politique tunisien fondé en 1934 par Habib Bourguiba, prônant l'indépendance totale.",
+                defCGTT2: "Deuxième CGTT",
+                defCGTT2Desc: "Syndicat ouvrier tunisien indépendant rétabli en 1936 par Belgacem Gnaoui.",
+                defPopularFront: "Front populaire",
+                defPopularFrontDesc: "Coalition gouvernementale française de gauche au pouvoir entre 1936 et 1938.",
+                defOthers: "🔖 Termes clés",
+                defApril9Events: "Événements du 9 avril 1938",
+                defApril9EventsDesc: "Manifestations populaires réprimées violemment par les forces coloniales.",
+                defBourguiba: "Habib Bourguiba",
+                defBourguibaDesc: "Leader national tunisien, fondateur du Néo-Destour.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryMovement30Alt: "Mouvement national tunisien des années 1930 – image illustrative",
+                galleryMovement30Caption: "Mouvement national tunisien des années 1930 – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية",
+                lessonTitleSample: "تونس في الثلاثينات",
+                sectionIntro: "مقدمة",
+                introText: "في ظل ظرفية الثلاثينات الصعبة، شهدت الحركة الوطنية التونسية تطورًا ملحوظًا على المستوى السياسي والنقابي. تميزت هذه الفترة بتنامي النضال السياسي في النصف الأول من الثلاثينات، ثم إحياء جامعة عموم العملة التونسية، وأخيرًا بروز الحزب الحر الدستوري الجديد الذي قاد المواجهة مع الإدارة الاستعمارية خلال حكومة الجبهة الشعبية (1936-1938). فما هي أبرز ملامح هذا التطور؟",
+                sectionPart2: "تطور الحركة الوطنية في الثلاثينات",
+                part2Title1: "تطور النضال السياسي في النصف الأول من الثلاثينات",
+                part2Text1Intro: "شهد النصف الأول من الثلاثينات تحولات مهمة في النضال السياسي الوطني، حيث تعزز حضور الحزب الحر الدستوري التونسي وتوسعت قاعدته الشعبية، وتصاعدت المطالب الوطنية.",
+                part2Li1: "تواصل نشاط الحزب الحر الدستوري رغم القمع، مع تركيزه على نشر الوعي الوطني في الأوساط الشعبية.",
+                part2Li2: "ظهور جيل جديد من المناضلين داخل الحزب يطالب بأساليب نضالية أكثر فعالية وبرنامج أكثر جذرية.",
+                part2Li3: "اتساع نطاق الاحتجاجات الشعبية ضد السياسة الاستعمارية، خاصة في المناطق الريفية والمدن الكبرى.",
+                part2Li4: "تزايد دور الصحافة الوطنية في تعبئة الرأي العام والتصدي للدعاية الاستعمارية.",
+                part2Li5: "تأثر النضال الوطني بالأحداث الدولية مثل صعود الفاشية في أوروبا وتهديداتها للقيم الديمقراطية.",
+                part2Li6: "بروز انقسامات داخل الحزب الحر الدستوري بين المحافظين والمجددين، مما مهد لظهور تيار جديد.",
+                part2Text1Conclusion: "أدى هذا التطور إلى انشقاق داخل الحزب الحر الدستوري، نتج عنه تأسيس الحزب الحر الدستوري الجديد سنة 1934، والذي سيصبح القوة السياسية الرئيسية في البلاد.",
+                part2Title2: "إحياء جامعة عموم العملة التونسية الثانية",
+                part2Text2Intro: "بعد حل جامعة عموم العملة التونسية الأولى سنة 1925، ظلت الحركة النقابية التونسية حاضرة رغم القمع. وفي الثلاثينات، أعيد إحياء التنظيم النقابي التونسي المستقل، وتميزت هذه المرحلة بما يلي:",
+                part2Li7: "أعيد تأسيس جامعة عموم العملة التونسية سنة 1936 بقيادة بلقاسم القناوي، كثاني تنظيم نقابي تونسي مستقل.",
+                part2Li8: "اعتمدت الجامعة على مبدأ الاستقلال عن النقابات الفرنسية وتمثيل العمال التونسيين.",
+                part2Li9: "نظمت الجامعة عدة إضرابات في المدن الكبرى للمطالبة بتحسين الأجور وظروف العمل.",
+                part2Li10: "تعاونت الجامعة مع الحزب الحر الدستوري الجديد في دعم الحركة الوطنية والمطالب الاجتماعية.",
+                part2Li11: "واجهت الجامعة قمعًا استعماريًا شديدًا، حيث تم اعتقال قياداتها ومحاولة إخماد نشاطها.",
+                part2Li12: "ساهمت في ترسيخ الوعي الطبقي وربط النضال الاجتماعي بالنضال الوطني ضد الاستعمار.",
+                part2Text2Conclusion: "شكلت جامعة عموم العملة التونسية الثانية حلقة مهمة في تاريخ الحركة النقابية التونسية، رغم قصر عمرها، إذ أرست تقاليد النقابية المستقلة التي ستستمر لاحقًا.",
+                part2Title3: "الحزب الحر الدستوري الجديد وحكومة الجبهة الشعبية 1936-1938",
+                part2Text3Intro: "مثل تأسيس الحزب الحر الدستوري الجديد في 2 مارس 1934 نقطة تحول في النضال الوطني، حيث قاده الحبيب بورقيبة ومجموعة من الشباب الوطني. وقد مرت العلاقة بين الحزب وحكومة الجبهة الشعبية الفرنسية بعدة مراحل:",
+                part2Li13: "تأسس الحزب الحر الدستوري الجديد على يد شباب منشق عن الحزب القديم، وتبنى برنامجًا يركز على الاستقلال التام والتحرر الوطني.",
+                part2Li14: "اعتمد الحزب أساليب نضالية جديدة مثل الاجتماعات الشعبية، والصحافة، وتنظيم الخلايا في مختلف أنحاء البلاد.",
+                part2Li15: "مع وصول الجبهة الشعبية إلى الحكم في فرنسا سنة 1936 بقيادة ليون بلوم، انفتحت آمال جديدة لدى الوطنيين التونسيين.",
+                part2Li16: "سمحت حكومة الجبهة الشعبية ببعض الحريات، وأفرجت عن المعتقلين السياسيين، واعترفت بحق التنظيم النقابي.",
+                part2Li17: "قدم الحزب الحر الدستوري الجديد مطالب وطنية واضحة شملت إصلاحات سياسية واقتصادية واجتماعية.",
+                part2Li18: "لكن الحكومة الفرنسية لم تستجب للمطالب الجوهرية، مما أدى إلى تزايد الاحتقان الشعبي.",
+                part2Li19: "شهدت الفترة تصاعد الإضرابات والمظاهرات، خاصة في صائفة 1936، مما عبر عن مطالب اجتماعية وسياسية واسعة.",
+                part2Li20: "انتهت المرحلة بأحداث 9 أفريل 1938 الدامية، حيث قمعت القوات الاستعمارية المظاهرات بعنف، واعتقلت قادة الحزب وعلى رأسهم الحبيب بورقيبة، مما أدى إلى تراجع النشاط السياسي مؤقتًا.",
+                part2Text3Conclusion: "رغم القمع، نجح الحزب الحر الدستوري الجديد في ترسيخ مكانته كقائد للحركة الوطنية، ووضع أسس النضال الذي سيتواصل حتى الاستقلال.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "شهدت الثلاثينات تحولًا نوعيًا في الحركة الوطنية التونسية، حيث انتقلت من النضال النخبوي إلى النضال الشعبي المنظم، وتأسست أبرز التنظيمات السياسية والنقابية التي قادت الكفاح الوطني. ورغم القمع الاستعماري، رسخت هذه المرحلة الوعي الوطني وأعدت الأرضية لمرحلة ما بعد الحرب العالمية الثانية.",
+                sectionDefinitions: "📖 تعريفات",
+                defOrganizations: "🏛️ أحزاب ومنظمات",
+                defNeoDestour: "الحزب الحر الدستوري الجديد",
+                defNeoDestourDesc: "حزب سياسي تونسي تأسس سنة 1934 بقيادة الحبيب بورقيبة، تبنى المطالبة بالاستقلال التام وقاد النضال الوطني.",
+                defCGTT2: "جامعة عموم العملة التونسية الثانية",
+                defCGTT2Desc: "نقابة عمالية تونسية مستقلة أعيد تأسيسها سنة 1936 بقيادة بلقاسم القناوي للدفاع عن حقوق العمال.",
+                defPopularFront: "الجبهة الشعبية",
+                defPopularFrontDesc: "ائتلاف حكومي فرنسي يساري تولى الحكم بين 1936 و1938 بقيادة ليون بلوم، وأدخل بعض الإصلاحات الاجتماعية والسياسية.",
+                defOthers: "🔖 مصطلحات أساسية",
+                defApril9Events: "أحداث 9 أفريل 1938",
+                defApril9EventsDesc: "مظاهرات شعبية كبرى قمعتها القوات الاستعمارية بعنف، واعتقلت على إثرها قيادات الحركة الوطنية.",
+                defBourguiba: "الحبيب بورقيبة",
+                defBourguibaDesc: "زعيم وطني تونسي، أسس الحزب الحر الدستوري الجديد وقاد تونس نحو الاستقلال.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryMovement30Alt: "الحركة الوطنية التونسية في الثلاثينات – صورة توضيحية",
+                galleryMovement30Caption: "الحركة الوطنية التونسية في الثلاثينات – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Neo-Destour", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "CGTT", class: "key-organization", i18n: "defCGTT2" },
+                { text: "Popular Front", class: "key-organization", i18n: "defPopularFront" },
+                { text: "April 9, 1938", class: "key-other", i18n: "defApril9Events" },
+                { text: "Habib Bourguiba", class: "key-other", i18n: "defBourguiba" }
+            ],
+            fr: [
+                { text: "Néo-Destour", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "CGTT", class: "key-organization", i18n: "defCGTT2" },
+                { text: "Front populaire", class: "key-organization", i18n: "defPopularFront" },
+                { text: "9 avril 1938", class: "key-other", i18n: "defApril9Events" },
+                { text: "Habib Bourguiba", class: "key-other", i18n: "defBourguiba" }
+            ],
+            ar: [
+                { text: "الحزب الحر الدستوري الجديد", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "جامعة عموم العملة التونسية", class: "key-organization", i18n: "defCGTT2" },
+                { text: "الجبهة الشعبية", class: "key-organization", i18n: "defPopularFront" },
+                { text: "أحداث 9 أفريل 1938", class: "key-other", i18n: "defApril9Events" },
+                { text: "الحبيب بورقيبة", class: "key-other", i18n: "defBourguiba" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

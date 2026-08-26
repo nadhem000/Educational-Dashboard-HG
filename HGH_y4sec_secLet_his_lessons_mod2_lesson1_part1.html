@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                تونس في العشرينات
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    تميزت فترة العشرينات بعمق تأثيرات الحرب العالمية الاولى التى تجاوزت فرنسا كمركز استعماري لتشمل مستعمراتها، فقد زادت حدة التناقضات بين التونسيين والفرنسيين بسبب تعدد الاجراءات الرامية الى تدعيم الاستعمار الفرنسي بتونس وما خلفته من انعكاسات سلبية طالت تأثيراتها مختلف فئات المجتمع التونسي. فماهي ظرفية تطور الحركة الوطنية التونسية غداة الحرب العالمية الاولى؟ وماهي ردود فعل التونسيين تجاه السياسة الاستعمارية؟ وماهي حصيلتها؟
+                </p>
+            </div>
+
+            <!-- Part I : ظروف تطور الحركة الوطنية التونسية في العشرينات -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">ظروف تطور الحركة الوطنية التونسية في العشرينات (غداة الحرب العالمية الأولى)</span>
+                </h2>
+
+                <!-- 1. الظروف الداخلية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part1Title1">الظروف الداخلية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part1A1Title">استنزاف الطاقة البشرية</span>
+                </h4>
+                <p data-i18n="part1A1Text">
+                    اضطرت تونس الى المساهمة قسريا بأبنائها (حوالى 80 ألف تونسي) في الجيش الفرنسي أثناء الحرب العالمية 1 مما أفقدها حوالي 15 ألف قتيل و10 ألف جريح.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part1B1Title">العودة الى الاستعمار الزراعي وتوريد البضائع المصنوعة</span>
+                </h4>
+                <p data-i18n="part1B1Text">
+                    استأنفت فرنسا بعد الحرب الع1 سياسة انتزاع الاراضي من التونسيين خاصة أراضي الاحباس (الاوقاف) وأراضي القبائل (العروش) بدعوى أنها غير مُستثمرة. كان ذلك لدعم مصالح جاليتها بتونس (المعمرون) ولضمان تزويد أسواقها بالمواد الغذائية. في هذا الإطار تمكنت من ضم حوالي 554 ألف هكتار لفائدة معمرين فرنسيين إلى جانب الإيطاليين والمالطيين. كما شجعت فرنسا استراد المصنوعات الفرنسية حيث أضر كل ذلك بمصالح الفلاحين والحرفيين والتجار التونسيين وزاد من غضبهم وحقدهم على المستعمر الفرنسي خاصة امام عجزهم عن منافسة هذه البضائع.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>
+                    <span data-i18n="part1C1Title">سن قانون الثلث الاستعماري</span>
+                </h4>
+                <p data-i18n="part1C1Text1">
+                    "الثلث الاستعماري" قانون سنه المقيم العام الفرنسي في تونس إيتيان فالدان سنة 1919. نص هذا القانون على الرفع في أجور الموظفين الفرنسيين في تونس بنسبة 1/3 مقارنة بنظرائهم في فرنسا وذلك لإغراء الفرنسيين وتحفيزهم للقدوم إلى تونس.
+                </p>
+                <p data-i18n="part1C1Text2">
+                    عمق هذا القانون عند تطبيقه الفوارق في الأجور بين الموظفين الفرنسيين ونظرائهم التونسيين وأغلق باب الوظيفة العمومية أمام المثقفين التونسيين. لذلك أثار هذا القانون غضب الموظفين التونسيين وزاد من نقمتهم على النظام الاستعماري الفرنسي وعزز من أعداد المنخرطين في العمل الوطني.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>
+                    <span data-i18n="part1D1Title">الازمة الاقتصادية وغلاء المعيشة</span>
+                </h4>
+                <p data-i18n="part1D1Text">
+                    شهدت تونس بين 1919/1924 سنوات عجاف (جفاف) تدنت فيها المحاصيل، فظهرت المجاعة والاوبئة مجددا خاصة سنة 1920. بالمقابل ارتفعت الأسعار بسبب التضخم المالي الذي عقب الحرب الأولى حيث مر مؤشر الأسعار من 100 إلى 311 بين 1914 و1920. كبل نظام الحماية البلاد التونسية بالقروض بدعوى "تجهيز" البلاد خدمة لمشروعه الاستعماري ولتوفير مداخيل إضافية لدفع أجور الموظفين الفرنسيين وبالتالي دعم جالية المعمرين الفرنسيين. ولتوفير كل هذه المبالغ، لجأ نظام الحماية إلى:
+                </p>
+                <ul>
+                    <li data-i18n="part1D1Li1">رفع قيم الضرائب القديمة: مثل ضريبة الاستيطان والقانون والعشر.</li>
+                    <li data-i18n="part1D1Li2">"استنباط" ضرائب جديدة اعتباطية في أغلبها، مثل: ضريبة على رؤوس الماشية، وأخرى على الأرباح التي حققها التجار التونسيون أثناء الحرب، بلغت ما بين 50 و80%.</li>
+                </ul>
+
+                <!-- 2. الظروف الخارجية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part1Title2">الظروف الخارجية (ظرفية عالمية ملائمة)</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part1A2Title">تأثير مبادئ الرئيس الأمريكي ولسن</span>
+                </h4>
+                <p data-i18n="part1A2Text">
+                    هي مجموعة مبادئ عرضها الرئيس الأمريكي توماس ويلسون أثناء انعقاد مؤتمر السلم بباريس سنة 1919 والمتعلقة بحق الشعوب في تقرير مصيرها. وجد التونسيون في هذه المبادئ حافزا لهم وطالبوا بتطبيقها رغبة منهم في التحرر والانعتاق. فقد وجهت "اللجنة التونسية الجزائرية" بزعامة محمد باش حامبة المنفي آنذاك في سويسرا نداءا برقيا إلى الرئيس الأمريكي ولسن في 2 جانفي 1919 دعاه فيه إلى تطبيقها على الشعوب المستعمرة التي ساهمت في انتصار الحلفاء. كما وجهت هذه اللجنة مذكرة إلى مؤتمر السلم بباريس تطلب فيها تمكين الوطنيين من حضور أشغال المؤتمر للدفاع عن قضيتهم ضد الاستعمار الفرنسي. لكن تبين أن المبادئ الولسنية لم تعني سوى الشعوب التي كانت خاضعة للهيمنة الألمانية والنمساوية.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part1B2Title">تأثير الثورة البلشفية</span>
+                </h4>
+                <p data-i18n="part1B2Text">
+                    أعلنت الثورة البلشفية منذ اندلاعها في أكتوبر 1917 موقفا مناهضا للاستعمار. ثم أكدت هذا الموقف "الأممية الثالثة الشيوعية" وتصدير الثورة والتي دعت كل الأحزاب الشيوعية في العالم إلى دعم كل الحركات المناهضة للاستعمار. تبنى هذا الموقف الفرع الفيدرالي للأممية الشيوعية في تونس، من خلال الدعوة العلنية إلى تحرير تونس ودعم الحركة النقابية التونسية المستقلة بقيادة محمد علي الحامي سنة 1924.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>
+                    <span data-i18n="part1C2Title">صدى حركات التحرر في تركيا ومصر</span>
+                </h4>
+                <p data-i18n="part1C2Text">
+                    <strong data-i18n="part1C2TurkeyTitle">الحركة الوطنية في تركيا:</strong> كان للحركة الوطنية التركية صدى كبيرا لدى الوطنيين التونسيين، خاصة بعد أن تمكن زعيم الحركة مصطفى كمال أتاتورك من هزم اليونانيين وطرد الحلفاء سنة 1921. اعتبرت الأوساط المثقفة والشعبية التونسية الانتصارات الكمالية دفاعا عن العالم الإسلامي ضد الاستعمار.
+                    <br><br>
+                    <strong data-i18n="part1C2EgyptTitle">صدى الثورة المصرية:</strong> تأثر الوطنيون في تونس بحركات التحرر في المشرق العربي مثل الثورة المصرية التي قادها سعد زغلول باشا في 1919 ضد الاستعمار الإنجليزي. وقد تمكن زغلول (بعد أن اضطرت السلطة البريطانية إلى اطلاق سراحه) من السفر إلى باريس ضمن "وفد" مصري للدفاع عن القضية المصرية في مؤتمر الصلح بباريس سنة 1919. توجت هذه النضالات بإعلان استقلال مصر سنة 1922. ساهمت الأحداث في مصر في تنامي الوعي الوطني بالبلاد التونسية.
+                </p>
+                <p data-i18n="part1Summary">
+                    تضافرت مجموعة من العوامل الداخلية والخارجية لتوفير أرضية ملائمة لتعبئة كل فئات المجتمع التونسي ضد الاستعمار الفرنسي، كما ساهمت في تنامي الوعي الوطني وبناء دعائم حركة وطنية مهيكلة خلال العشرينات.
+                </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    ساهمت العوامل الداخلية والخارجية المذكورة في خلق وعي وطني متزايد لدى التونسيين، ومهدت لظهور حركة وطنية منظمة قادت النضال ضد الاستعمار الفرنسي خلال العشرينات.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defThirdColonial">الثلث الاستعماري</strong>: <span data-i18n="defThirdColonialDesc">قانون أصدره المقيم العام الفرنسي إيتيان فالدان سنة 1919 يقضي بمنح الموظفين الفرنسيين في تونس زيادة ثلث أجورهم مقارنة بفرنسا، مما عمق الفوارق مع التونسيين.</span></li>
+                        <li><strong class="key-other" data-i18n="defProtectorate">نظام الحماية</strong>: <span data-i18n="defProtectorateDesc">نظام استعماري فرضته فرنسا على تونس سنة 1881، احتفظ بموجبه الباي بالعرش ظاهرياً لكن السلطة الفعلية كانت بيد المقيم العام الفرنسي.</span></li>
+                        <li><strong class="key-other" data-i18n="defColons">المعمرون</strong>: <span data-i18n="defColonsDesc">الأوروبيون (خاصة الفرنسيين والإيطاليين والمالطيين) الذين استوطنوا تونس واستولوا على الأراضي الخصبة في فترة الاستعمار.</span></li>
+                        <li><strong class="key-other" data-i18n="defThirdInternational">الأممية الثالثة الشيوعية</strong>: <span data-i18n="defThirdInternationalDesc">منظمة شيوعية عالمية أسست سنة 1919 في موسكو، دعت إلى دعم حركات التحرر الوطني في المستعمرات.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات ولجان</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defTunisianAlgerianCommittee">اللجنة التونسية الجزائرية</strong>: <span data-i18n="defTunisianAlgerianCommitteeDesc">لجنة وطنية تأسست في المنفى بقيادة محمد باش حامبة للدفاع عن حق تونس والجزائر في تقرير المصير في مؤتمر السلام بباريس.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Tunisia+1920s"
+                             alt="تونس في العشرينات – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryTunisiaAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryTunisiaCaption">تونس في العشرينات – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 1: The Contemporary World from 1914 to World War II",
+                lessonTitleSample: "Tunisia in the 1920s",
+                sectionIntro: "Introduction",
+                introText: "The 1920s were marked by the profound impact of World War I, which extended beyond France as a colonial power to its colonies. Tensions between Tunisians and French increased due to numerous measures aimed at reinforcing French colonialism in Tunisia and their negative repercussions on various Tunisian social groups. What were the conditions for the development of the Tunisian national movement after World War I? What were the Tunisians' reactions to colonial policies? And what was the outcome?",
+                sectionPart1: "Conditions for the Development of the Tunisian National Movement in the 1920s (after World War I)",
+                part1Title1: "Internal Conditions",
+                part1A1Title: "Drainage of Human Resources",
+                part1A1Text: "Tunisia was forced to contribute its sons (about 80,000 Tunisians) to the French army during World War I, losing about 15,000 killed and 10,000 wounded.",
+                part1B1Title: "Return to Agricultural Colonization and Import of Manufactured Goods",
+                part1B1Text: "After World War I, France resumed its policy of seizing land from Tunisians, especially habous (religious endowments) and tribal lands, claiming they were uninvested. This was to support the interests of its settlers (colons) and ensure food supplies. It managed to annex about 554,000 hectares for French settlers, along with Italians and Maltese. France also encouraged the import of French manufactured goods, harming Tunisian farmers, artisans, and traders and increasing their anger at the French colonizer, especially as they could not compete with these goods.",
+                part1C1Title: "Enactment of the Colonial Third Law",
+                part1C1Text1: "The 'Colonial Third' law was enacted by French Resident-General Étienne Flandin in 1919. It raised the salaries of French civil servants in Tunisia by one-third compared to their counterparts in France to attract French people to Tunisia.",
+                part1C1Text2: "This law deepened wage disparities between French and Tunisian employees and closed public service jobs to educated Tunisians. It therefore angered Tunisian employees, increased their resentment against the French colonial system, and swelled the ranks of the national movement.",
+                part1D1Title: "Economic Crisis and Cost of Living",
+                part1D1Text: "Tunisia experienced drought years between 1919 and 1924, with failing harvests leading to famine and epidemics, especially in 1920. Meanwhile, prices rose due to post-war inflation; the price index went from 100 to 311 between 1914 and 1920. The protectorate system burdened Tunisia with loans under the pretext of 'equipping' the country for its colonial project and to provide additional revenues for French salaries and settlers. To raise these funds, the protectorate:",
+                part1D1Li1: "Raised old taxes such as the settlement tax, legal tax, and tithe.",
+                part1D1Li2: "Introduced new arbitrary taxes, such as a tax on livestock heads and another on profits made by Tunisian traders during the war, ranging from 50% to 80%.",
+                part1Title2: "External Conditions (Favorable Global Context)",
+                part1A2Title: "Influence of US President Wilson's Principles",
+                part1A2Text: "President Woodrow Wilson presented a set of principles at the Paris Peace Conference in 1919 concerning the right of peoples to self-determination. Tunisians found motivation in these principles and demanded their application for liberation. The 'Tunisian-Algerian Committee' led by Mohamed Bach Hamba, then exiled in Switzerland, sent a telegram to Wilson on January 2, 1919, urging him to apply these principles to colonized peoples who had contributed to the Allied victory. The committee also submitted a memorandum to the Paris Peace Conference requesting that nationalists be allowed to attend to defend their cause against French colonialism. However, it turned out that Wilsonian principles only applied to peoples formerly under German and Austrian domination.",
+                part1B2Title: "Impact of the Bolshevik Revolution",
+                part1B2Text: "The Bolshevik Revolution from October 1917 declared an anti-colonial stance. The Communist Third International reinforced this by calling on all communist parties worldwide to support anti-colonial movements. The Tunisian branch of the Communist International adopted this stance, publicly calling for Tunisia's liberation and supporting the independent Tunisian trade union movement led by Mohamed Ali El Hammi in 1924.",
+                part1C2Title: "Echoes of Liberation Movements in Turkey and Egypt",
+                part1C2Text: "<strong>Turkish National Movement:</strong> It had a great echo among Tunisian nationalists, especially after Mustafa Kemal Atatürk defeated the Greeks and expelled the Allies in 1921. Tunisian intellectual and popular circles saw Kemalist victories as a defense of the Islamic world against colonialism.<br><br><strong>Egyptian Revolution:</strong> Tunisian nationalists were influenced by liberation movements in the Arab East, such as the Egyptian revolution led by Saad Zaghloul in 1919 against British colonialism. Zaghloul managed to travel to Paris as part of an Egyptian delegation to defend Egypt's cause at the Peace Conference. These struggles culminated in Egypt's independence in 1922, contributing to growing national awareness in Tunisia.",
+                part1Summary: "A combination of internal and external factors provided a suitable ground for mobilizing all Tunisian social classes against French colonialism and contributed to the growth of national consciousness and the building of an organized national movement during the 1920s.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "These internal and external factors contributed to increasing national awareness among Tunisians and paved the way for the emergence of an organized national movement that led the struggle against French colonialism in the 1920s.",
+                sectionDefinitions: "📖 Definitions",
+                defOthers: "🔖 Key Terms",
+                defThirdColonial: "Colonial Third",
+                defThirdColonialDesc: "A law issued by French Resident-General Étienne Flandin in 1919 granting French civil servants in Tunisia a one-third salary increase compared to France, deepening disparities with Tunisians.",
+                defProtectorate: "Protectorate System",
+                defProtectorateDesc: "A colonial system imposed by France on Tunisia in 1881, where the Bey nominally remained on the throne but real power lay with the French Resident-General.",
+                defColons: "Colons (Settlers)",
+                defColonsDesc: "Europeans (mainly French, Italians, and Maltese) who settled in Tunisia and seized fertile lands during the colonial period.",
+                defThirdInternational: "Communist Third International",
+                defThirdInternationalDesc: "A global communist organization founded in 1919 in Moscow, calling for support of national liberation movements in colonies.",
+                defOrganizations: "🏛️ Organizations and Committees",
+                defTunisianAlgerianCommittee: "Tunisian-Algerian Committee",
+                defTunisianAlgerianCommitteeDesc: "A nationalist committee founded in exile led by Mohamed Bach Hamba to defend the right of Tunisia and Algeria to self-determination at the Paris Peace Conference.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryTunisiaAlt: "Tunisia in the 1920s – illustrative image",
+                galleryTunisiaCaption: "Tunisia in the 1920s – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 1 : Le monde contemporain de 1914 à la Seconde Guerre mondiale",
+                lessonTitleSample: "La Tunisie dans les années 1920",
+                sectionIntro: "Introduction",
+                introText: "Les années 1920 furent marquées par l'impact profond de la Première Guerre mondiale, qui s'étendit de la France, puissance coloniale, à ses colonies. Les tensions entre Tunisiens et Français s'accrurent en raison de nombreuses mesures visant à renforcer le colonialisme français en Tunisie et de leurs répercussions négatives sur les différents groupes sociaux tunisiens. Quelles furent les conditions du développement du mouvement national tunisien après la Première Guerre mondiale ? Quelles furent les réactions des Tunisiens face aux politiques coloniales ? Et quel en fut le bilan ?",
+                sectionPart1: "Conditions du développement du mouvement national tunisien dans les années 1920 (après la Première Guerre mondiale)",
+                part1Title1: "Conditions internes",
+                part1A1Title: "Épuisement des ressources humaines",
+                part1A1Text: "La Tunisie fut contrainte de fournir ses fils (environ 80 000 Tunisiens) à l'armée française pendant la Première Guerre mondiale, perdant environ 15 000 tués et 10 000 blessés.",
+                part1B1Title: "Retour à la colonisation agricole et importation de produits manufacturés",
+                part1B1Text: "Après la guerre, la France reprit sa politique de saisie des terres tunisiennes, notamment les habous (biens religieux) et les terres tribales, sous prétexte qu'elles n'étaient pas exploitées. Cela visait à soutenir les intérêts de ses colons et à assurer l'approvisionnement de ses marchés. Elle réussit à annexer environ 554 000 hectares au profit des colons français, italiens et maltais. La France encouragea également l'importation de produits manufacturés français, nuisant aux agriculteurs, artisans et commerçants tunisiens et augmentant leur colère contre le colonisateur français.",
+                part1C1Title: "Promulgation de la loi du tiers colonial",
+                part1C1Text1: "La loi du « tiers colonial » fut promulguée par le résident général français Étienne Flandin en 1919. Elle augmentait d'un tiers les salaires des fonctionnaires français en Tunisie par rapport à la France pour attirer les Français.",
+                part1C1Text2: "Cette loi creusa les écarts salariaux entre fonctionnaires français et tunisiens et ferma la fonction publique aux intellectuels tunisiens. Elle suscita la colère des employés tunisiens, renforça leur ressentiment contre le système colonial et gonfla les rangs du mouvement national.",
+                part1D1Title: "Crise économique et vie chère",
+                part1D1Text: "La Tunisie connut des années de sécheresse entre 1919 et 1924, avec des récoltes en baisse, provoquant famine et épidémies, surtout en 1920. Parallèlement, les prix montèrent en raison de l'inflation d'après-guerre ; l'indice des prix passa de 100 à 311 entre 1914 et 1920. Le protectorat endetta la Tunisie sous prétexte de « l'équiper » pour son projet colonial et de fournir des revenus supplémentaires pour les salaires français et les colons. Pour cela, le protectorat :",
+                part1D1Li1: "Augmenta les anciens impôts comme l'impôt de capitation, l'impôt foncier et la dîme.",
+                part1D1Li2: "Créa de nouveaux impôts arbitraires, comme une taxe sur le bétail et une autre sur les bénéfices des commerçants tunisiens pendant la guerre, allant de 50% à 80%.",
+                part1Title2: "Conditions externes (contexte mondial favorable)",
+                part1A2Title: "Influence des principes du président américain Wilson",
+                part1A2Text: "Le président Woodrow Wilson présenta un ensemble de principes à la Conférence de paix de Paris en 1919 relatifs au droit des peuples à l'autodétermination. Les Tunisiens y trouvèrent une motivation et demandèrent leur application pour leur libération. Le « Comité tuniso-algérien » dirigé par Mohamed Bach Hamba, alors exilé en Suisse, envoya un télégramme à Wilson le 2 janvier 1919 l'exhortant à appliquer ces principes aux peuples colonisés ayant contribué à la victoire alliée. Le comité soumit également un mémorandum à la Conférence demandant que les nationalistes puissent y défendre leur cause contre le colonialisme français. Mais il s'avéra que les principes wilsoniens ne concernaient que les peuples anciennement sous domination allemande ou autrichienne.",
+                part1B2Title: "Impact de la révolution bolchevique",
+                part1B2Text: "La révolution bolchevique d'octobre 1917 déclara une position anticoloniale. La Troisième Internationale communiste renforça cette position en appelant tous les partis communistes du monde à soutenir les mouvements anticoloniaux. La branche tunisienne de l'Internationale communiste adopta cette position, appelant publiquement à la libération de la Tunisie et soutenant le mouvement syndical tunisien indépendant dirigé par Mohamed Ali El Hammi en 1924.",
+                part1C2Title: "Échos des mouvements de libération en Turquie et en Égypte",
+                part1C2Text: "<strong>Mouvement national turc :</strong> Il eut un grand écho parmi les nationalistes tunisiens, surtout après que Mustafa Kemal Atatürk eut vaincu les Grecs et chassé les Alliés en 1921. Les milieux intellectuels et populaires tunisiens considéraient les victoires kémalistes comme une défense du monde islamique contre le colonialisme.<br><br><strong>Révolution égyptienne :</strong> Les nationalistes tunisiens furent influencés par les mouvements de libération du Machrek arabe, comme la révolution égyptienne menée par Saad Zaghloul en 1919 contre le colonialisme britannique. Zaghloul put se rendre à Paris au sein d'une délégation égyptienne pour défendre la cause égyptienne à la Conférence de paix. Ces luttes aboutirent à l'indépendance de l'Égypte en 1922, contribuant à la croissance de la conscience nationale en Tunisie.",
+                part1Summary: "Une combinaison de facteurs internes et externes fournit un terrain propice à la mobilisation de toutes les classes sociales tunisiennes contre le colonialisme français et contribua à la croissance de la conscience nationale et à la construction d'un mouvement national organisé dans les années 1920.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ces facteurs internes et externes contribuèrent à accroître la conscience nationale des Tunisiens et ouvrirent la voie à l'émergence d'un mouvement national organisé qui mena la lutte contre le colonialisme français dans les années 1920.",
+                sectionDefinitions: "📖 Définitions",
+                defOthers: "🔖 Termes clés",
+                defThirdColonial: "Tiers colonial",
+                defThirdColonialDesc: "Loi promulguée par le résident général français Étienne Flandin en 1919 accordant aux fonctionnaires français en Tunisie une augmentation de salaire d'un tiers par rapport à la France, creusant les disparités avec les Tunisiens.",
+                defProtectorate: "Régime du protectorat",
+                defProtectorateDesc: "Système colonial imposé par la France à la Tunisie en 1881, où le bey restait nominalement sur le trône mais le pouvoir réel appartenait au résident général français.",
+                defColons: "Colons",
+                defColonsDesc: "Européens (principalement français, italiens et maltais) installés en Tunisie et s'emparant des terres fertiles pendant la période coloniale.",
+                defThirdInternational: "Troisième Internationale communiste",
+                defThirdInternationalDesc: "Organisation communiste mondiale fondée en 1919 à Moscou, appelant au soutien des mouvements de libération nationale dans les colonies.",
+                defOrganizations: "🏛️ Organisations et comités",
+                defTunisianAlgerianCommittee: "Comité tuniso-algérien",
+                defTunisianAlgerianCommitteeDesc: "Comité nationaliste fondé en exil et dirigé par Mohamed Bach Hamba pour défendre le droit de la Tunisie et de l'Algérie à l'autodétermination à la Conférence de paix de Paris.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryTunisiaAlt: "Tunisie dans les années 1920 – image illustrative",
+                galleryTunisiaCaption: "Tunisie dans les années 1920 – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية",
+                lessonTitleSample: "تونس في العشرينات",
+                sectionIntro: "مقدمة",
+                introText: "تميزت فترة العشرينات بعمق تأثيرات الحرب العالمية الاولى التى تجاوزت فرنسا كمركز استعماري لتشمل مستعمراتها، فقد زادت حدة التناقضات بين التونسيين والفرنسيين بسبب تعدد الاجراءات الرامية الى تدعيم الاستعمار الفرنسي بتونس وما خلفته من انعكاسات سلبية طالت تأثيراتها مختلف فئات المجتمع التونسي. فماهي ظرفية تطور الحركة الوطنية التونسية غداة الحرب العالمية الاولى؟ وماهي ردود فعل التونسيين تجاه السياسة الاستعمارية؟ وماهي حصيلتها؟",
+                sectionPart1: "ظروف تطور الحركة الوطنية التونسية في العشرينات (غداة الحرب العالمية الأولى)",
+                part1Title1: "الظروف الداخلية",
+                part1A1Title: "استنزاف الطاقة البشرية",
+                part1A1Text: "اضطرت تونس الى المساهمة قسريا بأبنائها (حوالى 80 ألف تونسي) في الجيش الفرنسي أثناء الحرب العالمية 1 مما أفقدها حوالي 15 ألف قتيل و10 ألف جريح.",
+                part1B1Title: "العودة الى الاستعمار الزراعي وتوريد البضائع المصنوعة",
+                part1B1Text: "استأنفت فرنسا بعد الحرب الع1 سياسة انتزاع الاراضي من التونسيين خاصة أراضي الاحباس (الاوقاف) وأراضي القبائل (العروش) بدعوى أنها غير مُستثمرة. كان ذلك لدعم مصالح جاليتها بتونس (المعمرون) ولضمان تزويد أسواقها بالمواد الغذائية. في هذا الإطار تمكنت من ضم حوالي 554 ألف هكتار لفائدة معمرين فرنسيين إلى جانب الإيطاليين والمالطيين. كما شجعت فرنسا استراد المصنوعات الفرنسية حيث أضر كل ذلك بمصالح الفلاحين والحرفيين والتجار التونسيين وزاد من غضبهم وحقدهم على المستعمر الفرنسي خاصة امام عجزهم عن منافسة هذه البضائع.",
+                part1C1Title: "سن قانون الثلث الاستعماري",
+                part1C1Text1: "\"الثلث الاستعماري\" قانون سنه المقيم العام الفرنسي في تونس إيتيان فالدان سنة 1919. نص هذا القانون على الرفع في أجور الموظفين الفرنسيين في تونس بنسبة 1/3 مقارنة بنظرائهم في فرنسا وذلك لإغراء الفرنسيين وتحفيزهم للقدوم إلى تونس.",
+                part1C1Text2: "عمق هذا القانون عند تطبيقه الفوارق في الأجور بين الموظفين الفرنسيين ونظرائهم التونسيين وأغلق باب الوظيفة العمومية أمام المثقفين التونسيين. لذلك أثار هذا القانون غضب الموظفين التونسيين وزاد من نقمتهم على النظام الاستعماري الفرنسي وعزز من أعداد المنخرطين في العمل الوطني.",
+                part1D1Title: "الازمة الاقتصادية وغلاء المعيشة",
+                part1D1Text: "شهدت تونس بين 1919/1924 سنوات عجاف (جفاف) تدنت فيها المحاصيل، فظهرت المجاعة والاوبئة مجددا خاصة سنة 1920. بالمقابل ارتفعت الأسعار بسبب التضخم المالي الذي عقب الحرب الأولى حيث مر مؤشر الأسعار من 100 إلى 311 بين 1914 و1920. كبل نظام الحماية البلاد التونسية بالقروض بدعوى \"تجهيز\" البلاد خدمة لمشروعه الاستعماري ولتوفير مداخيل إضافية لدفع أجور الموظفين الفرنسيين وبالتالي دعم جالية المعمرين الفرنسيين. ولتوفير كل هذه المبالغ، لجأ نظام الحماية إلى:",
+                part1D1Li1: "رفع قيم الضرائب القديمة: مثل ضريبة الاستيطان والقانون والعشر.",
+                part1D1Li2: "\"استنباط\" ضرائب جديدة اعتباطية في أغلبها، مثل: ضريبة على رؤوس الماشية، وأخرى على الأرباح التي حققها التجار التونسيون أثناء الحرب، بلغت ما بين 50 و80%.",
+                part1Title2: "الظروف الخارجية (ظرفية عالمية ملائمة)",
+                part1A2Title: "تأثير مبادئ الرئيس الأمريكي ولسن",
+                part1A2Text: "هي مجموعة مبادئ عرضها الرئيس الأمريكي توماس ويلسون أثناء انعقاد مؤتمر السلم بباريس سنة 1919 والمتعلقة بحق الشعوب في تقرير مصيرها. وجد التونسيون في هذه المبادئ حافزا لهم وطالبوا بتطبيقها رغبة منهم في التحرر والانعتاق. فقد وجهت \"اللجنة التونسية الجزائرية\" بزعامة محمد باش حامبة المنفي آنذاك في سويسرا نداءا برقيا إلى الرئيس الأمريكي ولسن في 2 جانفي 1919 دعاه فيه إلى تطبيقها على الشعوب المستعمرة التي ساهمت في انتصار الحلفاء. كما وجهت هذه اللجنة مذكرة إلى مؤتمر السلم بباريس تطلب فيها تمكين الوطنيين من حضور أشغال المؤتمر للدفاع عن قضيتهم ضد الاستعمار الفرنسي. لكن تبين أن المبادئ الولسنية لم تعني سوى الشعوب التي كانت خاضعة للهيمنة الألمانية والنمساوية.",
+                part1B2Title: "تأثير الثورة البلشفية",
+                part1B2Text: "أعلنت الثورة البلشفية منذ اندلاعها في أكتوبر 1917 موقفا مناهضا للاستعمار. ثم أكدت هذا الموقف \"الأممية الثالثة الشيوعية\" وتصدير الثورة والتي دعت كل الأحزاب الشيوعية في العالم إلى دعم كل الحركات المناهضة للاستعمار. تبنى هذا الموقف الفرع الفيدرالي للأممية الشيوعية في تونس، من خلال الدعوة العلنية إلى تحرير تونس ودعم الحركة النقابية التونسية المستقلة بقيادة محمد علي الحامي سنة 1924.",
+                part1C2Title: "صدى حركات التحرر في تركيا ومصر",
+                part1C2Text: "<strong>الحركة الوطنية في تركيا:</strong> كان للحركة الوطنية التركية صدى كبيرا لدى الوطنيين التونسيين، خاصة بعد أن تمكن زعيم الحركة مصطفى كمال أتاتورك من هزم اليونانيين وطرد الحلفاء سنة 1921. اعتبرت الأوساط المثقفة والشعبية التونسية الانتصارات الكمالية دفاعا عن العالم الإسلامي ضد الاستعمار.<br><br><strong>صدى الثورة المصرية:</strong> تأثر الوطنيون في تونس بحركات التحرر في المشرق العربي مثل الثورة المصرية التي قادها سعد زغلول باشا في 1919 ضد الاستعمار الإنجليزي. وقد تمكن زغلول (بعد أن اضطرت السلطة البريطانية إلى اطلاق سراحه) من السفر إلى باريس ضمن \"وفد\" مصري للدفاع عن القضية المصرية في مؤتمر الصلح بباريس سنة 1919. توجت هذه النضالات بإعلان استقلال مصر سنة 1922. ساهمت الأحداث في مصر في تنامي الوعي الوطني بالبلاد التونسية.",
+                part1Summary: "تضافرت مجموعة من العوامل الداخلية والخارجية لتوفير أرضية ملائمة لتعبئة كل فئات المجتمع التونسي ضد الاستعمار الفرنسي، كما ساهمت في تنامي الوعي الوطني وبناء دعائم حركة وطنية مهيكلة خلال العشرينات.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "ساهمت العوامل الداخلية والخارجية المذكورة في خلق وعي وطني متزايد لدى التونسيين، ومهدت لظهور حركة وطنية منظمة قادت النضال ضد الاستعمار الفرنسي خلال العشرينات.",
+                sectionDefinitions: "📖 تعريفات",
+                defOthers: "🔖 مصطلحات أساسية",
+                defThirdColonial: "الثلث الاستعماري",
+                defThirdColonialDesc: "قانون أصدره المقيم العام الفرنسي إيتيان فالدان سنة 1919 يقضي بمنح الموظفين الفرنسيين في تونس زيادة ثلث أجورهم مقارنة بفرنسا، مما عمق الفوارق مع التونسيين.",
+                defProtectorate: "نظام الحماية",
+                defProtectorateDesc: "نظام استعماري فرضته فرنسا على تونس سنة 1881، احتفظ بموجبه الباي بالعرش ظاهرياً لكن السلطة الفعلية كانت بيد المقيم العام الفرنسي.",
+                defColons: "المعمرون",
+                defColonsDesc: "الأوروبيون (خاصة الفرنسيين والإيطاليين والمالطيين) الذين استوطنوا تونس واستولوا على الأراضي الخصبة في فترة الاستعمار.",
+                defThirdInternational: "الأممية الثالثة الشيوعية",
+                defThirdInternationalDesc: "منظمة شيوعية عالمية أسست سنة 1919 في موسكو، دعت إلى دعم حركات التحرر الوطني في المستعمرات.",
+                defOrganizations: "🏛️ منظمات ولجان",
+                defTunisianAlgerianCommittee: "اللجنة التونسية الجزائرية",
+                defTunisianAlgerianCommitteeDesc: "لجنة وطنية تأسست في المنفى بقيادة محمد باش حامبة للدفاع عن حق تونس والجزائر في تقرير المصير في مؤتمر السلام بباريس.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryTunisiaAlt: "تونس في العشرينات – صورة توضيحية",
+                galleryTunisiaCaption: "تونس في العشرينات – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Colonial Third", class: "key-other", i18n: "defThirdColonial" },
+                { text: "Protectorate", class: "key-other", i18n: "defProtectorate" },
+                { text: "Colons", class: "key-other", i18n: "defColons" },
+                { text: "Third International", class: "key-other", i18n: "defThirdInternational" },
+                { text: "Tunisian-Algerian Committee", class: "key-organization", i18n: "defTunisianAlgerianCommittee" }
+            ],
+            fr: [
+                { text: "Tiers colonial", class: "key-other", i18n: "defThirdColonial" },
+                { text: "Protectorat", class: "key-other", i18n: "defProtectorate" },
+                { text: "Colons", class: "key-other", i18n: "defColons" },
+                { text: "Troisième Internationale", class: "key-other", i18n: "defThirdInternational" },
+                { text: "Comité tuniso-algérien", class: "key-organization", i18n: "defTunisianAlgerianCommittee" }
+            ],
+            ar: [
+                { text: "الثلث الاستعماري", class: "key-other", i18n: "defThirdColonial" },
+                { text: "نظام الحماية", class: "key-other", i18n: "defProtectorate" },
+                { text: "المعمرون", class: "key-other", i18n: "defColons" },
+                { text: "الأممية الثالثة الشيوعية", class: "key-other", i18n: "defThirdInternational" },
+                { text: "اللجنة التونسية الجزائرية", class: "key-organization", i18n: "defTunisianAlgerianCommittee" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

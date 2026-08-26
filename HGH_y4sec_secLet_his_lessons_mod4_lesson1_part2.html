@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 3: استقلال المستعمرات وتأسيس العالم الثالث
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                استقلال المستعمرات
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    بعد نهاية الحرب العالمية الثانية، انطلقت موجة واسعة من الاستقلالات في آسيا وأفريقيا، اختلفت أساليبها وأشكالها من بلد إلى آخر حسب الظروف المحلية والدولية. وقد تنوعت حركات التحرر الوطني من حيث المرجعية الفكرية وطرق نيل الاستقلال، لتشمل آسيا أولاً ثم أفريقيا. فما هي أبرز أساليب وأشكال النضال؟ وكيف تتابعت موجات الاستقلال في القارتين؟
+                </p>
+            </div>
+
+            <!-- II. موجة استقلال المستعمرات في آسيا وأفريقيا -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">موجة استقلال المستعمرات في آسيا وأفريقيا</span>
+                </h2>
+
+                <!-- 1. تنوع أساليب وأشكال النضال -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part2Title1">تنوع أساليب وأشكال النضال</span>
+                </h3>
+                <p data-i18n="part2Text1Intro">
+                    تنوعت حركات التحرر الوطني من حيث المرجعية الفكرية وكيفية نيل الاستقلال:
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part2A1">إيديولوجيا حركات التحرر</span>
+                </h4>
+                <p data-i18n="part2A1Text">
+                    اختلفت المرجعيات الفكرية التي استندت إليها حركات التحرر الوطني، ويمكن تمييز ثلاثة اتجاهات رئيسية:
+                </p>
+                <ul>
+                    <li><strong data-i18n="part2A1Li1Title">الاتجاه الليبرالي الوطني:</strong> <span data-i18n="part2A1Li1Text">استند إلى القيم الديمقراطية الغربية والخطاب الوطني، وطالب بالاستقلال عبر التفاوض والإصلاحات السياسية. مثل حزب المؤتمر الوطني الهندي بقيادة نهرو.</span></li>
+                    <li><strong data-i18n="part2A1Li2Title">الاتجاه الاشتراكي الشيوعي:</strong> <span data-i18n="part2A1Li2Text">استند إلى الماركسية اللينينية وربط النضال الوطني بالنضال الاجتماعي والطبقي. مثل الحركة الشيوعية الفيتنامية بقيادة هو شي منه.</span></li>
+                    <li><strong data-i18n="part2A1Li3Title">الاتجاه الديني القومي:</strong> <span data-i18n="part2A1Li3Text">استند إلى الهوية الدينية والثقافية في مواجهة الاستعمار. مثل الحركات الإسلامية في بعض مناطق آسيا وأفريقيا.</span></li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part2B1">طرق نيل الاستقلال</span>
+                </h4>
+                <p data-i18n="part2B1Text">
+                    اختلفت الطرق التي اتبعتها حركات التحرر لنيل الاستقلال، ويمكن التمييز بين طريقين رئيسيين:
+                </p>
+                <ul>
+                    <li><strong data-i18n="part2B1Li1Title">النضال السلمي والمقاومة اللاعنفية:</strong> <span data-i18n="part2B1Li1Text">اعتمد على المقاومة المدنية والعصيان المدني والمفاوضات. أبرز مثال عليها الهند بقيادة غاندي ونهرو، وغانا بقيادة نكروما.</span></li>
+                    <li><strong data-i18n="part2B1Li2Title">الكفاح المسلح والثورة التحريرية:</strong> <span data-i18n="part2B1Li2Text">اعتمد على الكفاح المسلح والحرب الثورية ضد القوى الاستعمارية. أبرز أمثلة عليها فيتنام والجزائر وأنغولا.</span></li>
+                    <li data-i18n="part2B1Li3">جمعت بعض الحركات بين الأسلوبين حسب تطور الأوضاع، كما حدث في تونس والمغرب.</li>
+                </ul>
+
+                <!-- 2. موجة استقلال المستعمرات بآسيا: 1945-1958 -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part2Title2">موجة استقلال المستعمرات بآسيا: 1945-1958</span>
+                </h3>
+                <p data-i18n="part2Text2Intro">
+                    كانت آسيا القارة الرائدة في موجة الاستقلال بعد الحرب العالمية الثانية، حيث توالت الاستقلالات فيها بسرعة:
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part2A2">استقلال سوريا ولبنان</span>
+                </h4>
+                <p data-i18n="part2A2Text">
+                    كانت سوريا ولبنان تحت الانتداب الفرنسي منذ نهاية الحرب العالمية الأولى. في سنة 1945، أعلنت الدولتان استقلالهما وأصرتا على إنهاء الوجود العسكري الفرنسي. وبعد ضغوط دولية ومقاومة شعبية، اضطرت فرنسا إلى سحب قواتها نهائياً سنة 1946، ليتم الاستقلال الكامل لكل من سوريا ولبنان.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part2B2">استقلال الهند</span>
+                </h4>
+                <p data-i18n="part2B2Text">
+                    كانت الهند أهم مستعمرة بريطانية على الإطلاق. قاد النضال الوطني فيها حزب المؤتمر الوطني بزعامة غاندي ونهرو، الذي تبنى أسلوب المقاومة اللاعنفية. أمام تصاعد الحركة الوطنية والإضرابات، اضطرت بريطانيا إلى قبول استقلال الهند سنة 1947، لكن الاستقلال تم وفق تقسيم ديني قسّم شبه القارة إلى دولتين: الهند ذات الأغلبية الهندوسية، وباكستان ذات الأغلبية المسلمة. وقد رافق هذا التقسيم موجات عنف وتهجير واسعة.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>
+                    <span data-i18n="part2C2">استقلال إندونيسيا</span>
+                </h4>
+                <p data-i18n="part2C2Text">
+                    كانت إندونيسيا مستعمرة هولندية غنية بالموارد الطبيعية. أعلن الزعيم الوطني سوكارنو الاستقلال في 17 أوت 1945 عقب انسحاب اليابان، لكن هولندا حاولت استعادة سيطرتها بالقوة. استمر الكفاح المسلح والمفاوضات حتى سنة 1949، حيث اعترفت هولندا أخيراً باستقلال إندونيسيا.
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>
+                    <span data-i18n="part2D2">استقلال الهند الصينية (فيتنام)</span>
+                </h4>
+                <p data-i18n="part2D2Text">
+                    كانت الهند الصينية (فيتنام ولاوس وكمبوديا) مستعمرة فرنسية. قاد هو شي منه نضالاً مسلحاً ضد الاستعمار الفرنسي، وتمكن من تحقيق انتصار حاسم في معركة ديان بيان فو سنة 1954. أدت هذه الهزيمة إلى انعقاد مؤتمر جنيف الذي أقر تقسيم فيتنام مؤقتاً إلى شمال وجنوب، واعترف باستقلال لاوس وكمبوديا. وقد استكملت فيتنام وحدتها لاحقاً بعد حرب فيتنام سنة 1975.
+                </p>
+
+                <!-- 3. استقلال المستعمرات بأفريقيا: 1956-1990 -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>
+                    <span data-i18n="part2Title3">استقلال المستعمرات بأفريقيا: 1956-1990</span>
+                </h3>
+                <p data-i18n="part2Text3Intro">
+                    انتقلت موجة الاستقلال إلى أفريقيا ابتداء من منتصف الخمسينات، وشملت مختلف المناطق الاستعمارية:
+                </p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part2A3">استقلال المستعمرات الإنجليزية</span>
+                </h4>
+                <p data-i18n="part2A3Text">
+                    اتبعت بريطانيا عموماً سياسة مرنة في إنهاء استعمارها، حيث فضلت التفاوض مع الحركات الوطنية وتسليم السلطة تدريجياً. من أبرز الأمثلة:
+                </p>
+                <ul>
+                    <li data-i18n="part2A3Li1">غانا (الساحل الذهبي سابقاً): أول دولة أفريقية جنوب الصحراء تنال استقلالها سنة 1957 بقيادة كوامي نكروما.</li>
+                    <li data-i18n="part2A3Li2">نيجيريا: نالت استقلالها سنة 1960 بعد مفاوضات سلمية مع بريطانيا.</li>
+                    <li data-i18n="part2A3Li3">كينيا: حصلت على استقلالها سنة 1963 بعد كفاح مسلح قاده جومو كينياتا.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part2B3">استقلال المستعمرات الفرنسية</span>
+                </h4>
+                <p data-i18n="part2B3Text">
+                    اختلفت سياسة فرنسا تجاه مستعمراتها حسب أهمية كل مستعمرة. ففي المغرب العربي، واجهت مقاومة مسلحة قوية، بينما فضلت في أفريقيا جنوب الصحراء تسليم السلطة تدريجياً:
+                </p>
+                <ul>
+                    <li data-i18n="part2B3Li1">تونس: نالت استقلالها سنة 1956 بعد نضال سياسي مسلح قاده الحزب الحر الدستوري الجديد بزعامة الحبيب بورقيبة.</li>
+                    <li data-i18n="part2B3Li2">المغرب: حصل على استقلاله سنة 1956 بعد عودة السلطان محمد الخامس من المنفى.</li>
+                    <li data-i18n="part2B3Li3">الجزائر: نالت استقلالها سنة 1962 بعد حرب تحرير طويلة ودامية استمرت من 1954 إلى 1962.</li>
+                    <li data-i18n="part2B3Li4">دول أفريقيا جنوب الصحراء: حصلت معظم المستعمرات الفرنسية هناك على استقلالها سنة 1960، مثل السنغال ومالي وساحل العاج.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>
+                    <span data-i18n="part2C3">استقلال المستعمرات البلجيكية والبرتغالية</span>
+                </h4>
+                <p data-i18n="part2C3Text">
+                    تميزت المستعمرات البلجيكية والبرتغالية بظروف استقلال أكثر تعقيداً:
+                </p>
+                <ul>
+                    <li data-i18n="part2C3Li1">الكونغو البلجيكية: حصلت على استقلالها سنة 1960، لكنها سرعان ما غرقت في حرب أهلية وصراعات إقليمية عطلت مسارها.</li>
+                    <li data-i18n="part2C3Li2">المستعمرات البرتغالية (أنغولا، موزمبيق، غينيا بيساو): نالت استقلالها متأخراً سنة 1975 بعد كفاح مسلح طويل ضد النظام البرتغالي، الذي رفض إنهاء استعماره حتى سقوط الدكتاتورية في البرتغال سنة 1974.</li>
+                    <li data-i18n="part2C3Li3">ناميبيا: آخر مستعمرة أفريقية تحصل على استقلالها سنة 1990 بعد إنهاء سيطرة جنوب أفريقيا عليها.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    غيّرت موجة الاستقلال التي اجتاحت آسيا وأفريقيا الخريطة السياسية للعالم بشكل جذري، وأنهت السيطرة الاستعمارية التقليدية على معظم المستعمرات. وقد تنوعت أساليب النضال بين السلمي والمسلح، وبين التفاوض والثورة، لكنها جميعاً عبرت عن إرادة قوية للشعوب في الحرية وتقرير المصير. وقد مهدت هذه الاستقلالات لظهور العالم الثالث وقضاياه في العلاقات الدولية.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defNonViolence">المقاومة اللاعنفية</strong>: <span data-i18n="defNonViolenceDesc">أسلوب نضالي سلمي يقوم على العصيان المدني والمقاطعة وعدم التعاون مع المستعمر.</span></li>
+                        <li><strong class="key-other" data-i18n="defArmedStruggle">الكفاح المسلح</strong>: <span data-i18n="defArmedStruggleDesc">أسلوب نضالي يعتمد على القوة العسكرية والثورة المسلحة ضد الاستعمار.</span></li>
+                        <li><strong class="key-other" data-i18n="defPartition">التقسيم</strong>: <span data-i18n="defPartitionDesc">تقسيم الأراضي عند الاستقلال على أسس دينية أو عرقية، كما حدث في الهند سنة 1947.</span></li>
+                        <li><strong class="key-other" data-i18n="defDecolonizationWave">موجة الاستقلال</strong>: <span data-i18n="defDecolonizationWaveDesc">حركة تاريخية واسعة أدت إلى استقلال معظم المستعمرات في آسيا وأفريقيا بعد الحرب العالمية الثانية.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defGandhi">غاندي</strong>: <span data-i18n="defGandhiDesc">زعيم النضال السلمي في الهند، قاد حركة المقاومة اللاعنفية ضد الاستعمار البريطاني.</span></li>
+                        <li><strong class="key-person" data-i18n="defNkrumah">كوامي نكروما</strong>: <span data-i18n="defNkrumahDesc">زعيم غانا وأول رئيس لها، رائد حركة الاستقلال في أفريقيا السوداء.</span></li>
+                        <li><strong class="key-person" data-i18n="defHoChiMinh">هو شي منه</strong>: <span data-i18n="defHoChiMinhDesc">زعيم الثورة الفيتنامية وقائد الكفاح المسلح ضد الاستعمار الفرنسي والأمريكي.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Asian+African+Independence+Wave"
+                             alt="موجة استقلال المستعمرات – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryWaveAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryWaveCaption">موجة استقلال المستعمرات – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والشخصيات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 3: Independence of Colonies and the Emergence of the Third World",
+                lessonTitleSample: "Independence of Colonies",
+                sectionIntro: "Introduction",
+                introText: "After the end of World War II, a broad wave of independence swept across Asia and Africa, with methods and forms varying from one country to another depending on local and international circumstances. National liberation movements varied in their ideological references and methods of achieving independence, encompassing Asia first and then Africa. What were the main methods and forms of struggle? And how did the waves of independence unfold across the two continents?",
+                sectionPart2: "The Wave of Colonial Independence in Asia and Africa",
+                part2Title1: "Diversity of Struggle Methods and Forms",
+                part2Text1Intro: "National liberation movements varied in their ideological references and methods of achieving independence:",
+                part2A1: "Ideology of Liberation Movements",
+                part2A1Text: "The ideological references of national liberation movements varied, with three main trends:",
+                part2A1Li1Title: "Liberal nationalist trend:",
+                part2A1Li1Text: "Based on Western democratic values and nationalist discourse, demanding independence through negotiation and political reforms. Example: the Indian National Congress led by Nehru.",
+                part2A1Li2Title: "Socialist communist trend:",
+                part2A1Li2Text: "Based on Marxism-Leninism and linking national struggle to social and class struggle. Example: the Vietnamese communist movement led by Ho Chi Minh.",
+                part2A1Li3Title: "Religious nationalist trend:",
+                part2A1Li3Text: "Based on religious and cultural identity in confronting colonialism. Example: Islamic movements in parts of Asia and Africa.",
+                part2B1: "Methods of Achieving Independence",
+                part2B1Text: "Liberation movements followed different methods to achieve independence, with two main paths:",
+                part2B1Li1Title: "Peaceful struggle and non-violent resistance:",
+                part2B1Li1Text: "Based on civil resistance, civil disobedience, and negotiations. Notable examples include India under Gandhi and Nehru, and Ghana under Nkrumah.",
+                part2B1Li2Title: "Armed struggle and revolutionary liberation:",
+                part2B1Li2Text: "Based on armed struggle and revolutionary war against colonial powers. Notable examples include Vietnam, Algeria, and Angola.",
+                part2B1Li3: "Some movements combined both methods depending on evolving circumstances, as occurred in Tunisia and Morocco.",
+                part2Title2: "Wave of Independence in Asia: 1945-1958",
+                part2Text2Intro: "Asia was the pioneering continent in the post-World War II independence wave:",
+                part2A2: "Independence of Syria and Lebanon",
+                part2A2Text: "Syria and Lebanon were under French mandate since the end of World War I. In 1945, both states declared independence and insisted on ending the French military presence. After international pressure and popular resistance, France was forced to withdraw its troops permanently in 1946, completing the independence of both countries.",
+                part2B2: "Independence of India",
+                part2B2Text: "India was Britain's most important colony. The Indian National Congress, led by Gandhi and Nehru, adopted non-violent resistance. Faced with rising national movement and strikes, Britain accepted Indian independence in 1947, but it was achieved through a religious partition dividing the subcontinent into two states: India with a Hindu majority, and Pakistan with a Muslim majority. This partition was accompanied by widespread violence and displacement.",
+                part2C2: "Independence of Indonesia",
+                part2C2Text: "Indonesia was a Dutch colony rich in natural resources. Nationalist leader Sukarno declared independence on August 17, 1945, after Japan's withdrawal, but the Netherlands attempted to regain control by force. Armed struggle and negotiations continued until 1949, when the Netherlands finally recognized Indonesian independence.",
+                part2D2: "Independence of Indochina (Vietnam)",
+                part2D2Text: "Indochina (Vietnam, Laos, Cambodia) was a French colony. Ho Chi Minh led armed struggle against French colonialism and achieved a decisive victory at Dien Bien Phu in 1954. This defeat led to the Geneva Conference, which temporarily divided Vietnam into North and South and recognized the independence of Laos and Cambodia. Vietnam was later reunified after the Vietnam War in 1975.",
+                part2Title3: "Independence of African Colonies: 1956-1990",
+                part2Text3Intro: "The wave of independence reached Africa from the mid-1950s, covering various colonial regions:",
+                part2A3: "Independence of British Colonies",
+                part2A3Text: "Britain generally followed a flexible policy in decolonization, preferring negotiation with national movements and gradual transfer of power. Notable examples:",
+                part2A3Li1: "Ghana (former Gold Coast): the first sub-Saharan African country to gain independence in 1957 under Kwame Nkrumah.",
+                part2A3Li2: "Nigeria: gained independence in 1960 after peaceful negotiations with Britain.",
+                part2A3Li3: "Kenya: obtained independence in 1963 after armed struggle led by Jomo Kenyatta.",
+                part2B3: "Independence of French Colonies",
+                part2B3Text: "France's policy toward its colonies varied according to their importance. In the Maghreb, it faced strong armed resistance, while in sub-Saharan Africa it preferred gradual transfer of power:",
+                part2B3Li1: "Tunisia: gained independence in 1956 after political and armed struggle led by the Neo-Destour party under Habib Bourguiba.",
+                part2B3Li2: "Morocco: obtained independence in 1956 after the return of Sultan Mohammed V from exile.",
+                part2B3Li3: "Algeria: gained independence in 1962 after a long and bloody liberation war from 1954 to 1962.",
+                part2B3Li4: "Sub-Saharan African states: most French colonies gained independence in 1960, such as Senegal, Mali, and Ivory Coast.",
+                part2C3: "Independence of Belgian and Portuguese Colonies",
+                part2C3Text: "Belgian and Portuguese colonies experienced more complex independence conditions:",
+                part2C3Li1: "Belgian Congo: gained independence in 1960 but quickly descended into civil war and regional conflicts.",
+                part2C3Li2: "Portuguese colonies (Angola, Mozambique, Guinea-Bissau): gained independence late in 1975 after long armed struggle against the Portuguese regime, which refused decolonization until the fall of dictatorship in Portugal in 1974.",
+                part2C3Li3: "Namibia: the last African colony to gain independence in 1990 after ending South African control.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The wave of independence that swept Asia and Africa radically changed the world's political map, ending traditional colonial control over most colonies. Struggle methods varied between peaceful and armed, between negotiation and revolution, but all expressed a strong popular will for freedom and self-determination. These independences paved the way for the emergence of the Third World and its causes in international relations.",
+                sectionDefinitions: "📖 Definitions",
+                defOthers: "🔖 Key Terms",
+                defNonViolence: "Non-violent Resistance",
+                defNonViolenceDesc: "A peaceful struggle method based on civil disobedience, boycott, and non-cooperation with the colonizer.",
+                defArmedStruggle: "Armed Struggle",
+                defArmedStruggleDesc: "A struggle method based on military force and armed revolution against colonialism.",
+                defPartition: "Partition",
+                defPartitionDesc: "Division of territories at independence on religious or ethnic grounds, as occurred in India in 1947.",
+                defDecolonizationWave: "Wave of Independence",
+                defDecolonizationWaveDesc: "A broad historical movement that led to the independence of most colonies in Asia and Africa after World War II.",
+                defPersons: "👤 Personalities",
+                defGandhi: "Gandhi",
+                defGandhiDesc: "Leader of the peaceful struggle in India, led the non-violent resistance movement against British colonialism.",
+                defNkrumah: "Kwame Nkrumah",
+                defNkrumahDesc: "Leader and first president of Ghana, pioneer of the independence movement in black Africa.",
+                defHoChiMinh: "Ho Chi Minh",
+                defHoChiMinhDesc: "Leader of the Vietnamese revolution and commander of armed struggle against French and American colonialism.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryWaveAlt: "Wave of colonial independence – illustrative image",
+                galleryWaveCaption: "Wave of colonial independence – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms and personalities",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 3 : L'indépendance des colonies et l'émergence du tiers-monde",
+                lessonTitleSample: "L'indépendance des colonies",
+                sectionIntro: "Introduction",
+                introText: "Après la fin de la Seconde Guerre mondiale, une large vague d'indépendance déferla sur l'Asie et l'Afrique, avec des méthodes et des formes variant d'un pays à l'autre. Les mouvements de libération nationale varièrent dans leurs références idéologiques et leurs méthodes d'obtention de l'indépendance, touchant d'abord l'Asie puis l'Afrique. Quelles furent les principales méthodes et formes de lutte ? Et comment les vagues d'indépendance se déroulèrent-elles sur les deux continents ?",
+                sectionPart2: "La vague d'indépendance des colonies en Asie et en Afrique",
+                part2Title1: "Diversité des méthodes et formes de lutte",
+                part2Text1Intro: "Les mouvements de libération nationale varièrent dans leurs références idéologiques et leurs méthodes d'obtention de l'indépendance :",
+                part2A1: "Idéologie des mouvements de libération",
+                part2A1Text: "Les références idéologiques des mouvements de libération varièrent, avec trois tendances principales :",
+                part2A1Li1Title: "Tendance libérale nationaliste :",
+                part2A1Li1Text: "Fondée sur les valeurs démocratiques occidentales et le discours nationaliste. Exemple : le Congrès national indien dirigé par Nehru.",
+                part2A1Li2Title: "Tendance socialiste communiste :",
+                part2A1Li2Text: "Fondée sur le marxisme-léninisme et liant la lutte nationale à la lutte sociale et de classe. Exemple : le mouvement communiste vietnamien dirigé par Hô Chi Minh.",
+                part2A1Li3Title: "Tendance religieuse nationaliste :",
+                part2A1Li3Text: "Fondée sur l'identité religieuse et culturelle face au colonialisme. Exemple : les mouvements islamiques dans certaines régions.",
+                part2B1: "Méthodes d'obtention de l'indépendance",
+                part2B1Text: "Les mouvements de libération suivirent différentes méthodes, avec deux voies principales :",
+                part2B1Li1Title: "Lutte pacifique et résistance non violente :",
+                part2B1Li1Text: "Fondée sur la résistance civile et les négociations. Exemples notables : l'Inde sous Gandhi et Nehru, et le Ghana sous Nkrumah.",
+                part2B1Li2Title: "Lutte armée et libération révolutionnaire :",
+                part2B1Li2Text: "Fondée sur la lutte armée contre les puissances coloniales. Exemples notables : le Vietnam, l'Algérie et l'Angola.",
+                part2B1Li3: "Certains mouvements combinèrent les deux méthodes, comme en Tunisie et au Maroc.",
+                part2Title2: "Vague d'indépendance en Asie : 1945-1958",
+                part2Text2Intro: "L'Asie fut le continent pionnier de la vague d'indépendance :",
+                part2A2: "Indépendance de la Syrie et du Liban",
+                part2A2Text: "La Syrie et le Liban étaient sous mandat français. En 1945, ils déclarèrent leur indépendance et exigèrent la fin de la présence militaire française. Après pressions internationales et résistance populaire, la France retira ses troupes en 1946.",
+                part2B2: "Indépendance de l'Inde",
+                part2B2Text: "L'Inde était la plus importante colonie britannique. Le Congrès national indien, dirigé par Gandhi et Nehru, adopta la résistance non violente. La Grande-Bretagne accepta l'indépendance en 1947, avec une partition religieuse divisant le sous-continent entre l'Inde et le Pakistan.",
+                part2C2: "Indépendance de l'Indonésie",
+                part2C2Text: "L'Indonésie était une colonie néerlandaise. Sukarno déclara l'indépendance le 17 août 1945. Après lutte armée et négociations, les Pays-Bas reconnurent l'indépendance en 1949.",
+                part2D2: "Indépendance de l'Indochine (Vietnam)",
+                part2D2Text: "L'Indochine était une colonie française. Hô Chi Minh mena la lutte armée et remporta la victoire décisive de Diên Biên Phu en 1954, menant aux accords de Genève.",
+                part2Title3: "Indépendance des colonies africaines : 1956-1990",
+                part2Text3Intro: "La vague d'indépendance atteignit l'Afrique à partir du milieu des années 1950 :",
+                part2A3: "Indépendance des colonies britanniques",
+                part2A3Text: "La Grande-Bretagne suivit une politique flexible de décolonisation :",
+                part2A3Li1: "Ghana : premier pays d'Afrique subsaharienne indépendant en 1957 sous Kwame Nkrumah.",
+                part2A3Li2: "Nigeria : indépendance en 1960 après négociations pacifiques.",
+                part2A3Li3: "Kenya : indépendance en 1963 après lutte armée menée par Jomo Kenyatta.",
+                part2B3: "Indépendance des colonies françaises",
+                part2B3Text: "La politique française varia selon l'importance des colonies :",
+                part2B3Li1: "Tunisie : indépendance en 1956 après lutte politique et armée.",
+                part2B3Li2: "Maroc : indépendance en 1956 après le retour du sultan Mohammed V.",
+                part2B3Li3: "Algérie : indépendance en 1962 après une longue guerre de libération.",
+                part2B3Li4: "Afrique subsaharienne : la plupart des colonies françaises obtinrent l'indépendance en 1960.",
+                part2C3: "Indépendance des colonies belges et portugaises",
+                part2C3Text: "Les colonies belges et portugaises connurent des conditions plus complexes :",
+                part2C3Li1: "Congo belge : indépendance en 1960, suivie de guerres civiles.",
+                part2C3Li2: "Colonies portugaises : indépendance en 1975 après longue lutte armée.",
+                part2C3Li3: "Namibie : dernière colonie africaine indépendante en 1990.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La vague d'indépendance qui déferla sur l'Asie et l'Afrique changea radicalement la carte politique mondiale. Les méthodes de lutte varièrent entre pacifiques et armées, mais toutes exprimèrent une forte volonté populaire de liberté et d'autodétermination.",
+                sectionDefinitions: "📖 Définitions",
+                defOthers: "🔖 Termes clés",
+                defNonViolence: "Résistance non violente",
+                defNonViolenceDesc: "Méthode de lutte pacifique fondée sur la désobéissance civile et la non-coopération.",
+                defArmedStruggle: "Lutte armée",
+                defArmedStruggleDesc: "Méthode de lutte fondée sur la force militaire contre le colonialisme.",
+                defPartition: "Partition",
+                defPartitionDesc: "Division des territoires lors de l'indépendance, comme en Inde en 1947.",
+                defDecolonizationWave: "Vague d'indépendance",
+                defDecolonizationWaveDesc: "Mouvement historique large menant à l'indépendance de la plupart des colonies.",
+                defPersons: "👤 Personnalités",
+                defGandhi: "Gandhi",
+                defGandhiDesc: "Leader de la lutte pacifique en Inde.",
+                defNkrumah: "Kwame Nkrumah",
+                defNkrumahDesc: "Leader et premier président du Ghana.",
+                defHoChiMinh: "Hô Chi Minh",
+                defHoChiMinhDesc: "Leader de la révolution vietnamienne.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryWaveAlt: "Vague d'indépendance des colonies – image illustrative",
+                galleryWaveCaption: "Vague d'indépendance des colonies – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés et personnalités",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 3: استقلال المستعمرات وتأسيس العالم الثالث",
+                lessonTitleSample: "استقلال المستعمرات",
+                sectionIntro: "مقدمة",
+                introText: "بعد نهاية الحرب العالمية الثانية، انطلقت موجة واسعة من الاستقلالات في آسيا وأفريقيا، اختلفت أساليبها وأشكالها من بلد إلى آخر حسب الظروف المحلية والدولية. وقد تنوعت حركات التحرر الوطني من حيث المرجعية الفكرية وطرق نيل الاستقلال، لتشمل آسيا أولاً ثم أفريقيا. فما هي أبرز أساليب وأشكال النضال؟ وكيف تتابعت موجات الاستقلال في القارتين؟",
+                sectionPart2: "موجة استقلال المستعمرات في آسيا وأفريقيا",
+                part2Title1: "تنوع أساليب وأشكال النضال",
+                part2Text1Intro: "تنوعت حركات التحرر الوطني من حيث المرجعية الفكرية وكيفية نيل الاستقلال:",
+                part2A1: "إيديولوجيا حركات التحرر",
+                part2A1Text: "اختلفت المرجعيات الفكرية التي استندت إليها حركات التحرر الوطني، ويمكن تمييز ثلاثة اتجاهات رئيسية:",
+                part2A1Li1Title: "الاتجاه الليبرالي الوطني:",
+                part2A1Li1Text: "استند إلى القيم الديمقراطية الغربية والخطاب الوطني، وطالب بالاستقلال عبر التفاوض والإصلاحات السياسية. مثل حزب المؤتمر الوطني الهندي بقيادة نهرو.",
+                part2A1Li2Title: "الاتجاه الاشتراكي الشيوعي:",
+                part2A1Li2Text: "استند إلى الماركسية اللينينية وربط النضال الوطني بالنضال الاجتماعي والطبقي. مثل الحركة الشيوعية الفيتنامية بقيادة هو شي منه.",
+                part2A1Li3Title: "الاتجاه الديني القومي:",
+                part2A1Li3Text: "استند إلى الهوية الدينية والثقافية في مواجهة الاستعمار. مثل الحركات الإسلامية في بعض مناطق آسيا وأفريقيا.",
+                part2B1: "طرق نيل الاستقلال",
+                part2B1Text: "اختلفت الطرق التي اتبعتها حركات التحرر لنيل الاستقلال، ويمكن التمييز بين طريقين رئيسيين:",
+                part2B1Li1Title: "النضال السلمي والمقاومة اللاعنفية:",
+                part2B1Li1Text: "اعتمد على المقاومة المدنية والعصيان المدني والمفاوضات. أبرز مثال عليها الهند بقيادة غاندي ونهرو، وغانا بقيادة نكروما.",
+                part2B1Li2Title: "الكفاح المسلح والثورة التحريرية:",
+                part2B1Li2Text: "اعتمد على الكفاح المسلح والحرب الثورية ضد القوى الاستعمارية. أبرز أمثلة عليها فيتنام والجزائر وأنغولا.",
+                part2B1Li3: "جمعت بعض الحركات بين الأسلوبين حسب تطور الأوضاع، كما حدث في تونس والمغرب.",
+                part2Title2: "موجة استقلال المستعمرات بآسيا: 1945-1958",
+                part2Text2Intro: "كانت آسيا القارة الرائدة في موجة الاستقلال بعد الحرب العالمية الثانية، حيث توالت الاستقلالات فيها بسرعة:",
+                part2A2: "استقلال سوريا ولبنان",
+                part2A2Text: "كانت سوريا ولبنان تحت الانتداب الفرنسي منذ نهاية الحرب العالمية الأولى. في سنة 1945، أعلنت الدولتان استقلالهما وأصرتا على إنهاء الوجود العسكري الفرنسي. وبعد ضغوط دولية ومقاومة شعبية، اضطرت فرنسا إلى سحب قواتها نهائياً سنة 1946، ليتم الاستقلال الكامل لكل من سوريا ولبنان.",
+                part2B2: "استقلال الهند",
+                part2B2Text: "كانت الهند أهم مستعمرة بريطانية على الإطلاق. قاد النضال الوطني فيها حزب المؤتمر الوطني بزعامة غاندي ونهرو، الذي تبنى أسلوب المقاومة اللاعنفية. أمام تصاعد الحركة الوطنية والإضرابات، اضطرت بريطانيا إلى قبول استقلال الهند سنة 1947، لكن الاستقلال تم وفق تقسيم ديني قسّم شبه القارة إلى دولتين: الهند ذات الأغلبية الهندوسية، وباكستان ذات الأغلبية المسلمة. وقد رافق هذا التقسيم موجات عنف وتهجير واسعة.",
+                part2C2: "استقلال إندونيسيا",
+                part2C2Text: "كانت إندونيسيا مستعمرة هولندية غنية بالموارد الطبيعية. أعلن الزعيم الوطني سوكارنو الاستقلال في 17 أوت 1945 عقب انسحاب اليابان، لكن هولندا حاولت استعادة سيطرتها بالقوة. استمر الكفاح المسلح والمفاوضات حتى سنة 1949، حيث اعترفت هولندا أخيراً باستقلال إندونيسيا.",
+                part2D2: "استقلال الهند الصينية (فيتنام)",
+                part2D2Text: "كانت الهند الصينية (فيتنام ولاوس وكمبوديا) مستعمرة فرنسية. قاد هو شي منه نضالاً مسلحاً ضد الاستعمار الفرنسي، وتمكن من تحقيق انتصار حاسم في معركة ديان بيان فو سنة 1954. أدت هذه الهزيمة إلى انعقاد مؤتمر جنيف الذي أقر تقسيم فيتنام مؤقتاً إلى شمال وجنوب، واعترف باستقلال لاوس وكمبوديا. وقد استكملت فيتنام وحدتها لاحقاً بعد حرب فيتنام سنة 1975.",
+                part2Title3: "استقلال المستعمرات بأفريقيا: 1956-1990",
+                part2Text3Intro: "انتقلت موجة الاستقلال إلى أفريقيا ابتداء من منتصف الخمسينات، وشملت مختلف المناطق الاستعمارية:",
+                part2A3: "استقلال المستعمرات الإنجليزية",
+                part2A3Text: "اتبعت بريطانيا عموماً سياسة مرنة في إنهاء استعمارها، حيث فضلت التفاوض مع الحركات الوطنية وتسليم السلطة تدريجياً. من أبرز الأمثلة:",
+                part2A3Li1: "غانا (الساحل الذهبي سابقاً): أول دولة أفريقية جنوب الصحراء تنال استقلالها سنة 1957 بقيادة كوامي نكروما.",
+                part2A3Li2: "نيجيريا: نالت استقلالها سنة 1960 بعد مفاوضات سلمية مع بريطانيا.",
+                part2A3Li3: "كينيا: حصلت على استقلالها سنة 1963 بعد كفاح مسلح قاده جومو كينياتا.",
+                part2B3: "استقلال المستعمرات الفرنسية",
+                part2B3Text: "اختلفت سياسة فرنسا تجاه مستعمراتها حسب أهمية كل مستعمرة. ففي المغرب العربي، واجهت مقاومة مسلحة قوية، بينما فضلت في أفريقيا جنوب الصحراء تسليم السلطة تدريجياً:",
+                part2B3Li1: "تونس: نالت استقلالها سنة 1956 بعد نضال سياسي مسلح قاده الحزب الحر الدستوري الجديد بزعامة الحبيب بورقيبة.",
+                part2B3Li2: "المغرب: حصل على استقلاله سنة 1956 بعد عودة السلطان محمد الخامس من المنفى.",
+                part2B3Li3: "الجزائر: نالت استقلالها سنة 1962 بعد حرب تحرير طويلة ودامية استمرت من 1954 إلى 1962.",
+                part2B3Li4: "دول أفريقيا جنوب الصحراء: حصلت معظم المستعمرات الفرنسية هناك على استقلالها سنة 1960، مثل السنغال ومالي وساحل العاج.",
+                part2C3: "استقلال المستعمرات البلجيكية والبرتغالية",
+                part2C3Text: "تميزت المستعمرات البلجيكية والبرتغالية بظروف استقلال أكثر تعقيداً:",
+                part2C3Li1: "الكونغو البلجيكية: حصلت على استقلالها سنة 1960، لكنها سرعان ما غرقت في حرب أهلية وصراعات إقليمية عطلت مسارها.",
+                part2C3Li2: "المستعمرات البرتغالية (أنغولا، موزمبيق، غينيا بيساو): نالت استقلالها متأخراً سنة 1975 بعد كفاح مسلح طويل ضد النظام البرتغالي، الذي رفض إنهاء استعماره حتى سقوط الدكتاتورية في البرتغال سنة 1974.",
+                part2C3Li3: "ناميبيا: آخر مستعمرة أفريقية تحصل على استقلالها سنة 1990 بعد إنهاء سيطرة جنوب أفريقيا عليها.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "غيّرت موجة الاستقلال التي اجتاحت آسيا وأفريقيا الخريطة السياسية للعالم بشكل جذري، وأنهت السيطرة الاستعمارية التقليدية على معظم المستعمرات. وقد تنوعت أساليب النضال بين السلمي والمسلح، وبين التفاوض والثورة، لكنها جميعاً عبرت عن إرادة قوية للشعوب في الحرية وتقرير المصير. وقد مهدت هذه الاستقلالات لظهور العالم الثالث وقضاياه في العلاقات الدولية.",
+                sectionDefinitions: "📖 تعريفات",
+                defOthers: "🔖 مصطلحات أساسية",
+                defNonViolence: "المقاومة اللاعنفية",
+                defNonViolenceDesc: "أسلوب نضالي سلمي يقوم على العصيان المدني والمقاطعة وعدم التعاون مع المستعمر.",
+                defArmedStruggle: "الكفاح المسلح",
+                defArmedStruggleDesc: "أسلوب نضالي يعتمد على القوة العسكرية والثورة المسلحة ضد الاستعمار.",
+                defPartition: "التقسيم",
+                defPartitionDesc: "تقسيم الأراضي عند الاستقلال على أسس دينية أو عرقية، كما حدث في الهند سنة 1947.",
+                defDecolonizationWave: "موجة الاستقلال",
+                defDecolonizationWaveDesc: "حركة تاريخية واسعة أدت إلى استقلال معظم المستعمرات في آسيا وأفريقيا بعد الحرب العالمية الثانية.",
+                defPersons: "👤 شخصيات",
+                defGandhi: "غاندي",
+                defGandhiDesc: "زعيم النضال السلمي في الهند، قاد حركة المقاومة اللاعنفية ضد الاستعمار البريطاني.",
+                defNkrumah: "كوامي نكروما",
+                defNkrumahDesc: "زعيم غانا وأول رئيس لها، رائد حركة الاستقلال في أفريقيا السوداء.",
+                defHoChiMinh: "هو شي منه",
+                defHoChiMinhDesc: "زعيم الثورة الفيتنامية وقائد الكفاح المسلح ضد الاستعمار الفرنسي والأمريكي.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryWaveAlt: "موجة استقلال المستعمرات – صورة توضيحية",
+                galleryWaveCaption: "موجة استقلال المستعمرات – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والشخصيات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Non-violent Resistance", class: "key-other", i18n: "defNonViolence" },
+                { text: "Armed Struggle", class: "key-other", i18n: "defArmedStruggle" },
+                { text: "Partition", class: "key-other", i18n: "defPartition" },
+                { text: "Wave of Independence", class: "key-other", i18n: "defDecolonizationWave" },
+                { text: "Gandhi", class: "key-person", i18n: "defGandhi" },
+                { text: "Nkrumah", class: "key-person", i18n: "defNkrumah" },
+                { text: "Ho Chi Minh", class: "key-person", i18n: "defHoChiMinh" }
+            ],
+            fr: [
+                { text: "Résistance non violente", class: "key-other", i18n: "defNonViolence" },
+                { text: "Lutte armée", class: "key-other", i18n: "defArmedStruggle" },
+                { text: "Partition", class: "key-other", i18n: "defPartition" },
+                { text: "Vague d'indépendance", class: "key-other", i18n: "defDecolonizationWave" },
+                { text: "Gandhi", class: "key-person", i18n: "defGandhi" },
+                { text: "Nkrumah", class: "key-person", i18n: "defNkrumah" },
+                { text: "Hô Chi Minh", class: "key-person", i18n: "defHoChiMinh" }
+            ],
+            ar: [
+                { text: "المقاومة اللاعنفية", class: "key-other", i18n: "defNonViolence" },
+                { text: "الكفاح المسلح", class: "key-other", i18n: "defArmedStruggle" },
+                { text: "التقسيم", class: "key-other", i18n: "defPartition" },
+                { text: "موجة الاستقلال", class: "key-other", i18n: "defDecolonizationWave" },
+                { text: "غاندي", class: "key-person", i18n: "defGandhi" },
+                { text: "نكروما", class: "key-person", i18n: "defNkrumah" },
+                { text: "هو شي منه", class: "key-person", i18n: "defHoChiMinh" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

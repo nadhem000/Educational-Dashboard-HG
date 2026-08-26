@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 2: العلاقات الدولية من الحرب الباردة إلى انهيار الاتحاد السوفياتي
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                العلاقات الدولية من الحرب الباردة إلى انهيار الاتحاد السوفياتي
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    بعد فترة الانفراج التي سادت السبعينات، عادت التوترات إلى الواجهة بين القطبين، خاصة مع الغزو السوفياتي لأفغانستان، مما أدى إلى تصعيد جديد في الحرب الباردة. وقد تزامن ذلك مع أزمة داخلية عميقة في الاتحاد السوفياتي والكتلة الاشتراكية، انتهت بتصدع الكتلة وانهيار الاتحاد السوفياتي في بداية التسعينات. فما هي مظاهر عودة التوتر؟ وما هي عوامل تصدع الكتلة الاشتراكية وانهيار الاتحاد السوفياتي؟
+                </p>
+            </div>
+
+            <!-- IV. عودة التوتر وانهيار الاتحاد السوفياتي -->
+            <div class="lesson-part" id="part4" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">IV</span> <span data-i18n="sectionPart4">عودة التوتر وانهيار الاتحاد السوفياتي</span>
+                </h2>
+
+                <!-- 1. عودة التوتر -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part4Title1">عودة التوتر</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part4A1">الغزو السوفياتي لأفغانستان وعودة التوتر</span>
+                </h4>
+                <p data-i18n="part4A1Text">
+                    في ديسمبر 1979، قام الاتحاد السوفياتي بغزو أفغانستان لدعم النظام الشيوعي المحلي، مما أثار رد فعل غربي قوي. اعتبرت الولايات المتحدة هذا الغزو تهديدًا مباشرًا للمصالح الغربية في منطقة الشرق الأوسط وآسيا، فقررت الرد بحزم. أدى هذا الغزو إلى نهاية سياسة الانفراج وعودة التوتر بين العملاقين.
+                </p>
+                <ul>
+                    <li data-i18n="part4A1Li1">قاطعت الولايات المتحدة وحلفاؤها دورة الألعاب الأولمبية الصيفية في موسكو سنة 1980.</li>
+                    <li data-i18n="part4A1Li2">فرضت الولايات المتحدة عقوبات اقتصادية على الاتحاد السوفياتي وعلقت اتفاقيات التعاون.</li>
+                    <li data-i18n="part4A1Li3">قدمت واشنطن دعمًا عسكريًا وماليًا كبيرًا للمجاهدين الأفغان لمقاومة الاحتلال السوفياتي.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part4B1">سياسة الرئيس ريغان وتصعيد الحرب الباردة</span>
+                </h4>
+                <p data-i18n="part4B1Text">
+                    مع وصول رونالد ريغان إلى الرئاسة الأمريكية سنة 1981، تبنى سياسة صارمة تجاه الاتحاد السوفياتي وصفه فيها بـ"إمبراطورية الشر". وقد اتسمت هذه الفترة بتصعيد كبير في الحرب الباردة:
+                </p>
+                <ul>
+                    <li data-i18n="part4B1Li1">زيادة هائلة في الإنفاق العسكري الأمريكي وتحديث الترسانة النووية.</li>
+                    <li data-i18n="part4B1Li2">إطلاق مبادرة الدفاع الاستراتيجي (حرب النجوم) التي تهدف إلى إنشاء درع صاروخي دفاعي.</li>
+                    <li data-i18n="part4B1Li3">دعم الحركات المضادة للشيوعية في العالم، خاصة في أمريكا اللاتينية وأفريقيا وآسيا.</li>
+                    <li data-i18n="part4B1Li4">الضغط الاقتصادي على الاتحاد السوفياتي عبر خفض أسعار النفط وتقييد نقل التكنولوجيا.</li>
+                </ul>
+                <p data-i18n="part4B1Conclusion">
+                    أدت هذه السياسة إلى إرهاق الاقتصاد السوفياتي المتعثر، وساهمت في تعميق الأزمة الداخلية للاتحاد السوفياتي.
+                </p>
+
+                <!-- 2. تصدع الكتلة الاشتراكية وانهيار الاتحاد السوفياتي -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part4Title2">تصدع الكتلة الاشتراكية في أوروبا الشرقية وانهيار الاتحاد السوفياتي</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part4A2">تصدع الكتلة الاشتراكية بأوروبا الشرقية</span>
+                </h4>
+                <p data-i18n="part4A2Text">
+                    في منتصف الثمانينات، وصل ميخائيل غورباتشوف إلى السلطة في الاتحاد السوفياتي وبدأ سلسلة من الإصلاحات عرفت بـ"البيريسترويكا" (إعادة الهيكلة) و"الغلاسنوست" (الشفافية). وقد شجعت هذه الإصلاحات شعوب أوروبا الشرقية على المطالبة بالحرية والديمقراطية، فشهدت المنطقة موجة من الثورات السلمية سنة 1989:
+                </p>
+                <ul>
+                    <li data-i18n="part4A2Li1">سقوط جدار برلين في نوفمبر 1989 وإعادة توحيد ألمانيا سنة 1990.</li>
+                    <li data-i18n="part4A2Li2">انهيار الأنظمة الشيوعية في بولونيا والمجر وتشيكوسلوفاكيا ورومانيا وبلغاريا.</li>
+                    <li data-i18n="part4A2Li3">حل حلف وارسو سنة 1991، مؤذنًا بنهاية الهيمنة السوفياتية على أوروبا الشرقية.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part4B2">انهيار الاتحاد السوفياتي</span>
+                </h4>
+                <p data-i18n="part4B2Text">
+                    واجه الاتحاد السوفياتي في نهاية الثمانينات أزمة اقتصادية خانقة وتنامي الحركات القومية الانفصالية في جمهورياته. وقد فشل غورباتشوف في إيقاف التفكك، فشهدت البلاد الأحداث التالية:
+                </p>
+                <ul>
+                    <li data-i18n="part4B2Li1">إعلان عدة جمهوريات سوفياتية استقلالها عن الاتحاد ابتداء من 1990.</li>
+                    <li data-i18n="part4B2Li2">محاولة انقلاب فاشلة ضد غورباتشوف في أوت 1991 قادها المحافظون.</li>
+                    <li data-i18n="part4B2Li3">استقالة غورباتشوف في ديسمبر 1991 وحل الاتحاد السوفياتي رسميًا.</li>
+                    <li data-i18n="part4B2Li4">نشأة رابطة الدول المستقلة (CIS) كإطار للتعاون بين الجمهوريات السوفياتية السابقة.</li>
+                </ul>
+                <p data-i18n="part4B2Conclusion">
+                    انتهى بذلك نظام القطبية الثنائية، وأصبحت الولايات المتحدة القوة العظمى الوحيدة في العالم، ودخل النظام الدولي مرحلة جديدة من الأحادية القطبية.
+                </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    شكلت عودة التوتر في بداية الثمانينات والانهيار النهائي للاتحاد السوفياتي نهاية للحرب الباردة ونهاية لنظام القطبية الثنائية. وقد أدى انهيار الاتحاد السوفياتي إلى إعادة تشكيل النظام الدولي بقيادة الولايات المتحدة كقوة عظمى وحيدة، مع بروز قوى إقليمية جديدة وتحديات عالمية جديدة.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defAfghanWar">الغزو السوفياتي لأفغانستان</strong>: <span data-i18n="defAfghanWarDesc">تدخل عسكري سوفياتي في أفغانستان سنة 1979 لدعم النظام الشيوعي، وأدى إلى عودة التوتر بين القطبين.</span></li>
+                        <li><strong class="key-other" data-i18n="defPerestroika">البيريسترويكا</strong>: <span data-i18n="defPerestroikaDesc">سياسة إصلاح اقتصادي وسياسي أطلقها غورباتشوف في منتصف الثمانينات لإعادة هيكلة النظام السوفياتي.</span></li>
+                        <li><strong class="key-other" data-i18n="defGlasnost">الغلاسنوست</strong>: <span data-i18n="defGlasnostDesc">سياسة الشفافية والانفتاح الإعلامي التي تبناها غورباتشوف وسمحت بحرية التعبير.</span></li>
+                        <li><strong class="key-other" data-i18n="defSDI">مبادرة الدفاع الاستراتيجي</strong>: <span data-i18n="defSDIDesc">مشروع أمريكي أطلقه الرئيس ريغان لإنشاء درع صاروخي فضائي، عرف إعلامياً بـ"حرب النجوم".</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات وأحداث</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defCIS">رابطة الدول المستقلة</strong>: <span data-i18n="defCISDesc">منظمة إقليمية تأسست سنة 1991 ضمت معظم الجمهوريات السوفياتية السابقة.</span></li>
+                        <li><strong class="key-organization" data-i18n="defBerlinWall">جدار برلين</strong>: <span data-i18n="defBerlinWallDesc">جدار بني سنة 1961 وقسم برلين، وسقط سنة 1989 رمزًا لنهاية الحرب الباردة.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Fall+of+Berlin+Wall"
+                             alt="سقوط جدار برلين – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryFallAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryFallCaption">سقوط جدار برلين – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 2: International Relations from the Cold War to the Collapse of the Soviet Union",
+                lessonTitleSample: "International Relations from the Cold War to the Collapse of the Soviet Union",
+                sectionIntro: "Introduction",
+                introText: "After the détente of the 1970s, tensions returned between the two superpowers, especially with the Soviet invasion of Afghanistan, leading to a new escalation in the Cold War. This coincided with a deep internal crisis in the Soviet Union and the socialist bloc, ending with the bloc's disintegration and the collapse of the Soviet Union in the early 1990s. What were the manifestations of the return of tensions? And what were the factors behind the disintegration of the socialist bloc and the collapse of the Soviet Union?",
+                sectionPart4: "Return of Tensions and Collapse of the Soviet Union",
+                part4Title1: "Return of Tensions",
+                part4A1: "Soviet Invasion of Afghanistan and the Return of Tensions",
+                part4A1Text: "In December 1979, the Soviet Union invaded Afghanistan to support the local communist regime, provoking a strong Western reaction. The United States considered this a direct threat to Western interests in the Middle East and Asia, and decided to respond firmly. This invasion ended détente and brought back tensions between the superpowers.",
+                part4A1Li1: "The US and its allies boycotted the 1980 Moscow Summer Olympics.",
+                part4A1Li2: "The US imposed economic sanctions and suspended cooperation agreements with the USSR.",
+                part4A1Li3: "Washington provided massive military and financial support to Afghan mujahideen resisting Soviet occupation.",
+                part4B1: "Reagan's Policy and the Escalation of the Cold War",
+                part4B1Text: "With Ronald Reagan's arrival in the White House in 1981, the US adopted a tough policy toward the Soviet Union, calling it the 'evil empire.' This period saw significant escalation:",
+                part4B1Li1: "Massive increase in US military spending and modernization of nuclear arsenals.",
+                part4B1Li2: "Launch of the Strategic Defense Initiative (Star Wars) to build a missile defense shield.",
+                part4B1Li3: "Support for anti-communist movements worldwide, especially in Latin America, Africa, and Asia.",
+                part4B1Li4: "Economic pressure on the USSR through lower oil prices and technology transfer restrictions.",
+                part4B1Conclusion: "This policy strained the struggling Soviet economy and deepened the internal crisis of the USSR.",
+                part4Title2: "Disintegration of the Socialist Bloc in Eastern Europe and Collapse of the Soviet Union",
+                part4A2: "Disintegration of the Socialist Bloc in Eastern Europe",
+                part4A2Text: "In the mid-1980s, Mikhail Gorbachev came to power in the USSR and began reforms known as perestroika (restructuring) and glasnost (openness). These reforms encouraged Eastern European peoples to demand freedom and democracy, leading to a wave of peaceful revolutions in 1989:",
+                part4A2Li1: "Fall of the Berlin Wall in November 1989 and German reunification in 1990.",
+                part4A2Li2: "Collapse of communist regimes in Poland, Hungary, Czechoslovakia, Romania, and Bulgaria.",
+                part4A2Li3: "Dissolution of the Warsaw Pact in 1991, ending Soviet hegemony over Eastern Europe.",
+                part4B2: "Collapse of the Soviet Union",
+                part4B2Text: "The USSR faced a severe economic crisis and growing nationalist separatist movements in its republics. Gorbachev failed to stop the disintegration, leading to:",
+                part4B2Li1: "Several Soviet republics declaring independence from the union starting in 1990.",
+                part4B2Li2: "A failed coup against Gorbachev in August 1991 led by hardliners.",
+                part4B2Li3: "Gorbachev's resignation in December 1991 and the official dissolution of the USSR.",
+                part4B2Li4: "Creation of the Commonwealth of Independent States (CIS) as a framework for cooperation among former Soviet republics.",
+                part4B2Conclusion: "This ended the bipolar system, making the United States the sole superpower, and the international system entered a new phase of unipolarity.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The return of tensions in the early 1980s and the final collapse of the Soviet Union marked the end of the Cold War and the bipolar system. The Soviet collapse reshaped the international system under US leadership as the sole superpower, with new regional powers and global challenges emerging.",
+                sectionDefinitions: "📖 Definitions",
+                defOthers: "🔖 Key Terms",
+                defAfghanWar: "Soviet invasion of Afghanistan",
+                defAfghanWarDesc: "A Soviet military intervention in Afghanistan in 1979 to support the communist regime, leading to renewed tensions.",
+                defPerestroika: "Perestroika",
+                defPerestroikaDesc: "Gorbachev's economic and political reform policy launched in the mid-1980s to restructure the Soviet system.",
+                defGlasnost: "Glasnost",
+                defGlasnostDesc: "Gorbachev's policy of openness and transparency, allowing freedom of expression.",
+                defSDI: "Strategic Defense Initiative",
+                defSDIDesc: "A US project launched by Reagan to create a space-based missile defense shield, known as 'Star Wars.'",
+                defOrganizations: "🏛️ Organizations and Events",
+                defCIS: "Commonwealth of Independent States",
+                defCISDesc: "A regional organization founded in 1991 comprising most former Soviet republics.",
+                defBerlinWall: "Berlin Wall",
+                defBerlinWallDesc: "A wall built in 1961 dividing Berlin, which fell in 1989 as a symbol of the Cold War's end.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryFallAlt: "Fall of the Berlin Wall – illustrative image",
+                galleryFallCaption: "Fall of the Berlin Wall – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 2 : Les relations internationales de la guerre froide à l'effondrement de l'Union soviétique",
+                lessonTitleSample: "Les relations internationales de la guerre froide à l'effondrement de l'Union soviétique",
+                sectionIntro: "Introduction",
+                introText: "Après la détente des années 1970, les tensions revinrent entre les deux superpuissances, notamment avec l'invasion soviétique de l'Afghanistan, entraînant une nouvelle escalade de la guerre froide. Cela coïncida avec une profonde crise interne en Union soviétique et dans le bloc socialiste, aboutissant à la désintégration du bloc et à l'effondrement de l'URSS au début des années 1990. Quelles furent les manifestations du retour des tensions ? Et quels furent les facteurs de la désintégration du bloc socialiste et de l'effondrement de l'Union soviétique ?",
+                sectionPart4: "Retour des tensions et effondrement de l'Union soviétique",
+                part4Title1: "Retour des tensions",
+                part4A1: "Invasion soviétique de l'Afghanistan et retour des tensions",
+                part4A1Text: "En décembre 1979, l'Union soviétique envahit l'Afghanistan pour soutenir le régime communiste local, provoquant une forte réaction occidentale. Les États-Unis considérèrent cela comme une menace directe pour leurs intérêts, et décidèrent de réagir fermement. Cette invasion mit fin à la détente et ramena les tensions.",
+                part4A1Li1: "Boycott américain et allié des Jeux olympiques de Moscou en 1980.",
+                part4A1Li2: "Sanctions économiques américaines et suspension des accords de coopération.",
+                part4A1Li3: "Soutien militaire et financier massif aux moudjahidines afghans.",
+                part4B1: "Politique de Reagan et escalade de la guerre froide",
+                part4B1Text: "Avec l'arrivée de Ronald Reagan en 1981, les États-Unis adoptèrent une politique dure envers l'URSS, la qualifiant d'« empire du mal ». Cette période connut une escalade significative :",
+                part4B1Li1: "Augmentation massive des dépenses militaires américaines.",
+                part4B1Li2: "Lancement de l'Initiative de défense stratégique (guerre des étoiles).",
+                part4B1Li3: "Soutien aux mouvements anticommunistes dans le monde.",
+                part4B1Li4: "Pression économique sur l'URSS par la baisse des prix du pétrole.",
+                part4B1Conclusion: "Cette politique épuisa l'économie soviétique et aggrava la crise interne.",
+                part4Title2: "Désintégration du bloc socialiste et effondrement de l'Union soviétique",
+                part4A2: "Désintégration du bloc socialiste en Europe de l'Est",
+                part4A2Text: "Au milieu des années 1980, Mikhaïl Gorbatchev arriva au pouvoir et lança la perestroïka et la glasnost. Ces réformes encouragèrent les peuples d'Europe de l'Est à réclamer liberté et démocratie, aboutissant à une vague de révolutions pacifiques en 1989 :",
+                part4A2Li1: "Chute du mur de Berlin en novembre 1989 et réunification allemande en 1990.",
+                part4A2Li2: "Effondrement des régimes communistes en Pologne, Hongrie, Tchécoslovaquie, Roumanie et Bulgarie.",
+                part4A2Li3: "Dissolution du pacte de Varsovie en 1991.",
+                part4B2: "Effondrement de l'Union soviétique",
+                part4B2Text: "L'URSS fit face à une crise économique sévère et à des mouvements nationalistes croissants. Gorbatchev échoua à stopper la désintégration :",
+                part4B2Li1: "Déclaration d'indépendance de plusieurs républiques à partir de 1990.",
+                part4B2Li2: "Putsch manqué contre Gorbatchev en août 1991.",
+                part4B2Li3: "Démission de Gorbatchev et dissolution officielle de l'URSS en décembre 1991.",
+                part4B2Li4: "Création de la Communauté des États indépendants (CEI).",
+                part4B2Conclusion: "Cela mit fin au système bipolaire, faisant des États-Unis la seule superpuissance.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Le retour des tensions au début des années 1980 et l'effondrement final de l'Union soviétique marquèrent la fin de la guerre froide et du système bipolaire, remodelant le système international sous domination américaine.",
+                sectionDefinitions: "📖 Définitions",
+                defOthers: "🔖 Termes clés",
+                defAfghanWar: "Invasion soviétique de l'Afghanistan",
+                defAfghanWarDesc: "Intervention militaire soviétique en 1979 pour soutenir le régime communiste, provoquant le retour des tensions.",
+                defPerestroika: "Perestroïka",
+                defPerestroikaDesc: "Politique de réforme de Gorbatchev visant à restructurer le système soviétique.",
+                defGlasnost: "Glasnost",
+                defGlasnostDesc: "Politique de transparence et d'ouverture de Gorbatchev.",
+                defSDI: "Initiative de défense stratégique",
+                defSDIDesc: "Projet américain de bouclier antimissile lancé par Reagan.",
+                defOrganizations: "🏛️ Organisations et événements",
+                defCIS: "Communauté des États indépendants",
+                defCISDesc: "Organisation régionale fondée en 1991 regroupant la plupart des anciennes républiques soviétiques.",
+                defBerlinWall: "Mur de Berlin",
+                defBerlinWallDesc: "Mur construit en 1961 divisant Berlin, tombé en 1989, symbole de la fin de la guerre froide.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryFallAlt: "Chute du mur de Berlin – image illustrative",
+                galleryFallCaption: "Chute du mur de Berlin – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 2: العلاقات الدولية من الحرب الباردة إلى انهيار الاتحاد السوفياتي",
+                lessonTitleSample: "العلاقات الدولية من الحرب الباردة إلى انهيار الاتحاد السوفياتي",
+                sectionIntro: "مقدمة",
+                introText: "بعد فترة الانفراج التي سادت السبعينات، عادت التوترات إلى الواجهة بين القطبين، خاصة مع الغزو السوفياتي لأفغانستان، مما أدى إلى تصعيد جديد في الحرب الباردة. وقد تزامن ذلك مع أزمة داخلية عميقة في الاتحاد السوفياتي والكتلة الاشتراكية، انتهت بتصدع الكتلة وانهيار الاتحاد السوفياتي في بداية التسعينات. فما هي مظاهر عودة التوتر؟ وما هي عوامل تصدع الكتلة الاشتراكية وانهيار الاتحاد السوفياتي؟",
+                sectionPart4: "عودة التوتر وانهيار الاتحاد السوفياتي",
+                part4Title1: "عودة التوتر",
+                part4A1: "الغزو السوفياتي لأفغانستان وعودة التوتر",
+                part4A1Text: "في ديسمبر 1979، قام الاتحاد السوفياتي بغزو أفغانستان لدعم النظام الشيوعي المحلي، مما أثار رد فعل غربي قوي. اعتبرت الولايات المتحدة هذا الغزو تهديدًا مباشرًا للمصالح الغربية في منطقة الشرق الأوسط وآسيا، فقررت الرد بحزم. أدى هذا الغزو إلى نهاية سياسة الانفراج وعودة التوتر بين العملاقين.",
+                part4A1Li1: "قاطعت الولايات المتحدة وحلفاؤها دورة الألعاب الأولمبية الصيفية في موسكو سنة 1980.",
+                part4A1Li2: "فرضت الولايات المتحدة عقوبات اقتصادية على الاتحاد السوفياتي وعلقت اتفاقيات التعاون.",
+                part4A1Li3: "قدمت واشنطن دعمًا عسكريًا وماليًا كبيرًا للمجاهدين الأفغان لمقاومة الاحتلال السوفياتي.",
+                part4B1: "سياسة الرئيس ريغان وتصعيد الحرب الباردة",
+                part4B1Text: "مع وصول رونالد ريغان إلى الرئاسة الأمريكية سنة 1981، تبنى سياسة صارمة تجاه الاتحاد السوفياتي وصفه فيها بـ\"إمبراطورية الشر\". وقد اتسمت هذه الفترة بتصعيد كبير في الحرب الباردة:",
+                part4B1Li1: "زيادة هائلة في الإنفاق العسكري الأمريكي وتحديث الترسانة النووية.",
+                part4B1Li2: "إطلاق مبادرة الدفاع الاستراتيجي (حرب النجوم) التي تهدف إلى إنشاء درع صاروخي دفاعي.",
+                part4B1Li3: "دعم الحركات المضادة للشيوعية في العالم، خاصة في أمريكا اللاتينية وأفريقيا وآسيا.",
+                part4B1Li4: "الضغط الاقتصادي على الاتحاد السوفياتي عبر خفض أسعار النفط وتقييد نقل التكنولوجيا.",
+                part4B1Conclusion: "أدت هذه السياسة إلى إرهاق الاقتصاد السوفياتي المتعثر، وساهمت في تعميق الأزمة الداخلية للاتحاد السوفياتي.",
+                part4Title2: "تصدع الكتلة الاشتراكية في أوروبا الشرقية وانهيار الاتحاد السوفياتي",
+                part4A2: "تصدع الكتلة الاشتراكية بأوروبا الشرقية",
+                part4A2Text: "في منتصف الثمانينات، وصل ميخائيل غورباتشوف إلى السلطة في الاتحاد السوفياتي وبدأ سلسلة من الإصلاحات عرفت بـ\"البيريسترويكا\" (إعادة الهيكلة) و\"الغلاسنوست\" (الشفافية). وقد شجعت هذه الإصلاحات شعوب أوروبا الشرقية على المطالبة بالحرية والديمقراطية، فشهدت المنطقة موجة من الثورات السلمية سنة 1989:",
+                part4A2Li1: "سقوط جدار برلين في نوفمبر 1989 وإعادة توحيد ألمانيا سنة 1990.",
+                part4A2Li2: "انهيار الأنظمة الشيوعية في بولونيا والمجر وتشيكوسلوفاكيا ورومانيا وبلغاريا.",
+                part4A2Li3: "حل حلف وارسو سنة 1991، مؤذنًا بنهاية الهيمنة السوفياتية على أوروبا الشرقية.",
+                part4B2: "انهيار الاتحاد السوفياتي",
+                part4B2Text: "واجه الاتحاد السوفياتي في نهاية الثمانينات أزمة اقتصادية خانقة وتنامي الحركات القومية الانفصالية في جمهورياته. وقد فشل غورباتشوف في إيقاف التفكك، فشهدت البلاد الأحداث التالية:",
+                part4B2Li1: "إعلان عدة جمهوريات سوفياتية استقلالها عن الاتحاد ابتداء من 1990.",
+                part4B2Li2: "محاولة انقلاب فاشلة ضد غورباتشوف في أوت 1991 قادها المحافظون.",
+                part4B2Li3: "استقالة غورباتشوف في ديسمبر 1991 وحل الاتحاد السوفياتي رسميًا.",
+                part4B2Li4: "نشأة رابطة الدول المستقلة (CIS) كإطار للتعاون بين الجمهوريات السوفياتية السابقة.",
+                part4B2Conclusion: "انتهى بذلك نظام القطبية الثنائية، وأصبحت الولايات المتحدة القوة العظمى الوحيدة في العالم، ودخل النظام الدولي مرحلة جديدة من الأحادية القطبية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "شكلت عودة التوتر في بداية الثمانينات والانهيار النهائي للاتحاد السوفياتي نهاية للحرب الباردة ونهاية لنظام القطبية الثنائية. وقد أدى انهيار الاتحاد السوفياتي إلى إعادة تشكيل النظام الدولي بقيادة الولايات المتحدة كقوة عظمى وحيدة، مع بروز قوى إقليمية جديدة وتحديات عالمية جديدة.",
+                sectionDefinitions: "📖 تعريفات",
+                defOthers: "🔖 مصطلحات أساسية",
+                defAfghanWar: "الغزو السوفياتي لأفغانستان",
+                defAfghanWarDesc: "تدخل عسكري سوفياتي في أفغانستان سنة 1979 لدعم النظام الشيوعي، وأدى إلى عودة التوتر بين القطبين.",
+                defPerestroika: "البيريسترويكا",
+                defPerestroikaDesc: "سياسة إصلاح اقتصادي وسياسي أطلقها غورباتشوف في منتصف الثمانينات لإعادة هيكلة النظام السوفياتي.",
+                defGlasnost: "الغلاسنوست",
+                defGlasnostDesc: "سياسة الشفافية والانفتاح الإعلامي التي تبناها غورباتشوف وسمحت بحرية التعبير.",
+                defSDI: "مبادرة الدفاع الاستراتيجي",
+                defSDIDesc: "مشروع أمريكي أطلقه الرئيس ريغان لإنشاء درع صاروخي فضائي، عرف إعلامياً بـ\"حرب النجوم\".",
+                defOrganizations: "🏛️ منظمات وأحداث",
+                defCIS: "رابطة الدول المستقلة",
+                defCISDesc: "منظمة إقليمية تأسست سنة 1991 ضمت معظم الجمهوريات السوفياتية السابقة.",
+                defBerlinWall: "جدار برلين",
+                defBerlinWallDesc: "جدار بني سنة 1961 وقسم برلين، وسقط سنة 1989 رمزًا لنهاية الحرب الباردة.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryFallAlt: "سقوط جدار برلين – صورة توضيحية",
+                galleryFallCaption: "سقوط جدار برلين – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Soviet invasion of Afghanistan", class: "key-other", i18n: "defAfghanWar" },
+                { text: "Perestroika", class: "key-other", i18n: "defPerestroika" },
+                { text: "Glasnost", class: "key-other", i18n: "defGlasnost" },
+                { text: "Strategic Defense Initiative", class: "key-other", i18n: "defSDI" },
+                { text: "Commonwealth of Independent States", class: "key-organization", i18n: "defCIS" },
+                { text: "Berlin Wall", class: "key-organization", i18n: "defBerlinWall" }
+            ],
+            fr: [
+                { text: "Invasion soviétique de l'Afghanistan", class: "key-other", i18n: "defAfghanWar" },
+                { text: "Perestroïka", class: "key-other", i18n: "defPerestroika" },
+                { text: "Glasnost", class: "key-other", i18n: "defGlasnost" },
+                { text: "Initiative de défense stratégique", class: "key-other", i18n: "defSDI" },
+                { text: "Communauté des États indépendants", class: "key-organization", i18n: "defCIS" },
+                { text: "Mur de Berlin", class: "key-organization", i18n: "defBerlinWall" }
+            ],
+            ar: [
+                { text: "الغزو السوفياتي لأفغانستان", class: "key-other", i18n: "defAfghanWar" },
+                { text: "البيريسترويكا", class: "key-other", i18n: "defPerestroika" },
+                { text: "الغلاسنوست", class: "key-other", i18n: "defGlasnost" },
+                { text: "مبادرة الدفاع الاستراتيجي", class: "key-other", i18n: "defSDI" },
+                { text: "رابطة الدول المستقلة", class: "key-organization", i18n: "defCIS" },
+                { text: "جدار برلين", class: "key-organization", i18n: "defBerlinWall" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

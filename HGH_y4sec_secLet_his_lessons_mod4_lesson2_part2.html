@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 3: استقلال المستعمرات وتأسيس العالم الثالث
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                استقلال الجزائر
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    بعد مرحلة طويلة من النضال السياسي والتنظيم الوطني، انتقلت الحركة الوطنية الجزائرية إلى مرحلة الكفاح المسلح بداية من نوفمبر 1954. وقد خاض الشعب الجزائري ثورة تحريرية كبرى استمرت أكثر من سبع سنوات، انتهت بالتفاوض مع فرنسا والحصول على الاستقلال التام سنة 1962. فكيف انطلقت الثورة المسلحة؟ وما هي أبرز مراحلها؟ وكيف تم التفاوض مع فرنسا وصولاً إلى الاستقلال؟
+                </p>
+            </div>
+
+            <!-- II. الثورة الجزائرية والحصول على الاستقلال -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">الثورة الجزائرية والحصول على الاستقلال</span>
+                </h2>
+
+                <!-- 1. الثورة المسلحة -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part2Title1">الثورة المسلحة</span>
+                </h3>
+                <p data-i18n="part2Text1">
+                    انطلقت الثورة الجزائرية في الأول من نوفمبر 1954، عندما نفذت جبهة التحرير الوطني (FLN) سلسلة من الهجمات المنسقة ضد أهداف عسكرية واقتصادية فرنسية في مختلف أنحاء البلاد. شكل هذا التاريخ بداية الكفاح المسلح الذي استمر حتى 1962. وتميزت الثورة بعدة مراحل:
+                </p>
+                <ul>
+                    <li data-i18n="part2Li1"><strong>مرحلة الانطلاق (1954-1956):</strong> عملت الجبهة على تنظيم الخلايا الثورية، وتوسيع نطاق العمليات العسكرية، وكسب تأييد الشعب الجزائري، مع السعي لكسب الدعم الدولي.</li>
+                    <li data-i18n="part2Li2"><strong>مرحلة التصعيد (1956-1958):</strong> تحولت الثورة إلى حرب شاملة، خاصة مع انعقاد مؤتمر الصومام (أوت 1956) الذي نظم هياكل الثورة، وشهدت هذه المرحلة معركة الجزائر (1957) حيث واجهت جبهة التحرير القمع الفرنسي العنيف.</li>
+                    <li data-i18n="part2Li3"><strong>مرحلة الدولية (1958-1960):</strong> نجحت الثورة في فرض القضية الجزائرية على الساحة الدولية، خاصة بعد انضمام الدول العربية والإفريقية والآسيوية إلى جانبها، وتأسيس الحكومة المؤقتة للجمهورية الجزائرية (GPRA) سنة 1958.</li>
+                    <li data-i18n="part2Li4"><strong>مرحلة الحسم (1960-1962):</strong> تزايد الضغط العسكري والدبلوماسي على فرنسا، خاصة بعد مظاهرات ديسمبر 1960 في الجزائر، وتمكنت الجبهة من إضعاف الموقف الفرنسي داخلياً وخارجياً.</li>
+                </ul>
+                <p data-i18n="part2Text1Conclusion">
+                    اعتمدت جبهة التحرير الوطني على حرب العصابات والعمليات الفدائية، كما أنشأت جيش التحرير الوطني (ALN) الذي قاد العمليات العسكرية. واجهت فرنسا الثورة بحملات قمع واسعة، شملت التعذيب والاعتقالات الجماعية وإقامة المحتشدات، لكنها فشلت في إخماد الثورة.
+                </p>
+
+                <!-- 2. التفاوض مع فرنسا والحصول على الاستقلال -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part2Title2">التفاوض مع فرنسا والحصول على الاستقلال</span>
+                </h3>
+                <p data-i18n="part2Text2">
+                    أمام تعثر الحل العسكري وتزايد الضغوط الداخلية والدولية، اضطرت فرنسا إلى الدخول في مفاوضات جادة مع جبهة التحرير الوطني. مرت المفاوضات بعدة مراحل:
+                </p>
+                <ul>
+                    <li data-i18n="part2Li5"><strong>اتصالات أولى:</strong> بدأت في 1960 بين ممثلين عن الحكومة الفرنسية والحكومة المؤقتة الجزائرية، لكنها تعثرت بسبب تمسك فرنسا بموقفها.</li>
+                    <li data-i18n="part2Li6"><strong>مفاوضات إيفيان:</strong> انطلقت في مارس 1962 في مدينة إيفيان الفرنسية، وأسفرت عن توقيع اتفاقيات إيفيان في 18 مارس 1962.</li>
+                    <li data-i18n="part2Li7"><strong>محتوى الاتفاقيات:</strong> نصت اتفاقيات إيفيان على وقف إطلاق النار، وتنظيم استفتاء لتقرير المصير، وضمانات للأقلية الأوروبية، وتعاون فرنسي جزائري في مجالات عدة.</li>
+                    <li data-i18n="part2Li8"><strong>الاستفتاء:</strong> في 1 جويلية 1962، صوّت الشعب الجزائري بأغلبية ساحقة لصالح الاستقلال.</li>
+                    <li data-i18n="part2Li9"><strong>إعلان الاستقلال:</strong> في 5 جويلية 1962، أعلنت الجزائر رسمياً استقلالها، وبذلك انتهت 132 سنة من الاحتلال الفرنسي.</li>
+                </ul>
+                <p data-i18n="part2Text2Conclusion">
+                    شكلت الثورة الجزائرية نموذجاً ملهمًا لحركات التحرر في العالم، وأكدت قدرة الشعوب المستعمرة على انتزاع حريتها بالكفاح المسلح والتفاوض معاً. وقد انبثقت عن الاستقلال دولة جزائرية جديدة واجهت تحديات كبرى في بناء مؤسساتها وتحقيق التنمية.
+                </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    عبرت الثورة الجزائرية عن إرادة شعبية صلبة في نيل الحرية، وجمعت بين الكفاح المسلح والعمل السياسي والدبلوماسي. وبعد أكثر من سبع سنوات من التضحيات الجسام، تمكنت الجزائر من انتزاع استقلالها وفتح صفحة جديدة في تاريخها وفي مسار حركات التحرر العالمية.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات وهيئات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defFLN">جبهة التحرير الوطني</strong>: <span data-i18n="defFLNDesc">التنظيم السياسي والعسكري الذي قاد الثورة الجزائرية ضد الاستعمار الفرنسي انطلاقاً من نوفمبر 1954.</span></li>
+                        <li><strong class="key-organization" data-i18n="defALN">جيش التحرير الوطني</strong>: <span data-i18n="defALNDesc">الجناح العسكري لجبهة التحرير الوطني، تولى قيادة العمليات المسلحة ضد القوات الفرنسية.</span></li>
+                        <li><strong class="key-organization" data-i18n="defGPRA">الحكومة المؤقتة للجمهورية الجزائرية</strong>: <span data-i18n="defGPRADesc">حكومة جزائرية مؤقتة تأسست سنة 1958 لتمثيل الثورة دولياً وقيادة المفاوضات.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚡ أحداث ومحطات</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defNov54">اندلاع الثورة (1 نوفمبر 1954)</strong>: <span data-i18n="defNov54Desc">تاريخ انطلاق الكفاح المسلح الجزائري ضد الاستعمار الفرنسي.</span></li>
+                        <li><strong class="key-event" data-i18n="defEvian">اتفاقيات إيفيان (18 مارس 1962)</strong>: <span data-i18n="defEvianDesc">اتفاقيات بين فرنسا وجبهة التحرير الوطني نصت على وقف إطلاق النار والاستفتاء على الاستقلال.</span></li>
+                        <li><strong class="key-event" data-i18n="defIndependence">عيد الاستقلال (5 جويلية 1962)</strong>: <span data-i18n="defIndependenceDesc">اليوم الذي أعلنت فيه الجزائر استقلالها رسمياً.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Algerian+Revolution+1954-1962"
+                             alt="الثورة الجزائرية – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryRevolutionAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryRevolutionCaption">الثورة الجزائرية – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمنظمات والأحداث</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 3: Independence of Colonies and the Emergence of the Third World",
+                lessonTitleSample: "Independence of Algeria",
+                sectionIntro: "Introduction",
+                introText: "After a long phase of political struggle and national organization, the Algerian national movement moved to the stage of armed struggle starting in November 1954. The Algerian people waged a major liberation revolution that lasted more than seven years, ending with negotiations with France and full independence in 1962. How did the armed revolution start? What were its main stages? And how were negotiations conducted leading to independence?",
+                sectionPart2: "The Algerian Revolution and the Achievement of Independence",
+                part2Title1: "The Armed Revolution",
+                part2Text1: "The Algerian revolution broke out on November 1, 1954, when the National Liberation Front (FLN) carried out a series of coordinated attacks against French military and economic targets across the country. This date marked the beginning of the armed struggle that lasted until 1962. The revolution passed through several stages:",
+                part2Li1: "<strong>Launch phase (1954-1956):</strong> The FLN organized revolutionary cells, expanded military operations, and sought popular support and international recognition.",
+                part2Li2: "<strong>Escalation phase (1956-1958):</strong> The revolution turned into a full-scale war, especially after the Soummam Conference (August 1956) which organized the structures of the revolution. This phase included the Battle of Algiers (1957) against brutal French repression.",
+                part2Li3: "<strong>Internationalization phase (1958-1960):</strong> The revolution succeeded in placing the Algerian cause on the international stage, with Arab, African, and Asian countries supporting it, and the establishment of the Provisional Government of the Algerian Republic (GPRA) in 1958.",
+                part2Li4: "<strong>Decisive phase (1960-1962):</strong> Military and diplomatic pressure on France increased, especially after the December 1960 demonstrations in Algeria, weakening the French position.",
+                part2Text1Conclusion: "The FLN relied on guerrilla warfare and commando operations, and established the National Liberation Army (ALN) to lead military operations. France responded with widespread repression, including torture, mass arrests, and the establishment of internment camps, but failed to suppress the revolution.",
+                part2Title2: "Negotiations with France and Achievement of Independence",
+                part2Text2: "Facing military stalemate and increasing internal and international pressure, France was forced into serious negotiations with the FLN. The negotiations went through several stages:",
+                part2Li5: "<strong>Initial contacts:</strong> Began in 1960 between representatives of the French government and the provisional Algerian government, but stalled due to French intransigence.",
+                part2Li6: "<strong>Evian negotiations:</strong> Started in March 1962 in the French city of Evian, leading to the signing of the Evian Accords on March 18, 1962.",
+                part2Li7: "<strong>Content of the Accords:</strong> Provided for a ceasefire, a self-determination referendum, guarantees for the European minority, and Franco-Algerian cooperation.",
+                part2Li8: "<strong>Referendum:</strong> On July 1, 1962, the Algerian people voted overwhelmingly for independence.",
+                part2Li9: "<strong>Declaration of independence:</strong> On July 5, 1962, Algeria officially declared its independence, ending 132 years of French occupation.",
+                part2Text2Conclusion: "The Algerian revolution served as an inspiring model for liberation movements worldwide, demonstrating the ability of colonized peoples to win freedom through armed struggle and negotiation. Independence gave birth to a new Algerian state that faced major challenges in building its institutions and achieving development.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Algerian revolution expressed a firm popular will for freedom, combining armed struggle with political and diplomatic action. After more than seven years of immense sacrifices, Algeria succeeded in winning its independence and opening a new page in its history and in the course of global liberation movements.",
+                sectionDefinitions: "📖 Definitions",
+                defOrganizations: "🏛️ Organizations and Bodies",
+                defFLN: "National Liberation Front (FLN)",
+                defFLNDesc: "The political and military organization that led the Algerian revolution against French colonialism from November 1954.",
+                defALN: "National Liberation Army (ALN)",
+                defALNDesc: "The military wing of the FLN, responsible for leading armed operations against French forces.",
+                defGPRA: "Provisional Government of the Algerian Republic",
+                defGPRADesc: "A provisional Algerian government established in 1958 to represent the revolution internationally and lead negotiations.",
+                defEvents: "⚡ Events and Milestones",
+                defNov54: "Outbreak of the Revolution (November 1, 1954)",
+                defNov54Desc: "The date of the beginning of the Algerian armed struggle against French colonialism.",
+                defEvian: "Evian Accords (March 18, 1962)",
+                defEvianDesc: "Agreements between France and the FLN providing for a ceasefire and a referendum on independence.",
+                defIndependence: "Independence Day (July 5, 1962)",
+                defIndependenceDesc: "The day Algeria officially declared its independence.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryRevolutionAlt: "Algerian Revolution – illustrative image",
+                galleryRevolutionCaption: "Algerian Revolution – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, organizations, and events",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 3 : L'indépendance des colonies et l'émergence du tiers-monde",
+                lessonTitleSample: "L'indépendance de l'Algérie",
+                sectionIntro: "Introduction",
+                introText: "Après une longue phase de lutte politique et d'organisation nationale, le mouvement national algérien passa à la lutte armée à partir de novembre 1954. Le peuple algérien mena une grande révolution de libération qui dura plus de sept ans, aboutissant à des négociations avec la France et à l'indépendance totale en 1962. Comment la révolution armée a-t-elle commencé ? Quelles furent ses principales étapes ? Et comment les négociations furent-elles menées jusqu'à l'indépendance ?",
+                sectionPart2: "La révolution algérienne et l'obtention de l'indépendance",
+                part2Title1: "La révolution armée",
+                part2Text1: "La révolution algérienne éclata le 1er novembre 1954, lorsque le Front de libération nationale (FLN) mena une série d'attaques coordonnées contre des cibles militaires et économiques françaises à travers le pays. Cette date marqua le début de la lutte armée qui dura jusqu'en 1962. La révolution passa par plusieurs étapes :",
+                part2Li1: "<strong>Phase de lancement (1954-1956) :</strong> Le FLN organisa des cellules révolutionnaires, élargit les opérations militaires et chercha le soutien populaire et international.",
+                part2Li2: "<strong>Phase d'escalade (1956-1958) :</strong> La révolution devint une guerre totale, surtout après la conférence de la Soummam (août 1956), et la bataille d'Alger (1957).",
+                part2Li3: "<strong>Phase d'internationalisation (1958-1960) :</strong> La révolution imposa la cause algérienne sur la scène internationale, avec la création du Gouvernement provisoire de la République algérienne (GPRA) en 1958.",
+                part2Li4: "<strong>Phase décisive (1960-1962) :</strong> La pression militaire et diplomatique sur la France augmenta, notamment après les manifestations de décembre 1960.",
+                part2Text1Conclusion: "Le FLN s'appuya sur la guérilla et les opérations de commando, et créa l'Armée de libération nationale (ALN). La France répondit par une répression massive, mais échoua à écraser la révolution.",
+                part2Title2: "Négociations avec la France et obtention de l'indépendance",
+                part2Text2: "Face à l'impasse militaire et aux pressions croissantes, la France fut contrainte d'entamer des négociations sérieuses avec le FLN :",
+                part2Li5: "<strong>Contacts initiaux :</strong> Débutèrent en 1960 mais échouèrent en raison de l'intransigeance française.",
+                part2Li6: "<strong>Négociations d'Évian :</strong> Commencèrent en mars 1962 et aboutirent aux accords d'Évian le 18 mars 1962.",
+                part2Li7: "<strong>Contenu des accords :</strong> Prévoyaient un cessez-le-feu, un référendum d'autodétermination, des garanties pour la minorité européenne et une coopération franco-algérienne.",
+                part2Li8: "<strong>Référendum :</strong> Le 1er juillet 1962, le peuple algérien vota massivement pour l'indépendance.",
+                part2Li9: "<strong>Déclaration d'indépendance :</strong> Le 5 juillet 1962, l'Algérie déclara officiellement son indépendance, mettant fin à 132 ans d'occupation française.",
+                part2Text2Conclusion: "La révolution algérienne servit de modèle aux mouvements de libération dans le monde, démontrant la capacité des peuples colonisés à obtenir la liberté par la lutte armée et la négociation.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La révolution algérienne exprima une volonté populaire ferme de liberté, combinant lutte armée et action politique et diplomatique. Après plus de sept ans de sacrifices immenses, l'Algérie réussit à obtenir son indépendance et à ouvrir une nouvelle page de son histoire.",
+                sectionDefinitions: "📖 Définitions",
+                defOrganizations: "🏛️ Organisations et institutions",
+                defFLN: "Front de libération nationale (FLN)",
+                defFLNDesc: "Organisation politique et militaire qui mena la révolution algérienne contre le colonialisme français à partir de novembre 1954.",
+                defALN: "Armée de libération nationale (ALN)",
+                defALNDesc: "Branche militaire du FLN, chargée de mener les opérations armées contre les forces françaises.",
+                defGPRA: "Gouvernement provisoire de la République algérienne",
+                defGPRADesc: "Gouvernement provisoire algérien créé en 1958 pour représenter la révolution et mener les négociations.",
+                defEvents: "⚡ Événements et repères",
+                defNov54: "Déclenchement de la révolution (1er novembre 1954)",
+                defNov54Desc: "Date du début de la lutte armée algérienne contre le colonialisme français.",
+                defEvian: "Accords d'Évian (18 mars 1962)",
+                defEvianDesc: "Accords entre la France et le FLN prévoyant un cessez-le-feu et un référendum d'autodétermination.",
+                defIndependence: "Jour de l'indépendance (5 juillet 1962)",
+                defIndependenceDesc: "Jour où l'Algérie déclara officiellement son indépendance.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryRevolutionAlt: "Révolution algérienne – image illustrative",
+                galleryRevolutionCaption: "Révolution algérienne – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, organisations et événements",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 3: استقلال المستعمرات وتأسيس العالم الثالث",
+                lessonTitleSample: "استقلال الجزائر",
+                sectionIntro: "مقدمة",
+                introText: "بعد مرحلة طويلة من النضال السياسي والتنظيم الوطني، انتقلت الحركة الوطنية الجزائرية إلى مرحلة الكفاح المسلح بداية من نوفمبر 1954. وقد خاض الشعب الجزائري ثورة تحريرية كبرى استمرت أكثر من سبع سنوات، انتهت بالتفاوض مع فرنسا والحصول على الاستقلال التام سنة 1962. فكيف انطلقت الثورة المسلحة؟ وما هي أبرز مراحلها؟ وكيف تم التفاوض مع فرنسا وصولاً إلى الاستقلال؟",
+                sectionPart2: "الثورة الجزائرية والحصول على الاستقلال",
+                part2Title1: "الثورة المسلحة",
+                part2Text1: "انطلقت الثورة الجزائرية في الأول من نوفمبر 1954، عندما نفذت جبهة التحرير الوطني (FLN) سلسلة من الهجمات المنسقة ضد أهداف عسكرية واقتصادية فرنسية في مختلف أنحاء البلاد. شكل هذا التاريخ بداية الكفاح المسلح الذي استمر حتى 1962. وتميزت الثورة بعدة مراحل:",
+                part2Li1: "<strong>مرحلة الانطلاق (1954-1956):</strong> عملت الجبهة على تنظيم الخلايا الثورية، وتوسيع نطاق العمليات العسكرية، وكسب تأييد الشعب الجزائري، مع السعي لكسب الدعم الدولي.",
+                part2Li2: "<strong>مرحلة التصعيد (1956-1958):</strong> تحولت الثورة إلى حرب شاملة، خاصة مع انعقاد مؤتمر الصومام (أوت 1956) الذي نظم هياكل الثورة، وشهدت هذه المرحلة معركة الجزائر (1957) حيث واجهت جبهة التحرير القمع الفرنسي العنيف.",
+                part2Li3: "<strong>مرحلة الدولية (1958-1960):</strong> نجحت الثورة في فرض القضية الجزائرية على الساحة الدولية، خاصة بعد انضمام الدول العربية والإفريقية والآسيوية إلى جانبها، وتأسيس الحكومة المؤقتة للجمهورية الجزائرية (GPRA) سنة 1958.",
+                part2Li4: "<strong>مرحلة الحسم (1960-1962):</strong> تزايد الضغط العسكري والدبلوماسي على فرنسا، خاصة بعد مظاهرات ديسمبر 1960 في الجزائر، وتمكنت الجبهة من إضعاف الموقف الفرنسي داخلياً وخارجياً.",
+                part2Text1Conclusion: "اعتمدت جبهة التحرير الوطني على حرب العصابات والعمليات الفدائية، كما أنشأت جيش التحرير الوطني (ALN) الذي قاد العمليات العسكرية. واجهت فرنسا الثورة بحملات قمع واسعة، شملت التعذيب والاعتقالات الجماعية وإقامة المحتشدات، لكنها فشلت في إخماد الثورة.",
+                part2Title2: "التفاوض مع فرنسا والحصول على الاستقلال",
+                part2Text2: "أمام تعثر الحل العسكري وتزايد الضغوط الداخلية والدولية، اضطرت فرنسا إلى الدخول في مفاوضات جادة مع جبهة التحرير الوطني. مرت المفاوضات بعدة مراحل:",
+                part2Li5: "<strong>اتصالات أولى:</strong> بدأت في 1960 بين ممثلين عن الحكومة الفرنسية والحكومة المؤقتة الجزائرية، لكنها تعثرت بسبب تمسك فرنسا بموقفها.",
+                part2Li6: "<strong>مفاوضات إيفيان:</strong> انطلقت في مارس 1962 في مدينة إيفيان الفرنسية، وأسفرت عن توقيع اتفاقيات إيفيان في 18 مارس 1962.",
+                part2Li7: "<strong>محتوى الاتفاقيات:</strong> نصت اتفاقيات إيفيان على وقف إطلاق النار، وتنظيم استفتاء لتقرير المصير، وضمانات للأقلية الأوروبية، وتعاون فرنسي جزائري في مجالات عدة.",
+                part2Li8: "<strong>الاستفتاء:</strong> في 1 جويلية 1962، صوّت الشعب الجزائري بأغلبية ساحقة لصالح الاستقلال.",
+                part2Li9: "<strong>إعلان الاستقلال:</strong> في 5 جويلية 1962، أعلنت الجزائر رسمياً استقلالها، وبذلك انتهت 132 سنة من الاحتلال الفرنسي.",
+                part2Text2Conclusion: "شكلت الثورة الجزائرية نموذجاً ملهمًا لحركات التحرر في العالم، وأكدت قدرة الشعوب المستعمرة على انتزاع حريتها بالكفاح المسلح والتفاوض معاً. وقد انبثقت عن الاستقلال دولة جزائرية جديدة واجهت تحديات كبرى في بناء مؤسساتها وتحقيق التنمية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "عبرت الثورة الجزائرية عن إرادة شعبية صلبة في نيل الحرية، وجمعت بين الكفاح المسلح والعمل السياسي والدبلوماسي. وبعد أكثر من سبع سنوات من التضحيات الجسام، تمكنت الجزائر من انتزاع استقلالها وفتح صفحة جديدة في تاريخها وفي مسار حركات التحرر العالمية.",
+                sectionDefinitions: "📖 تعريفات",
+                defOrganizations: "🏛️ منظمات وهيئات",
+                defFLN: "جبهة التحرير الوطني",
+                defFLNDesc: "التنظيم السياسي والعسكري الذي قاد الثورة الجزائرية ضد الاستعمار الفرنسي انطلاقاً من نوفمبر 1954.",
+                defALN: "جيش التحرير الوطني",
+                defALNDesc: "الجناح العسكري لجبهة التحرير الوطني، تولى قيادة العمليات المسلحة ضد القوات الفرنسية.",
+                defGPRA: "الحكومة المؤقتة للجمهورية الجزائرية",
+                defGPRADesc: "حكومة جزائرية مؤقتة تأسست سنة 1958 لتمثيل الثورة دولياً وقيادة المفاوضات.",
+                defEvents: "⚡ أحداث ومحطات",
+                defNov54: "اندلاع الثورة (1 نوفمبر 1954)",
+                defNov54Desc: "تاريخ انطلاق الكفاح المسلح الجزائري ضد الاستعمار الفرنسي.",
+                defEvian: "اتفاقيات إيفيان (18 مارس 1962)",
+                defEvianDesc: "اتفاقيات بين فرنسا وجبهة التحرير الوطني نصت على وقف إطلاق النار والاستفتاء على الاستقلال.",
+                defIndependence: "عيد الاستقلال (5 جويلية 1962)",
+                defIndependenceDesc: "اليوم الذي أعلنت فيه الجزائر استقلالها رسمياً.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryRevolutionAlt: "الثورة الجزائرية – صورة توضيحية",
+                galleryRevolutionCaption: "الثورة الجزائرية – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمنظمات والأحداث",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "National Liberation Front", class: "key-organization", i18n: "defFLN" },
+                { text: "National Liberation Army", class: "key-organization", i18n: "defALN" },
+                { text: "Provisional Government of the Algerian Republic", class: "key-organization", i18n: "defGPRA" },
+                { text: "November 1, 1954", class: "key-event", i18n: "defNov54" },
+                { text: "Evian Accords", class: "key-event", i18n: "defEvian" },
+                { text: "July 5, 1962", class: "key-event", i18n: "defIndependence" }
+            ],
+            fr: [
+                { text: "Front de libération nationale", class: "key-organization", i18n: "defFLN" },
+                { text: "Armée de libération nationale", class: "key-organization", i18n: "defALN" },
+                { text: "Gouvernement provisoire de la République algérienne", class: "key-organization", i18n: "defGPRA" },
+                { text: "1er novembre 1954", class: "key-event", i18n: "defNov54" },
+                { text: "Accords d'Évian", class: "key-event", i18n: "defEvian" },
+                { text: "5 juillet 1962", class: "key-event", i18n: "defIndependence" }
+            ],
+            ar: [
+                { text: "جبهة التحرير الوطني", class: "key-organization", i18n: "defFLN" },
+                { text: "جيش التحرير الوطني", class: "key-organization", i18n: "defALN" },
+                { text: "الحكومة المؤقتة للجمهورية الجزائرية", class: "key-organization", i18n: "defGPRA" },
+                { text: "1 نوفمبر 1954", class: "key-event", i18n: "defNov54" },
+                { text: "اتفاقيات إيفيان", class: "key-event", i18n: "defEvian" },
+                { text: "5 جويلية 1962", class: "key-event", i18n: "defIndependence" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

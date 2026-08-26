@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0,0,0,0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 4: القضية الفلسطينية والصراع العربي الإسرائيلي
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                القضية الفلسطينية
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    بعد الحرب العالمية الثانية، دخلت القضية الفلسطينية مرحلة جديدة تميزت بتصاعد الصراع مع الحركة الصهيونية المدعومة من القوى الكبرى. تطورت الأوضاع بين 1945 و1948 حتى إعلان دولة إسرائيل، ثم انطلقت المقاومة الفلسطينية المسلحة، وتحولت لاحقاً إلى النضال السياسي والانخراط في مسار السلام. فما هي أبرز محطات هذا الصراع؟
+                </p>
+            </div>
+
+            <!-- II. المقاومة الفلسطينية في ظل الصراع العربي الإسرائيلي إثر الحرب العالمية الثانية -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">المقاومة الفلسطينية في ظل الصراع العربي الإسرائيلي إثر الحرب العالمية الثانية</span>
+                </h2>
+
+                <!-- 1. تطور الأوضاع الفلسطينية بين 1945 و1948 -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part2Title1">تطور الأوضاع الفلسطينية بين 1945 و1948</span>
+                </h3>
+                <p data-i18n="part2Text1">
+                    استفادت الحركة الصهيونية من ظرفية الحرب العالمية الثانية، حيث وجد الفلسطينيون أنفسهم بزعامة الحاج أمين الحسيني في صفوف المهزومين لتحالفهم مع الألمان، بينما نجح الصهاينة في توظيف التعاطف الغربي معهم بعد المحرقة النازية. وقد اكتسب الجنود الصهاينة المسرحون من جيوش الحلفاء خبرة عسكرية وظفوها لتكوين عصابات لترهيب الفلسطينيين، أبرزها "الهاغانا" (الجناح العسكري للوكالة اليهودية)، و"الأرغون" و"شتيرن" الأكثر تطرفاً.
+                </p>
+                <p data-i18n="part2Text1Conclusion">
+                    أمام الضغط الدولي، أعلنت بريطانيا نيتها إنهاء انتدابها على فلسطين وأحالت القضية إلى الأمم المتحدة. أصدرت الجمعية العامة قرارها رقم 181 في 29 نوفمبر 1947 بتقسيم فلسطين إلى دولة عربية (45%) ودولة يهودية (55%) مع تدويل القدس. رفض العرب القرار بينما قبلته الحركة الصهيونية، التي نظمت حملات إرهابية لتهجير الفلسطينيين، من أبرزها مجزرة دير ياسين (أفريل 1948). وفي 14 ماي 1948، انسحبت بريطانيا وأعلن دافيد بن غوريون قيام دولة إسرائيل.
+                </p>
+                <p data-i18n="part2Text1Result">
+                    اندلعت الحرب العربية الإسرائيلية الأولى، حيث دخلت جيوش عربية الأراضي الفلسطينية في 15 ماي 1948. بعد انتصارات أولية، فرضت الهدنة ثم استأنفت إسرائيل القتال بدعم غربي وانتصارات جديدة، وانتهت الحرب باتفاقيات هدنة رودس التي وسعت رقعة إسرائيل. ترتب عن النكبة تهجير حوالي 800 ألف فلسطيني، ووضع قطاع غزة تحت الإدارة المصرية والضفة الغربية تحت الإدارة الأردنية، وظل اللاجئون محرومين من حق العودة رغم القرار الأممي 194.
+                </p>
+
+                <!-- 2. المقاومة الفلسطينية المسلحة (1949-1982) -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part2Title2">المقاومة الفلسطينية المسلحة (1949-1982)</span>
+                </h3>
+                <p data-i18n="part2Text2Intro">
+                    ظلت المقاومة مشتتة في البداية، لكنها تنامت بفضل عوامل عدة: تجاهل إسرائيل للقرارات الدولية، وقيام نظام مصري مناصر للتحرر بقيادة جمال عبد الناصر، واستقلال المغرب وتونس، وفشل العدوان الثلاثي على مصر. أقام الفلسطينيون هياكل نضالية:
+                </p>
+                <ul>
+                    <li data-i18n="part2Li1"><strong>حركة فتح:</strong> تأسست في نهاية الخمسينات بقيادة ياسر عرفات وخليل الوزير، واعتمدت مبدأ "تحرير الفلسطينيين لأنفسهم بأنفسهم" والكفاح المسلح، وشكلت جناحها العسكري "قوات العاصفة" وباشرت أولى عملياتها في 1 جانفي 1965.</li>
+                    <li data-i18n="part2Li2"><strong>منظمة التحرير الفلسطينية:</strong> تأسست سنة 1964 برئاسة أحمد الشقيري ثم ياسر عرفات، وضمت أبرز الفصائل مثل فتح والجبهتين الشعبية والديمقراطية، وتبنت الكفاح المسلح.</li>
+                </ul>
+                <p data-i18n="part2Text2Middle">
+                    انطلقت الثورة الفلسطينية المسلحة في 1 جانفي 1965، وتكثفت بعد نكسة جوان 1967. من أبرز محطاتها معركة الكرامة (مارس 1968). أدى اتساع الكفاح المسلح إلى توتر مع الأنظمة العربية المجاورة ووقوع أحداث "أيلول الأسود" (1970) وخروج القوات الفلسطينية من الأردن إلى لبنان.
+                </p>
+                <p data-i18n="part2Text2Result">
+                    كسبت منظمة التحرير تعاطفاً دولياً، ونالت سنة 1974 اعترافاً عربياً وأممياً كممثل شرعي ووحيد للشعب الفلسطيني، وصفة عضو مراقب في الأمم المتحدة. صدرت قرارات دولية تندد بالسياسة الإسرائيلية وأبرزها القراران 242 و338.
+                </p>
+
+                <!-- 3. النضال السياسي والانخراط في مسار السلام (1982-1993) -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>
+                    <span data-i18n="part2Title3">النضال السياسي والانخراط في مسار السلام (1982-1993)</span>
+                </h3>
+                <p data-i18n="part2Text3Intro">
+                    بعد معاهدة كامب ديفيد (1979)، استهدفت إسرائيل الفصائل الفلسطينية في لبنان واجتاحت بيروت صيف 1982، مما أجبر منظمة التحرير على مغادرة لبنان إلى تونس. أدى ذلك إلى تحول في الاستراتيجية نحو القبول بوجود إسرائيل والسعي إلى التفاوض.
+                </p>
+                <ul>
+                    <li data-i18n="part2Li3"><strong>خطة فاس (1982):</strong> أقرت القمة العربية بفاس إقامة دولة فلسطينية مستقلة في الأراضي المحتلة سنة 1967، مما يعني قبول قرار التقسيم والاعتراف الضمني بإسرائيل.</li>
+                    <li data-i18n="part2Li4"><strong>الانتفاضة الأولى (1987):</strong> اندلعت "انتفاضة أطفال الحجارة" وتأسست حركة "حماس" في ديسمبر 1987، لتعيد القضية إلى الواجهة.</li>
+                    <li data-i18n="part2Li5"><strong>فك الارتباط الأردني (1988):</strong> أعلن الأردن فك ارتباطه الإداري والقانوني بالضفة الغربية، مؤكداً دور منظمة التحرير كممثل للشعب الفلسطيني.</li>
+                    <li data-i18n="part2Li6"><strong>المؤتمر الوطني الفلسطيني (1988):</strong> أعلن قبول مبدأ التسوية السياسية وقيام الدولة الفلسطينية في المنفى، وعاصمتها القدس.</li>
+                    <li data-i18n="part2Li7"><strong>فقدان الدعم:</strong> تآكل الدعم العربي والدولي بسبب موقف المنظمة من حرب الخليج، وانهيار الاتحاد السوفياتي.</li>
+                </ul>
+                <p data-i18n="part2Text3Conclusion">
+                    انعقد مؤتمر مدريد للسلام سنة 1991، ثم توجت المفاوضات السرية بين منظمة التحرير وإسرائيل باتفاقيات أوسلو الموقعة في واشنطن (13 سبتمبر 1993)، التي منحت الفلسطينيين حكماً ذاتياً محدوداً مقابل اعتراف متبادل، وتركت قضايا الوضع النهائي لمفاوضات لاحقة. لكن فشل مفاوضات كامب ديفيد (2000) واندلاع الانتفاضة الثانية وبناء جدار الفصل أدى إلى تجميد المسار.
+                </p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    مرت القضية الفلسطينية بمراحل متعددة من المقاومة المسلحة إلى النضال السياسي والتفاوض، في ظل صراع طويل مع الحركة الصهيونية والدول الداعمة لها. ورغم التضحيات الجسام والتحديات، استمر الشعب الفلسطيني في نضاله من أجل الحرية وتقرير المصير، لتظل قضيته من أبرز قضايا التحرر في العالم المعاصر.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات وهيئات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defHaganah">الهاغانا</strong>: <span data-i18n="defHaganahDesc">المنظمة العسكرية الرئيسية للحركة الصهيونية في فلسطين قبل قيام إسرائيل.</span></li>
+                        <li><strong class="key-organization" data-i18n="defIrgun">الأرغون</strong>: <span data-i18n="defIrgunDesc">منظمة عسكرية صهيونية متطرفة نشطت في فلسطين قبل 1948.</span></li>
+                        <li><strong class="key-organization" data-i18n="defStern">شتيرن</strong>: <span data-i18n="defSternDesc">عصابة صهيونية متطرفة انشقت عن الأرغون.</span></li>
+                        <li><strong class="key-organization" data-i18n="defPLO">منظمة التحرير الفلسطينية</strong>: <span data-i18n="defPLODesc">الممثل الشرعي والوحيد للشعب الفلسطيني، تأسست سنة 1964.</span></li>
+                        <li><strong class="key-organization" data-i18n="defFatah">حركة فتح</strong>: <span data-i18n="defFatahDesc">أبرز فصائل منظمة التحرير، تأسست في نهاية الخمسينات بقيادة ياسر عرفات.</span></li>
+                        <li><strong class="key-organization" data-i18n="defHamas">حركة حماس</strong>: <span data-i18n="defHamasDesc">حركة مقاومة إسلامية فلسطينية تأسست سنة 1987.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚡ أحداث ومحطات</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defPartition1947">قرار التقسيم 181</strong>: <span data-i18n="defPartition1947Desc">قرار أممي صدر سنة 1947 بتقسيم فلسطين إلى دولتين عربية ويهودية.</span></li>
+                        <li><strong class="key-event" data-i18n="defNakba">النكبة</strong>: <span data-i18n="defNakbaDesc">تهجير مئات الآلاف من الفلسطينيين سنة 1948 بعد قيام دولة إسرائيل.</span></li>
+                        <li><strong class="key-event" data-i18n="defOslo">اتفاقيات أوسلو</strong>: <span data-i18n="defOsloDesc">اتفاقيات بين منظمة التحرير وإسرائيل وقعت سنة 1993.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defIntifada">الانتفاضة</strong>: <span data-i18n="defIntifadaDesc">حركة مقاومة شعبية فلسطينية اندلعت سنة 1987 ضد الاحتلال الإسرائيلي.</span></li>
+                        <li><strong class="key-other" data-i18n="defRightOfReturn">حق العودة</strong>: <span data-i18n="defRightOfReturnDesc">حق اللاجئين الفلسطينيين في العودة إلى ديارهم التي هجروا منها سنة 1948.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Palestinian+Resistance"
+                             alt="المقاومة الفلسطينية – صورة توضيحية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryResistanceAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryResistanceCaption">المقاومة الفلسطينية – صورة توضيحية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة والأجزاء والخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات والمنظمات والأحداث</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                lessonPageTitle: "Lesson – History & Geography Hub",
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Unit 4: The Palestinian Question and the Arab-Israeli Conflict",
+                lessonTitleSample: "The Palestinian Question",
+                sectionIntro: "Introduction",
+                introText: "After World War II, the Palestinian question entered a new phase marked by escalating conflict with the Zionist movement supported by major powers. The situation evolved between 1945 and 1948 until the declaration of the State of Israel, then Palestinian armed resistance began, later shifting to political struggle and engagement in the peace process. What are the key milestones of this conflict?",
+                sectionPart2: "Palestinian Resistance under the Arab-Israeli Conflict after World War II",
+                part2Title1: "Development of Palestinian Conditions between 1945 and 1948",
+                part2Text1: "The Zionist movement benefited from the circumstances of World War II. Palestinians found themselves on the losing side due to their alliance with Germany under Hajj Amin al-Husseini, while Zionists succeeded in exploiting Western sympathy after the Nazi Holocaust. Demobilized Zionist soldiers used their military experience to form gangs to terrorize Palestinians, notably the Haganah (the military arm of the Jewish Agency), and more radical groups like Irgun and Stern.",
+                part2Text1Conclusion: "Facing international pressure, Britain announced its intention to end its mandate and referred the issue to the United Nations. The General Assembly issued Resolution 181 on November 29, 1947, partitioning Palestine into an Arab state (45%) and a Jewish state (55%) with the internationalization of Jerusalem. Arabs rejected the partition while Zionists accepted it and launched terrorist campaigns, including the Deir Yassin massacre (April 1948). On May 14, 1948, Britain withdrew and David Ben-Gurion declared the establishment of the State of Israel.",
+                part2Text1Result: "The first Arab-Israeli war broke out, with Arab armies entering Palestine on May 15, 1948. After initial Arab successes, a truce was imposed, then Israel resumed fighting with Western support and achieved victories, ending with the Rhodes Armistice Agreements that expanded Israeli territory. The Nakba resulted in the displacement of about 800,000 Palestinians, with Gaza under Egyptian administration and the West Bank under Jordanian control. Refugees were denied the right of return despite UN Resolution 194.",
+                part2Title2: "Armed Palestinian Resistance (1949-1982)",
+                part2Text2Intro: "Resistance initially remained fragmented but grew due to several factors: Israel's disregard for international resolutions, the rise of a liberation-supporting regime in Egypt under Gamal Abdel Nasser, the independence of Morocco and Tunisia, and the failure of the tripartite aggression against Egypt. Palestinians established organizational structures:",
+                part2Li1: "<strong>Fatah Movement:</strong> Founded in the late 1950s by Yasser Arafat and Khalil al-Wazir, it adopted the principle of 'Palestinians liberating themselves' and armed struggle, forming its military wing 'Al-Asifa' and launching its first operations on January 1, 1965.",
+                part2Li2: "<strong>Palestine Liberation Organization (PLO):</strong> Established in 1964 under Ahmad al-Shuqayri, later led by Yasser Arafat, it included major factions like Fatah, the Popular Front, and the Democratic Front, and adopted armed struggle.",
+                part2Text2Middle: "The armed Palestinian revolution began on January 1, 1965, and intensified after the June 1967 setback. A key milestone was the Battle of Karameh (March 1968). The expansion of armed struggle led to tensions with neighboring Arab regimes and the 'Black September' events (1970), forcing Palestinian forces to leave Jordan for Lebanon.",
+                part2Text2Result: "The PLO gained international sympathy and in 1974 received Arab and UN recognition as the legitimate and sole representative of the Palestinian people, along with observer status at the UN. International resolutions condemning Israeli expansionism were issued, notably Security Council Resolutions 242 and 338.",
+                part2Title3: "Political Struggle and Engagement in the Peace Process (1982-1993)",
+                part2Text3Intro: "After the Camp David Accords (1979), Israel targeted Palestinian factions in Lebanon and invaded Beirut in the summer of 1982, forcing the PLO to leave for Tunisia. This led to a strategic shift towards accepting Israel's existence and seeking negotiation.",
+                part2Li3: "<strong>Fez Plan (1982):</strong> The Arab summit in Fez approved the establishment of an independent Palestinian state in the territories occupied in 1967, implying acceptance of partition and implicit recognition of Israel.",
+                part2Li4: "<strong>First Intifada (1987):</strong> The 'Stone Intifada' broke out, and Hamas was founded in December 1987, bringing the issue back to the forefront.",
+                part2Li5: "<strong>Jordanian Disengagement (1988):</strong> Jordan announced the severance of its administrative and legal ties with the West Bank, affirming the PLO's role as representative of the Palestinian people.",
+                part2Li6: "<strong>Palestinian National Congress (1988):</strong> Declared acceptance of political settlement and the establishment of a Palestinian state in exile, with Jerusalem as its capital.",
+                part2Li7: "<strong>Loss of Support:</strong> Arab and international support eroded due to the PLO's stance on the Gulf War and the collapse of the Soviet Union.",
+                part2Text3Conclusion: "The Madrid Peace Conference was held in 1991, followed by secret negotiations between the PLO and Israel culminating in the Oslo Accords signed in Washington (September 13, 1993), granting Palestinians limited self-rule in exchange for mutual recognition, leaving final status issues for later talks. However, the failure of the Camp David negotiations (2000), the outbreak of the Second Intifada, and the construction of the separation wall froze the process.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Palestinian question passed through multiple phases from armed resistance to political struggle and negotiation, amid a long conflict with the Zionist movement and its supporting powers. Despite immense sacrifices and challenges, the Palestinian people continued their struggle for freedom and self-determination, making their cause one of the most prominent liberation issues in the contemporary world.",
+                sectionDefinitions: "📖 Definitions",
+                defOrganizations: "🏛️ Organizations and Bodies",
+                defHaganah: "Haganah",
+                defHaganahDesc: "The main military organization of the Zionist movement in Palestine before the establishment of Israel.",
+                defIrgun: "Irgun",
+                defIrgunDesc: "A radical Zionist military organization active in Palestine before 1948.",
+                defStern: "Stern Gang",
+                defSternDesc: "A radical Zionist gang that split from Irgun.",
+                defPLO: "Palestine Liberation Organization",
+                defPLODesc: "The legitimate and sole representative of the Palestinian people, founded in 1964.",
+                defFatah: "Fatah Movement",
+                defFatahDesc: "The most prominent PLO faction, founded in the late 1950s by Yasser Arafat.",
+                defHamas: "Hamas Movement",
+                defHamasDesc: "A Palestinian Islamic resistance movement founded in 1987.",
+                defEvents: "⚡ Events and Milestones",
+                defPartition1947: "Partition Resolution 181",
+                defPartition1947Desc: "A UN resolution issued in 1947 partitioning Palestine into Arab and Jewish states.",
+                defNakba: "Nakba",
+                defNakbaDesc: "The displacement of hundreds of thousands of Palestinians in 1948 after the establishment of Israel.",
+                defOslo: "Oslo Accords",
+                defOsloDesc: "Agreements between the PLO and Israel signed in 1993.",
+                defOthers: "🔖 Key Terms",
+                defIntifada: "Intifada",
+                defIntifadaDesc: "A Palestinian popular resistance movement that erupted in 1987 against Israeli occupation.",
+                defRightOfReturn: "Right of Return",
+                defRightOfReturnDesc: "The right of Palestinian refugees to return to their homes from which they were displaced in 1948.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryResistanceAlt: "Palestinian Resistance – illustrative image",
+                galleryResistanceCaption: "Palestinian Resistance – illustrative image",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, and conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, organizations, and events",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                lessonPageTitle: "Leçon – History & Geography Hub",
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Unité 4 : La question palestinienne et le conflit arabo-israélien",
+                lessonTitleSample: "La question palestinienne",
+                sectionIntro: "Introduction",
+                introText: "Après la Seconde Guerre mondiale, la question palestinienne entra dans une nouvelle phase marquée par un conflit croissant avec le mouvement sioniste soutenu par les grandes puissances. La situation évolua entre 1945 et 1948 jusqu'à la déclaration de l'État d'Israël, puis la résistance armée palestinienne commença, avant de se transformer en lutte politique et en engagement dans le processus de paix. Quels sont les principaux jalons de ce conflit ?",
+                sectionPart2: "Résistance palestinienne dans le cadre du conflit arabo-israélien après la Seconde Guerre mondiale",
+                part2Title1: "Évolution de la situation palestinienne entre 1945 et 1948",
+                part2Text1: "Le mouvement sioniste profita des circonstances de la Seconde Guerre mondiale. Les Palestiniens se trouvèrent du côté des perdants en raison de leur alliance avec l'Allemagne sous Hajj Amin al-Husseini, tandis que les sionistes réussirent à exploiter la sympathie occidentale après l'Holocauste nazi. Les soldats sionistes démobilisés utilisèrent leur expérience militaire pour former des gangs afin de terroriser les Palestiniens, notamment la Haganah (branche militaire de l'Agence juive), et des groupes plus radicaux comme l'Irgoun et le Stern.",
+                part2Text1Conclusion: "Face à la pression internationale, la Grande-Bretagne annonça son intention de mettre fin à son mandat et saisit l'ONU. L'Assemblée générale adopta la résolution 181 le 29 novembre 1947, partageant la Palestine en un État arabe (45%) et un État juif (55%) avec internationalisation de Jérusalem. Les Arabes rejetèrent le partage tandis que les sionistes l'acceptèrent et lancèrent des campagnes terroristes, dont le massacre de Deir Yassine (avril 1948). Le 14 mai 1948, la Grande-Bretagne se retira et David Ben Gourion proclama l'État d'Israël.",
+                part2Text1Result: "La première guerre israélo-arabe éclata, les armées arabes entrant en Palestine le 15 mai 1948. Après des succès initiaux arabes, une trêve fut imposée, puis Israël reprit les combats avec le soutien occidental et remporta des victoires, aboutissant aux accords d'armistice de Rhodes qui élargirent le territoire israélien. La Nakba entraîna le déplacement d'environ 800 000 Palestiniens, Gaza sous administration égyptienne et la Cisjordanie sous contrôle jordanien. Les réfugiés furent privés du droit au retour malgré la résolution 194 de l'ONU.",
+                part2Title2: "Résistance armée palestinienne (1949-1982)",
+                part2Text2Intro: "La résistance resta fragmentée au début mais s'intensifia grâce à plusieurs facteurs : le mépris d'Israël pour les résolutions internationales, l'avènement d'un régime égyptien soutenant la libération sous Gamal Abdel Nasser, l'indépendance du Maroc et de la Tunisie, et l'échec de l'agression tripartite contre l'Égypte. Les Palestiniens mirent en place des structures organisationnelles :",
+                part2Li1: "<strong>Mouvement Fatah :</strong> Fondé à la fin des années 1950 par Yasser Arafat et Khalil al-Wazir, il adopta le principe de « libération des Palestiniens par eux-mêmes » et la lutte armée, formant sa branche militaire « Al-Asifa » et lançant ses premières opérations le 1er janvier 1965.",
+                part2Li2: "<strong>Organisation de libération de la Palestine (OLP) :</strong> Créée en 1964 sous Ahmad al-Shuqayri, puis dirigée par Yasser Arafat, elle regroupait les principales factions comme le Fatah, le Front populaire et le Front démocratique, et adopta la lutte armée.",
+                part2Text2Middle: "La révolution armée palestinienne commença le 1er janvier 1965 et s'intensifia après le revers de juin 1967. Une étape clé fut la bataille de Karameh (mars 1968). L'expansion de la lutte armée entraîna des tensions avec les régimes arabes voisins et les événements de « Septembre noir » (1970), forçant les forces palestiniennes à quitter la Jordanie pour le Liban.",
+                part2Text2Result: "L'OLP gagna la sympathie internationale et obtint en 1974 la reconnaissance arabe et onusienne comme représentant légitime et unique du peuple palestinien, ainsi que le statut d'observateur à l'ONU. Des résolutions internationales condamnant l'expansionnisme israélien furent adoptées, notamment les résolutions 242 et 338 du Conseil de sécurité.",
+                part2Title3: "Lutte politique et engagement dans le processus de paix (1982-1993)",
+                part2Text3Intro: "Après les accords de Camp David (1979), Israël cibla les factions palestiniennes au Liban et envahit Beyrouth à l'été 1982, forçant l'OLP à quitter le Liban pour la Tunisie. Cela conduisit à un changement stratégique vers l'acceptation de l'existence d'Israël et la recherche de négociations.",
+                part2Li3: "<strong>Plan de Fès (1982) :</strong> Le sommet arabe de Fès approuva l'établissement d'un État palestinien indépendant dans les territoires occupés en 1967, impliquant l'acceptation du partage et la reconnaissance implicite d'Israël.",
+                part2Li4: "<strong>Première Intifada (1987) :</strong> L'« Intifada des pierres » éclata et le Hamas fut fondé en décembre 1987, remettant la question à l'ordre du jour.",
+                part2Li5: "<strong>Désengagement jordanien (1988) :</strong> La Jordanie annonça la rupture de ses liens administratifs et juridiques avec la Cisjordanie, affirmant le rôle de l'OLP comme représentant du peuple palestinien.",
+                part2Li6: "<strong>Congrès national palestinien (1988) :</strong> Déclara l'acceptation du règlement politique et la création d'un État palestinien en exil, avec Jérusalem comme capitale.",
+                part2Li7: "<strong>Perte de soutien :</strong> Le soutien arabe et international s'éroda en raison de la position de l'OLP sur la guerre du Golfe et de l'effondrement de l'Union soviétique.",
+                part2Text3Conclusion: "La Conférence de Madrid se tint en 1991, suivie de négociations secrètes entre l'OLP et Israël aboutissant aux accords d'Oslo signés à Washington (13 septembre 1993), accordant aux Palestiniens une autonomie limitée en échange d'une reconnaissance mutuelle, laissant les questions finales à des négociations ultérieures. Mais l'échec des négociations de Camp David (2000), le déclenchement de la seconde Intifada et la construction du mur de séparation gelèrent le processus.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La question palestinienne passa par plusieurs phases, de la résistance armée à la lutte politique et aux négociations, dans un long conflit avec le mouvement sioniste et ses puissances de soutien. Malgré d'immenses sacrifices et défis, le peuple palestinien poursuivit sa lutte pour la liberté et l'autodétermination, faisant de sa cause l'une des plus importantes questions de libération dans le monde contemporain.",
+                sectionDefinitions: "📖 Définitions",
+                defOrganizations: "🏛️ Organisations et institutions",
+                defHaganah: "Haganah",
+                defHaganahDesc: "Organisation militaire principale du mouvement sioniste en Palestine avant la création d'Israël.",
+                defIrgun: "Irgoun",
+                defIrgunDesc: "Organisation militaire sioniste radicale active en Palestine avant 1948.",
+                defStern: "Groupe Stern",
+                defSternDesc: "Gang sioniste radical issu de l'Irgoun.",
+                defPLO: "Organisation de libération de la Palestine",
+                defPLODesc: "Représentant légitime et unique du peuple palestinien, fondée en 1964.",
+                defFatah: "Mouvement Fatah",
+                defFatahDesc: "La faction la plus importante de l'OLP, fondée à la fin des années 1950 par Yasser Arafat.",
+                defHamas: "Mouvement Hamas",
+                defHamasDesc: "Mouvement de résistance islamique palestinien fondé en 1987.",
+                defEvents: "⚡ Événements et repères",
+                defPartition1947: "Résolution de partage 181",
+                defPartition1947Desc: "Résolution de l'ONU de 1947 partageant la Palestine en États arabe et juif.",
+                defNakba: "Nakba",
+                defNakbaDesc: "Déplacement de centaines de milliers de Palestiniens en 1948 après la création d'Israël.",
+                defOslo: "Accords d'Oslo",
+                defOsloDesc: "Accords entre l'OLP et Israël signés en 1993.",
+                defOthers: "🔖 Termes clés",
+                defIntifada: "Intifada",
+                defIntifadaDesc: "Mouvement de résistance populaire palestinien déclenché en 1987 contre l'occupation israélienne.",
+                defRightOfReturn: "Droit au retour",
+                defRightOfReturnDesc: "Droit des réfugiés palestiniens de retourner dans leurs foyers d'où ils furent déplacés en 1948.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryResistanceAlt: "Résistance palestinienne – image illustrative",
+                galleryResistanceCaption: "Résistance palestinienne – image illustrative",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties et conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, organisations et événements",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                lessonPageTitle: "درس – مركز التاريخ والجغرافيا",
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 4: القضية الفلسطينية والصراع العربي الإسرائيلي",
+                lessonTitleSample: "القضية الفلسطينية",
+                sectionIntro: "مقدمة",
+                introText: "بعد الحرب العالمية الثانية، دخلت القضية الفلسطينية مرحلة جديدة تميزت بتصاعد الصراع مع الحركة الصهيونية المدعومة من القوى الكبرى. تطورت الأوضاع بين 1945 و1948 حتى إعلان دولة إسرائيل، ثم انطلقت المقاومة الفلسطينية المسلحة، وتحولت لاحقاً إلى النضال السياسي والانخراط في مسار السلام. فما هي أبرز محطات هذا الصراع؟",
+                sectionPart2: "المقاومة الفلسطينية في ظل الصراع العربي الإسرائيلي إثر الحرب العالمية الثانية",
+                part2Title1: "تطور الأوضاع الفلسطينية بين 1945 و1948",
+                part2Text1: "استفادت الحركة الصهيونية من ظرفية الحرب العالمية الثانية، حيث وجد الفلسطينيون أنفسهم بزعامة الحاج أمين الحسيني في صفوف المهزومين لتحالفهم مع الألمان، بينما نجح الصهاينة في توظيف التعاطف الغربي معهم بعد المحرقة النازية. وقد اكتسب الجنود الصهاينة المسرحون من جيوش الحلفاء خبرة عسكرية وظفوها لتكوين عصابات لترهيب الفلسطينيين، أبرزها \"الهاغانا\" (الجناح العسكري للوكالة اليهودية)، و\"الأرغون\" و\"شتيرن\" الأكثر تطرفاً.",
+                part2Text1Conclusion: "أمام الضغط الدولي، أعلنت بريطانيا نيتها إنهاء انتدابها على فلسطين وأحالت القضية إلى الأمم المتحدة. أصدرت الجمعية العامة قرارها رقم 181 في 29 نوفمبر 1947 بتقسيم فلسطين إلى دولة عربية (45%) ودولة يهودية (55%) مع تدويل القدس. رفض العرب القرار بينما قبلته الحركة الصهيونية، التي نظمت حملات إرهابية لتهجير الفلسطينيين، من أبرزها مجزرة دير ياسين (أفريل 1948). وفي 14 ماي 1948، انسحبت بريطانيا وأعلن دافيد بن غوريون قيام دولة إسرائيل.",
+                part2Text1Result: "اندلعت الحرب العربية الإسرائيلية الأولى، حيث دخلت جيوش عربية الأراضي الفلسطينية في 15 ماي 1948. بعد انتصارات أولية، فرضت الهدنة ثم استأنفت إسرائيل القتال بدعم غربي وانتصارات جديدة، وانتهت الحرب باتفاقيات هدنة رودس التي وسعت رقعة إسرائيل. ترتب عن النكبة تهجير حوالي 800 ألف فلسطيني، ووضع قطاع غزة تحت الإدارة المصرية والضفة الغربية تحت الإدارة الأردنية، وظل اللاجئون محرومين من حق العودة رغم القرار الأممي 194.",
+                part2Title2: "المقاومة الفلسطينية المسلحة (1949-1982)",
+                part2Text2Intro: "ظلت المقاومة مشتتة في البداية، لكنها تنامت بفضل عوامل عدة: تجاهل إسرائيل للقرارات الدولية، وقيام نظام مصري مناصر للتحرر بقيادة جمال عبد الناصر، واستقلال المغرب وتونس، وفشل العدوان الثلاثي على مصر. أقام الفلسطينيون هياكل نضالية:",
+                part2Li1: "<strong>حركة فتح:</strong> تأسست في نهاية الخمسينات بقيادة ياسر عرفات وخليل الوزير، واعتمدت مبدأ \"تحرير الفلسطينيين لأنفسهم بأنفسهم\" والكفاح المسلح، وشكلت جناحها العسكري \"قوات العاصفة\" وباشرت أولى عملياتها في 1 جانفي 1965.",
+                part2Li2: "<strong>منظمة التحرير الفلسطينية:</strong> تأسست سنة 1964 برئاسة أحمد الشقيري ثم ياسر عرفات، وضمت أبرز الفصائل مثل فتح والجبهتين الشعبية والديمقراطية، وتبنت الكفاح المسلح.",
+                part2Text2Middle: "انطلقت الثورة الفلسطينية المسلحة في 1 جانفي 1965، وتكثفت بعد نكسة جوان 1967. من أبرز محطاتها معركة الكرامة (مارس 1968). أدى اتساع الكفاح المسلح إلى توتر مع الأنظمة العربية المجاورة ووقوع أحداث \"أيلول الأسود\" (1970) وخروج القوات الفلسطينية من الأردن إلى لبنان.",
+                part2Text2Result: "كسبت منظمة التحرير تعاطفاً دولياً، ونالت سنة 1974 اعترافاً عربياً وأممياً كممثل شرعي ووحيد للشعب الفلسطيني، وصفة عضو مراقب في الأمم المتحدة. صدرت قرارات دولية تندد بالسياسة الإسرائيلية وأبرزها القراران 242 و338.",
+                part2Title3: "النضال السياسي والانخراط في مسار السلام (1982-1993)",
+                part2Text3Intro: "بعد معاهدة كامب ديفيد (1979)، استهدفت إسرائيل الفصائل الفلسطينية في لبنان واجتاحت بيروت صيف 1982، مما أجبر منظمة التحرير على مغادرة لبنان إلى تونس. أدى ذلك إلى تحول في الاستراتيجية نحو القبول بوجود إسرائيل والسعي إلى التفاوض.",
+                part2Li3: "<strong>خطة فاس (1982):</strong> أقرت القمة العربية بفاس إقامة دولة فلسطينية مستقلة في الأراضي المحتلة سنة 1967، مما يعني قبول قرار التقسيم والاعتراف الضمني بإسرائيل.",
+                part2Li4: "<strong>الانتفاضة الأولى (1987):</strong> اندلعت \"انتفاضة أطفال الحجارة\" وتأسست حركة \"حماس\" في ديسمبر 1987، لتعيد القضية إلى الواجهة.",
+                part2Li5: "<strong>فك الارتباط الأردني (1988):</strong> أعلن الأردن فك ارتباطه الإداري والقانوني بالضفة الغربية، مؤكداً دور منظمة التحرير كممثل للشعب الفلسطيني.",
+                part2Li6: "<strong>المؤتمر الوطني الفلسطيني (1988):</strong> أعلن قبول مبدأ التسوية السياسية وقيام الدولة الفلسطينية في المنفى، وعاصمتها القدس.",
+                part2Li7: "<strong>فقدان الدعم:</strong> تآكل الدعم العربي والدولي بسبب موقف المنظمة من حرب الخليج، وانهيار الاتحاد السوفياتي.",
+                part2Text3Conclusion: "انعقد مؤتمر مدريد للسلام سنة 1991، ثم توجت المفاوضات السرية بين منظمة التحرير وإسرائيل باتفاقيات أوسلو الموقعة في واشنطن (13 سبتمبر 1993)، التي منحت الفلسطينيين حكماً ذاتياً محدوداً مقابل اعتراف متبادل، وتركت قضايا الوضع النهائي لمفاوضات لاحقة. لكن فشل مفاوضات كامب ديفيد (2000) واندلاع الانتفاضة الثانية وبناء جدار الفصل أدى إلى تجميد المسار.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "مرت القضية الفلسطينية بمراحل متعددة من المقاومة المسلحة إلى النضال السياسي والتفاوض، في ظل صراع طويل مع الحركة الصهيونية والدول الداعمة لها. ورغم التضحيات الجسام والتحديات، استمر الشعب الفلسطيني في نضاله من أجل الحرية وتقرير المصير، لتظل قضيته من أبرز قضايا التحرر في العالم المعاصر.",
+                sectionDefinitions: "📖 تعريفات",
+                defOrganizations: "🏛️ منظمات وهيئات",
+                defHaganah: "الهاغانا",
+                defHaganahDesc: "المنظمة العسكرية الرئيسية للحركة الصهيونية في فلسطين قبل قيام إسرائيل.",
+                defIrgun: "الأرغون",
+                defIrgunDesc: "منظمة عسكرية صهيونية متطرفة نشطت في فلسطين قبل 1948.",
+                defStern: "شتيرن",
+                defSternDesc: "عصابة صهيونية متطرفة انشقت عن الأرغون.",
+                defPLO: "منظمة التحرير الفلسطينية",
+                defPLODesc: "الممثل الشرعي والوحيد للشعب الفلسطيني، تأسست سنة 1964.",
+                defFatah: "حركة فتح",
+                defFatahDesc: "أبرز فصائل منظمة التحرير، تأسست في نهاية الخمسينات بقيادة ياسر عرفات.",
+                defHamas: "حركة حماس",
+                defHamasDesc: "حركة مقاومة إسلامية فلسطينية تأسست سنة 1987.",
+                defEvents: "⚡ أحداث ومحطات",
+                defPartition1947: "قرار التقسيم 181",
+                defPartition1947Desc: "قرار أممي صدر سنة 1947 بتقسيم فلسطين إلى دولتين عربية ويهودية.",
+                defNakba: "النكبة",
+                defNakbaDesc: "تهجير مئات الآلاف من الفلسطينيين سنة 1948 بعد قيام دولة إسرائيل.",
+                defOslo: "اتفاقيات أوسلو",
+                defOsloDesc: "اتفاقيات بين منظمة التحرير وإسرائيل وقعت سنة 1993.",
+                defOthers: "🔖 مصطلحات أساسية",
+                defIntifada: "الانتفاضة",
+                defIntifadaDesc: "حركة مقاومة شعبية فلسطينية اندلعت سنة 1987 ضد الاحتلال الإسرائيلي.",
+                defRightOfReturn: "حق العودة",
+                defRightOfReturnDesc: "حق اللاجئين الفلسطينيين في العودة إلى ديارهم التي هجروا منها سنة 1948.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryResistanceAlt: "المقاومة الفلسطينية – صورة توضيحية",
+                galleryResistanceCaption: "المقاومة الفلسطينية – صورة توضيحية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة والأجزاء والخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات والمنظمات والأحداث",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Haganah", class: "key-organization", i18n: "defHaganah" },
+                { text: "Irgun", class: "key-organization", i18n: "defIrgun" },
+                { text: "Stern Gang", class: "key-organization", i18n: "defStern" },
+                { text: "Palestine Liberation Organization", class: "key-organization", i18n: "defPLO" },
+                { text: "Fatah", class: "key-organization", i18n: "defFatah" },
+                { text: "Hamas", class: "key-organization", i18n: "defHamas" },
+                { text: "Partition Resolution 181", class: "key-event", i18n: "defPartition1947" },
+                { text: "Nakba", class: "key-event", i18n: "defNakba" },
+                { text: "Oslo Accords", class: "key-event", i18n: "defOslo" },
+                { text: "Intifada", class: "key-other", i18n: "defIntifada" },
+                { text: "Right of Return", class: "key-other", i18n: "defRightOfReturn" }
+            ],
+            fr: [
+                { text: "Haganah", class: "key-organization", i18n: "defHaganah" },
+                { text: "Irgoun", class: "key-organization", i18n: "defIrgun" },
+                { text: "Groupe Stern", class: "key-organization", i18n: "defStern" },
+                { text: "Organisation de libération de la Palestine", class: "key-organization", i18n: "defPLO" },
+                { text: "Fatah", class: "key-organization", i18n: "defFatah" },
+                { text: "Hamas", class: "key-organization", i18n: "defHamas" },
+                { text: "Résolution de partage 181", class: "key-event", i18n: "defPartition1947" },
+                { text: "Nakba", class: "key-event", i18n: "defNakba" },
+                { text: "Accords d'Oslo", class: "key-event", i18n: "defOslo" },
+                { text: "Intifada", class: "key-other", i18n: "defIntifada" },
+                { text: "Droit au retour", class: "key-other", i18n: "defRightOfReturn" }
+            ],
+            ar: [
+                { text: "الهاغانا", class: "key-organization", i18n: "defHaganah" },
+                { text: "الأرغون", class: "key-organization", i18n: "defIrgun" },
+                { text: "شتيرن", class: "key-organization", i18n: "defStern" },
+                { text: "منظمة التحرير الفلسطينية", class: "key-organization", i18n: "defPLO" },
+                { text: "حركة فتح", class: "key-organization", i18n: "defFatah" },
+                { text: "حركة حماس", class: "key-organization", i18n: "defHamas" },
+                { text: "قرار التقسيم 181", class: "key-event", i18n: "defPartition1947" },
+                { text: "النكبة", class: "key-event", i18n: "defNakba" },
+                { text: "اتفاقيات أوسلو", class: "key-event", i18n: "defOslo" },
+                { text: "الانتفاضة", class: "key-other", i18n: "defIntifada" },
+                { text: "حق العودة", class: "key-other", i18n: "defRightOfReturn" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
