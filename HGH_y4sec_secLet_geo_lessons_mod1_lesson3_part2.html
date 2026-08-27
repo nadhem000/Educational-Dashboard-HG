@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة آداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                الجغرافيا / المحور الأول: مجال عالمي مترابط ومتفاوت / الدرس 2: التفاوت في التقدم بين بلدان العالم وعوامله
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                التفاوت في التقدم بين بلدان العالم وعوامله
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    بعد التعرف على مظاهر التفاوت الكبير بين بلدان العالم، نطرح السؤال حول الأسباب والعوامل التي أدت إلى هذا الواقع. فما هي العوامل الاقتصادية والبشرية المفسرة للتفاوت في التقدم؟
+                </p>
+            </div>
+
+            <!-- Part II : Factors -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">عوامل التفاوت في التقدم</span>
+                </h2>
+
+                <!-- 1. Economic Factors -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part2_1_title">العوامل الاقتصادية</span>
+                </h3>
+
+                <!-- a. Economic hegemony and dependency -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part2_1_a_title">الهيمنة الاقتصادية والتبعية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part2_1_a_b1">قوض استعمار الشمال التوازنات والبنى التقليدية في دول الجنوب وجعلها في تبعية له اقتصاديا وتكنولوجيا وسياسيا وثقافيا.</li>
+                    <li data-i18n="part2_1_a_b2">وأدى توسع الرأسمالية عقب الثورة الصناعية إلى تطور غير متكافئ لبلدان العالم أحرزت ضمنه دول الشمال تقدما بينما ظلت دول الجنوب خاضعة في معظمها للهيمنة المعيقة للتنمية فيها.</li>
+                    <li data-i18n="part2_1_a_b3">وأسهم الانفتاح على الاستثمار الأجنبي المباشر منذ ثمانينات القرن الماضي في تكريس هيمنة الدول المتقدمة عبر سيطرة شركاتها عبر القطرية على اقتصاديات البلدان النامية.</li>
+                    <li data-i18n="part2_1_a_b4">ولم تفلح العديد من دول الجنوب في الاندماج بالعولمة وتخطي صعوباتها مما عمق الفارق الذي يفصلها عن دول الشمال.</li>
+                </ul>
+                <p><strong data-i18n="defDevelopment_term">التنمية:</strong> <span data-i18n="defDevelopment_desc">مسار تاريخي يفضي إلى بلوغ بلد ما مرحلة التقدم الاقتصادي والاجتماعي، ويشترط نموا اقتصاديا مرتفعا ومتواصلا مقترنا بتحول هيكلي في بنية الاقتصاد والمجتمع وبقدرة على تلبية الحاجيات الأساسية للسكان في ميادين التعليم والصحة والغذاء، كما أن للتنمية بعدا ثقافيا ومجاليا وكذلك سياسيا.</span></p>
+
+                <!-- b. Unfair global division of labor -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part2_1_b_title">تقسيم عالمي غير متكافئ للعمل: تقسيم جائر</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part2_1_b_b1">استفادت البلدان المتقدمة من التقسيم العالمي القديم (التقليدي) للعمل قبل السبعينات ومن التقسيم العالمي الجديد للعمل منذ منتصف السبعينات من القرن الماضي.</li>
+                    <li data-i18n="part2_1_b_b2">فقد استأثرت دول الشمال ضمن التقسيم العالمي التقليدي للعمل بإنتاج وتصدير المنتجات المصنعة، بينما تخلت للبلدان النامية عن إنتاج وتصدير المواد الأولية.</li>
+                    <li data-i18n="part2_1_b_b3">واحتكرت الدول المتقدمة ضمن التقسيم العالمي الجديد للعمل إنتاج وتصدير الخدمات والمنتجات الصناعية ذات القيمة المضافة العالية، بينما تخلت للبلدان النامية عن إنتاج وتصدير المنتجات ذات القيمة المضافة المتوسطة والضعيفة.</li>
+                    <li data-i18n="part2_1_b_b4">ولئن تمكنت بعض دول الجنوب من تطوير صادراتها من المنتجات المعملية والخدمات ذات القيمة المضافة العالية في إطار المقاولة المساندة؛ ظلت البلدان النامية النفطية والبلدان الأقل تقدما مكتفية بتصدير المواد الأولية الطاقية والمنجمية والفلاحية.</li>
+                    <li data-i18n="part2_1_b_b5">ونظرا إلى تزامن انخفاض أسعار المواد الأولية على المدى الطويل مع ارتفاع أسعار المنتجات الصناعية، تأثرت أغلب بلدان الجنوب بتدهور شروط التبادل مما زاد في هشاشة اقتصادها وحال دون تحسن مستوى التنمية بها.</li>
+                    <li data-i18n="part2_1_b_b6">ولئن تحسنت شروط التبادل منذ سنة 2003 نتيجة ارتفاع أسعار المواد الأولية مما ضمن لعديد البلدان النامية المصدرة للنفط والمعادن عائدات ضخمة؛ فإن سوء التصرف في تلك العائدات فوت فرصة تحقيق النمو الضامن للتنمية، قبل أن تعود أسعار تلك المواد إلى الانخفاض.</li>
+                </ul>
+
+                <!-- c. Debt crisis -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>
+                    <span data-i18n="part2_1_c_title">مأزق مديونية بلدان الجنوب: عبء معرقل للتنمية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part2_1_c_b1">يعتبر التداين من أهم عوائق التنمية في بلدان الجنوب.</li>
+                    <li data-i18n="part2_1_c_b2">أدت سياسة الاقتراض التي توختها دول الجنوب في إطار التجارب التنموية التي انتهجتها منذ ستينات القرن الماضي لتمويل مشاريعها الاقتصادية والاجتماعية، إلى تفاقم معضلة الدين بالأقطار النامية. فقد تضاعف حجم دينها الخارجي أكثر من 100 مرة منذ 1970 إلى 11 تريليون دولار (11.4 تريليون دولار سنة 2022).</li>
+                    <li data-i18n="part2_1_c_b3">وعمق انفتاح الدول النامية على الاستثمار الأجنبي المباشر تبعيتها المالية للدول المتقدمة.</li>
+                    <li data-i18n="part2_1_c_b4">ولئن تراجعت حصته بمقدار النصف؛ تظل قيمة الدين الخارجي تتخطى قيمة عائدات صادرات دول الجنوب من السلع والخدمات. ولا تزال خدمة الدين (1.196 تريليون دولار سنة 2022) تستنزف اقتصاد هذه البلدان حيث تمثل 12.9% من قيمة صادراتها (سنة 2022)، مما يضطرها لقبول برامج الإصلاح الهيكلي التي تفرضها المؤسسات المانحة ولا سيما صندوق النقد الدولي.</li>
+                </ul>
+
+                <!-- 2. Human Factors -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part2_2_title">العوامل البشرية</span>
+                </h3>
+
+                <!-- a. Demographic situation -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part2_2_a_title">الوضع الديمغرافي: غير معيق للتنمية في الشمال ومكبل لها في الجنوب</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part2_2_a_b1">تزامن الانفجار الديمغرافي بالبلدان المتقدمة مع الثورة الصناعية وحاجة المصانع لليد العاملة، فشكل النمو السكاني السريع عاملا مساعدا على التنمية في دول الشمال.</li>
+                    <li data-i18n="part2_2_a_b2">ولئن بلغت الدول المتقدمة حاليا مرحلة التعول (النضج الديمغرافي)؛ فإنها تتمتع بسوق داخلية ضخمة (مثل الاتحاد الأوروبي) وقدرة استهلاكية عالية (بفضل ارتفاع الدخل الفردي) وإنتاجية عالية ويد عاملة ماهرة تعززها القدرة على استقطاب الأدمغة والهجرة الوافدة لتغطية الفتور الديمغرافي.</li>
+                    <li data-i18n="part2_2_a_b3">في المقابل، تشكو أغلب البلدان النامية من النمو السريع للسكان (مرحلة الانتقال الديمغرافي) الذي لم يواكبه نمو اقتصادي منتظم.</li>
+                    <li data-i18n="part2_2_a_b4">ولئن وفر النمو الديمغرافي يدا عاملة وفيرة وبخسة ساهمت في انخفاض كلفة الإنتاج وفي استقطاب الشركات عبر القطرية؛ إلا أنه فرض ضغطا على مواردها المالية التي استوجب توظيفها للمجال الاجتماعي (الصحة والتعليم والسكن ...) عوضا عن استثمارها في الأنشطة الإنتاجية.</li>
+                </ul>
+
+                <!-- b. Human capital differences -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part2_2_b_title">تباين مزايا الرصيد البشري</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part2_2_b_b1">تتمتع الدول المتقدمة بدخل فردي مرتفع (الناتج الداخلي الخام للفرد) حيث قدر (سنة 2021) بـ 43.752 دولار (بمعادل القوة الشرائية بدولار 2017)، مما ساهم في تأسيس سوق استهلاكية داخلية نشيطة تمثل إحدى دعائم القوة الإنتاجية لدول الشمال.</li>
+                    <li data-i18n="part2_2_b_b2">وتستفيد الدول المتقدمة من يد عاملة وطنية عالية التأهيل، وتنتهج سياسات هجرية انتقائية توفر من خلالها الكفاءات (الأدمغة) واليد العاملة الماهرة والعادية لتغطية العجز في بعض الاختصاصات المهنية.</li>
+                    <li data-i18n="part2_2_b_b3">في المقابل، تشكو أغلب البلدان النامية من ضعف الدخل الفردي الذي لا يتعدى ثلث الدخل الفردي بدول الشمال (10.704 دولار سنة 2021). وتعاني دول الجنوب من انتشار الفقر بسبب فشل التجارب التنموية في تحقيق النمو والتوزيع العادل للثروة، مما يفسر ضعف السوق الاستهلاكية الداخلية. ويعرقل تدهور الأوضاع الصحية وتدني مستوى التعليم جهود التنمية بدول الجنوب.</li>
+                    <li data-i18n="part2_2_b_b4">وتكرس هجرة اليد العاملة المؤهلة والكفاءات (الأدمغة) تبعية الدول النامية تكنولوجيا لدول الشمال.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    فرضت وضعية التخلف على بلدان الجنوب ضرورة البحث عن سبل تدارك تأخرها، كما تطلبت تدخل المنظمات الدولية لمعاضدة جهود هذه البلدان لتقليص الهوة التي تفصلها عن دول الشمال.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defDevelopment_term">التنمية</strong>: <span data-i18n="defDevelopment_desc">مسار تاريخي يفضي إلى بلوغ بلد ما مرحلة التقدم الاقتصادي والاجتماعي، ويشترط نموا اقتصاديا مرتفعا ومتواصلا مقترنا بتحول هيكلي في بنية الاقتصاد والمجتمع وبقدرة على تلبية الحاجيات الأساسية للسكان في ميادين التعليم والصحة والغذاء، كما أن للتنمية بعدا ثقافيا ومجاليا وكذلك سياسيا.</span></li>
+                        <li><strong class="key-other" data-i18n="defDivisionLabor_term">التقسيم العالمي للعمل</strong>: <span data-i18n="defDivisionLabor_desc">توزيع الأنشطة الإنتاجية على المستوى العالمي، حيث تتخصص بعض البلدان في إنتاج وتصدير منتجات معينة بينما تتخصص بلدان أخرى في منتجات أخرى، وفق مصالح القوى المهيمنة.</span></li>
+                        <li><strong class="key-other" data-i18n="defDependency_term">التبعية</strong>: <span data-i18n="defDependency_desc">حالة ارتباط اقتصادي وسياسي وتكنولوجي غير متكافئ بين الدول النامية والدول المتقدمة، تجعل الأولى خاضعة لمصالح الثانية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Global+Division+of+Labor"
+                             alt="خريطة التقسيم العالمي للعمل"
+                             class="gallery-img"
+                             data-i18n-alt="galleryImageAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryImageCaption">التقسيم العالمي للعمل غير المتكافئ</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Print modal -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة، الأجزاء، الخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات الأساسية</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "Geography / Axis 1: An Interconnected and Unequal Global Space / Lesson 2: Disparities in Progress Among Countries and Their Factors",
+                lessonTitleSample: "Disparities in Progress Among Countries and Their Factors",
+                sectionIntro: "Introduction",
+                introText: "After examining the manifestations of significant disparities between world countries, we turn to the causes and factors that led to this reality. What are the economic and human factors explaining disparities in progress?",
+                sectionPart2: "Factors of Progress Disparities",
+                part2_1_title: "Economic Factors",
+                part2_1_a_title: "Economic Hegemony and Dependency",
+                part2_1_a_b1: "Northern colonialism dismantled traditional balances and structures in Southern countries, making them dependent economically, technologically, politically, and culturally.",
+                part2_1_a_b2: "The expansion of capitalism after the Industrial Revolution led to unequal development of world countries, with the North advancing while the South remained largely subject to development-hindering hegemony.",
+                part2_1_a_b3: "Opening up to foreign direct investment since the 1980s reinforced the dominance of developed countries through the control of their transnational corporations over developing economies.",
+                part2_1_a_b4: "Many Southern countries failed to integrate into globalization and overcome its challenges, deepening the gap separating them from the North.",
+                defDevelopment_term: "Development:",
+                defDevelopment_desc: "A historical process leading a country to economic and social progress, requiring high and sustained economic growth accompanied by structural transformation of the economy and society, and the ability to meet the basic needs of the population in education, health, and food. Development also has cultural, spatial, and political dimensions.",
+                part2_1_b_title: "Unfair Global Division of Labor",
+                part2_1_b_b1: "Developed countries benefited from the traditional (old) international division of labor before the 1970s and from the new international division of labor since the mid-1970s.",
+                part2_1_b_b2: "In the traditional division, Northern countries monopolized the production and export of manufactured goods, while developing countries were left to produce and export raw materials.",
+                part2_1_b_b3: "In the new division, developed countries monopolized the production and export of high value-added services and industrial products, leaving developing countries with medium and low value-added products.",
+                part2_1_b_b4: "Although some Southern countries managed to develop exports of manufactured goods and high value-added services through subcontracting, oil-producing and least developed countries remained limited to exporting energy, mining, and agricultural raw materials.",
+                part2_1_b_b5: "Given the long-term decline in raw material prices coinciding with rising industrial product prices, most Southern countries suffered deteriorating terms of trade, increasing economic fragility and hindering development.",
+                part2_1_b_b6: "Although terms of trade improved since 2003 due to rising raw material prices, securing huge revenues for many oil and mineral exporters, mismanagement of these revenues missed the opportunity for sustainable growth before prices fell again.",
+                part2_1_c_title: "Debt Crisis of the South: An Obstacle to Development",
+                part2_1_c_b1: "Debt is one of the main obstacles to development in Southern countries.",
+                part2_1_c_b2: "The borrowing policies adopted by Southern countries since the 1960s to finance economic and social projects led to the aggravation of the debt problem. External debt multiplied more than 100 times since 1970 to $11 trillion ($11.4 trillion in 2022).",
+                part2_1_c_b3: "Opening up to foreign direct investment deepened the financial dependency of developing countries on developed ones.",
+                part2_1_c_b4: "Although its share halved, external debt still exceeds the value of Southern countries' export revenues. Debt service ($1.196 trillion in 2022) continues to drain these economies, representing 12.9% of export value (2022), forcing them to accept structural adjustment programs imposed by lending institutions, especially the IMF.",
+                part2_2_title: "Human Factors",
+                part2_2_a_title: "Demographic Situation: Not a Hindrance in the North, a Burden in the South",
+                part2_2_a_b1: "The demographic explosion in developed countries coincided with the Industrial Revolution and the need for labor, making rapid population growth a helpful factor for development in the North.",
+                part2_2_a_b2: "Although developed countries have reached demographic maturity, they enjoy a large internal market (e.g., EU), high consumption capacity (high per capita income), high productivity, and skilled labor, enhanced by brain drain and immigration to offset demographic slowdown.",
+                part2_2_a_b3: "In contrast, most developing countries suffer from rapid population growth (demographic transition) not matched by regular economic growth.",
+                part2_2_a_b4: "While demographic growth provided abundant and cheap labor, reducing production costs and attracting TNCs, it also strained financial resources that had to be allocated to social sectors (health, education, housing) instead of productive activities.",
+                part2_2_b_title: "Differences in Human Capital",
+                part2_2_b_b1: "Developed countries enjoy high per capita income ($43,752 in 2021, PPP), contributing to a dynamic domestic consumer market, a pillar of Northern productive power.",
+                part2_2_b_b2: "They benefit from highly skilled national labor and selective immigration policies that attract skilled professionals and ordinary labor to fill shortages in certain occupations.",
+                part2_2_b_b3: "In contrast, most developing countries suffer from low per capita income (only one-third of Northern income: $10,704 in 2021) and widespread poverty due to failed development experiments, explaining weak domestic markets. Deteriorating health and low education levels hinder development efforts.",
+                part2_2_b_b4: "The emigration of skilled labor and professionals (brain drain) reinforces the technological dependency of developing countries on the North.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The situation of underdevelopment imposed on Southern countries the need to find ways to catch up, and required the intervention of international organizations to support their efforts in narrowing the gap with Northern countries.",
+                sectionDefinitions: "📖 Definitions",
+                defOthers: "🔖 Key Terms",
+                defDivisionLabor_term: "International Division of Labor",
+                defDivisionLabor_desc: "The global distribution of productive activities, where some countries specialize in producing and exporting certain goods while others specialize in different goods, according to the interests of dominant powers.",
+                defDependency_term: "Dependency",
+                defDependency_desc: "An unequal economic, political, and technological relationship between developing and developed countries, making the former subordinate to the interests of the latter.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryImageAlt: "Global division of labor map",
+                galleryImageCaption: "Unequal international division of labor",
+                printButton: "🖨️ Print / Save as PDF",
+                printModalTitle: "Print Options",
+                printModalSubtitle: "Select one or more sections:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Géographie / Axe 1 : Un espace mondial interconnecté et inégal / Leçon 2 : Les disparités de progrès entre les pays et leurs facteurs",
+                lessonTitleSample: "Les disparités de progrès entre les pays et leurs facteurs",
+                sectionIntro: "Introduction",
+                introText: "Après avoir examiné les manifestations des grandes disparités entre les pays du monde, nous nous interrogeons sur les causes et facteurs qui ont conduit à cette réalité. Quels sont les facteurs économiques et humains expliquant les disparités de progrès ?",
+                sectionPart2: "Facteurs des disparités de progrès",
+                part2_1_title: "Facteurs économiques",
+                part2_1_a_title: "Hégémonie économique et dépendance",
+                part2_1_a_b1: "Le colonialisme du Nord a détruit les équilibres et structures traditionnelles des pays du Sud, les rendant dépendants économiquement, technologiquement, politiquement et culturellement.",
+                part2_1_a_b2: "L'expansion du capitalisme après la révolution industrielle a conduit à un développement inégal des pays du monde, le Nord progressant tandis que le Sud restait soumis à une hégémonie entravant le développement.",
+                part2_1_a_b3: "L'ouverture aux investissements directs étrangers depuis les années 1980 a renforcé la domination des pays développés à travers le contrôle de leurs firmes transnationales sur les économies en développement.",
+                part2_1_a_b4: "De nombreux pays du Sud n'ont pas réussi à s'intégrer dans la mondialisation et à surmonter ses difficultés, creusant l'écart qui les sépare du Nord.",
+                defDevelopment_term: "Développement :",
+                defDevelopment_desc: "Cheminement historique menant un pays au progrès économique et social, exigeant une croissance économique élevée et soutenue accompagnée d'une transformation structurelle de l'économie et de la société, et la capacité de satisfaire les besoins essentiels de la population en éducation, santé et alimentation. Le développement a aussi des dimensions culturelles, spatiales et politiques.",
+                part2_1_b_title: "Division internationale du travail inéquitable",
+                part2_1_b_b1: "Les pays développés ont bénéficié de l'ancienne division internationale du travail avant les années 1970 et de la nouvelle depuis le milieu des années 1970.",
+                part2_1_b_b2: "Dans l'ancienne division, les pays du Nord ont monopolisé la production et l'exportation de produits manufacturés, laissant aux pays en développement la production et l'exportation de matières premières.",
+                part2_1_b_b3: "Dans la nouvelle division, les pays développés ont monopolisé la production et l'exportation de services et de produits industriels à haute valeur ajoutée, laissant aux pays en développement les produits à valeur ajoutée moyenne ou faible.",
+                part2_1_b_b4: "Bien que certains pays du Sud aient réussi à développer leurs exportations de produits manufacturés et de services à haute valeur ajoutée grâce à la sous-traitance, les pays pétroliers et les moins avancés sont restés limités à l'exportation de matières premières énergétiques, minières et agricoles.",
+                part2_1_b_b5: "Étant donné la baisse à long terme des prix des matières premières coïncidant avec la hausse des prix des produits industriels, la plupart des pays du Sud ont souffert d'une détérioration des termes de l'échange, accroissant leur fragilité économique et entravant le développement.",
+                part2_1_b_b6: "Bien que les termes de l'échange se soient améliorés depuis 2003 grâce à la hausse des prix des matières premières, assurant d'énormes revenus à de nombreux exportateurs de pétrole et de minerais, la mauvaise gestion de ces revenus a fait manquer l'opportunité d'une croissance durable avant que les prix ne chutent à nouveau.",
+                part2_1_c_title: "Crise de la dette du Sud : un obstacle au développement",
+                part2_1_c_b1: "La dette est l'un des principaux obstacles au développement dans les pays du Sud.",
+                part2_1_c_b2: "Les politiques d'emprunt adoptées par les pays du Sud depuis les années 1960 pour financer leurs projets économiques et sociaux ont aggravé le problème de la dette. La dette extérieure a été multipliée par plus de 100 depuis 1970, atteignant 11 000 milliards de dollars (11 400 milliards en 2022).",
+                part2_1_c_b3: "L'ouverture aux investissements directs étrangers a approfondi la dépendance financière des pays en développement envers les pays développés.",
+                part2_1_c_b4: "Bien que sa part ait diminué de moitié, la dette extérieure dépasse encore la valeur des recettes d'exportation des pays du Sud. Le service de la dette (1 196 milliards de dollars en 2022) continue de drainer ces économies, représentant 12,9 % de la valeur des exportations (2022), les contraignant à accepter des programmes d'ajustement structurel imposés par les institutions prêteuses, notamment le FMI.",
+                part2_2_title: "Facteurs humains",
+                part2_2_a_title: "Situation démographique : non un obstacle au Nord, un fardeau au Sud",
+                part2_2_a_b1: "L'explosion démographique dans les pays développés a coïncidé avec la révolution industrielle et le besoin de main-d'œuvre, faisant de la croissance démographique rapide un facteur favorable au développement au Nord.",
+                part2_2_a_b2: "Bien que les pays développés aient atteint la maturité démographique, ils bénéficient d'un vaste marché intérieur (UE), d'une forte capacité de consommation (revenu par habitant élevé), d'une productivité élevée et d'une main-d'œuvre qualifiée, renforcée par la fuite des cerveaux et l'immigration pour compenser le ralentissement démographique.",
+                part2_2_a_b3: "En revanche, la plupart des pays en développement souffrent d'une croissance démographique rapide (transition démographique) non accompagnée d'une croissance économique régulière.",
+                part2_2_a_b4: "Si la croissance démographique a fourni une main-d'œuvre abondante et bon marché, réduisant les coûts de production et attirant les firmes transnationales, elle a aussi exercé une pression sur les ressources financières qui ont dû être allouées aux secteurs sociaux (santé, éducation, logement) au lieu d'activités productives.",
+                part2_2_b_title: "Différences de capital humain",
+                part2_2_b_b1: "Les pays développés jouissent d'un revenu par habitant élevé (43 752 $ en 2021, PPA), contribuant à un marché intérieur dynamique, pilier de la puissance productive du Nord.",
+                part2_2_b_b2: "Ils bénéficient d'une main-d'œuvre nationale hautement qualifiée et de politiques d'immigration sélectives qui attirent les compétences et la main-d'œuvre ordinaire pour combler les pénuries dans certaines professions.",
+                part2_2_b_b3: "En revanche, la plupart des pays en développement souffrent d'un faible revenu par habitant (seulement un tiers de celui du Nord : 10 704 $ en 2021) et d'une pauvreté généralisée due à l'échec des expériences de développement, expliquant la faiblesse des marchés intérieurs. La dégradation de la santé et le faible niveau d'éducation entravent les efforts de développement.",
+                part2_2_b_b4: "L'émigration de la main-d'œuvre qualifiée et des compétences (fuite des cerveaux) renforce la dépendance technologique des pays en développement envers le Nord.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La situation de sous-développement a imposé aux pays du Sud la nécessité de trouver des moyens de rattrapage, et a requis l'intervention des organisations internationales pour soutenir leurs efforts afin de réduire l'écart avec les pays du Nord.",
+                sectionDefinitions: "📖 Définitions",
+                defOthers: "🔖 Termes clés",
+                defDivisionLabor_term: "Division internationale du travail",
+                defDivisionLabor_desc: "Répartition mondiale des activités productives, où certains pays se spécialisent dans la production et l'exportation de certains biens tandis que d'autres se spécialisent dans d'autres biens, selon les intérêts des puissances dominantes.",
+                defDependency_term: "Dépendance",
+                defDependency_desc: "Relation économique, politique et technologique inégale entre pays en développement et pays développés, rendant les premiers subordonnés aux intérêts des seconds.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryImageAlt: "Carte de la division internationale du travail",
+                galleryImageCaption: "Division internationale du travail inéquitable",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printModalTitle: "Options d'impression",
+                printModalSubtitle: "Sélectionnez une ou plusieurs sections :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties, conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة آداب",
+                moduleName: "الجغرافيا / المحور الأول: مجال عالمي مترابط ومتفاوت / الدرس 2: التفاوت في التقدم بين بلدان العالم وعوامله",
+                lessonTitleSample: "التفاوت في التقدم بين بلدان العالم وعوامله",
+                sectionIntro: "مقدمة",
+                introText: "بعد التعرف على مظاهر التفاوت الكبير بين بلدان العالم، نطرح السؤال حول الأسباب والعوامل التي أدت إلى هذا الواقع. فما هي العوامل الاقتصادية والبشرية المفسرة للتفاوت في التقدم؟",
+                sectionPart2: "عوامل التفاوت في التقدم",
+                part2_1_title: "العوامل الاقتصادية",
+                part2_1_a_title: "الهيمنة الاقتصادية والتبعية",
+                part2_1_a_b1: "قوض استعمار الشمال التوازنات والبنى التقليدية في دول الجنوب وجعلها في تبعية له اقتصاديا وتكنولوجيا وسياسيا وثقافيا.",
+                part2_1_a_b2: "وأدى توسع الرأسمالية عقب الثورة الصناعية إلى تطور غير متكافئ لبلدان العالم أحرزت ضمنه دول الشمال تقدما بينما ظلت دول الجنوب خاضعة في معظمها للهيمنة المعيقة للتنمية فيها.",
+                part2_1_a_b3: "وأسهم الانفتاح على الاستثمار الأجنبي المباشر منذ ثمانينات القرن الماضي في تكريس هيمنة الدول المتقدمة عبر سيطرة شركاتها عبر القطرية على اقتصاديات البلدان النامية.",
+                part2_1_a_b4: "ولم تفلح العديد من دول الجنوب في الاندماج بالعولمة وتخطي صعوباتها مما عمق الفارق الذي يفصلها عن دول الشمال.",
+                defDevelopment_term: "التنمية:",
+                defDevelopment_desc: "مسار تاريخي يفضي إلى بلوغ بلد ما مرحلة التقدم الاقتصادي والاجتماعي، ويشترط نموا اقتصاديا مرتفعا ومتواصلا مقترنا بتحول هيكلي في بنية الاقتصاد والمجتمع وبقدرة على تلبية الحاجيات الأساسية للسكان في ميادين التعليم والصحة والغذاء، كما أن للتنمية بعدا ثقافيا ومجاليا وكذلك سياسيا.",
+                part2_1_b_title: "تقسيم عالمي غير متكافئ للعمل: تقسيم جائر",
+                part2_1_b_b1: "استفادت البلدان المتقدمة من التقسيم العالمي القديم (التقليدي) للعمل قبل السبعينات ومن التقسيم العالمي الجديد للعمل منذ منتصف السبعينات من القرن الماضي.",
+                part2_1_b_b2: "فقد استأثرت دول الشمال ضمن التقسيم العالمي التقليدي للعمل بإنتاج وتصدير المنتجات المصنعة، بينما تخلت للبلدان النامية عن إنتاج وتصدير المواد الأولية.",
+                part2_1_b_b3: "واحتكرت الدول المتقدمة ضمن التقسيم العالمي الجديد للعمل إنتاج وتصدير الخدمات والمنتجات الصناعية ذات القيمة المضافة العالية، بينما تخلت للبلدان النامية عن إنتاج وتصدير المنتجات ذات القيمة المضافة المتوسطة والضعيفة.",
+                part2_1_b_b4: "ولئن تمكنت بعض دول الجنوب من تطوير صادراتها من المنتجات المعملية والخدمات ذات القيمة المضافة العالية في إطار المقاولة المساندة؛ ظلت البلدان النامية النفطية والبلدان الأقل تقدما مكتفية بتصدير المواد الأولية الطاقية والمنجمية والفلاحية.",
+                part2_1_b_b5: "ونظرا إلى تزامن انخفاض أسعار المواد الأولية على المدى الطويل مع ارتفاع أسعار المنتجات الصناعية، تأثرت أغلب بلدان الجنوب بتدهور شروط التبادل مما زاد في هشاشة اقتصادها وحال دون تحسن مستوى التنمية بها.",
+                part2_1_b_b6: "ولئن تحسنت شروط التبادل منذ سنة 2003 نتيجة ارتفاع أسعار المواد الأولية مما ضمن لعديد البلدان النامية المصدرة للنفط والمعادن عائدات ضخمة؛ فإن سوء التصرف في تلك العائدات فوت فرصة تحقيق النمو الضامن للتنمية، قبل أن تعود أسعار تلك المواد إلى الانخفاض.",
+                part2_1_c_title: "مأزق مديونية بلدان الجنوب: عبء معرقل للتنمية",
+                part2_1_c_b1: "يعتبر التداين من أهم عوائق التنمية في بلدان الجنوب.",
+                part2_1_c_b2: "أدت سياسة الاقتراض التي توختها دول الجنوب في إطار التجارب التنموية التي انتهجتها منذ ستينات القرن الماضي لتمويل مشاريعها الاقتصادية والاجتماعية، إلى تفاقم معضلة الدين بالأقطار النامية. فقد تضاعف حجم دينها الخارجي أكثر من 100 مرة منذ 1970 إلى 11 تريليون دولار (11.4 تريليون دولار سنة 2022).",
+                part2_1_c_b3: "وعمق انفتاح الدول النامية على الاستثمار الأجنبي المباشر تبعيتها المالية للدول المتقدمة.",
+                part2_1_c_b4: "ولئن تراجعت حصته بمقدار النصف؛ تظل قيمة الدين الخارجي تتخطى قيمة عائدات صادرات دول الجنوب من السلع والخدمات. ولا تزال خدمة الدين (1.196 تريليون دولار سنة 2022) تستنزف اقتصاد هذه البلدان حيث تمثل 12.9% من قيمة صادراتها (سنة 2022)، مما يضطرها لقبول برامج الإصلاح الهيكلي التي تفرضها المؤسسات المانحة ولا سيما صندوق النقد الدولي.",
+                part2_2_title: "العوامل البشرية",
+                part2_2_a_title: "الوضع الديمغرافي: غير معيق للتنمية في الشمال ومكبل لها في الجنوب",
+                part2_2_a_b1: "تزامن الانفجار الديمغرافي بالبلدان المتقدمة مع الثورة الصناعية وحاجة المصانع لليد العاملة، فشكل النمو السكاني السريع عاملا مساعدا على التنمية في دول الشمال.",
+                part2_2_a_b2: "ولئن بلغت الدول المتقدمة حاليا مرحلة التعول (النضج الديمغرافي)؛ فإنها تتمتع بسوق داخلية ضخمة (مثل الاتحاد الأوروبي) وقدرة استهلاكية عالية (بفضل ارتفاع الدخل الفردي) وإنتاجية عالية ويد عاملة ماهرة تعززها القدرة على استقطاب الأدمغة والهجرة الوافدة لتغطية الفتور الديمغرافي.",
+                part2_2_a_b3: "في المقابل، تشكو أغلب البلدان النامية من النمو السريع للسكان (مرحلة الانتقال الديمغرافي) الذي لم يواكبه نمو اقتصادي منتظم.",
+                part2_2_a_b4: "ولئن وفر النمو الديمغرافي يدا عاملة وفيرة وبخسة ساهمت في انخفاض كلفة الإنتاج وفي استقطاب الشركات عبر القطرية؛ إلا أنه فرض ضغطا على مواردها المالية التي استوجب توظيفها للمجال الاجتماعي (الصحة والتعليم والسكن ...) عوضا عن استثمارها في الأنشطة الإنتاجية.",
+                part2_2_b_title: "تباين مزايا الرصيد البشري",
+                part2_2_b_b1: "تتمتع الدول المتقدمة بدخل فردي مرتفع (الناتج الداخلي الخام للفرد) حيث قدر (سنة 2021) بـ 43.752 دولار (بمعادل القوة الشرائية بدولار 2017)، مما ساهم في تأسيس سوق استهلاكية داخلية نشيطة تمثل إحدى دعائم القوة الإنتاجية لدول الشمال.",
+                part2_2_b_b2: "وتستفيد الدول المتقدمة من يد عاملة وطنية عالية التأهيل، وتنتهج سياسات هجرية انتقائية توفر من خلالها الكفاءات (الأدمغة) واليد العاملة الماهرة والعادية لتغطية العجز في بعض الاختصاصات المهنية.",
+                part2_2_b_b3: "في المقابل، تشكو أغلب البلدان النامية من ضعف الدخل الفردي الذي لا يتعدى ثلث الدخل الفردي بدول الشمال (10.704 دولار سنة 2021). وتعاني دول الجنوب من انتشار الفقر بسبب فشل التجارب التنموية في تحقيق النمو والتوزيع العادل للثروة، مما يفسر ضعف السوق الاستهلاكية الداخلية. ويعرقل تدهور الأوضاع الصحية وتدني مستوى التعليم جهود التنمية بدول الجنوب.",
+                part2_2_b_b4: "وتكرس هجرة اليد العاملة المؤهلة والكفاءات (الأدمغة) تبعية الدول النامية تكنولوجيا لدول الشمال.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "فرضت وضعية التخلف على بلدان الجنوب ضرورة البحث عن سبل تدارك تأخرها، كما تطلبت تدخل المنظمات الدولية لمعاضدة جهود هذه البلدان لتقليص الهوة التي تفصلها عن دول الشمال.",
+                sectionDefinitions: "📖 تعريفات",
+                defOthers: "🔖 مصطلحات أساسية",
+                defDivisionLabor_term: "التقسيم العالمي للعمل",
+                defDivisionLabor_desc: "توزيع الأنشطة الإنتاجية على المستوى العالمي، حيث تتخصص بعض البلدان في إنتاج وتصدير منتجات معينة بينما تتخصص بلدان أخرى في منتجات أخرى، وفق مصالح القوى المهيمنة.",
+                defDependency_term: "التبعية",
+                defDependency_desc: "حالة ارتباط اقتصادي وسياسي وتكنولوجي غير متكافئ بين الدول النامية والدول المتقدمة، تجعل الأولى خاضعة لمصالح الثانية.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryImageAlt: "خريطة التقسيم العالمي للعمل",
+                galleryImageCaption: "التقسيم العالمي للعمل غير المتكافئ",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printModalTitle: "خيارات الطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة، الأجزاء، الخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات الأساسية",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "development", class: "key-other", i18n: "defDevelopment_term" },
+                { text: "international division of labor", class: "key-other", i18n: "defDivisionLabor_term" },
+                { text: "dependency", class: "key-other", i18n: "defDependency_term" },
+                { text: "transnational corporations", class: "key-other", i18n: null },
+                { text: "IMF", class: "key-organization", i18n: null }
+            ],
+            fr: [
+                { text: "développement", class: "key-other", i18n: "defDevelopment_term" },
+                { text: "division internationale du travail", class: "key-other", i18n: "defDivisionLabor_term" },
+                { text: "dépendance", class: "key-other", i18n: "defDependency_term" },
+                { text: "firmes transnationales", class: "key-other", i18n: null },
+                { text: "FMI", class: "key-organization", i18n: null }
+            ],
+            ar: [
+                { text: "التنمية", class: "key-other", i18n: "defDevelopment_term" },
+                { text: "التقسيم العالمي للعمل", class: "key-other", i18n: "defDivisionLabor_term" },
+                { text: "التبعية", class: "key-other", i18n: "defDependency_term" },
+                { text: "الشركات عبر القطرية", class: "key-other", i18n: null },
+                { text: "صندوق النقد الدولي", class: "key-organization", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

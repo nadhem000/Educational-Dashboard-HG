@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+        .footnote {
+            font-size: 0.8rem;
+            color: var(--ED-General-color-text-tertiary);
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-top: 1px dashed var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة آداب
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                الجغرافيا / المحور الأول: مجال عالمي مترابط ومتفاوت / الدرس 2: التفاوت في التقدم بين بلدان العالم وعوامله
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                التفاوت في التقدم بين بلدان العالم وعوامله
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    أدى عدم التكافؤ بين أجزاء العالم إلى تشكل مجال عالمي ثنائي التركيبة تمثل دول الشمال مركزه الذي يتحكم في اقتصاد النظام-العالم؛ بينما تشكل دول الجنوب أطرافه. ولا تقترن هذه التركيبة الثنائية بتجانس داخل جزئي المجال العالمي.
+                </p>
+            </div>
+
+            <!-- Part III : Bipolar Composition -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span>
+                    <span data-i18n="sectionPart3">تركيبة المجال العالمي: تركيبة ثنائية</span>
+                </h2>
+
+                <!-- 1. The North: Center -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>
+                    <span data-i18n="part3_1_title">الشمال: مركز النظام-العالم</span>
+                </h3>
+                <p data-i18n="part3_1_intro">يضم الشمال بلدان الثالوث، وهي الأقطاب المحركة للاقتصاد العالمي، والبلدان في طور الانتقال الاقتصادي، والبلدان المتقدمة الأخرى الأقل نفوذا.</p>
+
+                <!-- a. The Triad -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part3_1_a_title">الثالوث: الأقطاب المتحكمة في المجال العالمي</span>
+                </h4>
+                <h5 data-i18n="part3_1_a_sub1_title">ثالوث يجمع بين القوة الاقتصادية والنفوذ العالمي</h5>
+                <ul>
+                    <li data-i18n="part3_1_a_b1">يتكون الثالوث من الولايات المتحدة الأمريكية (و.م.أ) ودول الاتحاد الأوروبي واليابان. وهي تمتلك كل دعائم القوة التي أهلتها للسيطرة على الاقتصاد العالمي.</li>
+                    <li data-i18n="part3_1_a_b2"><strong>قوة إنتاجية وتجارية:</strong> رغم تواضع وزنها البشري (سابع سكان العالم)؛ تصدر نصف صادرات المنتجات المعملية في العالم وحوالي ثلث صادرات السلع والخدمات. وتضم ثلثي الشركات عبر القطرية الكبرى في العالم وتحتكر ثلاثة أرباع القيمة الإجمالية لرأسمالها في البورصات العالمية.</li>
+                    <li data-i18n="part3_1_a_b3"><strong>قوة نقدية ومالية:</strong> من خلال عملاتها (الدولار واليورو واليان) التي تمثل أكثر من ثلاثة أرباع احتياطي الصرف في العالم، ومن خلال بورصاتها (نيويورك، شيكاغو، لندن، باريس، فرانكفورت، طوكيو). ويتجسد نفوذها المالي في استئثارها بحوالي نصف أدفاق الاستثمار الأجنبي المباشر الصادر.</li>
+                    <li data-i18n="part3_1_a_b4"><strong>قوة علمية:</strong> عبر تأمين نصف نفقات البحث والتطوير في العالم، مما مكنها من الاستحواذ على ثلثي براءات الاختراع في العالم واحتكار إنتاج التكنولوجيا العالية وثلاثة أرباع جوائز نوبل.</li>
+                    <li data-i18n="part3_1_a_b5"><strong>قوة عسكرية:</strong> حيث مكنتها نفقاتها العسكرية المتنامية من امتلاك مقومات الحضور والتدخل العسكريين في العالم (باستثناء اليابان).</li>
+                    <li data-i18n="part3_1_a_b6"><strong>نفوذ جغراسياسي ولغوي:</strong> يستند إلى الإرث الاستعماري لبعض القوى الأوروبية (مثل فرنسا والمملكة المتحدة)، وإلى القوة الاقتصادية والعسكرية والإشعاع الثقافي والنمط الاستهلاكي (بالنسبة إلى الو.م.أ). ويتجسد هذا النفوذ في التأثير على قرارات المنظمات الدولية من خلال عضويتها الدائمة في مجلس الأمن وامتلاكها حق النقض ضمنه (باستثناء اليابان) والوزن الذي اكتسبته من خلال حجم حصصها في ميزانياتها (مثل صندوق النقد الدولي والبنك العالمي ومنظمة التجارة العالمية...).</li>
+                </ul>
+                <p data-i18n="part3_1_a_note">لكن بلدان الثالوث تتفاوت في القوة والنفوذ العالميين.</p>
+
+                <h5 data-i18n="part3_1_a_sub2_title">أقطاب اقتصادية قوية ومتفاوتة النفوذ</h5>
+                <p><strong data-i18n="part3_1_a_sub2_usa_title">الولايات المتحدة الأمريكية: قوة عظمى ذات نفوذ عالمي</strong></p>
+                <ul>
+                    <li data-i18n="part3_1_a_sub2_usa_b1">تعتبر الو.م.أ قوة عظمى بفضل: دعائمها البشرية والهيكلية والمجالية والتنظيمية وقدرتها على التجديد والمنافسة.</li>
+                    <li data-i18n="part3_1_a_sub2_usa_b2">قوتها الإنتاجية والمالية التي يجسدها الدولار كعملة احتياط تبادل في العالم.</li>
+                    <li data-i18n="part3_1_a_sub2_usa_b3">أكبر اقتصاد في العالم 25,439 تريليون دولار سنة 2022 (أي ثلث الناتج الداخلي الخام العالمي 25.1%).</li>
+                    <li data-i18n="part3_1_a_sub2_usa_b4">أهلها نفوذها الجغراسياسي للانفراد بزعامة العالم بعد تفكك الاتحاد السوفياتي سنة 1991، وتأخر روسيا التي خلفته في تجاوز صعوبات مرحلة الانتقال الاقتصادي، وفي ظل قصور النفوذ السياسي والعسكري لقطبي الثالوث الآخرين.</li>
+                    <li data-i18n="part3_1_a_sub2_usa_b5">تمكنت الو.م.أ من إرساء نظام عالمي ليبرالي يخدم مصالحها.</li>
+                </ul>
+                <p><strong data-i18n="part3_1_a_sub2_eu_title">الاتحاد الأوروبي: تكتل اقتصادي قوي</strong></p>
+                <ul>
+                    <li data-i18n="part3_1_a_sub2_eu_b1">يعتبر الاتحاد الأوروبي تكتل اقتصادي قوي بصدد التشكل بفضل:</li>
+                    <li data-i18n="part3_1_a_sub2_eu_b2">عمليات التوسع المتعاقبة منذ سنة 1957 (6 أقطار) حيث أصبح الاتحاد يضم 27 بلدا (أي دون اعتبار المملكة المتحدة التي قررت عبر الاستفتاء الانسحاب من الاتحاد).</li>
+                    <li data-i18n="part3_1_a_sub2_eu_b3">تحسن فعالية سياساته المشتركة.</li>
+                    <li data-i18n="part3_1_a_sub2_eu_b4">دعائم بشرية وتنظيمية جعلت منه أكبر سوق موحدة.</li>
+                    <li data-i18n="part3_1_a_sub2_eu_b5">زيادة الطاقة الإنتاجية وقوة تجارته الخارجية.</li>
+                    <li data-i18n="part3_1_a_sub2_eu_b6">أكثر من سدس الناتج الداخلي الخام العالمي (16.52% سنة 2022).</li>
+                    <li data-i18n="part3_1_a_sub2_eu_b7">غير أن عدم اكتمال مقومات القوة والوحدة المالية (حيث لا تضم منطقة اليورو سوى 20 بلدا إثر انضمام كرواتيا سنة 2023)، واختلاف مصالح الدول الأعضاء حالا دون تحقيق سياسة خارجية ودفاعية موحدة مما أفقد الاتحاد الأوروبي مقومات القوة والنفوذ الجغراسياسي على الصعيد العالمي.</li>
+                    <li data-i18n="part3_1_a_sub2_eu_b8">وتبرز ضمن الاتحاد فرنسا كقوة متوسطة (السابعة عالميا)؛ بينما يظل دور ألمانيا محدودا في تسيير شؤون العالم والتأثير فيه سياسيا (لفقدانها العضوية الدائمة في مجلس الأمن)، على غرار اليابان. (رغم أنها قوة اقتصادية عالمية كبرى الرابعة عالميا، أهم أجهزة القرار السياسي في منظمة الأمم المتحدة).</li>
+                </ul>
+                <p><strong data-i18n="part3_1_a_sub2_japan_title">اليابان: قوة اقتصادية عالمية كبرى</strong></p>
+                <ul>
+                    <li data-i18n="part3_1_a_sub2_japan_b1">ارتقى اليابان إلى مرتبة القوة الاقتصادية العالمية بفضل:</li>
+                    <li data-i18n="part3_1_a_sub2_japan_b2">نموه الصناعي ونجاعة تنظيمه الاقتصادي والبحث والتطوير.</li>
+                    <li data-i18n="part3_1_a_sub2_japan_b3">فقد غزت منتجاته الصناعية واستثماراته ومصانعه أرجاء العالم بما في ذلك قطبي الثالوث الآخرين. ولليابان تأثير اقتصادي كبير في محيطه الآسيوي.</li>
+                    <li data-i18n="part3_1_a_sub2_japan_b4">لكنه تراجع إلى ثالث أكبر اقتصاد في العالم (4.17% من ن.د.خ.ع سنة 2022) بعد الو.م.أ والصين. كما ينعدم نفوذه الجغراسياسي لعدم فاعليته في مجلس الأمن (لفقدانه العضوية الدائمة في مجلس الأمن) ولعدم امتلاكه القوة العسكرية.</li>
+                </ul>
+
+                <!-- b. Other developed countries -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part3_1_b_title">البلدان المتقدمة الأخرى</span>
+                </h4>
+                <h5 data-i18n="part3_1_b_sub1_title">البلدان في طور الانتقال الاقتصادي سابقا</h5>
+                <ul>
+                    <li data-i18n="part3_1_b_sub1_b1">تتكون من 18 بلدا من الأقطار الاشتراكية سابقا في أوروبا الشرقية والوسطى غير الأعضاء في الاتحاد الأوروبي (مثل ألبانيا وصربيا) ومن مجموعة البلدان المستقلة التي انبثقت عن تفكك الاتحاد السوفياتي (9 بلدان أبرزها روسيا وكازاخستان وأوكرانيا...).</li>
+                    <li data-i18n="part3_1_b_sub1_b2">مرت منذ تسعينات القرن الماضي بمرحلة انتقال من الاقتصاد الاشتراكي إلى اقتصاد السوق مما يفسر تردي أوضاعها وضعف مساهمتها في الاقتصاد العالمي.</li>
+                    <li data-i18n="part3_1_b_sub1_b3">لكنها شهدت منذ بداية القرن الحادي والعشرين انتعاشة اقتصادية واستقطبت الاستثمارات الأجنبية، وأصبح بعضها يصنف ضمن البلدان الصاعدة.</li>
+                    <li data-i18n="part3_1_b_sub1_b4">تبرز روسيا ضمن هذه البلدان كقوة عالمية بصدد التحول تسعى إلى استعادة النفوذ الجغراسياسي الذي اكتسبه سلفها الاتحاد السوفياتي وهي تتوق إلى منافسة الولايات المتحدة الأمريكية على زعامة العالم. لكنها تحتل المرتبة 8 ضمن أكبر اقتصاديات العالم بنحو 2% من الناتج الداخلي الخام العالمي (2.21% سنة 2022).</li>
+                </ul>
+                <h5 data-i18n="part3_1_b_sub2_title">بقية الأقطار المتقدمة</h5>
+                <ul>
+                    <li data-i18n="part3_1_b_sub2_b1">وهي بلدان أوروبا الغربية غير الأعضاء في الاتحاد الأوروبي (مثل سويسرا والنرويج وإيسلندة) وكذلك كندا وأستراليا وزيلندة الجديدة.</li>
+                    <li data-i18n="part3_1_b_sub2_b2">تتميز بمؤشر تنمية بشرية عال وب دورها المتميز في الإنتاج والتجارة العالميين.</li>
+                    <li data-i18n="part3_1_b_sub2_b3">استندت سويسرا إلى قوة جهازها المصرفي لتتحول إلى قطب مالي هام.</li>
+                    <li data-i18n="part3_1_b_sub2_b4">استفادت كندا من مواردها الطبيعية والبشرية (التي دعمتها الهجرة الوافدة) ومن ارتباطها بالو.م.أ ضمن منطقة التبادل الحر لأمريكا الشمالية (التي تجمعها بالمكسيك) لتطوير قوتها الإنتاجية والتصديرية والتحول إلى تاسع أكبر اقتصاد في العالم.</li>
+                    <li data-i18n="part3_1_b_sub2_b5">تضطلع أستراليا بدور القوة الإقليمية في جنوب المحيط الهادئ بفضل قوتها الاقتصادية (المرتبة 12 عالميا) وموقعها الاستراتيجي.</li>
+                </ul>
+
+                <!-- 2. The South: Periphery -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>
+                    <span data-i18n="part3_2_title">الجنوب: أطراف النظام-العالم</span>
+                </h3>
+                <p data-i18n="part3_2_intro">فقدت البلدان النامية التجانس الذي كان يميزها في ستينات القرن الماضي، حيث ازدادت تمايزا نتيجة تفاوت ما أحرزه بعضها من نمو اقتصادي ومن مستويات تنمية بشرية، حيث يمكن أن نميز بين أربعة أصناف بينها:</p>
+
+                <!-- a. Newly industrialized countries -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>
+                    <span data-i18n="part3_2_a_title">البلدان الصناعية الجديدة</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part3_2_a_b1">تتكون من التنينات (كوريا الجنوبية وتايوان وهونغ كونغ وسنغافورة) والنمور الآسيوية (أندونيسيا وماليزيا وتايلندة والفلبين)، ومن البرازيل والمكسيك.</li>
+                    <li data-i18n="part3_2_a_b2">تمكنت من إرساء قاعدة صناعية متنوعة وذات قدرة تنافسية بفضل نموذج التصنيع الحاث على التصدير الذي انتهجته.</li>
+                    <li data-i18n="part3_2_a_b3">نجحت في الاندماج بالعولمة وأصبحت تصدر منتجات التكنولوجيا المتوسطة والعالية وتسجل نموا اقتصاديا مرتفعا أثمر تحسنا في ظروف عيش سكانها.</li>
+                    <li data-i18n="part3_2_a_b4">تعتبر كوريا الجنوبية الأكثر تأهيلا للانتماء إلى البلدان المتقدمة (المرتبة 13 عالميا بـ1.6% من ن.د.خ.ع). ويبرز البرازيل كقوة إقليمية بأمريكا اللاتينية وهو يحتل المرتبة 11 ضمن أكبر اقتصاديات العالم (بـ 1.9% من ن.د.خ.ع سنة 2022).</li>
+                    <li data-i18n="part3_2_a_b5">لكن ظلت أغلب بلدان المجموعة بلدانا نامية تشكو التبعية الاقتصادية والفوارق الاجتماعية والمجالية.</li>
+                </ul>
+                <p class="footnote" data-i18n="footnote1">¹ أصبحت كوريا الجنوبية عضوا في منظمة التعاون والتنمية الاقتصادية (OCDE) منذ 1996. وهي منظمة تضم 38 عضوا من الدول المتقدمة والصاعدة (مثل الشيلي، إسرائيل وتركيا).</p>
+
+                <!-- b. Oil countries -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>
+                    <span data-i18n="part3_2_b_title">البلدان النفطية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part3_2_b_b1">وهي 21 بلدا منتجا ومصدرا لسوائل المحروقات (النفط والغاز) وأبرزها أندونيسيا والمملكة العربية السعودية، وينتمي أغلبها إلى منظمة الأقطار المصدرة للنفط (الأوبك).</li>
+                    <li data-i18n="part3_2_b_b2">توفر دول الأوبك أكثر من ثلث الإنتاج العالمي من النفط (36.3% سنة 2022) وتؤمن نصف صادراته العالمية (49.2%) مما وفر لها عائدات مالية هامة، لكنها تراجعت بمقدار الثلثين منذ سنة 2013. فقد تقلصت من تريليون دولار (1.097 تريليون دولار سنة 2013) إلى 0.317 تريليون دولار (سنة 2020) قبل أن ترتفع مجددا إلى 0.873 تريليون دولار (سنة 2022).</li>
+                    <li data-i18n="part3_2_b_b3">مولت العائدات النفطية عملية التنمية مما مكنها من بلوغ مؤشر تنمية بشرية عال نسبيا وتأمين دخل فردي مرتفع يصل إلى 30.447 دولار/فرد بالمملكة العربية السعودية (2022).</li>
+                    <li data-i18n="part3_2_b_b4">لم تتمكن هذه العائدات من تحقيق التنمية إذ وظفت الجانب الأكبر منها في إنجاز مشاريع خدمية واستهلاكية. وتتأثر هذه البلدان بتقلبات السوق النفطية وتظل في تبعية لأسواق استهلاك المحروقات ببلدان الشمال.</li>
+                </ul>
+
+                <!-- c. Medium HDI countries -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>
+                    <span data-i18n="part3_2_c_title">البلدان النامية ذات مؤشر تنمية بشرية متوسط (أو المتوسطة النمو)</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part3_2_c_b1">تضم أغلب بلدان الجنوب التي أحرزت مستوى تنمية بشرية وحققت دخلا فرديا يجعلها تحتل موقعا وسطا بين البلدان الغنية والبلدان الأقل تقدما.</li>
+                    <li data-i18n="part3_2_c_b2">وهي تضم أكثر من ثلث سكان العالم (38.5% سنة 2022) وتحقق ثلث الناتج الداخلي الخام العالمي (38.27% سنة 2022). وينتمي بعضها إلى فئة البلدان الصاعدة التي نجحت في الاستفادة من العولمة (مثل الصين والهند وجنوب أفريقيا).</li>
+                    <li data-i18n="part3_2_c_b3">تبرز الصين بفضل تحقيقها حوالي ثلث القيمة المضافة الصناعية في العالم (30.06% سنة 2022) وتأمينها سدس الصادرات العالمية للسلع (14.41% سنة 2022) وتدعم إشعاعها خارج إقليمها الجغرافي (في إفريقيا مثالا). وهي قوة عالمية بصدد التشكل بفضل عضويتها الدائمة في مجلس الأمن.</li>
+                    <li data-i18n="part3_2_c_b4">ولكن تظل الهند (خامس أكبر اقتصاد في العالم سنة 2022) والصين قوتان إقليميتان في آسيا.</li>
+                    <li data-i18n="part3_2_c_b5">وتمتلك جمهورية أفريقيا الجنوبية مقومات القوة الإقليمية في أفريقيا بفضل مكانتها الاقتصادية (المرتبة 40 عالميا سنة 2022) والعسكرية والسياسية في القارة إلى جانب نيجيريا بفضل مواردها النفطية (المرتبة 33 عالميا).</li>
+                </ul>
+
+                <!-- d. Least developed countries -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>
+                    <span data-i18n="part3_2_d_title">البلدان الأقل تقدما</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part3_2_d_b1">وعددها 46 بلدا منها 33 دولة أفريقية جنوب الصحراء (وأبرزها دول الساحل الأفريقي الـ9).</li>
+                    <li data-i18n="part3_2_d_b2">تضم سدس سكان العالم (14.1%) ولكنها لا تحقق سوى 1.32% من الناتج الداخلي الخام العالمي و1.12% من قيمة الصادرات العالمية للسلع (سنة 2022).</li>
+                    <li data-i18n="part3_2_d_b3">تتسم بحصيلة تنموية ضعيفة تتجلى في ضعف الدخل الفردي (1176 دولار/فرد سنة 2022)، وانتشار الفقر، ونقص التغذية، وانتشار الأمراض الوبائية، والأمية، وهشاشة الاقتصاد وارتفاع نسبة التداين.</li>
+                    <li data-i18n="part3_2_d_b4">تحصلت على ثلثي إجمالي المساعدة العمومية من أجل التنمية (29.84% سنة 2021) وتُحظى بالأولوية ضمن برامج مكافحة الفقر وتخفيف عبء الدين.</li>
+                    <li data-i18n="part3_2_d_b5">لكن البلدان الأقل تقدما تشكو من تذبذب معدلات النمو الاقتصادي لارتباطه بتقلب أسعار المواد الأولية التي تهيمن على صادراتها، ومن ظروف معيقة للتنمية أهمها المديونية ورداءة البنى التحتية وتعدد الحروب والنزاعات العرقية.</li>
+                </ul>
+                <p class="footnote" data-i18n="footnote2">² وفق تصنيف مؤتمر الأمم المتحدة للتجارة والتنمية (الأونكتاد) للمجموعات الاقتصادية (باستثناء روسيا) مع إضافة أندونيسيا.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    يتسم المجال العالمي بتركيبة ثنائية غير متجانسة، حيث يهيمن الشمال بأقطابه الاقتصادية الكبرى، بينما تتباين بلدان الجنوب في مستويات تقدمها بين صناعية جديدة ونفطية ومتوسطة النمو وأقل تقدما، مما يعمق التفاوت داخل الجنوب نفسه.
+                </p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">🔖 مصطلحات أساسية</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defTriad_term">الثالوث</strong>: <span data-i18n="defTriad_desc">التكتل الاقتصادي العالمي المكون من الولايات المتحدة الأمريكية والاتحاد الأوروبي واليابان، الذي يسيطر على الاقتصاد العالمي.</span></li>
+                        <li><strong class="key-other" data-i18n="defNICs_term">البلدان الصناعية الجديدة</strong>: <span data-i18n="defNICs_desc">مجموعة من البلدان النامية التي حققت نموا صناعيا سريعا ونجحت في الاندماج في الاقتصاد العالمي، مثل كوريا الجنوبية وسنغافورة والبرازيل.</span></li>
+                        <li><strong class="key-other" data-i18n="defLDCs_term">البلدان الأقل تقدما</strong>: <span data-i18n="defLDCs_desc">مجموعة من 46 بلدا تعاني من أضعف مؤشرات التنمية الاقتصادية والبشرية في العالم، وتتركز معظمها في أفريقيا جنوب الصحراء.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="https://placehold.co/600x400?text=Triad+Map"
+                             alt="خريطة الثالوث"
+                             class="gallery-img"
+                             data-i18n-alt="galleryImageAlt"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryImageCaption">خريطة الثالوث الاقتصادي العالمي</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Print modal -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label" data-i18n="printOptionLesson">📖 الدرس</span>
+                    <span class="print-option-desc" data-i18n="printOptionLessonDesc">المقدمة، الأجزاء، الخاتمة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label" data-i18n="printOptionDefinitions">📚 التعريفات</span>
+                    <span class="print-option-desc" data-i18n="printOptionDefinitionsDesc">المصطلحات الأساسية</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label" data-i18n="printOptionGallery">🗺️ المعرض</span>
+                    <span class="print-option-desc" data-i18n="printOptionGalleryDesc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "Geography / Axis 1: An Interconnected and Unequal Global Space / Lesson 2: Disparities in Progress Among Countries and Their Factors",
+                lessonTitleSample: "Disparities in Progress Among Countries and Their Factors",
+                sectionIntro: "Introduction",
+                introText: "The lack of equality between parts of the world has led to the formation of a bipolar global space, where the North represents the center controlling the world-system economy, while the South forms its periphery. This bipolar composition is not homogeneous within its two parts.",
+                sectionPart3: "Composition of the Global Space: A Bipolar Structure",
+                part3_1_title: "The North: Center of the World-System",
+                part3_1_intro: "The North includes the Triad, the driving poles of the global economy, the countries in economic transition, and other less influential developed countries.",
+                part3_1_a_title: "The Triad: The Poles Controlling the Global Space",
+                part3_1_a_sub1_title: "A Triad Combining Economic Power and Global Influence",
+                part3_1_a_b1: "The Triad consists of the United States of America (USA), the European Union, and Japan. They possess all the pillars of power that enable them to dominate the global economy.",
+                part3_1_a_b2: "<strong>Productive and Commercial Power:</strong> Despite their modest demographic weight (seventh of the world's population), they export half of the world's manufactured goods and about a third of total goods and services. They host two-thirds of the world's largest transnational corporations and monopolize three-quarters of their total stock market capitalization.",
+                part3_1_a_b3: "<strong>Monetary and Financial Power:</strong> Through their currencies (dollar, euro, yen) representing more than three-quarters of global foreign exchange reserves, and through their stock exchanges (New York, Chicago, London, Paris, Frankfurt, Tokyo). Their financial influence is reflected in accounting for about half of global outward foreign direct investment flows.",
+                part3_1_a_b4: "<strong>Scientific Power:</strong> By securing half of global R&D expenditure, enabling them to acquire two-thirds of world patents and monopolize high-tech production and three-quarters of Nobel Prizes.",
+                part3_1_a_b5: "<strong>Military Power:</strong> Their growing military spending has enabled them to possess the means for global military presence and intervention (except Japan).",
+                part3_1_a_b6: "<strong>Geopolitical and Linguistic Influence:</strong> Based on the colonial legacy of some European powers (e.g., France and the UK), economic and military power, cultural influence, and the consumption model (for the USA). This influence is reflected in shaping decisions of international organizations through permanent membership in the Security Council and veto power (except Japan), and the weight gained from their share of budgets (IMF, World Bank, WTO...).",
+                part3_1_a_note: "However, Triad countries differ in global power and influence.",
+                part3_1_a_sub2_title: "Strong Economic Poles with Divergent Influence",
+                part3_1_a_sub2_usa_title: "United States of America: A Superpower with Global Influence",
+                part3_1_a_sub2_usa_b1: "The USA is a superpower thanks to its human, structural, spatial, and organizational foundations, and its capacity for innovation and competition.",
+                part3_1_a_sub2_usa_b2: "Its productive and financial strength embodied by the dollar as a global reserve currency.",
+                part3_1_a_sub2_usa_b3: "The world's largest economy: $25.439 trillion in 2022, about one-third of global GDP (25.1%).",
+                part3_1_a_sub2_usa_b4: "Its geopolitical influence allowed it to assume global leadership after the dissolution of the Soviet Union in 1991, while Russia lagged behind in overcoming transition difficulties, and the other two Triad poles had limited political and military influence.",
+                part3_1_a_sub2_usa_b5: "The USA succeeded in establishing a liberal world order serving its interests.",
+                part3_1_a_sub2_eu_title: "European Union: A Powerful Economic Bloc",
+                part3_1_a_sub2_eu_b1: "The EU is a powerful economic bloc still in formation thanks to:",
+                part3_1_a_sub2_eu_b2: "Successive enlargements since 1957 (6 countries), now 27 members (excluding the UK which left after a referendum).",
+                part3_1_a_sub2_eu_b3: "Improved effectiveness of its common policies.",
+                part3_1_a_sub2_eu_b4: "Human and organizational foundations making it the largest single market.",
+                part3_1_a_sub2_eu_b5: "Increased productive capacity and strength of its external trade.",
+                part3_1_a_sub2_eu_b6: "More than one-sixth of global GDP (16.52% in 2022).",
+                part3_1_a_sub2_eu_b7: "However, incomplete monetary unity (the eurozone includes only 20 countries after Croatia joined in 2023) and divergent member interests prevented a unified foreign and defense policy, depriving the EU of geopolitical power and influence globally.",
+                part3_1_a_sub2_eu_b8: "Within the EU, France stands out as a medium power (7th globally), while Germany's role in world affairs is limited politically (lacking permanent Security Council membership), similar to Japan, despite being the world's 4th largest economy.",
+                part3_1_a_sub2_japan_title: "Japan: A Global Economic Power",
+                part3_1_a_sub2_japan_b1: "Japan rose to the rank of global economic power thanks to:",
+                part3_1_a_sub2_japan_b2: "Its industrial growth, economic organization efficiency, and R&D.",
+                part3_1_a_sub2_japan_b3: "Its industrial products, investments, and factories spread worldwide, including the other two Triad poles. Japan has significant economic influence in its Asian neighborhood.",
+                part3_1_a_sub2_japan_b4: "But it declined to the world's third-largest economy (4.17% of global GDP in 2022) after the USA and China. Its geopolitical influence is nil due to its ineffectiveness in the Security Council (no permanent seat) and lack of military power.",
+                part3_1_b_title: "Other Developed Countries",
+                part3_1_b_sub1_title: "Countries in Economic Transition (Formerly)",
+                part3_1_b_sub1_b1: "Consist of 18 former socialist countries in Eastern and Central Europe not in the EU (e.g., Albania, Serbia) and the CIS countries that emerged from the Soviet Union's dissolution (9 countries, notably Russia, Kazakhstan, Ukraine...).",
+                part3_1_b_sub1_b2: "They have been transitioning from socialist to market economies since the 1990s, explaining their poor conditions and weak contribution to the global economy.",
+                part3_1_b_sub1_b3: "Since the early 21st century, they have experienced economic recovery, attracted foreign investment, and some are now classified as emerging countries.",
+                part3_1_b_sub1_b4: "Russia stands out as a transforming global power seeking to restore the geopolitical influence of its Soviet predecessor and aspiring to challenge US global leadership. But it ranks 8th among the world's largest economies with about 2% of global GDP (2.21% in 2022).",
+                part3_1_b_sub2_title: "Other Developed Countries",
+                part3_1_b_sub2_b1: "Western European countries outside the EU (Switzerland, Norway, Iceland) as well as Canada, Australia, and New Zealand.",
+                part3_1_b_sub2_b2: "Characterized by high human development and distinguished role in global production and trade.",
+                part3_1_b_sub2_b3: "Switzerland leveraged its strong banking system to become a major financial hub.",
+                part3_1_b_sub2_b4: "Canada benefited from natural and human resources (boosted by immigration) and its ties with the USA within NAFTA (with Mexico) to develop productive and export capacity, becoming the world's 9th largest economy.",
+                part3_1_b_sub2_b5: "Australia plays a regional power role in the South Pacific thanks to its economic strength (12th globally) and strategic location.",
+                part3_2_title: "The South: Periphery of the World-System",
+                part3_2_intro: "Developing countries lost the homogeneity that characterized them in the 1960s, becoming more differentiated due to varying economic growth and human development levels. Four categories can be distinguished:",
+                part3_2_a_title: "Newly Industrialized Countries",
+                part3_2_a_b1: "Include the Dragons (South Korea, Taiwan, Hong Kong, Singapore), the Asian Tigers (Indonesia, Malaysia, Thailand, Philippines), Brazil, and Mexico.",
+                part3_2_a_b2: "They established diversified and competitive industrial bases through export-oriented industrialization.",
+                part3_2_a_b3: "They successfully integrated into globalization, now exporting medium and high-tech products and recording high economic growth that improved living conditions.",
+                part3_2_a_b4: "South Korea is the most qualified to join developed countries (13th globally with 1.6% of GDP). Brazil emerges as a regional power in Latin America, ranking 11th among the world's largest economies (1.9% of GDP in 2022).",
+                part3_2_a_b5: "But most countries in this group remain developing, suffering from economic dependency and social and spatial disparities.",
+                footnote1: "¹ South Korea became a member of the OECD in 1996, an organization of 38 developed and emerging countries (e.g., Chile, Israel, Turkey).",
+                part3_2_b_title: "Oil Countries",
+                part3_2_b_b1: "21 countries producing and exporting hydrocarbons (oil and gas), notably Indonesia and Saudi Arabia, most of which belong to OPEC.",
+                part3_2_b_b2: "OPEC countries provide over one-third of world oil production (36.3% in 2022) and half of global exports (49.2%), generating significant revenues, but these declined by two-thirds since 2013, from $1.097 trillion in 2013 to $0.317 trillion in 2020 before rising to $0.873 trillion in 2022.",
+                part3_2_b_b3: "Oil revenues financed development, leading to relatively high HDI and high per capita income (e.g., $30,447 in Saudi Arabia in 2022).",
+                part3_2_b_b4: "However, these revenues did not achieve true development; most were spent on service and consumption projects. These countries remain vulnerable to oil market fluctuations and dependent on Northern consumption markets.",
+                part3_2_c_title: "Developing Countries with Medium HDI (Medium Growth)",
+                part3_2_c_b1: "Include most Southern countries that achieved moderate human development and income, placing them between rich and least developed countries.",
+                part3_2_c_b2: "They represent over one-third of the world's population (38.5% in 2022) and produce one-third of global GDP (38.27% in 2022). Some belong to emerging countries benefiting from globalization (China, India, South Africa).",
+                part3_2_c_b3: "China stands out, producing about one-third of global industrial value added (30.06% in 2022) and one-sixth of world goods exports (14.41% in 2022), extending its influence beyond its region (e.g., Africa). It is an emerging global power with permanent Security Council membership.",
+                part3_2_c_b4: "However, India (5th largest economy in 2022) and China remain regional powers in Asia.",
+                part3_2_c_b5: "South Africa has regional power credentials in Africa due to its economic (40th globally in 2022), military, and political standing, alongside Nigeria with its oil resources (33rd globally).",
+                part3_2_d_title: "Least Developed Countries",
+                part3_2_d_b1: "46 countries, including 33 sub-Saharan African states (notably the 9 Sahel countries).",
+                part3_2_d_b2: "They comprise one-sixth of the world's population (14.1%) but produce only 1.32% of global GDP and 1.12% of world goods exports (2022).",
+                part3_2_d_b3: "Characterized by weak development outcomes: low per capita income ($1,176 in 2022), widespread poverty, malnutrition, epidemic diseases, illiteracy, fragile economies, and high debt.",
+                part3_2_d_b4: "They received two-thirds of total official development assistance (29.84% in 2021) and are prioritized in poverty reduction and debt relief programs.",
+                part3_2_d_b5: "LDCs suffer from volatile growth rates due to dependence on fluctuating raw material prices dominating their exports, and from hindering conditions such as debt, poor infrastructure, and numerous wars and ethnic conflicts.",
+                footnote2: "² According to UNCTAD classification of economic groups (excluding Russia) with Indonesia added.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The global space is characterized by a bipolar and heterogeneous composition: the North dominates through its major economic poles, while Southern countries vary widely in progress levels—newly industrialized, oil-rich, medium-growth, and least developed—deepening inequality within the South itself.",
+                sectionDefinitions: "📖 Definitions",
+                defOthers: "🔖 Key Terms",
+                defTriad_term: "The Triad",
+                defTriad_desc: "The global economic bloc consisting of the USA, the EU, and Japan, which dominates the world economy.",
+                defNICs_term: "Newly Industrialized Countries",
+                defNICs_desc: "A group of developing countries that achieved rapid industrial growth and successfully integrated into the global economy, such as South Korea, Singapore, and Brazil.",
+                defLDCs_term: "Least Developed Countries",
+                defLDCs_desc: "A group of 46 countries with the weakest economic and human development indicators, mostly in sub-Saharan Africa.",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryImageAlt: "Triad map",
+                galleryImageCaption: "Map of the global economic Triad",
+                printButton: "🖨️ Print / Save as PDF",
+                printModalTitle: "Print Options",
+                printModalSubtitle: "Select one or more sections:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, conclusion",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Géographie / Axe 1 : Un espace mondial interconnecté et inégal / Leçon 2 : Les disparités de progrès entre les pays et leurs facteurs",
+                lessonTitleSample: "Les disparités de progrès entre les pays et leurs facteurs",
+                sectionIntro: "Introduction",
+                introText: "L'absence d'égalité entre les parties du monde a conduit à la formation d'un espace mondial bipolaire, où le Nord représente le centre contrôlant l'économie du système-monde, tandis que le Sud forme sa périphérie. Cette composition bipolaire n'est pas homogène au sein de ses deux parties.",
+                sectionPart3: "Composition de l'espace mondial : une structure bipolaire",
+                part3_1_title: "Le Nord : centre du système-monde",
+                part3_1_intro: "Le Nord comprend la Triade, les pôles moteurs de l'économie mondiale, les pays en transition économique et d'autres pays développés moins influents.",
+                part3_1_a_title: "La Triade : les pôles contrôlant l'espace mondial",
+                part3_1_a_sub1_title: "Une Triade combinant puissance économique et influence mondiale",
+                part3_1_a_b1: "La Triade se compose des États-Unis d'Amérique (USA), de l'Union européenne et du Japon. Ils possèdent tous les piliers de la puissance qui leur permettent de dominer l'économie mondiale.",
+                part3_1_a_b2: "<strong>Puissance productive et commerciale :</strong> Malgré un poids démographique modeste (un septième de la population mondiale), ils exportent la moitié des produits manufacturés mondiaux et environ un tiers des biens et services. Ils abritent les deux tiers des plus grandes firmes transnationales et monopolisent les trois quarts de leur capitalisation boursière totale.",
+                part3_1_a_b3: "<strong>Puissance monétaire et financière :</strong> Grâce à leurs monnaies (dollar, euro, yen) représentant plus des trois quarts des réserves de change mondiales, et à leurs bourses (New York, Chicago, Londres, Paris, Francfort, Tokyo). Leur influence financière se reflète dans leur part d'environ la moitié des flux sortants d'investissements directs étrangers.",
+                part3_1_a_b4: "<strong>Puissance scientifique :</strong> En assurant la moitié des dépenses mondiales de R&D, leur permettant d'acquérir les deux tiers des brevets mondiaux et de monopoliser la production de haute technologie et les trois quarts des prix Nobel.",
+                part3_1_a_b5: "<strong>Puissance militaire :</strong> Leurs dépenses militaires croissantes leur ont permis de disposer des moyens d'une présence et d'une intervention militaires mondiales (sauf le Japon).",
+                part3_1_a_b6: "<strong>Influence géopolitique et linguistique :</strong> Fondée sur l'héritage colonial de certaines puissances européennes (France, Royaume-Uni), la puissance économique et militaire, le rayonnement culturel et le modèle de consommation (pour les USA). Cette influence se traduit par l'impact sur les décisions des organisations internationales grâce à leur siège permanent au Conseil de sécurité et au droit de veto (sauf le Japon), et au poids de leurs quotes-parts (FMI, Banque mondiale, OMC...).",
+                part3_1_a_note: "Cependant, les pays de la Triade diffèrent en puissance et influence mondiales.",
+                part3_1_a_sub2_title: "Des pôles économiques forts à l'influence divergente",
+                part3_1_a_sub2_usa_title: "États-Unis d'Amérique : une superpuissance à influence mondiale",
+                part3_1_a_sub2_usa_b1: "Les USA sont une superpuissance grâce à leurs fondements humains, structurels, spatiaux et organisationnels, et à leur capacité d'innovation et de concurrence.",
+                part3_1_a_sub2_usa_b2: "Leur force productive et financière incarnée par le dollar comme monnaie de réserve mondiale.",
+                part3_1_a_sub2_usa_b3: "La plus grande économie mondiale : 25 439 milliards de dollars en 2022, soit environ un tiers du PIB mondial (25,1 %).",
+                part3_1_a_sub2_usa_b4: "Son influence géopolitique lui a permis d'assumer le leadership mondial après la dissolution de l'Union soviétique en 1991, tandis que la Russie a pris du retard dans la transition et que les deux autres pôles de la Triade avaient une influence politique et militaire limitée.",
+                part3_1_a_sub2_usa_b5: "Les USA ont réussi à établir un ordre mondial libéral servant leurs intérêts.",
+                part3_1_a_sub2_eu_title: "Union européenne : un bloc économique puissant",
+                part3_1_a_sub2_eu_b1: "L'UE est un bloc économique puissant encore en formation grâce à :",
+                part3_1_a_sub2_eu_b2: "Des élargissements successifs depuis 1957 (6 pays), désormais 27 membres (hors Royaume-Uni parti après référendum).",
+                part3_1_a_sub2_eu_b3: "Une meilleure efficacité de ses politiques communes.",
+                part3_1_a_sub2_eu_b4: "Des fondements humains et organisationnels en faisant le plus grand marché unique.",
+                part3_1_a_sub2_eu_b5: "Une capacité productive accrue et la force de son commerce extérieur.",
+                part3_1_a_sub2_eu_b6: "Plus d'un sixième du PIB mondial (16,52 % en 2022).",
+                part3_1_a_sub2_eu_b7: "Cependant, l'incomplétude de l'unité monétaire (la zone euro ne compte que 20 pays après l'adhésion de la Croatie en 2023) et les intérêts divergents des États membres ont empêché une politique étrangère et de défense unifiée, privant l'UE de puissance géopolitique mondiale.",
+                part3_1_a_sub2_eu_b8: "Au sein de l'UE, la France se distingue comme puissance moyenne (7e mondiale), tandis que l'Allemagne a un rôle politique mondial limité (absence de siège permanent au Conseil de sécurité), comme le Japon, malgré son rang de 4e économie mondiale.",
+                part3_1_a_sub2_japan_title: "Japon : une puissance économique mondiale",
+                part3_1_a_sub2_japan_b1: "Le Japon est devenu une puissance économique mondiale grâce à :",
+                part3_1_a_sub2_japan_b2: "Sa croissance industrielle, l'efficacité de son organisation économique et la R&D.",
+                part3_1_a_sub2_japan_b3: "Ses produits industriels, investissements et usines se sont répandus dans le monde, y compris dans les deux autres pôles de la Triade. Le Japon a une influence économique significative dans son voisinage asiatique.",
+                part3_1_a_sub2_japan_b4: "Mais il a reculé au 3e rang mondial (4,17 % du PIB mondial en 2022) après les USA et la Chine. Son influence géopolitique est nulle en raison de son inefficacité au Conseil de sécurité (pas de siège permanent) et de l'absence de puissance militaire.",
+                part3_1_b_title: "Autres pays développés",
+                part3_1_b_sub1_title: "Pays en transition économique (anciennement)",
+                part3_1_b_sub1_b1: "Composés de 18 anciens pays socialistes d'Europe orientale et centrale hors UE (Albanie, Serbie) et des pays de la CEI issus de l'URSS (9 pays, notamment Russie, Kazakhstan, Ukraine...).",
+                part3_1_b_sub1_b2: "Ils traversent depuis les années 1990 une transition de l'économie socialiste vers l'économie de marché, expliquant leurs difficultés et leur faible contribution mondiale.",
+                part3_1_b_sub1_b3: "Depuis le début du XXIe siècle, ils ont connu une reprise économique, attiré des investissements étrangers, et certains sont désormais classés comme émergents.",
+                part3_1_b_sub1_b4: "La Russie se distingue comme puissance mondiale en transformation, cherchant à restaurer l'influence géopolitique de l'URSS et à rivaliser avec les USA. Mais elle n'est que la 8e économie mondiale avec environ 2 % du PIB mondial (2,21 % en 2022).",
+                part3_1_b_sub2_title: "Autres pays développés",
+                part3_1_b_sub2_b1: "Pays d'Europe occidentale hors UE (Suisse, Norvège, Islande) ainsi que le Canada, l'Australie et la Nouvelle-Zélande.",
+                part3_1_b_sub2_b2: "Caractérisés par un développement humain élevé et un rôle distingué dans la production et le commerce mondiaux.",
+                part3_1_b_sub2_b3: "La Suisse s'est appuyée sur son système bancaire pour devenir un pôle financier majeur.",
+                part3_1_b_sub2_b4: "Le Canada a bénéficié de ses ressources naturelles et humaines (renforcées par l'immigration) et de ses liens avec les USA au sein de l'ALENA (avec le Mexique) pour développer sa capacité productive et exportatrice, devenant la 9e économie mondiale.",
+                part3_1_b_sub2_b5: "L'Australie joue un rôle de puissance régionale dans le Pacifique Sud grâce à sa force économique (12e mondiale) et sa position stratégique.",
+                part3_2_title: "Le Sud : périphérie du système-monde",
+                part3_2_intro: "Les pays en développement ont perdu l'homogénéité qui les caractérisait dans les années 1960, devenant plus différenciés en raison de croissances économiques et de niveaux de développement humain variables. Quatre catégories peuvent être distinguées :",
+                part3_2_a_title: "Nouveaux pays industrialisés",
+                part3_2_a_b1: "Comprennent les Dragons (Corée du Sud, Taïwan, Hong Kong, Singapour), les Tigres asiatiques (Indonésie, Malaisie, Thaïlande, Philippines), le Brésil et le Mexique.",
+                part3_2_a_b2: "Ils ont établi des bases industrielles diversifiées et compétitives grâce à l'industrialisation orientée vers l'exportation.",
+                part3_2_a_b3: "Ils se sont intégrés à la mondialisation, exportant désormais des produits de moyenne et haute technologie et enregistrant une croissance élevée améliorant les conditions de vie.",
+                part3_2_a_b4: "La Corée du Sud est la plus qualifiée pour rejoindre les pays développés (13e mondial avec 1,6 % du PIB). Le Brésil émerge comme puissance régionale en Amérique latine, 11e économie mondiale (1,9 % du PIB en 2022).",
+                part3_2_a_b5: "Mais la plupart des pays de ce groupe restent en développement, souffrant de dépendance économique et de disparités sociales et spatiales.",
+                footnote1: "¹ La Corée du Sud est membre de l'OCDE depuis 1996, organisation regroupant 38 pays développés et émergents (ex. Chili, Israël, Turquie).",
+                part3_2_b_title: "Pays pétroliers",
+                part3_2_b_b1: "21 pays producteurs et exportateurs d'hydrocarbures (pétrole et gaz), notamment l'Indonésie et l'Arabie saoudite, la plupart membres de l'OPEP.",
+                part3_2_b_b2: "Les pays de l'OPEP assurent plus d'un tiers de la production mondiale de pétrole (36,3 % en 2022) et la moitié des exportations mondiales (49,2 %), générant des revenus importants, mais ceux-ci ont chuté des deux tiers depuis 2013, passant de 1 097 milliards de dollars en 2013 à 317 milliards en 2020 avant de remonter à 873 milliards en 2022.",
+                part3_2_b_b3: "Les revenus pétroliers ont financé le développement, conduisant à un IDH relativement élevé et à des revenus par habitant élevés (ex. 30 447 dollars en Arabie saoudite en 2022).",
+                part3_2_b_b4: "Cependant, ces revenus n'ont pas permis un véritable développement ; la plupart ont été dépensés dans des projets de services et de consommation. Ces pays restent vulnérables aux fluctuations du marché pétrolier et dépendants des marchés de consommation du Nord.",
+                part3_2_c_title: "Pays en développement à IDH moyen (croissance moyenne)",
+                part3_2_c_b1: "Comprennent la plupart des pays du Sud ayant atteint un développement humain et un revenu moyens, les plaçant entre pays riches et PMA.",
+                part3_2_c_b2: "Ils représentent plus d'un tiers de la population mondiale (38,5 % en 2022) et produisent un tiers du PIB mondial (38,27 % en 2022). Certains appartiennent aux pays émergents bénéficiant de la mondialisation (Chine, Inde, Afrique du Sud).",
+                part3_2_c_b3: "La Chine se distingue, produisant environ un tiers de la valeur ajoutée industrielle mondiale (30,06 % en 2022) et un sixième des exportations mondiales de biens (14,41 % en 2022), étendant son influence au-delà de sa région (ex. Afrique). Elle est une puissance mondiale en formation avec un siège permanent au Conseil de sécurité.",
+                part3_2_c_b4: "Cependant, l'Inde (5e économie mondiale en 2022) et la Chine restent des puissances régionales en Asie.",
+                part3_2_c_b5: "L'Afrique du Sud possède des atouts de puissance régionale en Afrique grâce à son poids économique (40e mondial en 2022), militaire et politique, aux côtés du Nigéria avec ses ressources pétrolières (33e mondial).",
+                part3_2_d_title: "Pays les moins avancés",
+                part3_2_d_b1: "46 pays, dont 33 États d'Afrique subsaharienne (notamment les 9 pays du Sahel).",
+                part3_2_d_b2: "Ils représentent un sixième de la population mondiale (14,1 %) mais ne produisent que 1,32 % du PIB mondial et 1,12 % des exportations mondiales de biens (2022).",
+                part3_2_d_b3: "Caractérisés par de faibles résultats de développement : faible revenu par habitant (1 176 dollars en 2022), pauvreté généralisée, malnutrition, maladies épidémiques, analphabétisme, économies fragiles et endettement élevé.",
+                part3_2_d_b4: "Ils ont reçu les deux tiers de l'aide publique au développement totale (29,84 % en 2021) et sont prioritaires dans les programmes de lutte contre la pauvreté et d'allègement de la dette.",
+                part3_2_d_b5: "Les PMA souffrent de taux de croissance volatils en raison de la dépendance aux prix fluctuants des matières premières qui dominent leurs exportations, et de conditions entravant le développement : endettement, infrastructures médiocres, guerres et conflits ethniques.",
+                footnote2: "² Selon la classification de la CNUCED des groupes économiques (hors Russie) avec ajout de l'Indonésie.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "L'espace mondial est caractérisé par une composition bipolaire et hétérogène : le Nord domine par ses grands pôles économiques, tandis que les pays du Sud varient fortement en niveaux de progrès — nouveaux pays industrialisés, pétroliers, à croissance moyenne et PMA — approfondissant les inégalités au sein même du Sud.",
+                sectionDefinitions: "📖 Définitions",
+                defOthers: "🔖 Termes clés",
+                defTriad_term: "La Triade",
+                defTriad_desc: "Le bloc économique mondial composé des États-Unis, de l'UE et du Japon, qui domine l'économie mondiale.",
+                defNICs_term: "Nouveaux pays industrialisés",
+                defNICs_desc: "Groupe de pays en développement ayant connu une croissance industrielle rapide et une intégration réussie dans l'économie mondiale, comme la Corée du Sud, Singapour et le Brésil.",
+                defLDCs_term: "Pays les moins avancés",
+                defLDCs_desc: "Groupe de 46 pays présentant les indicateurs de développement économique et humain les plus faibles, principalement en Afrique subsaharienne.",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryImageAlt: "Carte de la Triade",
+                galleryImageCaption: "Carte de la Triade économique mondiale",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printModalTitle: "Options d'impression",
+                printModalSubtitle: "Sélectionnez une ou plusieurs sections :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties, conclusion",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة آداب",
+                moduleName: "الجغرافيا / المحور الأول: مجال عالمي مترابط ومتفاوت / الدرس 2: التفاوت في التقدم بين بلدان العالم وعوامله",
+                lessonTitleSample: "التفاوت في التقدم بين بلدان العالم وعوامله",
+                sectionIntro: "مقدمة",
+                introText: "أدى عدم التكافؤ بين أجزاء العالم إلى تشكل مجال عالمي ثنائي التركيبة تمثل دول الشمال مركزه الذي يتحكم في اقتصاد النظام-العالم؛ بينما تشكل دول الجنوب أطرافه. ولا تقترن هذه التركيبة الثنائية بتجانس داخل جزئي المجال العالمي.",
+                sectionPart3: "تركيبة المجال العالمي: تركيبة ثنائية",
+                part3_1_title: "الشمال: مركز النظام-العالم",
+                part3_1_intro: "يضم الشمال بلدان الثالوث، وهي الأقطاب المحركة للاقتصاد العالمي، والبلدان في طور الانتقال الاقتصادي، والبلدان المتقدمة الأخرى الأقل نفوذا.",
+                part3_1_a_title: "الثالوث: الأقطاب المتحكمة في المجال العالمي",
+                part3_1_a_sub1_title: "ثالوث يجمع بين القوة الاقتصادية والنفوذ العالمي",
+                part3_1_a_b1: "يتكون الثالوث من الولايات المتحدة الأمريكية (و.م.أ) ودول الاتحاد الأوروبي واليابان. وهي تمتلك كل دعائم القوة التي أهلتها للسيطرة على الاقتصاد العالمي.",
+                part3_1_a_b2: "<strong>قوة إنتاجية وتجارية:</strong> رغم تواضع وزنها البشري (سابع سكان العالم)؛ تصدر نصف صادرات المنتجات المعملية في العالم وحوالي ثلث صادرات السلع والخدمات. وتضم ثلثي الشركات عبر القطرية الكبرى في العالم وتحتكر ثلاثة أرباع القيمة الإجمالية لرأسمالها في البورصات العالمية.",
+                part3_1_a_b3: "<strong>قوة نقدية ومالية:</strong> من خلال عملاتها (الدولار واليورو واليان) التي تمثل أكثر من ثلاثة أرباع احتياطي الصرف في العالم، ومن خلال بورصاتها (نيويورك، شيكاغو، لندن، باريس، فرانكفورت، طوكيو). ويتجسد نفوذها المالي في استئثارها بحوالي نصف أدفاق الاستثمار الأجنبي المباشر الصادر.",
+                part3_1_a_b4: "<strong>قوة علمية:</strong> عبر تأمين نصف نفقات البحث والتطوير في العالم، مما مكنها من الاستحواذ على ثلثي براءات الاختراع في العالم واحتكار إنتاج التكنولوجيا العالية وثلاثة أرباع جوائز نوبل.",
+                part3_1_a_b5: "<strong>قوة عسكرية:</strong> حيث مكنتها نفقاتها العسكرية المتنامية من امتلاك مقومات الحضور والتدخل العسكريين في العالم (باستثناء اليابان).",
+                part3_1_a_b6: "<strong>نفوذ جغراسياسي ولغوي:</strong> يستند إلى الإرث الاستعماري لبعض القوى الأوروبية (مثل فرنسا والمملكة المتحدة)، وإلى القوة الاقتصادية والعسكرية والإشعاع الثقافي والنمط الاستهلاكي (بالنسبة إلى الو.م.أ). ويتجسد هذا النفوذ في التأثير على قرارات المنظمات الدولية من خلال عضويتها الدائمة في مجلس الأمن وامتلاكها حق النقض ضمنه (باستثناء اليابان) والوزن الذي اكتسبته من خلال حجم حصصها في ميزانياتها (مثل صندوق النقد الدولي والبنك العالمي ومنظمة التجارة العالمية...).",
+                part3_1_a_note: "لكن بلدان الثالوث تتفاوت في القوة والنفوذ العالميين.",
+                part3_1_a_sub2_title: "أقطاب اقتصادية قوية ومتفاوتة النفوذ",
+                part3_1_a_sub2_usa_title: "الولايات المتحدة الأمريكية: قوة عظمى ذات نفوذ عالمي",
+                part3_1_a_sub2_usa_b1: "تعتبر الو.م.أ قوة عظمى بفضل: دعائمها البشرية والهيكلية والمجالية والتنظيمية وقدرتها على التجديد والمنافسة.",
+                part3_1_a_sub2_usa_b2: "قوتها الإنتاجية والمالية التي يجسدها الدولار كعملة احتياط تبادل في العالم.",
+                part3_1_a_sub2_usa_b3: "أكبر اقتصاد في العالم 25,439 تريليون دولار سنة 2022 (أي ثلث الناتج الداخلي الخام العالمي 25.1%).",
+                part3_1_a_sub2_usa_b4: "أهلها نفوذها الجغراسياسي للانفراد بزعامة العالم بعد تفكك الاتحاد السوفياتي سنة 1991، وتأخر روسيا التي خلفته في تجاوز صعوبات مرحلة الانتقال الاقتصادي، وفي ظل قصور النفوذ السياسي والعسكري لقطبي الثالوث الآخرين.",
+                part3_1_a_sub2_usa_b5: "تمكنت الو.م.أ من إرساء نظام عالمي ليبرالي يخدم مصالحها.",
+                part3_1_a_sub2_eu_title: "الاتحاد الأوروبي: تكتل اقتصادي قوي",
+                part3_1_a_sub2_eu_b1: "يعتبر الاتحاد الأوروبي تكتل اقتصادي قوي بصدد التشكل بفضل:",
+                part3_1_a_sub2_eu_b2: "عمليات التوسع المتعاقبة منذ سنة 1957 (6 أقطار) حيث أصبح الاتحاد يضم 27 بلدا (أي دون اعتبار المملكة المتحدة التي قررت عبر الاستفتاء الانسحاب من الاتحاد).",
+                part3_1_a_sub2_eu_b3: "تحسن فعالية سياساته المشتركة.",
+                part3_1_a_sub2_eu_b4: "دعائم بشرية وتنظيمية جعلت منه أكبر سوق موحدة.",
+                part3_1_a_sub2_eu_b5: "زيادة الطاقة الإنتاجية وقوة تجارته الخارجية.",
+                part3_1_a_sub2_eu_b6: "أكثر من سدس الناتج الداخلي الخام العالمي (16.52% سنة 2022).",
+                part3_1_a_sub2_eu_b7: "غير أن عدم اكتمال مقومات القوة والوحدة المالية (حيث لا تضم منطقة اليورو سوى 20 بلدا إثر انضمام كرواتيا سنة 2023)، واختلاف مصالح الدول الأعضاء حالا دون تحقيق سياسة خارجية ودفاعية موحدة مما أفقد الاتحاد الأوروبي مقومات القوة والنفوذ الجغراسياسي على الصعيد العالمي.",
+                part3_1_a_sub2_eu_b8: "وتبرز ضمن الاتحاد فرنسا كقوة متوسطة (السابعة عالميا)؛ بينما يظل دور ألمانيا محدودا في تسيير شؤون العالم والتأثير فيه سياسيا (لفقدانها العضوية الدائمة في مجلس الأمن)، على غرار اليابان. (رغم أنها قوة اقتصادية عالمية كبرى الرابعة عالميا، أهم أجهزة القرار السياسي في منظمة الأمم المتحدة).",
+                part3_1_a_sub2_japan_title: "اليابان: قوة اقتصادية عالمية كبرى",
+                part3_1_a_sub2_japan_b1: "ارتقى اليابان إلى مرتبة القوة الاقتصادية العالمية بفضل:",
+                part3_1_a_sub2_japan_b2: "نموه الصناعي ونجاعة تنظيمه الاقتصادي والبحث والتطوير.",
+                part3_1_a_sub2_japan_b3: "فقد غزت منتجاته الصناعية واستثماراته ومصانعه أرجاء العالم بما في ذلك قطبي الثالوث الآخرين. ولليابان تأثير اقتصادي كبير في محيطه الآسيوي.",
+                part3_1_a_sub2_japan_b4: "لكنه تراجع إلى ثالث أكبر اقتصاد في العالم (4.17% من ن.د.خ.ع سنة 2022) بعد الو.م.أ والصين. كما ينعدم نفوذه الجغراسياسي لعدم فاعليته في مجلس الأمن (لفقدانه العضوية الدائمة في مجلس الأمن) ولعدم امتلاكه القوة العسكرية.",
+                part3_1_b_title: "البلدان المتقدمة الأخرى",
+                part3_1_b_sub1_title: "البلدان في طور الانتقال الاقتصادي سابقا",
+                part3_1_b_sub1_b1: "تتكون من 18 بلدا من الأقطار الاشتراكية سابقا في أوروبا الشرقية والوسطى غير الأعضاء في الاتحاد الأوروبي (مثل ألبانيا وصربيا) ومن مجموعة البلدان المستقلة التي انبثقت عن تفكك الاتحاد السوفياتي (9 بلدان أبرزها روسيا وكازاخستان وأوكرانيا...).",
+                part3_1_b_sub1_b2: "مرت منذ تسعينات القرن الماضي بمرحلة انتقال من الاقتصاد الاشتراكي إلى اقتصاد السوق مما يفسر تردي أوضاعها وضعف مساهمتها في الاقتصاد العالمي.",
+                part3_1_b_sub1_b3: "لكنها شهدت منذ بداية القرن الحادي والعشرين انتعاشة اقتصادية واستقطبت الاستثمارات الأجنبية، وأصبح بعضها يصنف ضمن البلدان الصاعدة.",
+                part3_1_b_sub1_b4: "تبرز روسيا ضمن هذه البلدان كقوة عالمية بصدد التحول تسعى إلى استعادة النفوذ الجغراسياسي الذي اكتسبه سلفها الاتحاد السوفياتي وهي تتوق إلى منافسة الولايات المتحدة الأمريكية على زعامة العالم. لكنها تحتل المرتبة 8 ضمن أكبر اقتصاديات العالم بنحو 2% من الناتج الداخلي الخام العالمي (2.21% سنة 2022).",
+                part3_1_b_sub2_title: "بقية الأقطار المتقدمة",
+                part3_1_b_sub2_b1: "وهي بلدان أوروبا الغربية غير الأعضاء في الاتحاد الأوروبي (مثل سويسرا والنرويج وإيسلندة) وكذلك كندا وأستراليا وزيلندة الجديدة.",
+                part3_1_b_sub2_b2: "تتميز بمؤشر تنمية بشرية عال وب دورها المتميز في الإنتاج والتجارة العالميين.",
+                part3_1_b_sub2_b3: "استندت سويسرا إلى قوة جهازها المصرفي لتتحول إلى قطب مالي هام.",
+                part3_1_b_sub2_b4: "استفادت كندا من مواردها الطبيعية والبشرية (التي دعمتها الهجرة الوافدة) ومن ارتباطها بالو.م.أ ضمن منطقة التبادل الحر لأمريكا الشمالية (التي تجمعها بالمكسيك) لتطوير قوتها الإنتاجية والتصديرية والتحول إلى تاسع أكبر اقتصاد في العالم.",
+                part3_1_b_sub2_b5: "تضطلع أستراليا بدور القوة الإقليمية في جنوب المحيط الهادئ بفضل قوتها الاقتصادية (المرتبة 12 عالميا) وموقعها الاستراتيجي.",
+                part3_2_title: "الجنوب: أطراف النظام-العالم",
+                part3_2_intro: "فقدت البلدان النامية التجانس الذي كان يميزها في ستينات القرن الماضي، حيث ازدادت تمايزا نتيجة تفاوت ما أحرزه بعضها من نمو اقتصادي ومن مستويات تنمية بشرية، حيث يمكن أن نميز بين أربعة أصناف بينها:",
+                part3_2_a_title: "البلدان الصناعية الجديدة",
+                part3_2_a_b1: "تتكون من التنينات (كوريا الجنوبية وتايوان وهونغ كونغ وسنغافورة) والنمور الآسيوية (أندونيسيا وماليزيا وتايلندة والفلبين)، ومن البرازيل والمكسيك.",
+                part3_2_a_b2: "تمكنت من إرساء قاعدة صناعية متنوعة وذات قدرة تنافسية بفضل نموذج التصنيع الحاث على التصدير الذي انتهجته.",
+                part3_2_a_b3: "نجحت في الاندماج بالعولمة وأصبحت تصدر منتجات التكنولوجيا المتوسطة والعالية وتسجل نموا اقتصاديا مرتفعا أثمر تحسنا في ظروف عيش سكانها.",
+                part3_2_a_b4: "تعتبر كوريا الجنوبية الأكثر تأهيلا للانتماء إلى البلدان المتقدمة (المرتبة 13 عالميا بـ1.6% من ن.د.خ.ع). ويبرز البرازيل كقوة إقليمية بأمريكا اللاتينية وهو يحتل المرتبة 11 ضمن أكبر اقتصاديات العالم (بـ 1.9% من ن.د.خ.ع سنة 2022).",
+                part3_2_a_b5: "لكن ظلت أغلب بلدان المجموعة بلدانا نامية تشكو التبعية الاقتصادية والفوارق الاجتماعية والمجالية.",
+                footnote1: "¹ أصبحت كوريا الجنوبية عضوا في منظمة التعاون والتنمية الاقتصادية (OCDE) منذ 1996. وهي منظمة تضم 38 عضوا من الدول المتقدمة والصاعدة (مثل الشيلي، إسرائيل وتركيا).",
+                part3_2_b_title: "البلدان النفطية",
+                part3_2_b_b1: "وهي 21 بلدا منتجا ومصدرا لسوائل المحروقات (النفط والغاز) وأبرزها أندونيسيا والمملكة العربية السعودية، وينتمي أغلبها إلى منظمة الأقطار المصدرة للنفط (الأوبك).",
+                part3_2_b_b2: "توفر دول الأوبك أكثر من ثلث الإنتاج العالمي من النفط (36.3% سنة 2022) وتؤمن نصف صادراته العالمية (49.2%) مما وفر لها عائدات مالية هامة، لكنها تراجعت بمقدار الثلثين منذ سنة 2013. فقد تقلصت من تريليون دولار (1.097 تريليون دولار سنة 2013) إلى 0.317 تريليون دولار (سنة 2020) قبل أن ترتفع مجددا إلى 0.873 تريليون دولار (سنة 2022).",
+                part3_2_b_b3: "مولت العائدات النفطية عملية التنمية مما مكنها من بلوغ مؤشر تنمية بشرية عال نسبيا وتأمين دخل فردي مرتفع يصل إلى 30.447 دولار/فرد بالمملكة العربية السعودية (2022).",
+                part3_2_b_b4: "لم تتمكن هذه العائدات من تحقيق التنمية إذ وظفت الجانب الأكبر منها في إنجاز مشاريع خدمية واستهلاكية. وتتأثر هذه البلدان بتقلبات السوق النفطية وتظل في تبعية لأسواق استهلاك المحروقات ببلدان الشمال.",
+                part3_2_c_title: "البلدان النامية ذات مؤشر تنمية بشرية متوسط (أو المتوسطة النمو)",
+                part3_2_c_b1: "تضم أغلب بلدان الجنوب التي أحرزت مستوى تنمية بشرية وحققت دخلا فرديا يجعلها تحتل موقعا وسطا بين البلدان الغنية والبلدان الأقل تقدما.",
+                part3_2_c_b2: "وهي تضم أكثر من ثلث سكان العالم (38.5% سنة 2022) وتحقق ثلث الناتج الداخلي الخام العالمي (38.27% سنة 2022). وينتمي بعضها إلى فئة البلدان الصاعدة التي نجحت في الاستفادة من العولمة (مثل الصين والهند وجنوب أفريقيا).",
+                part3_2_c_b3: "تبرز الصين بفضل تحقيقها حوالي ثلث القيمة المضافة الصناعية في العالم (30.06% سنة 2022) وتأمينها سدس الصادرات العالمية للسلع (14.41% سنة 2022) وتدعم إشعاعها خارج إقليمها الجغرافي (في إفريقيا مثالا). وهي قوة عالمية بصدد التشكل بفضل عضويتها الدائمة في مجلس الأمن.",
+                part3_2_c_b4: "ولكن تظل الهند (خامس أكبر اقتصاد في العالم سنة 2022) والصين قوتان إقليميتان في آسيا.",
+                part3_2_c_b5: "وتمتلك جمهورية أفريقيا الجنوبية مقومات القوة الإقليمية في أفريقيا بفضل مكانتها الاقتصادية (المرتبة 40 عالميا سنة 2022) والعسكرية والسياسية في القارة إلى جانب نيجيريا بفضل مواردها النفطية (المرتبة 33 عالميا).",
+                part3_2_d_title: "البلدان الأقل تقدما",
+                part3_2_d_b1: "وعددها 46 بلدا منها 33 دولة أفريقية جنوب الصحراء (وأبرزها دول الساحل الأفريقي الـ9).",
+                part3_2_d_b2: "تضم سدس سكان العالم (14.1%) ولكنها لا تحقق سوى 1.32% من الناتج الداخلي الخام العالمي و1.12% من قيمة الصادرات العالمية للسلع (سنة 2022).",
+                part3_2_d_b3: "تتسم بحصيلة تنموية ضعيفة تتجلى في ضعف الدخل الفردي (1176 دولار/فرد سنة 2022)، وانتشار الفقر، ونقص التغذية، وانتشار الأمراض الوبائية، والأمية، وهشاشة الاقتصاد وارتفاع نسبة التداين.",
+                part3_2_d_b4: "تحصلت على ثلثي إجمالي المساعدة العمومية من أجل التنمية (29.84% سنة 2021) وتُحظى بالأولوية ضمن برامج مكافحة الفقر وتخفيف عبء الدين.",
+                part3_2_d_b5: "لكن البلدان الأقل تقدما تشكو من تذبذب معدلات النمو الاقتصادي لارتباطه بتقلب أسعار المواد الأولية التي تهيمن على صادراتها، ومن ظروف معيقة للتنمية أهمها المديونية ورداءة البنى التحتية وتعدد الحروب والنزاعات العرقية.",
+                footnote2: "² وفق تصنيف مؤتمر الأمم المتحدة للتجارة والتنمية (الأونكتاد) للمجموعات الاقتصادية (باستثناء روسيا) مع إضافة أندونيسيا.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "يتسم المجال العالمي بتركيبة ثنائية غير متجانسة، حيث يهيمن الشمال بأقطابه الاقتصادية الكبرى، بينما تتباين بلدان الجنوب في مستويات تقدمها بين صناعية جديدة ونفطية ومتوسطة النمو وأقل تقدما، مما يعمق التفاوت داخل الجنوب نفسه.",
+                sectionDefinitions: "📖 تعريفات",
+                defOthers: "🔖 مصطلحات أساسية",
+                defTriad_term: "الثالوث",
+                defTriad_desc: "التكتل الاقتصادي العالمي المكون من الولايات المتحدة الأمريكية والاتحاد الأوروبي واليابان، الذي يسيطر على الاقتصاد العالمي.",
+                defNICs_term: "البلدان الصناعية الجديدة",
+                defNICs_desc: "مجموعة من البلدان النامية التي حققت نموا صناعيا سريعا ونجحت في الاندماج في الاقتصاد العالمي، مثل كوريا الجنوبية وسنغافورة والبرازيل.",
+                defLDCs_term: "البلدان الأقل تقدما",
+                defLDCs_desc: "مجموعة من 46 بلدا تعاني من أضعف مؤشرات التنمية الاقتصادية والبشرية في العالم، وتتركز معظمها في أفريقيا جنوب الصحراء.",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryImageAlt: "خريطة الثالوث",
+                galleryImageCaption: "خريطة الثالوث الاقتصادي العالمي",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printModalTitle: "خيارات الطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة، الأجزاء، الخاتمة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات الأساسية",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Triad", class: "key-other", i18n: "defTriad_term" },
+                { text: "Newly Industrialized Countries", class: "key-other", i18n: "defNICs_term" },
+                { text: "Least Developed Countries", class: "key-other", i18n: "defLDCs_term" },
+                { text: "transnational corporations", class: "key-other", i18n: null },
+                { text: "OPEC", class: "key-organization", i18n: null },
+                { text: "IMF", class: "key-organization", i18n: null },
+                { text: "World Bank", class: "key-organization", i18n: null },
+                { text: "WTO", class: "key-organization", i18n: null }
+            ],
+            fr: [
+                { text: "Triade", class: "key-other", i18n: "defTriad_term" },
+                { text: "Nouveaux pays industrialisés", class: "key-other", i18n: "defNICs_term" },
+                { text: "Pays les moins avancés", class: "key-other", i18n: "defLDCs_term" },
+                { text: "firmes transnationales", class: "key-other", i18n: null },
+                { text: "OPEP", class: "key-organization", i18n: null },
+                { text: "FMI", class: "key-organization", i18n: null },
+                { text: "Banque mondiale", class: "key-organization", i18n: null },
+                { text: "OMC", class: "key-organization", i18n: null }
+            ],
+            ar: [
+                { text: "الثالوث", class: "key-other", i18n: "defTriad_term" },
+                { text: "البلدان الصناعية الجديدة", class: "key-other", i18n: "defNICs_term" },
+                { text: "البلدان الأقل تقدما", class: "key-other", i18n: "defLDCs_term" },
+                { text: "الشركات عبر القطرية", class: "key-other", i18n: null },
+                { text: "الأوبك", class: "key-organization", i18n: null },
+                { text: "صندوق النقد الدولي", class: "key-organization", i18n: null },
+                { text: "البنك العالمي", class: "key-organization", i18n: null },
+                { text: "منظمة التجارة العالمية", class: "key-organization", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
