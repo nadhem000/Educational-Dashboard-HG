@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – أزمة الثلاثينات: الأسباب والمظاهر</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        /* ══════ PRINT MODAL STYLES ══════ */
+        .print-modal-overlay { position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index:99999; display:flex; align-items:center; justify-content:center; animation: pmFadeIn 0.25s ease-out; padding:1rem; }
+        @keyframes pmFadeIn { from { opacity:0; } to { opacity:1; } }
+        .print-modal-content { background: var(--ED-General-color-surface); border-radius:20px; padding:2rem 2.2rem; max-width:480px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); border:1px solid var(--ED-General-color-border); animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+        .print-modal-title { margin:0 0 0.3rem 0; font-size:1.4rem; font-weight:750; }
+        .print-modal-subtitle { margin:0 0 1.5rem 0; font-size:0.9rem; color:var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.8rem; }
+        .print-option { display:flex; align-items:center; gap:0.75rem; padding:0.9rem 1.1rem; border-radius:14px; cursor:pointer; border:2px solid var(--ED-General-color-border); background:var(--ED-General-color-bg-secondary); transition:all 0.2s ease; user-select:none; }
+        .print-option.disabled-option { opacity:0.5; pointer-events:none; background:var(--ED-General-color-bg-secondary); border-color:var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); box-shadow:0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance:none; -webkit-appearance:none; width:22px; height:22px; border:2px solid var(--ED-General-color-border-hover); border-radius:50%; flex-shrink:0; cursor:pointer; background:var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background:var(--ED-General-color-accent-default); border-color:var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content:''; position:absolute; left:6px; top:6px; width:6px; height:6px; background:#fff; border-radius:50%; }
+        .print-option-label { font-weight:700; font-size:1rem; }
+        .print-option-desc { font-size:0.82rem; color:var(--ED-General-color-text-tertiary); margin-left:auto; }
+        [dir="rtl"] .print-option-desc { margin-left:0; margin-right:auto; }
+        .print-modal-actions { display:flex; gap:0.8rem; justify-content:flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding:0.7rem 1.6rem; border-radius:25px; font-weight:650; font-size:0.95rem; cursor:pointer; }
+        .print-modal-cancel { background:transparent; border:2px solid var(--ED-General-color-border); color:var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background:linear-gradient(135deg, #4a7fd9, #3b6dc5); color:#fff; border:none; box-shadow:0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        /* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+        .print-header-content, .print-footer-content { display:none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0, 0, 0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <h1 data-i18n="exerciseTitle">تمارين – أزمة الثلاثينات: الأسباب والمظاهر</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الإفراط في الإنتاج، المضاربة المالية، الخميس الأسود، انهيار بورصة وال ستريت.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الإفراط في الإنتاج:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">حالة يزيد فيها عرض السلع عن الطلب الفعلي، مما يؤدي إلى تكدس الفوائض وانهيار الأسعار.</dd>
+                        <dt data-i18n="ex1_def2_title">المضاربة المالية:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">عمليات بيع وشراء الأسهم بهدف الربح السريع دون ارتباط بالإنتاج الفعلي، مما يرفع قيمتها بشكل غير واقعي.</dd>
+                        <dt data-i18n="ex1_def3_title">الخميس الأسود:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">يوم 24 أكتوبر 1929 الذي انهارت فيه قيمة الأسهم ببورصة وال ستريت بنيويورك، معلنًا بداية أزمة الثلاثينات.</dd>
+                        <dt data-i18n="ex1_def4_title">انهيار بورصة وال ستريت:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">الانهيار الكبير في أسعار الأسهم الذي حدث في أكتوبر 1929 وأدى إلى كساد اقتصادي عالمي.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 2: Map/Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل الصورة التالية التي تمثل انهيار بورصة وال ستريت 1929، وبيّن مظاهر الأزمة الاقتصادية والاجتماعية الناتجة عنه.</span>
+                </div>
+                <div class="gallery">
+                    <img src="https://placehold.co/600x400?text=Wall+Street+Crash+Exercise"
+                         alt="انهيار بورصة وال ستريت 1929"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="https://placehold.co/600x400?text=Answer+Wall+Street+Crash"
+                             alt="نموذج الإجابة – مظاهر الأزمة"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        أدى انهيار البورصة إلى إفلاس آلاف البنوك، وانهيار الإنتاج الصناعي، وتراجع الأسعار، وإفلاس المؤسسات والفلاحين، وتفاقم البطالة التي بلغت 12.6 مليون عاطل سنة 1933، مما حوّل الأزمة المالية إلى أزمة اقتصادية واجتماعية عميقة.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة: عدد العاطلين عن العمل في الولايات المتحدة (بالمليون): 1929: 1.5، 1930: 4.3، 1931: 8، 1932: 12، 1933: 12.6.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_year">السنة</th>
+                            <th data-i18n="ex3Q_table_unemployed">العاطلون (مليون)</th>
+                        </tr>
+                        <tr><td>1929</td><td>1.5</td></tr>
+                        <tr><td>1930</td><td>4.3</td></tr>
+                        <tr><td>1931</td><td>8</td></tr>
+                        <tr><td>1932</td><td>12</td></tr>
+                        <tr><td>1933</td><td>12.6</td></tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: بيانات تاريخية عن أزمة الثلاثينات في الولايات المتحدة</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل أسباب أزمة الثلاثينات في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        أسباب الأزمة:
+                        - الإفراط في الإنتاج الفلاحي وتكدس الفوائض وانهيار الأسعار.
+                        - النمو السريع للإنتاج الصناعي مع قصور الاستهلاك وضعف القدرة الشرائية.
+                        - المضاربة المالية المفرطة التي رفعت أسعار الأسهم بشكل غير واقعي.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تعود أسباب أزمة الثلاثينات إلى ثلاثة عوامل متشابكة: أولاً، الإفراط في الإنتاج الفلاحي الذي خلق فائضاً هائلاً وانهياراً في الأسعار. ثانياً، النمو السريع للإنتاج الصناعي دون مواكبة الأجور، مما أدى إلى كساد الأسواق وتراجع الاستهلاك. ثالثاً، المضاربة المالية العشوائية التي ضخمت أسعار الأسهم بشكل غير واقعي، وعند انهيارها في الخميس الأسود (24 أكتوبر 1929) انهار النظام المالي وتعمقت الأزمة الاقتصادية والاجتماعية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول المظاهر المالية والاقتصادية والاجتماعية لأزمة الثلاثينات.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        تجلت الأزمة في مظاهر مالية واقتصادية واجتماعية. حلّل هذه المظاهر بدءاً من انهيار البورصة إلى إفلاس البنوك والمؤسسات وتفاقم البطالة.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: انهيار البورصة كنقطة انطلاق.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. المظاهر المالية (إفلاس البنوك)؛ ثانياً. المظاهر الاقتصادية (انهيار الإنتاج والفلاحة)؛ ثالثاً. المظاهر الاجتماعية (البطالة والفقر).</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: تحول الأزمة إلى أزمة شاملة.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">بدأت الأزمة بانهيار بورصة وال ستريت في أكتوبر 1929، وسرعان ما امتدت لتشمل كل القطاعات.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_financial">أولاً. المظاهر المالية</h4>
+                        <p data-i18n="ex5A_production_p_financial">انهارت أسعار الأسهم وأفلست أكثر من 4000 بنك أمريكي بين 1929 و1931، مما جفف مصادر التمويل.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_econ">ثانياً. المظاهر الاقتصادية</h4>
+                        <p data-i18n="ex5A_production_p_econ">تراجع الإنتاج الصناعي بنسبة 46%، وانهارت أسعار المواد الفلاحية والصناعية، وأغلقت مؤسسات عديدة.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_social">ثالثاً. المظاهر الاجتماعية</h4>
+                        <p data-i18n="ex5A_production_p_social">ارتفعت البطالة إلى 12.6 مليون عاطل سنة 1933، وانتشرت أحياء الصفيح وطوابير الطعام.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا تحولت الأزمة المالية إلى أزمة اقتصادية واجتماعية شاملة هزت أسس الرأسمالية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: الخميس الأسود (أكتوبر 1929)، إفلاس 4000 بنك (1931)، انهيار الإنتاج الصناعي 46% (1932)، ذروة البطالة 12.6 مليون (1933).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1929: الخميس الأسود ...
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y4sec_secLet_his_lessons_mod1_lesson1_part1.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT MODAL -->
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "4th Secondary, Arts Section",
+                exerciseTitle: "Exercises – The 1930s Crisis: Causes and Manifestations",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Overproduction, Financial Speculation, Black Thursday, Wall Street Crash.",
+                ex1_def1_title: "Overproduction:",
+                ex1_def1_subtitle: "A situation where the supply of goods exceeds actual demand, leading to accumulation of surpluses and price collapse.",
+                ex1_def2_title: "Financial Speculation:",
+                ex1_def2_subtitle: "Buying and selling stocks for quick profit without connection to actual production, raising their value unrealistically.",
+                ex1_def3_title: "Black Thursday:",
+                ex1_def3_subtitle: "October 24, 1929, the day stock values collapsed on Wall Street in New York, marking the beginning of the 1930s crisis.",
+                ex1_def4_title: "Wall Street Crash:",
+                ex1_def4_subtitle: "The great collapse in stock prices that occurred in October 1929 and led to a global economic depression.",
+                ex2Q: "Observe the following image representing the Wall Street Crash of 1929, and describe the economic and social manifestations resulting from it.",
+                ex2DocAlt: "Wall Street Crash 1929",
+                ex2AnswerImgAlt: "Answer model – Manifestations of the crisis",
+                ex2A: "The stock market crash led to the bankruptcy of thousands of banks, collapse of industrial production, falling prices, bankruptcy of enterprises and farmers, and soaring unemployment which reached 12.6 million in 1933, turning the financial crisis into a deep economic and social crisis.",
+                ex3Q: "Convert the following table data into a bar chart: Unemployment in the USA (millions): 1929: 1.5, 1930: 4.3, 1931: 8, 1932: 12, 1933: 12.6.",
+                ex3Q_table_year: "Year",
+                ex3Q_table_unemployed: "Unemployed (millions)",
+                ex3Q_source: "Source: Historical data on the 1930s crisis in the USA",
+                ex3A_title: "Unemployment in the USA (1929–1933)",
+                ex3A_source: "Source: Historical archives",
+                ex3A_scale: "Scale: 0–15 million; column height proportional to number of unemployed.",
+                ex3A_key_label: "Key:",
+                ex3A_key_1929: "1929",
+                ex3A_key_1930: "1930",
+                ex3A_key_1931: "1931",
+                ex3A_key_1932: "1932",
+                ex3A_key_1933: "1933",
+                ex4Q: "Analyse the causes of the 1930s crisis in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Causes of the crisis:\n- Agricultural overproduction, surplus accumulation, and price collapse.\n- Rapid industrial growth with underconsumption and weak purchasing power.\n- Excessive financial speculation that unrealistically inflated stock prices.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The causes of the 1930s crisis stem from three intertwined factors: first, agricultural overproduction that created massive surpluses and collapsing prices. Second, rapid industrial growth without wage increases, leading to market stagnation and reduced consumption. Third, reckless financial speculation that inflated stock prices unrealistically; when they collapsed on Black Thursday (October 24, 1929), the financial system collapsed and the economic and social crisis deepened.",
+                ex5Q: "Write a short article (150 words) on the financial, economic, and social manifestations of the 1930s crisis.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "The crisis manifested in financial, economic, and social dimensions. Analyse these manifestations from the stock market crash to bank failures, enterprise closures, and rising unemployment.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: The stock market crash as a starting point.",
+                ex5A_plan_li2: "Development: I. Financial manifestations (bank failures); II. Economic manifestations (industrial and agricultural collapse); III. Social manifestations (unemployment and poverty).",
+                ex5A_plan_li3: "Conclusion: The crisis became comprehensive.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The crisis began with the Wall Street Crash in October 1929 and quickly spread to all sectors.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_financial: "I. Financial Manifestations",
+                ex5A_production_p_financial: "Stock prices collapsed and more than 4,000 American banks failed between 1929 and 1931, drying up sources of funding.",
+                ex5A_production_h4_econ: "II. Economic Manifestations",
+                ex5A_production_p_econ: "Industrial production fell by 46%, agricultural and industrial prices collapsed, and many enterprises closed.",
+                ex5A_production_h4_social: "III. Social Manifestations",
+                ex5A_production_p_social: "Unemployment rose to 12.6 million in 1933, and shantytowns and breadlines spread.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus, the financial crisis turned into a comprehensive economic and social crisis that shook the foundations of capitalism.",
+                ex6Q: "Create a timeline of the following events: Black Thursday (October 1929), Bankruptcy of 4000 banks (1931), Industrial production collapse 46% (1932), Unemployment peak 12.6 million (1933).",
+                ex6A: "Timeline: 1929: Black Thursday...",
+                ex6_timeline_title: "Key Events of the 1930s Crisis",
+                ex6_event_1929_label: "Black Thursday",
+                ex6_event_1929_sub: "Oct 1929",
+                ex6_event_1931_label: "4000 Banks Fail",
+                ex6_event_1931_sub: "1931",
+                ex6_event_1932_label: "Industrial Collapse 46%",
+                ex6_event_1932_sub: "1932",
+                ex6_event_1933_label: "Unemployment Peak 12.6M",
+                ex6_event_1933_sub: "1933",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section Lettres",
+                exerciseTitle: "Exercices – La crise des années 1930 : causes et manifestations",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Surproduction, Spéculation financière, Jeudi noir, Krach de Wall Street.",
+                ex1_def1_title: "Surproduction :",
+                ex1_def1_subtitle: "Situation où l'offre de biens dépasse la demande réelle, entraînant l'accumulation des excédents et l'effondrement des prix.",
+                ex1_def2_title: "Spéculation financière :",
+                ex1_def2_subtitle: "Opérations d'achat et de vente d'actions pour un profit rapide sans lien avec la production réelle, augmentant leur valeur de manière irréaliste.",
+                ex1_def3_title: "Jeudi noir :",
+                ex1_def3_subtitle: "Le 24 octobre 1929, jour où la valeur des actions s'effondra à la bourse de Wall Street à New York, marquant le début de la crise des années 1930.",
+                ex1_def4_title: "Krach de Wall Street :",
+                ex1_def4_subtitle: "Le grand effondrement des cours boursiers survenu en octobre 1929 et ayant conduit à une dépression économique mondiale.",
+                ex2Q: "Observez l'image suivante représentant le krach de Wall Street de 1929, et décrivez les manifestations économiques et sociales qui en découlent.",
+                ex2DocAlt: "Krach de Wall Street 1929",
+                ex2AnswerImgAlt: "Modèle de réponse – Manifestations de la crise",
+                ex2A: "Le krach boursier a conduit à la faillite de milliers de banques, à l'effondrement de la production industrielle, à la baisse des prix, à la faillite d'entreprises et d'agriculteurs, et à une montée du chômage atteignant 12,6 millions en 1933, transformant la crise financière en une profonde crise économique et sociale.",
+                ex3Q: "Convertissez les données du tableau suivant en diagramme à barres : Chômage aux États-Unis (millions) : 1929 : 1,5, 1930 : 4,3, 1931 : 8, 1932 : 12, 1933 : 12,6.",
+                ex3Q_table_year: "Année",
+                ex3Q_table_unemployed: "Chômeurs (millions)",
+                ex3Q_source: "Source : Données historiques sur la crise des années 1930 aux États-Unis",
+                ex3A_title: "Chômage aux États-Unis (1929–1933)",
+                ex3A_source: "Source : Archives historiques",
+                ex3A_scale: "Échelle : 0–15 millions ; hauteur des colonnes proportionnelle au nombre de chômeurs.",
+                ex3A_key_label: "Légende :",
+                ex3A_key_1929: "1929",
+                ex3A_key_1930: "1930",
+                ex3A_key_1931: "1931",
+                ex3A_key_1932: "1932",
+                ex3A_key_1933: "1933",
+                ex4Q: "Analysez les causes de la crise des années 1930 en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Causes de la crise :\n- Surproduction agricole, accumulation des excédents et effondrement des prix.\n- Croissance industrielle rapide avec sous-consommation et faible pouvoir d'achat.\n- Spéculation financière excessive qui a gonflé artificiellement les cours des actions.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Les causes de la crise des années 1930 découlent de trois facteurs entrelacés : premièrement, la surproduction agricole qui a créé d'énormes excédents et un effondrement des prix. Deuxièmement, la croissance industrielle rapide sans augmentation des salaires, conduisant à la stagnation des marchés et à la réduction de la consommation. Troisièmement, la spéculation financière imprudente qui a gonflé artificiellement les cours des actions ; lorsqu'ils se sont effondrés le jeudi noir (24 octobre 1929), le système financier s'est effondré et la crise économique et sociale s'est aggravée.",
+                ex5Q: "Rédigez un court article (150 mots) sur les manifestations financières, économiques et sociales de la crise des années 1930.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "La crise s'est manifestée sur les plans financier, économique et social. Analysez ces manifestations depuis le krach boursier jusqu'aux faillites bancaires, fermetures d'entreprises et montée du chômage.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Le krach boursier comme point de départ.",
+                ex5A_plan_li2: "Développement : I. Manifestations financières (faillites bancaires) ; II. Manifestations économiques (effondrement industriel et agricole) ; III. Manifestations sociales (chômage et pauvreté).",
+                ex5A_plan_li3: "Conclusion : La crise devint globale.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "La crise commença par le krach de Wall Street en octobre 1929 et s'étendit rapidement à tous les secteurs.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_financial: "I. Manifestations financières",
+                ex5A_production_p_financial: "Les cours des actions s'effondrèrent et plus de 4000 banques américaines firent faillite entre 1929 et 1931, asséchant les sources de financement.",
+                ex5A_production_h4_econ: "II. Manifestations économiques",
+                ex5A_production_p_econ: "La production industrielle chuta de 46%, les prix agricoles et industriels s'effondrèrent et de nombreuses entreprises fermèrent.",
+                ex5A_production_h4_social: "III. Manifestations sociales",
+                ex5A_production_p_social: "Le chômage monta à 12,6 millions en 1933, et les bidonvilles et les files d'attente pour la nourriture se répandirent.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi, la crise financière se transforma en une crise économique et sociale globale qui ébranla les fondements du capitalisme.",
+                ex6Q: "Créez une chronologie des événements suivants : Jeudi noir (octobre 1929), Faillite de 4000 banques (1931), Effondrement industriel de 46% (1932), Pic du chômage 12,6 millions (1933).",
+                ex6A: "Chronologie : 1929 : Jeudi noir...",
+                ex6_timeline_title: "Événements clés de la crise des années 1930",
+                ex6_event_1929_label: "Jeudi noir",
+                ex6_event_1929_sub: "Oct 1929",
+                ex6_event_1931_label: "Faillite de 4000 banques",
+                ex6_event_1931_sub: "1931",
+                ex6_event_1932_label: "Effondrement industriel 46%",
+                ex6_event_1932_sub: "1932",
+                ex6_event_1933_label: "Pic du chômage 12,6 M",
+                ex6_event_1933_sub: "1933",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                exerciseTitle: "تمارين – أزمة الثلاثينات: الأسباب والمظاهر",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الإفراط في الإنتاج، المضاربة المالية، الخميس الأسود، انهيار بورصة وال ستريت.",
+                ex1_def1_title: "الإفراط في الإنتاج:",
+                ex1_def1_subtitle: "حالة يزيد فيها عرض السلع عن الطلب الفعلي، مما يؤدي إلى تكدس الفوائض وانهيار الأسعار.",
+                ex1_def2_title: "المضاربة المالية:",
+                ex1_def2_subtitle: "عمليات بيع وشراء الأسهم بهدف الربح السريع دون ارتباط بالإنتاج الفعلي، مما يرفع قيمتها بشكل غير واقعي.",
+                ex1_def3_title: "الخميس الأسود:",
+                ex1_def3_subtitle: "يوم 24 أكتوبر 1929 الذي انهارت فيه قيمة الأسهم ببورصة وال ستريت بنيويورك، معلنًا بداية أزمة الثلاثينات.",
+                ex1_def4_title: "انهيار بورصة وال ستريت:",
+                ex1_def4_subtitle: "الانهيار الكبير في أسعار الأسهم الذي حدث في أكتوبر 1929 وأدى إلى كساد اقتصادي عالمي.",
+                ex2Q: "تأمل الصورة التالية التي تمثل انهيار بورصة وال ستريت 1929، وبيّن مظاهر الأزمة الاقتصادية والاجتماعية الناتجة عنه.",
+                ex2DocAlt: "انهيار بورصة وال ستريت 1929",
+                ex2AnswerImgAlt: "نموذج الإجابة – مظاهر الأزمة",
+                ex2A: "أدى انهيار البورصة إلى إفلاس آلاف البنوك، وانهيار الإنتاج الصناعي، وتراجع الأسعار، وإفلاس المؤسسات والفلاحين، وتفاقم البطالة التي بلغت 12.6 مليون عاطل سنة 1933، مما حوّل الأزمة المالية إلى أزمة اقتصادية واجتماعية عميقة.",
+                ex3Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة: عدد العاطلين عن العمل في الولايات المتحدة (بالمليون): 1929: 1.5، 1930: 4.3، 1931: 8، 1932: 12، 1933: 12.6.",
+                ex3Q_table_year: "السنة",
+                ex3Q_table_unemployed: "العاطلون (مليون)",
+                ex3Q_source: "المصدر: بيانات تاريخية عن أزمة الثلاثينات في الولايات المتحدة",
+                ex3A_title: "البطالة في الولايات المتحدة (1929–1933)",
+                ex3A_source: "المصدر: أرشيف تاريخي",
+                ex3A_scale: "المقياس: 0–15 مليون؛ ارتفاع الأعمدة يتناسب مع عدد العاطلين.",
+                ex3A_key_label: "المفتاح:",
+                ex3A_key_1929: "1929",
+                ex3A_key_1930: "1930",
+                ex3A_key_1931: "1931",
+                ex3A_key_1932: "1932",
+                ex3A_key_1933: "1933",
+                ex4Q: "حلّل أسباب أزمة الثلاثينات في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "أسباب الأزمة:\n- الإفراط في الإنتاج الفلاحي وتكدس الفوائض وانهيار الأسعار.\n- النمو السريع للإنتاج الصناعي مع قصور الاستهلاك وضعف القدرة الشرائية.\n- المضاربة المالية المفرطة التي رفعت أسعار الأسهم بشكل غير واقعي.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تعود أسباب أزمة الثلاثينات إلى ثلاثة عوامل متشابكة: أولاً، الإفراط في الإنتاج الفلاحي الذي خلق فائضاً هائلاً وانهياراً في الأسعار. ثانياً، النمو السريع للإنتاج الصناعي دون مواكبة الأجور، مما أدى إلى كساد الأسواق وتراجع الاستهلاك. ثالثاً، المضاربة المالية العشوائية التي ضخمت أسعار الأسهم بشكل غير واقعي، وعند انهيارها في الخميس الأسود (24 أكتوبر 1929) انهار النظام المالي وتعمقت الأزمة الاقتصادية والاجتماعية.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول المظاهر المالية والاقتصادية والاجتماعية لأزمة الثلاثينات.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "تجلت الأزمة في مظاهر مالية واقتصادية واجتماعية. حلّل هذه المظاهر بدءاً من انهيار البورصة إلى إفلاس البنوك والمؤسسات وتفاقم البطالة.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: انهيار البورصة كنقطة انطلاق.",
+                ex5A_plan_li2: "تطوير: أولاً. المظاهر المالية (إفلاس البنوك)؛ ثانياً. المظاهر الاقتصادية (انهيار الإنتاج والفلاحة)؛ ثالثاً. المظاهر الاجتماعية (البطالة والفقر).",
+                ex5A_plan_li3: "خاتمة: تحول الأزمة إلى أزمة شاملة.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "بدأت الأزمة بانهيار بورصة وال ستريت في أكتوبر 1929، وسرعان ما امتدت لتشمل كل القطاعات.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_financial: "أولاً. المظاهر المالية",
+                ex5A_production_p_financial: "انهارت أسعار الأسهم وأفلست أكثر من 4000 بنك أمريكي بين 1929 و1931، مما جفف مصادر التمويل.",
+                ex5A_production_h4_econ: "ثانياً. المظاهر الاقتصادية",
+                ex5A_production_p_econ: "تراجع الإنتاج الصناعي بنسبة 46%، وانهارت أسعار المواد الفلاحية والصناعية، وأغلقت مؤسسات عديدة.",
+                ex5A_production_h4_social: "ثالثاً. المظاهر الاجتماعية",
+                ex5A_production_p_social: "ارتفعت البطالة إلى 12.6 مليون عاطل سنة 1933، وانتشرت أحياء الصفيح وطوابير الطعام.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا تحولت الأزمة المالية إلى أزمة اقتصادية واجتماعية شاملة هزت أسس الرأسمالية.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: الخميس الأسود (أكتوبر 1929)، إفلاس 4000 بنك (1931)، انهيار الإنتاج الصناعي 46% (1932)، ذروة البطالة 12.6 مليون (1933).",
+                ex6A: "الخط الزمني: 1929: الخميس الأسود ...",
+                ex6_timeline_title: "الأحداث الرئيسية لأزمة الثلاثينات",
+                ex6_event_1929_label: "الخميس الأسود",
+                ex6_event_1929_sub: "أكتوبر 1929",
+                ex6_event_1931_label: "إفلاس 4000 بنك",
+                ex6_event_1931_sub: "1931",
+                ex6_event_1932_label: "انهيار الإنتاج الصناعي 46%",
+                ex6_event_1932_sub: "1932",
+                ex6_event_1933_label: "ذروة البطالة 12.6 مليون",
+                ex6_event_1933_sub: "1933",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: '1929', value: 1.5, labelKey: 'ex3A_key_1929', valueFormatted: '1.5' },
+                { label: '1930', value: 4.3, labelKey: 'ex3A_key_1930', valueFormatted: '4.3' },
+                { label: '1931', value: 8, labelKey: 'ex3A_key_1931', valueFormatted: '8' },
+                { label: '1932', value: 12, labelKey: 'ex3A_key_1932', valueFormatted: '12' },
+                { label: '1933', value: 12.6, labelKey: 'ex3A_key_1933', valueFormatted: '12.6' }
+            ],
+            maxValue: 15,
+            ySteps: [15, 12, 9, 6, 3, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1929, labelKey: 'ex6_event_1929_label', subKey: 'ex6_event_1929_sub' },
+                { year: 1931, labelKey: 'ex6_event_1931_label', subKey: 'ex6_event_1931_sub' },
+                { year: 1932, labelKey: 'ex6_event_1932_label', subKey: 'ex6_event_1932_sub' },
+                { year: 1933, labelKey: 'ex6_event_1933_label', subKey: 'ex6_event_1933_sub' }
+            ],
+            startYear: 1929,
+            endYear: 1933,
+            scaleYears: [1929, 1930, 1931, 1932, 1933]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

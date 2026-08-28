@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – أزمة الثلاثينات: النتائج وسياسات المواجهة</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        /* ══════ PRINT MODAL STYLES ══════ */
+        .print-modal-overlay { position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index:99999; display:flex; align-items:center; justify-content:center; animation: pmFadeIn 0.25s ease-out; padding:1rem; }
+        @keyframes pmFadeIn { from { opacity:0; } to { opacity:1; } }
+        .print-modal-content { background: var(--ED-General-color-surface); border-radius:20px; padding:2rem 2.2rem; max-width:480px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); border:1px solid var(--ED-General-color-border); animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+        .print-modal-title { margin:0 0 0.3rem 0; font-size:1.4rem; font-weight:750; }
+        .print-modal-subtitle { margin:0 0 1.5rem 0; font-size:0.9rem; color:var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.8rem; }
+        .print-option { display:flex; align-items:center; gap:0.75rem; padding:0.9rem 1.1rem; border-radius:14px; cursor:pointer; border:2px solid var(--ED-General-color-border); background:var(--ED-General-color-bg-secondary); transition:all 0.2s ease; user-select:none; }
+        .print-option.disabled-option { opacity:0.5; pointer-events:none; background:var(--ED-General-color-bg-secondary); border-color:var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); box-shadow:0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance:none; -webkit-appearance:none; width:22px; height:22px; border:2px solid var(--ED-General-color-border-hover); border-radius:50%; flex-shrink:0; cursor:pointer; background:var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background:var(--ED-General-color-accent-default); border-color:var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content:''; position:absolute; left:6px; top:6px; width:6px; height:6px; background:#fff; border-radius:50%; }
+        .print-option-label { font-weight:700; font-size:1rem; }
+        .print-option-desc { font-size:0.82rem; color:var(--ED-General-color-text-tertiary); margin-left:auto; }
+        [dir="rtl"] .print-option-desc { margin-left:0; margin-right:auto; }
+        .print-modal-actions { display:flex; gap:0.8rem; justify-content:flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding:0.7rem 1.6rem; border-radius:25px; font-weight:650; font-size:0.95rem; cursor:pointer; }
+        .print-modal-cancel { background:transparent; border:2px solid var(--ED-General-color-border); color:var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background:linear-gradient(135deg, #4a7fd9, #3b6dc5); color:#fff; border:none; box-shadow:0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        /* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+        .print-header-content, .print-footer-content { display:none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0, 0, 0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <h1 data-i18n="exerciseTitle">تمارين – أزمة الثلاثينات: النتائج وسياسات المواجهة</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الحمائية، الكاينيزية، النيوديل، الاكتفاء الذاتي.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الحمائية:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">سياسة اقتصادية تقوم على حماية الإنتاج المحلي من المنافسة الأجنبية بفرض رسوم جمركية مرتفعة.</dd>
+                        <dt data-i18n="ex1_def2_title">الكاينيزية:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">نظرية اقتصادية للاقتصادي جون مينار كاينس تدعو إلى تدخل الدولة في الاقتصاد لمواجهة الأزمات عن طريق دعم الاستهلاك والتشغيل.</dd>
+                        <dt data-i18n="ex1_def3_title">النيوديل:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">سياسة اقتصادية واجتماعية طبقها الرئيس الأمريكي روزفلت لمواجهة الأزمة، مستوحاة من النظرية الكاينيزية.</dd>
+                        <dt data-i18n="ex1_def4_title">الاكتفاء الذاتي:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">سياسة اقتصادية تهدف إلى تحقيق الاستقلال الاقتصادي بالاعتماد على الموارد المحلية وتقليل الواردات.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 2: Map/Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل الصورة التالية التي تمثل سياسات مواجهة أزمة الثلاثينات، وبيّن أهم السياسات المتبعة ونتائجها.</span>
+                </div>
+                <div class="gallery">
+                    <img src="https://placehold.co/600x400?text=1930s+Crisis+Solutions+Exercise"
+                         alt="سياسات مواجهة أزمة الثلاثينات"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="https://placehold.co/600x400?text=Answer+Crisis+Solutions"
+                             alt="نموذج الإجابة – سياسات مواجهة الأزمة"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        اتبعت الدول سياسات متباينة: فشلت السياسة الليبرالية التقليدية (الانكماش النقدي) وأدت إلى سقوط حكومات، بينما نجحت الليبرالية الجديدة (الكاينيزية) عبر النيوديل في الولايات المتحدة، واعتمدت الأنظمة الشمولية على الاكتفاء الذاتي والتسلح مما مهد للحرب العالمية الثانية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة: عدد العاطلين عن العمل عالمياً (بالمليون): 1929: 10، 1930: 20، 1931: 25، 1932: 30.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_year">السنة</th>
+                            <th data-i18n="ex3Q_table_unemployed">العاطلون (مليون)</th>
+                        </tr>
+                        <tr><td>1929</td><td>10</td></tr>
+                        <tr><td>1930</td><td>20</td></tr>
+                        <tr><td>1931</td><td>25</td></tr>
+                        <tr><td>1932</td><td>30</td></tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: بيانات تاريخية عن أزمة الثلاثينات</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل النتائج السياسية لأزمة الثلاثينات في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        النتائج السياسية:
+                        - دعمت الأزمة الأحزاب المتطرفة (يسار ويمين).
+                        - صعود النازية في ألمانيا بقيادة هتلر.
+                        - تعميق التناقض بين الدول المنتصرة والمنهزمة.
+                        - تعزيز النزعة العسكرية التوسعية في اليابان.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        أسفرت الأزمة عن نتائج سياسية عميقة، إذ دعمت صعود الأحزاب المتطرفة من اليسار (الشيوعيين والاشتراكيين) واليمين (الفاشية والنازية). وقد استفاد النازيون في ألمانيا من السخط الشعبي للوصول إلى السلطة بقيادة هتلر سنة 1933. كما عمّقت الأزمة التناقضات بين الدول المنتصرة والمنهزمة بعد الحرب العالمية الأولى، ودفعت باليابان إلى انتهاج التوسع العسكري، مما زاد من حدة التوترات الدولية ومهّد لاحقاً للحرب العالمية الثانية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول السياسات المتبعة لمواجهة أزمة الثلاثينات ونتائجها.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        اختلفت سياسات مواجهة الأزمة بين ثلاث توجهات: الليبرالية التقليدية (الانكماش)، الليبرالية الجديدة (الكاينيزية)، والأنظمة الشمولية (الاكتفاء الذاتي والتسلح). حلّل هذه السياسات ونتائجها.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تعدد السياسات لمواجهة الأزمة.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. فشل السياسة الليبرالية التقليدية؛ ثانياً. نجاح الليبرالية الجديدة (النيوديل)؛ ثالثاً. سياسة الأنظمة الشمولية.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: أثر هذه السياسات على مستقبل العالم.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">واجهت الدول أزمة الثلاثينات بسياسات متباينة، تراوحت بين الحلول التقليدية والتدخلية والشمولية.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_traditional">أولاً. فشل السياسة الليبرالية التقليدية</h4>
+                        <p data-i18n="ex5A_production_p_traditional">اتبعت بعض الدول سياسة الانكماش النقدي (تقليص النفقات وتخفيض الأجور) مما فاقم الأزمة وأدى إلى سقوط حكومات.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_keynesian">ثانياً. نجاح الليبرالية الجديدة</h4>
+                        <p data-i18n="ex5A_production_p_keynesian">طبقت الولايات المتحدة النيوديل المستوحى من النظرية الكاينيزية، فحققت انتعاشاً اقتصادياً وخفضت البطالة.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_totalitarian">ثالثاً. سياسة الأنظمة الشمولية</h4>
+                        <p data-i18n="ex5A_production_p_totalitarian">لجأت ألمانيا وإيطاليا واليابان إلى الاكتفاء الذاتي ثم التسلح والتوسع، مما زاد التوترات الدولية ومهّد للحرب.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا ساهمت السياسات المتبعة في تشكيل مسار العالم عشية الحرب العالمية الثانية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: انهيار بورصة وال ستريت (1929)، ذروة البطالة 30 مليون (1932)، وصول هتلر للسلطة (1933)، إطلاق النيوديل (1933).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1929: انهيار بورصة وال ستريت ...
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y4sec_secLet_his_lessons_mod1_lesson3_part2.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT MODAL -->
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "4th Secondary, Arts Section",
+                exerciseTitle: "Exercises – The 1930s Crisis: Results and Response Policies",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Protectionism, Keynesianism, New Deal, Autarky.",
+                ex1_def1_title: "Protectionism:",
+                ex1_def1_subtitle: "An economic policy aimed at protecting domestic production from foreign competition by imposing high customs duties.",
+                ex1_def2_title: "Keynesianism:",
+                ex1_def2_subtitle: "An economic theory by John Maynard Keynes advocating state intervention in the economy to face crises by supporting consumption and employment.",
+                ex1_def3_title: "New Deal:",
+                ex1_def3_subtitle: "An economic and social policy implemented by US President Roosevelt to face the crisis, inspired by Keynesian theory.",
+                ex1_def4_title: "Autarky:",
+                ex1_def4_subtitle: "An economic policy aimed at achieving economic self-sufficiency by relying on local resources and reducing imports.",
+                ex2Q: "Observe the following image representing the policies to confront the 1930s crisis, and identify the main policies adopted and their outcomes.",
+                ex2DocAlt: "1930s Crisis Solutions",
+                ex2AnswerImgAlt: "Answer model – Crisis Solutions",
+                ex2A: "Countries adopted divergent policies: the traditional liberal policy (deflation) failed and led to the fall of governments, while the new liberalism (Keynesianism) succeeded through the New Deal in the United States, and totalitarian regimes relied on autarky and armament, paving the way for World War II.",
+                ex3Q: "Convert the following table data into a bar chart: Global unemployment (millions): 1929: 10, 1930: 20, 1931: 25, 1932: 30.",
+                ex3Q_table_year: "Year",
+                ex3Q_table_unemployed: "Unemployed (millions)",
+                ex3Q_source: "Source: Historical data on the 1930s crisis",
+                ex3A_title: "Global Unemployment (1929–1932)",
+                ex3A_source: "Source: Historical archives",
+                ex3A_scale: "Scale: 0–35 million; column height proportional to number of unemployed.",
+                ex3A_key_label: "Key:",
+                ex3A_key_1929: "1929",
+                ex3A_key_1930: "1930",
+                ex3A_key_1931: "1931",
+                ex3A_key_1932: "1932",
+                ex4Q: "Analyse the political results of the 1930s crisis in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Political results:\n- The crisis strengthened extremist parties (left and right).\n- Rise of Nazism in Germany under Hitler.\n- Deepening contradictions between victors and vanquished.\n- Strengthening of militaristic expansionism in Japan.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The crisis produced profound political results, as it boosted the rise of extremist parties on the left (Communists and Socialists) and the right (Fascists and Nazis). The Nazis in Germany exploited popular discontent to come to power under Hitler in 1933. The crisis also deepened the contradictions between victors and vanquished after World War I and pushed Japan towards military expansion, increasing international tensions and later paving the way for World War II.",
+                ex5Q: "Write a short article (150 words) on the policies adopted to confront the 1930s crisis and their outcomes.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Policies to confront the crisis differed among three approaches: traditional liberalism (deflation), new liberalism (Keynesianism), and totalitarian regimes (autarky and armament). Analyse these policies and their outcomes.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Diversity of policies to confront the crisis.",
+                ex5A_plan_li2: "Development: I. Failure of traditional liberal policy; II. Success of new liberalism (New Deal); III. Totalitarian regimes' policies.",
+                ex5A_plan_li3: "Conclusion: Impact of these policies on the future of the world.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Countries confronted the 1930s crisis with divergent policies ranging from traditional to interventionist to totalitarian.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_traditional: "I. Failure of Traditional Liberal Policy",
+                ex5A_production_p_traditional: "Some countries adopted deflationary policies (cutting spending and wages) which worsened the crisis and led to the fall of governments.",
+                ex5A_production_h4_keynesian: "II. Success of New Liberalism",
+                ex5A_production_p_keynesian: "The United States implemented the New Deal inspired by Keynesian theory, achieving economic recovery and reducing unemployment.",
+                ex5A_production_h4_totalitarian: "III. Totalitarian Regimes' Policies",
+                ex5A_production_p_totalitarian: "Germany, Italy, and Japan turned to autarky, then armament and expansion, increasing international tensions and paving the way for war.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus, the adopted policies contributed to shaping the world's trajectory on the eve of World War II.",
+                ex6Q: "Create a timeline of the following events: Wall Street Crash (1929), Peak unemployment 30 million (1932), Hitler comes to power (1933), Launch of the New Deal (1933).",
+                ex6A: "Timeline: 1929: Wall Street Crash...",
+                ex6_timeline_title: "Key Events of the 1930s Crisis",
+                ex6_event_1929_label: "Wall Street Crash",
+                ex6_event_1929_sub: "1929",
+                ex6_event_1932_label: "Peak Unemployment 30M",
+                ex6_event_1932_sub: "1932",
+                ex6_event_1933_hitler_label: "Hitler Comes to Power",
+                ex6_event_1933_hitler_sub: "1933",
+                ex6_event_1933_newdeal_label: "New Deal Launched",
+                ex6_event_1933_newdeal_sub: "1933",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section Lettres",
+                exerciseTitle: "Exercices – La crise des années 1930 : résultats et politiques de réponse",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Protectionnisme, Keynésianisme, New Deal, Autarcie.",
+                ex1_def1_title: "Protectionnisme :",
+                ex1_def1_subtitle: "Politique économique visant à protéger la production nationale de la concurrence étrangère en imposant des droits de douane élevés.",
+                ex1_def2_title: "Keynésianisme :",
+                ex1_def2_subtitle: "Théorie économique de John Maynard Keynes prônant l'intervention de l'État dans l'économie pour faire face aux crises en soutenant la consommation et l'emploi.",
+                ex1_def3_title: "New Deal :",
+                ex1_def3_subtitle: "Politique économique et sociale mise en œuvre par le président américain Roosevelt pour faire face à la crise, inspirée de la théorie keynésienne.",
+                ex1_def4_title: "Autarcie :",
+                ex1_def4_subtitle: "Politique économique visant à atteindre l'autosuffisance économique en s'appuyant sur les ressources locales et en réduisant les importations.",
+                ex2Q: "Observez l'image suivante représentant les politiques de lutte contre la crise des années 1930, et identifiez les principales politiques adoptées et leurs résultats.",
+                ex2DocAlt: "Solutions à la crise des années 1930",
+                ex2AnswerImgAlt: "Modèle de réponse – Solutions à la crise",
+                ex2A: "Les pays adoptèrent des politiques divergentes : la politique libérale traditionnelle (déflation) échoua et entraîna la chute de gouvernements, tandis que le nouveau libéralisme (keynésianisme) réussit grâce au New Deal aux États-Unis, et les régimes totalitaires s'appuyèrent sur l'autarcie et l'armement, ouvrant la voie à la Seconde Guerre mondiale.",
+                ex3Q: "Convertissez les données du tableau suivant en diagramme à barres : Chômage mondial (millions) : 1929 : 10, 1930 : 20, 1931 : 25, 1932 : 30.",
+                ex3Q_table_year: "Année",
+                ex3Q_table_unemployed: "Chômeurs (millions)",
+                ex3Q_source: "Source : Données historiques sur la crise des années 1930",
+                ex3A_title: "Chômage mondial (1929–1932)",
+                ex3A_source: "Source : Archives historiques",
+                ex3A_scale: "Échelle : 0–35 millions ; hauteur des colonnes proportionnelle au nombre de chômeurs.",
+                ex3A_key_label: "Légende :",
+                ex3A_key_1929: "1929",
+                ex3A_key_1930: "1930",
+                ex3A_key_1931: "1931",
+                ex3A_key_1932: "1932",
+                ex4Q: "Analysez les résultats politiques de la crise des années 1930 en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Résultats politiques :\n- La crise renforça les partis extrémistes (gauche et droite).\n- Montée du nazisme en Allemagne sous Hitler.\n- Approfondissement des contradictions entre vainqueurs et vaincus.\n- Renforcement du militarisme expansionniste au Japon.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "La crise produisit de profonds résultats politiques, en favorisant la montée des partis extrémistes de gauche (communistes et socialistes) et de droite (fascistes et nazis). Les nazis en Allemagne exploitèrent le mécontentement populaire pour accéder au pouvoir sous Hitler en 1933. La crise approfondit également les contradictions entre vainqueurs et vaincus après la Première Guerre mondiale et poussa le Japon vers l'expansion militaire, augmentant les tensions internationales et ouvrant la voie à la Seconde Guerre mondiale.",
+                ex5Q: "Rédigez un court article (150 mots) sur les politiques adoptées pour lutter contre la crise des années 1930 et leurs résultats.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Les politiques de lutte contre la crise différèrent selon trois approches : libéralisme traditionnel (déflation), nouveau libéralisme (keynésianisme) et régimes totalitaires (autarcie et armement). Analysez ces politiques et leurs résultats.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Diversité des politiques face à la crise.",
+                ex5A_plan_li2: "Développement : I. Échec de la politique libérale traditionnelle ; II. Succès du nouveau libéralisme (New Deal) ; III. Politiques des régimes totalitaires.",
+                ex5A_plan_li3: "Conclusion : Impact de ces politiques sur l'avenir du monde.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Les pays firent face à la crise des années 1930 avec des politiques divergentes allant des solutions traditionnelles aux interventionnistes et totalitaires.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_traditional: "I. Échec de la politique libérale traditionnelle",
+                ex5A_production_p_traditional: "Certains pays adoptèrent des politiques déflationnistes (réduction des dépenses et des salaires) qui aggravèrent la crise et entraînèrent la chute de gouvernements.",
+                ex5A_production_h4_keynesian: "II. Succès du nouveau libéralisme",
+                ex5A_production_p_keynesian: "Les États-Unis mirent en œuvre le New Deal inspiré de la théorie keynésienne, réalisant une reprise économique et réduisant le chômage.",
+                ex5A_production_h4_totalitarian: "III. Politiques des régimes totalitaires",
+                ex5A_production_p_totalitarian: "L'Allemagne, l'Italie et le Japon se tournèrent vers l'autarcie puis l'armement et l'expansion, augmentant les tensions internationales et ouvrant la voie à la guerre.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi, les politiques adoptées contribuèrent à façonner la trajectoire du monde à la veille de la Seconde Guerre mondiale.",
+                ex6Q: "Créez une chronologie des événements suivants : Krach de Wall Street (1929), Pic du chômage 30 millions (1932), Hitler accède au pouvoir (1933), Lancement du New Deal (1933).",
+                ex6A: "Chronologie : 1929 : Krach de Wall Street...",
+                ex6_timeline_title: "Événements clés de la crise des années 1930",
+                ex6_event_1929_label: "Krach de Wall Street",
+                ex6_event_1929_sub: "1929",
+                ex6_event_1932_label: "Pic du chômage 30 M",
+                ex6_event_1932_sub: "1932",
+                ex6_event_1933_hitler_label: "Hitler au pouvoir",
+                ex6_event_1933_hitler_sub: "1933",
+                ex6_event_1933_newdeal_label: "Lancement du New Deal",
+                ex6_event_1933_newdeal_sub: "1933",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                exerciseTitle: "تمارين – أزمة الثلاثينات: النتائج وسياسات المواجهة",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الحمائية، الكاينيزية، النيوديل، الاكتفاء الذاتي.",
+                ex1_def1_title: "الحمائية:",
+                ex1_def1_subtitle: "سياسة اقتصادية تقوم على حماية الإنتاج المحلي من المنافسة الأجنبية بفرض رسوم جمركية مرتفعة.",
+                ex1_def2_title: "الكاينيزية:",
+                ex1_def2_subtitle: "نظرية اقتصادية للاقتصادي جون مينار كاينس تدعو إلى تدخل الدولة في الاقتصاد لمواجهة الأزمات عن طريق دعم الاستهلاك والتشغيل.",
+                ex1_def3_title: "النيوديل:",
+                ex1_def3_subtitle: "سياسة اقتصادية واجتماعية طبقها الرئيس الأمريكي روزفلت لمواجهة الأزمة، مستوحاة من النظرية الكاينيزية.",
+                ex1_def4_title: "الاكتفاء الذاتي:",
+                ex1_def4_subtitle: "سياسة اقتصادية تهدف إلى تحقيق الاستقلال الاقتصادي بالاعتماد على الموارد المحلية وتقليل الواردات.",
+                ex2Q: "تأمل الصورة التالية التي تمثل سياسات مواجهة أزمة الثلاثينات، وبيّن أهم السياسات المتبعة ونتائجها.",
+                ex2DocAlt: "سياسات مواجهة أزمة الثلاثينات",
+                ex2AnswerImgAlt: "نموذج الإجابة – سياسات مواجهة الأزمة",
+                ex2A: "اتبعت الدول سياسات متباينة: فشلت السياسة الليبرالية التقليدية (الانكماش النقدي) وأدت إلى سقوط حكومات، بينما نجحت الليبرالية الجديدة (الكاينيزية) عبر النيوديل في الولايات المتحدة، واعتمدت الأنظمة الشمولية على الاكتفاء الذاتي والتسلح مما مهد للحرب العالمية الثانية.",
+                ex3Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة: عدد العاطلين عن العمل عالمياً (بالمليون): 1929: 10، 1930: 20، 1931: 25، 1932: 30.",
+                ex3Q_table_year: "السنة",
+                ex3Q_table_unemployed: "العاطلون (مليون)",
+                ex3Q_source: "المصدر: بيانات تاريخية عن أزمة الثلاثينات",
+                ex3A_title: "البطالة العالمية (1929–1932)",
+                ex3A_source: "المصدر: أرشيف تاريخي",
+                ex3A_scale: "المقياس: 0–35 مليون؛ ارتفاع الأعمدة يتناسب مع عدد العاطلين.",
+                ex3A_key_label: "المفتاح:",
+                ex3A_key_1929: "1929",
+                ex3A_key_1930: "1930",
+                ex3A_key_1931: "1931",
+                ex3A_key_1932: "1932",
+                ex4Q: "حلّل النتائج السياسية لأزمة الثلاثينات في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "النتائج السياسية:\n- دعمت الأزمة الأحزاب المتطرفة (يسار ويمين).\n- صعود النازية في ألمانيا بقيادة هتلر.\n- تعميق التناقض بين الدول المنتصرة والمنهزمة.\n- تعزيز النزعة العسكرية التوسعية في اليابان.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "أسفرت الأزمة عن نتائج سياسية عميقة، إذ دعمت صعود الأحزاب المتطرفة من اليسار (الشيوعيين والاشتراكيين) واليمين (الفاشية والنازية). وقد استفاد النازيون في ألمانيا من السخط الشعبي للوصول إلى السلطة بقيادة هتلر سنة 1933. كما عمّقت الأزمة التناقضات بين الدول المنتصرة والمنهزمة بعد الحرب العالمية الأولى، ودفعت باليابان إلى انتهاج التوسع العسكري، مما زاد من حدة التوترات الدولية ومهّد لاحقاً للحرب العالمية الثانية.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول السياسات المتبعة لمواجهة أزمة الثلاثينات ونتائجها.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "اختلفت سياسات مواجهة الأزمة بين ثلاث توجهات: الليبرالية التقليدية (الانكماش)، الليبرالية الجديدة (الكاينيزية)، والأنظمة الشمولية (الاكتفاء الذاتي والتسلح). حلّل هذه السياسات ونتائجها.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تعدد السياسات لمواجهة الأزمة.",
+                ex5A_plan_li2: "تطوير: أولاً. فشل السياسة الليبرالية التقليدية؛ ثانياً. نجاح الليبرالية الجديدة (النيوديل)؛ ثالثاً. سياسة الأنظمة الشمولية.",
+                ex5A_plan_li3: "خاتمة: أثر هذه السياسات على مستقبل العالم.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "واجهت الدول أزمة الثلاثينات بسياسات متباينة، تراوحت بين الحلول التقليدية والتدخلية والشمولية.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_traditional: "أولاً. فشل السياسة الليبرالية التقليدية",
+                ex5A_production_p_traditional: "اتبعت بعض الدول سياسة الانكماش النقدي (تقليص النفقات وتخفيض الأجور) مما فاقم الأزمة وأدى إلى سقوط حكومات.",
+                ex5A_production_h4_keynesian: "ثانياً. نجاح الليبرالية الجديدة",
+                ex5A_production_p_keynesian: "طبقت الولايات المتحدة النيوديل المستوحى من النظرية الكاينيزية، فحققت انتعاشاً اقتصادياً وخفضت البطالة.",
+                ex5A_production_h4_totalitarian: "ثالثاً. سياسة الأنظمة الشمولية",
+                ex5A_production_p_totalitarian: "لجأت ألمانيا وإيطاليا واليابان إلى الاكتفاء الذاتي ثم التسلح والتوسع، مما زاد التوترات الدولية ومهّد للحرب.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا ساهمت السياسات المتبعة في تشكيل مسار العالم عشية الحرب العالمية الثانية.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: انهيار بورصة وال ستريت (1929)، ذروة البطالة 30 مليون (1932)، وصول هتلر للسلطة (1933)، إطلاق النيوديل (1933).",
+                ex6A: "الخط الزمني: 1929: انهيار بورصة وال ستريت ...",
+                ex6_timeline_title: "الأحداث الرئيسية لأزمة الثلاثينات",
+                ex6_event_1929_label: "انهيار بورصة وال ستريت",
+                ex6_event_1929_sub: "1929",
+                ex6_event_1932_label: "ذروة البطالة 30 مليون",
+                ex6_event_1932_sub: "1932",
+                ex6_event_1933_hitler_label: "وصول هتلر للسلطة",
+                ex6_event_1933_hitler_sub: "1933",
+                ex6_event_1933_newdeal_label: "إطلاق النيوديل",
+                ex6_event_1933_newdeal_sub: "1933",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: '1929', value: 10, labelKey: 'ex3A_key_1929', valueFormatted: '10' },
+                { label: '1930', value: 20, labelKey: 'ex3A_key_1930', valueFormatted: '20' },
+                { label: '1931', value: 25, labelKey: 'ex3A_key_1931', valueFormatted: '25' },
+                { label: '1932', value: 30, labelKey: 'ex3A_key_1932', valueFormatted: '30' }
+            ],
+            maxValue: 35,
+            ySteps: [35, 28, 21, 14, 7, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1929, labelKey: 'ex6_event_1929_label', subKey: 'ex6_event_1929_sub' },
+                { year: 1932, labelKey: 'ex6_event_1932_label', subKey: 'ex6_event_1932_sub' },
+                { year: 1933, labelKey: 'ex6_event_1933_hitler_label', subKey: 'ex6_event_1933_hitler_sub' },
+                { year: 1933, labelKey: 'ex6_event_1933_newdeal_label', subKey: 'ex6_event_1933_newdeal_sub' }
+            ],
+            startYear: 1929,
+            endYear: 1933,
+            scaleYears: [1929, 1930, 1931, 1932, 1933]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

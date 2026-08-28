@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – الحرب العالمية الثانية: الأسباب</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        /* ══════ PRINT MODAL STYLES ══════ */
+        .print-modal-overlay { position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index:99999; display:flex; align-items:center; justify-content:center; animation: pmFadeIn 0.25s ease-out; padding:1rem; }
+        @keyframes pmFadeIn { from { opacity:0; } to { opacity:1; } }
+        .print-modal-content { background: var(--ED-General-color-surface); border-radius:20px; padding:2rem 2.2rem; max-width:480px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); border:1px solid var(--ED-General-color-border); animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+        .print-modal-title { margin:0 0 0.3rem 0; font-size:1.4rem; font-weight:750; }
+        .print-modal-subtitle { margin:0 0 1.5rem 0; font-size:0.9rem; color:var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.8rem; }
+        .print-option { display:flex; align-items:center; gap:0.75rem; padding:0.9rem 1.1rem; border-radius:14px; cursor:pointer; border:2px solid var(--ED-General-color-border); background:var(--ED-General-color-bg-secondary); transition:all 0.2s ease; user-select:none; }
+        .print-option.disabled-option { opacity:0.5; pointer-events:none; background:var(--ED-General-color-bg-secondary); border-color:var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); box-shadow:0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance:none; -webkit-appearance:none; width:22px; height:22px; border:2px solid var(--ED-General-color-border-hover); border-radius:50%; flex-shrink:0; cursor:pointer; background:var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background:var(--ED-General-color-accent-default); border-color:var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content:''; position:absolute; left:6px; top:6px; width:6px; height:6px; background:#fff; border-radius:50%; }
+        .print-option-label { font-weight:700; font-size:1rem; }
+        .print-option-desc { font-size:0.82rem; color:var(--ED-General-color-text-tertiary); margin-left:auto; }
+        [dir="rtl"] .print-option-desc { margin-left:0; margin-right:auto; }
+        .print-modal-actions { display:flex; gap:0.8rem; justify-content:flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding:0.7rem 1.6rem; border-radius:25px; font-weight:650; font-size:0.95rem; cursor:pointer; }
+        .print-modal-cancel { background:transparent; border:2px solid var(--ED-General-color-border); color:var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background:linear-gradient(135deg, #4a7fd9, #3b6dc5); color:#fff; border:none; box-shadow:0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        /* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+        .print-header-content, .print-footer-content { display:none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0, 0, 0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <h1 data-i18n="exerciseTitle">تمارين – الحرب العالمية الثانية: الأسباب</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الأنشلوس، مؤتمر ميونيخ، سياسة التهدئة، المجال الحيوي.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الأنشلوس:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">ضم ألمانيا للنمسا في مارس 1938.</dd>
+                        <dt data-i18n="ex1_def2_title">مؤتمر ميونيخ:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">مؤتمر عقد في سبتمبر 1938 بين ألمانيا وبريطانيا وفرنسا وإيطاليا، وافق على ضم ألمانيا للسودات.</dd>
+                        <dt data-i18n="ex1_def3_title">سياسة التهدئة:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">سياسة اتبعتها بريطانيا وفرنسا في الثلاثينات تقوم على تقديم تنازلات للأنظمة الديكتاتورية لتفادي الحرب.</dd>
+                        <dt data-i18n="ex1_def4_title">المجال الحيوي:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">مفهوم توسعي نازي يطالب بتوسيع الأراضي الألمانية شرقًا لتأمين احتياجات الشعب الألماني.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 2: Map/Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل الصورة التالية التي تمثل أسباب الحرب العالمية الثانية، وبيّن أبرز الأسباب المباشرة وغير المباشرة لاندلاعها.</span>
+                </div>
+                <div class="gallery">
+                    <img src="https://placehold.co/600x400?text=WWII+Causes+Exercise"
+                         alt="أسباب الحرب العالمية الثانية"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="https://placehold.co/600x400?text=Answer+WWII+Causes"
+                             alt="نموذج الإجابة – أسباب الحرب"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        تشمل الأسباب غير المباشرة: مخلفات معاهدات 1919 (خيبة إيطاليا، مشكلة القوميات، التعويضات)، وانعكاسات أزمة الثلاثينات، وفشل الأمن الجماعي. أما الأسباب المباشرة فتمثلت في السياسة التوسعية الألمانية (ضم النمسا والسودات) ثم غزو بولونيا في 1 سبتمبر 1939 الذي أشعل الحرب.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة: الإنفاق العسكري الألماني (بالمليار رايخ مارك): 1933: 0.7، 1935: 5.5، 1938: 17.2، 1939: 32.3.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_year">السنة</th>
+                            <th data-i18n="ex3Q_table_spending">الإنفاق (مليار مارك)</th>
+                        </tr>
+                        <tr><td>1933</td><td>0.7</td></tr>
+                        <tr><td>1935</td><td>5.5</td></tr>
+                        <tr><td>1938</td><td>17.2</td></tr>
+                        <tr><td>1939</td><td>32.3</td></tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: بيانات تاريخية عن التسلح الألماني</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل أسباب اندلاع الحرب العالمية الثانية في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        أسباب الحرب العالمية الثانية:
+                        - مخلفات الحرب العالمية الأولى (معاهدات مجحفة، قوميات، تعويضات).
+                        - انعكاسات أزمة الثلاثينات (تدهور اقتصادي، صعود النازية).
+                        - فشل سياسة الأمن الجماعي وجمعية الأمم.
+                        - السياسة التوسعية الألمانية (ضم النمسا، السودات، غزو بولونيا).
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تظافرت عدة عوامل لإشعال الحرب العالمية الثانية: مخلفات معاهدات 1919 التي خلقت شعورًا بالظلم لدى ألمانيا وإيطاليا، وانعكاسات أزمة الثلاثينات التي عمّقت التوترات الاقتصادية وسهّلت صعود النازية، إضافة إلى فشل جمعية الأمم في تطبيق الأمن الجماعي ووقف العدوانيات. وقد استغل هتلر هذه الأوضاع لتنفيذ سياسته التوسعية، فقام بضم النمسا والسودات، ثم غزا بولونيا في سبتمبر 1939، مما دفع بريطانيا وفرنسا إلى إعلان الحرب، فاندلعت الحرب العالمية الثانية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول دور فشل سياسة الأمن الجماعي والتهدئة في اندلاع الحرب العالمية الثانية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        فشلت جمعية الأمم في وقف العدوانيات، وشجعت سياسة التهدئة هتلر على التوسع. حلّل كيف ساهم ذلك في اندلاع الحرب.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: فشل الأمن الجماعي والتمهيد للحرب.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. عجز جمعية الأمم عن مواجهة العدوانيات؛ ثانياً. سياسة التهدئة وتشجيع هتلر؛ ثالثاً. النتيجة: اندلاع الحرب.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: درس فشل التهدئة.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">فشلت الآليات الدولية وسياسة التهدئة في منع اندلاع الحرب العالمية الثانية.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_league">أولاً. عجز جمعية الأمم</h4>
+                        <p data-i18n="ex5A_production_p_league">عجزت الجمعية عن اتخاذ إجراءات حاسمة ضد العدوانيات اليابانية والإيطالية والألمانية، مما شجع الأنظمة الديكتاتورية.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_appeasement">ثانياً. سياسة التهدئة</h4>
+                        <p data-i18n="ex5A_production_p_appeasement">اتبعت بريطانيا وفرنسا سياسة تنازلات، مثل مؤتمر ميونيخ، مما زاد من جرأة هتلر.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_result">ثالثاً. النتيجة</h4>
+                        <p data-i18n="ex5A_production_p_result">اقتنع هتلر بأن الحلفاء لن يتحركوا، فغزا بولونيا، فاندلعت الحرب.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا كان فشل الأمن الجماعي والتهدئة من الأسباب المباشرة للحرب.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: وصول هتلر للسلطة (1933)، ضم النمسا (1938)، مؤتمر ميونيخ (1938)، غزو بولونيا (1939).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1933: وصول هتلر للسلطة ...
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y4sec_secLet_his_lessons_mod1_lesson4_part1.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT MODAL -->
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "4th Secondary, Arts Section",
+                exerciseTitle: "Exercises – World War II: Causes",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Anschluss, Munich Conference, Appeasement, Living Space (Lebensraum).",
+                ex1_def1_title: "Anschluss:",
+                ex1_def1_subtitle: "Germany's annexation of Austria in March 1938.",
+                ex1_def2_title: "Munich Conference:",
+                ex1_def2_subtitle: "A conference held in September 1938 between Germany, Britain, France, and Italy, approving Germany's annexation of the Sudetenland.",
+                ex1_def3_title: "Appeasement:",
+                ex1_def3_subtitle: "A policy followed by Britain and France in the 1930s of making concessions to dictatorships to avoid war.",
+                ex1_def4_title: "Living Space (Lebensraum):",
+                ex1_def4_subtitle: "A Nazi expansionist concept demanding the expansion of German territory eastward to secure the needs of the German people.",
+                ex2Q: "Observe the following image representing the causes of World War II, and identify the main direct and indirect causes of its outbreak.",
+                ex2DocAlt: "Causes of World War II",
+                ex2AnswerImgAlt: "Answer model – Causes of the war",
+                ex2A: "Indirect causes include: the legacy of the 1919 treaties (Italian disappointment, nationalities problem, reparations), the impact of the 1930s crisis, and the failure of collective security. The direct cause was the German expansionist policy (annexation of Austria and Sudetenland) and then the invasion of Poland on 1 September 1939, which ignited the war.",
+                ex3Q: "Convert the following table data into a bar chart: German military expenditure (billion Reichsmarks): 1933: 0.7, 1935: 5.5, 1938: 17.2, 1939: 32.3.",
+                ex3Q_table_year: "Year",
+                ex3Q_table_spending: "Spending (billion RM)",
+                ex3Q_source: "Source: Historical data on German armament",
+                ex3A_title: "German Military Expenditure (1933–1939)",
+                ex3A_source: "Source: Historical archives",
+                ex3A_scale: "Scale: 0–35 billion RM; column height proportional to spending.",
+                ex3A_key_label: "Key:",
+                ex3A_key_1933: "1933",
+                ex3A_key_1935: "1935",
+                ex3A_key_1938: "1938",
+                ex3A_key_1939: "1939",
+                ex4Q: "Analyse the causes of the outbreak of World War II in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Causes of World War II:\n- Legacy of World War I (unfair treaties, nationalities, reparations).\n- Impact of the 1930s crisis (economic deterioration, rise of Nazism).\n- Failure of collective security and the League of Nations.\n- German expansionist policy (annexation of Austria, Sudetenland, invasion of Poland).",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "Several factors combined to ignite World War II: the legacy of the 1919 treaties that created a sense of injustice in Germany and Italy; the impact of the 1930s crisis that deepened economic tensions and facilitated the rise of Nazism; and the failure of the League of Nations to enforce collective security and stop aggression. Hitler exploited these conditions to implement his expansionist policy, annexing Austria and the Sudetenland, then invading Poland in September 1939, prompting Britain and France to declare war, thus starting World War II.",
+                ex5Q: "Write a short article (150 words) on the role of the failure of collective security and appeasement in the outbreak of World War II.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "The League of Nations failed to stop aggressions, and appeasement encouraged Hitler's expansion. Analyse how this contributed to the war.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Failure of collective security and paving the way for war.",
+                ex5A_plan_li2: "Development: I. League's inability to confront aggressions; II. Appeasement and encouragement of Hitler; III. Result: outbreak of war.",
+                ex5A_plan_li3: "Conclusion: Lesson of appeasement failure.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "International mechanisms and appeasement failed to prevent World War II.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_league: "I. League's Inability",
+                ex5A_production_p_league: "The League failed to take decisive action against Japanese, Italian, and German aggressions, emboldening dictatorships.",
+                ex5A_production_h4_appeasement: "II. Appeasement Policy",
+                ex5A_production_p_appeasement: "Britain and France pursued concessions, such as the Munich Conference, increasing Hitler's boldness.",
+                ex5A_production_h4_result: "III. The Result",
+                ex5A_production_p_result: "Hitler became convinced the Allies would not act, invaded Poland, and war broke out.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus, the failure of collective security and appeasement was a direct cause of the war.",
+                ex6Q: "Create a timeline of the following events: Hitler comes to power (1933), Annexation of Austria (1938), Munich Conference (1938), Invasion of Poland (1939).",
+                ex6A: "Timeline: 1933: Hitler comes to power...",
+                ex6_timeline_title: "Key Events Leading to World War II",
+                ex6_event_1933_label: "Hitler Comes to Power",
+                ex6_event_1933_sub: "1933",
+                ex6_event_1938_anschluss_label: "Annexation of Austria",
+                ex6_event_1938_anschluss_sub: "1938",
+                ex6_event_1938_munich_label: "Munich Conference",
+                ex6_event_1938_munich_sub: "1938",
+                ex6_event_1939_label: "Invasion of Poland",
+                ex6_event_1939_sub: "1939",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section Lettres",
+                exerciseTitle: "Exercices – La Seconde Guerre mondiale : causes",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Anschluss, Conférence de Munich, Apaisement, Espace vital (Lebensraum).",
+                ex1_def1_title: "Anschluss :",
+                ex1_def1_subtitle: "Annexion de l'Autriche par l'Allemagne en mars 1938.",
+                ex1_def2_title: "Conférence de Munich :",
+                ex1_def2_subtitle: "Conférence tenue en septembre 1938 entre l'Allemagne, la Grande-Bretagne, la France et l'Italie, approuvant l'annexion des Sudètes par l'Allemagne.",
+                ex1_def3_title: "Apaisement :",
+                ex1_def3_subtitle: "Politique suivie par la Grande-Bretagne et la France dans les années 1930 consistant à faire des concessions aux dictatures pour éviter la guerre.",
+                ex1_def4_title: "Espace vital (Lebensraum) :",
+                ex1_def4_subtitle: "Concept expansionniste nazi exigeant l'extension du territoire allemand vers l'est pour assurer les besoins du peuple allemand.",
+                ex2Q: "Observez l'image suivante représentant les causes de la Seconde Guerre mondiale, et identifiez les principales causes directes et indirectes de son déclenchement.",
+                ex2DocAlt: "Causes de la Seconde Guerre mondiale",
+                ex2AnswerImgAlt: "Modèle de réponse – Causes de la guerre",
+                ex2A: "Les causes indirectes comprennent : l'héritage des traités de 1919 (déception italienne, problème des nationalités, réparations), l'impact de la crise des années 1930 et l'échec de la sécurité collective. La cause directe fut la politique expansionniste allemande (annexion de l'Autriche et des Sudètes) puis l'invasion de la Pologne le 1er septembre 1939, qui déclencha la guerre.",
+                ex3Q: "Convertissez les données du tableau suivant en diagramme à barres : Dépenses militaires allemandes (milliards de Reichsmarks) : 1933 : 0,7, 1935 : 5,5, 1938 : 17,2, 1939 : 32,3.",
+                ex3Q_table_year: "Année",
+                ex3Q_table_spending: "Dépenses (milliards RM)",
+                ex3Q_source: "Source : Données historiques sur l'armement allemand",
+                ex3A_title: "Dépenses militaires allemandes (1933–1939)",
+                ex3A_source: "Source : Archives historiques",
+                ex3A_scale: "Échelle : 0–35 milliards RM ; hauteur des colonnes proportionnelle aux dépenses.",
+                ex3A_key_label: "Légende :",
+                ex3A_key_1933: "1933",
+                ex3A_key_1935: "1935",
+                ex3A_key_1938: "1938",
+                ex3A_key_1939: "1939",
+                ex4Q: "Analysez les causes du déclenchement de la Seconde Guerre mondiale en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Causes de la Seconde Guerre mondiale :\n- Héritage de la Première Guerre mondiale (traités injustes, nationalités, réparations).\n- Impact de la crise des années 1930 (détérioration économique, montée du nazisme).\n- Échec de la sécurité collective et de la Société des Nations.\n- Politique expansionniste allemande (annexion de l'Autriche, des Sudètes, invasion de la Pologne).",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Plusieurs facteurs se sont conjugués pour déclencher la Seconde Guerre mondiale : l'héritage des traités de 1919 qui créa un sentiment d'injustice en Allemagne et en Italie ; l'impact de la crise des années 1930 qui approfondit les tensions économiques et facilita la montée du nazisme ; et l'échec de la Société des Nations à faire respecter la sécurité collective et à arrêter les agressions. Hitler exploita ces conditions pour mettre en œuvre sa politique expansionniste, en annexant l'Autriche et les Sudètes, puis en envahissant la Pologne en septembre 1939, poussant la Grande-Bretagne et la France à déclarer la guerre, déclenchant ainsi la Seconde Guerre mondiale.",
+                ex5Q: "Rédigez un court article (150 mots) sur le rôle de l'échec de la sécurité collective et de l'apaisement dans le déclenchement de la Seconde Guerre mondiale.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "La Société des Nations échoua à arrêter les agressions, et l'apaisement encouragea l'expansion de Hitler. Analysez comment cela contribua à la guerre.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Échec de la sécurité collective et préparation de la guerre.",
+                ex5A_plan_li2: "Développement : I. Incapacité de la SDN à affronter les agressions ; II. Apaisement et encouragement de Hitler ; III. Résultat : déclenchement de la guerre.",
+                ex5A_plan_li3: "Conclusion : Leçon de l'échec de l'apaisement.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Les mécanismes internationaux et l'apaisement échouèrent à empêcher la Seconde Guerre mondiale.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_league: "I. Incapacité de la SDN",
+                ex5A_production_p_league: "La SDN échoua à prendre des mesures décisives contre les agressions japonaises, italiennes et allemandes, enhardissant les dictatures.",
+                ex5A_production_h4_appeasement: "II. Politique d'apaisement",
+                ex5A_production_p_appeasement: "La Grande-Bretagne et la France firent des concessions, comme à la conférence de Munich, augmentant l'audace de Hitler.",
+                ex5A_production_h4_result: "III. Le résultat",
+                ex5A_production_p_result: "Hitler fut convaincu que les Alliés n'agiraient pas, envahit la Pologne, et la guerre éclata.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi, l'échec de la sécurité collective et de l'apaisement fut une cause directe de la guerre.",
+                ex6Q: "Créez une chronologie des événements suivants : Hitler accède au pouvoir (1933), Annexion de l'Autriche (1938), Conférence de Munich (1938), Invasion de la Pologne (1939).",
+                ex6A: "Chronologie : 1933 : Hitler au pouvoir...",
+                ex6_timeline_title: "Événements clés menant à la Seconde Guerre mondiale",
+                ex6_event_1933_label: "Hitler au pouvoir",
+                ex6_event_1933_sub: "1933",
+                ex6_event_1938_anschluss_label: "Annexion de l'Autriche",
+                ex6_event_1938_anschluss_sub: "1938",
+                ex6_event_1938_munich_label: "Conférence de Munich",
+                ex6_event_1938_munich_sub: "1938",
+                ex6_event_1939_label: "Invasion de la Pologne",
+                ex6_event_1939_sub: "1939",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                exerciseTitle: "تمارين – الحرب العالمية الثانية: الأسباب",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الأنشلوس، مؤتمر ميونيخ، سياسة التهدئة، المجال الحيوي.",
+                ex1_def1_title: "الأنشلوس:",
+                ex1_def1_subtitle: "ضم ألمانيا للنمسا في مارس 1938.",
+                ex1_def2_title: "مؤتمر ميونيخ:",
+                ex1_def2_subtitle: "مؤتمر عقد في سبتمبر 1938 بين ألمانيا وبريطانيا وفرنسا وإيطاليا، وافق على ضم ألمانيا للسودات.",
+                ex1_def3_title: "سياسة التهدئة:",
+                ex1_def3_subtitle: "سياسة اتبعتها بريطانيا وفرنسا في الثلاثينات تقوم على تقديم تنازلات للأنظمة الديكتاتورية لتفادي الحرب.",
+                ex1_def4_title: "المجال الحيوي:",
+                ex1_def4_subtitle: "مفهوم توسعي نازي يطالب بتوسيع الأراضي الألمانية شرقًا لتأمين احتياجات الشعب الألماني.",
+                ex2Q: "تأمل الصورة التالية التي تمثل أسباب الحرب العالمية الثانية، وبيّن أبرز الأسباب المباشرة وغير المباشرة لاندلاعها.",
+                ex2DocAlt: "أسباب الحرب العالمية الثانية",
+                ex2AnswerImgAlt: "نموذج الإجابة – أسباب الحرب",
+                ex2A: "تشمل الأسباب غير المباشرة: مخلفات معاهدات 1919 (خيبة إيطاليا، مشكلة القوميات، التعويضات)، وانعكاسات أزمة الثلاثينات، وفشل الأمن الجماعي. أما الأسباب المباشرة فتمثلت في السياسة التوسعية الألمانية (ضم النمسا والسودات) ثم غزو بولونيا في 1 سبتمبر 1939 الذي أشعل الحرب.",
+                ex3Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة: الإنفاق العسكري الألماني (بالمليار رايخ مارك): 1933: 0.7، 1935: 5.5، 1938: 17.2، 1939: 32.3.",
+                ex3Q_table_year: "السنة",
+                ex3Q_table_spending: "الإنفاق (مليار مارك)",
+                ex3Q_source: "المصدر: بيانات تاريخية عن التسلح الألماني",
+                ex3A_title: "الإنفاق العسكري الألماني (1933–1939)",
+                ex3A_source: "المصدر: أرشيف تاريخي",
+                ex3A_scale: "المقياس: 0–35 مليار مارك؛ ارتفاع الأعمدة يتناسب مع الإنفاق.",
+                ex3A_key_label: "المفتاح:",
+                ex3A_key_1933: "1933",
+                ex3A_key_1935: "1935",
+                ex3A_key_1938: "1938",
+                ex3A_key_1939: "1939",
+                ex4Q: "حلّل أسباب اندلاع الحرب العالمية الثانية في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "أسباب الحرب العالمية الثانية:\n- مخلفات الحرب العالمية الأولى (معاهدات مجحفة، قوميات، تعويضات).\n- انعكاسات أزمة الثلاثينات (تدهور اقتصادي، صعود النازية).\n- فشل سياسة الأمن الجماعي وجمعية الأمم.\n- السياسة التوسعية الألمانية (ضم النمسا، السودات، غزو بولونيا).",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تظافرت عدة عوامل لإشعال الحرب العالمية الثانية: مخلفات معاهدات 1919 التي خلقت شعورًا بالظلم لدى ألمانيا وإيطاليا، وانعكاسات أزمة الثلاثينات التي عمّقت التوترات الاقتصادية وسهّلت صعود النازية، إضافة إلى فشل جمعية الأمم في تطبيق الأمن الجماعي ووقف العدوانيات. وقد استغل هتلر هذه الأوضاع لتنفيذ سياسته التوسعية، فقام بضم النمسا والسودات، ثم غزا بولونيا في سبتمبر 1939، مما دفع بريطانيا وفرنسا إلى إعلان الحرب، فاندلعت الحرب العالمية الثانية.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول دور فشل سياسة الأمن الجماعي والتهدئة في اندلاع الحرب العالمية الثانية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "فشلت جمعية الأمم في وقف العدوانيات، وشجعت سياسة التهدئة هتلر على التوسع. حلّل كيف ساهم ذلك في اندلاع الحرب.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: فشل الأمن الجماعي والتمهيد للحرب.",
+                ex5A_plan_li2: "تطوير: أولاً. عجز جمعية الأمم عن مواجهة العدوانيات؛ ثانياً. سياسة التهدئة وتشجيع هتلر؛ ثالثاً. النتيجة: اندلاع الحرب.",
+                ex5A_plan_li3: "خاتمة: درس فشل التهدئة.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "فشلت الآليات الدولية وسياسة التهدئة في منع اندلاع الحرب العالمية الثانية.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_league: "أولاً. عجز جمعية الأمم",
+                ex5A_production_p_league: "عجزت الجمعية عن اتخاذ إجراءات حاسمة ضد العدوانيات اليابانية والإيطالية والألمانية، مما شجع الأنظمة الديكتاتورية.",
+                ex5A_production_h4_appeasement: "ثانياً. سياسة التهدئة",
+                ex5A_production_p_appeasement: "اتبعت بريطانيا وفرنسا سياسة تنازلات، مثل مؤتمر ميونيخ، مما زاد من جرأة هتلر.",
+                ex5A_production_h4_result: "ثالثاً. النتيجة",
+                ex5A_production_p_result: "اقتنع هتلر بأن الحلفاء لن يتحركوا، فغزا بولونيا، فاندلعت الحرب.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا كان فشل الأمن الجماعي والتهدئة من الأسباب المباشرة للحرب.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: وصول هتلر للسلطة (1933)، ضم النمسا (1938)، مؤتمر ميونيخ (1938)، غزو بولونيا (1939).",
+                ex6A: "الخط الزمني: 1933: وصول هتلر للسلطة ...",
+                ex6_timeline_title: "الأحداث الرئيسية المؤدية إلى الحرب العالمية الثانية",
+                ex6_event_1933_label: "وصول هتلر للسلطة",
+                ex6_event_1933_sub: "1933",
+                ex6_event_1938_anschluss_label: "ضم النمسا",
+                ex6_event_1938_anschluss_sub: "1938",
+                ex6_event_1938_munich_label: "مؤتمر ميونيخ",
+                ex6_event_1938_munich_sub: "1938",
+                ex6_event_1939_label: "غزو بولونيا",
+                ex6_event_1939_sub: "1939",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: '1933', value: 0.7, labelKey: 'ex3A_key_1933', valueFormatted: '0.7' },
+                { label: '1935', value: 5.5, labelKey: 'ex3A_key_1935', valueFormatted: '5.5' },
+                { label: '1938', value: 17.2, labelKey: 'ex3A_key_1938', valueFormatted: '17.2' },
+                { label: '1939', value: 32.3, labelKey: 'ex3A_key_1939', valueFormatted: '32.3' }
+            ],
+            maxValue: 35,
+            ySteps: [35, 28, 21, 14, 7, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1933, labelKey: 'ex6_event_1933_label', subKey: 'ex6_event_1933_sub' },
+                { year: 1938, labelKey: 'ex6_event_1938_anschluss_label', subKey: 'ex6_event_1938_anschluss_sub' },
+                { year: 1938, labelKey: 'ex6_event_1938_munich_label', subKey: 'ex6_event_1938_munich_sub' },
+                { year: 1939, labelKey: 'ex6_event_1939_label', subKey: 'ex6_event_1939_sub' }
+            ],
+            startYear: 1933,
+            endYear: 1939,
+            scaleYears: [1933, 1935, 1937, 1939]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – الأطراف المتدخلة في الأدفاق التجارية العالمية</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        .print-modal-overlay { position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index:99999; display:flex; align-items:center; justify-content:center; animation: pmFadeIn 0.25s ease-out; padding:1rem; }
+        @keyframes pmFadeIn { from { opacity:0; } to { opacity:1; } }
+        .print-modal-content { background: var(--ED-General-color-surface); border-radius:20px; padding:2rem 2.2rem; max-width:480px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); border:1px solid var(--ED-General-color-border); animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+        .print-modal-title { margin:0 0 0.3rem 0; font-size:1.4rem; font-weight:750; }
+        .print-modal-subtitle { margin:0 0 1.5rem 0; font-size:0.9rem; color:var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.8rem; }
+        .print-option { display:flex; align-items:center; gap:0.75rem; padding:0.9rem 1.1rem; border-radius:14px; cursor:pointer; border:2px solid var(--ED-General-color-border); background:var(--ED-General-color-bg-secondary); transition:all 0.2s ease; user-select:none; }
+        .print-option.disabled-option { opacity:0.5; pointer-events:none; background:var(--ED-General-color-bg-secondary); border-color:var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); box-shadow:0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance:none; -webkit-appearance:none; width:22px; height:22px; border:2px solid var(--ED-General-color-border-hover); border-radius:50%; flex-shrink:0; cursor:pointer; background:var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background:var(--ED-General-color-accent-default); border-color:var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content:''; position:absolute; left:6px; top:6px; width:6px; height:6px; background:#fff; border-radius:50%; }
+        .print-option-label { font-weight:700; font-size:1rem; }
+        .print-option-desc { font-size:0.82rem; color:var(--ED-General-color-text-tertiary); margin-left:auto; }
+        [dir="rtl"] .print-option-desc { margin-left:0; margin-right:auto; }
+        .print-modal-actions { display:flex; gap:0.8rem; justify-content:flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding:0.7rem 1.6rem; border-radius:25px; font-weight:650; font-size:0.95rem; cursor:pointer; }
+        .print-modal-cancel { background:transparent; border:2px solid var(--ED-General-color-border); color:var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background:linear-gradient(135deg, #4a7fd9, #3b6dc5); color:#fff; border:none; box-shadow:0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display:none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة الآداب
+            </div>
+            <h1 data-i18n="exerciseTitle">تمارين – الأطراف المتدخلة في الأدفاق التجارية العالمية</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الشركات عبر القطرية، المنظمة العالمية للتجارة، صندوق النقد الدولي، البنك الدولي.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الشركات عبر القطرية:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">شركة كبرى تمارس أنشطتها مباشرة أو عن طريق فروعها في الخارج مع الحفاظ على مقرها الاجتماعي في بلدها الأصلي، تسعى للاستفادة من فوارق كلفة الإنتاج وتجزئة مراحل الإنتاج.</dd>
+                        <dt data-i18n="ex1_def2_title">المنظمة العالمية للتجارة:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">منظمة دولية تأسست سنة 1995 تضم 166 عضواً و20 مراقباً، تعمل على تحرير التجارة العالمية عبر خفض الرسوم الجمركية وفض النزاعات ووضع السياسات الاقتصادية.</dd>
+                        <dt data-i18n="ex1_def3_title">صندوق النقد الدولي:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">منظمة مالية عالمية أنشئت سنة 1944، تضم 190 بلداً عضواً، تسعى إلى فرض النموذج الليبرالي للتنمية وتخضع لهيمنة القوى الرأسمالية الكبرى.</dd>
+                        <dt data-i18n="ex1_def4_title">البنك الدولي:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">مؤسسة مالية دولية تعمل بالتعاون مع صندوق النقد الدولي على تمويل مشاريع التنمية وفرض سياسات الإصلاح الهيكلي على البلدان النامية.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 2: Map/Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل الصورة التالية التي تمثل الأطراف المتدخلة في الأدفاق التجارية العالمية، وبيّن دور كل طرف رئيسي.</span>
+                </div>
+                <div class="gallery">
+                    <img src="https://placehold.co/600x400?text=Global+Trade+Actors"
+                         alt="الأطراف المتدخلة في الأدفاق التجارية العالمية"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="https://placehold.co/600x400?text=Answer+Trade+Actors"
+                             alt="نموذج الإجابة – أدوار الأطراف"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        من الأطراف الرئيسية: الشركات عبر القطرية التي تسيطر على ثلثي التجارة العالمية؛ المنظمة العالمية للتجارة التي تحرر التجارة وتفض النزاعات؛ صندوق النقد الدولي والبنك الدولي اللذان يفرضان السياسات الليبرالية؛ إضافة إلى الأطراف الجديدة مثل مجموعة العشرين والمنظمات غير الحكومية التي تدافع عن مصالح الجنوب وتطالب بتجارة عادلة.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة: عدد الشركات الأم عبر القطرية (بالألف): 1990: 20، 2000: 45، 2010: 55، 2018: 60.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_year">السنة</th>
+                            <th data-i18n="ex3Q_table_count">عدد الشركات الأم (ألف)</th>
+                        </tr>
+                        <tr><td>1990</td><td>20</td></tr>
+                        <tr><td>2000</td><td>45</td></tr>
+                        <tr><td>2010</td><td>55</td></tr>
+                        <tr><td>2018</td><td>60</td></tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: بيانات حول الشركات عبر القطرية</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل دور الشركات عبر القطرية والمنظمة العالمية للتجارة في الأدفاق التجارية العالمية في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        أدوار الأطراف:
+                        - الشركات عبر القطرية: تسيطر على ثلثي الأدفاق التجارية، تجزئ الإنتاج، وتضغط من أجل مزيد التحرير.
+                        - المنظمة العالمية للتجارة: تحرر التجارة، تخفض الرسوم، تفض النزاعات، وتضع السياسات الاقتصادية.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تلعب الشركات عبر القطرية دورًا محوريًا في الأدفاق التجارية العالمية، إذ تسيطر على ثلثي هذه الأدفاق، وتعتمد على تجزئة الإنتاج وتوطين الفروع في الخارج للاستفادة من فوارق كلفة الإنتاج. كما تضغط على الحكومات والمنتديات الاقتصادية والمنظمة العالمية للتجارة لمزيد تحرير التجارة. في المقابل، تعمل المنظمة العالمية للتجارة منذ 1995 على تخفيض الرسوم الجمركية وفض النزاعات ووضع السياسات الاقتصادية العالمية، مما يجعلها محفزًا رئيسيًا لتحرير التجارة العالمية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول الأطراف الجديدة في التجارة العالمية ودورها في المطالبة بنظام تجاري عادل.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        ظهرت أطراف جديدة مثل مجموعة العشرين والمنظمات غير الحكومية للدفاع عن مصالح بلدان الجنوب. حلّل دور هذه الأطراف في المطالبة بإلغاء الدعم الفلاحي وإرساء نظام تجاري عادل.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: ظهور فاعلين جدد في التجارة العالمية.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. مجموعة العشرين ومطالبها؛ ثانياً. المنظمات غير الحكومية وحملاتها.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: أهمية هذه الأطراف في تحقيق العدالة التجارية.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">شهدت الساحة التجارية العالمية بروز أطراف جديدة تدافع عن مصالح بلدان الجنوب وتطالب بنظام أكثر عدالة.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_g20">أولاً. مجموعة العشرين</h4>
+                        <p data-i18n="ex5A_production_p_g20">تكونت مجموعة العشرين بزعامة البرازيل سنة 2003، وتطالب الولايات المتحدة والاتحاد الأوروبي بإلغاء الدعم الفلاحي الذي يضر بمنتجات الجنوب.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_ngos">ثانياً. المنظمات غير الحكومية</h4>
+                        <p data-i18n="ex5A_production_p_ngos">تقود منظمات مثل أوكسفام حملات إعلامية ومظاهرات مناهضة للعولمة، وتنادي بتجارة عالمية عادلة تراعي مصالح البلدان النامية.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا تساهم هذه الأطراف الجديدة في الضغط من أجل إصلاح النظام التجاري العالمي وتقليص الفوارق بين الشمال والجنوب.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: تأسيس صندوق النقد الدولي (1944)، تأسيس المنظمة العالمية للتجارة (1995)، تأسيس مجموعة العشرين في كنكون (2003).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1944: تأسيس صندوق النقد الدولي ...
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y4sec_secLet_geo_lessons_mod1_lesson1_part2.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT MODAL -->
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "4th Secondary, Arts Section",
+                exerciseTitle: "Exercises – Actors in Global Trade Flows",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Transnational Corporations, World Trade Organization, International Monetary Fund, World Bank.",
+                ex1_def1_title: "Transnational Corporations:",
+                ex1_def1_subtitle: "Large companies operating directly or through subsidiaries abroad while keeping headquarters in the home country, exploiting cost differences through production fragmentation.",
+                ex1_def2_title: "World Trade Organization:",
+                ex1_def2_subtitle: "International organization founded in 1995 with 166 members and 20 observers, working to liberalize world trade through tariff reduction, dispute resolution, and economic policy coordination.",
+                ex1_def3_title: "International Monetary Fund:",
+                ex1_def3_subtitle: "Global financial organization created in 1944 with 190 member countries, promoting international financial cooperation and imposing neoliberal development policies dominated by major capitalist powers.",
+                ex1_def4_title: "World Bank:",
+                ex1_def4_subtitle: "International financial institution that works with the IMF to finance development projects and impose structural adjustment policies on developing countries.",
+                ex2Q: "Observe the following image representing the actors in global trade flows, and explain the role of each main actor.",
+                ex2DocAlt: "Actors in global trade flows",
+                ex2AnswerImgAlt: "Answer model – Roles of actors",
+                ex2A: "Key actors include: transnational corporations controlling two-thirds of global trade; the WTO liberalizing trade and resolving disputes; the IMF and World Bank imposing liberal policies; and new actors such as the G20 and NGOs defending the interests of the Global South and demanding fair trade.",
+                ex3Q: "Convert the following table data into a bar chart: Number of TNC parent companies (thousands): 1990: 20, 2000: 45, 2010: 55, 2018: 60.",
+                ex3Q_table_year: "Year",
+                ex3Q_table_count: "Number of parent companies (thousands)",
+                ex3Q_source: "Source: Data on transnational corporations",
+                ex3A_title: "Number of TNC Parent Companies (1990–2018)",
+                ex3A_source: "Source: Historical archives",
+                ex3A_scale: "Scale: 0–70 thousand; column height proportional to number.",
+                ex3A_key_label: "Key:",
+                ex3A_key_1990: "1990",
+                ex3A_key_2000: "2000",
+                ex3A_key_2010: "2010",
+                ex3A_key_2018: "2018",
+                ex4Q: "Analyse the role of transnational corporations and the WTO in global trade flows in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Roles of actors:\n- TNCs: control two-thirds of trade, fragment production, pressure for more liberalization.\n- WTO: liberalizes trade, reduces tariffs, resolves disputes, sets economic policies.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "Transnational corporations play a pivotal role in global trade flows, controlling two-thirds of them and relying on production fragmentation and offshoring to exploit cost differences. They also pressure governments, economic forums, and the WTO for further liberalization. Meanwhile, the WTO, since 1995, has been reducing tariffs, settling disputes, and setting global economic policies, making it a key catalyst for trade liberalization.",
+                ex5Q: "Write a short article (150 words) on the new actors in global trade and their role in demanding a fair trading system.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "New actors such as the G20 and NGOs have emerged to defend the interests of the Global South. Analyse their role in demanding the elimination of agricultural subsidies and the establishment of a fair trade system.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Emergence of new actors in global trade.",
+                ex5A_plan_li2: "Development: I. G20 and its demands; II. NGOs and their campaigns.",
+                ex5A_plan_li3: "Conclusion: Importance of these actors in achieving trade justice.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The global trade arena witnessed the emergence of new actors defending the interests of the Global South and demanding a fairer system.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_g20: "I. G20",
+                ex5A_production_p_g20: "The G20, led by Brazil, was formed in 2003 and demands that the USA and EU eliminate agricultural subsidies that harm Southern products.",
+                ex5A_production_h4_ngos: "II. NGOs",
+                ex5A_production_p_ngos: "Organizations like Oxfam lead media campaigns and anti-globalization protests, calling for a fair global trade that considers developing countries' interests.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus, these new actors contribute to pressuring for the reform of the global trading system and reducing North-South disparities.",
+                ex6Q: "Create a timeline of the following events: IMF founded (1944), WTO founded (1995), G20 formed at Cancún (2003).",
+                ex6A: "Timeline: 1944: IMF founded...",
+                ex6_timeline_title: "Key Dates in Global Trade Governance",
+                ex6_event_1944_label: "IMF Founded",
+                ex6_event_1944_sub: "1944",
+                ex6_event_1995_label: "WTO Founded",
+                ex6_event_1995_sub: "1995",
+                ex6_event_2003_label: "G20 Formed (Cancún)",
+                ex6_event_2003_sub: "2003",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section Lettres",
+                exerciseTitle: "Exercices – Acteurs des flux commerciaux mondiaux",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Firmes transnationales, Organisation mondiale du commerce, Fonds monétaire international, Banque mondiale.",
+                ex1_def1_title: "Firmes transnationales :",
+                ex1_def1_subtitle: "Grandes entreprises opérant directement ou via des filiales à l'étranger tout en gardant leur siège dans le pays d'origine, exploitant les différences de coûts par la fragmentation de la production.",
+                ex1_def2_title: "Organisation mondiale du commerce :",
+                ex1_def2_subtitle: "Organisation internationale fondée en 1995 avec 166 membres et 20 observateurs, œuvrant à la libéralisation du commerce mondial par la réduction des droits de douane, le règlement des différends et la coordination des politiques économiques.",
+                ex1_def3_title: "Fonds monétaire international :",
+                ex1_def3_subtitle: "Organisation financière mondiale créée en 1944 avec 190 pays membres, promouvant la coopération financière internationale et imposant des politiques néolibérales dominées par les grandes puissances capitalistes.",
+                ex1_def4_title: "Banque mondiale :",
+                ex1_def4_subtitle: "Institution financière internationale qui travaille avec le FMI pour financer des projets de développement et imposer des politiques d'ajustement structurel aux pays en développement.",
+                ex2Q: "Observez l'image suivante représentant les acteurs des flux commerciaux mondiaux, et expliquez le rôle de chaque acteur principal.",
+                ex2DocAlt: "Acteurs des flux commerciaux mondiaux",
+                ex2AnswerImgAlt: "Modèle de réponse – Rôles des acteurs",
+                ex2A: "Les acteurs clés incluent : les firmes transnationales contrôlant les deux tiers du commerce mondial ; l'OMC libéralisant le commerce et réglant les différends ; le FMI et la Banque mondiale imposant les politiques libérales ; et les nouveaux acteurs comme le G20 et les ONG défendant les intérêts du Sud et exigeant un commerce équitable.",
+                ex3Q: "Convertissez les données du tableau suivant en diagramme à barres : Nombre de sociétés mères de FTN (milliers) : 1990 : 20, 2000 : 45, 2010 : 55, 2018 : 60.",
+                ex3Q_table_year: "Année",
+                ex3Q_table_count: "Nombre de sociétés mères (milliers)",
+                ex3Q_source: "Source : Données sur les firmes transnationales",
+                ex3A_title: "Nombre de sociétés mères de FTN (1990–2018)",
+                ex3A_source: "Source : Archives historiques",
+                ex3A_scale: "Échelle : 0–70 milliers ; hauteur des colonnes proportionnelle au nombre.",
+                ex3A_key_label: "Légende :",
+                ex3A_key_1990: "1990",
+                ex3A_key_2000: "2000",
+                ex3A_key_2010: "2010",
+                ex3A_key_2018: "2018",
+                ex4Q: "Analysez le rôle des firmes transnationales et de l'OMC dans les flux commerciaux mondiaux en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Rôles des acteurs :\n- FTN : contrôlent les deux tiers du commerce, fragmentent la production, font pression pour plus de libéralisation.\n- OMC : libéralise le commerce, réduit les tarifs, règle les différends, définit les politiques économiques.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Les firmes transnationales jouent un rôle central dans les flux commerciaux mondiaux, contrôlant les deux tiers de ceux-ci et s'appuyant sur la fragmentation de la production et les délocalisations pour exploiter les différences de coûts. Elles font pression sur les gouvernements, les forums économiques et l'OMC pour une libéralisation accrue. De son côté, l'OMC, depuis 1995, réduit les droits de douane, règle les différends et définit les politiques économiques mondiales, ce qui en fait un catalyseur clé de la libéralisation commerciale.",
+                ex5Q: "Rédigez un court article (150 mots) sur les nouveaux acteurs du commerce mondial et leur rôle dans la demande d'un système commercial équitable.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "De nouveaux acteurs comme le G20 et les ONG sont apparus pour défendre les intérêts du Sud. Analysez leur rôle dans la demande d'élimination des subventions agricoles et l'établissement d'un commerce équitable.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Émergence de nouveaux acteurs dans le commerce mondial.",
+                ex5A_plan_li2: "Développement : I. G20 et ses revendications ; II. ONG et leurs campagnes.",
+                ex5A_plan_li3: "Conclusion : Importance de ces acteurs pour la justice commerciale.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "L'arène commerciale mondiale a vu l'émergence de nouveaux acteurs défendant les intérêts du Sud et exigeant un système plus juste.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_g20: "I. G20",
+                ex5A_production_p_g20: "Le G20, dirigé par le Brésil, a été formé en 2003 et exige que les États-Unis et l'UE éliminent les subventions agricoles qui nuisent aux produits du Sud.",
+                ex5A_production_h4_ngos: "II. ONG",
+                ex5A_production_p_ngos: "Des organisations comme Oxfam mènent des campagnes médiatiques et des manifestations antimondialisation, appelant à un commerce mondial équitable qui tienne compte des intérêts des pays en développement.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi, ces nouveaux acteurs contribuent à faire pression pour la réforme du système commercial mondial et la réduction des disparités Nord-Sud.",
+                ex6Q: "Créez une chronologie des événements suivants : Fondation du FMI (1944), Fondation de l'OMC (1995), Formation du G20 à Cancún (2003).",
+                ex6A: "Chronologie : 1944 : FMI fondé...",
+                ex6_timeline_title: "Dates clés de la gouvernance commerciale mondiale",
+                ex6_event_1944_label: "FMI fondé",
+                ex6_event_1944_sub: "1944",
+                ex6_event_1995_label: "OMC fondée",
+                ex6_event_1995_sub: "1995",
+                ex6_event_2003_label: "G20 formé (Cancún)",
+                ex6_event_2003_sub: "2003",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                exerciseTitle: "تمارين – الأطراف المتدخلة في الأدفاق التجارية العالمية",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الشركات عبر القطرية، المنظمة العالمية للتجارة، صندوق النقد الدولي، البنك الدولي.",
+                ex1_def1_title: "الشركات عبر القطرية:",
+                ex1_def1_subtitle: "شركة كبرى تمارس أنشطتها مباشرة أو عن طريق فروعها في الخارج مع الحفاظ على مقرها الاجتماعي في بلدها الأصلي، تسعى للاستفادة من فوارق كلفة الإنتاج وتجزئة مراحل الإنتاج.",
+                ex1_def2_title: "المنظمة العالمية للتجارة:",
+                ex1_def2_subtitle: "منظمة دولية تأسست سنة 1995 تضم 166 عضواً و20 مراقباً، تعمل على تحرير التجارة العالمية عبر خفض الرسوم الجمركية وفض النزاعات ووضع السياسات الاقتصادية.",
+                ex1_def3_title: "صندوق النقد الدولي:",
+                ex1_def3_subtitle: "منظمة مالية عالمية أنشئت سنة 1944، تضم 190 بلداً عضواً، تسعى إلى فرض النموذج الليبرالي للتنمية وتخضع لهيمنة القوى الرأسمالية الكبرى.",
+                ex1_def4_title: "البنك الدولي:",
+                ex1_def4_subtitle: "مؤسسة مالية دولية تعمل بالتعاون مع صندوق النقد الدولي على تمويل مشاريع التنمية وفرض سياسات الإصلاح الهيكلي على البلدان النامية.",
+                ex2Q: "تأمل الصورة التالية التي تمثل الأطراف المتدخلة في الأدفاق التجارية العالمية، وبيّن دور كل طرف رئيسي.",
+                ex2DocAlt: "الأطراف المتدخلة في الأدفاق التجارية العالمية",
+                ex2AnswerImgAlt: "نموذج الإجابة – أدوار الأطراف",
+                ex2A: "من الأطراف الرئيسية: الشركات عبر القطرية التي تسيطر على ثلثي التجارة العالمية؛ المنظمة العالمية للتجارة التي تحرر التجارة وتفض النزاعات؛ صندوق النقد الدولي والبنك الدولي اللذان يفرضان السياسات الليبرالية؛ إضافة إلى الأطراف الجديدة مثل مجموعة العشرين والمنظمات غير الحكومية التي تدافع عن مصالح الجنوب وتطالب بتجارة عادلة.",
+                ex3Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة: عدد الشركات الأم عبر القطرية (بالألف): 1990: 20، 2000: 45، 2010: 55، 2018: 60.",
+                ex3Q_table_year: "السنة",
+                ex3Q_table_count: "عدد الشركات الأم (ألف)",
+                ex3Q_source: "المصدر: بيانات حول الشركات عبر القطرية",
+                ex3A_title: "عدد الشركات الأم عبر القطرية (1990–2018)",
+                ex3A_source: "المصدر: أرشيف تاريخي",
+                ex3A_scale: "المقياس: 0–70 ألف؛ ارتفاع الأعمدة يتناسب مع العدد.",
+                ex3A_key_label: "المفتاح:",
+                ex3A_key_1990: "1990",
+                ex3A_key_2000: "2000",
+                ex3A_key_2010: "2010",
+                ex3A_key_2018: "2018",
+                ex4Q: "حلّل دور الشركات عبر القطرية والمنظمة العالمية للتجارة في الأدفاق التجارية العالمية في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "أدوار الأطراف:\n- الشركات عبر القطرية: تسيطر على ثلثي الأدفاق التجارية، تجزئ الإنتاج، وتضغط من أجل مزيد التحرير.\n- المنظمة العالمية للتجارة: تحرر التجارة، تخفض الرسوم، تفض النزاعات، وتضع السياسات الاقتصادية.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تلعب الشركات عبر القطرية دورًا محوريًا في الأدفاق التجارية العالمية، إذ تسيطر على ثلثي هذه الأدفاق، وتعتمد على تجزئة الإنتاج وتوطين الفروع في الخارج للاستفادة من فوارق كلفة الإنتاج. كما تضغط على الحكومات والمنتديات الاقتصادية والمنظمة العالمية للتجارة لمزيد تحرير التجارة. في المقابل، تعمل المنظمة العالمية للتجارة منذ 1995 على تخفيض الرسوم الجمركية وفض النزاعات ووضع السياسات الاقتصادية العالمية، مما يجعلها محفزًا رئيسيًا لتحرير التجارة العالمية.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول الأطراف الجديدة في التجارة العالمية ودورها في المطالبة بنظام تجاري عادل.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "ظهرت أطراف جديدة مثل مجموعة العشرين والمنظمات غير الحكومية للدفاع عن مصالح بلدان الجنوب. حلّل دور هذه الأطراف في المطالبة بإلغاء الدعم الفلاحي وإرساء نظام تجاري عادل.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: ظهور فاعلين جدد في التجارة العالمية.",
+                ex5A_plan_li2: "تطوير: أولاً. مجموعة العشرين ومطالبها؛ ثانياً. المنظمات غير الحكومية وحملاتها.",
+                ex5A_plan_li3: "خاتمة: أهمية هذه الأطراف في تحقيق العدالة التجارية.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "شهدت الساحة التجارية العالمية بروز أطراف جديدة تدافع عن مصالح بلدان الجنوب وتطالب بنظام أكثر عدالة.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_g20: "أولاً. مجموعة العشرين",
+                ex5A_production_p_g20: "تكونت مجموعة العشرين بزعامة البرازيل سنة 2003، وتطالب الولايات المتحدة والاتحاد الأوروبي بإلغاء الدعم الفلاحي الذي يضر بمنتجات الجنوب.",
+                ex5A_production_h4_ngos: "ثانياً. المنظمات غير الحكومية",
+                ex5A_production_p_ngos: "تقود منظمات مثل أوكسفام حملات إعلامية ومظاهرات مناهضة للعولمة، وتنادي بتجارة عالمية عادلة تراعي مصالح البلدان النامية.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا تساهم هذه الأطراف الجديدة في الضغط من أجل إصلاح النظام التجاري العالمي وتقليص الفوارق بين الشمال والجنوب.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: تأسيس صندوق النقد الدولي (1944)، تأسيس المنظمة العالمية للتجارة (1995)، تأسيس مجموعة العشرين في كنكون (2003).",
+                ex6A: "الخط الزمني: 1944: تأسيس صندوق النقد الدولي ...",
+                ex6_timeline_title: "محطات أساسية في حوكمة التجارة العالمية",
+                ex6_event_1944_label: "تأسيس صندوق النقد الدولي",
+                ex6_event_1944_sub: "1944",
+                ex6_event_1995_label: "تأسيس المنظمة العالمية للتجارة",
+                ex6_event_1995_sub: "1995",
+                ex6_event_2003_label: "تأسيس مجموعة العشرين (كنكون)",
+                ex6_event_2003_sub: "2003",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: '1990', value: 20, labelKey: 'ex3A_key_1990', valueFormatted: '20' },
+                { label: '2000', value: 45, labelKey: 'ex3A_key_2000', valueFormatted: '45' },
+                { label: '2010', value: 55, labelKey: 'ex3A_key_2010', valueFormatted: '55' },
+                { label: '2018', value: 60, labelKey: 'ex3A_key_2018', valueFormatted: '60' }
+            ],
+            maxValue: 70,
+            ySteps: [70, 56, 42, 28, 14, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1944, labelKey: 'ex6_event_1944_label', subKey: 'ex6_event_1944_sub' },
+                { year: 1995, labelKey: 'ex6_event_1995_label', subKey: 'ex6_event_1995_sub' },
+                { year: 2003, labelKey: 'ex6_event_2003_label', subKey: 'ex6_event_2003_sub' }
+            ],
+            startYear: 1944,
+            endYear: 2003,
+            scaleYears: [1944, 1960, 1976, 1992, 2003]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>
