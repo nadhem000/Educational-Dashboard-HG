@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">قرطاج: المؤسسات السياسية والديانة</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">ورث القرطاجيون معتقداتهم الدينية عن الفينيقيين، وتميزت ديانتهم بتعدد الآلهة وبالانفتاح على آلهة الشعوب الأخرى في المتوسط، وهو ما جعلها من أكثر الديانات القديمة ثراء وتنوعاً.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي خصائص الديانة القرطاجية؟</p>
+            </div>
+
+            <!-- Part II : Religion -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">الديانة القرطاجية</span>
+                </h2>
+
+                <!-- 1. Polytheism -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="polytheismTitle">تعدد الآلهة</span>
+                </h3>
+
+                <!-- A. Phoenician gods -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="phoenicianGodsTitle">الآلهة الفينيقية</span>
+                </h4>
+                <ul>
+                    <li><strong data-i18n="godBaalHammonTitle">بعل حمون:</strong> <span data-i18n="godBaalHammonDesc">كبير الآلهة وحاميها، وهو على شكل آدمي يستوي على عرشه ويرفع يده اليمنى ويمسك صولجاناً بيده اليسرى رمزاً للسلطة والهيمنة. وكان يُعتبر الإله الأكبر في البانثيون القرطاجي، وتُقدَّم له النذور والقرابين في المناسبات العامة والخاصة، ويُستشفع به في الحرب والخصب والحماية. وقد ظل رمزاً للهوية الدينية القرطاجية حتى بعد سقوط المدينة.</span></li>
+                    <li><strong data-i18n="godTanitTitle">تانيت:</strong> <span data-i18n="godTanitDesc">تم تجسيدها على شكل امرأة جالسة على كرسي وفي حضنها طفل صغير، لذلك اعتبرت رمز الخصوبة والازدهار. وكانت تُلقَّب بـ«وجه بعل» أي ظهور الإله الأكبر، مما يدل على مكانتها الرفيعة في المعتقد القرطاجي. وقد جمعت بين وظيفة الأم الحامية وإلهة القمر والخصب، وهي بذلك تشبه في بعض وظائفها الإلهة إيزيس في مصر وعشتار في بلاد الرافدين.</span></li>
+                    <li><strong data-i18n="godMelqartTitle">ملقرط:</strong> <span data-i18n="godMelqartDesc">وهو إله مدينة صور ويمثل حامي البحار والمستوطنات، وكان القرطاجيون يقدمون له القرابين. ويُعد ملقرط إلهاً مرتبطاً بالتجارة والملاحة والحرب، وقد انتقلت عبادته مع الفينيقيين إلى كل مستوطناتهم في المتوسط. ويُشبه في وظائفه الإله الإغريقي هرقل، وقد ساهم في ربط المستوطنات القرطاجية بروابط دينية مشتركة.</span></li>
+                </ul>
+
+                <!-- B. Greek gods -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="greekGodsTitle">الآلهة الإغريقية</span>
+                </h4>
+                <ul>
+                    <li><strong data-i18n="godDemeterTitle">ديمترا:</strong> <span data-i18n="godDemeterDesc">إلهة الزراعة.</span></li>
+                    <li><strong data-i18n="godPersephoneTitle">برسفونا:</strong> <span data-i18n="godPersephoneDesc">ابنة ديمترا وهي إلهة مرتبطة بالأرض.</span></li>
+                </ul>
+                <p data-i18n="greekGodsConclusion">وقد انتشرت عبادة ديمترا وبرسفونا في قرطاج خاصة في الفترة الهلنستية، حيث أقيم لهما معبد في المدينة. وهذا يدل على أن القرطاجيين لم يرفضوا آلهة الشعوب الأخرى، بل أدمجوها في معتقداتهم.</p>
+
+                <!-- Openness paragraph -->
+                <div class="summary-box-inline">
+                    <p data-i18n="opennessText">انفتح القرطاجيون على بقية الديانات في المتوسط من خلال تعدد الآلهة، وهذه سمة تميزهم عن شعوب كثيرة في ذلك العصر، إذ لم يعرف الفرس ولا المصريون هذا الانفتاح الديني بهذه الصورة، كما أن اليونانيين رغم تعدد آلهتهم كانوا يرفضون آلهة الشعوب الأخرى في كثير من الأحيان. وقد ساهم هذا الانفتاح في تقوية الروابط التجارية والثقافية بين قرطاج وشعوب المتوسط.</p>
+                </div>
+
+                <!-- 2. Temples -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="templesTitle">الاهتمام بالمعابد</span>
+                </h3>
+                <p data-i18n="templesText">اهتم القرطاجيون ببناء المعابد مثل معبد الطوفات، وهو معبد بوني غير مشيد يقدم فيه القرطاجيون الأضاحي للإله بعل حمون والإلهة تانيت. وتقدم القرابين الحيوانية أو البشرية ويتم حرقها ووضع رمادها في جرار تثبت في أرضية الطوفات ومعها نصب يذكر فيه اسم صاحبها. وقد وُجدت الطوفات في قرطاج وفي مستوطنات أخرى مثل سوسة وموتية، مما يدل على وحدة العقيدة الدينية في المجال القرطاجي. ويُعد الطوفات من أهم المعالم الدينية في العالم القديم، وهو يشبه في وظيفته المقابر الجماعية والمعابد في آن واحد، وقد اهتم القرطاجيون بتزيينه بالنقوش والنذور. ويُلاحظ أن بناء المعابد لم يكن مقتصراً على النخبة، بل كان يشمل مختلف طبقات المجتمع، مما يعكس مكانة الدين في الحياة العامة والخاصة.</p>
+
+                <!-- 3. Afterlife -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="afterlifeTitle">الاعتقاد في الحياة ما بعد الموت</span>
+                </h3>
+                <p data-i18n="afterlifeText">حرص القرطاجيون على الاعتناء بموتاهم إيماناً منهم بالحياة بعد الموت، وذلك بوضع التمائم والأقنعة لتطرد عنهم الأرواح الشريرة. كما كانوا يضعون في القبور الأواني والأطعمة والحلي، اعتقاداً بأن الميت يحتاج إليها في حياته الأخرى. وقد مارسوا أيضاً طقوس البكاء والندب وزيارة القبور في مواسم معينة.</p>
+
+                <div class="summary-box-inline">
+                    <p data-i18n="afterlifeComparison">تتشابه قرطاج مع المعتقدات المصرية من حيث الاعتقاد بحياة ما بعد الموت، لكنها اختلفت عنها في عدم تحنيط الموتى، واكتفت بحرق الجسد أو دفنه مع الأثاث الجنائزي. وهذا يعني أن القرطاجيين تأثروا بالمصريين في الفكرة، لكنهم طبقوها بطريقتهم الخاصة، مما يدل على أصالة معتقداتهم وانفتاحهم في آن واحد.</p>
+                </div>
+
+                <p data-i18n="tombsClassificationIntro">وتصنف القبور حسب المستوى الاجتماعي إلى صنفين:</p>
+
+                <!-- A. Poor tombs -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="poorTombsTitle">قبور الفقراء</span>
+                </h4>
+                <p data-i18n="poorTombsText">على شكل خنادق محفورة توارى فيه جرار تحتوي رفاة الموتى. وكانت هذه القبور جماعية في الغالب، وتخلو من الزخارف والنقوش، مما يدل على أن الحياة الآخرة كانت في نظر القرطاجيين متاحة لكل الطبقات، وإن اختلفت شكل المقبرة ومحتواها حسب المكانة الاجتماعية.</p>
+
+                <!-- B. Rich tombs -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="richTombsTitle">قبور الأغنياء</span>
+                </h4>
+                <p data-i18n="richTombsIntro">منحوتة في الصخر وتضم عناصر:</p>
+                <ul>
+                    <li data-i18n="richTombsElement1">مدرج</li>
+                    <li data-i18n="richTombsElement2">معبر يؤدي إلى حجرة جنائزية</li>
+                </ul>
+                <p data-i18n="richTombsText">وكانت هذه القبور مزينة بالنقوش والتماثيل، وتحتوي على أواني فخارية وزجاجية وحلي ذهبية وعاجية وأقنعة. وهذا يدل على أن الأثرياء كانوا يحرصون على تأمين حياة أفضل بعد الموت، وأن التفاوت الاجتماعي امتد إلى ما بعد الموت أيضاً.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">يتميز القرطاجيون بتطور المؤسسات السياسية وبتعدد الآلهة مما يعكس التطور السياسي والانفتاح الحضاري لقرطاج في المتوسط. وقد جمعت الديانة القرطاجية بين الأصالة الفينيقية والانفتاح على آلهة الشعوب الأخرى، كما جمعت بين الاعتقاد بحياة ما بعد الموت ومظاهر التمييز الاجتماعي في القبور، وهذه سمات جعلت قرطاج من أكثر الحضارات القديمة ثراء وتنوعاً في المجالين السياسي والديني.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defGods">🏛️ آلهة</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defBaalHammon">بعل حمون</strong>: <span data-i18n="defBaalHammonDesc">كبير الآلهة وحاميها، وهو على شكل آدمي يستوي على عرشه ويرفع يده اليمنى ويمسك صولجاناً بيده اليسرى رمزاً للسلطة والهيمنة. يُعتبر الإله الأكبر في البانثيون القرطاجي، وتُقدَّم له النذور والقرابين، ويُستشفع به في الحرب والخصب والحماية، وظل رمزاً للهوية الدينية القرطاجية حتى بعد سقوط المدينة.</span></li>
+                        <li><strong class="key-person" data-i18n="defTanit">تانيت</strong>: <span data-i18n="defTanitDesc">جُسّدت على شكل امرأة جالسة على كرسي وفي حضنها طفل صغير، لذلك اعتبرت رمز الخصوبة والازدهار. تُلقَّب بـ«وجه بعل» أي ظهور الإله الأكبر، وجمعت بين وظيفة الأم الحامية وإلهة القمر والخصب، وتشبه في بعض وظائفها الإلهة إيزيس في مصر وعشتار في بلاد الرافدين.</span></li>
+                        <li><strong class="key-person" data-i18n="defMelqart">ملقرط</strong>: <span data-i18n="defMelqartDesc">إله مدينة صور ويمثل حامي البحار والمستوطنات. يرتبط بالتجارة والملاحة والحرب، وانتقلت عبادته مع الفينيقيين إلى كل مستوطناتهم في المتوسط، ويُشبه في وظائفه الإله الإغريقي هرقل، وقد ساهم في ربط المستوطنات القرطاجية بروابط دينية مشتركة.</span></li>
+                        <li><strong class="key-person" data-i18n="defDemeter">ديمترا</strong>: <span data-i18n="defDemeterDesc">إلهة إغريقية للزراعة، انتشرت عبادتها في قرطاج خاصة في الفترة الهلنستية حيث أُقيم لها معبد في المدينة.</span></li>
+                        <li><strong class="key-person" data-i18n="defPersephone">برسفونا</strong>: <span data-i18n="defPersephoneDesc">ابنة ديمترا، إلهة إغريقية مرتبطة بالأرض، انتشرت عبادتها في قرطاج في الفترة الهلنستية إلى جانب ديمترا.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">مركز العقيدة الدينية القرطاجية، وفيها أُقيم معبد الطوفات ومعبد ديمترا وبرسفونا في الفترة الهلنستية.</span></li>
+                        <li><strong class="key-location" data-i18n="defTyre">صور</strong>: <span data-i18n="defTyreDesc">مدينة فينيقية، وهي المدينة التي ينتمي إليها الإله ملقرط الذي كان حامياً للبحار والمستوطنات.</span></li>
+                        <li><strong class="key-location" data-i18n="defSousse">سوسة</strong>: <span data-i18n="defSousseDesc">إحدى المستوطنات التي وُجدت فيها الطوفات إلى جانب قرطاج وموتية.</span></li>
+                        <li><strong class="key-location" data-i18n="defMotya">موتية</strong>: <span data-i18n="defMotyaDesc">إحدى المستوطنات التي وُجدت فيها الطوفات إلى جانب قرطاج وسوسة.</span></li>
+                        <li><strong class="key-location" data-i18n="defEgypt">مصر</strong>: <span data-i18n="defEgyptDesc">حضارة قديمة تشابهت مع قرطاج في الاعتقاد بحياة ما بعد الموت، لكنها اختلفت عنها في تحنيط الموتى، كما لم تعرف الانفتاح الديني الذي عرفته قرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defMesopotamia">بلاد الرافدين</strong>: <span data-i18n="defMesopotamiaDesc">حضارة قديمة، تُشبه فيها الإلهة عشتار الإلهة القرطاجية تانيت في بعض الوظائف.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defTophet">الطوفات</strong>: <span data-i18n="defTophetDesc">معبد بوني غير مشيد يقدم فيه القرطاجيون الأضاحي للإله بعل حمون والإلهة تانيت. تُقدَّم فيه القرابين الحيوانية أو البشرية وتُحرق ويوضع رمادها في جرار تُثبَّت في أرضية الطوفات ومعها نصب يذكر فيه اسم صاحبها. وُجدت في قرطاج وسوسة وموتية، ويُعد من أهم المعالم الدينية في العالم القديم، ويشبه في وظيفته المقابر الجماعية والمعابد في آن واحد.</span></li>
+                        <li><strong class="key-other" data-i18n="defPantheon">البانثيون القرطاجي</strong>: <span data-i18n="defPantheonDesc">مجموعة الآلهة القرطاجية، ويُعد الإله بعل حمون أكبر آلهتها.</span></li>
+                        <li><strong class="key-other" data-i18n="defHellenisticPeriod">الفترة الهلنستية</strong>: <span data-i18n="defHellenisticPeriodDesc">المرحلة التي انتشرت فيها عبادة الإلهتين الإغريقيتين ديمترا وبرسفونا في قرطاج، حيث أُقيم لهما معبد في المدينة.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: جمعت الديانة القرطاجية بين الأصالة الفينيقية والانفتاح على آلهة الشعوب الأخرى، وتميزت بتعدد الآلهة وبناء المعابد (الطوفات)، كما جمعت بين الاعتقاد بحياة ما بعد الموت ومظاهر التمييز الاجتماعي في القبور.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/baal_hamon.jpg" alt="بعل حمون" data-i18n-alt="galleryAlt1" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/tanit_symbol.jpg" alt="رمز تانيت" data-i18n-alt="galleryAlt2" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/melqart.jpg" alt="ملقرط" data-i18n-alt="galleryAlt3" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/demeter_persephone.jpg" alt="ديمترا وبرسفونا" data-i18n-alt="galleryAlt4" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/tophet.jpg" alt="الطوفات القرطاجي" data-i18n-alt="galleryAlt5" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/punic_tombs.jpg" alt="القبور البونية" data-i18n-alt="galleryAlt6" loading="lazy">
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_his_exercisess_mod1_lesson1_part2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الآلهة، الأماكن والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "History / Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)",
+                lessonTitleSample: "Carthage: Political Institutions and Religion",
+                sectionIntro: "Introduction",
+                introText: "The Carthaginians inherited their religious beliefs from the Phoenicians, and their religion was characterized by polytheism and openness to the gods of other peoples of the Mediterranean, which made it one of the richest and most diverse ancient religions.",
+                problematiqueText: "What are the characteristics of the Carthaginian religion?",
+                sectionPart2: "Carthaginian Religion",
+                polytheismTitle: "Polytheism",
+                phoenicianGodsTitle: "Phoenician Gods",
+                godBaalHammonTitle: "Baal Hammon:",
+                godBaalHammonDesc: "The greatest and protecting god, depicted in human form seated on his throne, raising his right hand and holding a scepter in his left as a symbol of authority and dominance. He was considered the greatest god in the Carthaginian pantheon. Vows and offerings were presented to him on public and private occasions, and he was invoked in war, fertility, and protection. He remained a symbol of Carthaginian religious identity even after the fall of the city.",
+                godTanitTitle: "Tanit:",
+                godTanitDesc: "She was depicted as a woman seated on a chair with a small child in her lap, therefore she was considered a symbol of fertility and prosperity. She was nicknamed 'the face of Baal', meaning the manifestation of the greatest god, which indicates her high status in Carthaginian belief. She combined the function of protective mother and goddess of the moon and fertility, and in some of her functions she resembles the goddess Isis in Egypt and Ishtar in Mesopotamia.",
+                godMelqartTitle: "Melqart:",
+                godMelqartDesc: "The god of the city of Tyre, representing the protector of the seas and the settlements, and the Carthaginians offered sacrifices to him. Melqart is a god associated with trade, navigation, and war, and his worship spread with the Phoenicians to all their settlements in the Mediterranean. He resembles in his functions the Greek god Heracles, and he contributed to linking the Carthaginian settlements with common religious ties.",
+                greekGodsTitle: "Greek Gods",
+                godDemeterTitle: "Demeter:",
+                godDemeterDesc: "The goddess of agriculture.",
+                godPersephoneTitle: "Persephone:",
+                godPersephoneDesc: "The daughter of Demeter and a goddess associated with the earth.",
+                greekGodsConclusion: "The worship of Demeter and Persephone spread in Carthage especially in the Hellenistic period, when a temple was built for them in the city. This indicates that the Carthaginians did not reject the gods of other peoples, but integrated them into their beliefs.",
+                opennessText: "The Carthaginians opened up to the rest of the religions of the Mediterranean through polytheism, which is a feature that distinguishes them from many peoples of that era, as neither the Persians nor the Egyptians knew this religious openness in this form, and the Greeks, despite their polytheism, often rejected the gods of other peoples. This openness contributed to strengthening commercial and cultural ties between Carthage and the peoples of the Mediterranean.",
+                templesTitle: "Attention to Temples",
+                templesText: "The Carthaginians cared about building temples such as the Tophet, a Punic open-air temple in which the Carthaginians offered sacrifices to the god Baal Hammon and the goddess Tanit. Animal or human offerings were presented and burned, and their ashes were placed in jars fixed in the floor of the Tophet, with a stele mentioning the name of the owner. Tophets were found in Carthage and in other settlements such as Sousse and Motya, which indicates the unity of religious belief in the Carthaginian realm. The Tophet is one of the most important religious landmarks in the ancient world, and it resembles in its function both collective tombs and temples. The Carthaginians were keen to decorate it with inscriptions and votive offerings. It is noted that the building of temples was not limited to the elite, but included various classes of society, which reflects the status of religion in public and private life.",
+                afterlifeTitle: "Belief in the Afterlife",
+                afterlifeText: "The Carthaginians were keen to take care of their dead out of their belief in the afterlife, by placing amulets and masks to ward off evil spirits. They also placed in the tombs vessels, food, and jewelry, believing that the dead needed them in their other life. They also practiced rituals of crying and lamentation and visiting graves at certain seasons.",
+                afterlifeComparison: "Carthage resembles Egyptian beliefs in terms of belief in the afterlife, but it differed from them in not mummifying the dead, and was content with burning or burying the body with funerary furniture. This means that the Carthaginians were influenced by the Egyptians in the idea but applied it in their own way, which indicates both the authenticity of their beliefs and their openness at the same time.",
+                tombsClassificationIntro: "The tombs are classified according to social level into two types:",
+                poorTombsTitle: "Poor Tombs",
+                poorTombsText: "In the form of dug trenches in which jars containing the remains of the dead are hidden. These tombs were mostly collective, and lacked decorations and inscriptions, which indicates that the afterlife was, in the view of the Carthaginians, available to all classes, even though the shape and content of the tomb differed according to social status.",
+                richTombsTitle: "Rich Tombs",
+                richTombsIntro: "Carved in rock and include elements:",
+                richTombsElement1: "A staircase",
+                richTombsElement2: "A passage leading to a funerary chamber",
+                richTombsText: "These tombs were decorated with inscriptions and statues, and contained pottery, glass vessels, gold and ivory jewelry, and masks. This indicates that the wealthy were keen to secure a better life after death, and that social disparity extended to after death as well.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Carthaginians are characterized by the development of political institutions and by polytheism, which reflects the political development and civilizational openness of Carthage in the Mediterranean. The Carthaginian religion combined Phoenician authenticity with openness to the gods of other peoples, and combined belief in the afterlife with manifestations of social discrimination in tombs, features that made Carthage one of the richest and most diverse ancient civilizations in both the political and religious fields.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defGods: "🏛️ Gods",
+                defLocations: "🌍 Countries & Regions",
+                defOthers: "📌 Other",
+                defBaalHammon: "Baal Hammon",
+                defBaalHammonDesc: "The greatest and protecting god, depicted in human form seated on his throne, raising his right hand and holding a scepter in his left as a symbol of authority and dominance. He is considered the greatest god in the Carthaginian pantheon. Vows and offerings were presented to him, and he was invoked in war, fertility, and protection. He remained a symbol of Carthaginian religious identity even after the fall of the city.",
+                defTanit: "Tanit",
+                defTanitDesc: "Depicted as a woman seated on a chair with a small child in her lap, therefore she was considered a symbol of fertility and prosperity. She was nicknamed 'the face of Baal', meaning the manifestation of the greatest god. She combined the function of protective mother and goddess of the moon and fertility, and in some functions she resembles the goddess Isis in Egypt and Ishtar in Mesopotamia.",
+                defMelqart: "Melqart",
+                defMelqartDesc: "The god of the city of Tyre, representing the protector of the seas and the settlements. He is associated with trade, navigation, and war, and his worship spread with the Phoenicians to all their settlements in the Mediterranean. He resembles in his functions the Greek god Heracles, and he contributed to linking the Carthaginian settlements with common religious ties.",
+                defDemeter: "Demeter",
+                defDemeterDesc: "A Greek goddess of agriculture, whose worship spread in Carthage especially in the Hellenistic period, when a temple was built for her in the city.",
+                defPersephone: "Persephone",
+                defPersephoneDesc: "The daughter of Demeter, a Greek goddess associated with the earth, whose worship spread in Carthage in the Hellenistic period alongside Demeter.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "The center of Carthaginian religious belief, where the Tophet temple and the temple of Demeter and Persephone were established during the Hellenistic period.",
+                defTyre: "Tyre",
+                defTyreDesc: "A Phoenician city, the city to which the god Melqart belongs, who was the protector of the seas and settlements.",
+                defSousse: "Sousse",
+                defSousseDesc: "One of the settlements where Tophets were found, alongside Carthage and Motya.",
+                defMotya: "Motya",
+                defMotyaDesc: "One of the settlements where Tophets were found, alongside Carthage and Sousse.",
+                defEgypt: "Egypt",
+                defEgyptDesc: "An ancient civilization that resembled Carthage in belief in the afterlife, but differed from it in mummifying the dead, and it did not know the religious openness that Carthage knew.",
+                defMesopotamia: "Mesopotamia",
+                defMesopotamiaDesc: "An ancient civilization in which the goddess Ishtar resembles the Carthaginian goddess Tanit in some functions.",
+                defTophet: "The Tophet",
+                defTophetDesc: "A Punic open-air temple in which the Carthaginians offered sacrifices to the god Baal Hammon and the goddess Tanit. Animal or human offerings were presented and burned, and their ashes were placed in jars fixed in the floor of the Tophet, with a stele mentioning the name of the owner. Found in Carthage, Sousse, and Motya, it is one of the most important religious landmarks in the ancient world, and it resembles in its function both collective tombs and temples.",
+                defPantheon: "Carthaginian Pantheon",
+                defPantheonDesc: "The group of Carthaginian gods, with the god Baal Hammon considered its greatest.",
+                defHellenisticPeriod: "Hellenistic Period",
+                defHellenisticPeriodDesc: "The stage in which the worship of the Greek goddesses Demeter and Persephone spread in Carthage, when a temple was built for them in the city.",
+                summaryText: "Key takeaway: The Carthaginian religion combined Phoenician authenticity with openness to the gods of other peoples, and was characterized by polytheism and temple-building (Tophets), and it combined belief in the afterlife with manifestations of social discrimination in tombs.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Baal Hammon",
+                galleryAlt2: "Symbol of Tanit",
+                galleryAlt3: "Melqart",
+                galleryAlt4: "Demeter and Persephone",
+                galleryAlt5: "The Carthaginian Tophet",
+                galleryAlt6: "Punic tombs"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Histoire / Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)",
+                lessonTitleSample: "Carthage : Institutions politiques et religion",
+                sectionIntro: "Introduction",
+                introText: "Les Carthaginois ont hérité leurs croyances religieuses des Phéniciens, et leur religion se caractérisait par le polythéisme et l'ouverture aux dieux des autres peuples de la Méditerranée, ce qui en a fait l'une des religions anciennes les plus riches et les plus diverses.",
+                problematiqueText: "Quelles sont les caractéristiques de la religion carthaginoise ?",
+                sectionPart2: "La religion carthaginoise",
+                polytheismTitle: "Le polythéisme",
+                phoenicianGodsTitle: "Les dieux phéniciens",
+                godBaalHammonTitle: "Baal Hammon :",
+                godBaalHammonDesc: "Le grand dieu et son protecteur, représenté sous forme humaine assis sur son trône, levant la main droite et tenant un sceptre dans la main gauche, symbole de l'autorité et de la domination. Il était considéré comme le plus grand dieu du panthéon carthaginois. Des vœux et des offrandes lui étaient présentés lors d'occasions publiques et privées, et il était invoqué dans la guerre, la fertilité et la protection. Il est resté un symbole de l'identité religieuse carthaginoise même après la chute de la ville.",
+                godTanitTitle: "Tanit :",
+                godTanitDesc: "Elle était représentée comme une femme assise sur une chaise avec un petit enfant dans son giron, c'est pourquoi elle était considérée comme un symbole de fertilité et de prospérité. Elle était surnommée « le visage de Baal », c'est-à-dire la manifestation du plus grand dieu, ce qui indique son statut élevé dans la croyance carthaginoise. Elle combinait la fonction de mère protectrice et de déesse de la lune et de la fertilité, et dans certaines de ses fonctions elle ressemble à la déesse Isis en Égypte et à Ishtar en Mésopotamie.",
+                godMelqartTitle: "Melqart :",
+                godMelqartDesc: "Le dieu de la ville de Tyr, représentant le protecteur des mers et des établissements, et les Carthaginois lui offraient des sacrifices. Melqart est un dieu associé au commerce, à la navigation et à la guerre, et son culte s'est répandu avec les Phéniciens dans tous leurs établissements en Méditerranée. Il ressemble dans ses fonctions au dieu grec Héraclès, et il a contribué à lier les établissements carthaginois par des liens religieux communs.",
+                greekGodsTitle: "Les dieux grecs",
+                godDemeterTitle: "Déméter :",
+                godDemeterDesc: "La déesse de l'agriculture.",
+                godPersephoneTitle: "Perséphone :",
+                godPersephoneDesc: "La fille de Déméter et une déesse associée à la terre.",
+                greekGodsConclusion: "Le culte de Déméter et Perséphone s'est répandu à Carthage en particulier à l'époque hellénistique, où un temple leur a été érigé dans la ville. Cela indique que les Carthaginois ne rejetaient pas les dieux des autres peuples, mais les intégraient dans leurs croyances.",
+                opennessText: "Les Carthaginois se sont ouverts au reste des religions de la Méditerranée par le polythéisme, ce qui est un trait qui les distingue de nombreux peuples de cette époque, car ni les Perses ni les Égyptiens ne connaissaient cette ouverture religieuse sous cette forme, et les Grecs, malgré leur polythéisme, rejetaient souvent les dieux des autres peuples. Cette ouverture a contribué à renforcer les liens commerciaux et culturels entre Carthage et les peuples de la Méditerranée.",
+                templesTitle: "L'attention portée aux temples",
+                templesText: "Les Carthaginois se sont souciés de construire des temples tels que le Tophet, un temple punique à ciel ouvert dans lequel les Carthaginois offraient des sacrifices au dieu Baal Hammon et à la déesse Tanit. Des offrandes animales ou humaines étaient présentées et brûlées, et leurs cendres étaient placées dans des jarres fixées dans le sol du Tophet, avec une stèle mentionnant le nom de leur propriétaire. Des Tophets ont été trouvés à Carthage et dans d'autres établissements comme Sousse et Motyé, ce qui indique l'unité de la croyance religieuse dans le domaine carthaginois. Le Tophet est l'un des monuments religieux les plus importants du monde antique, et il ressemble dans sa fonction à la fois à des tombes collectives et à des temples. Les Carthaginois tenaient à le décorer d'inscriptions et d'offrandes votives. On note que la construction des temples n'était pas limitée à l'élite, mais incluait diverses classes de la société, ce qui reflète le statut de la religion dans la vie publique et privée.",
+                afterlifeTitle: "La croyance en l'au-delà",
+                afterlifeText: "Les Carthaginois tenaient à prendre soin de leurs morts par croyance en l'au-delà, en plaçant des amulettes et des masques pour repousser les mauvais esprits. Ils plaçaient également dans les tombes des récipients, de la nourriture et des bijoux, croyant que le mort en avait besoin dans son autre vie. Ils pratiquaient aussi des rituels de pleurs et de lamentations et visitaient les tombes à certaines saisons.",
+                afterlifeComparison: "Carthage ressemble aux croyances égyptiennes en ce qui concerne la croyance en l'au-delà, mais elle en différait par le fait de ne pas momifier les morts, et se contentait de brûler ou d'enterrer le corps avec le mobilier funéraire. Cela signifie que les Carthaginois ont été influencés par les Égyptiens dans l'idée mais l'ont appliquée à leur manière, ce qui indique à la fois l'authenticité de leurs croyances et leur ouverture.",
+                tombsClassificationIntro: "Les tombes sont classées selon le niveau social en deux types :",
+                poorTombsTitle: "Les tombes des pauvres",
+                poorTombsText: "Sous forme de tranchées creusées dans lesquelles sont cachées des jarres contenant les restes des morts. Ces tombes étaient pour la plupart collectives, et dépourvues de décorations et d'inscriptions, ce qui indique que l'au-delà était, selon les Carthaginois, accessible à toutes les classes, même si la forme et le contenu de la tombe différaient selon le statut social.",
+                richTombsTitle: "Les tombes des riches",
+                richTombsIntro: "Creusées dans la roche et comprenant des éléments :",
+                richTombsElement1: "Un escalier",
+                richTombsElement2: "Un passage menant à une chambre funéraire",
+                richTombsText: "Ces tombes étaient décorées d'inscriptions et de statues, et contenaient des récipients en céramique et en verre, des bijoux en or et en ivoire, et des masques. Cela indique que les riches tenaient à assurer une vie meilleure après la mort, et que la disparité sociale s'étendait aussi après la mort.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Les Carthaginois se caractérisent par le développement des institutions politiques et par le polythéisme, ce qui reflète le développement politique et l'ouverture civilisationnelle de Carthage en Méditerranée. La religion carthaginoise a combiné l'authenticité phénicienne avec l'ouverture aux dieux des autres peuples, et a combiné la croyance en l'au-delà avec les manifestations de discrimination sociale dans les tombes, des traits qui ont fait de Carthage l'une des civilisations anciennes les plus riches et les plus diverses dans les domaines politique et religieux.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defGods: "🏛️ Dieux",
+                defLocations: "🌍 Pays & régions",
+                defOthers: "📌 Autres",
+                defBaalHammon: "Baal Hammon",
+                defBaalHammonDesc: "Le grand dieu et son protecteur, représenté sous forme humaine assis sur son trône, levant la main droite et tenant un sceptre dans la main gauche, symbole de l'autorité et de la domination. Il est considéré comme le plus grand dieu du panthéon carthaginois. Des vœux et des offrandes lui étaient présentés, et il était invoqué dans la guerre, la fertilité et la protection. Il est resté un symbole de l'identité religieuse carthaginoise même après la chute de la ville.",
+                defTanit: "Tanit",
+                defTanitDesc: "Représentée comme une femme assise sur une chaise avec un petit enfant dans son giron, c'est pourquoi elle était considérée comme un symbole de fertilité et de prospérité. Elle était surnommée « le visage de Baal », c'est-à-dire la manifestation du plus grand dieu. Elle combinait la fonction de mère protectrice et de déesse de la lune et de la fertilité, et dans certaines fonctions elle ressemble à la déesse Isis en Égypte et à Ishtar en Mésopotamie.",
+                defMelqart: "Melqart",
+                defMelqartDesc: "Le dieu de la ville de Tyr, représentant le protecteur des mers et des établissements. Il est associé au commerce, à la navigation et à la guerre, et son culte s'est répandu avec les Phéniciens dans tous leurs établissements en Méditerranée. Il ressemble dans ses fonctions au dieu grec Héraclès, et il a contribué à lier les établissements carthaginois par des liens religieux communs.",
+                defDemeter: "Déméter",
+                defDemeterDesc: "Une déesse grecque de l'agriculture, dont le culte s'est répandu à Carthage en particulier à l'époque hellénistique, où un temple lui a été érigé dans la ville.",
+                defPersephone: "Perséphone",
+                defPersephoneDesc: "La fille de Déméter, une déesse grecque associée à la terre, dont le culte s'est répandu à Carthage à l'époque hellénistique aux côtés de Déméter.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "Le centre de la croyance religieuse carthaginoise, où le temple du Tophet et le temple de Déméter et Perséphone ont été établis pendant la période hellénistique.",
+                defTyre: "Tyr",
+                defTyreDesc: "Une cité phénicienne, la ville à laquelle appartient le dieu Melqart, qui était le protecteur des mers et des établissements.",
+                defSousse: "Sousse",
+                defSousseDesc: "L'un des établissements où des Tophets ont été trouvés, aux côtés de Carthage et Motyé.",
+                defMotya: "Motyé",
+                defMotyaDesc: "L'un des établissements où des Tophets ont été trouvés, aux côtés de Carthage et Sousse.",
+                defEgypt: "Égypte",
+                defEgyptDesc: "Une civilisation ancienne qui ressemblait à Carthage dans la croyance en l'au-delà, mais en différait par la momification des morts, et elle ne connaissait pas l'ouverture religieuse que Carthage connaissait.",
+                defMesopotamia: "Mésopotamie",
+                defMesopotamiaDesc: "Une civilisation ancienne dans laquelle la déesse Ishtar ressemble à la déesse carthaginoise Tanit dans certaines fonctions.",
+                defTophet: "Le Tophet",
+                defTophetDesc: "Un temple punique à ciel ouvert dans lequel les Carthaginois offraient des sacrifices au dieu Baal Hammon et à la déesse Tanit. Des offrandes animales ou humaines étaient présentées et brûlées, et leurs cendres étaient placées dans des jarres fixées dans le sol du Tophet, avec une stèle mentionnant le nom de leur propriétaire. Trouvé à Carthage, Sousse et Motyé, il est l'un des monuments religieux les plus importants du monde antique, et il ressemble dans sa fonction à la fois à des tombes collectives et à des temples.",
+                defPantheon: "Panthéon carthaginois",
+                defPantheonDesc: "Le groupe des dieux carthaginois, dont le dieu Baal Hammon est considéré comme le plus grand.",
+                defHellenisticPeriod: "Période hellénistique",
+                defHellenisticPeriodDesc: "L'étape au cours de laquelle le culte des déesses grecques Déméter et Perséphone s'est répandu à Carthage, où un temple leur a été érigé dans la ville.",
+                summaryText: "À retenir : La religion carthaginoise a combiné l'authenticité phénicienne avec l'ouverture aux dieux des autres peuples, et se caractérisait par le polythéisme et la construction de temples (Tophets), et elle a combiné la croyance en l'au-delà avec les manifestations de discrimination sociale dans les tombes.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Baal Hammon",
+                galleryAlt2: "Symbole de Tanit",
+                galleryAlt3: "Melqart",
+                galleryAlt4: "Déméter et Perséphone",
+                galleryAlt5: "Le Tophet carthaginois",
+                galleryAlt6: "Tombes puniques"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)",
+                lessonTitleSample: "قرطاج: المؤسسات السياسية والديانة",
+                sectionIntro: "مقدمة",
+                introText: "ورث القرطاجيون معتقداتهم الدينية عن الفينيقيين، وتميزت ديانتهم بتعدد الآلهة وبالانفتاح على آلهة الشعوب الأخرى في المتوسط، وهو ما جعلها من أكثر الديانات القديمة ثراء وتنوعاً.",
+                problematiqueText: "ما هي خصائص الديانة القرطاجية؟",
+                sectionPart2: "الديانة القرطاجية",
+                polytheismTitle: "تعدد الآلهة",
+                phoenicianGodsTitle: "الآلهة الفينيقية",
+                godBaalHammonTitle: "بعل حمون:",
+                godBaalHammonDesc: "كبير الآلهة وحاميها، وهو على شكل آدمي يستوي على عرشه ويرفع يده اليمنى ويمسك صولجاناً بيده اليسرى رمزاً للسلطة والهيمنة. وكان يُعتبر الإله الأكبر في البانثيون القرطاجي، وتُقدَّم له النذور والقرابين في المناسبات العامة والخاصة، ويُستشفع به في الحرب والخصب والحماية. وقد ظل رمزاً للهوية الدينية القرطاجية حتى بعد سقوط المدينة.",
+                godTanitTitle: "تانيت:",
+                godTanitDesc: "تم تجسيدها على شكل امرأة جالسة على كرسي وفي حضنها طفل صغير، لذلك اعتبرت رمز الخصوبة والازدهار. وكانت تُلقَّب بـ«وجه بعل» أي ظهور الإله الأكبر، مما يدل على مكانتها الرفيعة في المعتقد القرطاجي. وقد جمعت بين وظيفة الأم الحامية وإلهة القمر والخصب، وهي بذلك تشبه في بعض وظائفها الإلهة إيزيس في مصر وعشتار في بلاد الرافدين.",
+                godMelqartTitle: "ملقرط:",
+                godMelqartDesc: "وهو إله مدينة صور ويمثل حامي البحار والمستوطنات، وكان القرطاجيون يقدمون له القرابين. ويُعد ملقرط إلهاً مرتبطاً بالتجارة والملاحة والحرب، وقد انتقلت عبادته مع الفينيقيين إلى كل مستوطناتهم في المتوسط. ويُشبه في وظائفه الإله الإغريقي هرقل، وقد ساهم في ربط المستوطنات القرطاجية بروابط دينية مشتركة.",
+                greekGodsTitle: "الآلهة الإغريقية",
+                godDemeterTitle: "ديمترا:",
+                godDemeterDesc: "إلهة الزراعة.",
+                godPersephoneTitle: "برسفونا:",
+                godPersephoneDesc: "ابنة ديمترا وهي إلهة مرتبطة بالأرض.",
+                greekGodsConclusion: "وقد انتشرت عبادة ديمترا وبرسفونا في قرطاج خاصة في الفترة الهلنستية، حيث أقيم لهما معبد في المدينة. وهذا يدل على أن القرطاجيين لم يرفضوا آلهة الشعوب الأخرى، بل أدمجوها في معتقداتهم.",
+                opennessText: "انفتح القرطاجيون على بقية الديانات في المتوسط من خلال تعدد الآلهة، وهذه سمة تميزهم عن شعوب كثيرة في ذلك العصر، إذ لم يعرف الفرس ولا المصريون هذا الانفتاح الديني بهذه الصورة، كما أن اليونانيين رغم تعدد آلهتهم كانوا يرفضون آلهة الشعوب الأخرى في كثير من الأحيان. وقد ساهم هذا الانفتاح في تقوية الروابط التجارية والثقافية بين قرطاج وشعوب المتوسط.",
+                templesTitle: "الاهتمام بالمعابد",
+                templesText: "اهتم القرطاجيون ببناء المعابد مثل معبد الطوفات، وهو معبد بوني غير مشيد يقدم فيه القرطاجيون الأضاحي للإله بعل حمون والإلهة تانيت. وتقدم القرابين الحيوانية أو البشرية ويتم حرقها ووضع رمادها في جرار تثبت في أرضية الطوفات ومعها نصب يذكر فيه اسم صاحبها. وقد وُجدت الطوفات في قرطاج وفي مستوطنات أخرى مثل سوسة وموتية، مما يدل على وحدة العقيدة الدينية في المجال القرطاجي. ويُعد الطوفات من أهم المعالم الدينية في العالم القديم، وهو يشبه في وظيفته المقابر الجماعية والمعابد في آن واحد، وقد اهتم القرطاجيون بتزيينه بالنقوش والنذور. ويُلاحظ أن بناء المعابد لم يكن مقتصراً على النخبة، بل كان يشمل مختلف طبقات المجتمع، مما يعكس مكانة الدين في الحياة العامة والخاصة.",
+                afterlifeTitle: "الاعتقاد في الحياة ما بعد الموت",
+                afterlifeText: "حرص القرطاجيون على الاعتناء بموتاهم إيماناً منهم بالحياة بعد الموت، وذلك بوضع التمائم والأقنعة لتطرد عنهم الأرواح الشريرة. كما كانوا يضعون في القبور الأواني والأطعمة والحلي، اعتقاداً بأن الميت يحتاج إليها في حياته الأخرى. وقد مارسوا أيضاً طقوس البكاء والندب وزيارة القبور في مواسم معينة.",
+                afterlifeComparison: "تتشابه قرطاج مع المعتقدات المصرية من حيث الاعتقاد بحياة ما بعد الموت، لكنها اختلفت عنها في عدم تحنيط الموتى، واكتفت بحرق الجسد أو دفنه مع الأثاث الجنائزي. وهذا يعني أن القرطاجيين تأثروا بالمصريين في الفكرة، لكنهم طبقوها بطريقتهم الخاصة، مما يدل على أصالة معتقداتهم وانفتاحهم في آن واحد.",
+                tombsClassificationIntro: "وتصنف القبور حسب المستوى الاجتماعي إلى صنفين:",
+                poorTombsTitle: "قبور الفقراء",
+                poorTombsText: "على شكل خنادق محفورة توارى فيه جرار تحتوي رفاة الموتى. وكانت هذه القبور جماعية في الغالب، وتخلو من الزخارف والنقوش، مما يدل على أن الحياة الآخرة كانت في نظر القرطاجيين متاحة لكل الطبقات، وإن اختلفت شكل المقبرة ومحتواها حسب المكانة الاجتماعية.",
+                richTombsTitle: "قبور الأغنياء",
+                richTombsIntro: "منحوتة في الصخر وتضم عناصر:",
+                richTombsElement1: "مدرج",
+                richTombsElement2: "معبر يؤدي إلى حجرة جنائزية",
+                richTombsText: "وكانت هذه القبور مزينة بالنقوش والتماثيل، وتحتوي على أواني فخارية وزجاجية وحلي ذهبية وعاجية وأقنعة. وهذا يدل على أن الأثرياء كانوا يحرصون على تأمين حياة أفضل بعد الموت، وأن التفاوت الاجتماعي امتد إلى ما بعد الموت أيضاً.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "يتميز القرطاجيون بتطور المؤسسات السياسية وبتعدد الآلهة مما يعكس التطور السياسي والانفتاح الحضاري لقرطاج في المتوسط. وقد جمعت الديانة القرطاجية بين الأصالة الفينيقية والانفتاح على آلهة الشعوب الأخرى، كما جمعت بين الاعتقاد بحياة ما بعد الموت ومظاهر التمييز الاجتماعي في القبور، وهذه سمات جعلت قرطاج من أكثر الحضارات القديمة ثراء وتنوعاً في المجالين السياسي والديني.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defGods: "🏛️ آلهة",
+                defLocations: "🌍 دول ومناطق",
+                defOthers: "📌 أخرى",
+                defBaalHammon: "بعل حمون",
+                defBaalHammonDesc: "كبير الآلهة وحاميها، وهو على شكل آدمي يستوي على عرشه ويرفع يده اليمنى ويمسك صولجاناً بيده اليسرى رمزاً للسلطة والهيمنة. يُعتبر الإله الأكبر في البانثيون القرطاجي، وتُقدَّم له النذور والقرابين، ويُستشفع به في الحرب والخصب والحماية، وظل رمزاً للهوية الدينية القرطاجية حتى بعد سقوط المدينة.",
+                defTanit: "تانيت",
+                defTanitDesc: "جُسّدت على شكل امرأة جالسة على كرسي وفي حضنها طفل صغير، لذلك اعتبرت رمز الخصوبة والازدهار. تُلقَّب بـ«وجه بعل» أي ظهور الإله الأكبر، وجمعت بين وظيفة الأم الحامية وإلهة القمر والخصب، وتشبه في بعض وظائفها الإلهة إيزيس في مصر وعشتار في بلاد الرافدين.",
+                defMelqart: "ملقرط",
+                defMelqartDesc: "إله مدينة صور ويمثل حامي البحار والمستوطنات. يرتبط بالتجارة والملاحة والحرب، وانتقلت عبادته مع الفينيقيين إلى كل مستوطناتهم في المتوسط، ويُشبه في وظائفه الإله الإغريقي هرقل، وقد ساهم في ربط المستوطنات القرطاجية بروابط دينية مشتركة.",
+                defDemeter: "ديمترا",
+                defDemeterDesc: "إلهة إغريقية للزراعة، انتشرت عبادتها في قرطاج خاصة في الفترة الهلنستية حيث أُقيم لها معبد في المدينة.",
+                defPersephone: "برسفونا",
+                defPersephoneDesc: "ابنة ديمترا، إلهة إغريقية مرتبطة بالأرض، انتشرت عبادتها في قرطاج في الفترة الهلنستية إلى جانب ديمترا.",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "مركز العقيدة الدينية القرطاجية، وفيها أُقيم معبد الطوفات ومعبد ديمترا وبرسفونا في الفترة الهلنستية.",
+                defTyre: "صور",
+                defTyreDesc: "مدينة فينيقية، وهي المدينة التي ينتمي إليها الإله ملقرط الذي كان حامياً للبحار والمستوطنات.",
+                defSousse: "سوسة",
+                defSousseDesc: "إحدى المستوطنات التي وُجدت فيها الطوفات إلى جانب قرطاج وموتية.",
+                defMotya: "موتية",
+                defMotyaDesc: "إحدى المستوطنات التي وُجدت فيها الطوفات إلى جانب قرطاج وسوسة.",
+                defEgypt: "مصر",
+                defEgyptDesc: "حضارة قديمة تشابهت مع قرطاج في الاعتقاد بحياة ما بعد الموت، لكنها اختلفت عنها في تحنيط الموتى، كما لم تعرف الانفتاح الديني الذي عرفته قرطاج.",
+                defMesopotamia: "بلاد الرافدين",
+                defMesopotamiaDesc: "حضارة قديمة، تُشبه فيها الإلهة عشتار الإلهة القرطاجية تانيت في بعض الوظائف.",
+                defTophet: "الطوفات",
+                defTophetDesc: "معبد بوني غير مشيد يقدم فيه القرطاجيون الأضاحي للإله بعل حمون والإلهة تانيت. تُقدَّم فيه القرابين الحيوانية أو البشرية وتُحرق ويوضع رمادها في جرار تُثبَّت في أرضية الطوفات ومعها نصب يذكر فيه اسم صاحبها. وُجدت في قرطاج وسوسة وموتية، ويُعد من أهم المعالم الدينية في العالم القديم، ويشبه في وظيفته المقابر الجماعية والمعابد في آن واحد.",
+                defPantheon: "البانثيون القرطاجي",
+                defPantheonDesc: "مجموعة الآلهة القرطاجية، ويُعد الإله بعل حمون أكبر آلهتها.",
+                defHellenisticPeriod: "الفترة الهلنستية",
+                defHellenisticPeriodDesc: "المرحلة التي انتشرت فيها عبادة الإلهتين الإغريقيتين ديمترا وبرسفونا في قرطاج، حيث أُقيم لهما معبد في المدينة.",
+                summaryText: "خلاصة: جمعت الديانة القرطاجية بين الأصالة الفينيقية والانفتاح على آلهة الشعوب الأخرى، وتميزت بتعدد الآلهة وبناء المعابد (الطوفات)، كما جمعت بين الاعتقاد بحياة ما بعد الموت ومظاهر التمييز الاجتماعي في القبور.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "بعل حمون",
+                galleryAlt2: "رمز تانيت",
+                galleryAlt3: "ملقرط",
+                galleryAlt4: "ديمترا وبرسفونا",
+                galleryAlt5: "الطوفات القرطاجي",
+                galleryAlt6: "القبور البونية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Baal Hammon", class: "key-person", i18n: "defBaalHammon" },
+                { text: "Tanit", class: "key-person", i18n: "defTanit" },
+                { text: "Melqart", class: "key-person", i18n: "defMelqart" },
+                { text: "Demeter", class: "key-person", i18n: "defDemeter" },
+                { text: "Persephone", class: "key-person", i18n: "defPersephone" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Tyre", class: "key-location", i18n: "defTyre" },
+                { text: "Sousse", class: "key-location", i18n: "defSousse" },
+                { text: "Motya", class: "key-location", i18n: "defMotya" },
+                { text: "Egypt", class: "key-location", i18n: "defEgypt" },
+                { text: "Mesopotamia", class: "key-location", i18n: "defMesopotamia" },
+                { text: "Tophet", class: "key-other", i18n: "defTophet" },
+                { text: "pantheon", class: "key-other", i18n: "defPantheon" },
+                { text: "Hellenistic period", class: "key-other", i18n: "defHellenisticPeriod" }
+            ],
+            fr: [
+                { text: "Baal Hammon", class: "key-person", i18n: "defBaalHammon" },
+                { text: "Tanit", class: "key-person", i18n: "defTanit" },
+                { text: "Melqart", class: "key-person", i18n: "defMelqart" },
+                { text: "Déméter", class: "key-person", i18n: "defDemeter" },
+                { text: "Perséphone", class: "key-person", i18n: "defPersephone" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Tyr", class: "key-location", i18n: "defTyre" },
+                { text: "Sousse", class: "key-location", i18n: "defSousse" },
+                { text: "Motyé", class: "key-location", i18n: "defMotya" },
+                { text: "Égypte", class: "key-location", i18n: "defEgypt" },
+                { text: "Mésopotamie", class: "key-location", i18n: "defMesopotamia" },
+                { text: "Tophet", class: "key-other", i18n: "defTophet" },
+                { text: "panthéon", class: "key-other", i18n: "defPantheon" },
+                { text: "époque hellénistique", class: "key-other", i18n: "defHellenisticPeriod" }
+            ],
+            ar: [
+                { text: "بعل حمون", class: "key-person", i18n: "defBaalHammon" },
+                { text: "تانيت", class: "key-person", i18n: "defTanit" },
+                { text: "ملقرط", class: "key-person", i18n: "defMelqart" },
+                { text: "ديمترا", class: "key-person", i18n: "defDemeter" },
+                { text: "برسفونا", class: "key-person", i18n: "defPersephone" },
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "صور", class: "key-location", i18n: "defTyre" },
+                { text: "سوسة", class: "key-location", i18n: "defSousse" },
+                { text: "موتية", class: "key-location", i18n: "defMotya" },
+                { text: "مصر", class: "key-location", i18n: "defEgypt" },
+                { text: "بلاد الرافدين", class: "key-location", i18n: "defMesopotamia" },
+                { text: "الطوفات", class: "key-other", i18n: "defTophet" },
+                { text: "البانثيون القرطاجي", class: "key-other", i18n: "defPantheon" },
+                { text: "الفترة الهلنستية", class: "key-other", i18n: "defHellenisticPeriod" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

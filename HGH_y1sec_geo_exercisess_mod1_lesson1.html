@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – التوزع الجغرافي للسكان</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <h1 data-i18n="exerciseTitle">تمارين – التوزع الجغرافي للسكان</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الكثافة السكانية، الخلاء السكاني، نظام الأرزّية، مناطق الإعمار الكبرى.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الكثافة السكانية:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">عدد السكان في الكيلومتر المربع الواحد، وتُعد مؤشراً أساسياً لقياس التوزع الجغرافي للسكان، وتُستعمل للمقارنة بين المناطق والدول.</dd>
+                        <dt data-i18n="ex1_def2_title">الخلاء السكاني:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">مناطق ذات عدد محدود من السكان، تقل فيها الكثافات السكانية عموماً عن 10 ساكن/كلم². وتُعزى قلّة سكانها إلى قساوة الظروف الطبيعية (مناخ غير ملائم، تضاريس معرقلة، غابات كثيفة)، لا إلى انعدام الموارد بالضرورة.</dd>
+                        <dt data-i18n="ex1_def3_title">نظام الأرزّية:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">نظام زراعي بجنوب وشرقي آسيا يعتمد على زراعة كثيفة مشغّلة ذات محصول غذائي رئيسي يتمثل في الأرز، ويتطلب عدداً كبيراً من السكان لتشييد السدود ومد قنوات الري واستصلاح الأراضي، مما ساهم في تكوين كثافات سكانية مرتفعة جداً في دلتات الأنهار.</dd>
+                        <dt data-i18n="ex1_def4_title">مناطق الإعمار الكبرى:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">المناطق الأكثر كثافة سكانية في العالم، ويقع معظمها في النصف الشمالي من الكرة الأرضية خاصة على طول السواحل والأنهار. وتُقسّم إلى مناطق تركز رئيسية (جنوب آسيا، شرق آسيا، أوروبا، جنوب شرق آسيا) ومناطق تركز ثانوية (خليج غينيا، شمال شرق أمريكا الشمالية، جنوب شرق البرازيل).</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن التفاوت في الكثافة السكانية بين مناطق البرازيل.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_region">المنطقة</th>
+                            <th data-i18n="ex2_table_density">الكثافة السكانية (ساكن/كلم²)</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_southeast">الجنوب الشرقي البرازيلي</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_centerwest">الوسط الغربي البرازيلي</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_north">شمال البرازيل</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: معطيات الدرس حول التوزع الجغرافي للسكان بالبرازيل</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Map / Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمل الخريطة التالية التي تمثل التوزع الجغرافي للسكان في العالم، وبيّن مناطق الإعمار الكبرى ومناطق الخلاء السكاني.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets1sec/exercises/geography/unit1/lesson1/world_population_distribution.png"
+                         alt="خريطة التوزع الجغرافي للسكان في العالم"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets1sec/exercises/geography/unit1/lesson1/world_population_distribution_answer.png"
+                             alt="نموذج الإجابة – مناطق الإعمار ومناطق الخلاء السكاني"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        تتركز مناطق الإعمار الكبرى في النصف الشمالي من الكرة الأرضية خاصة على طول السواحل والأنهار. وأهم مناطق التركز الرئيسية: جنوب آسيا (2 مليار نسمة، من بينها الهند 1.390 مليار)، وشرق آسيا (1.650 مليار نسمة، من بينها الصين 1.4 مليار)، وأوروبا (700 مليون نسمة)، وجنوب شرقي آسيا (671 مليون نسمة). أما مناطق التركز الثانوية فتشمل خليج غينيا (323 مليون)، والشمال الشرقي لأمريكا الشمالية (220 مليون)، وجنوب شرق البرازيل. في المقابل، تقع مناطق الخلاء السكاني في الصحاري (الصحراء الأفريقية الكبرى، صحراء أستراليا، صحراء شبه الجزيرة العربية، الصحاري الأمريكية)، والغابات الاستوائية الكثيفة (أمازونيا وأفريقيا)، والمرتفعات الجبلية (الهيمالايا بآسيا)، والمناطق القطبية الباردة (سيبيريا وغرينلاند). وتتميز هذه المناطق بكثافات تقل عن 10 ساكن/كلم²، مثل 0.03 س/كلم² في غرينلاند و3 س/كلم² في أستراليا.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل عوامل التفاوت في التوزع الجغرافي للسكان في العالم في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        عوامل التفاوت في التوزع الجغرافي للسكان:
+                        - عوامل التركز السكاني: عوامل طبيعية (سهول خصبة، وفرة الموارد المائية، موقع منفتح على الواجهات البحرية، مناخات رطبة ومعتدلة، ثروات طبيعية ومعادن وطاقة)؛ عوامل تاريخية (قدم التعمير كالصين والهند وأوروبا والهلال الخصيب)؛ عوامل اقتصادية (نظام الأرزّية بجنوب وشرقي آسيا، تنامي الأنشطة الصناعية بأوروبا).
+                        - عوامل الخلاء السكاني: مناخ غير ملائم (بارد بالمناطق القطبية وجاف بالمناطق الصحراوية)، فقر التربة وضعف الغطاء النباتي، التضاريس المعرقلة (المرتفعات الجبلية)، الغابات الكثيفة، بالإضافة إلى عوامل أخرى كضعف البنية التحتية وشبكات النقل، وقلة الاستثمارات، وبُعد هذه المناطق عن المراكز الحضرية والأسواق، وعدم توفر الخدمات الأساسية.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        يخضع التفاوت في التوزع الجغرافي للسكان في العالم إلى عوامل متداخلة. فعوامل التركز السكاني تشمل العوامل الطبيعية كتوفر السهول الخصبة والموارد المائية والمناخات الملائمة والموقع الجغرافي المنفتح، والعوامل التاريخية المرتبطة بقدم ظاهرة التعمير كما في الصين والهند وأوروبا والهلال الخصيب، والعوامل الاقتصادية كتوفير مواطن الشغل سواء في إطار نظام الأرزّية بجنوب وشرقي آسيا أو الأنشطة الصناعية بأوروبا. في المقابل، تُعزى مناطق الخلاء السكاني إلى قساوة الظروف الطبيعية من مناخ غير ملائم وفقر التربة وضعف الغطاء النباتي والتضاريس المعرقلة والغابات الكثيفة، بالإضافة إلى عوامل أخرى كضعف البنية التحتية وقلة الاستثمارات وبُعد هذه المناطق عن المراكز الحضرية والأسواق. وهكذا يتّضح أن توزّع السكان في العالم ليس عشوائياً بل يخضع لمنطق العوامل المترابطة.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول التفاوت في التوزع الجغرافي للسكان بين مناطق الإعمار الكبرى ومناطق الخلاء السكاني، مقارناً بين حالتَي البرازيل والعالم.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        قارن بين حالة البرازيل (36% من المساحة تستوعب 83% من السكان في إقليمَي الشمال الشرقي والجنوب الشرقي، بينما 64% من المساحة لا تضم سوى 17% من السكان في الشمال والوسط الغربي) وحالة العالم (مناطق الإعمار الكبرى في النصف الشمالي من الكرة الأرضية، ومناطق الخلاء السكاني في الصحاري والغابات والمرتفعات والمناطق القطبية). أبرز العوامل المشتركة المفسرة للتفاوت في الحالتين.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تحديد التفاوت السكاني كخاصية بنيوية للمجال العالمي.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. التفاوت في البرازيل؛ ثانياً. التفاوت في العالم؛ ثالثاً. العوامل المشتركة المفسرة.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: التفاوت خاصية بنيوية للمجال العالمي.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">يتوزع سكان العالم، الذي بلغ حوالي 8 مليارات نسمة سنة 2022، بصفة غير متوازنة بين القارات والدول والجهات، إذ تتركز الكثافات السكانية الكبرى في مساحات محدودة بينما تمتد مساحات شاسعة شبه خالية من السكان. ويظهر هذا التفاوت بوضوح في حالة البرازيل كما يظهر في المجال العالمي.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_brazil">أولاً. التفاوت في البرازيل</h4>
+                        <p data-i18n="ex5A_production_p_brazil">يتوزع سكان البرازيل، البالغ عددهم 215 مليون نسمة سنة 2022، بصفة متفاوتة: إذ تستوعب منطقة الجنوب الشرقي، وخاصة المدن الكبرى كساو باولو وريو دي جانيرو، أعلى الكثافات (تفوق 100 ساكن/كلم²)، وتمثل مع الشمال الشرقي 36% من المساحة و83% من مجموع السكان. في المقابل، يقل عدد سكان الشمال (3 س/كلم²) والوسط الغربي (6 س/كلم²)، وتمثل هاتان المنطقتان 64% من المساحة ولا تضمان سوى 17% من السكان، ويُعد إقليم الأمازون من أكبر مناطق الخلاء السكاني في العالم.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_world">ثانياً. التفاوت في العالم</h4>
+                        <p data-i18n="ex5A_production_p_world">يتوزع سكان العالم بصفة متفاوتة أيضاً: فتتركز مناطق الإعمار الكبرى في النصف الشمالي من الكرة الأرضية على طول السواحل والأنهار، وأهمها جنوب آسيا (2 مليار نسمة) وشرق آسيا (1.650 مليار نسمة) وأوروبا (700 مليون) وجنوب شرقي آسيا (671 مليون). في المقابل، تقع مناطق الخلاء السكاني في الصحاري (الصحراء الأفريقية الكبرى، صحراء أستراليا) والغابات الاستوائية الكثيفة (أمازونيا وأفريقيا) والمرتفعات الجبلية (الهيمالايا) والمناطق القطبية الباردة (سيبيريا وغرينلاند)، حيث تقل الكثافات عن 10 ساكن/كلم².</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_factors">ثالثاً. العوامل المشتركة المفسرة</h4>
+                        <p data-i18n="ex5A_production_p_factors">يخضع هذا التفاوت في الحالتين لعوامل متداخلة: فعوامل التركز السكاني تشمل العوامل الطبيعية (السهول الخصبة، وفرة الموارد المائية، المناخات الملائمة، الموقع المنفتح على الواجهات البحرية) والعوامل التاريخية (قدم ظاهرة التعمير) والعوامل الاقتصادية (نظام الأرزّية بآسيا، تنامي الأنشطة الصناعية بأوروبا، تمركز الأنشطة الاقتصادية بالسواحل البرازيلية). أما مناطق الخلاء السكاني فتُفسر بقساوة الظروف الطبيعية (مناخ غير ملائم، فقر التربة، تضاريس معرقلة، غابات كثيفة) وبضعف البنية التحتية وبُعد هذه المناطق عن المراكز الحضرية والأسواق.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا يُعد التفاوت في التوزع الجغرافي للسكان خاصية بنيوية للمجال العالمي، تتجلى في حالة البرازيل كما تتجلى في المجال العالمي، وتُفسَّر بعوامل طبيعية وتاريخية واقتصادية متداخلة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y1sec_geo_lessons_mod1_lesson1.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "1st Secondary",
+                exerciseTitle: "Exercises – Geographical Distribution of the Population",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: population density, demographic emptiness, rice system, major settlement areas.",
+                ex1_def1_title: "Population density:",
+                ex1_def1_subtitle: "The number of inhabitants per square kilometer. It is an essential indicator for measuring the geographical distribution of the population and is used to compare regions and countries.",
+                ex1_def2_title: "Demographic emptiness:",
+                ex1_def2_subtitle: "Areas with a limited number of inhabitants, where population densities generally fall below 10 inhabitants/km². Their low population is due to harsh natural conditions (unsuitable climate, obstructive terrain, dense forests), not necessarily to a lack of resources.",
+                ex1_def3_title: "Rice system:",
+                ex1_def3_subtitle: "An agricultural system in South and East Asia relying on intensive labor-based agriculture with a main food crop of rice. It requires a large number of people to build dams, extend irrigation canals, and reclaim land, contributing to very high population densities in river deltas.",
+                ex1_def4_title: "Major settlement areas:",
+                ex1_def4_subtitle: "The most densely populated regions of the world, mostly located in the Northern Hemisphere especially along coasts and rivers. They are divided into main concentration areas (South Asia, East Asia, Europe, Southeast Asia) and secondary concentration areas (Gulf of Guinea, Northeastern North America, Southeastern Brazil).",
+                ex2Q: "Convert the following table data into a bar chart showing the disparity in population density between regions of Brazil.",
+                ex2_table_region: "Region",
+                ex2_table_density: "Population density (inhabitants/km²)",
+                ex2_table_southeast: "Southeastern Brazil",
+                ex2_table_centerwest: "Center-West Brazil",
+                ex2_table_north: "Northern Brazil",
+                ex2Q_source: "Source: Lesson data on the geographical distribution of the population in Brazil",
+                ex2A_title: "Population Density in Brazil by Region (inhabitants/km²)",
+                ex2A_source: "Source: Lesson data on the geographical distribution of the population in Brazil",
+                ex2A_scale: "Scale: 0–110 inhabitants/km²; column height proportional to value.",
+                ex2A_key_label: "Key:",
+                ex3Q: "Observe the following map showing the geographical distribution of the world population, and identify the major settlement areas and the areas of demographic emptiness.",
+                ex3DocAlt: "Map of the geographical distribution of the world population",
+                ex3AnswerImgAlt: "Answer model – Settlement areas and demographic emptiness zones",
+                ex3A: "Major settlement areas are concentrated in the Northern Hemisphere especially along coasts and rivers. The main concentration areas include: South Asia (2 billion inhabitants, including India with 1.390 billion), East Asia (1.650 billion inhabitants, including China with 1.4 billion), Europe (700 million inhabitants), and Southeast Asia (671 million inhabitants). Secondary concentration areas include the Gulf of Guinea (323 million), Northeastern North America (220 million), and Southeastern Brazil. In contrast, areas of demographic emptiness are located in deserts (Great African Sahara, Australian desert, Arabian Peninsula desert, American deserts), dense tropical forests (Amazonia and Africa), mountain highlands (Himalayas in Asia), and cold polar regions (Siberia and Greenland). These regions are characterized by densities below 10 inhabitants/km², such as 0.03 inhab/km² in Greenland and 3 inhab/km² in Australia.",
+                ex4Q: "Analyse the factors of uneven geographical distribution of the world population in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Factors of uneven geographical distribution of population:\n- Factors of population concentration: natural factors (fertile plains, abundant water resources, location open to sea fronts, humid and moderate climates, natural resources, minerals, and energy); historical factors (early settlement such as in China, India, Europe, and the Fertile Crescent); economic factors (rice system in South and East Asia, growth of industrial activities in Europe).\n- Factors of demographic emptiness: unsuitable climate (cold in polar regions and dry in desert regions), poor soil and weak vegetation cover, obstructive terrain (mountain highlands), dense forests, in addition to other factors such as weak infrastructure and transport networks, low investment, remoteness from urban centers and markets, and lack of basic services.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The uneven geographical distribution of the world population is subject to interlocking factors. Factors of population concentration include natural factors such as fertile plains, water resources, suitable climates, and open geographical location; historical factors related to the early settlement phenomenon such as in China, India, Europe, and the Fertile Crescent; and economic factors such as the availability of jobs, whether through the rice system in South and East Asia or industrial activities in Europe. In contrast, areas of demographic emptiness are explained by harsh natural conditions including unsuitable climate, poor soil and weak vegetation cover, obstructive terrain, and dense forests, in addition to other factors such as weak infrastructure, low investment, and remoteness from urban centers and markets. Thus the distribution of the world population is not random but subject to interconnected factors.",
+                ex5Q: "Write a short article on the disparity in the geographical distribution of the population between major settlement areas and demographic emptiness zones, comparing the cases of Brazil and the world.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Compare the case of Brazil (36% of the area hosts 83% of the population in the Northeast and Southeast regions, while 64% of the area contains only 17% in the North and Center-West) with the case of the world (major settlement areas in the Northern Hemisphere, and demographic emptiness zones in deserts, forests, highlands, and polar regions). Highlight the common factors explaining the disparity in both cases.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Identifying population disparity as a structural feature of the global space.",
+                ex5A_plan_li2: "Development: I. Disparity in Brazil; II. Disparity in the world; III. Common explanatory factors.",
+                ex5A_plan_li3: "Conclusion: Disparity is a structural feature of the global space.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The world population, which reached about 8 billion in 2022, is unevenly distributed between continents, countries, and regions, as major population densities concentrate in limited areas while vast spaces remain almost uninhabited. This disparity is evident in the case of Brazil as well as in the global space.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_brazil: "I. Disparity in Brazil",
+                ex5A_production_p_brazil: "Brazil's population, about 215 million in 2022, is unevenly distributed: the Southeast region, especially major cities like São Paulo and Rio de Janeiro, hosts the highest densities (exceeding 100 inhabitants/km²), and together with the Northeast represents 36% of the area and 83% of the total population. In contrast, the North (3 inhab/km²) and Center-West (6 inhab/km²) have lower populations, and these two regions represent 64% of the area but contain only 17% of the population. The Amazon region is one of the largest areas of demographic emptiness in the world.",
+                ex5A_production_h4_world: "II. Disparity in the World",
+                ex5A_production_p_world: "The world population is also unevenly distributed: major settlement areas concentrate in the Northern Hemisphere along coasts and rivers, including South Asia (2 billion), East Asia (1.650 billion), Europe (700 million), and Southeast Asia (671 million). In contrast, areas of demographic emptiness are located in deserts (Great African Sahara, Australian desert), dense tropical forests (Amazonia and Africa), mountain highlands (Himalayas), and cold polar regions (Siberia and Greenland), where densities fall below 10 inhabitants/km².",
+                ex5A_production_h4_factors: "III. Common Explanatory Factors",
+                ex5A_production_p_factors: "This disparity in both cases is subject to interlocking factors: factors of population concentration include natural factors (fertile plains, water resources, suitable climates, location open to sea fronts), historical factors (early settlement), and economic factors (rice system in Asia, growth of industrial activities in Europe, concentration of economic activities along Brazilian coasts). Areas of demographic emptiness are explained by harsh natural conditions (unsuitable climate, poor soil, obstructive terrain, dense forests) and by weak infrastructure and remoteness from urban centers and markets.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus the uneven distribution of the population is a structural feature of the global space, evident in Brazil as well as in the world, and is explained by interlocking natural, historical, and economic factors.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                exerciseTitle: "Exercices – La répartition géographique de la population",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : densité de population, vide démographique, système rizicole, grandes zones de peuplement.",
+                ex1_def1_title: "Densité de population :",
+                ex1_def1_subtitle: "Le nombre d'habitants par kilomètre carré. C'est un indicateur essentiel pour mesurer la répartition géographique de la population et comparer les régions et les pays.",
+                ex1_def2_title: "Vide démographique :",
+                ex1_def2_subtitle: "Zones au nombre limité d'habitants, où les densités tombent généralement sous 10 hab/km². Leur faible population est due à des conditions naturelles difficiles (climat inadapté, relief entravant, forêts denses), non nécessairement à un manque de ressources.",
+                ex1_def3_title: "Système rizicole :",
+                ex1_def3_subtitle: "Système agricole d'Asie du Sud et de l'Est reposant sur une agriculture intensive en main-d'œuvre dont la principale culture vivrière est le riz. Il nécessite un grand nombre de personnes pour construire des barrages, étendre les canaux d'irrigation et aménager les terres, contribuant à de très fortes densités dans les deltas fluviaux.",
+                ex1_def4_title: "Grandes zones de peuplement :",
+                ex1_def4_subtitle: "Les régions les plus densément peuplées du monde, situées majoritairement dans l'hémisphère Nord, surtout le long des côtes et des fleuves. Elles se divisent en zones de concentration principales (Asie du Sud, Asie de l'Est, Europe, Asie du Sud-Est) et en zones de concentration secondaires (Golfe de Guinée, Nord-Est de l'Amérique du Nord, Sud-Est du Brésil).",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant la disparité de densité de population entre les régions du Brésil.",
+                ex2_table_region: "Région",
+                ex2_table_density: "Densité de population (hab/km²)",
+                ex2_table_southeast: "Sud-Est du Brésil",
+                ex2_table_centerwest: "Centre-Ouest du Brésil",
+                ex2_table_north: "Nord du Brésil",
+                ex2Q_source: "Source : données de la leçon sur la répartition géographique de la population au Brésil",
+                ex2A_title: "Densité de population au Brésil par région (hab/km²)",
+                ex2A_source: "Source : données de la leçon sur la répartition géographique de la population au Brésil",
+                ex2A_scale: "Échelle : 0–110 hab/km² ; hauteur des colonnes proportionnelle à la valeur.",
+                ex2A_key_label: "Légende :",
+                ex3Q: "Observez la carte suivante représentant la répartition géographique de la population mondiale, et identifiez les grandes zones de peuplement et les zones de vide démographique.",
+                ex3DocAlt: "Carte de la répartition géographique de la population mondiale",
+                ex3AnswerImgAlt: "Modèle de réponse – Zones de peuplement et zones de vide démographique",
+                ex3A: "Les grandes zones de peuplement se concentrent dans l'hémisphère Nord, surtout le long des côtes et des fleuves. Les principales zones de concentration comprennent : l'Asie du Sud (2 milliards d'habitants, dont l'Inde avec 1,390 milliard), l'Asie de l'Est (1,650 milliard d'habitants, dont la Chine avec 1,4 milliard), l'Europe (700 millions d'habitants) et l'Asie du Sud-Est (671 millions d'habitants). Les zones de concentration secondaires comprennent le Golfe de Guinée (323 millions), le Nord-Est de l'Amérique du Nord (220 millions) et le Sud-Est du Brésil. En revanche, les zones de vide démographique sont situées dans les déserts (grand Sahara africain, désert australien, désert de la péninsule Arabique, déserts américains), les forêts tropicales denses (Amazonie et Afrique), les hauts plateaux montagneux (Himalaya en Asie) et les régions polaires froides (Sibérie et Groenland). Ces régions se caractérisent par des densités inférieures à 10 hab/km², comme 0,03 hab/km² au Groenland et 3 hab/km² en Australie.",
+                ex4Q: "Analysez les facteurs de l'inégalité de la répartition géographique de la population mondiale en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Facteurs de l'inégalité de la répartition géographique de la population :\n- Facteurs de concentration : facteurs naturels (plaines fertiles, ressources en eau abondantes, situation ouverte sur les façades maritimes, climats humides et tempérés, ressources naturelles, minéraux et énergie) ; facteurs historiques (ancienneté du peuplement comme en Chine, en Inde, en Europe et dans le Croissant fertile) ; facteurs économiques (système rizicole en Asie du Sud et de l'Est, croissance des activités industrielles en Europe).\n- Facteurs du vide démographique : climat inadapté (froid dans les régions polaires et sec dans les régions désertiques), sol pauvre et faible couverture végétale, relief entravant (hauts plateaux montagneux), forêts denses, ainsi que d'autres facteurs comme la faiblesse des infrastructures et des réseaux de transport, le faible investissement, l'éloignement des centres urbains et des marchés, et l'absence de services de base.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "La répartition inégale de la population mondiale est soumise à des facteurs imbriqués. Les facteurs de concentration comprennent des facteurs naturels tels que les plaines fertiles, les ressources en eau, les climats appropriés et la situation géographique ouverte ; des facteurs historiques liés à l'ancienneté du peuplement comme en Chine, en Inde, en Europe et dans le Croissant fertile ; et des facteurs économiques tels que la disponibilité des emplois, que ce soit par le système rizicole en Asie du Sud et de l'Est ou par les activités industrielles en Europe. En revanche, les zones de vide démographique s'expliquent par la rigueur des conditions naturelles (climat inadapté, sol pauvre et faible couverture végétale, relief entravant, forêts denses), ainsi que par d'autres facteurs comme la faiblesse des infrastructures, le faible investissement et l'éloignement des centres urbains et des marchés. Ainsi la répartition de la population mondiale n'est pas aléatoire mais soumise à des facteurs interconnectés.",
+                ex5Q: "Rédigez un court article sur la disparité de la répartition géographique de la population entre grandes zones de peuplement et zones de vide démographique, en comparant les cas du Brésil et du monde.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Comparez le cas du Brésil (36% de la superficie abritent 83% de la population dans les régions du Nord-Est et du Sud-Est, tandis que 64% de la superficie ne contiennent que 17% dans le Nord et le Centre-Ouest) avec le cas du monde (grandes zones de peuplement dans l'hémisphère Nord, et zones de vide démographique dans les déserts, forêts, hauts plateaux et régions polaires). Mettez en évidence les facteurs communs expliquant la disparité dans les deux cas.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Identifier la disparité de peuplement comme caractéristique structurelle de l'espace mondial.",
+                ex5A_plan_li2: "Développement : I. Disparité au Brésil ; II. Disparité dans le monde ; III. Facteurs explicatifs communs.",
+                ex5A_plan_li3: "Conclusion : La disparité est une caractéristique structurelle de l'espace mondial.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "La population mondiale, qui a atteint environ 8 milliards en 2022, est répartie de manière inégale entre les continents, les pays et les régions, les grandes densités se concentrant dans des espaces limités tandis que de vastes étendues restent presque inhabitées. Cette disparité est évidente dans le cas du Brésil comme dans l'espace mondial.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_brazil: "I. Disparité au Brésil",
+                ex5A_production_p_brazil: "La population du Brésil, environ 215 millions en 2022, est répartie de manière inégale : la région du Sud-Est, surtout les grandes villes comme São Paulo et Rio de Janeiro, abrite les densités les plus élevées (dépassant 100 hab/km²) et représente avec le Nord-Est 36% de la superficie et 83% de la population totale. En revanche, le Nord (3 hab/km²) et le Centre-Ouest (6 hab/km²) sont moins peuplés, et ces deux régions représentent 64% de la superficie mais ne contiennent que 17% de la population. La région amazonienne est l'une des plus grandes zones de vide démographique au monde.",
+                ex5A_production_h4_world: "II. Disparité dans le monde",
+                ex5A_production_p_world: "La population mondiale est également répartie de manière inégale : les grandes zones de peuplement se concentrent dans l'hémisphère Nord le long des côtes et des fleuves, notamment l'Asie du Sud (2 milliards), l'Asie de l'Est (1,650 milliard), l'Europe (700 millions) et l'Asie du Sud-Est (671 millions). En revanche, les zones de vide démographique sont situées dans les déserts (grand Sahara africain, désert australien), les forêts tropicales denses (Amazonie et Afrique), les hauts plateaux montagneux (Himalaya) et les régions polaires froides (Sibérie et Groenland), où les densités tombent sous 10 hab/km².",
+                ex5A_production_h4_factors: "III. Facteurs explicatifs communs",
+                ex5A_production_p_factors: "Cette disparité dans les deux cas est soumise à des facteurs imbriqués : les facteurs de concentration comprennent des facteurs naturels (plaines fertiles, ressources en eau, climats appropriés, situation ouverte sur les façades maritimes), des facteurs historiques (ancienneté du peuplement) et des facteurs économiques (système rizicole en Asie, croissance des activités industrielles en Europe, concentration des activités économiques sur les côtes brésiliennes). Les zones de vide démographique s'expliquent par la rigueur des conditions naturelles (climat inadapté, sol pauvre, relief entravant, forêts denses) et par la faiblesse des infrastructures et l'éloignement des centres urbains et des marchés.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi la répartition inégale de la population est une caractéristique structurelle de l'espace mondial, évidente au Brésil comme dans le monde, et s'explique par des facteurs naturels, historiques et économiques imbriqués.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                exerciseTitle: "تمارين – التوزع الجغرافي للسكان",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الكثافة السكانية، الخلاء السكاني، نظام الأرزّية، مناطق الإعمار الكبرى.",
+                ex1_def1_title: "الكثافة السكانية:",
+                ex1_def1_subtitle: "عدد السكان في الكيلومتر المربع الواحد، وتُعد مؤشراً أساسياً لقياس التوزع الجغرافي للسكان، وتُستعمل للمقارنة بين المناطق والدول.",
+                ex1_def2_title: "الخلاء السكاني:",
+                ex1_def2_subtitle: "مناطق ذات عدد محدود من السكان، تقل فيها الكثافات السكانية عموماً عن 10 ساكن/كلم². وتُعزى قلّة سكانها إلى قساوة الظروف الطبيعية (مناخ غير ملائم، تضاريس معرقلة، غابات كثيفة)، لا إلى انعدام الموارد بالضرورة.",
+                ex1_def3_title: "نظام الأرزّية:",
+                ex1_def3_subtitle: "نظام زراعي بجنوب وشرقي آسيا يعتمد على زراعة كثيفة مشغّلة ذات محصول غذائي رئيسي يتمثل في الأرز، ويتطلب عدداً كبيراً من السكان لتشييد السدود ومد قنوات الري واستصلاح الأراضي، مما ساهم في تكوين كثافات سكانية مرتفعة جداً في دلتات الأنهار.",
+                ex1_def4_title: "مناطق الإعمار الكبرى:",
+                ex1_def4_subtitle: "المناطق الأكثر كثافة سكانية في العالم، ويقع معظمها في النصف الشمالي من الكرة الأرضية خاصة على طول السواحل والأنهار. وتُقسّم إلى مناطق تركز رئيسية (جنوب آسيا، شرق آسيا، أوروبا، جنوب شرق آسيا) ومناطق تركز ثانوية (خليج غينيا، شمال شرق أمريكا الشمالية، جنوب شرق البرازيل).",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن التفاوت في الكثافة السكانية بين مناطق البرازيل.",
+                ex2_table_region: "المنطقة",
+                ex2_table_density: "الكثافة السكانية (ساكن/كلم²)",
+                ex2_table_southeast: "الجنوب الشرقي البرازيلي",
+                ex2_table_centerwest: "الوسط الغربي البرازيلي",
+                ex2_table_north: "شمال البرازيل",
+                ex2Q_source: "المصدر: معطيات الدرس حول التوزع الجغرافي للسكان بالبرازيل",
+                ex2A_title: "الكثافة السكانية في البرازيل حسب المنطقة (ساكن/كلم²)",
+                ex2A_source: "المصدر: معطيات الدرس حول التوزع الجغرافي للسكان بالبرازيل",
+                ex2A_scale: "المقياس: 0–110 ساكن/كلم²؛ ارتفاع الأعمدة يتناسب مع القيمة.",
+                ex2A_key_label: "المفتاح:",
+                ex3Q: "تأمل الخريطة التالية التي تمثل التوزع الجغرافي للسكان في العالم، وبيّن مناطق الإعمار الكبرى ومناطق الخلاء السكاني.",
+                ex3DocAlt: "خريطة التوزع الجغرافي للسكان في العالم",
+                ex3AnswerImgAlt: "نموذج الإجابة – مناطق الإعمار ومناطق الخلاء السكاني",
+                ex3A: "تتركز مناطق الإعمار الكبرى في النصف الشمالي من الكرة الأرضية خاصة على طول السواحل والأنهار. وأهم مناطق التركز الرئيسية: جنوب آسيا (2 مليار نسمة، من بينها الهند 1.390 مليار)، وشرق آسيا (1.650 مليار نسمة، من بينها الصين 1.4 مليار)، وأوروبا (700 مليون نسمة)، وجنوب شرقي آسيا (671 مليون نسمة). أما مناطق التركز الثانوية فتشمل خليج غينيا (323 مليون)، والشمال الشرقي لأمريكا الشمالية (220 مليون)، وجنوب شرق البرازيل. في المقابل، تقع مناطق الخلاء السكاني في الصحاري (الصحراء الأفريقية الكبرى، صحراء أستراليا، صحراء شبه الجزيرة العربية، الصحاري الأمريكية)، والغابات الاستوائية الكثيفة (أمازونيا وأفريقيا)، والمرتفعات الجبلية (الهيمالايا بآسيا)، والمناطق القطبية الباردة (سيبيريا وغرينلاند). وتتميز هذه المناطق بكثافات تقل عن 10 ساكن/كلم²، مثل 0.03 س/كلم² في غرينلاند و3 س/كلم² في أستراليا.",
+                ex4Q: "حلّل عوامل التفاوت في التوزع الجغرافي للسكان في العالم في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "عوامل التفاوت في التوزع الجغرافي للسكان:\n- عوامل التركز السكاني: عوامل طبيعية (سهول خصبة، وفرة الموارد المائية، موقع منفتح على الواجهات البحرية، مناخات رطبة ومعتدلة، ثروات طبيعية ومعادن وطاقة)؛ عوامل تاريخية (قدم التعمير كالصين والهند وأوروبا والهلال الخصيب)؛ عوامل اقتصادية (نظام الأرزّية بجنوب وشرقي آسيا، تنامي الأنشطة الصناعية بأوروبا).\n- عوامل الخلاء السكاني: مناخ غير ملائم (بارد بالمناطق القطبية وجاف بالمناطق الصحراوية)، فقر التربة وضعف الغطاء النباتي، التضاريس المعرقلة (المرتفعات الجبلية)، الغابات الكثيفة، بالإضافة إلى عوامل أخرى كضعف البنية التحتية وشبكات النقل، وقلة الاستثمارات، وبُعد هذه المناطق عن المراكز الحضرية والأسواق، وعدم توفر الخدمات الأساسية.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "يخضع التفاوت في التوزع الجغرافي للسكان في العالم إلى عوامل متداخلة. فعوامل التركز السكاني تشمل العوامل الطبيعية كتوفر السهول الخصبة والموارد المائية والمناخات الملائمة والموقع الجغرافي المنفتح، والعوامل التاريخية المرتبطة بقدم ظاهرة التعمير كما في الصين والهند وأوروبا والهلال الخصيب، والعوامل الاقتصادية كتوفير مواطن الشغل سواء في إطار نظام الأرزّية بجنوب وشرقي آسيا أو الأنشطة الصناعية بأوروبا. في المقابل، تُعزى مناطق الخلاء السكاني إلى قساوة الظروف الطبيعية من مناخ غير ملائم وفقر التربة وضعف الغطاء النباتي والتضاريس المعرقلة والغابات الكثيفة، بالإضافة إلى عوامل أخرى كضعف البنية التحتية وقلة الاستثمارات وبُعد هذه المناطق عن المراكز الحضرية والأسواق. وهكذا يتّضح أن توزّع السكان في العالم ليس عشوائياً بل يخضع لمنطق العوامل المترابطة.",
+                ex5Q: "اكتب مقالاً قصيراً حول التفاوت في التوزع الجغرافي للسكان بين مناطق الإعمار الكبرى ومناطق الخلاء السكاني، مقارناً بين حالتَي البرازيل والعالم.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "قارن بين حالة البرازيل (36% من المساحة تستوعب 83% من السكان في إقليمَي الشمال الشرقي والجنوب الشرقي، بينما 64% من المساحة لا تضم سوى 17% من السكان في الشمال والوسط الغربي) وحالة العالم (مناطق الإعمار الكبرى في النصف الشمالي من الكرة الأرضية، ومناطق الخلاء السكاني في الصحاري والغابات والمرتفعات والمناطق القطبية). أبرز العوامل المشتركة المفسرة للتفاوت في الحالتين.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تحديد التفاوت السكاني كخاصية بنيوية للمجال العالمي.",
+                ex5A_plan_li2: "تطوير: أولاً. التفاوت في البرازيل؛ ثانياً. التفاوت في العالم؛ ثالثاً. العوامل المشتركة المفسرة.",
+                ex5A_plan_li3: "خاتمة: التفاوت خاصية بنيوية للمجال العالمي.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "يتوزع سكان العالم، الذي بلغ حوالي 8 مليارات نسمة سنة 2022، بصفة غير متوازنة بين القارات والدول والجهات، إذ تتركز الكثافات السكانية الكبرى في مساحات محدودة بينما تمتد مساحات شاسعة شبه خالية من السكان. ويظهر هذا التفاوت بوضوح في حالة البرازيل كما يظهر في المجال العالمي.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_brazil: "أولاً. التفاوت في البرازيل",
+                ex5A_production_p_brazil: "يتوزع سكان البرازيل، البالغ عددهم 215 مليون نسمة سنة 2022، بصفة متفاوتة: إذ تستوعب منطقة الجنوب الشرقي، وخاصة المدن الكبرى كساو باولو وريو دي جانيرو، أعلى الكثافات (تفوق 100 ساكن/كلم²)، وتمثل مع الشمال الشرقي 36% من المساحة و83% من مجموع السكان. في المقابل، يقل عدد سكان الشمال (3 س/كلم²) والوسط الغربي (6 س/كلم²)، وتمثل هاتان المنطقتان 64% من المساحة ولا تضمان سوى 17% من السكان، ويُعد إقليم الأمازون من أكبر مناطق الخلاء السكاني في العالم.",
+                ex5A_production_h4_world: "ثانياً. التفاوت في العالم",
+                ex5A_production_p_world: "يتوزع سكان العالم بصفة متفاوتة أيضاً: فتتركز مناطق الإعمار الكبرى في النصف الشمالي من الكرة الأرضية على طول السواحل والأنهار، وأهمها جنوب آسيا (2 مليار نسمة) وشرق آسيا (1.650 مليار نسمة) وأوروبا (700 مليون) وجنوب شرقي آسيا (671 مليون). في المقابل، تقع مناطق الخلاء السكاني في الصحاري (الصحراء الأفريقية الكبرى، صحراء أستراليا) والغابات الاستوائية الكثيفة (أمازونيا وأفريقيا) والمرتفعات الجبلية (الهيمالايا) والمناطق القطبية الباردة (سيبيريا وغرينلاند)، حيث تقل الكثافات عن 10 ساكن/كلم².",
+                ex5A_production_h4_factors: "ثالثاً. العوامل المشتركة المفسرة",
+                ex5A_production_p_factors: "يخضع هذا التفاوت في الحالتين لعوامل متداخلة: فعوامل التركز السكاني تشمل العوامل الطبيعية (السهول الخصبة، وفرة الموارد المائية، المناخات الملائمة، الموقع المنفتح على الواجهات البحرية) والعوامل التاريخية (قدم ظاهرة التعمير) والعوامل الاقتصادية (نظام الأرزّية بآسيا، تنامي الأنشطة الصناعية بأوروبا، تمركز الأنشطة الاقتصادية بالسواحل البرازيلية). أما مناطق الخلاء السكاني فتُفسر بقساوة الظروف الطبيعية (مناخ غير ملائم، فقر التربة، تضاريس معرقلة، غابات كثيفة) وبضعف البنية التحتية وبُعد هذه المناطق عن المراكز الحضرية والأسواق.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا يُعد التفاوت في التوزع الجغرافي للسكان خاصية بنيوية للمجال العالمي، تتجلى في حالة البرازيل كما تتجلى في المجال العالمي، وتُفسَّر بعوامل طبيعية وتاريخية واقتصادية متداخلة.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '100', value: 100, valueFormatted: '100' },
+                { label: '6', value: 6, valueFormatted: '6' },
+                { label: '3', value: 3, valueFormatted: '3' }
+            ],
+            maxValue: 110,
+            ySteps: [110, 88, 66, 44, 22, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            }
+        };
+    </script>
+</body>
+</html>

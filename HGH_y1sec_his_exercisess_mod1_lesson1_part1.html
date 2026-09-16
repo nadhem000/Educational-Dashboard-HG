@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – قرطاج: المؤسسات السياسية والديانة</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        /* ══════ PRINT MODAL STYLES ══════ */
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        /* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <h1 data-i18n="exerciseTitle">تمارين – قرطاج: المؤسسات السياسية والديانة</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: مجلس الشعب، مجلس الشيوخ، السفط، محكمة المائة.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">مجلس الشعب:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">مؤسسة سياسية قرطاجية تضم المواطنين الأحرار فقط (استُبعد منها النساء والعبيد والأجانب). ينتخب أعضاء مجلس الشيوخ والحاكمين، وينظر في مسائل الحرب والسلم وتشريع القوانين. تعاظم دوره منذ أواخر القرن الثالث قبل الميلاد خاصة في عهد هانيبال. يتمتع بسلطة تشريعية.</dd>
+                        <dt data-i18n="ex1_def2_title">مجلس الشيوخ:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">يتكون من 300 عضو منتخب، بشرط المواطنة والوجاهة والثراء. كان السلطة الفعلية في قرطاج، يهيمن على المالية والسياسة الخارجية وإدارة الحرب، ويرسل القواد ويشرف على الحملات العسكرية. يضم لجاناً مصغرة مثل «لجنة الخمسة». يتمتع بسلطة تشريعية، ويشبه في بعض وظائفه مجلس الشيوخ الروماني.</dd>
+                        <dt data-i18n="ex1_def3_title">السفط:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">لفظ قريب من الجذر الفينيقي «شفط» بمعنى قاضٍ أو حاكم. يُنتخب اثنان من السفطين لمدة سنة واحدة، ويشترط فيهما المواطنة والثروة والكفاءة. يتمتعان بسلطة تنفيذية، ويرأسان مجلس الشيوخ ويقترحان القوانين، لكن سلطتهما مقيدة بالمؤسسات الأخرى، ويشبهان القنصلين في روما.</dd>
+                        <dt data-i18n="ex1_def4_title">محكمة المائة:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">تتكون من 104 أعضاء، تُعرف أيضاً بـ«محكمة المائة والأربعة». تنظر في قضايا أمن الدولة والخيانة ومحاسبة القادة العسكريين، وكانت أداة لمراقبة محاولات الاستبداد ومنع تركيز السلطة. سنة 196 ق.م سُنّ قانون بفضل هانيبال ينص على انتخاب القضاة لمدة سنة واحدة ومنع الترشح مرتين متتاليتين.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 2: Document / Diagram -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل المخطط التالي الذي يمثل المؤسسات السياسية القرطاجية، وبيّن سلطة كل مؤسسة ونوعها.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets1sec/exercises/history/unit1/lesson1/carthage_institutions_diagram.png"
+                         alt="مخطط المؤسسات السياسية القرطاجية"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets1sec/exercises/history/unit1/lesson1/carthage_institutions_answer.png"
+                             alt="نموذج الإجابة – سلطات المؤسسات القرطاجية"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        النظام السياسي القرطاجي نظام «مختلط» يقوم على أربع مؤسسات: مجلس الشعب الذي يتمتع بسلطة تشريعية، ومجلس الشيوخ الذي يتمتع بسلطة تشريعية أيضاً، والسفطان اللذان يتمتعان بسلطة تنفيذية، ومحكمة المائة التي تنظر في قضايا أمن الدولة والخيانة ومحاسبة القادة العسكريين. هذا التوزيع للسلطات جعل قرطاج أكثر استقراراً من الإمبراطوريات الشرقية وأكثر توازناً من المدن اليونانية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن عدد أعضاء كل مؤسسة سياسية قرطاجية.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_institution">المؤسسة</th>
+                            <th data-i18n="ex3Q_table_members">عدد الأعضاء</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_senate">مجلس الشيوخ</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_court">محكمة المائة</td>
+                            <td>104</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_suffetes">السفطان</td>
+                            <td>2</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: كتاب «السياسة» لأرسطو والمصادر التاريخية حول قرطاج</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل خصائص النظام السياسي القرطاجي في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        خصائص النظام السياسي القرطاجي:
+                        - كان النظام السياسي خلال القرنين الخامس والرابع قبل الميلاد نخبوياً يمنح السلطة لمجلس الشيوخ وللعائلات الثرية.
+                        - أصبح لمجلس الشعب مكانة هامة منذ أواخر القرن الثالث قبل الميلاد إلى تاريخ سقوط قرطاج 146 ق.م، وبهيمنة الشعب أصبح الحكم ديمقراطياً.
+                        - لم يكن ديمقراطياً شاملاً، إذ استبعد النساء والعبيد والأجانب من المشاركة السياسية.
+                        - يُعد من أرقى الأنظمة السياسية في العالم القديم لأنه قام على التوازن بين السلطات وتداولها ومحاسبتها.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        يعد النظام السياسي القرطاجي من أرقى الأنظمة في العالم القديم، إذ جمع بين عناصر الملكية والأرستقراطية والديمقراطية في نظام «مختلط». فخلال القرنين الخامس والرابع قبل الميلاد كان النظام نخبوياً يمنح السلطة لمجلس الشيوخ وللعائلات الثرية، ثم تعاظم دور مجلس الشعب منذ أواخر القرن الثالث قبل الميلاد وخاصة في عهد هانيبال. وقد قام هذا النظام على التوازن بين السلطات وتداولها ومحاسبتها، مما جعله أكثر استقراراً من الإمبراطوريات الشرقية وأكثر توازناً من المدن اليونانية. لكنه لم يكن ديمقراطياً شاملاً، إذ استبعد النساء والعبيد والأجانب من المشاركة السياسية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول النظام السياسي القرطاجي «المختلط»، مبرزاً الفرق بينه وبين الأنظمة الشرقية واليونانية والرومانية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        وصف أرسطو النظام القرطاجي بأنه من أفضل الأنظمة لأنه نظام «مختلط» يجمع بين عنصر ملكي في السفطين، وعنصر أرستقراطي في مجلس الشيوخ، وعنصر ديمقراطي في مجلس الشعب. حلّل خصائص هذا النظام ومقارنته بالأنظمة الشرقية واليونانية والرومانية.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم النظام السياسي القرطاجي كنظام «مختلط».</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. مكونات النظام المختلط؛ ثانياً. مقارنته بالأنظمة الشرقية واليونانية والرومانية.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: خصائصه وأثره في استقرار قرطاج.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">يعد النظام السياسي القرطاجي من أرقى الأنظمة السياسية في العالم القديم، إذ وصفه أرسطو بأنه نظام «مختلط» يجمع بين ثلاثة عناصر: عنصر ملكي في السفطين، وعنصر أرستقراطي في مجلس الشيوخ، وعنصر ديمقراطي في مجلس الشعب.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_components">أولاً. مكونات النظام المختلط</h4>
+                        <p data-i18n="ex5A_production_p_components">يتكون النظام القرطاجي من أربع مؤسسات: مجلس الشعب الذي يضم المواطنين الأحرار وينتخب أعضاء مجلس الشيوخ والسفطين، ومجلس الشيوخ المكوّن من 300 عضو والسلطة الفعلية في قرطاج، والسفطان اللذان يتمتعان بسلطة تنفيذية، ومحكمة المائة التي تنظر في قضايا أمن الدولة والخيانة.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_comparison">ثانياً. المقارنة بالأنظمة الأخرى</h4>
+                        <p data-i18n="ex5A_production_p_comparison">تميز النظام القرطاجي عن الإمبراطوريات الشرقية كالفارسية والمصرية التي قامت على سلطة مطلقة ووراثية ولم تعرف أي شكل من أشكال تمثيل الشعب أو مشاركته في القرار. كما تميز عن المدن اليونانية التي عانت من صراعات داخلية واضطرابات متكررة. أما مقارنة بروما، فإن النظام القرطاجي يشبه النظام الجمهوري الروماني في بنيته، مع فارق أن قرطاج كانت جمهورية تجارية بحرية بينما كانت روما جمهورية عسكرية توسعية.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا كان النظام السياسي القرطاجي نظاماً «مختلطاً» يقوم على التوازن بين السلطات وتداولها ومحاسبتها، وهو ما جعله من أرقى الأنظمة السياسية في العالم القديم وأكثرها استقراراً.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: تأسيس قرطاج (814 ق.م)، إصلاح محكمة المائة (196 ق.م)، سقوط قرطاج (146 ق.م).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 814 ق.م: تأسيس قرطاج ... 196 ق.م: إصلاح محكمة المائة ... 146 ق.م: سقوط قرطاج.
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y1sec_his_lessons_mod1_lesson1_part1.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "1st Secondary",
+                exerciseTitle: "Exercises – Carthage: Political Institutions and Religion",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: People's Council, Senate, Suffete, Court of One Hundred.",
+                ex1_def1_title: "People's Council:",
+                ex1_def1_subtitle: "A Carthaginian political institution including free citizens only (excluding women, slaves, and foreigners). It elects members of the Senate and the Suffetes, and examines matters of war, peace, and legislation. Its role grew from the late 3rd century BC, especially in Hannibal's era. It has legislative power.",
+                ex1_def2_title: "Senate:",
+                ex1_def2_subtitle: "Consists of 300 elected members, requiring citizenship, prestige, and wealth. It was the actual authority in Carthage, dominating finance, foreign policy, and war management. It includes small committees such as the 'Committee of Five'. It has legislative power and resembles in some functions the Roman Senate.",
+                ex1_def3_title: "Suffete:",
+                ex1_def3_subtitle: "A word close to the Phoenician root 'shofet' meaning judge or governor. Two Suffetes are elected for one year, and citizenship, wealth, and competence are required in them. They have executive power, preside over the Senate, and propose laws, but their power is restricted by other institutions. They resemble the consuls in Rome.",
+                ex1_def4_title: "Court of One Hundred:",
+                ex1_def4_subtitle: "Consists of 104 members, also known as the 'Court of One Hundred and Four'. It examines cases of state security, treason, and accountability of military commanders, and was a tool for monitoring attempts at tyranny and preventing concentration of power. In 196 BC, a law was enacted thanks to Hannibal stipulating that judges be elected for one year and preventing running twice consecutively.",
+                ex2Q: "Observe the following diagram representing the Carthaginian political institutions, and identify the power of each institution and its type.",
+                ex2DocAlt: "Diagram of Carthaginian political institutions",
+                ex2AnswerImgAlt: "Answer model – Powers of Carthaginian institutions",
+                ex2A: "The Carthaginian political system is a 'mixed' system based on four institutions: the People's Council, which has legislative power; the Senate, which also has legislative power; the Suffetes, who have executive power; and the Court of One Hundred, which examines cases of state security, treason, and accountability of military commanders. This distribution of powers made Carthage more stable than the Eastern empires and more balanced than the Greek cities.",
+                ex3Q: "Convert the following table data into a bar chart showing the number of members of each Carthaginian political institution.",
+                ex3Q_table_institution: "Institution",
+                ex3Q_table_members: "Number of members",
+                ex3Q_table_senate: "Senate",
+                ex3Q_table_court: "Court of One Hundred",
+                ex3Q_table_suffetes: "Suffetes",
+                ex3Q_source: "Source: 'Politics' by Aristotle and historical sources on Carthage",
+                ex3A_title: "Number of Members of Carthaginian Political Institutions",
+                ex3A_source: "Source: 'Politics' by Aristotle and historical sources on Carthage",
+                ex3A_scale: "Scale: 0–350 members; column height proportional to number.",
+                ex3A_key_label: "Key:",
+                ex4Q: "Analyse the characteristics of the Carthaginian political system in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Characteristics of the Carthaginian political system:\n- During the 5th and 4th centuries BC, the system was elitist, granting power to the Senate and wealthy families.\n- The People's Council gained an important status from the late 3rd century BC until the fall of Carthage in 146 BC, and with the dominance of the people, rule became democratic.\n- It was not fully democratic, as women, slaves, and foreigners were excluded from political participation.\n- It is considered one of the most refined political systems in the ancient world because it was based on balance, rotation, and accountability of powers.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The Carthaginian political system is considered one of the most refined in the ancient world, combining elements of monarchy, aristocracy, and democracy in a 'mixed' system. During the 5th and 4th centuries BC, the system was elitist, granting power to the Senate and wealthy families. Then the role of the People's Council grew from the late 3rd century BC, especially in Hannibal's era. This system was based on balance, rotation, and accountability of powers, making it more stable than the Eastern empires and more balanced than the Greek cities. However, it was not fully democratic, as women, slaves, and foreigners were excluded from political participation.",
+                ex5Q: "Write a short article on the Carthaginian 'mixed' political system, highlighting the difference between it and the Eastern, Greek, and Roman systems.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Aristotle described the Carthaginian system as one of the best because it is a 'mixed' system combining a monarchical element in the Suffetes, an aristocratic element in the Senate, and a democratic element in the People's Council. Analyse the characteristics of this system and its comparison with the Eastern, Greek, and Roman systems.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Present the Carthaginian political system as a 'mixed' system.",
+                ex5A_plan_li2: "Development: I. Components of the mixed system; II. Comparison with the Eastern, Greek, and Roman systems.",
+                ex5A_plan_li3: "Conclusion: Its characteristics and impact on Carthage's stability.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The Carthaginian political system is considered one of the most refined political systems in the ancient world, described by Aristotle as a 'mixed' system combining three elements: a monarchical element in the Suffetes, an aristocratic element in the Senate, and a democratic element in the People's Council.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_components: "I. Components of the Mixed System",
+                ex5A_production_p_components: "The Carthaginian system consists of four institutions: the People's Council, which includes free citizens and elects members of the Senate and the Suffetes; the Senate, composed of 300 members and the actual authority in Carthage; the Suffetes, who have executive power; and the Court of One Hundred, which examines cases of state security and treason.",
+                ex5A_production_h4_comparison: "II. Comparison with Other Systems",
+                ex5A_production_p_comparison: "The Carthaginian system differed from the Eastern empires such as Persia and Egypt, which were based on absolute and hereditary power and knew no form of popular representation or participation in decision-making. It also differed from the Greek cities, which suffered from internal conflicts and repeated upheavals. Compared to Rome, the Carthaginian system resembles the Roman republican system in its structure, with the difference that Carthage was a commercial maritime republic while Rome was a military expansionist republic.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus the Carthaginian political system was a 'mixed' system based on balance, rotation, and accountability of powers, making it one of the most refined and stable political systems in the ancient world.",
+                ex6Q: "Create a timeline of the following events: Founding of Carthage (814 BC), Reform of the Court of One Hundred (196 BC), Fall of Carthage (146 BC).",
+                ex6A: "Timeline: 814 BC: Founding of Carthage ... 196 BC: Reform of the Court of One Hundred ... 146 BC: Fall of Carthage.",
+                ex6_timeline_title: "Key Dates in the History of Carthage",
+                ex6_event_814_label: "Founding of Carthage",
+                ex6_event_814_sub: "814 BC",
+                ex6_event_196_label: "Reform of the Court of One Hundred",
+                ex6_event_196_sub: "196 BC",
+                ex6_event_146_label: "Fall of Carthage",
+                ex6_event_146_sub: "146 BC",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                exerciseTitle: "Exercices – Carthage : Institutions politiques et religion",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Conseil du peuple, Sénat, Suffète, Tribunal des Cent.",
+                ex1_def1_title: "Conseil du peuple :",
+                ex1_def1_subtitle: "Institution politique carthaginoise comprenant uniquement les citoyens libres (à l'exclusion des femmes, des esclaves et des étrangers). Il élit les membres du Sénat et les Suffètes, et examine les questions de guerre, de paix et de législation. Son rôle s'est accru à partir de la fin du IIIe siècle av. J.-C., en particulier à l'époque d'Hannibal. Il dispose d'un pouvoir législatif.",
+                ex1_def2_title: "Sénat :",
+                ex1_def2_subtitle: "Composé de 300 membres élus, exigeant la citoyenneté, le prestige et la richesse. Il était l'autorité effective à Carthage, dominant les finances, la politique étrangère et la gestion de la guerre. Il comprend de petites commissions telles que le « Comité des Cinq ». Il dispose d'un pouvoir législatif et ressemble par certaines fonctions au Sénat romain.",
+                ex1_def3_title: "Suffète :",
+                ex1_def3_subtitle: "Un mot proche de la racine phénicienne « shofet » signifiant juge ou gouverneur. Deux Suffètes sont élus pour un an, et la citoyenneté, la richesse et la compétence sont requises. Ils ont le pouvoir exécutif, président le Sénat et proposent des lois, mais leur pouvoir est limité par d'autres institutions. Ils ressemblent aux consuls à Rome.",
+                ex1_def4_title: "Tribunal des Cent :",
+                ex1_def4_subtitle: "Composé de 104 membres, également connu sous le nom de « Tribunal des Cent et Quatre ». Il examine les affaires de sécurité de l'État, de trahison et de responsabilité des commandants militaires, et était un outil de surveillance des tentatives de tyrannie et de prévention de la concentration du pouvoir. En 196 av. J.-C., une loi a été promulguée grâce à Hannibal stipulant que les juges soient élus pour un an et empêchant de se présenter deux fois consécutivement.",
+                ex2Q: "Observez le schéma suivant représentant les institutions politiques carthaginoises, et identifiez le pouvoir de chaque institution et son type.",
+                ex2DocAlt: "Schéma des institutions politiques carthaginoises",
+                ex2AnswerImgAlt: "Modèle de réponse – Pouvoirs des institutions carthaginoises",
+                ex2A: "Le système politique carthaginois est un système « mixte » reposant sur quatre institutions : le Conseil du peuple, qui dispose d'un pouvoir législatif ; le Sénat, qui dispose également d'un pouvoir législatif ; les Suffètes, qui disposent d'un pouvoir exécutif ; et le Tribunal des Cent, qui examine les affaires de sécurité de l'État, de trahison et de responsabilité des commandants militaires. Cette répartition des pouvoirs a rendu Carthage plus stable que les empires orientaux et plus équilibrée que les cités grecques.",
+                ex3Q: "Convertissez les données du tableau suivant en diagramme à barres montrant le nombre de membres de chaque institution politique carthaginoise.",
+                ex3Q_table_institution: "Institution",
+                ex3Q_table_members: "Nombre de membres",
+                ex3Q_table_senate: "Sénat",
+                ex3Q_table_court: "Tribunal des Cent",
+                ex3Q_table_suffetes: "Suffètes",
+                ex3Q_source: "Source : « Politique » d'Aristote et sources historiques sur Carthage",
+                ex3A_title: "Nombre de membres des institutions politiques carthaginoises",
+                ex3A_source: "Source : « Politique » d'Aristote et sources historiques sur Carthage",
+                ex3A_scale: "Échelle : 0–350 membres ; hauteur des colonnes proportionnelle au nombre.",
+                ex3A_key_label: "Légende :",
+                ex4Q: "Analysez les caractéristiques du système politique carthaginois en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Caractéristiques du système politique carthaginois :\n- Aux Ve et IVe siècles av. J.-C., le système était élitiste, accordant le pouvoir au Sénat et aux familles riches.\n- Le Conseil du peuple a acquis un statut important de la fin du IIIe siècle av. J.-C. jusqu'à la chute de Carthage en 146 av. J.-C., et avec la domination du peuple, le gouvernement est devenu démocratique.\n- Il n'était pas pleinement démocratique, car les femmes, les esclaves et les étrangers étaient exclus de la participation politique.\n- Il est considéré comme l'un des systèmes politiques les plus raffinés du monde antique car il reposait sur l'équilibre, la rotation et la responsabilité des pouvoirs.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Le système politique carthaginois est considéré comme l'un des plus raffinés du monde antique, combinant des éléments de monarchie, d'aristocratie et de démocratie dans un système « mixte ». Aux Ve et IVe siècles av. J.-C., le système était élitiste, accordant le pouvoir au Sénat et aux familles riches. Puis le rôle du Conseil du peuple s'est accru à partir de la fin du IIIe siècle av. J.-C., surtout à l'époque d'Hannibal. Ce système reposait sur l'équilibre, la rotation et la responsabilité des pouvoirs, ce qui le rendait plus stable que les empires orientaux et plus équilibré que les cités grecques. Cependant, il n'était pas pleinement démocratique, car les femmes, les esclaves et les étrangers étaient exclus de la participation politique.",
+                ex5Q: "Rédigez un court article sur le système politique « mixte » carthaginois, en soulignant la différence entre lui et les systèmes oriental, grec et romain.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Aristote a décrit le système carthaginois comme l'un des meilleurs car c'est un système « mixte » combinant un élément monarchique dans les Suffètes, un élément aristocratique dans le Sénat et un élément démocratique dans le Conseil du peuple. Analysez les caractéristiques de ce système et sa comparaison avec les systèmes oriental, grec et romain.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter le système politique carthaginois comme un système « mixte ».",
+                ex5A_plan_li2: "Développement : I. Composantes du système mixte ; II. Comparaison avec les systèmes oriental, grec et romain.",
+                ex5A_plan_li3: "Conclusion : Ses caractéristiques et son impact sur la stabilité de Carthage.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Le système politique carthaginois est considéré comme l'un des plus raffinés du monde antique, décrit par Aristote comme un système « mixte » combinant trois éléments : un élément monarchique dans les Suffètes, un élément aristocratique dans le Sénat et un élément démocratique dans le Conseil du peuple.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_components: "I. Composantes du système mixte",
+                ex5A_production_p_components: "Le système carthaginois se compose de quatre institutions : le Conseil du peuple, qui comprend les citoyens libres et élit les membres du Sénat et les Suffètes ; le Sénat, composé de 300 membres et autorité effective à Carthage ; les Suffètes, qui détiennent le pouvoir exécutif ; et le Tribunal des Cent, qui examine les affaires de sécurité de l'État et de trahison.",
+                ex5A_production_h4_comparison: "II. Comparaison avec les autres systèmes",
+                ex5A_production_p_comparison: "Le système carthaginois différait des empires orientaux comme la Perse et l'Égypte, qui reposaient sur un pouvoir absolu et héréditaire et ne connaissaient aucune forme de représentation populaire ou de participation à la décision. Il différait également des cités grecques, qui souffraient de conflits internes et de troubles répétés. Comparé à Rome, le système carthaginois ressemble au système républicain romain dans sa structure, avec la différence que Carthage était une république commerciale maritime tandis que Rome était une république militaire expansionniste.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi le système politique carthaginois était un système « mixte » fondé sur l'équilibre, la rotation et la responsabilité des pouvoirs, ce qui en fait l'un des systèmes politiques les plus raffinés et les plus stables du monde antique.",
+                ex6Q: "Créez une chronologie des événements suivants : Fondation de Carthage (814 av. J.-C.), Réforme du Tribunal des Cent (196 av. J.-C.), Chute de Carthage (146 av. J.-C.).",
+                ex6A: "Chronologie : 814 av. J.-C. : Fondation de Carthage ... 196 av. J.-C. : Réforme du Tribunal des Cent ... 146 av. J.-C. : Chute de Carthage.",
+                ex6_timeline_title: "Dates clés de l'histoire de Carthage",
+                ex6_event_814_label: "Fondation de Carthage",
+                ex6_event_814_sub: "814 av. J.-C.",
+                ex6_event_196_label: "Réforme du Tribunal des Cent",
+                ex6_event_196_sub: "196 av. J.-C.",
+                ex6_event_146_label: "Chute de Carthage",
+                ex6_event_146_sub: "146 av. J.-C.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                exerciseTitle: "تمارين – قرطاج: المؤسسات السياسية والديانة",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: مجلس الشعب، مجلس الشيوخ، السفط، محكمة المائة.",
+                ex1_def1_title: "مجلس الشعب:",
+                ex1_def1_subtitle: "مؤسسة سياسية قرطاجية تضم المواطنين الأحرار فقط (استُبعد منها النساء والعبيد والأجانب). ينتخب أعضاء مجلس الشيوخ والحاكمين، وينظر في مسائل الحرب والسلم وتشريع القوانين. تعاظم دوره منذ أواخر القرن الثالث قبل الميلاد خاصة في عهد هانيبال. يتمتع بسلطة تشريعية.",
+                ex1_def2_title: "مجلس الشيوخ:",
+                ex1_def2_subtitle: "يتكون من 300 عضو منتخب، بشرط المواطنة والوجاهة والثراء. كان السلطة الفعلية في قرطاج، يهيمن على المالية والسياسة الخارجية وإدارة الحرب، ويرسل القواد ويشرف على الحملات العسكرية. يضم لجاناً مصغرة مثل «لجنة الخمسة». يتمتع بسلطة تشريعية، ويشبه في بعض وظائفه مجلس الشيوخ الروماني.",
+                ex1_def3_title: "السفط:",
+                ex1_def3_subtitle: "لفظ قريب من الجذر الفينيقي «شفط» بمعنى قاضٍ أو حاكم. يُنتخب اثنان من السفطين لمدة سنة واحدة، ويشترط فيهما المواطنة والثروة والكفاءة. يتمتعان بسلطة تنفيذية، ويرأسان مجلس الشيوخ ويقترحان القوانين، لكن سلطتهما مقيدة بالمؤسسات الأخرى، ويشبهان القنصلين في روما.",
+                ex1_def4_title: "محكمة المائة:",
+                ex1_def4_subtitle: "تتكون من 104 أعضاء، تُعرف أيضاً بـ«محكمة المائة والأربعة». تنظر في قضايا أمن الدولة والخيانة ومحاسبة القادة العسكريين، وكانت أداة لمراقبة محاولات الاستبداد ومنع تركيز السلطة. سنة 196 ق.م سُنّ قانون بفضل هانيبال ينص على انتخاب القضاة لمدة سنة واحدة ومنع الترشح مرتين متتاليتين.",
+                ex2Q: "تأمل المخطط التالي الذي يمثل المؤسسات السياسية القرطاجية، وبيّن سلطة كل مؤسسة ونوعها.",
+                ex2DocAlt: "مخطط المؤسسات السياسية القرطاجية",
+                ex2AnswerImgAlt: "نموذج الإجابة – سلطات المؤسسات القرطاجية",
+                ex2A: "النظام السياسي القرطاجي نظام «مختلط» يقوم على أربع مؤسسات: مجلس الشعب الذي يتمتع بسلطة تشريعية، ومجلس الشيوخ الذي يتمتع بسلطة تشريعية أيضاً، والسفطان اللذان يتمتعان بسلطة تنفيذية، ومحكمة المائة التي تنظر في قضايا أمن الدولة والخيانة ومحاسبة القادة العسكريين. هذا التوزيع للسلطات جعل قرطاج أكثر استقراراً من الإمبراطوريات الشرقية وأكثر توازناً من المدن اليونانية.",
+                ex3Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن عدد أعضاء كل مؤسسة سياسية قرطاجية.",
+                ex3Q_table_institution: "المؤسسة",
+                ex3Q_table_members: "عدد الأعضاء",
+                ex3Q_table_senate: "مجلس الشيوخ",
+                ex3Q_table_court: "محكمة المائة",
+                ex3Q_table_suffetes: "السفطان",
+                ex3Q_source: "المصدر: كتاب «السياسة» لأرسطو والمصادر التاريخية حول قرطاج",
+                ex3A_title: "عدد أعضاء المؤسسات السياسية القرطاجية",
+                ex3A_source: "المصدر: كتاب «السياسة» لأرسطو والمصادر التاريخية حول قرطاج",
+                ex3A_scale: "المقياس: 0–350 عضو؛ ارتفاع الأعمدة يتناسب مع العدد.",
+                ex3A_key_label: "المفتاح:",
+                ex4Q: "حلّل خصائص النظام السياسي القرطاجي في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "خصائص النظام السياسي القرطاجي:\n- كان النظام السياسي خلال القرنين الخامس والرابع قبل الميلاد نخبوياً يمنح السلطة لمجلس الشيوخ وللعائلات الثرية.\n- أصبح لمجلس الشعب مكانة هامة منذ أواخر القرن الثالث قبل الميلاد إلى تاريخ سقوط قرطاج 146 ق.م، وبهيمنة الشعب أصبح الحكم ديمقراطياً.\n- لم يكن ديمقراطياً شاملاً، إذ استبعد النساء والعبيد والأجانب من المشاركة السياسية.\n- يُعد من أرقى الأنظمة السياسية في العالم القديم لأنه قام على التوازن بين السلطات وتداولها ومحاسبتها.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "يعد النظام السياسي القرطاجي من أرقى الأنظمة في العالم القديم، إذ جمع بين عناصر الملكية والأرستقراطية والديمقراطية في نظام «مختلط». فخلال القرنين الخامس والرابع قبل الميلاد كان النظام نخبوياً يمنح السلطة لمجلس الشيوخ وللعائلات الثرية، ثم تعاظم دور مجلس الشعب منذ أواخر القرن الثالث قبل الميلاد وخاصة في عهد هانيبال. وقد قام هذا النظام على التوازن بين السلطات وتداولها ومحاسبتها، مما جعله أكثر استقراراً من الإمبراطوريات الشرقية وأكثر توازناً من المدن اليونانية. لكنه لم يكن ديمقراطياً شاملاً، إذ استبعد النساء والعبيد والأجانب من المشاركة السياسية.",
+                ex5Q: "اكتب مقالاً قصيراً حول النظام السياسي القرطاجي «المختلط»، مبرزاً الفرق بينه وبين الأنظمة الشرقية واليونانية والرومانية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "وصف أرسطو النظام القرطاجي بأنه من أفضل الأنظمة لأنه نظام «مختلط» يجمع بين عنصر ملكي في السفطين، وعنصر أرستقراطي في مجلس الشيوخ، وعنصر ديمقراطي في مجلس الشعب. حلّل خصائص هذا النظام ومقارنته بالأنظمة الشرقية واليونانية والرومانية.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم النظام السياسي القرطاجي كنظام «مختلط».",
+                ex5A_plan_li2: "تطوير: أولاً. مكونات النظام المختلط؛ ثانياً. مقارنته بالأنظمة الشرقية واليونانية والرومانية.",
+                ex5A_plan_li3: "خاتمة: خصائصه وأثره في استقرار قرطاج.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "يعد النظام السياسي القرطاجي من أرقى الأنظمة السياسية في العالم القديم، إذ وصفه أرسطو بأنه نظام «مختلط» يجمع بين ثلاثة عناصر: عنصر ملكي في السفطين، وعنصر أرستقراطي في مجلس الشيوخ، وعنصر ديمقراطي في مجلس الشعب.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_components: "أولاً. مكونات النظام المختلط",
+                ex5A_production_p_components: "يتكون النظام القرطاجي من أربع مؤسسات: مجلس الشعب الذي يضم المواطنين الأحرار وينتخب أعضاء مجلس الشيوخ والسفطين، ومجلس الشيوخ المكوّن من 300 عضو والسلطة الفعلية في قرطاج، والسفطان اللذان يتمتعان بسلطة تنفيذية، ومحكمة المائة التي تنظر في قضايا أمن الدولة والخيانة.",
+                ex5A_production_h4_comparison: "ثانياً. المقارنة بالأنظمة الأخرى",
+                ex5A_production_p_comparison: "تميز النظام القرطاجي عن الإمبراطوريات الشرقية كالفارسية والمصرية التي قامت على سلطة مطلقة ووراثية ولم تعرف أي شكل من أشكال تمثيل الشعب أو مشاركته في القرار. كما تميز عن المدن اليونانية التي عانت من صراعات داخلية واضطرابات متكررة. أما مقارنة بروما، فإن النظام القرطاجي يشبه النظام الجمهوري الروماني في بنيته، مع فارق أن قرطاج كانت جمهورية تجارية بحرية بينما كانت روما جمهورية عسكرية توسعية.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا كان النظام السياسي القرطاجي نظاماً «مختلطاً» يقوم على التوازن بين السلطات وتداولها ومحاسبتها، وهو ما جعله من أرقى الأنظمة السياسية في العالم القديم وأكثرها استقراراً.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: تأسيس قرطاج (814 ق.م)، إصلاح محكمة المائة (196 ق.م)، سقوط قرطاج (146 ق.م).",
+                ex6A: "الخط الزمني: 814 ق.م: تأسيس قرطاج ... 196 ق.م: إصلاح محكمة المائة ... 146 ق.م: سقوط قرطاج.",
+                ex6_timeline_title: "محطات أساسية في تاريخ قرطاج",
+                ex6_event_814_label: "تأسيس قرطاج",
+                ex6_event_814_sub: "814 ق.م",
+                ex6_event_196_label: "إصلاح محكمة المائة",
+                ex6_event_196_sub: "196 ق.م",
+                ex6_event_146_label: "سقوط قرطاج",
+                ex6_event_146_sub: "146 ق.م",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: '300', value: 300, valueFormatted: '300' },
+                { label: '104', value: 104, valueFormatted: '104' },
+                { label: '2', value: 2, valueFormatted: '2' }
+            ],
+            maxValue: 350,
+            ySteps: [350, 280, 210, 140, 70, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 814, labelKey: 'ex6_event_814_label', subKey: 'ex6_event_814_sub' },
+                { year: 196, labelKey: 'ex6_event_196_label', subKey: 'ex6_event_196_sub' },
+                { year: 146, labelKey: 'ex6_event_146_label', subKey: 'ex6_event_146_sub' }
+            ],
+            startYear: 814,
+            endYear: 146,
+            scaleYears: [814, 650, 480, 310, 146]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

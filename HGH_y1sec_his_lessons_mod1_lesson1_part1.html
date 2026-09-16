@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">قرطاج: المؤسسات السياسية والديانة</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">تأسست قرطاج سنة 814 ق.م وتطورت من مستوطنة فينيقية إلى إمبراطورية تمتد على الجزء الغربي من البحر المتوسط. وتميزت باعتماد مؤسسات سياسية متطورة. وقد تحولت بفضل موقعها البحري الاستراتيجي وثرائها التجاري إلى قوة بحرية كبرى امتد نفوذها على سواحل تونس الحالية وغرب ليبيا وصقلية وسردينيا وجزر البليار وجنوب إسبانيا، وأقامت شبكة من المدن والموانئ والمستوطنات المرتبطة بها تجارياً وعسكرياً. وقد اختلفت عن الإمبراطوريات الشرقية الكبرى كالفارسية والمصرية التي قامت على سلطة مطلقة ووراثية، وعن المدن اليونانية التي عانت من صراعات داخلية واضطرابات متكررة.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي خصائص النظام السياسي القرطاجي؟</p>
+            </div>
+
+            <!-- Part I : Political System -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">النظام السياسي بقرطاج</span>
+                </h2>
+
+                <!-- 1. City-State system -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="system1Title">نظام المدينة – الدولة</span>
+                </h3>
+                <p data-i18n="system1Text">تميزت قرطاج باعتماد نظام سياسي يُعرف بنظام «المدينة – الدولة»، وهو يتمثل في امتداد نفوذ الدولة على مدينة وضواحيها. ويقوم هذا النظام على أن المدينة هي المركز السياسي والإداري والاقتصادي، وتتبعها المناطق المجاورة والمستوطنات التابعة لها. وقد مكّن هذا النظام قرطاج من الجمع بين مركزية القرار في المدينة ومرونة الإدارة في المستوطنات، وهو ما جعلها أكثر استقراراً من الإمبراطوريات الشرقية التي كانت تعتمد على القهر والجيش للسيطرة على الشعوب، وأكثر تنظيماً من المدن اليونانية التي ظلت محدودة النطاق ومهددة بالفتن الداخلية.</p>
+
+                <!-- 2. Political institutions -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="system2Title">المؤسسات السياسية في العهد البوني</span>
+                </h3>
+                <p data-i18n="system2Intro">نوَّه الفلاسفة الإغريق بالمؤسسات السياسية القرطاجية، ويُعتبر كتاب «السياسة» للفيلسوف الإغريقي أرسطو طاليس من أهم المصادر التي تعرضت إلى النظام السياسي القرطاجي في العهد البوني. كما تحدث عنه المؤرخ بولبيوس وليفي في مرحلة الحرب البونية الثانية. وقد وصف أرسطو هذا النظام بأنه من أفضل الأنظمة لأنه نظام «مختلط» يجمع بين عنصر ملكي في السفطين، وعنصر أرستقراطي في مجلس الشيوخ، وعنصر ديمقراطي في مجلس الشعب، ويحقق التوازن والاستقرار ويقي من الاستبداد ومن اضطراب الدهماء، وهو ما لم تعرفه معظم دول ذلك العصر التي غلب عليها الحكم المطلق أو الوراثي.</p>
+
+                <!-- A. People's Council -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="councilPeopleTitle">مجلس الشعب</span>
+                </h4>
+                <p data-i18n="councilPeopleText">يضم كل المواطنين القرطاجيين، وتتمثل صلاحياته في انتخاب أعضاء مجلس الشيوخ والحاكمين، وهو ينظر في عدة مسائل مثل الحرب والسلم وتشريع القوانين. ويجتمع في الساحة العامة عند الحاجة. ولم يكن يضم كل سكان قرطاج، بل المواطنين الأحرار فقط، أما العبيد والأجانب والنساء فكانوا مستبعدين، شأنه في ذلك شأن أثينا وروما. وقد تعاظم دوره منذ أواخر القرن الثالث قبل الميلاد، خاصة في عهد هانيبال وخلال الحروب مع روما، حيث أصبح له دور في محاسبة القادة العسكريين بعد عودتهم من الحملات. ويُعد وجود هذا المجلس ميزة كبيرة لقرطاج مقارنة بالإمبراطورية الفارسية والمصرية اللتين لم تعرفا أي شكل من أشكال تمثيل الشعب أو مشاركته في القرار.</p>
+                <p class="institution-power" data-i18n="councilPeoplePower">يتمتع مجلس الشعب بسلطة تشريعية.</p>
+
+                <!-- B. Senate -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="councilSenateTitle">مجلس الشيوخ</span>
+                </h4>
+                <p data-i18n="councilSenateText">يتكون من 300 عضو عن طريق الانتخاب، ويشترط على المترشح عدة شروط مثل المواطنة والوجاهة والثراء. وله صلاحيات هامة في التشريع والسياسة الخارجية والنظر في بعض القضايا. وكان هو السلطة الفعلية في قرطاج، يهيمن على المالية والسياسة الخارجية وإدارة الحرب، ويرسل القواد ويشرف على الحملات العسكرية، ويضم لجاناً مصغرة تنظر في القضايا الكبرى مثل لجنة الخمسة. ويشبه في بعض وظائفه مجلس الشيوخ الروماني، لكنه كان أكثر انفتاحاً على العناصر التجارية والثرية، وقد ساهم في استقرار السياسة الخارجية وتجنب المغامرات إلا عند الضرورة، خلافاً لبعض المدن اليونانية التي كانت قراراتها تتأرجح بين تضارب المصالح وتقلب الأهواء.</p>
+                <p class="institution-power" data-i18n="councilSenatePower">يتمتع مجلس الشيوخ بسلطة تشريعية.</p>
+
+                <!-- C. Suffetes -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="suffetesTitle">الحكام</span>
+                </h4>
+                <p data-i18n="suffetesText">ينتخب الشعب حاكمين «سفطين» لمدة سنة واحدة، ويمكن الترشح لهذه الخطة عدة مرات، ويشترط في اختيارهما الثروة والكفاءة. وتتمثل صلاحياتهما في تسيير الشؤون الإدارية والسياسية للدولة وتنفيذ قرارات مجلس الشعب ومجلس الشيوخ. ولفظ «سفط» قريب من الجذر الفينيقي «شفط» بمعنى قاضٍ أو حاكم. وكان السفطان يشبهان إلى حد كبير القنصلين في روما، ويشترط فيهما المواطنة أيضاً، ويرأسان مجلس الشيوخ ويقترحان القوانين، لكن سلطتهما كانت مقيدة بالمؤسسات الأخرى، وقد يشاركان في بعض الوظائف الدينية. ويُعد مبدأ الزوجية في الحكم من أبرز محاسن النظام القرطاجي لأنه يمنع تركيز السلطة في يد فرد واحد، كما أن مدة السنة الواحدة تضمن تداول السلطة وتجديد النخب، وهذا مبدأ نادر في العصور القديمة حيث كان الحكم غالباً وراثياً ومطلقاً كما في فارس ومصر.</p>
+                <p class="institution-power" data-i18n="suffetesPower">يتمتع السفطان بسلطة تنفيذية.</p>
+
+                <!-- D. Court of 100 -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>.
+                    <span data-i18n="court100Title">محكمة المائة</span>
+                </h4>
+                <p data-i18n="court100Text">تتكون من 104 أعضاء، وتنظر في قضايا أمن الدولة والتصدي لمحاولات الحكم الفردي. ويُطلق عليها أحياناً «محكمة المائة والأربعة». وكانت تنظر أيضاً في قضايا الخيانة ومحاسبة القادة العسكريين، وكانت أداة لمراقبة محاولات الاستبداد ومنع تركيز السلطة. ويتمتع القضاة بنفوذ قوي إلى حدود 196 ق.م، تاريخ سن قانون ينص على انتخاب القضاة لمدة سنة واحدة ولا يحق الترشح للخطة مرتين متتاليتين، وقد نُسب هذا الإصلاح إلى هانيبال. وتُعد هذه المحكمة من أقدم صور المحاسبة السياسية والقضائية في التاريخ القديم، إذ ساهمت في سيادة القانون وردع المتجاوزين، وهي ميزة لم تعرفها الإمبراطوريات الشرقية التي كان فيها الحاكم فوق القانون والمحاسبة.</p>
+
+                <!-- 3. Characteristics -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="system3Title">خصائص النظام السياسي القرطاجي</span>
+                </h3>
+                <ul>
+                    <li data-i18n="system3Bullet1">كان النظام السياسي خلال القرنين الخامس والرابع قبل الميلاد نخبوياً يمنح السلطة لمجلس الشيوخ وللعائلات الثرية.</li>
+                    <li data-i18n="system3Bullet2">أصبح لمجلس الشعب مكانة هامة منذ أواخر القرن الثالث قبل الميلاد إلى تاريخ سقوط قرطاج 146 ق.م، حيث تعاظمت مكانته على حساب مجلس الشيوخ والسفطين، وبهيمنة الشعب أصبح الحكم ديمقراطياً.</li>
+                    <li data-i18n="system3Bullet3">ورغم وصف هذا النظام بالديمقراطي، فإنه لم يكن ديمقراطياً شاملاً، إذ استبعد النساء والعبيد والأجانب من المشاركة السياسية.</li>
+                    <li data-i18n="system3Bullet4">ويُعد هذا النظام من أرقى الأنظمة السياسية في العالم القديم لأنه قام على التوازن بين السلطات وتداولها ومحاسبتها، وهو ما جعل قرطاج أكثر استقراراً من فارس ومصر، وأكثر توازناً من أثينا، وأقرب إلى روما في بنيتها الجمهورية مع فارق أن قرطاج كانت جمهورية تجارية بحرية بينما كانت روما جمهورية عسكرية توسعية.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">جمع النظام السياسي القرطاجي بين عناصر الملكية والأرستقراطية والديمقراطية في نظام «مختلط» توازن فيه مجلس الشعب ومجلس الشيوخ والسفطان ومحكمة المائة، مما جعله من أرقى الأنظمة السياسية في العالم القديم وأكثرها استقراراً، وجعل قرطاج أكثر توازناً من المدن اليونانية وأكثر استقراراً من الإمبراطوريات الشرقية.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defAristotle">أرسطو طاليس</strong>: <span data-i18n="defAristotleDesc">فيلسوف إغريقي صاحب كتاب «السياسة»، وهو من أهم المصادر التي تعرضت إلى النظام السياسي القرطاجي في العهد البوني، ووصفه بأنه نظام «مختلط» يجمع بين عنصر ملكي في السفطين، وعنصر أرستقراطي في مجلس الشيوخ، وعنصر ديمقراطي في مجلس الشعب، وعدّه من أفضل الأنظمة.</span></li>
+                        <li><strong class="key-person" data-i18n="defPolybius">بولبيوس</strong>: <span data-i18n="defPolybiusDesc">مؤرخ تحدث عن النظام السياسي القرطاجي في مرحلة الحرب البونية الثانية.</span></li>
+                        <li><strong class="key-person" data-i18n="defLivy">ليفي</strong>: <span data-i18n="defLivyDesc">مؤرخ تحدث عن النظام السياسي القرطاجي في مرحلة الحرب البونية الثانية.</span></li>
+                        <li><strong class="key-person" data-i18n="defHannibal">هانيبال</strong>: <span data-i18n="defHannibalDesc">ارتبط اسمه بتعاظم دور مجلس الشعب في قرطاج خلال الحروب مع روما، ونُسب إليه الإصلاح القضائي سنة 196 ق.م الذي نصّ على انتخاب قضاة محكمة المائة لمدة سنة واحدة ومنع الترشح مرتين متتاليتين.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">مستوطنة فينيقية تأسست سنة 814 ق.م، وتطورت إلى إمبراطورية تمتد على الجزء الغربي من البحر المتوسط، وامتد نفوذها على سواحل تونس الحالية وغرب ليبيا وصقلية وسردينيا وجزر البليار وجنوب إسبانيا، وأقامت شبكة من المدن والموانئ والمستوطنات.</span></li>
+                        <li><strong class="key-location" data-i18n="defPersia">فارس</strong>: <span data-i18n="defPersiaDesc">إمبراطورية شرقية كبرى قامت على سلطة مطلقة ووراثية، ولم تعرف أي شكل من أشكال تمثيل الشعب أو مشاركته في القرار، بخلاف قرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defEgypt">مصر</strong>: <span data-i18n="defEgyptDesc">إمبراطورية شرقية كبرى قامت على سلطة مطلقة ووراثية، وكان الحاكم فيها فوق القانون والمحاسبة، بخلاف قرطاج التي عرفت مؤسسات للمحاسبة.</span></li>
+                        <li><strong class="key-location" data-i18n="defAthens">أثينا</strong>: <span data-i18n="defAthensDesc">مدينة إغريقية استبعدت النساء والعبيد والأجانب من المشاركة السياسية، شأنها شأن قرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defRome">روما</strong>: <span data-i18n="defRomeDesc">جمهورية عسكرية توسعية، يشبه نظامها الجمهوري نظام قرطاج في بنيته، مع فارق أن قرطاج كانت جمهورية تجارية بحرية.</span></li>
+                        <li><strong class="key-location" data-i18n="defSicily">صقلية</strong>: <span data-i18n="defSicilyDesc">جزيرة في البحر المتوسط امتد إليها نفوذ قرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defSardinia">سردينيا</strong>: <span data-i18n="defSardiniaDesc">جزيرة في البحر المتوسط امتد إليها نفوذ قرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defBalearic">جزر البليار</strong>: <span data-i18n="defBalearicDesc">مجموعة جزر في غرب البحر المتوسط امتد إليها نفوذ قرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defSpain">جنوب إسبانيا</strong>: <span data-i18n="defSpainDesc">منطقة امتد إليها نفوذ قرطاج في غرب البحر المتوسط.</span></li>
+                        <li><strong class="key-location" data-i18n="defTunisia">تونس</strong>: <span data-i18n="defTunisiaDesc">امتد النفوذ القرطاجي على سواحلها الحالية.</span></li>
+                        <li><strong class="key-location" data-i18n="defLibya">ليبيا</strong>: <span data-i18n="defLibyaDesc">امتد النفوذ القرطاجي على غربها.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defFoundingCarthage">تأسيس قرطاج (814 ق.م)</strong>: <span data-i18n="defFoundingCarthageDesc">تأسيس قرطاج كمستوطنة فينيقية سنة 814 ق.م قبل أن تتحول إلى إمبراطورية في غرب البحر المتوسط.</span></li>
+                        <li><strong class="key-event" data-i18n="defSecondPunicWar">الحرب البونية الثانية</strong>: <span data-i18n="defSecondPunicWarDesc">المرحلة التي تحدث فيها المؤرخ بولبيوس وليفي عن النظام السياسي القرطاجي.</span></li>
+                        <li><strong class="key-event" data-i18n="defReform196BC">إصلاح 196 ق.م</strong>: <span data-i18n="defReform196BCDesc">إصلاح قضائي نُسب إلى هانيبال، نصّ على انتخاب قضاة محكمة المائة لمدة سنة واحدة ومنع الترشح للخطة مرتين متتاليتين، للحد من نفوذ القضاة ومنع تركيز السلطة.</span></li>
+                        <li><strong class="key-event" data-i18n="defFallCarthage">سقوط قرطاج (146 ق.م)</strong>: <span data-i18n="defFallCarthageDesc">التاريخ الذي شهد سقوط قرطاج، وهو الحد الذي انتهت عنده هيمنة مجلس الشعب على حساب مجلس الشيوخ والسفطين.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">814 ق.م</strong>: <span data-i18n="defYear814Desc">تأسيس قرطاج.</span></li>
+                        <li><strong class="key-year">القرنان الخامس والرابع قبل الميلاد</strong>: <span data-i18n="defYear5th4thDesc">مرحلة النظام النخبوي الذي منح السلطة لمجلس الشيوخ وللعائلات الثرية.</span></li>
+                        <li><strong class="key-year">أواخر القرن الثالث قبل الميلاد</strong>: <span data-i18n="defYearLate3rdDesc">بداية تعاظم دور مجلس الشعب على حساب مجلس الشيوخ والسفطين.</span></li>
+                        <li><strong class="key-year">196 ق.م</strong>: <span data-i18n="defYear196Desc">سنّ قانون انتخاب قضاة محكمة المائة لمدة سنة واحدة ومنع الترشح مرتين متتاليتين.</span></li>
+                        <li><strong class="key-year">146 ق.م</strong>: <span data-i18n="defYear146Desc">تاريخ سقوط قرطاج.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defCityState">نظام المدينة – الدولة</strong>: <span data-i18n="defCityStateDesc">نظام سياسي يتمثل في امتداد نفوذ الدولة على مدينة وضواحيها، حيث تكون المدينة المركز السياسي والإداري والاقتصادي وتتبعها المناطق المجاورة والمستوطنات. مكّن قرطاج من الجمع بين مركزية القرار في المدينة ومرونة الإدارة في المستوطنات.</span></li>
+                        <li><strong class="key-other" data-i18n="defSuffete">السفط</strong>: <span data-i18n="defSuffeteDesc">لفظ قريب من الجذر الفينيقي «شفط» بمعنى قاضٍ أو حاكم. يُنتخب اثنان من السفطين لمدة سنة واحدة، ويشترط فيهما المواطنة والثروة والكفاءة. يتمتعان بسلطة تنفيذية، ويرأسان مجلس الشيوخ ويقترحان القوانين، لكن سلطتهما مقيدة بالمؤسسات الأخرى، وقد يشاركان في بعض الوظائف الدينية، ويشبهان القنصلين في روما.</span></li>
+                        <li><strong class="key-other" data-i18n="defPeopleCouncil">مجلس الشعب</strong>: <span data-i18n="defPeopleCouncilDesc">مؤسسة سياسية قرطاجية تضم المواطنين الأحرار فقط (استُبعد منها النساء والعبيد والأجانب). ينتخب أعضاء مجلس الشيوخ والحاكمين، وينظر في مسائل الحرب والسلم وتشريع القوانين. تعاظم دوره منذ أواخر القرن الثالث قبل الميلاد خاصة في عهد هانيبال. يتمتع بسلطة تشريعية.</span></li>
+                        <li><strong class="key-other" data-i18n="defSenate">مجلس الشيوخ</strong>: <span data-i18n="defSenateDesc">يتكون من 300 عضو منتخب، بشرط المواطنة والوجاهة والثراء. كان السلطة الفعلية في قرطاج، يهيمن على المالية والسياسة الخارجية وإدارة الحرب، ويرسل القواد ويشرف على الحملات العسكرية. يضم لجاناً مصغرة مثل «لجنة الخمسة». يتمتع بسلطة تشريعية، ويشبه في بعض وظائفه مجلس الشيوخ الروماني.</span></li>
+                        <li><strong class="key-other" data-i18n="defCourt100">محكمة المائة</strong>: <span data-i18n="defCourt100Desc">تتكون من 104 أعضاء، تُعرف أيضاً بـ«محكمة المائة والأربعة». تنظر في قضايا أمن الدولة والخيانة ومحاسبة القادة العسكريين، وكانت أداة لمراقبة محاولات الاستبداد ومنع تركيز السلطة. سنة 196 ق.م سُنّ قانون بفضل هانيبال ينص على انتخاب القضاة لمدة سنة واحدة ومنع الترشح مرتين متتاليتين.</span></li>
+                        <li><strong class="key-other" data-i18n="defCommitteeFive">لجنة الخمسة</strong>: <span data-i18n="defCommitteeFiveDesc">لجنة مصغرة داخل مجلس الشيوخ القرطاجي تنظر في القضايا الكبرى.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: جمع النظام السياسي القرطاجي بين عناصر الملكية والأرستقراطية والديمقراطية في نظام «مختلط»، وعرف مؤسسات للمحاسبة وتداول السلطة (مجلس الشعب، مجلس الشيوخ، السفطان، محكمة المائة)، مما جعله أكثر استقراراً من الإمبراطوريات الشرقية وأكثر توازناً من المدن اليونانية، وأقرب إلى روما في بنيتها الجمهورية.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/carthage_map.jpg" alt="خريطة الإمبراطورية القرطاجية" data-i18n-alt="galleryAlt1" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/carthage_ports.jpg" alt="الموانئ القرطاجية" data-i18n-alt="galleryAlt2" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/aristotle.jpg" alt="أرسطو طاليس" data-i18n-alt="galleryAlt3" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/carthage_senate.jpg" alt="مجلس الشيوخ القرطاجي" data-i18n-alt="galleryAlt4" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/hannibal.jpg" alt="هانيبال" data-i18n-alt="galleryAlt5" loading="lazy">
+                    <img src="assets1sec/lessons/history/unit1/lesson1/carthage_ruins.jpg" alt="آثار قرطاج" data-i18n-alt="galleryAlt6" loading="lazy">
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_his_exercisess_mod1_lesson1_part1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "History / Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)",
+                lessonTitleSample: "Carthage: Political Institutions and Religion",
+                sectionIntro: "Introduction",
+                introText: "Carthage was founded in 814 BC and grew from a Phoenician settlement into an empire spanning the western Mediterranean. It was distinguished by its advanced political institutions. Thanks to its strategic maritime location and commercial wealth, it became a major naval power whose influence extended over the coasts of present-day Tunisia, western Libya, Sicily, Sardinia, the Balearic Islands, and southern Spain, and it established a network of cities, ports, and settlements linked commercially and militarily. It differed from the great Eastern empires such as Persia and Egypt, which were based on absolute and hereditary power, and from the Greek cities, which suffered from internal conflicts and repeated upheavals.",
+                problematiqueText: "What are the characteristics of the Carthaginian political system?",
+                sectionPart1: "The Political System in Carthage",
+                system1Title: "The City-State System",
+                system1Text: "Carthage was distinguished by a political system known as the 'City-State' system, which consisted of the state's influence extending over a city and its surroundings. This system was based on the city being the political, administrative, and economic center, with neighboring regions and dependent settlements following it. This system enabled Carthage to combine centralized decision-making in the city with flexible administration in the settlements, making it more stable than the Eastern empires that relied on coercion and the army to control peoples, and more organized than the Greek cities that remained limited in scope and threatened by internal strife.",
+                system2Title: "Political Institutions in the Punic Era",
+                system2Intro: "Greek philosophers praised Carthaginian political institutions, and the book 'Politics' by the Greek philosopher Aristotle is one of the most important sources that addressed the Carthaginian political system in the Punic era. The historians Polybius and Livy also discussed it during the Second Punic War. Aristotle described this system as one of the best because it was a 'mixed' system combining a monarchical element in the Suffetes, an aristocratic element in the Senate, and a democratic element in the People's Council, achieving balance and stability and preventing tyranny and mob rule, which most states of that era, dominated by absolute or hereditary rule, did not know.",
+                councilPeopleTitle: "The People's Council",
+                councilPeopleText: "It includes all Carthaginian citizens, and its powers consist of electing members of the Senate and the Suffetes, and it examines several matters such as war and peace and legislation of laws. It meets in the public square when needed. It did not include all inhabitants of Carthage, but only free citizens; slaves, foreigners, and women were excluded, as was the case in Athens and Rome. Its role grew from the late 3rd century BC, especially in the era of Hannibal and during the wars with Rome, when it gained a role in holding military commanders accountable after their return from campaigns. The existence of this council is a great advantage for Carthage compared to the Persian and Egyptian empires, which knew no form of popular representation or participation in decision-making.",
+                councilPeoplePower: "The People's Council has legislative power.",
+                councilSenateTitle: "The Senate",
+                councilSenateText: "It consists of 300 members elected by election, and candidates must meet several conditions such as citizenship, prestige, and wealth. It has important powers in legislation, foreign policy, and examining certain issues. It was the actual authority in Carthage, dominating finance, foreign policy, and war management, sending commanders and supervising military campaigns, and it includes small committees that examine major issues such as the Committee of Five. It resembles in some functions the Roman Senate, but it was more open to commercial and wealthy elements, and it contributed to the stability of foreign policy and avoiding adventures except when necessary, unlike some Greek cities whose decisions oscillated between conflicting interests and shifting passions.",
+                councilSenatePower: "The Senate has legislative power.",
+                suffetesTitle: "The Suffetes",
+                suffetesText: "The people elect two 'Suffetes' for a term of one year, and candidacy for this office is allowed several times, and wealth and competence are required in their selection. Their powers consist of managing the administrative and political affairs of the state and implementing the decisions of the People's Council and the Senate. The word 'Suffete' is close to the Phoenician root 'shofet' meaning judge or governor. The two Suffetes were largely similar to the consuls in Rome, and citizenship was also required in them; they presided over the Senate and proposed laws, but their power was restricted by other institutions, and they might participate in some religious functions. The principle of duality in rule is one of the most prominent merits of the Carthaginian system because it prevents the concentration of power in the hands of one individual, and the one-year term ensures the rotation of power and renewal of elites, a principle rare in antiquity where rule was often hereditary and absolute as in Persia and Egypt.",
+                suffetesPower: "The Suffetes have executive power.",
+                court100Title: "The Court of One Hundred",
+                court100Text: "It consists of 104 members, and it examines cases of state security and confronting attempts at individual rule. It is sometimes called the 'Court of One Hundred and Four'. It also examined cases of treason and holding military commanders accountable, and it was a tool for monitoring attempts at tyranny and preventing the concentration of power. The judges enjoyed strong influence until 196 BC, the date of a law stipulating that judges be elected for a term of one year and not be allowed to run for the office twice consecutively, and this reform was attributed to Hannibal. This court is one of the oldest forms of political and judicial accountability in ancient history, as it contributed to the rule of law and deterring transgressors, an advantage that the Eastern empires, where the ruler was above the law and accountability, did not know.",
+                system3Title: "Characteristics of the Carthaginian Political System",
+                system3Bullet1: "The political system during the 5th and 4th centuries BC was elitist, granting power to the Senate and wealthy families.",
+                system3Bullet2: "The People's Council gained an important status from the late 3rd century BC until the fall of Carthage in 146 BC, when its status grew at the expense of the Senate and the Suffetes, and with the dominance of the people, rule became democratic.",
+                system3Bullet3: "Despite this system being described as democratic, it was not fully democratic, as women, slaves, and foreigners were excluded from political participation.",
+                system3Bullet4: "This system is considered one of the most refined political systems in the ancient world because it was based on balance, rotation, and accountability of powers, which made Carthage more stable than Persia and Egypt, more balanced than Athens, and closer to Rome in its republican structure, with the difference that Carthage was a commercial maritime republic while Rome was a military expansionist republic.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Carthaginian political system combined elements of monarchy, aristocracy, and democracy in a 'mixed' system balanced by the People's Council, the Senate, the Suffetes, and the Court of One Hundred, making it one of the most refined and stable political systems in the ancient world, and making Carthage more balanced than the Greek cities and more stable than the Eastern empires.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defAristotle: "Aristotle",
+                defAristotleDesc: "Greek philosopher, author of 'Politics'. He is one of the most important sources that addressed the Carthaginian political system in the Punic era. He described it as a 'mixed' system combining a monarchical element in the Suffetes, an aristocratic element in the Senate, and a democratic element in the People's Council, and considered it one of the best systems.",
+                defPolybius: "Polybius",
+                defPolybiusDesc: "A historian who discussed the Carthaginian political system during the Second Punic War.",
+                defLivy: "Livy",
+                defLivyDesc: "A historian who discussed the Carthaginian political system during the Second Punic War.",
+                defHannibal: "Hannibal",
+                defHannibalDesc: "His name is associated with the growing role of the People's Council in Carthage during the wars with Rome. The judicial reform of 196 BC was attributed to him, stipulating that judges of the Court of One Hundred be elected for a term of one year and preventing running for office twice consecutively.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "A Phoenician settlement founded in 814 BC that grew into an empire spanning the western Mediterranean. Its influence extended over the coasts of present-day Tunisia, western Libya, Sicily, Sardinia, the Balearic Islands, and southern Spain, and it established a network of cities, ports, and settlements.",
+                defPersia: "Persia",
+                defPersiaDesc: "A great Eastern empire based on absolute and hereditary power, which knew no form of popular representation or participation in decision-making, unlike Carthage.",
+                defEgypt: "Egypt",
+                defEgyptDesc: "A great Eastern empire based on absolute and hereditary power, where the ruler was above law and accountability, unlike Carthage which knew institutions of accountability.",
+                defAthens: "Athens",
+                defAthensDesc: "A Greek city that excluded women, slaves, and foreigners from political participation, just like Carthage.",
+                defRome: "Rome",
+                defRomeDesc: "A military expansionist republic whose republican structure resembles Carthage's, with the difference that Carthage was a commercial maritime republic.",
+                defSicily: "Sicily",
+                defSicilyDesc: "An island in the Mediterranean reached by Carthaginian influence.",
+                defSardinia: "Sardinia",
+                defSardiniaDesc: "An island in the Mediterranean reached by Carthaginian influence.",
+                defBalearic: "Balearic Islands",
+                defBalearicDesc: "A group of islands in the western Mediterranean reached by Carthaginian influence.",
+                defSpain: "Southern Spain",
+                defSpainDesc: "A region reached by Carthaginian influence in the western Mediterranean.",
+                defTunisia: "Tunisia",
+                defTunisiaDesc: "Carthaginian influence extended over its present-day coasts.",
+                defLibya: "Libya",
+                defLibyaDesc: "Carthaginian influence extended over its western part.",
+                defFoundingCarthage: "Founding of Carthage (814 BC)",
+                defFoundingCarthageDesc: "The founding of Carthage as a Phoenician settlement in 814 BC before it grew into an empire in the western Mediterranean.",
+                defSecondPunicWar: "The Second Punic War",
+                defSecondPunicWarDesc: "The period during which the historians Polybius and Livy discussed the Carthaginian political system.",
+                defReform196BC: "Reform of 196 BC",
+                defReform196BCDesc: "A judicial reform attributed to Hannibal, stipulating that judges of the Court of One Hundred be elected for a term of one year and preventing running for the office twice consecutively, to limit the influence of judges and prevent concentration of power.",
+                defFallCarthage: "Fall of Carthage (146 BC)",
+                defFallCarthageDesc: "The date on which Carthage fell, the point at which the dominance of the People's Council at the expense of the Senate and the Suffetes ended.",
+                defYear814Desc: "Founding of Carthage.",
+                defYear5th4thDesc: "The period of the elitist system that granted power to the Senate and wealthy families.",
+                defYearLate3rdDesc: "The beginning of the growing role of the People's Council at the expense of the Senate and the Suffetes.",
+                defYear196Desc: "Enactment of a law electing judges of the Court of One Hundred for one year and preventing running twice consecutively.",
+                defYear146Desc: "The date of the fall of Carthage.",
+                defCityState: "City-State System",
+                defCityStateDesc: "A political system in which the state's influence extends over a city and its surroundings, with the city being the political, administrative, and economic center and neighboring regions and settlements following it. It enabled Carthage to combine centralized decision-making in the city with flexible administration in the settlements.",
+                defSuffete: "Suffete",
+                defSuffeteDesc: "A word close to the Phoenician root 'shofet' meaning judge or governor. Two Suffetes are elected for one year, and citizenship, wealth, and competence are required in them. They have executive power, preside over the Senate, and propose laws, but their power is restricted by other institutions. They may participate in some religious functions, and they resemble the consuls in Rome.",
+                defPeopleCouncil: "People's Council",
+                defPeopleCouncilDesc: "A Carthaginian political institution including free citizens only (excluding women, slaves, and foreigners). It elects members of the Senate and the Suffetes, and examines matters of war, peace, and legislation. Its role grew from the late 3rd century BC, especially in Hannibal's era. It has legislative power.",
+                defSenate: "Senate",
+                defSenateDesc: "Consists of 300 elected members, requiring citizenship, prestige, and wealth. It was the actual authority in Carthage, dominating finance, foreign policy, and war management, sending commanders and supervising military campaigns. It includes small committees such as the 'Committee of Five'. It has legislative power and resembles in some functions the Roman Senate.",
+                defCourt100: "Court of One Hundred",
+                defCourt100Desc: "Consists of 104 members, also known as the 'Court of One Hundred and Four'. It examines cases of state security, treason, and accountability of military commanders, and was a tool for monitoring attempts at tyranny and preventing concentration of power. In 196 BC, a law was enacted thanks to Hannibal stipulating that judges be elected for one year and preventing running twice consecutively.",
+                defCommitteeFive: "Committee of Five",
+                defCommitteeFiveDesc: "A small committee within the Carthaginian Senate that examines major issues.",
+                summaryText: "Key takeaway: The Carthaginian political system combined elements of monarchy, aristocracy, and democracy in a 'mixed' system, and knew institutions of accountability and power rotation (People's Council, Senate, Suffetes, Court of One Hundred), making it more stable than the Eastern empires, more balanced than the Greek cities, and closer to Rome in its republican structure.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Map of the Carthaginian Empire",
+                galleryAlt2: "Carthaginian ports",
+                galleryAlt3: "Aristotle",
+                galleryAlt4: "Carthaginian Senate",
+                galleryAlt5: "Hannibal",
+                galleryAlt6: "Ruins of Carthage"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Histoire / Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)",
+                lessonTitleSample: "Carthage : Institutions politiques et religion",
+                sectionIntro: "Introduction",
+                introText: "Carthage fut fondée en 814 av. J.-C. et se développa d'un établissement phénicien en un empire s'étendant sur la partie occidentale de la Méditerranée. Elle se distingua par ses institutions politiques avancées. Grâce à sa position maritime stratégique et à sa richesse commerciale, elle devint une grande puissance navale dont l'influence s'étendait sur les côtes de l'actuelle Tunisie, l'ouest de la Libye, la Sicile, la Sardaigne, les îles Baléares et le sud de l'Espagne, et elle établit un réseau de cités, de ports et d'établissements liés commercialement et militairement. Elle différait des grands empires orientaux comme la Perse et l'Égypte, fondés sur un pouvoir absolu et héréditaire, et des cités grecques qui souffraient de conflits internes et de troubles répétés.",
+                problematiqueText: "Quelles sont les caractéristiques du système politique carthaginois ?",
+                sectionPart1: "Le système politique à Carthage",
+                system1Title: "Le système de la cité-État",
+                system1Text: "Carthage se distinguait par un système politique connu sous le nom de « cité-État », qui consistait en l'extension de l'influence de l'État sur une ville et ses environs. Ce système reposait sur le fait que la ville était le centre politique, administratif et économique, avec les régions voisines et les établissements dépendants qui la suivaient. Ce système permit à Carthage de combiner la centralisation des décisions dans la ville avec la flexibilité de l'administration dans les établissements, ce qui la rendit plus stable que les empires orientaux qui reposaient sur la coercition et l'armée pour contrôler les peuples, et plus organisée que les cités grecques qui restaient de portée limitée et menacées par les dissensions internes.",
+                system2Title: "Les institutions politiques à l'époque punique",
+                system2Intro: "Les philosophes grecs ont loué les institutions politiques carthaginoises, et le livre « Politique » du philosophe grec Aristote est l'une des sources les plus importantes traitant du système politique carthaginois à l'époque punique. Les historiens Polybe et Tite-Live en ont également parlé pendant la deuxième guerre punique. Aristote a décrit ce système comme l'un des meilleurs car il était un système « mixte » combinant un élément monarchique dans les Suffètes, un élément aristocratique dans le Sénat, et un élément démocratique dans le Conseil du peuple, réalisant l'équilibre et la stabilité et prévenant la tyrannie et l'agitation de la foule, ce que la plupart des États de cette époque, dominés par un pouvoir absolu ou héréditaire, ne connaissaient pas.",
+                councilPeopleTitle: "Le Conseil du peuple",
+                councilPeopleText: "Il comprend tous les citoyens carthaginois, et ses pouvoirs consistent à élire les membres du Sénat et les Suffètes, et il examine plusieurs questions telles que la guerre et la paix et la législation des lois. Il se réunit sur la place publique en cas de besoin. Il ne comprenait pas tous les habitants de Carthage, mais seulement les citoyens libres ; les esclaves, les étrangers et les femmes étaient exclus, comme à Athènes et à Rome. Son rôle s'accrut à partir de la fin du IIIe siècle av. J.-C., en particulier à l'époque d'Hannibal et pendant les guerres avec Rome, où il acquit un rôle dans la responsabilité des commandants militaires après leur retour de campagne. L'existence de ce conseil est un grand avantage pour Carthage par rapport aux empires perse et égyptien, qui ne connaissaient aucune forme de représentation populaire ou de participation à la décision.",
+                councilPeoplePower: "Le Conseil du peuple dispose d'un pouvoir législatif.",
+                councilSenateTitle: "Le Sénat",
+                councilSenateText: "Il est composé de 300 membres élus, et les candidats doivent remplir plusieurs conditions telles que la citoyenneté, le prestige et la richesse. Il dispose de pouvoirs importants en matière de législation, de politique étrangère et d'examen de certaines questions. Il était l'autorité effective à Carthage, dominant les finances, la politique étrangère et la gestion de la guerre, envoyant les commandants et supervisant les campagnes militaires, et il comprend de petites commissions qui examinent les grandes questions telles que le Comité des Cinq. Il ressemble par certaines fonctions au Sénat romain, mais il était plus ouvert aux éléments commerciaux et riches, et il a contribué à la stabilité de la politique étrangère et à éviter les aventures sauf en cas de nécessité, contrairement à certaines cités grecques dont les décisions oscillaient entre des intérêts contradictoires et des passions changeantes.",
+                councilSenatePower: "Le Sénat dispose d'un pouvoir législatif.",
+                suffetesTitle: "Les Suffètes",
+                suffetesText: "Le peuple élit deux « Suffètes » pour un mandat d'un an, et la candidature à cette charge est autorisée plusieurs fois, et la richesse et la compétence sont requises dans leur sélection. Leurs pouvoirs consistent à gérer les affaires administratives et politiques de l'État et à exécuter les décisions du Conseil du peuple et du Sénat. Le mot « Suffète » est proche de la racine phénicienne « shofet » signifiant juge ou gouverneur. Les deux Suffètes étaient largement similaires aux consuls à Rome, et la citoyenneté était également requise en eux ; ils présidaient le Sénat et proposaient des lois, mais leur pouvoir était limité par d'autres institutions, et ils pouvaient participer à certaines fonctions religieuses. Le principe de dualité dans le gouvernement est l'un des mérites les plus marquants du système carthaginois car il empêche la concentration du pouvoir entre les mains d'un seul individu, et le mandat d'un an assure la rotation du pouvoir et le renouvellement des élites, un principe rare dans l'Antiquité où le pouvoir était souvent héréditaire et absolu comme en Perse et en Égypte.",
+                suffetesPower: "Les Suffètes disposent d'un pouvoir exécutif.",
+                court100Title: "Le Tribunal des Cent",
+                court100Text: "Il est composé de 104 membres, et il examine les affaires de sécurité de l'État et la confrontation des tentatives de gouvernement individuel. Il est parfois appelé le « Tribunal des Cent et Quatre ». Il examinait également les cas de trahison et la responsabilité des commandants militaires, et il était un outil de surveillance des tentatives de tyrannie et de prévention de la concentration du pouvoir. Les juges jouissaient d'une forte influence jusqu'en 196 av. J.-C., date d'une loi stipulant que les juges soient élus pour un mandat d'un an et ne soient pas autorisés à se présenter deux fois consécutivement, et cette réforme a été attribuée à Hannibal. Ce tribunal est l'une des plus anciennes formes de responsabilité politique et judiciaire dans l'histoire ancienne, car il a contribué à l'état de droit et à la dissuasion des transgresseurs, un avantage que les empires orientaux, où le dirigeant était au-dessus de la loi et de la responsabilité, ne connaissaient pas.",
+                system3Title: "Caractéristiques du système politique carthaginois",
+                system3Bullet1: "Le système politique aux Ve et IVe siècles av. J.-C. était élitiste, accordant le pouvoir au Sénat et aux familles riches.",
+                system3Bullet2: "Le Conseil du peuple a acquis un statut important de la fin du IIIe siècle av. J.-C. jusqu'à la chute de Carthage en 146 av. J.-C., où son statut s'est accru aux dépens du Sénat et des Suffètes, et avec la domination du peuple, le gouvernement est devenu démocratique.",
+                system3Bullet3: "Bien que ce système soit décrit comme démocratique, il n'était pas pleinement démocratique, car les femmes, les esclaves et les étrangers étaient exclus de la participation politique.",
+                system3Bullet4: "Ce système est considéré comme l'un des systèmes politiques les plus raffinés du monde antique car il reposait sur l'équilibre, la rotation et la responsabilité des pouvoirs, ce qui a rendu Carthage plus stable que la Perse et l'Égypte, plus équilibrée qu'Athènes, et plus proche de Rome dans sa structure républicaine, avec la différence que Carthage était une république commerciale maritime tandis que Rome était une république militaire expansionniste.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Le système politique carthaginois a combiné des éléments de monarchie, d'aristocratie et de démocratie dans un système « mixte » équilibré par le Conseil du peuple, le Sénat, les Suffètes et le Tribunal des Cent, ce qui en fait l'un des systèmes politiques les plus raffinés et les plus stables du monde antique, et a rendu Carthage plus équilibrée que les cités grecques et plus stable que les empires orientaux.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays & régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defAristotle: "Aristote",
+                defAristotleDesc: "Philosophe grec, auteur de « Politique ». Il est l'une des sources les plus importantes traitant du système politique carthaginois à l'époque punique. Il l'a décrit comme un système « mixte » combinant un élément monarchique dans les Suffètes, un élément aristocratique dans le Sénat et un élément démocratique dans le Conseil du peuple, et l'a considéré comme l'un des meilleurs systèmes.",
+                defPolybius: "Polybe",
+                defPolybiusDesc: "Historien qui a traité du système politique carthaginois pendant la deuxième guerre punique.",
+                defLivy: "Tite-Live",
+                defLivyDesc: "Historien qui a traité du système politique carthaginois pendant la deuxième guerre punique.",
+                defHannibal: "Hannibal",
+                defHannibalDesc: "Son nom est associé au rôle croissant du Conseil du peuple à Carthage pendant les guerres avec Rome. La réforme judiciaire de 196 av. J.-C. lui a été attribuée, stipulant que les juges du Tribunal des Cent soient élus pour un mandat d'un an et empêchant de se présenter deux fois consécutivement.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "Un établissement phénicien fondé en 814 av. J.-C. qui est devenu un empire s'étendant sur la Méditerranée occidentale. Son influence s'étendait sur les côtes de l'actuelle Tunisie, l'ouest de la Libye, la Sicile, la Sardaigne, les îles Baléares et le sud de l'Espagne, et elle a établi un réseau de cités, de ports et d'établissements.",
+                defPersia: "Perse",
+                defPersiaDesc: "Un grand empire oriental fondé sur un pouvoir absolu et héréditaire, qui ne connaissait aucune forme de représentation populaire ou de participation à la décision, contrairement à Carthage.",
+                defEgypt: "Égypte",
+                defEgyptDesc: "Un grand empire oriental fondé sur un pouvoir absolu et héréditaire, où le dirigeant était au-dessus de la loi et de la responsabilité, contrairement à Carthage qui connaissait des institutions de responsabilité.",
+                defAthens: "Athènes",
+                defAthensDesc: "Une cité grecque qui excluait les femmes, les esclaves et les étrangers de la participation politique, tout comme Carthage.",
+                defRome: "Rome",
+                defRomeDesc: "Une république militaire expansionniste dont la structure républicaine ressemble à celle de Carthage, avec la différence que Carthage était une république commerciale maritime.",
+                defSicily: "Sicile",
+                defSicilyDesc: "Une île de la Méditerranée atteinte par l'influence carthaginoise.",
+                defSardinia: "Sardaigne",
+                defSardiniaDesc: "Une île de la Méditerranée atteinte par l'influence carthaginoise.",
+                defBalearic: "Îles Baléares",
+                defBalearicDesc: "Un groupe d'îles dans l'ouest de la Méditerranée atteint par l'influence carthaginoise.",
+                defSpain: "Sud de l'Espagne",
+                defSpainDesc: "Une région atteinte par l'influence carthaginoise dans l'ouest de la Méditerranée.",
+                defTunisia: "Tunisie",
+                defTunisiaDesc: "L'influence carthaginoise s'étendait sur ses côtes actuelles.",
+                defLibya: "Libye",
+                defLibyaDesc: "L'influence carthaginoise s'étendait sur sa partie occidentale.",
+                defFoundingCarthage: "Fondation de Carthage (814 av. J.-C.)",
+                defFoundingCarthageDesc: "La fondation de Carthage en tant qu'établissement phénicien en 814 av. J.-C. avant qu'elle ne devienne un empire dans l'ouest de la Méditerranée.",
+                defSecondPunicWar: "La deuxième guerre punique",
+                defSecondPunicWarDesc: "La période pendant laquelle les historiens Polybe et Tite-Live ont traité du système politique carthaginois.",
+                defReform196BC: "Réforme de 196 av. J.-C.",
+                defReform196BCDesc: "Une réforme judiciaire attribuée à Hannibal, stipulant que les juges du Tribunal des Cent soient élus pour un mandat d'un an et empêchant de se présenter deux fois consécutivement, afin de limiter l'influence des juges et de prévenir la concentration du pouvoir.",
+                defFallCarthage: "Chute de Carthage (146 av. J.-C.)",
+                defFallCarthageDesc: "La date à laquelle Carthage est tombée, le point où la domination du Conseil du peuple aux dépens du Sénat et des Suffètes a pris fin.",
+                defYear814Desc: "Fondation de Carthage.",
+                defYear5th4thDesc: "La période du système élitiste qui accordait le pouvoir au Sénat et aux familles riches.",
+                defYearLate3rdDesc: "Le début du rôle croissant du Conseil du peuple aux dépens du Sénat et des Suffètes.",
+                defYear196Desc: "Promulgation d'une loi élisant les juges du Tribunal des Cent pour un an et empêchant de se présenter deux fois consécutivement.",
+                defYear146Desc: "La date de la chute de Carthage.",
+                defCityState: "Système de la cité-État",
+                defCityStateDesc: "Un système politique dans lequel l'influence de l'État s'étend sur une ville et ses environs, la ville étant le centre politique, administratif et économique et les régions voisines et les établissements qui la suivent. Il a permis à Carthage de combiner la centralisation des décisions dans la ville avec la flexibilité de l'administration dans les établissements.",
+                defSuffete: "Suffète",
+                defSuffeteDesc: "Un mot proche de la racine phénicienne « shofet » signifiant juge ou gouverneur. Deux Suffètes sont élus pour un an, et la citoyenneté, la richesse et la compétence sont requises. Ils ont le pouvoir exécutif, président le Sénat et proposent des lois, mais leur pouvoir est limité par d'autres institutions. Ils peuvent participer à certaines fonctions religieuses et ressemblent aux consuls à Rome.",
+                defPeopleCouncil: "Conseil du peuple",
+                defPeopleCouncilDesc: "Une institution politique carthaginoise comprenant uniquement les citoyens libres (à l'exclusion des femmes, des esclaves et des étrangers). Il élit les membres du Sénat et les Suffètes, et examine les questions de guerre, de paix et de législation. Son rôle s'est accru à partir de la fin du IIIe siècle av. J.-C., en particulier à l'époque d'Hannibal. Il dispose d'un pouvoir législatif.",
+                defSenate: "Sénat",
+                defSenateDesc: "Composé de 300 membres élus, exigeant la citoyenneté, le prestige et la richesse. Il était l'autorité effective à Carthage, dominant les finances, la politique étrangère et la gestion de la guerre, envoyant les commandants et supervisant les campagnes militaires. Il comprend de petites commissions telles que le « Comité des Cinq ». Il dispose d'un pouvoir législatif et ressemble par certaines fonctions au Sénat romain.",
+                defCourt100: "Tribunal des Cent",
+                defCourt100Desc: "Composé de 104 membres, également connu sous le nom de « Tribunal des Cent et Quatre ». Il examine les affaires de sécurité de l'État, de trahison et de responsabilité des commandants militaires, et était un outil de surveillance des tentatives de tyrannie et de prévention de la concentration du pouvoir. En 196 av. J.-C., une loi a été promulguée grâce à Hannibal stipulant que les juges soient élus pour un an et empêchant de se présenter deux fois consécutivement.",
+                defCommitteeFive: "Comité des Cinq",
+                defCommitteeFiveDesc: "Une petite commission au sein du Sénat carthaginois qui examine les grandes questions.",
+                summaryText: "À retenir : Le système politique carthaginois a combiné des éléments de monarchie, d'aristocratie et de démocratie dans un système « mixte », et connaissait des institutions de responsabilité et de rotation du pouvoir (Conseil du peuple, Sénat, Suffètes, Tribunal des Cent), ce qui le rendait plus stable que les empires orientaux, plus équilibré que les cités grecques, et plus proche de Rome dans sa structure républicaine.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Carte de l'Empire carthaginois",
+                galleryAlt2: "Ports carthaginois",
+                galleryAlt3: "Aristote",
+                galleryAlt4: "Sénat carthaginois",
+                galleryAlt5: "Hannibal",
+                galleryAlt6: "Ruines de Carthage"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)",
+                lessonTitleSample: "قرطاج: المؤسسات السياسية والديانة",
+                sectionIntro: "مقدمة",
+                introText: "تأسست قرطاج سنة 814 ق.م وتطورت من مستوطنة فينيقية إلى إمبراطورية تمتد على الجزء الغربي من البحر المتوسط. وتميزت باعتماد مؤسسات سياسية متطورة. وقد تحولت بفضل موقعها البحري الاستراتيجي وثرائها التجاري إلى قوة بحرية كبرى امتد نفوذها على سواحل تونس الحالية وغرب ليبيا وصقلية وسردينيا وجزر البليار وجنوب إسبانيا، وأقامت شبكة من المدن والموانئ والمستوطنات المرتبطة بها تجارياً وعسكرياً. وقد اختلفت عن الإمبراطوريات الشرقية الكبرى كالفارسية والمصرية التي قامت على سلطة مطلقة ووراثية، وعن المدن اليونانية التي عانت من صراعات داخلية واضطرابات متكررة.",
+                problematiqueText: "ما هي خصائص النظام السياسي القرطاجي؟",
+                sectionPart1: "النظام السياسي بقرطاج",
+                system1Title: "نظام المدينة – الدولة",
+                system1Text: "تميزت قرطاج باعتماد نظام سياسي يُعرف بنظام «المدينة – الدولة»، وهو يتمثل في امتداد نفوذ الدولة على مدينة وضواحيها. ويقوم هذا النظام على أن المدينة هي المركز السياسي والإداري والاقتصادي، وتتبعها المناطق المجاورة والمستوطنات التابعة لها. وقد مكّن هذا النظام قرطاج من الجمع بين مركزية القرار في المدينة ومرونة الإدارة في المستوطنات، وهو ما جعلها أكثر استقراراً من الإمبراطوريات الشرقية التي كانت تعتمد على القهر والجيش للسيطرة على الشعوب، وأكثر تنظيماً من المدن اليونانية التي ظلت محدودة النطاق ومهددة بالفتن الداخلية.",
+                system2Title: "المؤسسات السياسية في العهد البوني",
+                system2Intro: "نوَّه الفلاسفة الإغريق بالمؤسسات السياسية القرطاجية، ويُعتبر كتاب «السياسة» للفيلسوف الإغريقي أرسطو طاليس من أهم المصادر التي تعرضت إلى النظام السياسي القرطاجي في العهد البوني. كما تحدث عنه المؤرخ بولبيوس وليفي في مرحلة الحرب البونية الثانية. وقد وصف أرسطو هذا النظام بأنه من أفضل الأنظمة لأنه نظام «مختلط» يجمع بين عنصر ملكي في السفطين، وعنصر أرستقراطي في مجلس الشيوخ، وعنصر ديمقراطي في مجلس الشعب، ويحقق التوازن والاستقرار ويقي من الاستبداد ومن اضطراب الدهماء، وهو ما لم تعرفه معظم دول ذلك العصر التي غلب عليها الحكم المطلق أو الوراثي.",
+                councilPeopleTitle: "مجلس الشعب",
+                councilPeopleText: "يضم كل المواطنين القرطاجيين، وتتمثل صلاحياته في انتخاب أعضاء مجلس الشيوخ والحاكمين، وهو ينظر في عدة مسائل مثل الحرب والسلم وتشريع القوانين. ويجتمع في الساحة العامة عند الحاجة. ولم يكن يضم كل سكان قرطاج، بل المواطنين الأحرار فقط، أما العبيد والأجانب والنساء فكانوا مستبعدين، شأنه في ذلك شأن أثينا وروما. وقد تعاظم دوره منذ أواخر القرن الثالث قبل الميلاد، خاصة في عهد هانيبال وخلال الحروب مع روما، حيث أصبح له دور في محاسبة القادة العسكريين بعد عودتهم من الحملات. ويُعد وجود هذا المجلس ميزة كبيرة لقرطاج مقارنة بالإمبراطورية الفارسية والمصرية اللتين لم تعرفا أي شكل من أشكال تمثيل الشعب أو مشاركته في القرار.",
+                councilPeoplePower: "يتمتع مجلس الشعب بسلطة تشريعية.",
+                councilSenateTitle: "مجلس الشيوخ",
+                councilSenateText: "يتكون من 300 عضو عن طريق الانتخاب، ويشترط على المترشح عدة شروط مثل المواطنة والوجاهة والثراء. وله صلاحيات هامة في التشريع والسياسة الخارجية والنظر في بعض القضايا. وكان هو السلطة الفعلية في قرطاج، يهيمن على المالية والسياسة الخارجية وإدارة الحرب، ويرسل القواد ويشرف على الحملات العسكرية، ويضم لجاناً مصغرة تنظر في القضايا الكبرى مثل لجنة الخمسة. ويشبه في بعض وظائفه مجلس الشيوخ الروماني، لكنه كان أكثر انفتاحاً على العناصر التجارية والثرية، وقد ساهم في استقرار السياسة الخارجية وتجنب المغامرات إلا عند الضرورة، خلافاً لبعض المدن اليونانية التي كانت قراراتها تتأرجح بين تضارب المصالح وتقلب الأهواء.",
+                councilSenatePower: "يتمتع مجلس الشيوخ بسلطة تشريعية.",
+                suffetesTitle: "الحكام",
+                suffetesText: "ينتخب الشعب حاكمين «سفطين» لمدة سنة واحدة، ويمكن الترشح لهذه الخطة عدة مرات، ويشترط في اختيارهما الثروة والكفاءة. وتتمثل صلاحياتهما في تسيير الشؤون الإدارية والسياسية للدولة وتنفيذ قرارات مجلس الشعب ومجلس الشيوخ. ولفظ «سفط» قريب من الجذر الفينيقي «شفط» بمعنى قاضٍ أو حاكم. وكان السفطان يشبهان إلى حد كبير القنصلين في روما، ويشترط فيهما المواطنة أيضاً، ويرأسان مجلس الشيوخ ويقترحان القوانين، لكن سلطتهما كانت مقيدة بالمؤسسات الأخرى، وقد يشاركان في بعض الوظائف الدينية. ويُعد مبدأ الزوجية في الحكم من أبرز محاسن النظام القرطاجي لأنه يمنع تركيز السلطة في يد فرد واحد، كما أن مدة السنة الواحدة تضمن تداول السلطة وتجديد النخب، وهذا مبدأ نادر في العصور القديمة حيث كان الحكم غالباً وراثياً ومطلقاً كما في فارس ومصر.",
+                suffetesPower: "يتمتع السفطان بسلطة تنفيذية.",
+                court100Title: "محكمة المائة",
+                court100Text: "تتكون من 104 أعضاء، وتنظر في قضايا أمن الدولة والتصدي لمحاولات الحكم الفردي. ويُطلق عليها أحياناً «محكمة المائة والأربعة». وكانت تنظر أيضاً في قضايا الخيانة ومحاسبة القادة العسكريين، وكانت أداة لمراقبة محاولات الاستبداد ومنع تركيز السلطة. ويتمتع القضاة بنفوذ قوي إلى حدود 196 ق.م، تاريخ سن قانون ينص على انتخاب القضاة لمدة سنة واحدة ولا يحق الترشح للخطة مرتين متتاليتين، وقد نُسب هذا الإصلاح إلى هانيبال. وتُعد هذه المحكمة من أقدم صور المحاسبة السياسية والقضائية في التاريخ القديم، إذ ساهمت في سيادة القانون وردع المتجاوزين، وهي ميزة لم تعرفها الإمبراطوريات الشرقية التي كان فيها الحاكم فوق القانون والمحاسبة.",
+                system3Title: "خصائص النظام السياسي القرطاجي",
+                system3Bullet1: "كان النظام السياسي خلال القرنين الخامس والرابع قبل الميلاد نخبوياً يمنح السلطة لمجلس الشيوخ وللعائلات الثرية.",
+                system3Bullet2: "أصبح لمجلس الشعب مكانة هامة منذ أواخر القرن الثالث قبل الميلاد إلى تاريخ سقوط قرطاج 146 ق.م، حيث تعاظمت مكانته على حساب مجلس الشيوخ والسفطين، وبهيمنة الشعب أصبح الحكم ديمقراطياً.",
+                system3Bullet3: "ورغم وصف هذا النظام بالديمقراطي، فإنه لم يكن ديمقراطياً شاملاً، إذ استبعد النساء والعبيد والأجانب من المشاركة السياسية.",
+                system3Bullet4: "ويُعد هذا النظام من أرقى الأنظمة السياسية في العالم القديم لأنه قام على التوازن بين السلطات وتداولها ومحاسبتها، وهو ما جعل قرطاج أكثر استقراراً من فارس ومصر، وأكثر توازناً من أثينا، وأقرب إلى روما في بنيتها الجمهورية مع فارق أن قرطاج كانت جمهورية تجارية بحرية بينما كانت روما جمهورية عسكرية توسعية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "جمع النظام السياسي القرطاجي بين عناصر الملكية والأرستقراطية والديمقراطية في نظام «مختلط» توازن فيه مجلس الشعب ومجلس الشيوخ والسفطان ومحكمة المائة، مما جعله من أرقى الأنظمة السياسية في العالم القديم وأكثرها استقراراً، وجعل قرطاج أكثر توازناً من المدن اليونانية وأكثر استقراراً من الإمبراطوريات الشرقية.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defAristotle: "أرسطو طاليس",
+                defAristotleDesc: "فيلسوف إغريقي صاحب كتاب «السياسة»، وهو من أهم المصادر التي تعرضت إلى النظام السياسي القرطاجي في العهد البوني، ووصفه بأنه نظام «مختلط» يجمع بين عنصر ملكي في السفطين، وعنصر أرستقراطي في مجلس الشيوخ، وعنصر ديمقراطي في مجلس الشعب، وعدّه من أفضل الأنظمة.",
+                defPolybius: "بولبيوس",
+                defPolybiusDesc: "مؤرخ تحدث عن النظام السياسي القرطاجي في مرحلة الحرب البونية الثانية.",
+                defLivy: "ليفي",
+                defLivyDesc: "مؤرخ تحدث عن النظام السياسي القرطاجي في مرحلة الحرب البونية الثانية.",
+                defHannibal: "هانيبال",
+                defHannibalDesc: "ارتبط اسمه بتعاظم دور مجلس الشعب في قرطاج خلال الحروب مع روما، ونُسب إليه الإصلاح القضائي سنة 196 ق.م الذي نصّ على انتخاب قضاة محكمة المائة لمدة سنة واحدة ومنع الترشح مرتين متتاليتين.",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "مستوطنة فينيقية تأسست سنة 814 ق.م، وتطورت إلى إمبراطورية تمتد على الجزء الغربي من البحر المتوسط، وامتد نفوذها على سواحل تونس الحالية وغرب ليبيا وصقلية وسردينيا وجزر البليار وجنوب إسبانيا، وأقامت شبكة من المدن والموانئ والمستوطنات.",
+                defPersia: "فارس",
+                defPersiaDesc: "إمبراطورية شرقية كبرى قامت على سلطة مطلقة ووراثية، ولم تعرف أي شكل من أشكال تمثيل الشعب أو مشاركته في القرار، بخلاف قرطاج.",
+                defEgypt: "مصر",
+                defEgyptDesc: "إمبراطورية شرقية كبرى قامت على سلطة مطلقة ووراثية، وكان الحاكم فيها فوق القانون والمحاسبة، بخلاف قرطاج التي عرفت مؤسسات للمحاسبة.",
+                defAthens: "أثينا",
+                defAthensDesc: "مدينة إغريقية استبعدت النساء والعبيد والأجانب من المشاركة السياسية، شأنها شأن قرطاج.",
+                defRome: "روما",
+                defRomeDesc: "جمهورية عسكرية توسعية، يشبه نظامها الجمهوري نظام قرطاج في بنيته، مع فارق أن قرطاج كانت جمهورية تجارية بحرية.",
+                defSicily: "صقلية",
+                defSicilyDesc: "جزيرة في البحر المتوسط امتد إليها نفوذ قرطاج.",
+                defSardinia: "سردينيا",
+                defSardiniaDesc: "جزيرة في البحر المتوسط امتد إليها نفوذ قرطاج.",
+                defBalearic: "جزر البليار",
+                defBalearicDesc: "مجموعة جزر في غرب البحر المتوسط امتد إليها نفوذ قرطاج.",
+                defSpain: "جنوب إسبانيا",
+                defSpainDesc: "منطقة امتد إليها نفوذ قرطاج في غرب البحر المتوسط.",
+                defTunisia: "تونس",
+                defTunisiaDesc: "امتد النفوذ القرطاجي على سواحلها الحالية.",
+                defLibya: "ليبيا",
+                defLibyaDesc: "امتد النفوذ القرطاجي على غربها.",
+                defFoundingCarthage: "تأسيس قرطاج (814 ق.م)",
+                defFoundingCarthageDesc: "تأسيس قرطاج كمستوطنة فينيقية سنة 814 ق.م قبل أن تتحول إلى إمبراطورية في غرب البحر المتوسط.",
+                defSecondPunicWar: "الحرب البونية الثانية",
+                defSecondPunicWarDesc: "المرحلة التي تحدث فيها المؤرخ بولبيوس وليفي عن النظام السياسي القرطاجي.",
+                defReform196BC: "إصلاح 196 ق.م",
+                defReform196BCDesc: "إصلاح قضائي نُسب إلى هانيبال، نصّ على انتخاب قضاة محكمة المائة لمدة سنة واحدة ومنع الترشح للخطة مرتين متتاليتين، للحد من نفوذ القضاة ومنع تركيز السلطة.",
+                defFallCarthage: "سقوط قرطاج (146 ق.م)",
+                defFallCarthageDesc: "التاريخ الذي شهد سقوط قرطاج، وهو الحد الذي انتهت عنده هيمنة مجلس الشعب على حساب مجلس الشيوخ والسفطين.",
+                defYear814Desc: "تأسيس قرطاج.",
+                defYear5th4thDesc: "مرحلة النظام النخبوي الذي منح السلطة لمجلس الشيوخ وللعائلات الثرية.",
+                defYearLate3rdDesc: "بداية تعاظم دور مجلس الشعب على حساب مجلس الشيوخ والسفطين.",
+                defYear196Desc: "سنّ قانون انتخاب قضاة محكمة المائة لمدة سنة واحدة ومنع الترشح مرتين متتاليتين.",
+                defYear146Desc: "تاريخ سقوط قرطاج.",
+                defCityState: "نظام المدينة – الدولة",
+                defCityStateDesc: "نظام سياسي يتمثل في امتداد نفوذ الدولة على مدينة وضواحيها، حيث تكون المدينة المركز السياسي والإداري والاقتصادي وتتبعها المناطق المجاورة والمستوطنات. مكّن قرطاج من الجمع بين مركزية القرار في المدينة ومرونة الإدارة في المستوطنات.",
+                defSuffete: "السفط",
+                defSuffeteDesc: "لفظ قريب من الجذر الفينيقي «شفط» بمعنى قاضٍ أو حاكم. يُنتخب اثنان من السفطين لمدة سنة واحدة، ويشترط فيهما المواطنة والثروة والكفاءة. يتمتعان بسلطة تنفيذية، ويرأسان مجلس الشيوخ ويقترحان القوانين، لكن سلطتهما مقيدة بالمؤسسات الأخرى، وقد يشاركان في بعض الوظائف الدينية، ويشبهان القنصلين في روما.",
+                defPeopleCouncil: "مجلس الشعب",
+                defPeopleCouncilDesc: "مؤسسة سياسية قرطاجية تضم المواطنين الأحرار فقط (استُبعد منها النساء والعبيد والأجانب). ينتخب أعضاء مجلس الشيوخ والحاكمين، وينظر في مسائل الحرب والسلم وتشريع القوانين. تعاظم دوره منذ أواخر القرن الثالث قبل الميلاد خاصة في عهد هانيبال. يتمتع بسلطة تشريعية.",
+                defSenate: "مجلس الشيوخ",
+                defSenateDesc: "يتكون من 300 عضو منتخب، بشرط المواطنة والوجاهة والثراء. كان السلطة الفعلية في قرطاج، يهيمن على المالية والسياسة الخارجية وإدارة الحرب، ويرسل القواد ويشرف على الحملات العسكرية. يضم لجاناً مصغرة مثل «لجنة الخمسة». يتمتع بسلطة تشريعية، ويشبه في بعض وظائفه مجلس الشيوخ الروماني.",
+                defCourt100: "محكمة المائة",
+                defCourt100Desc: "تتكون من 104 أعضاء، تُعرف أيضاً بـ«محكمة المائة والأربعة». تنظر في قضايا أمن الدولة والخيانة ومحاسبة القادة العسكريين، وكانت أداة لمراقبة محاولات الاستبداد ومنع تركيز السلطة. سنة 196 ق.م سُنّ قانون بفضل هانيبال ينص على انتخاب القضاة لمدة سنة واحدة ومنع الترشح مرتين متتاليتين.",
+                defCommitteeFive: "لجنة الخمسة",
+                defCommitteeFiveDesc: "لجنة مصغرة داخل مجلس الشيوخ القرطاجي تنظر في القضايا الكبرى.",
+                summaryText: "خلاصة: جمع النظام السياسي القرطاجي بين عناصر الملكية والأرستقراطية والديمقراطية في نظام «مختلط»، وعرف مؤسسات للمحاسبة وتداول السلطة (مجلس الشعب، مجلس الشيوخ، السفطان، محكمة المائة)، مما جعله أكثر استقراراً من الإمبراطوريات الشرقية وأكثر توازناً من المدن اليونانية، وأقرب إلى روما في بنيتها الجمهورية.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "خريطة الإمبراطورية القرطاجية",
+                galleryAlt2: "الموانئ القرطاجية",
+                galleryAlt3: "أرسطو طاليس",
+                galleryAlt4: "مجلس الشيوخ القرطاجي",
+                galleryAlt5: "هانيبال",
+                galleryAlt6: "آثار قرطاج"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Persia", class: "key-location", i18n: "defPersia" },
+                { text: "Egypt", class: "key-location", i18n: "defEgypt" },
+                { text: "Athens", class: "key-location", i18n: "defAthens" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Sicily", class: "key-location", i18n: "defSicily" },
+                { text: "Sardinia", class: "key-location", i18n: "defSardinia" },
+                { text: "Balearic Islands", class: "key-location", i18n: "defBalearic" },
+                { text: "Spain", class: "key-location", i18n: "defSpain" },
+                { text: "Tunisia", class: "key-location", i18n: "defTunisia" },
+                { text: "Libya", class: "key-location", i18n: "defLibya" },
+                { text: "Aristotle", class: "key-person", i18n: "defAristotle" },
+                { text: "Polybius", class: "key-person", i18n: "defPolybius" },
+                { text: "Livy", class: "key-person", i18n: "defLivy" },
+                { text: "Hannibal", class: "key-person", i18n: "defHannibal" },
+                { text: "Founding of Carthage", class: "key-event", i18n: "defFoundingCarthage" },
+                { text: "Second Punic War", class: "key-event", i18n: "defSecondPunicWar" },
+                { text: "Reform of 196 BC", class: "key-event", i18n: "defReform196BC" },
+                { text: "Fall of Carthage", class: "key-event", i18n: "defFallCarthage" },
+                { text: "City-State", class: "key-other", i18n: "defCityState" },
+                { text: "Suffete", class: "key-other", i18n: "defSuffete" },
+                { text: "People's Council", class: "key-other", i18n: "defPeopleCouncil" },
+                { text: "Senate", class: "key-other", i18n: "defSenate" },
+                { text: "Court of One Hundred", class: "key-other", i18n: "defCourt100" },
+                { text: "Committee of Five", class: "key-other", i18n: "defCommitteeFive" },
+                { text: "814 BC", class: "key-year", i18n: null },
+                { text: "196 BC", class: "key-year", i18n: null },
+                { text: "146 BC", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Perse", class: "key-location", i18n: "defPersia" },
+                { text: "Égypte", class: "key-location", i18n: "defEgypt" },
+                { text: "Athènes", class: "key-location", i18n: "defAthens" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Sicile", class: "key-location", i18n: "defSicily" },
+                { text: "Sardaigne", class: "key-location", i18n: "defSardinia" },
+                { text: "Baléares", class: "key-location", i18n: "defBalearic" },
+                { text: "Espagne", class: "key-location", i18n: "defSpain" },
+                { text: "Tunisie", class: "key-location", i18n: "defTunisia" },
+                { text: "Libye", class: "key-location", i18n: "defLibya" },
+                { text: "Aristote", class: "key-person", i18n: "defAristotle" },
+                { text: "Polybe", class: "key-person", i18n: "defPolybius" },
+                { text: "Tite-Live", class: "key-person", i18n: "defLivy" },
+                { text: "Hannibal", class: "key-person", i18n: "defHannibal" },
+                { text: "Fondation de Carthage", class: "key-event", i18n: "defFoundingCarthage" },
+                { text: "deuxième guerre punique", class: "key-event", i18n: "defSecondPunicWar" },
+                { text: "Réforme de 196", class: "key-event", i18n: "defReform196BC" },
+                { text: "Chute de Carthage", class: "key-event", i18n: "defFallCarthage" },
+                { text: "cité-État", class: "key-other", i18n: "defCityState" },
+                { text: "Suffète", class: "key-other", i18n: "defSuffete" },
+                { text: "Conseil du peuple", class: "key-other", i18n: "defPeopleCouncil" },
+                { text: "Sénat", class: "key-other", i18n: "defSenate" },
+                { text: "Tribunal des Cent", class: "key-other", i18n: "defCourt100" },
+                { text: "Comité des Cinq", class: "key-other", i18n: "defCommitteeFive" },
+                { text: "814", class: "key-year", i18n: null },
+                { text: "196", class: "key-year", i18n: null },
+                { text: "146", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "فارس", class: "key-location", i18n: "defPersia" },
+                { text: "مصر", class: "key-location", i18n: "defEgypt" },
+                { text: "أثينا", class: "key-location", i18n: "defAthens" },
+                { text: "روما", class: "key-location", i18n: "defRome" },
+                { text: "صقلية", class: "key-location", i18n: "defSicily" },
+                { text: "سردينيا", class: "key-location", i18n: "defSardinia" },
+                { text: "جزر البليار", class: "key-location", i18n: "defBalearic" },
+                { text: "إسبانيا", class: "key-location", i18n: "defSpain" },
+                { text: "تونس", class: "key-location", i18n: "defTunisia" },
+                { text: "ليبيا", class: "key-location", i18n: "defLibya" },
+                { text: "أرسطو طاليس", class: "key-person", i18n: "defAristotle" },
+                { text: "بولبيوس", class: "key-person", i18n: "defPolybius" },
+                { text: "ليفي", class: "key-person", i18n: "defLivy" },
+                { text: "هانيبال", class: "key-person", i18n: "defHannibal" },
+                { text: "تأسيس قرطاج", class: "key-event", i18n: "defFoundingCarthage" },
+                { text: "الحرب البونية الثانية", class: "key-event", i18n: "defSecondPunicWar" },
+                { text: "إصلاح 196", class: "key-event", i18n: "defReform196BC" },
+                { text: "سقوط قرطاج", class: "key-event", i18n: "defFallCarthage" },
+                { text: "المدينة – الدولة", class: "key-other", i18n: "defCityState" },
+                { text: "السفط", class: "key-other", i18n: "defSuffete" },
+                { text: "مجلس الشعب", class: "key-other", i18n: "defPeopleCouncil" },
+                { text: "مجلس الشيوخ", class: "key-other", i18n: "defSenate" },
+                { text: "محكمة المائة", class: "key-other", i18n: "defCourt100" },
+                { text: "لجنة الخمسة", class: "key-other", i18n: "defCommitteeFive" },
+                { text: "814 ق.م", class: "key-year", i18n: null },
+                { text: "196 ق.م", class: "key-year", i18n: null },
+                { text: "146 ق.م", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

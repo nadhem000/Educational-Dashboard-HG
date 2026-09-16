@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – قرطاج: المؤسسات السياسية والديانة</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <h1 data-i18n="exerciseTitle">تمارين – قرطاج: المؤسسات السياسية والديانة</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: بعل حمون، تانيت، ملقرط، الطوفات.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">بعل حمون:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">كبير الآلهة وحاميها، وهو على شكل آدمي يستوي على عرشه ويرفع يده اليمنى ويمسك صولجاناً بيده اليسرى رمزاً للسلطة والهيمنة. يُعتبر الإله الأكبر في البانثيون القرطاجي، وتُقدَّم له النذور والقرابين، ويُستشفع به في الحرب والخصب والحماية، وظل رمزاً للهوية الدينية القرطاجية حتى بعد سقوط المدينة.</dd>
+                        <dt data-i18n="ex1_def2_title">تانيت:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">جُسّدت على شكل امرأة جالسة على كرسي وفي حضنها طفل صغير، لذلك اعتبرت رمز الخصوبة والازدهار. تُلقَّب بـ«وجه بعل» أي ظهور الإله الأكبر، وجمعت بين وظيفة الأم الحامية وإلهة القمر والخصب، وتشبه في بعض وظائفها الإلهة إيزيس في مصر وعشتار في بلاد الرافدين.</dd>
+                        <dt data-i18n="ex1_def3_title">ملقرط:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">إله مدينة صور ويمثل حامي البحار والمستوطنات. يرتبط بالتجارة والملاحة والحرب، وانتقلت عبادته مع الفينيقيين إلى كل مستوطناتهم في المتوسط، ويُشبه في وظائفه الإله الإغريقي هرقل، وقد ساهم في ربط المستوطنات القرطاجية بروابط دينية مشتركة.</dd>
+                        <dt data-i18n="ex1_def4_title">الطوفات:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">معبد بوني غير مشيد يقدم فيه القرطاجيون الأضاحي للإله بعل حمون والإلهة تانيت. تُقدَّم فيه القرابين الحيوانية أو البشرية وتُحرق ويوضع رمادها في جرار تُثبَّت في أرضية الطوفات ومعها نصب يذكر فيه اسم صاحبها. وُجدت في قرطاج وسوسة وموتية، ويُعد من أهم المعالم الدينية في العالم القديم، ويشبه في وظيفته المقابر الجماعية والمعابد في آن واحد.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن عدد الآلهة حسب أصلها في الديانة القرطاجية.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_origin">أصل الآلهة</th>
+                            <th data-i18n="ex2_table_gods">الآلهة</th>
+                            <th data-i18n="ex2_table_count">العدد</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_phoenician">فينيقي</td>
+                            <td data-i18n="ex2_table_phoenician_gods">بعل حمون، تانيت، ملقرط</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_greek">إغريقي مدمج</td>
+                            <td data-i18n="ex2_table_greek_gods">ديمترا، برسفونا</td>
+                            <td>2</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: كتاب «السياسة» لأرسطو والمصادر التاريخية حول قرطاج</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Document / Diagram -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمل الصورة التالية التي تمثل الطوفات القرطاجي، وبيّن وظيفته وخصائصه وأماكن انتشاره.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets1sec/exercises/history/unit1/lesson1/carthage_tophet.png"
+                         alt="الطوفات القرطاجي"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets1sec/exercises/history/unit1/lesson1/carthage_tophet_answer.png"
+                             alt="نموذج الإجابة – الطوفات القرطاجي"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        الطوفات معبد بوني غير مشيد يُقدَّم فيه القرطاجيون الأضاحي للإله بعل حمون والإلهة تانيت. تُقدَّم فيه القرابين الحيوانية أو البشرية وتُحرق، ويوضع رمادها في جرار تُثبَّت في أرضية الطوفات ومعها نصب يذكر فيه اسم صاحبها. وُجدت الطوفات في قرطاج وفي مستوطنات أخرى مثل سوسة وموتية، مما يدل على وحدة العقيدة الدينية في المجال القرطاجي. ويُعد الطوفات من أهم المعالم الدينية في العالم القديم، ويشبه في وظيفته المقابر الجماعية والمعابد في آن واحد، وقد اهتم القرطاجيون بتزيينه بالنقوش والنذور.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل خصائص الديانة القرطاجية في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        خصائص الديانة القرطاجية:
+                        - تعدد الآلهة: ضمت آلهة فينيقية (بعل حمون، تانيت، ملقرط) وآلهة إغريقية مدمجة (ديمترا، برسفونا).
+                        - الانفتاح على آلهة الشعوب الأخرى في المتوسط، بخلاف الفرس والمصريين، على عكس اليونانيين الذين كانوا يرفضون آلهة الشعوب الأخرى في كثير من الأحيان.
+                        - الاهتمام ببناء المعابد: معبد الطوفات الذي أقيم لبعل حمون وتانيت.
+                        - الاعتقاد في الحياة ما بعد الموت: الاعتناء بالموتى، ووضع التمائم والأقنعة والأواني والحلي في القبور.
+                        - التفاوت الاجتماعي في القبور: قبور الفقراء (خنادق وجرار جماعية)، وقبور الأغنياء (منحوتة في الصخر ومزينة بالنقوش والتماثيل والحلي).
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تميزت الديانة القرطاجية بتعدد الآلهة وبالانفتاح على آلهة الشعوب الأخرى، إذ جمعت بين آلهة فينيقية كبرى (بعل حمون وتانيت وملقرط) وآلهة إغريقية أُدمجت في المعتقد القرطاجي خاصة في الفترة الهلنستية (ديمترا وبرسفونا). ولم يعرف الفرس ولا المصريون هذا الانفتاح الديني بهذه الصورة. واهتم القرطاجيون ببناء المعابد مثل معبد الطوفات، كما آمنوا بالحياة ما بعد الموت، فعنوا بموتاهم ووضعوا في القبور التمائم والأقنعة والأواني والحلي. وقد تجلى التفاوت الاجتماعي حتى في القبور: قبور الفقراء بسيطة جماعية، بينما كانت قبور الأغنياء منحوتة في الصخر ومزينة بالنقوش والتماثيل والحلي.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول الانفتاح الديني للقرطاجيين على آلهة الشعوب الأخرى في المتوسط، مبرزاً خصائص هذا الانفتاح وحدوده.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        انفتح القرطاجيون على آلهة الشعوب الأخرى من خلال تعدد الآلهة، بخلاف الفرس والمصريين، وخلافاً لليونانيين الذين كانوا يرفضون آلهة الشعوب الأخرى في كثير من الأحيان. حلّل خصائص هذا الانفتاح وأثره على التجارة والثقافة في المتوسط.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم الديانة القرطاجية كديانة متعددة الآلهة ومنفتحة.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. مظاهر الانفتاح الديني (الآلهة الفينيقية والإغريقية)؛ ثانياً. أثره على الروابط التجارية والثقافية مع شعوب المتوسط.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: أهمية هذا الانفتاح في تميز الحضارة القرطاجية.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">تميزت الديانة القرطاجية بتعدد الآلهة وبانفتاح نادر على آلهة الشعوب الأخرى في المتوسط، وهو ما جعلها من أكثر الديانات القديمة ثراء وتنوعاً.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_manifestations">أولاً. مظاهر الانفتاح الديني</h4>
+                        <p data-i18n="ex5A_production_p_manifestations">ضم البانثيون القرطاجي آلهة فينيقية كبرى (بعل حمون، وتانيت، وملقرط)، كما أُدمجت فيه آلهة إغريقية (ديمترا وبرسفونا) خاصة في الفترة الهلنستية حيث أُقيم لهما معبد في المدينة. يدل ذلك على أن القرطاجيين لم يرفضوا آلهة الشعوب الأخرى بل أدمجوها في معتقداتهم، وهو ما يميزهم عن الفرس والمصريين الذين لم يعرفوا هذا الانفتاح الديني بهذه الصورة.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_impact">ثانياً. أثره على الروابط التجارية والثقافية</h4>
+                        <p data-i18n="ex5A_production_p_impact">ساهم هذا الانفتاح الديني في تقوية الروابط التجارية والثقافية بين قرطاج وشعوب المتوسط، إذ كان للديانة دور في ربط المستوطنات القرطاجية بعضها ببعض وفي تسهيل التعامل مع الشعوب الأخرى، خاصة الإغريق. كما أن هذا الانفتاح يعكس المكانة الحضارية المرموقة التي بلغتها قرطاج في المتوسط.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا يُعد الانفتاح الديني سمة مميزة للحضارة القرطاجية، وقد أسهم في إثراء المعتقد القرطاجي وفي تقوية الروابط الثقافية والتجارية مع شعوب المتوسط.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y1sec_his_lessons_mod1_lesson1_part2.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "1st Secondary",
+                exerciseTitle: "Exercises – Carthage: Political Institutions and Religion",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Baal Hammon, Tanit, Melqart, Tophet.",
+                ex1_def1_title: "Baal Hammon:",
+                ex1_def1_subtitle: "The greatest and protecting god, depicted in human form seated on his throne, raising his right hand and holding a scepter in his left as a symbol of authority and dominance. He is considered the greatest god in the Carthaginian pantheon. Vows and offerings were presented to him, and he was invoked in war, fertility, and protection. He remained a symbol of Carthaginian religious identity even after the fall of the city.",
+                ex1_def2_title: "Tanit:",
+                ex1_def2_subtitle: "Depicted as a woman seated on a chair with a small child in her lap, therefore she was considered a symbol of fertility and prosperity. She was nicknamed 'the face of Baal', meaning the manifestation of the greatest god. She combined the function of protective mother and goddess of the moon and fertility, and in some functions she resembles the goddess Isis in Egypt and Ishtar in Mesopotamia.",
+                ex1_def3_title: "Melqart:",
+                ex1_def3_subtitle: "The god of the city of Tyre, representing the protector of the seas and the settlements. He is associated with trade, navigation, and war, and his worship spread with the Phoenicians to all their settlements in the Mediterranean. He resembles in his functions the Greek god Heracles, and he contributed to linking the Carthaginian settlements with common religious ties.",
+                ex1_def4_title: "Tophet:",
+                ex1_def4_subtitle: "A Punic open-air temple in which the Carthaginians offered sacrifices to the god Baal Hammon and the goddess Tanit. Animal or human offerings were presented and burned, and their ashes were placed in jars fixed in the floor of the Tophet, with a stele mentioning the name of the owner. Found in Carthage, Sousse, and Motya, it is one of the most important religious landmarks in the ancient world, and it resembles in its function both collective tombs and temples.",
+                ex2Q: "Convert the following table data into a bar chart showing the number of gods by their origin in the Carthaginian religion.",
+                ex2_table_origin: "Origin of gods",
+                ex2_table_gods: "Gods",
+                ex2_table_count: "Number",
+                ex2_table_phoenician: "Phoenician",
+                ex2_table_phoenician_gods: "Baal Hammon, Tanit, Melqart",
+                ex2_table_greek: "Greek (integrated)",
+                ex2_table_greek_gods: "Demeter, Persephone",
+                ex2Q_source: "Source: 'Politics' by Aristotle and historical sources on Carthage",
+                ex2A_title: "Number of Gods by Origin in the Carthaginian Religion",
+                ex2A_source: "Source: 'Politics' by Aristotle and historical sources on Carthage",
+                ex2A_scale: "Scale: 0–5 gods; column height proportional to number.",
+                ex2A_key_label: "Key:",
+                ex3Q: "Observe the following image representing the Carthaginian Tophet, and explain its function, characteristics, and places of distribution.",
+                ex3DocAlt: "The Carthaginian Tophet",
+                ex3AnswerImgAlt: "Answer model – The Carthaginian Tophet",
+                ex3A: "The Tophet is a Punic open-air temple in which the Carthaginians offered sacrifices to the god Baal Hammon and the goddess Tanit. Animal or human offerings were presented and burned, and their ashes were placed in jars fixed in the floor of the Tophet, with a stele mentioning the name of the owner. Tophets were found in Carthage and in other settlements such as Sousse and Motya, which indicates the unity of religious belief in the Carthaginian realm. The Tophet is one of the most important religious landmarks in the ancient world, and it resembles in its function both collective tombs and temples. The Carthaginians were keen to decorate it with inscriptions and votive offerings.",
+                ex4Q: "Analyse the characteristics of the Carthaginian religion in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Characteristics of the Carthaginian religion:\n- Polytheism: it included Phoenician gods (Baal Hammon, Tanit, Melqart) and integrated Greek gods (Demeter, Persephone).\n- Openness to the gods of other peoples of the Mediterranean, unlike the Persians and Egyptians, and contrary to the Greeks who often rejected the gods of other peoples.\n- Attention to temple-building: the Tophet temple dedicated to Baal Hammon and Tanit.\n- Belief in the afterlife: caring for the dead, placing amulets, masks, vessels, and jewelry in tombs.\n- Social disparity in tombs: poor tombs (trenches and collective jars), and rich tombs (carved in rock and decorated with inscriptions, statues, and jewelry).",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The Carthaginian religion was characterized by polytheism and openness to the gods of other peoples, combining major Phoenician gods (Baal Hammon, Tanit, and Melqart) with Greek gods integrated into Carthaginian belief especially in the Hellenistic period (Demeter and Persephone). Neither the Persians nor the Egyptians knew this religious openness in this form. The Carthaginians also cared about building temples such as the Tophet, and believed in the afterlife, taking care of their dead and placing amulets, masks, vessels, and jewelry in tombs. Social disparity was even manifested in tombs: poor tombs were simple and collective, while rich tombs were carved in rock and decorated with inscriptions, statues, and jewelry.",
+                ex5Q: "Write a short article on the religious openness of the Carthaginians to the gods of other peoples of the Mediterranean, highlighting the characteristics and limits of this openness.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "The Carthaginians opened up to the gods of other peoples through polytheism, unlike the Persians and Egyptians, and contrary to the Greeks who often rejected the gods of other peoples. Analyse the characteristics of this openness and its impact on trade and culture in the Mediterranean.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Present the Carthaginian religion as polytheistic and open.",
+                ex5A_plan_li2: "Development: I. Manifestations of religious openness (Phoenician and Greek gods); II. Its impact on commercial and cultural ties with the peoples of the Mediterranean.",
+                ex5A_plan_li3: "Conclusion: The importance of this openness in distinguishing Carthaginian civilization.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The Carthaginian religion was characterized by polytheism and a rare openness to the gods of other peoples of the Mediterranean, making it one of the richest and most diverse ancient religions.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_manifestations: "I. Manifestations of Religious Openness",
+                ex5A_production_p_manifestations: "The Carthaginian pantheon included major Phoenician gods (Baal Hammon, Tanit, and Melqart), and Greek gods (Demeter and Persephone) were also integrated into it, especially in the Hellenistic period when a temple was built for them in the city. This indicates that the Carthaginians did not reject the gods of other peoples but integrated them into their beliefs, distinguishing them from the Persians and Egyptians who did not know this religious openness in this form.",
+                ex5A_production_h4_impact: "II. Its Impact on Commercial and Cultural Ties",
+                ex5A_production_p_impact: "This religious openness contributed to strengthening commercial and cultural ties between Carthage and the peoples of the Mediterranean, as religion played a role in linking the Carthaginian settlements to one another and in facilitating dealings with other peoples, especially the Greeks. This openness also reflects the distinguished civilizational status that Carthage achieved in the Mediterranean.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus religious openness is a distinctive feature of Carthaginian civilization, and it contributed to enriching Carthaginian belief and to strengthening cultural and commercial ties with the peoples of the Mediterranean.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                exerciseTitle: "Exercices – Carthage : Institutions politiques et religion",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Baal Hammon, Tanit, Melqart, Tophet.",
+                ex1_def1_title: "Baal Hammon :",
+                ex1_def1_subtitle: "Le grand dieu et son protecteur, représenté sous forme humaine assis sur son trône, levant la main droite et tenant un sceptre dans la main gauche, symbole de l'autorité et de la domination. Il est considéré comme le plus grand dieu du panthéon carthaginois. Des vœux et des offrandes lui étaient présentés, et il était invoqué dans la guerre, la fertilité et la protection. Il est resté un symbole de l'identité religieuse carthaginoise même après la chute de la ville.",
+                ex1_def2_title: "Tanit :",
+                ex1_def2_subtitle: "Représentée comme une femme assise sur une chaise avec un petit enfant dans son giron, c'est pourquoi elle était considérée comme un symbole de fertilité et de prospérité. Elle était surnommée « le visage de Baal », c'est-à-dire la manifestation du plus grand dieu. Elle combinait la fonction de mère protectrice et de déesse de la lune et de la fertilité, et dans certaines fonctions elle ressemble à la déesse Isis en Égypte et à Ishtar en Mésopotamie.",
+                ex1_def3_title: "Melqart :",
+                ex1_def3_subtitle: "Le dieu de la ville de Tyr, représentant le protecteur des mers et des établissements. Il est associé au commerce, à la navigation et à la guerre, et son culte s'est répandu avec les Phéniciens dans tous leurs établissements en Méditerranée. Il ressemble dans ses fonctions au dieu grec Héraclès, et il a contribué à lier les établissements carthaginois par des liens religieux communs.",
+                ex1_def4_title: "Tophet :",
+                ex1_def4_subtitle: "Un temple punique à ciel ouvert dans lequel les Carthaginois offraient des sacrifices au dieu Baal Hammon et à la déesse Tanit. Des offrandes animales ou humaines étaient présentées et brûlées, et leurs cendres étaient placées dans des jarres fixées dans le sol du Tophet, avec une stèle mentionnant le nom de leur propriétaire. Trouvé à Carthage, Sousse et Motyé, il est l'un des monuments religieux les plus importants du monde antique, et il ressemble dans sa fonction à la fois à des tombes collectives et à des temples.",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant le nombre de dieux selon leur origine dans la religion carthaginoise.",
+                ex2_table_origin: "Origine des dieux",
+                ex2_table_gods: "Dieux",
+                ex2_table_count: "Nombre",
+                ex2_table_phoenician: "Phénicienne",
+                ex2_table_phoenician_gods: "Baal Hammon, Tanit, Melqart",
+                ex2_table_greek: "Grecque (intégrée)",
+                ex2_table_greek_gods: "Déméter, Perséphone",
+                ex2Q_source: "Source : « Politique » d'Aristote et sources historiques sur Carthage",
+                ex2A_title: "Nombre de dieux selon leur origine dans la religion carthaginoise",
+                ex2A_source: "Source : « Politique » d'Aristote et sources historiques sur Carthage",
+                ex2A_scale: "Échelle : 0–5 dieux ; hauteur des colonnes proportionnelle au nombre.",
+                ex2A_key_label: "Légende :",
+                ex3Q: "Observez l'image suivante représentant le Tophet carthaginois, et expliquez sa fonction, ses caractéristiques et ses lieux de diffusion.",
+                ex3DocAlt: "Le Tophet carthaginois",
+                ex3AnswerImgAlt: "Modèle de réponse – Le Tophet carthaginois",
+                ex3A: "Le Tophet est un temple punique à ciel ouvert dans lequel les Carthaginois offraient des sacrifices au dieu Baal Hammon et à la déesse Tanit. Des offrandes animales ou humaines étaient présentées et brûlées, et leurs cendres étaient placées dans des jarres fixées dans le sol du Tophet, avec une stèle mentionnant le nom de leur propriétaire. Des Tophets ont été trouvés à Carthage et dans d'autres établissements comme Sousse et Motyé, ce qui indique l'unité de la croyance religieuse dans le domaine carthaginois. Le Tophet est l'un des monuments religieux les plus importants du monde antique, et il ressemble dans sa fonction à la fois à des tombes collectives et à des temples. Les Carthaginois tenaient à le décorer d'inscriptions et d'offrandes votives.",
+                ex4Q: "Analysez les caractéristiques de la religion carthaginoise en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Caractéristiques de la religion carthaginoise :\n- Polythéisme : elle comprenait des dieux phéniciens (Baal Hammon, Tanit, Melqart) et des dieux grecs intégrés (Déméter, Perséphone).\n- Ouverture aux dieux des autres peuples de la Méditerranée, contrairement aux Perses et aux Égyptiens, et contrairement aux Grecs qui rejetaient souvent les dieux des autres peuples.\n- Attention à la construction de temples : le temple du Tophet dédié à Baal Hammon et Tanit.\n- Croyance en l'au-delà : soin des morts, amulettes, masques, récipients et bijoux placés dans les tombes.\n- Disparité sociale dans les tombes : tombes pauvres (tranchées et jarres collectives), tombes riches (creusées dans la roche et décorées d'inscriptions, de statues et de bijoux).",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "La religion carthaginoise se caractérisait par le polythéisme et l'ouverture aux dieux des autres peuples, combinant de grands dieux phéniciens (Baal Hammon, Tanit et Melqart) avec des dieux grecs intégrés à la croyance carthaginoise en particulier à l'époque hellénistique (Déméter et Perséphone). Ni les Perses ni les Égyptiens ne connaissaient cette ouverture religieuse sous cette forme. Les Carthaginois tenaient également à construire des temples comme le Tophet, et croyaient en l'au-delà, prenant soin de leurs morts et plaçant des amulettes, des masques, des récipients et des bijoux dans les tombes. La disparité sociale se manifestait même dans les tombes : les tombes pauvres étaient simples et collectives, tandis que les tombes riches étaient creusées dans la roche et décorées d'inscriptions, de statues et de bijoux.",
+                ex5Q: "Rédigez un court article sur l'ouverture religieuse des Carthaginois aux dieux des autres peuples de la Méditerranée, en soulignant les caractéristiques et les limites de cette ouverture.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Les Carthaginois se sont ouverts aux dieux des autres peuples par le polythéisme, contrairement aux Perses et aux Égyptiens, et contrairement aux Grecs qui rejetaient souvent les dieux des autres peuples. Analysez les caractéristiques de cette ouverture et son impact sur le commerce et la culture en Méditerranée.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter la religion carthaginoise comme polythéiste et ouverte.",
+                ex5A_plan_li2: "Développement : I. Manifestations de l'ouverture religieuse (dieux phéniciens et grecs) ; II. Son impact sur les liens commerciaux et culturels avec les peuples de la Méditerranée.",
+                ex5A_plan_li3: "Conclusion : L'importance de cette ouverture dans la distinction de la civilisation carthaginoise.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "La religion carthaginoise se caractérisait par le polythéisme et une ouverture rare aux dieux des autres peuples de la Méditerranée, ce qui en a fait l'une des religions anciennes les plus riches et les plus diverses.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_manifestations: "I. Manifestations de l'ouverture religieuse",
+                ex5A_production_p_manifestations: "Le panthéon carthaginois comprenait de grands dieux phéniciens (Baal Hammon, Tanit et Melqart), et des dieux grecs (Déméter et Perséphone) y ont également été intégrés, en particulier à l'époque hellénistique où un temple leur a été érigé dans la ville. Cela indique que les Carthaginois ne rejetaient pas les dieux des autres peuples mais les intégraient dans leurs croyances, ce qui les distingue des Perses et des Égyptiens qui ne connaissaient pas cette ouverture religieuse sous cette forme.",
+                ex5A_production_h4_impact: "II. Son impact sur les liens commerciaux et culturels",
+                ex5A_production_p_impact: "Cette ouverture religieuse a contribué à renforcer les liens commerciaux et culturels entre Carthage et les peuples de la Méditerranée, car la religion jouait un rôle dans la liaison des établissements carthaginois entre eux et dans la facilitation des relations avec les autres peuples, en particulier les Grecs. Cette ouverture reflète également le statut civilisationnel distingué que Carthage a atteint en Méditerranée.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi l'ouverture religieuse est un trait distinctif de la civilisation carthaginoise, et elle a contribué à enrichir la croyance carthaginoise et à renforcer les liens culturels et commerciaux avec les peuples de la Méditerranée.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                exerciseTitle: "تمارين – قرطاج: المؤسسات السياسية والديانة",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: بعل حمون، تانيت، ملقرط، الطوفات.",
+                ex1_def1_title: "بعل حمون:",
+                ex1_def1_subtitle: "كبير الآلهة وحاميها، وهو على شكل آدمي يستوي على عرشه ويرفع يده اليمنى ويمسك صولجاناً بيده اليسرى رمزاً للسلطة والهيمنة. يُعتبر الإله الأكبر في البانثيون القرطاجي، وتُقدَّم له النذور والقرابين، ويُستشفع به في الحرب والخصب والحماية، وظل رمزاً للهوية الدينية القرطاجية حتى بعد سقوط المدينة.",
+                ex1_def2_title: "تانيت:",
+                ex1_def2_subtitle: "جُسّدت على شكل امرأة جالسة على كرسي وفي حضنها طفل صغير، لذلك اعتبرت رمز الخصوبة والازدهار. تُلقَّب بـ«وجه بعل» أي ظهور الإله الأكبر، وجمعت بين وظيفة الأم الحامية وإلهة القمر والخصب، وتشبه في بعض وظائفها الإلهة إيزيس في مصر وعشتار في بلاد الرافدين.",
+                ex1_def3_title: "ملقرط:",
+                ex1_def3_subtitle: "إله مدينة صور ويمثل حامي البحار والمستوطنات. يرتبط بالتجارة والملاحة والحرب، وانتقلت عبادته مع الفينيقيين إلى كل مستوطناتهم في المتوسط، ويُشبه في وظائفه الإله الإغريقي هرقل، وقد ساهم في ربط المستوطنات القرطاجية بروابط دينية مشتركة.",
+                ex1_def4_title: "الطوفات:",
+                ex1_def4_subtitle: "معبد بوني غير مشيد يقدم فيه القرطاجيون الأضاحي للإله بعل حمون والإلهة تانيت. تُقدَّم فيه القرابين الحيوانية أو البشرية وتُحرق ويوضع رمادها في جرار تُثبَّت في أرضية الطوفات ومعها نصب يذكر فيه اسم صاحبها. وُجدت في قرطاج وسوسة وموتية، ويُعد من أهم المعالم الدينية في العالم القديم، ويشبه في وظيفته المقابر الجماعية والمعابد في آن واحد.",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن عدد الآلهة حسب أصلها في الديانة القرطاجية.",
+                ex2_table_origin: "أصل الآلهة",
+                ex2_table_gods: "الآلهة",
+                ex2_table_count: "العدد",
+                ex2_table_phoenician: "فينيقي",
+                ex2_table_phoenician_gods: "بعل حمون، تانيت، ملقرط",
+                ex2_table_greek: "إغريقي مدمج",
+                ex2_table_greek_gods: "ديمترا، برسفونا",
+                ex2Q_source: "المصدر: كتاب «السياسة» لأرسطو والمصادر التاريخية حول قرطاج",
+                ex2A_title: "عدد الآلهة حسب أصلها في الديانة القرطاجية",
+                ex2A_source: "المصدر: كتاب «السياسة» لأرسطو والمصادر التاريخية حول قرطاج",
+                ex2A_scale: "المقياس: 0–5 آلهة؛ ارتفاع الأعمدة يتناسب مع العدد.",
+                ex2A_key_label: "المفتاح:",
+                ex3Q: "تأمل الصورة التالية التي تمثل الطوفات القرطاجي، وبيّن وظيفته وخصائصه وأماكن انتشاره.",
+                ex3DocAlt: "الطوفات القرطاجي",
+                ex3AnswerImgAlt: "نموذج الإجابة – الطوفات القرطاجي",
+                ex3A: "الطوفات معبد بوني غير مشيد يُقدَّم فيه القرطاجيون الأضاحي للإله بعل حمون والإلهة تانيت. تُقدَّم فيه القرابين الحيوانية أو البشرية وتُحرق، ويوضع رمادها في جرار تُثبَّت في أرضية الطوفات ومعها نصب يذكر فيه اسم صاحبها. وُجدت الطوفات في قرطاج وفي مستوطنات أخرى مثل سوسة وموتية، مما يدل على وحدة العقيدة الدينية في المجال القرطاجي. ويُعد الطوفات من أهم المعالم الدينية في العالم القديم، ويشبه في وظيفته المقابر الجماعية والمعابد في آن واحد، وقد اهتم القرطاجيون بتزيينه بالنقوش والنذور.",
+                ex4Q: "حلّل خصائص الديانة القرطاجية في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "خصائص الديانة القرطاجية:\n- تعدد الآلهة: ضمت آلهة فينيقية (بعل حمون، تانيت، ملقرط) وآلهة إغريقية مدمجة (ديمترا، برسفونا).\n- الانفتاح على آلهة الشعوب الأخرى في المتوسط، بخلاف الفرس والمصريين، على عكس اليونانيين الذين كانوا يرفضون آلهة الشعوب الأخرى في كثير من الأحيان.\n- الاهتمام ببناء المعابد: معبد الطوفات الذي أقيم لبعل حمون وتانيت.\n- الاعتقاد في الحياة ما بعد الموت: الاعتناء بالموتى، ووضع التمائم والأقنعة والأواني والحلي في القبور.\n- التفاوت الاجتماعي في القبور: قبور الفقراء (خنادق وجرار جماعية)، وقبور الأغنياء (منحوتة في الصخر ومزينة بالنقوش والتماثيل والحلي).",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تميزت الديانة القرطاجية بتعدد الآلهة وبالانفتاح على آلهة الشعوب الأخرى، إذ جمعت بين آلهة فينيقية كبرى (بعل حمون وتانيت وملقرط) وآلهة إغريقية أُدمجت في المعتقد القرطاجي خاصة في الفترة الهلنستية (ديمترا وبرسفونا). ولم يعرف الفرس ولا المصريون هذا الانفتاح الديني بهذه الصورة. واهتم القرطاجيون ببناء المعابد مثل معبد الطوفات، كما آمنوا بالحياة ما بعد الموت، فعنوا بموتاهم ووضعوا في القبور التمائم والأقنعة والأواني والحلي. وقد تجلى التفاوت الاجتماعي حتى في القبور: قبور الفقراء بسيطة جماعية، بينما كانت قبور الأغنياء منحوتة في الصخر ومزينة بالنقوش والتماثيل والحلي.",
+                ex5Q: "اكتب مقالاً قصيراً حول الانفتاح الديني للقرطاجيين على آلهة الشعوب الأخرى في المتوسط، مبرزاً خصائص هذا الانفتاح وحدوده.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "انفتح القرطاجيون على آلهة الشعوب الأخرى من خلال تعدد الآلهة، بخلاف الفرس والمصريين، وخلافاً لليونانيين الذين كانوا يرفضون آلهة الشعوب الأخرى في كثير من الأحيان. حلّل خصائص هذا الانفتاح وأثره على التجارة والثقافة في المتوسط.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم الديانة القرطاجية كديانة متعددة الآلهة ومنفتحة.",
+                ex5A_plan_li2: "تطوير: أولاً. مظاهر الانفتاح الديني (الآلهة الفينيقية والإغريقية)؛ ثانياً. أثره على الروابط التجارية والثقافية مع شعوب المتوسط.",
+                ex5A_plan_li3: "خاتمة: أهمية هذا الانفتاح في تميز الحضارة القرطاجية.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "تميزت الديانة القرطاجية بتعدد الآلهة وبانفتاح نادر على آلهة الشعوب الأخرى في المتوسط، وهو ما جعلها من أكثر الديانات القديمة ثراء وتنوعاً.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_manifestations: "أولاً. مظاهر الانفتاح الديني",
+                ex5A_production_p_manifestations: "ضم البانثيون القرطاجي آلهة فينيقية كبرى (بعل حمون، وتانيت، وملقرط)، كما أُدمجت فيه آلهة إغريقية (ديمترا وبرسفونا) خاصة في الفترة الهلنستية حيث أُقيم لهما معبد في المدينة. يدل ذلك على أن القرطاجيين لم يرفضوا آلهة الشعوب الأخرى بل أدمجوها في معتقداتهم، وهو ما يميزهم عن الفرس والمصريين الذين لم يعرفوا هذا الانفتاح الديني بهذه الصورة.",
+                ex5A_production_h4_impact: "ثانياً. أثره على الروابط التجارية والثقافية",
+                ex5A_production_p_impact: "ساهم هذا الانفتاح الديني في تقوية الروابط التجارية والثقافية بين قرطاج وشعوب المتوسط، إذ كان للديانة دور في ربط المستوطنات القرطاجية بعضها ببعض وفي تسهيل التعامل مع الشعوب الأخرى، خاصة الإغريق. كما أن هذا الانفتاح يعكس المكانة الحضارية المرموقة التي بلغتها قرطاج في المتوسط.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا يُعد الانفتاح الديني سمة مميزة للحضارة القرطاجية، وقد أسهم في إثراء المعتقد القرطاجي وفي تقوية الروابط الثقافية والتجارية مع شعوب المتوسط.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '3', value: 3, valueFormatted: '3' },
+                { label: '2', value: 2, valueFormatted: '2' }
+            ],
+            maxValue: 5,
+            ySteps: [5, 4, 3, 2, 1, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            }
+        };
+    </script>
+</body>
+</html>
