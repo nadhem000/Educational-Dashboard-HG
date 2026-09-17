@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">الجغرافيا / الوحدة 1: المجال والتنمية في العالم العربي / الدرس 1: مزايا الموقع الجغرافي للعالم العربي</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">مزايا الموقع الجغرافي للعالم العربي</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">يشتمل العالم العربي (أو الوطن العربي) على كل الأقطار والمناطق التي تنتمي إلى العالم العربي وتضمّ سكّانًا عربًا وتعتمد العربية ضمن لغاتها الرسمية. ويقع العالم العربي في قلب العالم، ويمتدّ على مساحة تقارب 14 مليون كلم²، ويضمّ أزيد من 400 مليون نسمة موزّعين على 22 دولة عربية. ويُعدّ العالم العربي غنيًا بموارده الطبيعية والبشرية، مما جعله محطّ أطماع القوى الاستعمارية قديمًا وحديثًا.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي مزايا الموقع الجغرافي للعالم العربي؟</p>
+            </div>
+
+            <!-- Part I : Coasts -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">امتداد السواحل ودورها في انفتاح العالم العربي على الخارج</span>
+                </h2>
+
+                <!-- I.1 -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="coastsTitle">امتداد السواحل العربية</span>
+                </h3>
+                <p data-i18n="coastsText">تمتد سواحل العالم العربي على طول 24,318 كلم (أي 6.83% من طول سواحل العالم) وتتوزع بين المحيط الأطلسي والبحر الأبيض المتوسط والبحر الأحمر والمحيط الهندي والخليج العربي/الفارسي.</p>
+                <p data-i18n="coastsExtentDetails">وتتنوّع هذه السواحل بين واجهة أطلسية في الغرب، وواجهة متوسّطية في الشمال، وواجهة على البحر الأحمر وخليج عدن، وواجهة على المحيط الهندي وبحر العرب، وواجهة خليجية على الخليج العربي/الفارسي، ممّا جعل العالم العربي يتّصل بثلاث قارات (آسيا وإفريقيا وأوروبا) وبمحيطين (المحيط الأطلسي والمحيط الهندي).</p>
+
+                <!-- ══════════ NEW ELEMENT I.2 ══════════ -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="coastsRoleTitle">دور السواحل في انفتاح العالم العربي على الخارج</span>
+                </h3>
+                <p data-i18n="coastsRole">ساهمت السواحل في انفتاح العالم العربي منذ القدم، انفتاحًا تجاريًا وبشريًا وثقافيًا على القارات الثلاث (آسيا وإفريقيا وأوروبا). وترتّب عن هذا الانفتاح نشأة موانئ ومدن ساحليّة أضحت مراكز استقطاب سكّاني واقتصادي، على عكس المناطق الدّاخلية السّاسعة التي لم تُحط بنفس درجة النموّ الاقتصادي. وينفتح العالم العربي على مختلف البحار والمحيطات عبر مضائق بحرية وممرات مائية أهمّها قناة السويس.</p>
+                <p data-i18n="coastsPortsText">ومن أبرز هذه الموانئ والمدن الساحليّة: طنجة، الدار البيضاء، الجزائر، تونس، طرابلس، الإسكندرية، بيروت، اللاذقية، جدّة، عدن، مسقط، دبي، الكويت، والبصرة، وقد أضحت مراكز استقطاب سكّاني واقتصادي وثقافي.</p>
+                <p data-i18n="coastsWaterwaysText">وينفتح العالم العربي على مختلف البحار والمحيطات عبر مضائق بحرية وممرات مائية حيوية أهمّها قناة السويس ومضيق جبل طارق ومضيق باب المندب ومضيق هرمز، ممّا جعل سواحله مجالًا للتلاقي والتجارة بين القارات الثلاث.</p>
+            </div>
+
+            <!-- Part II : Strategic Location -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">موقع جغرافي ذو أهمية استراتيجية كبرى</span>
+                </h2>
+
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="straitsTitle">موقع يُشرف على ممرات بحرية حيوية للملاحة الدولية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="gibraltarTitle">مضيق جبل طارق (Détroit de Gibraltar)</span>
+                </h4>
+                <p data-i18n="gibraltarText">نقطة عبور رئيسية للمواصلات البحرية، وهو الممر الوحيد بين المحيط الأطلسي والبحر الأبيض المتوسط. وقد ازدادت أهميته الاستراتيجية بعد افتتاح قناة السويس سنة 1869، حيث تعبره سنويًا أكثر من 82 ألف سفينة (بمعدل 224 سفينة يوميًا). وتمثل ناقلات النفط ثلث حركة العبور التجاري.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="sicilyTitle">مضيق صقلية (Détroit de Sicile)</span>
+                </h4>
+                <p data-i18n="sicilyText">ويُعرف أيضًا بمضيق الوطن القبلي أو مضيق قليبية. ويبلغ أدنى عرض له 145 كلم بين كاب فيتو (في مستوى مزارا دال فانو بصقلية) والوطن القبلي (في مستوى الهوّارية). ولا يزيد عمقه على 316 م. وتتخلّله جزيرة بنتالريا الإيطالية بموجب اتفاقية ترسيم الحدود التونسية – الإيطالية المبرمة.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="mandebTitle">مضيق باب المندب (Détroit Bab El Mandeb)</span>
+                </h4>
+                <p data-i18n="mandebText">يصل البحر الأحمر بخليج عدن والمحيط الهندي، ويُعدّ ممرًا استراتيجيًا هامًا للتجارة العالمية، حيث تعبره نسبة كبيرة من التجارة الدولية.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>.
+                    <span data-i18n="hormuzTitle">مضيق هرمز (Détroit de Hormuz)</span>
+                </h4>
+                <p data-i18n="hormuzText">يصل الخليج العربي بخليج عمان والمحيط الهندي، ويُعتبر من أهم الممرات المائية في العالم، حيث يعبره حوالي 20% من النفط العالمي.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">هـ</span>.
+                    <span data-i18n="suezTitle">قناة السويس</span>
+                </h4>
+                <p data-i18n="suezText">تُعدّ من أهم الممرات المائية في العالم، وتربط بين البحر الأبيض المتوسط والبحر الأحمر، مما يسهّل حركة التجارة بين أوروبا وآسيا.</p>
+
+                <!-- ══════════ ENHANCED ELEMENT II.2 ══════════ -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="strategicTitle">موقع يُحظى بأهمية استراتيجية كبرى</span>
+                </h3>
+                <p data-i18n="strategicText">يكتسي العالم العربي أهمية استراتيجية كبرى بفضل موقعه الجغرافي المتميز، حيث يتحكم في أهم الممرات المائية العالمية، مما يمنحه دورًا محوريًا في التجارة الدولية.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="strategicWaterwaysTitle">التحكّم في أهمّ الممرات المائية العالمية</span>
+                </h4>
+                <p data-i18n="strategicWaterwaysText">يتحكّم العالم العربي في خمسة ممرات مائية ذات أهمية عالمية: قناة السويس، ومضيق جبل طارق، ومضيق صقلية، ومضيق باب المندب، ومضيق هرمز. وهي شرايين حيوية تربط بين المحيط الأطلسي والبحر الأبيض المتوسط والبحر الأحمر والمحيط الهندي والخليج العربي، فلا تكاد تجارة دولية تمرّ من الشرق إلى الغرب أو من الشمال إلى الجنوب دون أن تعبر أحد هذه الممرات.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="strategicEnergyTitle">أهمية طاقية واقتصادية عالمية</span>
+                </h4>
+                <p data-i18n="strategicEnergyText">يكتسي الموقع العربي أهمية اقتصادية كبرى لكونه يتحكّم في طرق نقل الطاقة والتجارة: فحوالي 20% من النفط العالمي يعبر مضيق هرمز، وثلث حركة العبور بمضيق جبل طارق تتكوّن من ناقلات النفط، في حين تختصر قناة السويس مسافة الملاحة بين أوروبا وآسيا اختصارًا كبيرًا وتُدرّ عائدات ضخمة. ويضمّ العالم العربي أهمّ حقول النفط والغاز في العالم، ممّا يجعله منطقة استراتيجية بالغة الحساسية في الاقتصاد العالمي.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="strategicGeoTitle">أهمية جيوسياسية وعسكرية</span>
+                </h4>
+                <p data-i18n="strategicGeoText">منح الموقع الاستراتيجي العالم العربي ثقلاً جيوسياسيًا كبيرًا في العلاقات الدولية، إذ يُشرف على نقاط عبور لا بديل لها، ويجعل من المنطقة مجال تنافس بين القوى الكبرى. وقد ظهر ذلك جليًّا في الأطماع الاستعمارية القديمة والحديثة، وفي انتشار القواعد العسكرية الأجنبية، وفي الحروب والنزاعات التي شهدتها المنطقة على مرّ التاريخ، باعتبار الموقع الجغرافي أحد أهمّ مقوّمات القوة.</p>
+
+                <div class="key-figures-box" style="margin:1.5rem 0; padding:1rem 1.25rem; border-radius:12px; background:var(--ED-General-color-accent-soft); border:1px solid var(--ED-General-color-border);">
+                    <p style="margin:0 0 .6rem; font-weight:600;" data-i18n="strategicFiguresTitle">أرقام مفتاحية:</p>
+                    <ul style="margin:0; padding-inline-start:1.4rem; line-height:1.9;">
+                        <li data-i18n="strategicFigures1">24,318 كلم: طول سواحل العالم العربي، أي 6.83% من سواحل العالم.</li>
+                        <li data-i18n="strategicFigures2">82 ألف سفينة: تعبر مضيق جبل طارق سنويًا بمعدل 224 سفينة يوميًا.</li>
+                        <li data-i18n="strategicFigures3">20%: نسبة النفط العالمي الذي يعبر مضيق هرمز.</li>
+                        <li data-i18n="strategicFigures4">1869: سنة افتتاح قناة السويس التي زادت من أهمية مضيق جبل طارق.</li>
+                        <li data-i18n="strategicFigures5">22 دولة عربية و14 مليون كلم²: مساحة العالم العربي وعدد دوله.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">يتمتع العالم العربي بموقع جغرافي متميز يمنحه أهمية استراتيجية كبرى، إذ يمتد على مساحة شاسعة تنفتح على مختلف البحار والمحيطات عبر مضايق وممرات مائية حيوية للملاحة الدولية، مما جعله محطّ أطماع القوى الاستعمارية قديمًا وحديثًا.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defArabWorld">العالم العربي</strong>: <span data-i18n="defArabWorldDesc">مجموعة الأقطار والمناطق التي تضمّ سكّانًا عربًا وتعتمد العربية ضمن لغاتها الرسمية. يمتدّ على مساحة تقارب 14 مليون كلم²، ويضمّ أزيد من 400 مليون نسمة موزّعين على 22 دولة عربية، ويقع في قلب العالم.</span></li>
+                        <li><strong class="key-location" data-i18n="defGibraltar">مضيق جبل طارق</strong>: <span data-i18n="defGibraltarDesc">الممر الوحيد بين المحيط الأطلسي والبحر الأبيض المتوسط، ونقطة عبور رئيسية للمواصلات البحرية. ازدادت أهميته الاستراتيجية بعد افتتاح قناة السويس سنة 1869، حيث تعبره سنويًا أكثر من 82 ألف سفينة (بمعدل 224 سفينة يوميًا)، وتمثل ناقلات النفط ثلث حركة العبور التجاري.</span></li>
+                        <li><strong class="key-location" data-i18n="defSicily">مضيق صقلية</strong>: <span data-i18n="defSicilyDesc">يُعرف أيضًا بمضيق الوطن القبلي أو مضيق قليبية. يبلغ أدنى عرض له 145 كلم بين كاب فيتو (في مستوى مزارا دال فانو بصقلية) والوطن القبلي (في مستوى الهوّارية)، ولا يزيد عمقه على 316 م، وتتخلّله جزيرة بنتالريا الإيطالية بموجب اتفاقية ترسيم الحدود التونسية – الإيطالية.</span></li>
+                        <li><strong class="key-location" data-i18n="defBabElMandeb">مضيق باب المندب</strong>: <span data-i18n="defBabElMandebDesc">يصل البحر الأحمر بخليج عدن والمحيط الهندي، ويُعدّ ممرًا استراتيجيًا هامًا للتجارة العالمية، حيث تعبره نسبة كبيرة من التجارة الدولية.</span></li>
+                        <li><strong class="key-location" data-i18n="defHormuz">مضيق هرمز</strong>: <span data-i18n="defHormuzDesc">يصل الخليج العربي بخليج عمان والمحيط الهندي، ويُعتبر من أهم الممرات المائية في العالم، حيث يعبره حوالي 20% من النفط العالمي.</span></li>
+                        <li><strong class="key-location" data-i18n="defSuezCanal">قناة السويس</strong>: <span data-i18n="defSuezCanalDesc">من أهم الممرات المائية في العالم، تربط بين البحر الأبيض المتوسط والبحر الأحمر، وتسهّل حركة التجارة بين أوروبا وآسيا. افتُتحت سنة 1869.</span></li>
+                        <li><strong class="key-location" data-i18n="defAtlantic">المحيط الأطلسي</strong>: <span data-i18n="defAtlanticDesc">أحد المحيطات التي تنفتح عليها سواحل العالم العربي.</span></li>
+                        <li><strong class="key-location" data-i18n="defMediterranean">البحر الأبيض المتوسط</strong>: <span data-i18n="defMediterraneanDesc">أحد البحار التي تنفتح عليها سواحل العالم العربي.</span></li>
+                        <li><strong class="key-location" data-i18n="defRedSea">البحر الأحمر</strong>: <span data-i18n="defRedSeaDesc">أحد البحار التي تنفتح عليها سواحل العالم العربي، ويتصل بالمحيط الهندي عبر مضيق باب المندب.</span></li>
+                        <li><strong class="key-location" data-i18n="defIndianOcean">المحيط الهندي</strong>: <span data-i18n="defIndianOceanDesc">أحد المحيطات التي تنفتح عليها سواحل العالم العربي.</span></li>
+                        <li><strong class="key-location" data-i18n="defArabianGulf">الخليج العربي/الفارسي</strong>: <span data-i18n="defArabianGulfDesc">أحد الخلجان التي تنفتح عليها سواحل العالم العربي، ويتصل بخليج عمان والمحيط الهندي عبر مضيق هرمز.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1869</strong>: <span data-i18n="defYear1869Desc">افتتاح قناة السويس، وهو الحدث الذي زاد من الأهمية الاستراتيجية لمضيق جبل طارق.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defStrait">المضيق البحري</strong>: <span data-i18n="defStraitDesc">ممر مائي ضيّق يصل بين بحرين أو محيطين، ويكتسي أهمية استراتيجية كبرى في الملاحة الدولية والتجارة العالمية.</span></li>
+                        <li><strong class="key-other" data-i18n="defWaterway">الممر المائي</strong>: <span data-i18n="defWaterwayDesc">مجرى مائي طبيعي أو اصطناعي تسلكه السفن للانتقال من بحر إلى آخر، مثل قناة السويس.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: يستمدّ العالم العربي أهميته الاستراتيجية الكبرى من موقعه الجغرافي المتميز، إذ تنفتح سواحله على مختلف البحار والمحيطات عبر مضايق وممرات مائية حيوية للملاحة الدولية، مما جعله محطّ أطماع القوى الاستعمارية قديمًا وحديثًا.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets3sec/lessons/geography/unit1/lesson1/arab_world_map.jpg"
+                             alt="خريطة العالم العربي"
+                             class="gallery-img"
+                             data-i18n-alt="galleryAlt1"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryCap1">خريطة العالم العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3sec/lessons/geography/unit1/lesson1/arab_world_straits_map.jpg"
+                             alt="خريطة المضايق الحيوية بالعالم العربي"
+                             class="gallery-img"
+                             data-i18n-alt="galleryAlt2"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryCap2">خريطة المضايق الحيوية بالعالم العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3sec/lessons/geography/unit1/lesson1/gibraltar_strait.jpg"
+                             alt="مضيق جبل طارق"
+                             class="gallery-img"
+                             data-i18n-alt="galleryAlt3"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryCap3">مضيق جبل طارق</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3sec/lessons/geography/unit1/lesson1/sicily_strait.jpg"
+                             alt="مضيق صقلية"
+                             class="gallery-img"
+                             data-i18n-alt="galleryAlt4"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryCap4">مضيق صقلية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3sec/lessons/geography/unit1/lesson1/suez_canal.jpg"
+                             alt="قناة السويس"
+                             class="gallery-img"
+                             data-i18n-alt="galleryAlt5"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryCap5">قناة السويس</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3sec/lessons/geography/unit1/lesson1/bab_el_mandeb.jpg"
+                             alt="مضيق باب المندب"
+                             class="gallery-img"
+                             data-i18n-alt="galleryAlt6"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryCap6">مضيق باب المندب</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3sec/lessons/geography/unit1/lesson1/hormuz_strait.jpg"
+                             alt="مضيق هرمز"
+                             class="gallery-img"
+                             data-i18n-alt="galleryAlt7"
+                             loading="lazy"
+                             style="max-width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                        <figcaption class="gallery-caption" data-i18n="galleryCap7">مضيق هرمز</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y3sec_secEco_geo_exercisess_mod1_lesson1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، المضايق والممرات والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                moduleName: "Geography / Unit 1: Space and Development in the Arab World / Lesson 1: Advantages of the Geographical Location of the Arab World",
+                lessonTitleSample: "Advantages of the Geographical Location of the Arab World",
+                sectionIntro: "Introduction",
+                introText: "The Arab World (or the Arab Homeland) includes all the countries and regions that belong to the Arab World, containing Arab populations and adopting Arabic among their official languages. The Arab World is located at the heart of the world, extends over an area of about 14 million km², and includes more than 400 million inhabitants distributed over 22 Arab countries. The Arab World is rich in natural and human resources, which made it a target of colonial powers, both in the past and in the present.",
+                problematiqueText: "What are the advantages of the geographical location of the Arab World?",
+                sectionPart1: "Extension of Coasts and Their Role in the Arab World's Opening to the Outside",
+                coastsTitle: "Extension of the Arab Coasts",
+                coastsText: "The coasts of the Arab World extend over 24,318 km (i.e., 6.83% of the world's total coastlines), distributed between the Atlantic Ocean, the Mediterranean Sea, the Red Sea, the Indian Ocean, and the Arabian/Persian Gulf.",
+                coastsExtentDetails: "These coasts vary between an Atlantic façade in the west, a Mediterranean façade in the north, a façade on the Red Sea and the Gulf of Aden, a façade on the Indian Ocean and the Arabian Sea, and a Gulf façade on the Arabian/Persian Gulf, which connects the Arab World to three continents (Asia, Africa, and Europe) and two oceans (the Atlantic Ocean and the Indian Ocean).",
+                coastsRoleTitle: "The Role of Coasts in the Arab World's Opening to the Outside",
+                coastsRole: "Coasts have contributed to the Arab World's opening since antiquity, commercially, humanly, and culturally, to the three continents (Asia, Africa, and Europe). This opening led to the emergence of ports and coastal cities that became centers of population and economic attraction, unlike the vast interior regions that did not experience the same degree of economic growth. The Arab World opens onto various seas and oceans through maritime straits and waterways, most importantly the Suez Canal.",
+                coastsPortsText: "Among the most prominent of these ports and coastal cities are: Tangier, Casablanca, Algiers, Tunis, Tripoli, Alexandria, Beirut, Latakia, Jeddah, Aden, Muscat, Dubai, Kuwait, and Basra, which have become centres of demographic, economic, and cultural attraction.",
+                coastsWaterwaysText: "The Arab World opens onto various seas and oceans through vital maritime straits and waterways, most importantly the Suez Canal, the Strait of Gibraltar, the Bab-el-Mandeb Strait, and the Strait of Hormuz, making its coasts a space of encounter and trade between the three continents.",
+                sectionPart2: "A Geographical Location of Great Strategic Importance",
+                straitsTitle: "A Location Overlooking Vital Maritime Passages for International Navigation",
+                gibraltarTitle: "Strait of Gibraltar (Détroit de Gibraltar)",
+                gibraltarText: "A major crossing point for maritime transport, and the only passage between the Atlantic Ocean and the Mediterranean Sea. Its strategic importance increased after the opening of the Suez Canal in 1869, as more than 82,000 ships pass through it annually (an average of 224 ships per day). Oil tankers represent one-third of the commercial transit traffic.",
+                sicilyTitle: "Strait of Sicily (Détroit de Sicile)",
+                sicilyText: "Also known as the Strait of Cape Bon or the Strait of Kelibia. Its narrowest width is 145 km, between Cape Feto (at the level of Mazara del Vallo in Sicily) and Cape Bon (at the level of El Haouaria). Its depth does not exceed 316 m. The Italian island of Pantelleria lies within it, under the Tunisian-Italian border demarcation agreement.",
+                mandebTitle: "Bab-el-Mandeb Strait (Détroit Bab El Mandeb)",
+                mandebText: "Connects the Red Sea with the Gulf of Aden and the Indian Ocean. It is an important strategic passage for world trade, as a large proportion of international trade passes through it.",
+                hormuzTitle: "Strait of Hormuz (Détroit de Hormuz)",
+                hormuzText: "Connects the Arabian Gulf with the Gulf of Oman and the Indian Ocean. It is considered one of the most important waterways in the world, as about 20% of the world's oil passes through it.",
+                suezTitle: "Suez Canal",
+                suezText: "One of the most important waterways in the world, connecting the Mediterranean Sea with the Red Sea, facilitating trade movement between Europe and Asia.",
+                strategicTitle: "A Location of Great Strategic Importance",
+                strategicText: "The Arab World has great strategic importance thanks to its distinguished geographical location, as it controls the most important international waterways, giving it a pivotal role in international trade.",
+                strategicWaterwaysTitle: "Control over the World's Most Important Waterways",
+                strategicWaterwaysText: "The Arab World controls five waterways of global importance: the Suez Canal, the Strait of Gibraltar, the Strait of Sicily, the Bab-el-Mandeb Strait, and the Strait of Hormuz. These are vital arteries linking the Atlantic Ocean, the Mediterranean Sea, the Red Sea, the Indian Ocean, and the Arabian Gulf; hardly any international trade passes from East to West or from North to South without crossing one of these passages.",
+                strategicEnergyTitle: "Global Energy and Economic Importance",
+                strategicEnergyText: "The Arab location has major economic importance because it controls energy and trade routes: about 20% of the world's oil passes through the Strait of Hormuz, one-third of the transit traffic through the Strait of Gibraltar consists of oil tankers, while the Suez Canal greatly shortens the navigation distance between Europe and Asia and generates huge revenues. The Arab World contains the world's most important oil and gas fields, making it a highly sensitive strategic region in the global economy.",
+                strategicGeoTitle: "Geopolitical and Military Importance",
+                strategicGeoText: "The strategic location has given the Arab World great geopolitical weight in international relations, as it overlooks irreplaceable crossing points and makes the region an arena of competition among major powers. This has clearly appeared in colonial ambitions, both old and new, in the spread of foreign military bases, and in the wars and conflicts the region has witnessed throughout history, given that geographical location is one of the most important components of power.",
+                strategicFiguresTitle: "Key figures:",
+                strategicFigures1: "24,318 km: the length of the Arab World's coastlines, i.e. 6.83% of the world's coastlines.",
+                strategicFigures2: "82,000 ships: pass through the Strait of Gibraltar annually, at an average of 224 ships per day.",
+                strategicFigures3: "20%: the share of world oil passing through the Strait of Hormuz.",
+                strategicFigures4: "1869: the year the Suez Canal opened, which increased the importance of the Strait of Gibraltar.",
+                strategicFigures5: "22 Arab countries and 14 million km²: the area of the Arab World and the number of its states.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Arab World enjoys a distinguished geographical location that grants it great strategic importance, as it extends over a vast area opening onto various seas and oceans through straits and waterways vital for international navigation, making it a target of colonial powers, both in the past and the present.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defLocations: "🌍 Countries & Regions",
+                defArabWorld: "Arab World",
+                defArabWorldDesc: "The group of countries and regions that contain Arab populations and adopt Arabic among their official languages. It extends over an area of about 14 million km² and includes more than 400 million inhabitants distributed over 22 Arab countries, located at the heart of the world.",
+                defGibraltar: "Strait of Gibraltar",
+                defGibraltarDesc: "The only passage between the Atlantic Ocean and the Mediterranean Sea, and a major crossing point for maritime transport. Its strategic importance increased after the opening of the Suez Canal in 1869, as more than 82,000 ships pass through it annually (an average of 224 ships per day), with oil tankers representing one-third of the commercial transit traffic.",
+                defSicily: "Strait of Sicily",
+                defSicilyDesc: "Also known as the Strait of Cape Bon or the Strait of Kelibia. Its narrowest width is 145 km between Cape Feto (at the level of Mazara del Vallo in Sicily) and Cape Bon (at the level of El Haouaria). Its depth does not exceed 316 m. The Italian island of Pantelleria lies within it, under the Tunisian-Italian border demarcation agreement.",
+                defBabElMandeb: "Bab-el-Mandeb Strait",
+                defBabElMandebDesc: "Connects the Red Sea with the Gulf of Aden and the Indian Ocean. It is an important strategic passage for world trade, as a large proportion of international trade passes through it.",
+                defHormuz: "Strait of Hormuz",
+                defHormuzDesc: "Connects the Arabian Gulf with the Gulf of Oman and the Indian Ocean. It is considered one of the most important waterways in the world, as about 20% of the world's oil passes through it.",
+                defSuezCanal: "Suez Canal",
+                defSuezCanalDesc: "One of the most important waterways in the world, connecting the Mediterranean Sea with the Red Sea, and facilitating trade movement between Europe and Asia. It was opened in 1869.",
+                defAtlantic: "Atlantic Ocean",
+                defAtlanticDesc: "One of the oceans onto which the coasts of the Arab World open.",
+                defMediterranean: "Mediterranean Sea",
+                defMediterraneanDesc: "One of the seas onto which the coasts of the Arab World open.",
+                defRedSea: "Red Sea",
+                defRedSeaDesc: "One of the seas onto which the coasts of the Arab World open, connected to the Indian Ocean through the Bab-el-Mandeb Strait.",
+                defIndianOcean: "Indian Ocean",
+                defIndianOceanDesc: "One of the oceans onto which the coasts of the Arab World open.",
+                defArabianGulf: "Arabian/Persian Gulf",
+                defArabianGulfDesc: "One of the gulfs onto which the coasts of the Arab World open, connected to the Gulf of Oman and the Indian Ocean through the Strait of Hormuz.",
+                defYears: "📅 Years & Periods",
+                defYear1869Desc: "Opening of the Suez Canal, the event that increased the strategic importance of the Strait of Gibraltar.",
+                defOthers: "📌 Other Terms",
+                defStrait: "Maritime Strait",
+                defStraitDesc: "A narrow waterway connecting two seas or oceans, of great strategic importance in international navigation and world trade.",
+                defWaterway: "Waterway",
+                defWaterwayDesc: "A natural or artificial watercourse used by ships to pass from one sea to another, such as the Suez Canal.",
+                summaryText: "Key takeaway: The Arab World derives its great strategic importance from its distinguished geographical location, as its coasts open onto various seas and oceans through straits and waterways vital for international navigation, making it a target of colonial powers, both in the past and the present.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Map of the Arab World",
+                galleryAlt2: "Map of vital straits in the Arab World",
+                galleryAlt3: "Strait of Gibraltar",
+                galleryAlt4: "Strait of Sicily",
+                galleryAlt5: "Suez Canal",
+                galleryAlt6: "Bab-el-Mandeb Strait",
+                galleryAlt7: "Strait of Hormuz",
+                galleryCap1: "Map of the Arab World",
+                galleryCap2: "Map of vital straits in the Arab World",
+                galleryCap3: "Strait of Gibraltar",
+                galleryCap4: "Strait of Sicily",
+                galleryCap5: "Suez Canal",
+                galleryCap6: "Bab-el-Mandeb Strait",
+                galleryCap7: "Strait of Hormuz"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                moduleName: "Géographie / Unité 1 : Espace et développement dans le monde arabe / Leçon 1 : Les avantages de la situation géographique du monde arabe",
+                lessonTitleSample: "Les avantages de la situation géographique du monde arabe",
+                sectionIntro: "Introduction",
+                introText: "Le monde arabe (ou la patrie arabe) comprend tous les pays et régions qui appartiennent au monde arabe, abritant des populations arabes et adoptant l'arabe parmi leurs langues officielles. Le monde arabe est situé au cœur du monde, s'étend sur une superficie d'environ 14 millions de km² et comprend plus de 400 millions d'habitants répartis sur 22 pays arabes. Le monde arabe est riche en ressources naturelles et humaines, ce qui en a fait une cible des puissances coloniales, hier comme aujourd'hui.",
+                problematiqueText: "Quels sont les avantages de la situation géographique du monde arabe ?",
+                sectionPart1: "L'extension des côtes et son rôle dans l'ouverture du monde arabe vers l'extérieur",
+                coastsTitle: "L'extension des côtes arabes",
+                coastsText: "Les côtes du monde arabe s'étendent sur 24 318 km (soit 6,83 % du total des côtes mondiales), réparties entre l'océan Atlantique, la mer Méditerranée, la mer Rouge, l'océan Indien et le golfe Arabo-Persique.",
+                coastsExtentDetails: "Ces côtes se diversifient entre une façade atlantique à l'ouest, une façade méditerranéenne au nord, une façade sur la mer Rouge et le golfe d'Aden, une façade sur l'océan Indien et la mer d'Arabie, et une façade golfe sur le golfe Arabo-Persique, ce qui relie le monde arabe à trois continents (Asie, Afrique et Europe) et à deux océans (l'océan Atlantique et l'océan Indien).",
+                coastsRoleTitle: "Le rôle des côtes dans l'ouverture du monde arabe vers l'extérieur",
+                coastsRole: "Les côtes ont contribué à l'ouverture du monde arabe depuis l'Antiquité, sur les plans commercial, humain et culturel, vers les trois continents (Asie, Afrique et Europe). Cette ouverture a donné naissance à des ports et des villes côtières devenus des centres d'attraction démographique et économique, contrairement aux vastes régions intérieures qui n'ont pas connu le même degré de croissance économique. Le monde arabe s'ouvre sur diverses mers et océans par des détroits et des voies navigables, dont la plus importante est le canal de Suez.",
+                coastsPortsText: "Parmi les ports et villes côtières les plus importants figurent : Tanger, Casablanca, Alger, Tunis, Tripoli, Alexandrie, Beyrouth, Lattaquié, Djeddah, Aden, Mascate, Dubaï, Koweït et Bassora, devenus des centres d'attraction démographique, économique et culturelle.",
+                coastsWaterwaysText: "Le monde arabe s'ouvre sur diverses mers et océans par des détroits et des voies navigables vitaux, dont les plus importants sont le canal de Suez, le détroit de Gibraltar, le détroit de Bab-el-Mandeb et le détroit d'Ormuz, ce qui fait de ses côtes un espace de rencontre et de commerce entre les trois continents.",
+                sectionPart2: "Une situation géographique d'une grande importance stratégique",
+                straitsTitle: "Une situation qui surplombe des passages maritimes vitaux pour la navigation internationale",
+                gibraltarTitle: "Détroit de Gibraltar",
+                gibraltarText: "Point de passage majeur pour les transports maritimes, et seul passage entre l'océan Atlantique et la mer Méditerranée. Son importance stratégique s'est accrue après l'ouverture du canal de Suez en 1869, puisque plus de 82 000 navires le traversent chaque année (soit une moyenne de 224 navires par jour). Les pétroliers représentent un tiers du trafic commercial de transit.",
+                sicilyTitle: "Détroit de Sicile",
+                sicilyText: "Également appelé détroit du Cap Bon ou détroit de Kélibia. Sa largeur minimale est de 145 km, entre le cap Feto (au niveau de Mazara del Vallo en Sicile) et le Cap Bon (au niveau d'El Haouaria). Sa profondeur ne dépasse pas 316 m. L'île italienne de Pantelleria s'y trouve, en vertu de l'accord de délimitation des frontières tuniso-italiennes.",
+                mandebTitle: "Détroit de Bab-el-Mandeb",
+                mandebText: "Relie la mer Rouge au golfe d'Aden et à l'océan Indien. C'est un passage stratégique important pour le commerce mondial, car une grande partie du commerce international y transite.",
+                hormuzTitle: "Détroit d'Ormuz",
+                hormuzText: "Relie le golfe Arabo-Persique au golfe d'Oman et à l'océan Indien. Il est considéré comme l'une des voies navigables les plus importantes du monde, car environ 20 % du pétrole mondial y transite.",
+                suezTitle: "Canal de Suez",
+                suezText: "L'une des voies navigables les plus importantes du monde, reliant la mer Méditerranée à la mer Rouge, facilitant ainsi les mouvements commerciaux entre l'Europe et l'Asie.",
+                strategicTitle: "Une situation d'une grande importance stratégique",
+                strategicText: "Le monde arabe revêt une grande importance stratégique grâce à sa situation géographique privilégiée, puisqu'il contrôle les voies navigables internationales les plus importantes, ce qui lui confère un rôle central dans le commerce international.",
+                strategicWaterwaysTitle: "Le contrôle des voies navigables les plus importantes du monde",
+                strategicWaterwaysText: "Le monde arabe contrôle cinq voies navigables d'importance mondiale : le canal de Suez, le détroit de Gibraltar, le détroit de Sicile, le détroit de Bab-el-Mandeb et le détroit d'Ormuz. Ce sont des artères vitales reliant l'océan Atlantique, la mer Méditerranée, la mer Rouge, l'océan Indien et le golfe Arabo-Persique : presque aucun commerce international ne passe d'est en ouest ou du nord au sud sans emprunter l'un de ces passages.",
+                strategicEnergyTitle: "Une importance énergétique et économique mondiale",
+                strategicEnergyText: "La position arabe revêt une importance économique majeure car elle contrôle les routes de l'énergie et du commerce : environ 20 % du pétrole mondial transite par le détroit d'Ormuz, un tiers du trafic de transit du détroit de Gibraltar est constitué de pétroliers, tandis que le canal de Suez raccourcit considérablement la distance de navigation entre l'Europe et l'Asie et génère d'énormes revenus. Le monde arabe abrite les plus importants gisements de pétrole et de gaz au monde, ce qui en fait une région stratégique extrêmement sensible dans l'économie mondiale.",
+                strategicGeoTitle: "Une importance géopolitique et militaire",
+                strategicGeoText: "La situation stratégique a conféré au monde arabe un grand poids géopolitique dans les relations internationales, car il surplombe des points de passage irremplaçables et fait de la région un terrain de rivalité entre les grandes puissances. Cela s'est manifesté clairement dans les ambitions coloniales, anciennes et nouvelles, dans la diffusion de bases militaires étrangères et dans les guerres et conflits que la région a connus tout au long de l'histoire, la situation géographique étant l'une des composantes les plus importantes de la puissance.",
+                strategicFiguresTitle: "Chiffres clés :",
+                strategicFigures1: "24 318 km : la longueur des côtes du monde arabe, soit 6,83 % des côtes mondiales.",
+                strategicFigures2: "82 000 navires : traversent le détroit de Gibraltar chaque année, soit une moyenne de 224 navires par jour.",
+                strategicFigures3: "20 % : la part du pétrole mondial qui transite par le détroit d'Ormuz.",
+                strategicFigures4: "1869 : l'année de l'ouverture du canal de Suez, qui a accru l'importance du détroit de Gibraltar.",
+                strategicFigures5: "22 pays arabes et 14 millions de km² : la superficie du monde arabe et le nombre de ses États.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Le monde arabe jouit d'une situation géographique privilégiée qui lui confère une grande importance stratégique : il s'étend sur une vaste superficie ouverte sur diverses mers et océans par des détroits et des voies navigables vitaux pour la navigation internationale, ce qui en a fait une cible des puissances coloniales, hier comme aujourd'hui.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defLocations: "🌍 Pays et régions",
+                defArabWorld: "Monde arabe",
+                defArabWorldDesc: "L'ensemble des pays et régions qui abritent des populations arabes et adoptent l'arabe parmi leurs langues officielles. Il s'étend sur une superficie d'environ 14 millions de km² et comprend plus de 400 millions d'habitants répartis sur 22 pays arabes, situés au cœur du monde.",
+                defGibraltar: "Détroit de Gibraltar",
+                defGibraltarDesc: "Le seul passage entre l'océan Atlantique et la mer Méditerranée, et un point de passage majeur pour les transports maritimes. Son importance stratégique s'est accrue après l'ouverture du canal de Suez en 1869, puisque plus de 82 000 navires le traversent chaque année (soit une moyenne de 224 navires par jour), les pétroliers représentant un tiers du trafic commercial de transit.",
+                defSicily: "Détroit de Sicile",
+                defSicilyDesc: "Également appelé détroit du Cap Bon ou détroit de Kélibia. Sa largeur minimale est de 145 km entre le cap Feto (au niveau de Mazara del Vallo en Sicile) et le Cap Bon (au niveau d'El Haouaria). Sa profondeur ne dépasse pas 316 m. L'île italienne de Pantelleria s'y trouve, en vertu de l'accord de délimitation des frontières tuniso-italiennes.",
+                defBabElMandeb: "Détroit de Bab-el-Mandeb",
+                defBabElMandebDesc: "Relie la mer Rouge au golfe d'Aden et à l'océan Indien. C'est un passage stratégique important pour le commerce mondial, car une grande partie du commerce international y transite.",
+                defHormuz: "Détroit d'Ormuz",
+                defHormuzDesc: "Relie le golfe Arabo-Persique au golfe d'Oman et à l'océan Indien. Il est considéré comme l'une des voies navigables les plus importantes du monde, car environ 20 % du pétrole mondial y transite.",
+                defSuezCanal: "Canal de Suez",
+                defSuezCanalDesc: "L'une des voies navigables les plus importantes du monde, reliant la mer Méditerranée à la mer Rouge, et facilitant les mouvements commerciaux entre l'Europe et l'Asie. Il a été ouvert en 1869.",
+                defAtlantic: "Océan Atlantique",
+                defAtlanticDesc: "L'un des océans sur lesquels s'ouvrent les côtes du monde arabe.",
+                defMediterranean: "Mer Méditerranée",
+                defMediterraneanDesc: "L'une des mers sur lesquelles s'ouvrent les côtes du monde arabe.",
+                defRedSea: "Mer Rouge",
+                defRedSeaDesc: "L'une des mers sur lesquelles s'ouvrent les côtes du monde arabe, reliée à l'océan Indien par le détroit de Bab-el-Mandeb.",
+                defIndianOcean: "Océan Indien",
+                defIndianOceanDesc: "L'un des océans sur lesquels s'ouvrent les côtes du monde arabe.",
+                defArabianGulf: "Golfe Arabo-Persique",
+                defArabianGulfDesc: "L'un des golfes sur lesquels s'ouvrent les côtes du monde arabe, relié au golfe d'Oman et à l'océan Indien par le détroit d'Ormuz.",
+                defYears: "📅 Années et périodes",
+                defYear1869Desc: "Ouverture du canal de Suez, événement qui a accru l'importance stratégique du détroit de Gibraltar.",
+                defOthers: "📌 Autres termes",
+                defStrait: "Détroit maritime",
+                defStraitDesc: "Une voie navigable étroite reliant deux mers ou océans, d'une grande importance stratégique dans la navigation internationale et le commerce mondial.",
+                defWaterway: "Voie navigable",
+                defWaterwayDesc: "Un cours d'eau naturel ou artificiel emprunté par les navires pour passer d'une mer à une autre, comme le canal de Suez.",
+                summaryText: "À retenir : le monde arabe tire sa grande importance stratégique de sa situation géographique privilégiée, ses côtes s'ouvrant sur diverses mers et océans par des détroits et des voies navigables vitaux pour la navigation internationale, ce qui en a fait une cible des puissances coloniales, hier comme aujourd'hui.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Carte du monde arabe",
+                galleryAlt2: "Carte des détroits vitaux du monde arabe",
+                galleryAlt3: "Détroit de Gibraltar",
+                galleryAlt4: "Détroit de Sicile",
+                galleryAlt5: "Canal de Suez",
+                galleryAlt6: "Détroit de Bab-el-Mandeb",
+                galleryAlt7: "Détroit d'Ormuz",
+                galleryCap1: "Carte du monde arabe",
+                galleryCap2: "Carte des détroits vitaux du monde arabe",
+                galleryCap3: "Détroit de Gibraltar",
+                galleryCap4: "Détroit de Sicile",
+                galleryCap5: "Canal de Suez",
+                galleryCap6: "Détroit de Bab-el-Mandeb",
+                galleryCap7: "Détroit d'Ormuz"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "الجغرافيا / الوحدة 1: المجال والتنمية في العالم العربي / الدرس 1: مزايا الموقع الجغرافي للعالم العربي",
+                lessonTitleSample: "مزايا الموقع الجغرافي للعالم العربي",
+                sectionIntro: "مقدمة",
+                introText: "يشتمل العالم العربي (أو الوطن العربي) على كل الأقطار والمناطق التي تنتمي إلى العالم العربي وتضمّ سكّانًا عربًا وتعتمد العربية ضمن لغاتها الرسمية. ويقع العالم العربي في قلب العالم، ويمتدّ على مساحة تقارب 14 مليون كلم²، ويضمّ أزيد من 400 مليون نسمة موزّعين على 22 دولة عربية. ويُعدّ العالم العربي غنيًا بموارده الطبيعية والبشرية، مما جعله محطّ أطماع القوى الاستعمارية قديمًا وحديثًا.",
+                problematiqueText: "ما هي مزايا الموقع الجغرافي للعالم العربي؟",
+                sectionPart1: "امتداد السواحل ودورها في انفتاح العالم العربي على الخارج",
+                coastsTitle: "امتداد السواحل العربية",
+                coastsText: "تمتد سواحل العالم العربي على طول 24,318 كلم (أي 6.83% من طول سواحل العالم) وتتوزع بين المحيط الأطلسي والبحر الأبيض المتوسط والبحر الأحمر والمحيط الهندي والخليج العربي/الفارسي.",
+                coastsExtentDetails: "وتتنوّع هذه السواحل بين واجهة أطلسية في الغرب، وواجهة متوسّطية في الشمال، وواجهة على البحر الأحمر وخليج عدن، وواجهة على المحيط الهندي وبحر العرب، وواجهة خليجية على الخليج العربي/الفارسي، ممّا جعل العالم العربي يتّصل بثلاث قارات (آسيا وإفريقيا وأوروبا) وبمحيطين (المحيط الأطلسي والمحيط الهندي).",
+                coastsRoleTitle: "دور السواحل في انفتاح العالم العربي على الخارج",
+                coastsRole: "ساهمت السواحل في انفتاح العالم العربي منذ القدم، انفتاحًا تجاريًا وبشريًا وثقافيًا على القارات الثلاث (آسيا وإفريقيا وأوروبا). وترتّب عن هذا الانفتاح نشأة موانئ ومدن ساحليّة أضحت مراكز استقطاب سكّاني واقتصادي، على عكس المناطق الدّاخلية السّاسعة التي لم تُحط بنفس درجة النموّ الاقتصادي. وينفتح العالم العربي على مختلف البحار والمحيطات عبر مضائق بحرية وممرات مائية أهمّها قناة السويس.",
+                coastsPortsText: "ومن أبرز هذه الموانئ والمدن الساحليّة: طنجة، الدار البيضاء، الجزائر، تونس، طرابلس، الإسكندرية، بيروت، اللاذقية، جدّة، عدن، مسقط، دبي، الكويت، والبصرة، وقد أضحت مراكز استقطاب سكّاني واقتصادي وثقافي.",
+                coastsWaterwaysText: "وينفتح العالم العربي على مختلف البحار والمحيطات عبر مضائق بحرية وممرات مائية حيوية أهمّها قناة السويس ومضيق جبل طارق ومضيق باب المندب ومضيق هرمز، ممّا جعل سواحله مجالًا للتلاقي والتجارة بين القارات الثلاث.",
+                sectionPart2: "موقع جغرافي ذو أهمية استراتيجية كبرى",
+                straitsTitle: "موقع يُشرف على ممرات بحرية حيوية للملاحة الدولية",
+                gibraltarTitle: "مضيق جبل طارق (Détroit de Gibraltar)",
+                gibraltarText: "نقطة عبور رئيسية للمواصلات البحرية، وهو الممر الوحيد بين المحيط الأطلسي والبحر الأبيض المتوسط. وقد ازدادت أهميته الاستراتيجية بعد افتتاح قناة السويس سنة 1869، حيث تعبره سنويًا أكثر من 82 ألف سفينة (بمعدل 224 سفينة يوميًا). وتمثل ناقلات النفط ثلث حركة العبور التجاري.",
+                sicilyTitle: "مضيق صقلية (Détroit de Sicile)",
+                sicilyText: "ويُعرف أيضًا بمضيق الوطن القبلي أو مضيق قليبية. ويبلغ أدنى عرض له 145 كلم بين كاب فيتو (في مستوى مزارا دال فانو بصقلية) والوطن القبلي (في مستوى الهوّارية). ولا يزيد عمقه على 316 م. وتتخلّله جزيرة بنتالريا الإيطالية بموجب اتفاقية ترسيم الحدود التونسية – الإيطالية المبرمة.",
+                mandebTitle: "مضيق باب المندب (Détroit Bab El Mandeb)",
+                mandebText: "يصل البحر الأحمر بخليج عدن والمحيط الهندي، ويُعدّ ممرًا استراتيجيًا هامًا للتجارة العالمية، حيث تعبره نسبة كبيرة من التجارة الدولية.",
+                hormuzTitle: "مضيق هرمز (Détroit de Hormuz)",
+                hormuzText: "يصل الخليج العربي بخليج عمان والمحيط الهندي، ويُعتبر من أهم الممرات المائية في العالم، حيث يعبره حوالي 20% من النفط العالمي.",
+                suezTitle: "قناة السويس",
+                suezText: "تُعدّ من أهم الممرات المائية في العالم، وتربط بين البحر الأبيض المتوسط والبحر الأحمر، مما يسهّل حركة التجارة بين أوروبا وآسيا.",
+                strategicTitle: "موقع يُحظى بأهمية استراتيجية كبرى",
+                strategicText: "يكتسي العالم العربي أهمية استراتيجية كبرى بفضل موقعه الجغرافي المتميز، حيث يتحكم في أهم الممرات المائية العالمية، مما يمنحه دورًا محوريًا في التجارة الدولية.",
+                strategicWaterwaysTitle: "التحكّم في أهمّ الممرات المائية العالمية",
+                strategicWaterwaysText: "يتحكّم العالم العربي في خمسة ممرات مائية ذات أهمية عالمية: قناة السويس، ومضيق جبل طارق، ومضيق صقلية، ومضيق باب المندب، ومضيق هرمز. وهي شرايين حيوية تربط بين المحيط الأطلسي والبحر الأبيض المتوسط والبحر الأحمر والمحيط الهندي والخليج العربي، فلا تكاد تجارة دولية تمرّ من الشرق إلى الغرب أو من الشمال إلى الجنوب دون أن تعبر أحد هذه الممرات.",
+                strategicEnergyTitle: "أهمية طاقية واقتصادية عالمية",
+                strategicEnergyText: "يكتسي الموقع العربي أهمية اقتصادية كبرى لكونه يتحكّم في طرق نقل الطاقة والتجارة: فحوالي 20% من النفط العالمي يعبر مضيق هرمز، وثلث حركة العبور بمضيق جبل طارق تتكوّن من ناقلات النفط، في حين تختصر قناة السويس مسافة الملاحة بين أوروبا وآسيا اختصارًا كبيرًا وتُدرّ عائدات ضخمة. ويضمّ العالم العربي أهمّ حقول النفط والغاز في العالم، ممّا يجعله منطقة استراتيجية بالغة الحساسية في الاقتصاد العالمي.",
+                strategicGeoTitle: "أهمية جيوسياسية وعسكرية",
+                strategicGeoText: "منح الموقع الاستراتيجي العالم العربي ثقلاً جيوسياسيًا كبيرًا في العلاقات الدولية، إذ يُشرف على نقاط عبور لا بديل لها، ويجعل من المنطقة مجال تنافس بين القوى الكبرى. وقد ظهر ذلك جليًّا في الأطماع الاستعمارية القديمة والحديثة، وفي انتشار القواعد العسكرية الأجنبية، وفي الحروب والنزاعات التي شهدتها المنطقة على مرّ التاريخ، باعتبار الموقع الجغرافي أحد أهمّ مقوّمات القوة.",
+                strategicFiguresTitle: "أرقام مفتاحية:",
+                strategicFigures1: "24,318 كلم: طول سواحل العالم العربي، أي 6.83% من سواحل العالم.",
+                strategicFigures2: "82 ألف سفينة: تعبر مضيق جبل طارق سنويًا بمعدل 224 سفينة يوميًا.",
+                strategicFigures3: "20%: نسبة النفط العالمي الذي يعبر مضيق هرمز.",
+                strategicFigures4: "1869: سنة افتتاح قناة السويس التي زادت من أهمية مضيق جبل طارق.",
+                strategicFigures5: "22 دولة عربية و14 مليون كلم²: مساحة العالم العربي وعدد دوله.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "يتمتع العالم العربي بموقع جغرافي متميز يمنحه أهمية استراتيجية كبرى، إذ يمتد على مساحة شاسعة تنفتح على مختلف البحار والمحيطات عبر مضايق وممرات مائية حيوية للملاحة الدولية، مما جعله محطّ أطماع القوى الاستعمارية قديمًا وحديثًا.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defLocations: "🌍 دول ومناطق",
+                defArabWorld: "العالم العربي",
+                defArabWorldDesc: "مجموعة الأقطار والمناطق التي تضمّ سكّانًا عربًا وتعتمد العربية ضمن لغاتها الرسمية. يمتدّ على مساحة تقارب 14 مليون كلم²، ويضمّ أزيد من 400 مليون نسمة موزّعين على 22 دولة عربية، ويقع في قلب العالم.",
+                defGibraltar: "مضيق جبل طارق",
+                defGibraltarDesc: "الممر الوحيد بين المحيط الأطلسي والبحر الأبيض المتوسط، ونقطة عبور رئيسية للمواصلات البحرية. ازدادت أهميته الاستراتيجية بعد افتتاح قناة السويس سنة 1869، حيث تعبره سنويًا أكثر من 82 ألف سفينة (بمعدل 224 سفينة يوميًا)، وتمثل ناقلات النفط ثلث حركة العبور التجاري.",
+                defSicily: "مضيق صقلية",
+                defSicilyDesc: "يُعرف أيضًا بمضيق الوطن القبلي أو مضيق قليبية. يبلغ أدنى عرض له 145 كلم بين كاب فيتو (في مستوى مزارا دال فانو بصقلية) والوطن القبلي (في مستوى الهوّارية)، ولا يزيد عمقه على 316 م، وتتخلّله جزيرة بنتالريا الإيطالية بموجب اتفاقية ترسيم الحدود التونسية – الإيطالية.",
+                defBabElMandeb: "مضيق باب المندب",
+                defBabElMandebDesc: "يصل البحر الأحمر بخليج عدن والمحيط الهندي، ويُعدّ ممرًا استراتيجيًا هامًا للتجارة العالمية، حيث تعبره نسبة كبيرة من التجارة الدولية.",
+                defHormuz: "مضيق هرمز",
+                defHormuzDesc: "يصل الخليج العربي بخليج عمان والمحيط الهندي، ويُعتبر من أهم الممرات المائية في العالم، حيث يعبره حوالي 20% من النفط العالمي.",
+                defSuezCanal: "قناة السويس",
+                defSuezCanalDesc: "من أهم الممرات المائية في العالم، تربط بين البحر الأبيض المتوسط والبحر الأحمر، وتسهّل حركة التجارة بين أوروبا وآسيا. افتُتحت سنة 1869.",
+                defAtlantic: "المحيط الأطلسي",
+                defAtlanticDesc: "أحد المحيطات التي تنفتح عليها سواحل العالم العربي.",
+                defMediterranean: "البحر الأبيض المتوسط",
+                defMediterraneanDesc: "أحد البحار التي تنفتح عليها سواحل العالم العربي.",
+                defRedSea: "البحر الأحمر",
+                defRedSeaDesc: "أحد البحار التي تنفتح عليها سواحل العالم العربي، ويتصل بالمحيط الهندي عبر مضيق باب المندب.",
+                defIndianOcean: "المحيط الهندي",
+                defIndianOceanDesc: "أحد المحيطات التي تنفتح عليها سواحل العالم العربي.",
+                defArabianGulf: "الخليج العربي/الفارسي",
+                defArabianGulfDesc: "أحد الخلجان التي تنفتح عليها سواحل العالم العربي، ويتصل بخليج عمان والمحيط الهندي عبر مضيق هرمز.",
+                defYears: "📅 سنوات وفترات",
+                defYear1869Desc: "افتتاح قناة السويس، وهو الحدث الذي زاد من الأهمية الاستراتيجية لمضيق جبل طارق.",
+                defOthers: "📌 أخرى",
+                defStrait: "المضيق البحري",
+                defStraitDesc: "ممر مائي ضيّق يصل بين بحرين أو محيطين، ويكتسي أهمية استراتيجية كبرى في الملاحة الدولية والتجارة العالمية.",
+                defWaterway: "الممر المائي",
+                defWaterwayDesc: "مجرى مائي طبيعي أو اصطناعي تسلكه السفن للانتقال من بحر إلى آخر، مثل قناة السويس.",
+                summaryText: "خلاصة: يستمدّ العالم العربي أهميته الاستراتيجية الكبرى من موقعه الجغرافي المتميز، إذ تنفتح سواحله على مختلف البحار والمحيطات عبر مضايق وممرات مائية حيوية للملاحة الدولية، مما جعله محطّ أطماع القوى الاستعمارية قديمًا وحديثًا.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "خريطة العالم العربي",
+                galleryAlt2: "خريطة المضايق الحيوية بالعالم العربي",
+                galleryAlt3: "مضيق جبل طارق",
+                galleryAlt4: "مضيق صقلية",
+                galleryAlt5: "قناة السويس",
+                galleryAlt6: "مضيق باب المندب",
+                galleryAlt7: "مضيق هرمز",
+                galleryCap1: "خريطة العالم العربي",
+                galleryCap2: "خريطة المضايق الحيوية بالعالم العربي",
+                galleryCap3: "مضيق جبل طارق",
+                galleryCap4: "مضيق صقلية",
+                galleryCap5: "قناة السويس",
+                galleryCap6: "مضيق باب المندب",
+                galleryCap7: "مضيق هرمز"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Arab World", class: "key-location", i18n: "defArabWorld" },
+                { text: "Strait of Gibraltar", class: "key-location", i18n: "defGibraltar" },
+                { text: "Strait of Sicily", class: "key-location", i18n: "defSicily" },
+                { text: "Bab-el-Mandeb", class: "key-location", i18n: "defBabElMandeb" },
+                { text: "Strait of Hormuz", class: "key-location", i18n: "defHormuz" },
+                { text: "Suez Canal", class: "key-location", i18n: "defSuezCanal" },
+                { text: "Atlantic Ocean", class: "key-location", i18n: "defAtlantic" },
+                { text: "Mediterranean", class: "key-location", i18n: "defMediterranean" },
+                { text: "Red Sea", class: "key-location", i18n: "defRedSea" },
+                { text: "Indian Ocean", class: "key-location", i18n: "defIndianOcean" },
+                { text: "Arabian Gulf", class: "key-location", i18n: "defArabianGulf" },
+                { text: "Maritime Strait", class: "key-other", i18n: "defStrait" },
+                { text: "Waterway", class: "key-other", i18n: "defWaterway" },
+                { text: "1869", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "monde arabe", class: "key-location", i18n: "defArabWorld" },
+                { text: "Détroit de Gibraltar", class: "key-location", i18n: "defGibraltar" },
+                { text: "Détroit de Sicile", class: "key-location", i18n: "defSicily" },
+                { text: "Bab-el-Mandeb", class: "key-location", i18n: "defBabElMandeb" },
+                { text: "Détroit d'Ormuz", class: "key-location", i18n: "defHormuz" },
+                { text: "canal de Suez", class: "key-location", i18n: "defSuezCanal" },
+                { text: "océan Atlantique", class: "key-location", i18n: "defAtlantic" },
+                { text: "mer Méditerranée", class: "key-location", i18n: "defMediterranean" },
+                { text: "mer Rouge", class: "key-location", i18n: "defRedSea" },
+                { text: "océan Indien", class: "key-location", i18n: "defIndianOcean" },
+                { text: "golfe Arabo-Persique", class: "key-location", i18n: "defArabianGulf" },
+                { text: "Détroit maritime", class: "key-other", i18n: "defStrait" },
+                { text: "Voie navigable", class: "key-other", i18n: "defWaterway" },
+                { text: "1869", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "العالم العربي", class: "key-location", i18n: "defArabWorld" },
+                { text: "مضيق جبل طارق", class: "key-location", i18n: "defGibraltar" },
+                { text: "مضيق صقلية", class: "key-location", i18n: "defSicily" },
+                { text: "مضيق باب المندب", class: "key-location", i18n: "defBabElMandeb" },
+                { text: "مضيق هرمز", class: "key-location", i18n: "defHormuz" },
+                { text: "قناة السويس", class: "key-location", i18n: "defSuezCanal" },
+                { text: "المحيط الأطلسي", class: "key-location", i18n: "defAtlantic" },
+                { text: "البحر الأبيض المتوسط", class: "key-location", i18n: "defMediterranean" },
+                { text: "البحر الأحمر", class: "key-location", i18n: "defRedSea" },
+                { text: "المحيط الهندي", class: "key-location", i18n: "defIndianOcean" },
+                { text: "الخليج العربي", class: "key-location", i18n: "defArabianGulf" },
+                { text: "المضيق البحري", class: "key-other", i18n: "defStrait" },
+                { text: "الممر المائي", class: "key-other", i18n: "defWaterway" },
+                { text: "1869", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
