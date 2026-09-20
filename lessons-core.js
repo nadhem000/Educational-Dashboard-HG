@@ -319,7 +319,7 @@ window.HGH_UI_TEXT = {
       let changed = false;
       for (const kw of list) {
         const escapedText = kw.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(`(${escapedText})`, 'g');
+        const regex = new RegExp(`(?<![\\p{L}\\p{M}\\p{N}])(${escapedText})(?![\\p{L}\\p{M}\\p{N}])`, 'gu');
         if (regex.test(html)) {
           const i18nAttr = kw.i18n ? ` data-i18n="${kw.i18n}"` : '';
           html = html.replace(regex, `<strong class="${kw.class}"${i18nAttr}>$1</strong>`);

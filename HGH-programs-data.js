@@ -1416,390 +1416,390 @@ window.HGH_YEAR_PROGRAMS = {
 		]
 	},
 	y1sec: {
-		title: {
-			ar: '📚 الأولى ثانوي',
-			en: '📚 1st Secondary',
-			fr: '📚 1ère secondaire'
-		},
-		programs: [
-			{
-				type: 'his',
-				icon: '📜',
-				subject: {
-					ar: 'التاريخ',
-					en: 'History',
-					fr: 'Histoire'
-				},
-				modules: [
-					{
-						name: {
-							ar: 'الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)',
-							en: 'Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)',
-							fr: 'Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)'
-						},
-						lessons: [
-							{
-								title: {
-									ar: 'الدرس 1: قرطاج البونية وإشعاعها في المتوسط',
-									en: 'Lesson 1: Punic Carthage and Its Influence in the Mediterranean',
-									fr: 'Leçon 1 : Carthage punique et son rayonnement en Méditerranée'
-								},
-								parts: [
-									{
-										title: {
-											ar: 'الجزء 1: المؤسسات السياسية',
-											en: 'Part 1: Political Institutions',
-											fr: 'Partie 1 : Les institutions politiques'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 2: الديانة',
-											en: 'Part 2: Religion',
-											fr: 'Partie 2 : La religion'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 3: الميناء والتوسع التجاري',
-											en: 'Part 3: The Port and Commercial Expansion',
-											fr: 'Partie 3 : Le port et l’expansion commerciale'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 4: موسوعة ماغون',
-											en: 'Part 4: The Encyclopedia of Mago',
-											fr: 'Partie 4 : L’encyclopédie de Magon'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 5: عبقرية حنبعل',
-											en: 'Part 5: The Genius of Hannibal',
-											fr: 'Partie 5 : Le génie d’Hannibal'
-										}
-									}
-								]
-							},
-							{
-								title: {
-									ar: 'الدرس 2: قرطاج وإسهاماتها في الحضارة الرومانية',
-									en: 'Lesson 2: Carthage and Its Contributions to Roman Civilization',
-									fr: 'Leçon 2 : Carthage et ses apports à la civilisation romaine'
-								},
-								parts: [
-									{
-										title: {
-											ar: 'الجزء 1: الازدهار العمراني',
-											en: 'Part 1: Urban Prosperity',
-											fr: 'Partie 1 : La prospérité urbanistique'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 2: الازدهار الاقتصادي: الفلاحة',
-											en: 'Part 2: Economic Prosperity: Agriculture',
-											fr: 'Partie 2 : Prospérité économique : l’agriculture'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 3: أبوليوس',
-											en: 'Part 3: Apuleius',
-											fr: 'Partie 3 : Apulée'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 4: القديس أوغسطينوس',
-											en: 'Part 4: Saint Augustine',
-											fr: 'Partie 4 : Saint Augustin'
-										}
-									}
-								]
-							}
-						]
-					},
-					{
-						name: {
-							ar: 'الوحدة الثانية: القيروان وتونس مركزا إشعاع الحضارة العربية الإسلامية في الغرب الإسلامي (من 670 م إلى نهاية القرن الرابع عشر ميلادي)',
-							en: 'Unit 2: Kairouan and Tunis, Centers of Arab-Islamic Civilization in the Islamic West (670 AD – end of the 14th century)',
-							fr: 'Unité 2 : Kairouan et Tunis, centres de rayonnement de la civilisation arabo-islamique en Occident musulman (670 – fin du XIVe siècle)'
-						},
-						lessons: [
-							{
-								title: {
-									ar: 'الدرس 1: القيروان ودورها في نشر الحضارة العربية الإسلامية',
-									en: 'Lesson 1: Kairouan and Its Role in Spreading Arab-Islamic Civilization',
-									fr: 'Leçon 1 : Kairouan et son rôle dans la diffusion de la civilisation arabo-islamique'
-								},
-								parts: [
-									{
-										title: {
-											ar: 'الجزء 1: القيروان قاعدة الانتشار العربي الإسلامي',
-											en: 'Part 1: Kairouan as a Base for Arab-Islamic Expansion',
-											fr: 'Partie 1 : Kairouan, base de l’expansion arabo-islamique'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 2: الدور الاقتصادي للقيروان: أهمية النشاط التجاري',
-											en: 'Part 2: The Economic Role of Kairouan: Importance of Trade',
-											fr: 'Partie 2 : Le rôle économique de Kairouan : l’importance de l’activité commerciale'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 3: خصائص العمارة',
-											en: 'Part 3: Characteristics of Architecture',
-											fr: 'Partie 3 : Les caractéristiques de l’architecture'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 4: الإشعاع الفكري',
-											en: 'Part 4: Intellectual Influence',
-											fr: 'Partie 4 : Le rayonnement intellectuel'
-										}
-									}
-								]
-							},
-							{
-								title: {
-									ar: 'الدرس 2: تونس في العهد الحفصي مركز إشعاع ثقافي',
-									en: 'Lesson 2: Tunis in the Hafsid Era, a Center of Cultural Influence',
-									fr: 'Leçon 2 : Tunis à l’époque hafside, centre de rayonnement culturel'
-								},
-								parts: [
-									{
-										title: {
-											ar: 'الجزء 1: عمارة مدينة تونس',
-											en: 'Part 1: Architecture of the City of Tunis',
-											fr: 'Partie 1 : L’architecture de la ville de Tunis'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 2: عبد الرحمان بن خلدون',
-											en: 'Part 2: Abd al-Rahman Ibn Khaldun',
-											fr: 'Partie 2 : Abd al-Rahman Ibn Khaldoun'
-										}
-									}
-								]
-							}
-						]
-					},
-					{
-						name: {
-							ar: 'الوحدة الثالثة: البلاد التونسية من الإصلاح إلى التحديث (من القرن التاسع عشر إلى 1987)',
-							en: 'Unit 3: Tunisia from Reform to Modernization (19th Century – 1987)',
-							fr: 'Unité 3 : La Tunisie de la réforme à la modernisation (XIXe siècle – 1987)'
-						},
-						lessons: [
-							{
-								title: {
-									ar: 'الدرس 1: إضاءات حول تاريخ تونس في العصر الحديث',
-									en: 'Lesson 1: Insights into the Modern History of Tunisia',
-									fr: 'Leçon 1 : Éclairages sur l’histoire moderne de la Tunisie'
-								},
-								parts: [
-									{
-										title: {
-											ar: 'الجزء 1: الفكر الإصلاحي',
-											en: 'Part 1: Reformist Thought',
-											fr: 'Partie 1 : La pensée réformiste'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 2: التجربة التونسية في مقاومة الاستعمار',
-											en: 'Part 2: The Tunisian Experience in Anti-Colonial Resistance',
-											fr: 'Partie 2 : L’expérience tunisienne de résistance au colonialisme'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 3: تعصير الدولة وتحديث المجتمع',
-											en: 'Part 3: Modernization of the State and Society',
-											fr: 'Partie 3 : Modernisation de l’État et de la société'
-										}
-									}
-								]
-							}
-						]
-					}
-				],
-				pedagogy: {
-					label: {
-						ar: 'وثائق:',
-						en: 'Docs:',
-						fr: 'Docs :'
-					},
-					linkText: {
-						ar: 'كراس التاريخ',
-						en: 'History Booklet',
-						fr: "Cahier d'Histoire"
-					}
-				}
+	title: {
+		ar: '📚 الأولى ثانوي',
+		en: '📚 1st Secondary',
+		fr: '📚 1ère secondaire'
+	},
+	programs: [
+		{
+			type: 'his',
+			icon: '📜',
+			subject: {
+				ar: 'التاريخ',
+				en: 'History',
+				fr: 'Histoire'
 			},
-			{
-				type: 'geo',
-				icon: '🌐',
-				subject: {
-					ar: 'الجغرافيا',
-					en: 'Geography',
-					fr: 'Géographie'
+			modules: [
+				{
+					name: {
+						ar: 'الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)',
+						en: 'Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)',
+						fr: 'Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)'
+					},
+					lessons: [
+						{
+							title: {
+								ar: 'الدرس 1: قرطاج البونية وإشعاعها في المتوسط',
+								en: 'Lesson 1: Punic Carthage and Its Influence in the Mediterranean',
+								fr: 'Leçon 1 : Carthage punique et son rayonnement en Méditerranée'
+							},
+							parts: [
+								{
+									title: {
+										ar: 'المؤسسات السياسية',
+										en: 'Political Institutions',
+										fr: 'Les institutions politiques'
+									}
+								},
+								{
+									title: {
+										ar: 'الديانة',
+										en: 'Religion',
+										fr: 'La religion'
+									}
+								},
+								{
+									title: {
+										ar: 'الميناء والتوسع التجاري',
+										en: 'The Port and Commercial Expansion',
+										fr: 'Le port et l’expansion commerciale'
+									}
+								},
+								{
+									title: {
+										ar: 'موسوعة ماغون',
+										en: 'The Encyclopedia of Mago',
+										fr: 'L’encyclopédie de Magon'
+									}
+								},
+								{
+									title: {
+										ar: 'عبقرية حنبعل',
+										en: 'The Genius of Hannibal',
+										fr: 'Le génie d’Hannibal'
+									}
+								}
+							]
+						},
+						{
+							title: {
+								ar: 'الدرس 2: قرطاج وإسهاماتها في الحضارة الرومانية',
+								en: 'Lesson 2: Carthage and Its Contributions to Roman Civilization',
+								fr: 'Leçon 2 : Carthage et ses apports à la civilisation romaine'
+							},
+							parts: [
+								{
+									title: {
+										ar: 'الازدهار العمراني',
+										en: 'Urban Prosperity',
+										fr: 'La prospérité urbanistique'
+									}
+								},
+								{
+									title: {
+										ar: 'الازدهار الاقتصادي: الفلاحة',
+										en: 'Economic Prosperity: Agriculture',
+										fr: 'Prospérité économique : l’agriculture'
+									}
+								},
+								{
+									title: {
+										ar: 'أبوليوس',
+										en: 'Apuleius',
+										fr: 'Apulée'
+									}
+								},
+								{
+									title: {
+										ar: 'القديس أوغسطينوس',
+										en: 'Saint Augustine',
+										fr: 'Saint Augustin'
+									}
+								}
+							]
+						}
+					]
 				},
-				modules: [
-					{
-						name: {
-							ar: 'المحور الأول: الإنسان يعمر الأرض',
-							en: 'Axis 1: Humans Inhabit the Earth',
-							fr: 'Axe 1 : L’homme habite la Terre'
-						},
-						lessons: [
-							{
-								title: {
-									ar: '1. التوزيع الجغرافي للسكان في العالم',
-									en: '1. Geographical Distribution of the World Population',
-									fr: '1. La répartition géographique de la population mondiale'
-								}
-							},
-							{
-								title: {
-									ar: '2. الحركة الديمغرافية للسكان',
-									en: '2. Demographic Dynamics of the Population',
-									fr: '2. La dynamique démographique de la population'
-								}
-							},
-							{
-								title: {
-									ar: '3. الحركية المجالية للسكان: مثال هجرات العمل',
-									en: '3. Spatial Mobility of Populations: The Example of Labor Migration',
-									fr: '3. La mobilité spatiale des populations : l’exemple des migrations de travail'
-								}
-							},
-							{
-								title: {
-									ar: '4. الإنفجار الحضري',
-									en: '4. Urban Explosion',
-									fr: '4. L’explosion urbaine'
-								}
-							},
-							{
-								title: {
-									ar: '5. تركيبة المدينة: دراسة حالة القاهرة',
-									en: '5. Composition of the City: Case Study of Cairo',
-									fr: '5. La composition de la ville : étude de cas du Caire'
-								}
-							}
-						]
+				{
+					name: {
+						ar: 'الوحدة الثانية: القيروان وتونس مركزا إشعاع الحضارة العربية الإسلامية في الغرب الإسلامي (من 670 م إلى نهاية القرن الرابع عشر ميلادي)',
+						en: 'Unit 2: Kairouan and Tunis, Centers of Arab-Islamic Civilization in the Islamic West (670 AD – end of the 14th century)',
+						fr: 'Unité 2 : Kairouan et Tunis, centres de rayonnement de la civilisation arabo-islamique en Occident musulman (670 – fin du XIVe siècle)'
 					},
-					{
-						name: {
-							ar: 'المحور الثاني: الإنسان يستثمر الموارد الطبيعية',
-							en: 'Axis 2: Humans Exploit Natural Resources',
-							fr: 'Axe 2 : L’homme exploite les ressources naturelles'
+					lessons: [
+						{
+							title: {
+								ar: 'الدرس 1: القيروان ودورها في نشر الحضارة العربية الإسلامية',
+								en: 'Lesson 1: Kairouan and Its Role in Spreading Arab-Islamic Civilization',
+								fr: 'Leçon 1 : Kairouan et son rôle dans la diffusion de la civilisation arabo-islamique'
+							},
+							parts: [
+								{
+									title: {
+										ar: 'القيروان قاعدة الانتشار العربي الإسلامي',
+										en: 'Kairouan as a Base for Arab-Islamic Expansion',
+										fr: 'Kairouan, base de l’expansion arabo-islamique'
+									}
+								},
+								{
+									title: {
+										ar: 'الدور الاقتصادي للقيروان: أهمية النشاط التجاري',
+										en: 'The Economic Role of Kairouan: Importance of Trade',
+										fr: 'Le rôle économique de Kairouan : l’importance de l’activité commerciale'
+									}
+								},
+								{
+									title: {
+										ar: 'خصائص العمارة',
+										en: 'Characteristics of Architecture',
+										fr: 'Les caractéristiques de l’architecture'
+									}
+								},
+								{
+									title: {
+										ar: 'الإشعاع الفكري',
+										en: 'Intellectual Influence',
+										fr: 'Le rayonnement intellectuel'
+									}
+								}
+							]
 						},
-						lessons: [
-							{
-								title: {
-									ar: '1. الموارد المائية وتوزيعها الجغرافي',
-									en: '1. Water Resources and Their Geographical Distribution',
-									fr: '1. Les ressources en eau et leur répartition géographique'
-								}
+						{
+							title: {
+								ar: 'الدرس 2: تونس في العهد الحفصي مركز إشعاع ثقافي',
+								en: 'Lesson 2: Tunis in the Hafsid Era, a Center of Cultural Influence',
+								fr: 'Leçon 2 : Tunis à l’époque hafside, centre de rayonnement culturel'
 							},
-							{
-								title: {
-									ar: '2. تعبئة المياه',
-									en: '2. Water Mobilization',
-									fr: '2. La mobilisation de l’eau'
+							parts: [
+								{
+									title: {
+										ar: 'عمارة مدينة تونس',
+										en: 'Architecture of the City of Tunis',
+										fr: 'L’architecture de la ville de Tunis'
+									}
+								},
+								{
+									title: {
+										ar: 'عبد الرحمان بن خلدون',
+										en: 'Abd al-Rahman Ibn Khaldun',
+										fr: 'Abd al-Rahman Ibn Khaldoun'
+									}
 								}
-							},
-							{
-								title: {
-									ar: '3. رهانات الماء',
-									en: '3. Water Stakes',
-									fr: '3. Les enjeux de l’eau'
-								}
-							},
-							{
-								title: {
-									ar: '4. الموارد النفطية: الإنتاج والاستهلاك والمبادلات',
-									en: '4. Oil Resources: Production, Consumption and Trade',
-									fr: '4. Les ressources pétrolières : production, consommation et échanges'
-								}
-							},
-							{
-								title: {
-									ar: '5. رهانات النفط',
-									en: '5. Oil Stakes',
-									fr: '5. Les enjeux du pétrole'
-								}
-							}
-						]
+							]
+						}
+					]
+				},
+				{
+					name: {
+						ar: 'الوحدة الثالثة: البلاد التونسية من الإصلاح إلى التحديث (من القرن التاسع عشر إلى 1987)',
+						en: 'Unit 3: Tunisia from Reform to Modernization (19th Century – 1987)',
+						fr: 'Unité 3 : La Tunisie de la réforme à la modernisation (XIXe siècle – 1987)'
 					},
-					{
-						name: {
-							ar: 'المحور الثالث: الإنسان والأوساط الطبيعية',
-							en: 'Axis 3: Humans and Natural Environments',
-							fr: 'Axe 3 : L’homme et les milieux naturels'
-						},
-						lessons: [
-							{
-								title: {
-									ar: '1. الإنسان والوسط الطبيعي',
-									en: '1. Humans and the Natural Environment',
-									fr: '1. L’homme et le milieu naturel'
-								}
+					lessons: [
+						{
+							title: {
+								ar: 'الدرس 1: إضاءات حول تاريخ تونس في العصر الحديث',
+								en: 'Lesson 1: Insights into the Modern History of Tunisia',
+								fr: 'Leçon 1 : Éclairages sur l’histoire moderne de la Tunisie'
 							},
-							{
-								title: {
-									ar: '2. من المخاطر الطبيعية إلى الكوارث: الزلازل والبراكين',
-									en: '2. From Natural Hazards to Disasters: Earthquakes and Volcanoes',
-									fr: '2. Des risques naturels aux catastrophes : séismes et volcans'
+							parts: [
+								{
+									title: {
+										ar: 'الفكر الإصلاحي',
+										en: 'Reformist Thought',
+										fr: 'La pensée réformiste'
+									}
+								},
+								{
+									title: {
+										ar: 'التجربة التونسية في مقاومة الاستعمار',
+										en: 'The Tunisian Experience in Anti-Colonial Resistance',
+										fr: 'L’expérience tunisienne de résistance au colonialisme'
+									}
+								},
+								{
+									title: {
+										ar: 'تعصير الدولة وتحديث المجتمع',
+										en: 'Modernization of the State and Society',
+										fr: 'Modernisation de l’État et de la société'
+									}
 								}
-							},
-							{
-								title: {
-									ar: '3. الفيضانات',
-									en: '3. Floods',
-									fr: '3. Les inondations'
-								}
-							},
-							{
-								title: {
-									ar: '4. تدهور الأوساط الطبيعية: مثال التصحر',
-									en: '4. Degradation of Natural Environments: The Example of Desertification',
-									fr: '4. La dégradation des milieux naturels : l’exemple de la désertification'
-								}
-							},
-							{
-								title: {
-									ar: '5. تدهور وسط غابي: مثال الغابة المتوسطية',
-									en: '5. Degradation of a Forest Environment: The Example of the Mediterranean Forest',
-									fr: '5. La dégradation d’un milieu forestier : l’exemple de la forêt méditerranéenne'
-								}
-							}
-						]
-					}
-				],
-				pedagogy: {
-					label: {
-						ar: 'وثائق:',
-						en: 'Docs:',
-						fr: 'Docs :'
-					},
-					linkText: {
-						ar: 'كراس الجغرافيا',
-						en: 'Geography Booklet',
-						fr: 'Cahier de Géographie'
-					}
+							]
+						}
+					]
+				}
+			],
+			pedagogy: {
+				label: {
+					ar: 'وثائق:',
+					en: 'Docs:',
+					fr: 'Docs :'
+				},
+				linkText: {
+					ar: 'كراس التاريخ',
+					en: 'History Booklet',
+					fr: "Cahier d'Histoire"
 				}
 			}
-		]
-	},
+		},
+		{
+			type: 'geo',
+			icon: '🌐',
+			subject: {
+				ar: 'الجغرافيا',
+				en: 'Geography',
+				fr: 'Géographie'
+			},
+			modules: [
+				{
+					name: {
+						ar: 'المحور الأول: الإنسان يعمر الأرض',
+						en: 'Axis 1: Humans Inhabit the Earth',
+						fr: 'Axe 1 : L’homme habite la Terre'
+					},
+					lessons: [
+						{
+							title: {
+								ar: 'الدرس 1: التوزيع الجغرافي للسكان في العالم',
+								en: 'Lesson 1: Geographical Distribution of the World Population',
+								fr: 'Leçon 1 : La répartition géographique de la population mondiale'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 2: الحركة الديمغرافية للسكان',
+								en: 'Lesson 2: Demographic Dynamics of the Population',
+								fr: 'Leçon 2 : La dynamique démographique de la population'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 3: الحركية المجالية للسكان: مثال هجرات العمل',
+								en: 'Lesson 3: Spatial Mobility of Populations: The Example of Labor Migration',
+								fr: 'Leçon 3 : La mobilité spatiale des populations : l’exemple des migrations de travail'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 4: الإنفجار الحضري',
+								en: 'Lesson 4: Urban Explosion',
+								fr: 'Leçon 4 : L’explosion urbaine'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 5: تركيبة المدينة: دراسة حالة القاهرة',
+								en: 'Lesson 5: Composition of the City: Case Study of Cairo',
+								fr: 'Leçon 5 : La composition de la ville : étude de cas du Caire'
+							}
+						}
+					]
+				},
+				{
+					name: {
+						ar: 'المحور الثاني: الإنسان يستثمر الموارد الطبيعية',
+						en: 'Axis 2: Humans Exploit Natural Resources',
+						fr: 'Axe 2 : L’homme exploite les ressources naturelles'
+					},
+					lessons: [
+						{
+							title: {
+								ar: 'الدرس 1: الموارد المائية وتوزيعها الجغرافي',
+								en: 'Lesson 1: Water Resources and Their Geographical Distribution',
+								fr: 'Leçon 1 : Les ressources en eau et leur répartition géographique'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 2: تعبئة المياه',
+								en: 'Lesson 2: Water Mobilization',
+								fr: 'Leçon 2 : La mobilisation de l’eau'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 3: رهانات الماء',
+								en: 'Lesson 3: Water Stakes',
+								fr: 'Leçon 3 : Les enjeux de l’eau'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 4: الموارد النفطية: الإنتاج والاستهلاك والمبادلات',
+								en: 'Lesson 4: Oil Resources: Production, Consumption and Trade',
+								fr: 'Leçon 4 : Les ressources pétrolières : production, consommation et échanges'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 5: رهانات النفط',
+								en: 'Lesson 5: Oil Stakes',
+								fr: 'Leçon 5 : Les enjeux du pétrole'
+							}
+						}
+					]
+				},
+				{
+					name: {
+						ar: 'المحور الثالث: الإنسان والأوساط الطبيعية',
+						en: 'Axis 3: Humans and Natural Environments',
+						fr: 'Axe 3 : L’homme et les milieux naturels'
+					},
+					lessons: [
+						{
+							title: {
+								ar: 'الدرس 1: الإنسان والوسط الطبيعي',
+								en: 'Lesson 1: Humans and the Natural Environment',
+								fr: 'Leçon 1 : L’homme et le milieu naturel'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 2: من المخاطر الطبيعية إلى الكوارث: الزلازل والبراكين',
+								en: 'Lesson 2: From Natural Hazards to Disasters: Earthquakes and Volcanoes',
+								fr: 'Leçon 2 : Des risques naturels aux catastrophes : séismes et volcans'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 3: الفيضانات',
+								en: 'Lesson 3: Floods',
+								fr: 'Leçon 3 : Les inondations'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 4: تدهور الأوساط الطبيعية: مثال التصحر',
+								en: 'Lesson 4: Degradation of Natural Environments: The Example of Desertification',
+								fr: 'Leçon 4 : La dégradation des milieux naturels : l’exemple de la désertification'
+							}
+						},
+						{
+							title: {
+								ar: 'الدرس 5: تدهور وسط غابي: مثال الغابة المتوسطية',
+								en: 'Lesson 5: Degradation of a Forest Environment: The Example of the Mediterranean Forest',
+								fr: 'Leçon 5 : La dégradation d’un milieu forestier : l’exemple de la forêt méditerranéenne'
+							}
+						}
+					]
+				}
+			],
+			pedagogy: {
+				label: {
+					ar: 'وثائق:',
+					en: 'Docs:',
+					fr: 'Docs :'
+				},
+				linkText: {
+					ar: 'كراس الجغرافيا',
+					en: 'Geography Booklet',
+					fr: 'Cahier de Géographie'
+				}
+			}
+		}
+	]
+},
 	y2sec: {
 		title: {
 			ar: '📚 الثانية ثانوي',
@@ -2613,23 +2613,248 @@ window.HGH_YEAR_PROGRAMS = {
 					type: 'his',
 					icon: '📜',
 					subject: {
-						ar: 'تاريخ',
+						ar: 'التاريخ',
 						en: 'History',
 						fr: 'Histoire'
 					},
 					modules: [
 						{
 							name: {
-								ar: 'المحور 1',
-								en: 'Axis 1',
-								fr: 'Axe 1'
+								ar: 'المحور الأول: أوروبا والعالم المتوسطي في القرن السادس عشر',
+								en: 'Axis 1: Europe and the Mediterranean World in the 16th Century',
+								fr: 'Axe 1 : L’Europe et le monde méditerranéen au XVIe siècle'
 							},
 							lessons: [
 								{
 									title: {
-										ar: 'الدرس 1',
-										en: 'Lesson 1',
-										fr: 'Leçon 1'
+										ar: '1. الاكتشافات الجغرافية الكبرى ونتائجها',
+										en: '1. The Great Geographical Discoveries and Their Consequences',
+										fr: '1. Les grandes découvertes géographiques et leurs conséquences'
+									}
+								},
+								{
+									title: {
+										ar: '2. النهضة الأوروبية: المظاهر',
+										en: '2. The European Renaissance: Aspects',
+										fr: '2. La Renaissance européenne : aspects'
+									}
+								},
+								{
+									title: {
+										ar: '3. النهضة الأوروبية: دراسة شخصية علمية: نيكولا كوبرنيك',
+										en: '3. The European Renaissance: Scientific Figure Study: Nicolaus Copernicus',
+										fr: '3. La Renaissance européenne : étude d’une figure scientifique : Nicolas Copernic'
+									}
+								},
+								{
+									title: {
+										ar: '4. النهضة الأوروبية: دراسة أثر فني: لوحة الجوكندا',
+										en: '4. The European Renaissance: Artistic Work Study: The Mona Lisa',
+										fr: '4. La Renaissance européenne : étude d’une œuvre d’art : La Joconde'
+									}
+								},
+								{
+									title: {
+										ar: '5. توسع الإمبراطورية العثمانية وتنظيمها في القرن السادس عشر',
+										en: '5. Expansion of the Ottoman Empire and Its Organization in the 16th Century',
+										fr: '5. L’expansion de l’Empire ottoman et son organisation au XVIe siècle'
+									}
+								},
+								{
+									title: {
+										ar: '6. أزمة الدولة الحفصية في القرن السادس عشر',
+										en: '6. The Crisis of the Hafsid State in the 16th Century',
+										fr: '6. La crise de l’État hafside au XVIe siècle'
+									}
+								},
+								{
+									title: {
+										ar: '7. الصراع العثماني الإسباني في المتوسط وانتصاب العثمانيين في تونس',
+										en: '7. Ottoman-Spanish Conflict in the Mediterranean and the Ottoman Installation in Tunisia',
+										fr: '7. Le conflit hispano-ottoman en Méditerranée et l’installation ottomane en Tunisie'
+									}
+								},
+								{
+									title: {
+										ar: 'ملف منهجي تقييمي',
+										en: 'Methodological Evaluation File',
+										fr: 'Fichier méthodologique d’évaluation'
+									}
+								}
+							]
+						},
+						{
+							name: {
+								ar: 'المحور الثاني: تحولات العالم الغربي في القرنين السابع عشر والثامن عشر',
+								en: 'Axis 2: Transformations of the Western World in the 17th and 18th Centuries',
+								fr: 'Axe 2 : Les transformations du monde occidental aux XVIIe et XVIIIe siècles'
+							},
+							lessons: [
+								{
+									title: {
+										ar: '1. التحولات الاقتصادية في أوروبا الغربية: المثال الإنجليزي',
+										en: '1. Economic Transformations in Western Europe: The English Example',
+										fr: '1. Les transformations économiques en Europe occidentale : l’exemple anglais'
+									}
+								},
+								{
+									title: {
+										ar: '2. فكر التنوير',
+										en: '2. Enlightenment Thought',
+										fr: '2. La pensée des Lumières'
+									}
+								},
+								{
+									title: {
+										ar: '3. دراسة أثر من عهد التنوير: الموسوعة',
+										en: '3. Study of a Work from the Enlightenment: The Encyclopedia',
+										fr: '3. Étude d’une œuvre des Lumières : L’Encyclopédie'
+									}
+								},
+								{
+									title: {
+										ar: '4. الثورة الفرنسية وانتصار المبادئ الجديدة',
+										en: '4. The French Revolution and the Victory of New Principles',
+										fr: '4. La Révolution française et la victoire des nouveaux principes'
+									}
+								},
+								{
+									title: {
+										ar: 'ملف منهجي تقييمي',
+										en: 'Methodological Evaluation File',
+										fr: 'Fichier méthodologique d’évaluation'
+									}
+								}
+							]
+						},
+						{
+							name: {
+								ar: 'المحور الثالث: الإمبراطورية العثمانية والمغرب العربي في القرن الثامن عشر',
+								en: 'Axis 3: The Ottoman Empire and the Maghreb in the 18th Century',
+								fr: 'Axe 3 : L’Empire ottoman et le Maghreb au XVIIIe siècle'
+							},
+							lessons: [
+								{
+									title: {
+										ar: '1. أزمة الإمبراطورية العثمانية ومحاولات الإصلاح الأولى',
+										en: '1. Crisis of the Ottoman Empire and First Reform Attempts',
+										fr: '1. La crise de l’Empire ottoman et les premières tentatives de réforme'
+									}
+								},
+								{
+									title: {
+										ar: '2. التطور السياسي للإيالات العثمانية والمغرب الأقصى في القرن الثامن عشر',
+										en: '2. Political Development of the Ottoman Provinces and Morocco in the 18th Century',
+										fr: '2. L’évolution politique des provinces ottomanes et du Maroc au XVIIIe siècle'
+									}
+								},
+								{
+									title: {
+										ar: '3. الدولة الحسينية في القرن الثامن عشر: علاقة السلطة بالمجتمع',
+										en: '3. The Husseinite State in the 18th Century: Relationship between Authority and Society',
+										fr: '3. L’État husseinite au XVIIIe siècle : relation entre pouvoir et société'
+									}
+								},
+								{
+									title: {
+										ar: 'ملف منهجي تقييمي',
+										en: 'Methodological Evaluation File',
+										fr: 'Fichier méthodologique d’évaluation'
+									}
+								}
+							]
+						},
+						{
+							name: {
+								ar: 'المحور الرابع: الثورة الصناعية وتركيز الاقتصاد الرأسمالي في القرن التاسع عشر',
+								en: 'Axis 4: The Industrial Revolution and the Concentration of Capitalist Economy in the 19th Century',
+								fr: 'Axe 4 : La Révolution industrielle et la concentration de l’économie capitaliste au XIXe siècle'
+							},
+							lessons: [
+								{
+									title: {
+										ar: '1. الثورة الصناعية',
+										en: '1. The Industrial Revolution',
+										fr: '1. La Révolution industrielle'
+									}
+								},
+								{
+									title: {
+										ar: '2. التحولات الاقتصادية والاجتماعية في القرن التاسع عشر',
+										en: '2. Economic and Social Transformations in the 19th Century',
+										fr: '2. Les transformations économiques et sociales au XIXe siècle'
+									}
+								},
+								{
+									title: {
+										ar: '3. التيارات السياسية والفكرية في القرن التاسع عشر',
+										en: '3. Political and Intellectual Currents in the 19th Century',
+										fr: '3. Les courants politiques et intellectuels au XIXe siècle'
+									}
+								},
+								{
+									title: {
+										ar: '4. التوسع الاستعماري واقتسام العالم',
+										en: '4. Colonial Expansion and the Division of the World',
+										fr: '4. L’expansion coloniale et le partage du monde'
+									}
+								},
+								{
+									title: {
+										ar: 'ملف منهجي تقييمي',
+										en: 'Methodological Evaluation File',
+										fr: 'Fichier méthodologique d’évaluation'
+									}
+								}
+							]
+						},
+						{
+							name: {
+								ar: 'المحور الخامس: النهضة العربية الحديثة وتطور الإيالة التونسية في القرن التاسع عشر',
+								en: 'Axis 5: The Modern Arab Renaissance and the Development of the Tunisian Regency in the 19th Century',
+								fr: 'Axe 5 : La Renaissance arabe moderne et l’évolution de la Régence tunisienne au XIXe siècle'
+							},
+							lessons: [
+								{
+									title: {
+										ar: '1. النهضة العربية الحديثة',
+										en: '1. The Modern Arab Renaissance',
+										fr: '1. La Renaissance arabe moderne'
+									}
+								},
+								{
+									title: {
+										ar: '2. أزمة الإيالة التونسية في القرن التاسع عشر',
+										en: '2. Crisis of the Tunisian Regency in the 19th Century',
+										fr: '2. La crise de la Régence tunisienne au XIXe siècle'
+									}
+								},
+								{
+									title: {
+										ar: '3. محاولات الإصلاح',
+										en: '3. Reform Attempts',
+										fr: '3. Les tentatives de réforme'
+									}
+								},
+								{
+									title: {
+										ar: '4. انتصاب الحماية الفرنسية على تونس: ردود الفعل الأولى',
+										en: '4. Establishment of the French Protectorate over Tunisia: First Reactions',
+										fr: '4. L’instauration du protectorat français en Tunisie : premières réactions'
+									}
+								},
+								{
+									title: {
+										ar: '5. بوادر الحركة الوطنية التونسية إلى حدود 1914',
+										en: '5. Beginnings of the Tunisian National Movement up to 1914',
+										fr: '5. Les débuts du mouvement national tunisien jusqu’en 1914'
+									}
+								},
+								{
+									title: {
+										ar: 'ملف منهجي تقييمي',
+										en: 'Methodological Evaluation File',
+										fr: 'Fichier méthodologique d’évaluation'
 									}
 								}
 							]
@@ -2642,9 +2867,9 @@ window.HGH_YEAR_PROGRAMS = {
 							fr: 'Docs :'
 						},
 						linkText: {
-							ar: 'كراس',
-							en: 'Booklet',
-							fr: 'Cahier'
+							ar: 'كراس التاريخ',
+							en: 'History Booklet',
+							fr: "Cahier d'Histoire"
 						}
 					}
 				},
@@ -2652,23 +2877,130 @@ window.HGH_YEAR_PROGRAMS = {
 					type: 'geo',
 					icon: '🌐',
 					subject: {
-						ar: 'جغرافيا',
+						ar: 'الجغرافيا',
 						en: 'Geography',
 						fr: 'Géographie'
 					},
 					modules: [
 						{
 							name: {
-								ar: 'المحور 1',
-								en: 'Axis 1',
-								fr: 'Axe 1'
+								ar: 'المحور الأول: المجال والتنمية في العالم العربي',
+								en: 'Axis 1: Space and Development in the Arab World',
+								fr: 'Axe 1 : Espace et développement dans le monde arabe'
 							},
 							lessons: [
 								{
 									title: {
-										ar: 'الدرس 1',
-										en: 'Lesson 1',
-										fr: 'Leçon 1'
+										ar: '1. مزايا الموقع الجغرافي للعالم العربي',
+										en: '1. Advantages of the Geographical Location of the Arab World',
+										fr: '1. Les avantages de la situation géographique du monde arabe'
+									}
+								},
+								{
+									title: {
+										ar: '2. الوسط الطبيعي: المزايا والضغوطات',
+										en: '2. The Natural Environment: Advantages and Constraints',
+										fr: '2. Le milieu naturel : atouts et contraintes'
+									}
+								},
+								{
+									title: {
+										ar: '3. الموارد الطبيعية',
+										en: '3. Natural Resources',
+										fr: '3. Les ressources naturelles'
+									}
+								},
+								{
+									title: {
+										ar: '4. الأدفاق الماديّة واللاّماديّة بالعالم العربي',
+										en: '4. Material and Immaterial Flows in the Arab World',
+										fr: '4. Les flux matériels et immatériels dans le monde arabe'
+									}
+								},
+								{
+									title: {
+										ar: '5. السكان والمشكلات السكانية',
+										en: '5. Population and Population Problems',
+										fr: '5. La population et les problèmes démographiques'
+									}
+								},
+								{
+									title: {
+										ar: '6. التجارب التنموية بالبلدان العربية',
+										en: '6. Development Experiences in Arab Countries',
+										fr: '6. Les expériences de développement dans les pays arabes'
+									}
+								}
+							]
+						},
+						{
+							name: {
+								ar: 'المحور الثاني: المجال والتنمية في البلاد التونسية',
+								en: 'Axis 2: Space and Development in Tunisia',
+								fr: 'Axe 2 : Espace et développement en Tunisie'
+							},
+							lessons: [
+								{
+									title: {
+										ar: '1. التهيئة الترابيّة بالبلاد التونسية',
+										en: '1. Territorial Planning in Tunisia',
+										fr: '1. L’aménagement du territoire en Tunisie'
+									}
+								},
+								{
+									title: {
+										ar: '2. الوسط الطبيعي: المزايا والضغوطات – البلاد التونسية',
+										en: '2. The Natural Environment: Advantages and Constraints – Tunisia',
+										fr: '2. Le milieu naturel : atouts et contraintes – La Tunisie'
+									}
+								},
+								{
+									title: {
+										ar: '3. المجال الفلاحي بالبلاد التونسية',
+										en: '3. Agricultural Space in Tunisia',
+										fr: '3. L’espace agricole en Tunisie'
+									}
+								},
+								{
+									title: {
+										ar: '4. المجال الصناعي بالبلاد التونسية',
+										en: '4. Industrial Space in Tunisia',
+										fr: '4. L’espace industriel en Tunisie'
+									}
+								},
+								{
+									title: {
+										ar: '5. الشمال الشرقي: الأنشطة الاقتصادية بالبلاد التونسية',
+										en: '5. The North-East: Economic Activities in Tunisia',
+										fr: '5. Le Nord-Est : les activités économiques en Tunisie'
+									}
+								},
+								{
+									title: {
+										ar: '6. الأنشطة الخدمية بالبلاد التونسية',
+										en: '6. Service Activities in Tunisia',
+										fr: '6. Les activités de services en Tunisie'
+									}
+								},
+								{
+									title: {
+										ar: '7. السكان والسياسة السكانية في البلاد التونسية',
+										en: '7. Population and Population Policy in Tunisia',
+										fr: '7. La population et la politique démographique en Tunisie'
+									}
+								},
+								{
+									title: {
+										ar: '8. التجارب التنمويّة بالبلاد التونسية',
+										en: '8. Development Experiences in Tunisia',
+										fr: '8. Les expériences de développement en Tunisie'
+									}
+								},
+								{
+									title: {
+										ar: '9. أسس التنظيم الاقليمي بالبلاد التونسية',
+										en: '9. Foundations of Regional Organization in Tunisia',
+										fr: '9. Les fondements de l’organisation régionale en Tunisie'
 									}
 								}
 							]
@@ -2681,9 +3013,9 @@ window.HGH_YEAR_PROGRAMS = {
 							fr: 'Docs :'
 						},
 						linkText: {
-							ar: 'كراس',
-							en: 'Booklet',
-							fr: 'Cahier'
+							ar: 'كراس الجغرافيا',
+							en: 'Geography Booklet',
+							fr: 'Cahier de Géographie'
 						}
 					}
 				}
