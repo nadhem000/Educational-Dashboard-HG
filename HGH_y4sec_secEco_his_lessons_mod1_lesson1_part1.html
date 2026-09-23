@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <!-- PRINT HEADER -->
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+    <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+        الرابعة ثانوي، شعبة الآداب
+    </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">الحرب العالمية الأولى: الأسباب والنتائج</h1>
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">اندلعت الحرب العالمية الأولى في صائفة 1914 نتيجة لاحتدام التوتر بين القوى الإمبريالية الأوروبية منذ الربع الأخير من القرن 19، واستمرت الحرب الكبرى 4 سنوات وأسفرت عن تغييرات جيوسياسية عميقة. فما هي أسبابها وما هي نتائجها؟</p>
+            </div>
+            <!-- Part I : Causes -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">أسباب الحرب العالمية الأولى</span>
+                </h2>
+                <!-- 1. التنافس الاستعماري -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="cause1Title">احتداد التنافس الاستعماري</span>
+                </h3>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="cause1aText">احتد التنافس بين القوى الاستعمارية الأوروبية في الربع الأخير من القرن 19 نتيجة لعدة أسباب من أهمها:</span>
+                </h4>
+                <ul>
+                    <li data-i18n="cause1Bullet1">نضج الثورة الصناعية وتزايد حاجة أوروبا إلى الأسواق الخارجية لتصدير فوائض الإنتاج الصناعي.</li>
+                    <li data-i18n="cause1Bullet2">تعرض الاقتصاد الأوروبي إلى "الكساد الكبير" بين 1873 و 1886 وتراجع قيمة الأرباح على الاستثمار، مما دفع إلى ضرورة البحث عن مجال جديد لتصدير رؤوس الأموال.</li>
+                    <li data-i18n="cause1Bullet3">ظهور قوى أوروبية جديدة تتمثل في كل من ألمانيا وإيطاليا أصبحت تطالب بإعادة تقسيم العالم وبحقها في المستعمرات.</li>
+                </ul>
+                <p data-i18n="cause1SubText1">اشتد التنافس الألماني الإنجليزي حيث اعتمد إمبراطور ألمانيا غليوم الثاني سياسة اقتصادية جديدة تعرف بـ "السياسة العالمية" التي ترى أن مستقبل ألمانيا فوق الماء، فعمد إلى تعزيز القوة البحرية الألمانية والتغلغل الاقتصادي في الإمبراطورية العثمانية وآسيا مما أثار مخاوف إنجلترا.</p>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="cause1bText">أدى التنافس الاستعماري إلى اندلاع أزمات دولية كادت أن تتحول إلى حروب من بينها:</span>
+                </h4>
+                <ul>
+                    <li data-i18n="cause1Crisis1">أزمة فاشودا 1898 بين فرنسا وإنجلترا وانتهت بعقد الوفاق بين الدولتين.</li>
+                    <li data-i18n="cause1Crisis2">أزمتا المغرب الأقصى بين ألمانيا وفرنسا وتمثلت في أزمة طنجة 1905 وأزمة أغادير 1911، وتمت تسويتهما باعتماد مبدأ الترضيات بتخلي فرنسا عن جزء من مستعمرتها الكونغو لفائدة ألمانيا مقابل الهيمنة على المغرب الأقصى 1912.</li>
+                </ul>
+                <p data-i18n="cause1Conclusion">أدى تضارب المصالح إلى توتر العلاقات الدولية والدخول في سياسة الأحلاف والسباق نحو التسلح.</p>
+                <!-- 2. سياسة الأحلاف والسباق نحو التسلح -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="cause2Title">سياسة الأحلاف والسباق نحو التسلح</span>
+                </h3>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="cause2aText">سياسة الأحلاف:</span>
+                </h4>
+                <p><strong data-i18n="allianceTripleTitle">- الحلف الثلاثي:</strong> <span data-i18n="allianceTripleDesc">بادرت ألمانيا في أكتوبر 1879 إلى عقد حلف مع الإمبراطورية النمساوية المجرية قصد عزل فرنسا ومنعها من استرجاع "الألزاس واللوران" التي سيطرت عليها ألمانيا 1870. انضمت إيطاليا إلى الحلف في مارس 1882 تعبيراً عن غضبها من فرض الحماية الفرنسية على تونس (1881). غير أن إيطاليا أمضت اتفاقاً سرياً مع فرنسا للبقاء على الحياد (1902)، ثم انسحبت من الحلف الثلاثي عام 1915 بسبب مطالبها الترابية في مناطق ترياست وترنتان ودلماسيا الخاضعة للسيادة النمساوية، وانتسبت إلى الوفاق الثلاثي بموجب معاهدة لندن السرية التي تعهدت فيها دول الوفاق بتلبية تلك المطالب. ثم تدعّم الحلف الثلاثي لاحقاً بانضمام الإمبراطورية العثمانية (1914) وبلغاريا (1915).</span></p>
+                <p><strong data-i18n="allianceEntenteTitle">- الوفاق الثلاثي:</strong> <span data-i18n="allianceEntenteDesc">للخروج من عزلتها بادرت فرنسا بعقد وفاق مع إنجلترا 1904 ومع الإمبراطورية الروسية (انسحبت بسبب الثورة البلشفية 1917). كان من أهداف الوفاق الثلاثي تطويق ألمانيا وإخراج فرنسا من عزلتها. ثم تدعّم الوفاق بانضمام اليابان (1914) ورومانيا والبرتغال ثم إيطاليا (1915) والولايات المتحدة الأمريكية (1917).</span></p>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="cause2bText">السباق نحو التسلح:</span>
+                </h4>
+                <p data-i18n="cause2bDesc">انخرطت الأحلاف في السباق نحو التسلح بالترفيع من مدة الخدمة العسكرية من سنتين إلى ثلاث سنوات إجبارياً والترفيع في عدد القوات العسكرية، فبلغت سنة 1913 في ألمانيا 820 ألف وفي الإمبراطورية الروسية 1.8 مليون، إلى جانب احتدام التنافس الألماني الإنجليزي في مجال التسلح البحري. كما تدعمت ميزانيات الدفاع وتضاعفت النفقات العسكرية.</p>
+                <!-- 3. الشعور القومي -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="cause3Title">تأجج الشعور القومي في أوروبا الوسطى ومنطقة البلقان</span>
+                </h3>
+                <p data-i18n="cause3Desc">مثلت أوروبا الوسطى ومنطقة البلقان مجالاً للتوتر نتيجة لعاملين:</p>
+                <ul>
+                    <li data-i18n="cause3Factor1">تعدد القوميات من سلاف وتشيك ومجريين... التي تسعى إلى تكوين كيانات مستقلة، على غرار سلاف الجنوب الذين استفادوا من دعم صربيا.</li>
+                    <li data-i18n="cause3Factor2">تحول المنطقة إلى مسرح للصراع بين الإمبراطورية الروسية (التي كانت تطمح إلى الوصول إلى المياه الدافئة عبر السيطرة على مضيق البسفور) والإمبراطورية النمساوية المجرية (التي كانت تطمح إلى الحصول على منفذ على البحر الأدرياتيكي باحتلال البوسنة والهرسك 1908).</li>
+                </ul>
+                <p data-i18n="cause3Conclusion">أدى التوتر إلى اندلاع الحروب البلقانية 1912 و1913 وتنامي الحركات القومية مثل الحركة القومية السلافية.</p>
+                <!-- 4. حادثة سراييفو -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">4</span>.
+                    <span data-i18n="cause4Title">حادثة سراييفو واندلاع الحرب الكبرى</span>
+                </h3>
+                <p data-i18n="cause4Desc">تم اغتيال ولي العهد النمساوي فرنسوا فرديناند من قبل طالب بوسني ينتمي إلى حركة قومية سلافية في 28 جوان 1914. اتهمت النمسا صربيا وحملتها مسؤولية الاغتيال وطالبت بإرسال قضاة للمشاركة في التحقيق، غير أن صربيا رفضت ذلك واعتبرته مساً بسيادتها. دفع ذلك النمسا إلى إعلان الحرب عليها يوم 28 جويلية 1914 وذلك بتحريض من ألمانيا التي أرسلت إنذاراً إلى كل من فرنسا وإنجلترا، وبحكم الأحلاف القائمة تحولت الحرب من حرب بين طرفين إلى حرب عالمية، كما انضمت دول أخرى إلى الحلفين مثل انضمام اليابان (1914) وإيطاليا (1915) ورومانيا والبرتغال والولايات المتحدة الأمريكية (1917) إلى جانب الوفاق الثلاثي، وانضمام الإمبراطورية العثمانية (1914) وبلغاريا (1915) إلى دول المركز.</p>
+            </div>
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">شكلت الأسباب المتشابكة من تنافس استعماري وأحلاف وتسابق نحو التسلح وتأجج القوميات، بالإضافة إلى حادثة سراييفو، الشرارة التي فجرت الحرب العالمية الأولى، والتي ستترك نتائج جيوسياسية واقتصادية هائلة أعادت تشكيل العالم.</p>
+            </div>
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات </h2>
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defWilhelmII">غليوم الثاني</strong>: <span data-i18n="defWilhelmIIDesc">إمبراطور ألمانيا (1888–1918)، وُلد في 27 جانفي 1859 ببرلين وتوفي في 4 جوان 1941 بمنفاه في دورن بهولندا. تبنى سياسة «السياسة العالمية» (Weltpolitik) الهادفة إلى تعزيز النفوذ البحري والاستعماري لألمانيا بعد عزله للمستشار بسمارك عام 1890. سعى إلى بناء أسطول بحري قوي ينافس البحرية البريطانية، وتغلغل اقتصادياً في الدولة العثمانية وآسيا، مما زاد من عزلة ألمانيا الدولية وأدى إلى توتر علاقاتها مع إنجلترا وفرنسا، ومهد لانخراطها في الحرب العالمية الأولى. تنازل عن العرش في 9 نوفمبر 1918 وهرب إلى هولندا.</span></li>
+                        <li><strong class="key-person" data-i18n="defFranzFerdinand">فرنسوا فرديناند</strong>: <span data-i18n="defFranzFerdinandDesc">ولي عهد الإمبراطورية النمساوية المجرية، وُلد في 18 ديسمبر 1863 بغراتس وتوفي في 28 جوان 1914 بسراييفو. اغتيل مع زوجته صوفيا شوتيك على يد الطالب البوسني غافريلو برينسيب (1894–1918) المنتمي لحركة «اليد السوداء» القومية السلافية. اتخذت النمسا من هذا الاغتيال ذريعة لتوجيه إنذار لصربيا ثم إعلان الحرب عليها في 28 جويلية 1914، مما أشعل سلسلة التحالفات الأوروبية وفجر الحرب العالمية الأولى.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defGermany">ألمانيا</strong>: <span data-i18n="defGermanyDesc">قوة إمبريالية صاعدة توحدت في 18 جانفي 1871 (الإمبراطورية الألمانية 1871–1918) وشهدت نمواً صناعياً وعسكرياً متسارعاً. سعت في عهد الإمبراطور غليوم الثاني إلى انتزاع مكانة استعمارية وتوسيع أسطولها البحري، فدخلت في تنافس حاد مع إنجلترا وفرنسا. شكلت مع النمسا-المجر وإيطاليا الحلف الثلاثي (1882)، ثم أصبحت القوة المحورية في دول المركز خلال الحرب، وانتهت بهزيمتها وتوقيع معاهدة فرساي (28 جوان 1919) التي أثقلتها بتعويضات باهظة واقتطعت أجزاء من أراضيها.</span></li>
+                        <li><strong class="key-location" data-i18n="defAustriaHungary">الإمبراطورية النمساوية المجرية</strong>: <span data-i18n="defAustriaHungaryDesc">ملكية مزدوجة متعددة القوميات قامت بموجب تسوية 1867 بين النمسا والمجر (1867–1918)، عاشت توترات داخلية حادة بسبب المطالب القومية. ضمت البوسنة والهرسك عام 1908 مما صعّد الصراع مع صربيا وروسيا في منطقة البلقان. كانت أول من أعلن الحرب على صربيا في 28 جويلية 1914 بعد حادثة سراييفو، وبحكم تحالفاتها انجرفت إلى الحرب العالمية الأولى التي انتهت بتفككها إلى دول قومية صغرى بموجب معاهدات سان جرمان (1919) وتريانون (1920).</span></li>
+                        <li><strong class="key-location" data-i18n="defSerbia">صربيا</strong>: <span data-i18n="defSerbiaDesc">مملكة سلافية في البلقان (أُعلنت مملكة عام 1882) سعت إلى توحيد السلاف الجنوبيين تحت رايتها، ودعمت الحركات القومية المناهضة للنمسا داخل البوسنة والهرسك. اتُهمت بالتورط في اغتيال ولي العهد النمساوي، وكان رفضها للإنذار النمساوي سبباً مباشراً في إعلان النمسا الحرب عليها في 28 جويلية 1914، فانطلقت شرارة الحرب العالمية الأولى. كانت مسرحاً للحروب البلقانية 1912-1913، وأصبحت لاحقاً (1918) نواة مملكة الصرب والكروات والسلوفينيين (يوغوسلافيا).</span></li>
+                        <li><strong class="key-location" data-i18n="defOttoman">الإمبراطورية العثمانية</strong>: <span data-i18n="defOttomanDesc">دولة متعددة القوميات تأسست حوالي 1299 وكانت تُعرف بـ «رجل أوروبا المريض» بسبب ضعفها المتزايد. انضمت إلى جانب دول المركز في الحرب العالمية الأولى في 2 نوفمبر 1914 على أمل استعادة أمجادها. بعد الهزيمة (هدنة مودروس 30 أكتوبر 1918)، تعرضت للتقسيم بموجب معاهدة سيفر (10 أوت 1920) التي وضعت مناطق واسعة تحت السيطرة الأجنبية. أدى رفض مصطفى كمال لهذه المعاهدة إلى حرب الاستقلال وتوقيع معاهدة لوزان (24 جويلية 1923) التي أسست للجمهورية التركية الحديثة (29 أكتوبر 1923)، وأُلغيت السلطنة في 1 نوفمبر 1922.</span></li>
+                        <li><strong class="key-location" data-i18n="defRussia">الإمبراطورية الروسية</strong>: <span data-i18n="defRussiaDesc">قوة عظمى متعددة القوميات (1721–1917) حكمتها أسرة رومانوف، اعتبرت نفسها حامية السلاف الأرثوذكس في البلقان. طمحت للوصول إلى المياه الدافئة عبر مضيق البسفور والدردنيل، فدخلت في صراع مع النمسا-المجر والعثمانية. انضمت إلى الوفاق الثلاثي، لكنها تعرضت لثورة 1917 البلشفية (7 نوفمبر 1917) التي أخرجتها من الحرب بتوقيع معاهدة بريست-ليتوفسك (3 مارس 1918)، وانتهت الإمبراطورية بتنازل القيصر نيقولا الثاني (2 مارس 1917) وإعدامه مع أسرته في 17 جويلية 1918.</span></li>
+                        <li><strong class="key-location" data-i18n="defUSA">الولايات المتحدة الأمريكية</strong>: <span data-i18n="defUSADesc">قوة اقتصادية صاعدة ظلت محايدة في بداية الحرب (1914–1917)، لكنها دخلتها في 6 أفريل 1917 إلى جانب الوفاق الثلاثي بعد أن تضررت مصالحها التجارية بسبب حرب الغواصات الألمانية غير المقيّدة (إغراق لوسيتانيا 7 ماي 1915) وقضية تلغراف زيمرمان (جانفي 1917). قدمت دعماً مالياً وعسكرياً حاسماً تحت قيادة الرئيس وودرو ولسن (1856–1924)، وتحولت بعد الحرب إلى أكبر دائن في العالم ومركز للثقل المالي العالمي بانتقاله من لندن إلى نيويورك. كما حاول ولسن صياغة سلام قائم على مبادئه المثالية (مبادئ النقاط الأربع عشرة).</span></li>
+                        <li><strong class="key-location" data-i18n="defFrance">فرنسا</strong>: <span data-i18n="defFranceDesc">إحدى القوى الأوروبية الكبرى (الجمهورية الفرنسية الثالثة 1870–1940) التي خسرت إقليمي الألزاس واللوران لصالح ألمانيا بعد حرب 1870 (معاهدة فرانكفورت 10 ماي 1871)، فظلت تطمح لاستعادتهما والثأر. بادرت بعقد تحالفات (الوفاق الودي مع إنجلترا في 8 أفريل 1904، والوفاق الروسي 1892–1894) للخروج من عزلتها وتطويق ألمانيا. تحملت العبء الأكبر من القتال على الجبهة الغربية، وسعت في مؤتمر الصلح إلى فرض شروط قاسية على ألمانيا لإضعافها وضمان أمنها القومي (استعادة الألزاس واللوران بموجب معاهدة فرساي).</span></li>
+                        <li><strong class="key-location" data-i18n="defBritain">إنجلترا</strong>: <span data-i18n="defBritainDesc">أكبر قوة بحرية واستعمارية آنذاك، اعتمدت سياسة «التوازن الأوروبي» لمنع هيمنة أي دولة على القارة. شعرت بتهديد متزايد من طموحات ألمانيا البحرية والاستعمارية، فدخلت الحرب في 4 أوت 1914 بعد خرق ألمانيا لحياد بلجيكا (خطة شليفن). لعبت دوراً محورياً في فرض الحصار البحري على دول المركز، كما كانت طرفاً أساسياً في مؤتمر الصلح وسعت إلى إضعاف ألمانيا دون تدميرها بالكامل للحفاظ على التوازن الأوروبي.</span></li>
+                        <li><strong class="key-location" data-i18n="defBulgaria">بلغاريا</strong>: <span data-i18n="defBulgariaDesc">مملكة بلقانية (1908–1946) خسرت أراضي واسعة في حرب البلقان الثانية (1913)، مما دفعها للانضمام إلى دول المركز في 14 أكتوبر 1915 سعياً لاستعادة مقدونيا ومناطق أخرى. شاركت في العمليات العسكرية ضد صربيا ورومانيا، وانتهت الحرب بتوقيعها هدنة سالونيك (29 سبتمبر 1918) ثم معاهدة نويي (27 نوفمبر 1919) التي فرضت عليها قيوداً عسكرية وخسائر إقليمية جديدة.</span></li>
+                        <li><strong class="key-location" data-i18n="defJapan">اليابان</strong>: <span data-i18n="defJapanDesc">قوة آسيوية صاعدة (إمبراطورية اليابان 1868–1947) انضمت إلى الوفاق الثلاثي في 23 أوت 1914، واستولت على المستعمرات الألمانية في الصين والمحيط الهادئ (مثل شاندونغ وجزر ماريانا وكارولين). استفادت اقتصادياً من الحرب بتوسع صناعاتها وصادراتها، وجلست على طاولة المنتصرين في مؤتمر الصلح (معاهدة فرساي)، مما عزز مكانتها الدولية.</span></li>
+                        <li><strong class="key-location" data-i18n="defRomania">رومانيا</strong>: <span data-i18n="defRomaniaDesc">مملكة بلقانية انضمت إلى الوفاق الثلاثي في 27 أوت 1916 بعد تلقّي وعود بالحصول على أراضٍ نمساوية مجرية (ترانسلفانيا). تعرضت لهزيمة سريعة واحتلال جزئي (بوخارست سقطت في 6 ديسمبر 1916)، لكنها استفادت من انتصار الوفاق في نهاية الحرب، وتوسعت إقليمياً بشكل كبير بموجب معاهدات الصلح (استعادة ترانسلفانيا وبوكوفينا وبيسارابيا).</span></li>
+                        <li><strong class="key-location" data-i18n="defPortugal">البرتغال</strong>: <span data-i18n="defPortugalDesc">جمهورية صغيرة (الجمهورية البرتغالية الأولى 1910–1926) دخلت الحرب إلى جانب الوفاق الثلاثي في 9 مارس 1916 دفاعاً عن مستعمراتها الإفريقية ومصالحها التجارية مع بريطانيا. شاركت بقوات محدودة (فيلق المشاة البرتغالي) على الجبهة الغربية، واستفادت معنوياً من موقعها ضمن الدول المنتصرة.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defFashodaCrisis">أزمة فاشودا (1898)</strong>: <span data-i18n="defFashodaCrisisDesc">مواجهة استعمارية كادت تشعل حرباً بين فرنسا وإنجلترا في منطقة فاشودا بالسودان (18 سبتمبر – 3 نوفمبر 1898)، حين التقت بعثة فرنسية بقيادة مارشان تهدف لربط ممتلكاتها من الغرب إلى الشرق مع القوات البريطانية بقيادة كتشنر المتجهة جنوباً من مصر. انتهت الأزمة بانسحاب فرنسا دبلوماسياً ومهدت لتسوية الخلافات الاستعمارية بين البلدين، ثم لتوقيع الوفاق الودي (Entente Cordiale) في 8 أفريل 1904.</span></li>
+                        <li><strong class="key-event" data-i18n="defTangierCrisis">أزمة طنجة (1905)</strong>: <span data-i18n="defTangierCrisisDesc">أولى الأزمات المغربية (31 مارس 1905)، أثارها الإمبراطور غليوم الثاني بزيارته إلى طنجة ودعمه لاستقلال المغرب في وجه الطموحات الفرنسية. أدت إلى انعقاد مؤتمر الجزيرة الخضراء (16 جانفي – 7 أفريل 1906) الذي أكد سيادة المغرب مع إعطاء فرنسا وإسبانيا امتيازات أمنية. فشلت ألمانيا في كسر الوفاق الفرنسي-البريطاني بل زادت من تماسكه.</span></li>
+                        <li><strong class="key-event" data-i18n="defAgadirCrisis">أزمة أغادير (1911)</strong>: <span data-i18n="defAgadirCrisisDesc">أزمة مغربية ثانية (1 جويلية 1911) أرسلت خلالها ألمانيا الزورق الحربي «بانثر» إلى ميناء أغادير احتجاجاً على تقدم النفوذ الفرنسي في المغرب. سُويت الأزمة بمعاهدة 4 نوفمبر 1911 بتقديم تنازلات استعمارية لألمانيا (جزء من الكونغو الفرنسي «الكونغو الجديد») مقابل قبولها بالحماية الفرنسية على المغرب (30 مارس 1912). عمقت الأزمة الكراهية بين فرنسا وألمانيا وسرّعت سباق التسلح.</span></li>
+                        <li><strong class="key-event" data-i18n="defSecretAgreement1902">الاتفاق السري بين إيطاليا وفرنسا (1902)</strong>: <span data-i18n="defSecretAgreement1902Desc">اتفاق دبلوماسي سري (1–2 نوفمبر 1902) وقّعته إيطاليا مع فرنسا، تعهدت بموجبه روما بالبقاء على الحياد في حال تعرضت فرنسا لهجوم ألماني، رغم كون إيطاليا لا تزال عضواً في الحلف الثلاثي. كشف هذا الاتفاق هشاشة الحلف الثلاثي وازدواجية التحالفات الأوروبية قبل الحرب.</span></li>
+                        <li><strong class="key-event" data-i18n="defSarajevoAssassination">حادثة سراييفو (28 جوان 1914)</strong>: <span data-i18n="defSarajevoAssassinationDesc">اغتيال الأرشيدوق فرنسوا فرديناند، ولي عهد النمسا-المجر، وزوجته صوفيا في 28 جوان 1914 بسراييفو على يد الطالب الصربي البوسني غافريلو برينسيب (1894–1918). اعتبرته النمسا دليلاً على تورط صربيا في دعم الإرهاب، فوجهت إليها إنذاراً قاسياً (23 جويلية 1914) ثم أعلنت الحرب في 28 جويلية 1914، مما فجّر نظام التحالفات الأوروبية وأشعل الحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-event" data-i18n="defBalkanWars">الحروب البلقانية (1912-1913)</strong>: <span data-i18n="defBalkanWarsDesc">حربان متعاقبتان في منطقة البلقان: الأولى (8 أكتوبر 1912 – 30 ماي 1913) شنتها عصبة البلقان (صربيا، بلغاريا، اليونان، الجبل الأسود) ضد الدولة العثمانية وانتزعت منها معظم أراضيها الأوروبية (معاهدة لندن 30 ماي 1913). الثانية (29 جوان – 18 جويلية 1913) نشبت بين بلغاريا من جهة وحلفائها السابقين إلى جانب رومانيا والعثمانيين من جهة أخرى (معاهدة بوخارست 10 أوت 1913). انتهت بهزيمة بلغاريا وزيادة التوتر الإقليمي، مما جعل البلقان «برميل بارود» أوروبا.</span></li>
+                        <li><strong class="key-event" data-i18n="defBolshevikRevolution">الثورة البلشفية (1917)</strong>: <span data-i18n="defBolshevikRevolutionDesc">ثورة قادها فلاديمير لينين (1870–1924) والحزب البلشفي في روسيا في 25 أكتوبر 1917 (7 نوفمبر بالتقويم الغريغوري)، أطاحت بالحكومة المؤقتة برئاسة كيرينسكي وأقامت نظاماً شيوعياً. كان من أول قراراتها الانسحاب من الحرب العالمية الأولى عبر توقيع معاهدة بريست-ليتوفسك مع ألمانيا في 3 مارس 1918، مما حرر القوات الألمانية للتركيز على الجبهة الغربية وأثر على مجرى الحرب.</span></li>
+                    </ul>
+                </div>
+                <!-- New: years definitions -->
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1879</strong>: <span data-i18n="defYear1879Desc">توقيع الحلف الثنائي بين ألمانيا والنمسا-المجر (7 أكتوبر).</span></li>
+                        <li><strong class="key-year">1882</strong>: <span data-i18n="defYear1882Desc">انضمام إيطاليا إلى الحلف الثلاثي (20 ماي).</span></li>
+                        <li><strong class="key-year">1898</strong>: <span data-i18n="defYear1898Desc">أزمة فاشودا بين فرنسا وإنجلترا.</span></li>
+                        <li><strong class="key-year">1902</strong>: <span data-i18n="defYear1902Desc">الاتفاق السري بين إيطاليا وفرنسا.</span></li>
+                        <li><strong class="key-year">1904</strong>: <span data-i18n="defYear1904Desc">توقيع الوفاق الودي بين فرنسا وإنجلترا (8 أفريل).</span></li>
+                        <li><strong class="key-year">1905</strong>: <span data-i18n="defYear1905Desc">اندلاع أزمة طنجة (31 مارس).</span></li>
+                        <li><strong class="key-year">1908</strong>: <span data-i18n="defYear1908Desc">احتلال النمسا-المجر للبوسنة والهرسك (6 أكتوبر).</span></li>
+                        <li><strong class="key-year">1911</strong>: <span data-i18n="defYear1911Desc">اندلاع أزمة أغادير (1 جويلية).</span></li>
+                        <li><strong class="key-year">1912</strong>: <span data-i18n="defYear1912Desc">فرض الحماية الفرنسية على المغرب الأقصى (30 مارس).</span></li>
+                        <li><strong class="key-year">1913</strong>: <span data-i18n="defYear1913Desc">اشتداد سباق التسلح وبلوغ الجيوش الأوروبية ذروتها.</span></li>
+                        <li><strong class="key-year">1914</strong>: <span data-i18n="defYear1914Desc">حادثة سراييفو (28 جوان) واندلاع الحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-year">1915</strong>: <span data-i18n="defYear1915Desc">انضمام إيطاليا إلى الوفاق الثلاثي بموجب معاهدة لندن السرية (26 أفريل).</span></li>
+                        <li><strong class="key-year">1917</strong>: <span data-i18n="defYear1917Desc">دخول الولايات المتحدة الأمريكية الحرب (6 أفريل) والثورة البلشفية في روسيا (7 نوفمبر).</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-treaties">
+                    <h3 data-i18n="defTreaty">📜 معاهدات</h3>
+                    <ul>
+                        <li><strong class="key-treaty" data-i18n="defTreatyLondon">معاهدة لندن السرية (1915)</strong>: <span data-i18n="defTreatyLondonDesc">اتفاق سري (26 أفريل 1915) بين إيطاليا ودول الوفاق الثلاثي (فرنسا، إنجلترا، روسيا) وعد إيطاليا بالحصول على أراضٍ نمساوية (ترياست، ترنتينو، أجزاء من دلماسيا) ومستعمرات ألمانية في إفريقيا مقابل دخولها الحرب إلى جانب الوفاق. شكل هذا الاتفاق الإطار القانوني لانسحاب إيطاليا من الحلف الثلاثي وانضمامها للحلف المقابل.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defWeltpolitik">السياسة العالمية</strong>: <span data-i18n="defWeltpolitikDesc">تعريب لمصطلح «Weltpolitik» وهي الاستراتيجية التوسعية التي انتهجها الإمبراطور غليوم الثاني بعد إقالة بسمارك عام 1890. هدفت إلى بناء أسطول بحري ضخم (خطة تيربيتز 1898)، واقتناص مستعمرات في إفريقيا وآسيا، ومد نفوذ اقتصادي عبر مشروع سكة حديد برلين-بغداد (1903). أدت هذه السياسة إلى صدام مباشر مع المصالح البريطانية والفرنسية والروسية وساهمت في تشكيل أحلاف مضادة لألمانيا.</span></li>
+                        <li><strong class="key-other" data-i18n="defGreatDepression">الكساد الكبير</strong>: <span data-i18n="defGreatDepressionDesc">أزمة اقتصادية عالمية ضربت الاقتصاديات الرأسمالية بين 1873 و1896 (أو حتى 1886). تراجعت خلالها الأسعار والأرباح وزادت البطالة، مما دفع الدول الأوروبية إلى فرض سياسات حمائية والبحث عن أسواق خارجية لتصريف فائض الإنتاج ورؤوس الأموال، فاشتد التنافس الاستعماري وزاد التوتر بين القوى الكبرى.</span></li>
+                        <li><strong class="key-other" data-i18n="defTripleAlliance">الحلف الثلاثي</strong>: <span data-i18n="defTripleAllianceDesc">تحالف عسكري دفاعي نشأ تدريجياً بين ألمانيا والإمبراطورية النمساوية المجرية (أكتوبر 1879) وانضمت إليه إيطاليا في مارس 1882. هدف في الأصل إلى عزل فرنسا والحفاظ على الوضع القائم في أوروبا. ثم تعزز بانضمام الدولة العثمانية (2 نوفمبر 1914) وبلغاريا (14 أكتوبر 1915) ليشكل نواة «دول المركز» خلال الحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-other" data-i18n="defTripleEntente">الوفاق الثلاثي</strong>: <span data-i18n="defTripleEntenteDesc">تكتل سياسي وعسكري ضم فرنسا وإنجلترا والإمبراطورية الروسية، تشكل عبر سلسلة من الاتفاقيات الثنائية (الوفاق الودي 1904، الوفاق الروسي-الفرنسي 1892–1894، الاتفاق الإنجليزي-الروسي 1907). كان يهدف إلى تطويق ألمانيا وإخراج فرنسا من عزلتها الدبلوماسية. اتسع لاحقاً لينضم إليه اليابان (23 أوت 1914) وإيطاليا (26 أفريل 1915) ورومانيا (27 أوت 1916) والبرتغال (9 مارس 1916) والولايات المتحدة أثناء الحرب (6 أفريل 1917).</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: شكلت الحرب العالمية الأولى نتيجة حتمية لتناقضات الإمبريالية الأوروبية، وتنافس الأحلاف، وتصاعد القوميات، وكانت حادثة سراييفو الشرارة التي فجرت الصراع العالمي.</div>
+                        <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة </h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/europe1914.jpg" alt="خريطة أوروبا 1914" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">خريطة أوروبا 1914</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/wilhelmII.jpg" alt="غليوم الثاني" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">غليوم الثاني</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/franzferdinand.jpg" alt="فرنسوا فرديناند" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">فرنسوا فرديناند</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/gavriloprincip.jpg" alt="غافريلو برينسيب" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">غافريلو برينسيب</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/sarajevo1914.jpg" alt="حادثة سراييفو 1914" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">حادثة سراييفو 1914</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/triplealliance.jpg" alt="خريطة الحلف الثلاثي" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">خريطة الحلف الثلاثي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/tripleentente.jpg" alt="خريطة الوفاق الثلاثي" data-i18n-alt="galleryAlt7" loading="lazy">
+                        <figcaption data-i18n="galleryCap7">خريطة الوفاق الثلاثي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/balkanwars.jpg" alt="خريطة الحروب البلقانية" data-i18n-alt="galleryAlt8" loading="lazy">
+                        <figcaption data-i18n="galleryCap8">خريطة الحروب البلقانية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/austriahungarymap.jpg" alt="خريطة الإمبراطورية النمساوية المجرية" data-i18n-alt="galleryAlt9" loading="lazy">
+                        <figcaption data-i18n="galleryCap9">خريطة الإمبراطورية النمساوية المجرية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/ottomanempiremap.jpg" alt="خريطة الإمبراطورية العثمانية" data-i18n-alt="galleryAlt10" loading="lazy">
+                        <figcaption data-i18n="galleryCap10">خريطة الإمبراطورية العثمانية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/russianempiremap.jpg" alt="خريطة الإمبراطورية الروسية" data-i18n-alt="galleryAlt11" loading="lazy">
+                        <figcaption data-i18n="galleryCap11">خريطة الإمبراطورية الروسية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson1/versailles.jpg" alt="قصر فرساي" data-i18n-alt="galleryAlt12" loading="lazy">
+                        <figcaption data-i18n="galleryCap12">قصر فرساي</figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y4sec_secEco_his_exercisess_mod1_lesson1_part1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+    <a href="index.html" class="go-link return-main-link">
+        🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+    </a>
+            </div>
+        </div>
+    </main>
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON‑SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "4th Secondary, Arts Section",
+                moduleName: "History / Module 1: The Contemporary World from 1914 to World War II",
+                lessonTitleSample: "World War I: Causes and Consequences",
+                sectionIntro: "Introduction",
+                sectionPart1: "Causes of World War I",
+                sectionConclusion: "Conclusion",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryCap1: "Map of Europe 1914",
+                galleryCap2: "Portrait of Wilhelm II",
+                galleryCap3: "Portrait of Franz Ferdinand",
+                galleryCap4: "Portrait of Gavrilo Princip",
+                galleryCap5: "Sarajevo assassination 1914",
+                galleryCap6: "Triple Alliance map",
+                galleryCap7: "Triple Entente map",
+                galleryCap8: "Balkan Wars map",
+                galleryCap9: "Austria-Hungary map",
+                galleryCap10: "Ottoman Empire map",
+                galleryCap11: "Russian Empire map",
+                galleryCap12: "Palace of Versailles",
+                introText: "World War I broke out in the summer of 1914 as a result of escalating tensions between European imperialist powers since the last quarter of the 19th century. The Great War lasted four years and led to profound geopolitical changes. What were its causes and its consequences?",
+                conclusionText: "The intertwined causes – colonial rivalry, alliances, arms race, nationalism, and the Sarajevo assassination – provided the spark that ignited World War I, which would lead to massive geopolitical and economic consequences that reshaped the world.",
+                summaryText: "Key takeaway: World War I resulted from the contradictions of European imperialism, competitive alliances, rising nationalism, and the Sarajevo assassination was the trigger that set off the global conflict.",
+                cause1Title: "Intensified Colonial Rivalry",
+                cause1aText: "Rivalry among European colonial powers in the last quarter of the 19th century due to several reasons:",
+                cause1Bullet1: "The maturation of the Industrial Revolution and Europe's growing need for foreign markets to export surplus industrial production.",
+                cause1Bullet2: "The 'Great Depression' between 1873 and 1886, which reduced returns on investment and forced the search for new fields to export capital.",
+                cause1Bullet3: "The emergence of new European powers, namely Germany and Italy, demanding a redivision of the world and their right to colonies.",
+                cause1SubText1: "Anglo‑German rivalry intensified as Emperor Wilhelm II adopted the 'Weltpolitik' (World Policy), believing Germany's future lay on the water. He strengthened the German navy and expanded economic influence in the Ottoman Empire and Asia, alarming Britain.",
+                cause1bText: "Colonial rivalry led to international crises that almost turned into wars:",
+                cause1Crisis1: "The Fashoda Crisis (1898) between France and Britain, resolved by the Entente Cordiale.",
+                cause1Crisis2: "The Moroccan crises: Tangier (1905) and Agadir (1911) between Germany and France, settled by compensations (France ceded part of Congo to Germany in exchange for dominance over Morocco, 1912).",
+                cause1Conclusion: "Clashing interests led to international tension, alliance politics, and an arms race.",
+                cause2Title: "Alliance Systems and the Arms Race",
+                cause2aText: "Alliance systems:",
+                allianceTripleTitle: "- The Triple Alliance:",
+                allianceTripleDesc: "Germany formed an alliance with Austria‑Hungary in October 1879 to isolate France and prevent it from reclaiming Alsace‑Lorraine (lost in 1870). Italy joined in March 1882 out of anger over the French protectorate in Tunisia (1881). However, Italy signed a secret neutrality agreement with France in 1902, and later left the alliance in 1915, joining the Entente after the secret Treaty of London promised territorial gains. The alliance was later reinforced by the Ottoman Empire (1914) and Bulgaria (1915).",
+                allianceEntenteTitle: "- The Triple Entente:",
+                allianceEntenteDesc: "To break its isolation, France formed the Entente Cordiale with Britain in 1904 and an alliance with Russia (which left the war after the Bolshevik Revolution in 1917). The Entente aimed to encircle Germany and end French isolation. It was later joined by Japan (1914), Romania, Portugal, Italy (1915), and the USA (1917).",
+                cause2bText: "The arms race:",
+                cause2bDesc: "Alliances engaged in an arms race, increasing compulsory military service from two to three years and expanding armies: by 1913 Germany had 820,000 soldiers and Russia 1.8 million. Anglo‑German naval rivalry intensified, and military budgets and spending multiplied.",
+                cause3Title: "Rising Nationalism in Central Europe and the Balkans",
+                cause3Desc: "Central Europe and the Balkans became a zone of tension due to two factors:",
+                cause3Factor1: "Multiple nationalities (Slavs, Czechs, Hungarians, etc.) aspiring to independent states, such as the South Slavs supported by Serbia.",
+                cause3Factor2: "The region turned into a theater of conflict between the Russian Empire (seeking warm‑water ports via the Bosporus) and Austria‑Hungary (seeking an outlet on the Adriatic by occupying Bosnia‑Herzegovina in 1908).",
+                cause3Conclusion: "Tensions erupted in the Balkan Wars (1912‑1913) and the growth of nationalist movements like Pan‑Slavism.",
+                cause4Title: "The Sarajevo Incident and the Outbreak of the Great War",
+                cause4Desc: "Archduke Franz Ferdinand, heir to the Austro‑Hungarian throne, was assassinated by a Bosnian student member of a Slavic nationalist movement on 28 June 1914. Austria accused Serbia and demanded its judges participate in the investigation; Serbia refused, considering it a violation of sovereignty. On 28 July 1914, Austria, encouraged by Germany (which had sent ultimatums to France and Britain), declared war. The existing alliances turned a local conflict into a world war, with Japan (1914), Italy (1915), Romania, Portugal, and the USA (1917) joining the Entente, while the Ottoman Empire (1914) and Bulgaria (1915) joined the Central Powers.",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defTreaty: "📜 Treaties",
+                defOthers: "📌 Other",
+                defYears: "📅 Years & Periods",
+                defYear1879Desc: "Germany and Austria-Hungary signed the Dual Alliance (7 October).",
+                defYear1882Desc: "Italy joined the Triple Alliance (20 May).",
+                defYear1898Desc: "The Fashoda Crisis between France and Britain.",
+                defYear1902Desc: "The secret Italy-France agreement.",
+                defYear1904Desc: "The Entente Cordiale between France and Britain (8 April).",
+                defYear1905Desc: "The Tangier Crisis broke out (31 March).",
+                defYear1908Desc: "Austria-Hungary annexed Bosnia-Herzegovina (6 October).",
+                defYear1911Desc: "The Agadir Crisis broke out (1 July).",
+                defYear1912Desc: "France established its protectorate over Morocco (30 March).",
+                defYear1913Desc: "The arms race intensified and European armies reached their peak.",
+                defYear1914Desc: "The Sarajevo assassination (28 June) and the outbreak of World War I.",
+                defYear1915Desc: "Italy joined the Entente under the secret Treaty of London (26 April).",
+                defYear1917Desc: "The United States entered the war (6 April) and the Bolshevik Revolution took place in Russia (7 November).",
+                defWilhelmII: "Wilhelm II",
+                defWilhelmIIDesc: "German Emperor (1888–1918), born on 27 January 1859 in Berlin and died on 4 June 1941 in exile in Doorn, Netherlands. He pursued 'Weltpolitik' aimed at strengthening Germany’s naval and colonial power after dismissing Bismarck in 1890. He sought to build a strong fleet to rival the British Navy, expanded economic influence in the Ottoman Empire and Asia, increasing Germany’s isolation and tensions with Britain and France, paving the way to World War I. He abdicated on 9 November 1918 and fled to the Netherlands.",
+                defFranzFerdinand: "Franz Ferdinand",
+                defFranzFerdinandDesc: "Heir to the Austro‑Hungarian throne, born on 18 December 1863 in Graz and assassinated in Sarajevo on 28 June 1914 with his wife Sophie Chotek by Gavrilo Princip (1894–1918), a Bosnian Serb nationalist of the 'Black Hand'. Austria used the assassination as a pretext to issue an ultimatum to Serbia and declare war on 28 July 1914, triggering the European alliance system and starting World War I.",
+                defGermany: "Germany",
+                defGermanyDesc: "A rising imperial power unified on 18 January 1871 (German Empire 1871–1918), experiencing rapid industrial and military growth. Under Wilhelm II, it sought colonial status and a larger navy, clashing with Britain and France. A central member of the Triple Alliance (1882), it became the core of the Central Powers, defeated and burdened by the Treaty of Versailles (28 June 1919).",
+                defAustriaHungary: "Austria‑Hungary",
+                defAustriaHungaryDesc: "A dual monarchy (1867–1918) of multiple nationalities facing strong internal nationalist pressures. Annexed Bosnia‑Herzegovina in 1908, heightening conflict with Serbia and Russia. First to declare war on Serbia on 28 July 1914 after Sarajevo; the war led to its dissolution into smaller nation‑states by the Treaties of Saint-Germain (1919) and Trianon (1920).",
+                defSerbia: "Serbia",
+                defSerbiaDesc: "A Slavic kingdom in the Balkans (proclaimed a kingdom in 1882) aiming to unite South Slavs. Supported anti‑Austrian movements in Bosnia. Accused of involvement in the assassination, its rejection of Austria’s ultimatum prompted the declaration of war on 28 July 1914, sparking WWI. It later (1918) formed the core of the Kingdom of Serbs, Croats and Slovenes (Yugoslavia).",
+                defOttoman: "Ottoman Empire",
+                defOttomanDesc: "A multi‑ethnic state founded around 1299, known as the 'sick man of Europe', that joined the Central Powers on 2 November 1914 hoping to regain prestige. After defeat (Armistice of Mudros, 30 October 1918), it was partitioned by the Treaty of Sèvres (10 August 1920); Turkish War of Independence led to the Treaty of Lausanne (24 July 1923) and the modern Turkish Republic (29 October 1923). The Sultanate was abolished on 1 November 1922.",
+                defRussia: "Russian Empire",
+                defRussiaDesc: "A great power (1721–1917) under the Romanovs, protector of Orthodox Slavs in the Balkans. Sought warm‑water ports via the Straits, clashing with Austria‑Hungary and the Ottomans. Joined the Entente; the 1917 Bolshevik Revolution (7 November) took it out of the war via the Treaty of Brest‑Litovsk (3 March 1918), and the empire collapsed with the abdication of Tsar Nicholas II (2 March 1917) and the execution of the imperial family (17 July 1918).",
+                defUSA: "United States of America",
+                defUSADesc: "An emerging economic power that remained neutral until 6 April 1917, when unrestricted German submarine warfare (sinking of the Lusitania, 7 May 1915) and the Zimmermann Telegram (January 1917) drew it into the war on the Entente side under President Woodrow Wilson (1856–1924). Provided crucial financial and military support, becoming the world’s leading creditor and shifting the financial center from London to New York.",
+                defFrance: "France",
+                defFranceDesc: "A major European power (French Third Republic 1870–1940) that lost Alsace‑Lorraine to Germany in 1870 (Treaty of Frankfurt, 10 May 1871) and sought revenge. Built the Entente Cordiale with Britain (8 April 1904) and the Russian alliance (1892–1894) to end its isolation and encircle Germany. Bore the brunt of fighting on the Western Front and pushed for harsh peace terms (recovering Alsace-Lorraine under the Treaty of Versailles).",
+                defBritain: "Britain",
+                defBritainDesc: "The world's foremost naval and colonial power, following a policy of 'European balance' to prevent any one power from dominating. Felt threatened by Germany’s naval ambitions, entered the war on 4 August 1914 after Germany violated Belgian neutrality (Schlieffen Plan). Played a key role in the naval blockade and the peace conference.",
+                defBulgaria: "Bulgaria",
+                defBulgariaDesc: "A Balkan kingdom (1908–1946) that lost territory in the Second Balkan War (1913) and joined the Central Powers on 14 October 1915 hoping to regain Macedonia. Defeated and subjected to the Armistice of Salonica (29 September 1918) and the Treaty of Neuilly (27 November 1919) with military restrictions and territorial losses.",
+                defJapan: "Japan",
+                defJapanDesc: "A rising Asian power (Empire of Japan 1868–1947) that joined the Entente on 23 August 1914, seizing German colonies in China and the Pacific (Shandong, Mariana, Caroline). Benefited economically from the war and sat among the victors at the peace conference (Treaty of Versailles), enhancing its international standing.",
+                defRomania: "Romania",
+                defRomaniaDesc: "A Balkan kingdom that joined the Entente on 27 August 1916 after promises of Austro‑Hungarian territories (Transylvania). Suffered rapid defeat and partial occupation (Bucharest fell on 6 December 1916), but benefited from the Entente victory and gained significant territory (Transylvania, Bukovina, Bessarabia).",
+                defPortugal: "Portugal",
+                defPortugalDesc: "A small republic (First Portuguese Republic 1910–1926) that entered the war on the Entente side on 9 March 1916 to protect its African colonies and trade with Britain. Sent limited forces (Portuguese Expeditionary Corps) to the Western Front and gained moral status as a victorious nation.",
+                defFashodaCrisis: "Fashoda Crisis (1898)",
+                defFashodaCrisisDesc: "A colonial standoff between France and Britain in Sudan (18 September – 3 November 1898) that nearly led to war; resolved by French withdrawal, paving the way for the Entente Cordiale (8 April 1904).",
+                defTangierCrisis: "Tangier Crisis (1905)",
+                defTangierCrisisDesc: "First Moroccan crisis (31 March 1905) triggered by Wilhelm II’s visit to Tangier supporting Moroccan independence against French ambitions. Led to the Algeciras Conference (16 January – 7 April 1906) that confirmed Moroccan sovereignty but granted France and Spain security privileges.",
+                defAgadirCrisis: "Agadir Crisis (1911)",
+                defAgadirCrisisDesc: "Second Moroccan crisis (1 July 1911) when Germany sent the gunboat 'Panther' to Agadir to protest French influence. Resolved by the agreement of 4 November 1911 with colonial compensations (part of French Congo to Germany) in exchange for German acceptance of the French protectorate over Morocco (30 March 1912).",
+                defSecretAgreement1902: "Secret Italy‑France Agreement (1902)",
+                defSecretAgreement1902Desc: "A secret pact (1–2 November 1902) in which Italy pledged neutrality if France were attacked by Germany, despite Italy’s membership in the Triple Alliance, revealing the fragility of the alliance system.",
+                defSarajevoAssassination: "Sarajevo Assassination (28 June 1914)",
+                defSarajevoAssassinationDesc: "Assassination of Archduke Franz Ferdinand and his wife Sophie by Gavrilo Princip (1894–1918) in Sarajevo on 28 June 1914; Austria blamed Serbia, issued an ultimatum (23 July 1914) and declared war on 28 July 1914, igniting the European alliance system and WWI.",
+                defBalkanWars: "Balkan Wars (1912‑1913)",
+                defBalkanWarsDesc: "Two successive wars: the First Balkan War (8 October 1912 – 30 May 1913) saw the Balkan League strip the Ottoman Empire of most of its European territories (Treaty of London, 30 May 1913); the Second Balkan War (29 June – 18 July 1913) pitted Bulgaria against its former allies, ending in Bulgarian defeat (Treaty of Bucharest, 10 August 1913) and heightened regional tensions.",
+                defBolshevikRevolution: "Bolshevik Revolution (1917)",
+                defBolshevikRevolutionDesc: "Led by Vladimir Lenin (1870–1924), the October 1917 revolution (25 October / 7 November) overthrew the provisional government and established a communist regime. One of its first acts was to withdraw Russia from WWI via the Treaty of Brest‑Litovsk (3 March 1918).",
+                defTreatyLondon: "Secret Treaty of London (1915)",
+                defTreatyLondonDesc: "A secret agreement (26 April 1915) between Italy and the Entente promising Italy territorial gains (Trieste, Trentino, parts of Dalmatia) and German colonies in Africa in exchange for joining the war on the Entente side.",
+                defWeltpolitik: "Weltpolitik (World Policy)",
+                defWeltpolitikDesc: "The expansionist strategy of Wilhelm II after dismissing Bismarck in 1890, aiming to build a massive navy (Tirpitz Plan, 1898), acquire colonies, and extend economic influence through the Berlin‑Baghdad Railway (1903), directly clashing with British, French, and Russian interests.",
+                defGreatDepression: "Great Depression (Long Depression)",
+                defGreatDepressionDesc: "A global economic crisis (1873‑1896) that lowered prices, profits, and employment, pushing European powers to adopt protectionism and seek new overseas markets, intensifying colonial rivalry.",
+                defTripleAlliance: "Triple Alliance",
+                defTripleAllianceDesc: "A defensive military alliance formed by Germany and Austria‑Hungary (October 1879), joined by Italy (March 1882), aimed at isolating France. Later reinforced by the Ottoman Empire (2 November 1914) and Bulgaria (14 October 1915), forming the core of the Central Powers.",
+                defTripleEntente: "Triple Entente",
+                defTripleEntenteDesc: "A political and military bloc of France, Britain, and Russia, established through bilateral agreements (Entente Cordiale 1904, Franco‑Russian alliance 1892–1894, Anglo‑Russian agreement 1907) to encircle Germany and end French isolation. Expanded to include Japan (23 August 1914), Italy (26 April 1915), Romania (27 August 1916), Portugal (9 March 1916), and the USA (6 April 1917).",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+    returnMain: "Return to Main",
+                galleryAlt1: "Map of Europe 1914",
+                galleryAlt2: "Portrait of Wilhelm II",
+                galleryAlt3: "Portrait of Franz Ferdinand",
+                galleryAlt4: "Portrait of Gavrilo Princip",
+                galleryAlt5: "Sarajevo assassination 1914",
+                galleryAlt6: "Triple Alliance map",
+                galleryAlt7: "Triple Entente map",
+                galleryAlt8: "Balkan Wars map",
+                galleryAlt9: "Austria-Hungary map",
+                galleryAlt10: "Ottoman Empire map",
+                galleryAlt11: "Russian Empire map",
+                galleryAlt12: "Palace of Versailles"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section Lettres",
+                moduleName: "Histoire / Module 1 : Le monde contemporain de 1914 à la Seconde Guerre mondiale",
+                lessonTitleSample: "La Première Guerre mondiale : causes et conséquences",
+                sectionIntro: "Introduction",
+                sectionPart1: "Les causes de la Première Guerre mondiale",
+                sectionConclusion: "Conclusion",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryCap1: "Carte de l’Europe en 1914",
+                galleryCap2: "Portrait de Guillaume II",
+                galleryCap3: "Portrait de François-Ferdinand",
+                galleryCap4: "Portrait de Gavrilo Princip",
+                galleryCap5: "Attentat de Sarajevo 1914",
+                galleryCap6: "Carte de la Triple Alliance",
+                galleryCap7: "Carte de la Triple Entente",
+                galleryCap8: "Carte des guerres balkaniques",
+                galleryCap9: "Carte de l'Autriche-Hongrie",
+                galleryCap10: "Carte de l'Empire ottoman",
+                galleryCap11: "Carte de l'Empire russe",
+                galleryCap12: "Palais de Versailles",
+                introText: "La Première Guerre mondiale éclata à l’été 1914 à la suite de l’escalade des tensions entre les puissances impérialistes européennes depuis le dernier quart du XIXe siècle. La Grande Guerre dura quatre ans et entraîna de profonds changements géopolitiques. Quelles en furent les causes et les conséquences ?",
+                conclusionText: "Les causes entremêlées – rivalité coloniale, alliances, course aux armements, nationalismes et attentat de Sarajevo – formèrent l’étincelle qui déclencha la Première Guerre mondiale, aux conséquences géopolitiques et économiques immenses qui redessinèrent le monde.",
+                summaryText: "À retenir : la Première Guerre mondiale résulta des contradictions de l’impérialisme européen, du jeu des alliances, de la montée des nationalismes ; l’attentat de Sarajevo en fut le détonateur.",
+                cause1Title: "Intensification de la rivalité coloniale",
+                cause1aText: "Rivalité entre les puissances coloniales européennes dans le dernier quart du XIXe siècle pour plusieurs raisons :",
+                cause1Bullet1: "L’aboutissement de la révolution industrielle et le besoin croissant de débouchés pour les excédents industriels.",
+                cause1Bullet2: "La « Grande Dépression » (1873‑1886) qui réduisit les profits et poussa à la recherche de nouveaux champs d’exportation de capitaux.",
+                cause1Bullet3: "L’émergence de nouvelles puissances, l’Allemagne et l’Italie, réclamant une redistribution du monde et leur droit aux colonies.",
+                cause1SubText1: "La rivalité anglo‑allemande s’intensifia lorsque l’empereur Guillaume II adopta la « Weltpolitik » (politique mondiale), estimant que l’avenir de l’Allemagne était sur l’eau. Il renforça la marine allemande et l’influence économique dans l’Empire ottoman et en Asie, alarmant la Grande‑Bretagne.",
+                cause1bText: "La rivalité coloniale provoqua des crises internationales qui faillirent dégénérer en guerre :",
+                cause1Crisis1: "La crise de Fachoda (1898) entre la France et la Grande‑Bretagne, résolue par l’Entente cordiale.",
+                cause1Crisis2: "Les crises marocaines : Tanger (1905) et Agadir (1911) entre l’Allemagne et la France, réglées par des compensations (la France cédant une partie du Congo à l’Allemagne en échange de la domination sur le Maroc, 1912).",
+                cause1Conclusion: "Le heurt des intérêts entraîna des tensions internationales, la politique des alliances et la course aux armements.",
+                cause2Title: "Systèmes d’alliances et course aux armements",
+                cause2aText: "Les systèmes d’alliances :",
+                allianceTripleTitle: "- La Triple Alliance :",
+                allianceTripleDesc: "L’Allemagne conclut une alliance avec l’Autriche‑Hongrie en octobre 1879 pour isoler la France et l’empêcher de récupérer l’Alsace‑Lorraine (perdue en 1870). L’Italie adhéra en mars 1882, mécontente du protectorat français en Tunisie (1881). Toutefois, l’Italie signa un accord secret de neutralité avec la France en 1902, puis quitta l’alliance en 1915 pour rejoindre l’Entente après le traité secret de Londres promettant des gains territoriaux. L’alliance fut renforcée par l’Empire ottoman (1914) et la Bulgarie (1915).",
+                allianceEntenteTitle: "- La Triple Entente :",
+                allianceEntenteDesc: "Pour sortir de son isolement, la France forma l’Entente cordiale avec la Grande‑Bretagne (1904) et l’alliance avec la Russie (qui se retira après la révolution bolchevique de 1917). L’Entente visait à encercler l’Allemagne. Elle fut élargie au Japon (1914), à la Roumanie, au Portugal, à l’Italie (1915) et aux États‑Unis (1917).",
+                cause2bText: "La course aux armements :",
+                cause2bDesc: "Les alliances s’engagèrent dans une course aux armements, augmentant la durée du service militaire obligatoire de deux à trois ans et le nombre de soldats : en 1913, l’Allemagne comptait 820 000 hommes et la Russie 1,8 million. La rivalité navale anglo‑allemande s’intensifia, et les budgets militaires furent multipliés.",
+                cause3Title: "Montée des nationalismes en Europe centrale et dans les Balkans",
+                cause3Desc: "L’Europe centrale et les Balkans devinrent une zone de tension pour deux raisons :",
+                cause3Factor1: "La multiplicité des nationalités (Slaves, Tchèques, Hongrois, etc.) aspirant à former des États indépendants, comme les Slaves du Sud soutenus par la Serbie.",
+                cause3Factor2: "La région devint le théâtre de l’affrontement entre l’Empire russe (qui cherchait un accès aux mers chaudes par le Bosphore) et l’Autriche‑Hongrie (qui souhaitait un débouché sur l’Adriatique en occupant la Bosnie‑Herzégovine en 1908).",
+                cause3Conclusion: "Les tensions aboutirent aux guerres balkaniques (1912‑1913) et à la montée des mouvements nationalistes comme le panslavisme.",
+                cause4Title: "L’attentat de Sarajevo et le déclenchement de la Grande Guerre",
+                cause4Desc: "L’archiduc François‑Ferdinand, héritier du trône d’Autriche‑Hongrie, fut assassiné le 28 juin 1914 par un étudiant bosniaque membre d’un mouvement nationaliste slave. L’Autriche accusa la Serbie et exigea la participation de ses juges à l’enquête ; la Serbie refusa, y voyant une atteinte à sa souveraineté. Le 28 juillet 1914, l’Autriche, encouragée par l’Allemagne (qui avait envoyé des ultimatums à la France et à la Grande‑Bretagne), déclara la guerre. Les alliances transformèrent un conflit local en guerre mondiale : le Japon (1914), l’Italie (1915), la Roumanie, le Portugal et les États‑Unis (1917) rejoignirent l’Entente, tandis que l’Empire ottoman (1914) et la Bulgarie (1915) s’allièrent aux Empires centraux.",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays & régions",
+                defEvents: "⚔️ Événements clés",
+                defTreaty: "📜 Traités",
+                defOthers: "📌 Autres",
+                defYears: "Années & Périodes",
+                defYear1879Desc: "L'Allemagne et l'Autriche-Hongrie signent la Duplice (7 octobre).",
+                defYear1882Desc: "L'Italie rejoint la Triple Alliance (20 mai).",
+                defYear1898Desc: "La crise de Fachoda entre la France et la Grande-Bretagne.",
+                defYear1902Desc: "L'accord secret entre l'Italie et la France.",
+                defYear1904Desc: "L'Entente cordiale entre la France et la Grande-Bretagne (8 avril).",
+                defYear1905Desc: "La crise de Tanger éclate (31 mars).",
+                defYear1908Desc: "L'Autriche-Hongrie annexe la Bosnie-Herzégovine (6 octobre).",
+                defYear1911Desc: "La crise d'Agadir éclate (1er juillet).",
+                defYear1912Desc: "La France établit son protectorat sur le Maroc (30 mars).",
+                defYear1913Desc: "La course aux armements s'intensifie et les armées européennes atteignent leur apogée.",
+                defYear1914Desc: "L'attentat de Sarajevo (28 juin) et le déclenchement de la Première Guerre mondiale.",
+                defYear1915Desc: "L'Italie rejoint l'Entente par le traité secret de Londres (26 avril).",
+                defYear1917Desc: "Les États-Unis entrent en guerre (6 avril) et la révolution bolchevique éclate en Russie (7 novembre).",
+                defWilhelmII: "Guillaume II",
+                defWilhelmIIDesc: "Empereur allemand (1888‑1918), né le 27 janvier 1859 à Berlin et mort le 4 juin 1941 en exil à Doorn (Pays-Bas). Il mena la « Weltpolitik » visant à renforcer la puissance navale et coloniale de l’Allemagne après avoir limogé Bismarck en 1890, augmentant son isolement et les tensions avec la Grande‑Bretagne et la France. Il abdiqua le 9 novembre 1918 et s’exila aux Pays-Bas.",
+                defFranzFerdinand: "François‑Ferdinand",
+                defFranzFerdinandDesc: "Héritier du trône d’Autriche‑Hongrie, né le 18 décembre 1863 à Graz et assassiné à Sarajevo le 28 juin 1914 avec son épouse Sophie Chotek par Gavrilo Princip (1894–1918). L’Autriche utilisa l’attentat pour adresser un ultimatum à la Serbie et déclarer la guerre le 28 juillet 1914, déclenchant le système d’alliances.",
+                defGermany: "Allemagne",
+                defGermanyDesc: "Puissance impériale montante, unifiée le 18 janvier 1871 (Empire allemand 1871–1918). Sous Guillaume II, elle chercha un empire colonial et une marine puissante, s’opposant à la Grande‑Bretagne et à la France. Membre central de la Triple Alliance (1882), défaite et soumise au traité de Versailles (28 juin 1919).",
+                defAustriaHungary: "Autriche‑Hongrie",
+                defAustriaHungaryDesc: "Double monarchie (1867–1918) multiethnique confrontée à de fortes tensions nationalistes. L’annexion de la Bosnie‑Herzégovine (1908) aggrava le conflit avec la Serbie et la Russie. Première à déclarer la guerre à la Serbie le 28 juillet 1914 après Sarajevo ; l’empire se disloqua après la guerre (traités de Saint-Germain 1919 et Trianon 1920).",
+                defSerbia: "Serbie",
+                defSerbiaDesc: "Royaume slave des Balkans (proclamé royaume en 1882) aspirant à unir les Slaves du Sud. Soutint les mouvements anti‑autrichiens. Accusée de complicité dans l’attentat, son refus de l’ultimatum autrichien déclencha la guerre le 28 juillet 1914. Devint en 1918 le noyau du Royaume des Serbes, Croates et Slovènes (Yougoslavie).",
+                defOttoman: "Empire ottoman",
+                defOttomanDesc: "État multiethnique fondé vers 1299, dit « l’homme malade de l’Europe », rejoignit les Empires centraux le 2 novembre 1914. Après la défaite (armistice de Moudros, 30 octobre 1918), il fut démembré par le traité de Sèvres (10 août 1920), mais la guerre d’indépendance turque aboutit au traité de Lausanne (24 juillet 1923) et à la république (29 octobre 1923). Le sultanat fut aboli le 1er novembre 1922.",
+                defRussia: "Empire russe",
+                defRussiaDesc: "Grande puissance (1721–1917) sous les Romanov, protectrice des Slaves orthodoxes, cherchant un accès aux mers chaudes. Membre de l’Entente, la révolution bolchevique de 1917 (7 novembre) la fit sortir du conflit par le traité de Brest‑Litovsk (3 mars 1918). L’empire s’effondra après l’abdication de Nicolas II (2 mars 1917) et l’exécution de la famille impériale (17 juillet 1918).",
+                defUSA: "États‑Unis d’Amérique",
+                defUSADesc: "Puissance économique émergente, neutre jusqu’au 6 avril 1917. Entrèrent en guerre après la guerre sous‑marine à outrance (torpillage de la Lusitania, 7 mai 1915) et le télégramme Zimmermann (janvier 1917), sous la présidence de Woodrow Wilson (1856–1924), apportant un soutien décisif à l’Entente et devenant le premier créancier mondial.",
+                defFrance: "France",
+                defFranceDesc: "Grande puissance européenne (Troisième République 1870–1940) ayant perdu l’Alsace‑Lorraine en 1870 (traité de Francfort, 10 mai 1871), chercha la revanche. Construisit l’Entente cordiale avec la Grande‑Bretagne (8 avril 1904) et l’alliance russe (1892–1894) pour encercler l’Allemagne.",
+                defBritain: "Grande‑Bretagne",
+                defBritainDesc: "Première puissance navale et coloniale, menant une politique d’équilibre européen. Entra en guerre le 4 août 1914 après la violation de la neutralité belge par l’Allemagne (plan Schlieffen). Joue un rôle clé dans le blocus et la conférence de paix.",
+                defBulgaria: "Bulgarie",
+                defBulgariaDesc: "Royaume balkanique (1908–1946) ayant perdu des territoires en 1913, rejoignit les Empires centraux le 14 octobre 1915 pour récupérer la Macédoine. Défaite, elle subit l’armistice de Salonique (29 septembre 1918) puis le traité de Neuilly (27 novembre 1919).",
+                defJapan: "Japon",
+                defJapanDesc: "Puissance asiatique montante (Empire du Japon 1868–1947), rejoignit l’Entente le 23 août 1914 et s’empara des colonies allemandes en Chine et dans le Pacifique. Bénéficia économiquement de la guerre et figura parmi les vainqueurs (traité de Versailles).",
+                defRomania: "Roumanie",
+                defRomaniaDesc: "Royaume balkanique entré en guerre aux côtés de l’Entente le 27 août 1916 après des promesses territoriales. Subit une défaite rapide (Bucarest tomba le 6 décembre 1916) mais profita de la victoire finale pour s’agrandir (Transylvanie, Bucovine, Bessarabie).",
+                defPortugal: "Portugal",
+                defPortugalDesc: "Petite république (Première République portugaise 1910–1926) entrée en guerre le 9 mars 1916 pour défendre ses colonies africaines et son commerce avec la Grande‑Bretagne. Envoya un corps expéditionnaire sur le front occidental.",
+                defFashodaCrisis: "Crise de Fachoda (1898)",
+                defFashodaCrisisDesc: "Affrontement colonial franco‑britannique au Soudan (18 septembre – 3 novembre 1898), résolu par le retrait français, ouvrant la voie à l’Entente cordiale (8 avril 1904).",
+                defTangierCrisis: "Crise de Tanger (1905)",
+                defTangierCrisisDesc: "Première crise marocaine (31 mars 1905) provoquée par la visite de Guillaume II à Tanger. Conduisit à la conférence d’Algésiras (16 janvier – 7 avril 1906) qui confirma la souveraineté marocaine avec des privilèges français et espagnols.",
+                defAgadirCrisis: "Crise d’Agadir (1911)",
+                defAgadirCrisisDesc: "Envoi de la canonnière Panther par l’Allemagne le 1er juillet 1911 pour protester contre l’influence française au Maroc. Résolue par l’accord du 4 novembre 1911 (une partie du Congo français cédée à l’Allemagne) contre l’acceptation du protectorat français sur le Maroc (30 mars 1912).",
+                defSecretAgreement1902: "Accord secret Italie‑France (1902)",
+                defSecretAgreement1902Desc: "Pacte secret (1er–2 novembre 1902) par lequel l’Italie s’engageait à la neutralité en cas d’attaque allemande contre la France, malgré son appartenance à la Triple Alliance.",
+                defSarajevoAssassination: "Attentat de Sarajevo (28 juin 1914)",
+                defSarajevoAssassinationDesc: "Assassinat de l’archiduc François‑Ferdinand et de son épouse Sophie par Gavrilo Princip (1894–1918). L’Autriche accusa la Serbie, lança un ultimatum (23 juillet 1914) et déclara la guerre le 28 juillet 1914, déclenchant le système d’alliances et la Grande Guerre.",
+                defBalkanWars: "Guerres balkaniques (1912‑1913)",
+                defBalkanWarsDesc: "Deux guerres successives : la première (8 octobre 1912 – 30 mai 1913) vit la Ligue balkanique dépouiller l’Empire ottoman de ses territoires européens (traité de Londres, 30 mai 1913) ; la seconde (29 juin – 18 juillet 1913) opposa la Bulgarie à ses anciens alliés, se soldant par sa défaite (traité de Bucarest, 10 août 1913) et des tensions accrues.",
+                defBolshevikRevolution: "Révolution bolchevique (1917)",
+                defBolshevikRevolutionDesc: "Révolution d’Octobre 1917 (25 octobre / 7 novembre) menée par Lénine (1870–1924), instaurant un régime communiste et retirant la Russie de la guerre par le traité de Brest‑Litovsk (3 mars 1918).",
+                defTreatyLondon: "Traité secret de Londres (1915)",
+                defTreatyLondonDesc: "Accord secret (26 avril 1915) promettant à l’Italie des territoires autrichiens et des colonies allemandes en échange de son entrée en guerre aux côtés de l’Entente.",
+                defWeltpolitik: "Weltpolitik (Politique mondiale)",
+                defWeltpolitikDesc: "Stratégie expansionniste de Guillaume II après 1890 : construction d’une marine puissante (plan Tirpitz, 1898), acquisitions coloniales, influence économique via le chemin de fer Berlin‑Bagdad (1903), heurtant les intérêts britanniques, français et russes.",
+                defGreatDepression: "Grande Dépression",
+                defGreatDepressionDesc: "Crise économique mondiale (1873‑1896) qui poussa les puissances européennes au protectionnisme et à la recherche de nouveaux débouchés, intensifiant la rivalité coloniale.",
+                defTripleAlliance: "Triple Alliance",
+                defTripleAllianceDesc: "Alliance défensive formée par l’Allemagne et l’Autriche‑Hongrie (octobre 1879), rejointe par l’Italie (mars 1882), pour isoler la France. Renforcée par l’Empire ottoman (2 novembre 1914) et la Bulgarie (14 octobre 1915) pendant la guerre.",
+                defTripleEntente: "Triple Entente",
+                defTripleEntenteDesc: "Bloc politique et militaire réunissant la France, la Grande‑Bretagne et la Russie, formé par des accords bilatéraux pour encercler l’Allemagne. Élargie au Japon (23 août 1914), à l’Italie (26 avril 1915), à la Roumanie (27 août 1916), au Portugal (9 mars 1916) et aux États‑Unis (6 avril 1917).",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l’exercice",
+    returnMain: "Retour à l'accueil",
+                galleryAlt1: "Carte de l’Europe en 1914",
+                galleryAlt2: "Portrait de Guillaume II",
+                galleryAlt3: "Portrait de François-Ferdinand",
+                galleryAlt4: "Portrait de Gavrilo Princip",
+                galleryAlt5: "Attentat de Sarajevo 1914",
+                galleryAlt6: "Carte de la Triple Alliance",
+                galleryAlt7: "Carte de la Triple Entente",
+                galleryAlt8: "Carte des guerres balkaniques",
+                galleryAlt9: "Carte de l'Autriche-Hongrie",
+                galleryAlt10: "Carte de l'Empire ottoman",
+                galleryAlt11: "Carte de l'Empire russe",
+                galleryAlt12: "Palais de Versailles"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة الآداب",
+                moduleName: "التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية",
+                lessonTitleSample: "الحرب العالمية الأولى: الأسباب والنتائج",
+                sectionIntro: "مقدمة",
+                sectionPart1: "أسباب الحرب العالمية الأولى",
+                sectionConclusion: "خاتمة",
+                sectionDefinitions: "📖 تعريفات ",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة ",
+                galleryCap1: "خريطة أوروبا 1914",
+                galleryCap2: "صورة غليوم الثاني",
+                galleryCap3: "صورة فرنسوا فرديناند",
+                galleryCap4: "صورة غافريلو برينسيب",
+                galleryCap5: "حادثة سراييفو 1914",
+                galleryCap6: "خريطة الحلف الثلاثي",
+                galleryCap7: "خريطة الوفاق الثلاثي",
+                galleryCap8: "خريطة الحروب البلقانية",
+                galleryCap9: "خريطة الإمبراطورية النمساوية المجرية",
+                galleryCap10: "خريطة الإمبراطورية العثمانية",
+                galleryCap11: "خريطة الإمبراطورية الروسية",
+                galleryCap12: "قصر فرساي",
+                introText: "اندلعت الحرب العالمية الأولى في صائفة 1914 نتيجة لاحتدام التوتر بين القوى الإمبريالية الأوروبية منذ الربع الأخير من القرن 19، واستمرت الحرب الكبرى 4 سنوات وأسفرت عن تغييرات جيوسياسية عميقة. فما هي أسبابها وما هي نتائجها؟",
+                conclusionText: "شكلت الأسباب المتشابكة من تنافس استعماري وأحلاف وتسابق نحو التسلح وتأجج القوميات، بالإضافة إلى حادثة سراييفو، الشرارة التي فجرت الحرب العالمية الأولى، والتي ستترك نتائج جيوسياسية واقتصادية هائلة أعادت تشكيل العالم.",
+                summaryText: "خلاصة: شكلت الحرب العالمية الأولى نتيجة حتمية لتناقضات الإمبريالية الأوروبية، وتنافس الأحلاف، وتصاعد القوميات، وكانت حادثة سراييفو الشرارة التي فجرت الصراع العالمي.",
+                cause1Title: "احتداد التنافس الاستعماري",
+                cause1aText: "احتد التنافس بين القوى الاستعمارية الأوروبية في الربع الأخير من القرن 19 نتيجة لعدة أسباب من أهمها:",
+                cause1Bullet1: "نضج الثورة الصناعية وتزايد حاجة أوروبا إلى الأسواق الخارجية لتصدير فوائض الإنتاج الصناعي.",
+                cause1Bullet2: "تعرض الاقتصاد الأوروبي إلى \"الكساد الكبير\" بين 1873 و 1886 وتراجع قيمة الأرباح على الاستثمار، مما دفع إلى ضرورة البحث عن مجال جديد لتصدير رؤوس الأموال.",
+                cause1Bullet3: "ظهور قوى أوروبية جديدة تتمثل في كل من ألمانيا وإيطاليا أصبحت تطالب بإعادة تقسيم العالم وبحقها في المستعمرات.",
+                cause1SubText1: "اشتد التنافس الألماني الإنجليزي حيث اعتمد إمبراطور ألمانيا غليوم الثاني سياسة اقتصادية جديدة تعرف بـ \"السياسة العالمية\" التي ترى أن مستقبل ألمانيا فوق الماء، فعمد إلى تعزيز القوة البحرية الألمانية والتغلغل الاقتصادي في الإمبراطورية العثمانية وآسيا مما أثار مخاوف إنجلترا.",
+                cause1bText: "أدى التنافس الاستعماري إلى اندلاع أزمات دولية كادت أن تتحول إلى حروب من بينها:",
+                cause1Crisis1: "أزمة فاشودا 1898 بين فرنسا وإنجلترا وانتهت بعقد الوفاق بين الدولتين.",
+                cause1Crisis2: "أزمتا المغرب الأقصى بين ألمانيا وفرنسا وتمثلت في أزمة طنجة 1905 وأزمة أغادير 1911، وتمت تسويتهما باعتماد مبدأ الترضيات بتخلي فرنسا عن جزء من مستعمرتها الكونغو لفائدة ألمانيا مقابل الهيمنة على المغرب الأقصى 1912.",
+                cause1Conclusion: "أدى تضارب المصالح إلى توتر العلاقات الدولية والدخول في سياسة الأحلاف والسباق نحو التسلح.",
+                cause2Title: "سياسة الأحلاف والسباق نحو التسلح",
+                cause2aText: "سياسة الأحلاف:",
+                allianceTripleTitle: "- الحلف الثلاثي:",
+                allianceTripleDesc: "بادرت ألمانيا في أكتوبر 1879 إلى عقد حلف مع الإمبراطورية النمساوية المجرية قصد عزل فرنسا ومنعها من استرجاع \"الألزاس واللوران\" التي سيطرت عليها ألمانيا 1870. انضمت إيطاليا إلى الحلف في مارس 1882 تعبيراً عن غضبها من فرض الحماية الفرنسية على تونس (1881). غير أن إيطاليا أمضت اتفاقاً سرياً مع فرنسا للبقاء على الحياد (1902)، ثم انسحبت من الحلف الثلاثي عام 1915 بسبب مطالبها الترابية في مناطق ترياست وترنتان ودلماسيا الخاضعة للسيادة النمساوية، وانتسبت إلى الوفاق الثلاثي بموجب معاهدة لندن السرية التي تعهدت فيها دول الوفاق بتلبية تلك المطالب. ثم تدعّم الحلف الثلاثي لاحقاً بانضمام الإمبراطورية العثمانية (1914) وبلغاريا (1915).",
+                allianceEntenteTitle: "- الوفاق الثلاثي:",
+                allianceEntenteDesc: "للخروج من عزلتها بادرت فرنسا بعقد وفاق مع إنجلترا 1904 ومع الإمبراطورية الروسية (انسحبت بسبب الثورة البلشفية 1917). كان من أهداف الوفاق الثلاثي تطويق ألمانيا وإخراج فرنسا من عزلتها. ثم تدعّم الوفاق بانضمام اليابان (1914) ورومانيا والبرتغال ثم إيطاليا (1915) والولايات المتحدة الأمريكية (1917).",
+                cause2bText: "السباق نحو التسلح:",
+                cause2bDesc: "انخرطت الأحلاف في السباق نحو التسلح بالترفيع من مدة الخدمة العسكرية من سنتين إلى ثلاث سنوات إجبارياً والترفيع في عدد القوات العسكرية، فبلغت سنة 1913 في ألمانيا 820 ألف وفي الإمبراطورية الروسية 1.8 مليون، إلى جانب احتدام التنافس الألماني الإنجليزي في مجال التسلح البحري. كما تدعمت ميزانيات الدفاع وتضاعفت النفقات العسكرية.",
+                cause3Title: "تأجج الشعور القومي في أوروبا الوسطى ومنطقة البلقان",
+                cause3Desc: "مثلت أوروبا الوسطى ومنطقة البلقان مجالاً للتوتر نتيجة لعاملين:",
+                cause3Factor1: "تعدد القوميات من سلاف وتشيك ومجريين... التي تسعى إلى تكوين كيانات مستقلة، على غرار سلاف الجنوب الذين استفادوا من دعم صربيا.",
+                cause3Factor2: "تحول المنطقة إلى مسرح للصراع بين الإمبراطورية الروسية (التي كانت تطمح إلى الوصول إلى المياه الدافئة عبر السيطرة على مضيق البسفور) والإمبراطورية النمساوية المجرية (التي كانت تطمح إلى الحصول على منفذ على البحر الأدرياتيكي باحتلال البوسنة والهرسك 1908).",
+                cause3Conclusion: "أدى التوتر إلى اندلاع الحروب البلقانية 1912 و1913 وتنامي الحركات القومية مثل الحركة القومية السلافية.",
+                cause4Title: "حادثة سراييفو واندلاع الحرب الكبرى",
+                cause4Desc: "تم اغتيال ولي العهد النمساوي فرنسوا فرديناند من قبل طالب بوسني ينتمي إلى حركة قومية سلافية في 28 جوان 1914. اتهمت النمسا صربيا وحملتها مسؤولية الاغتيال وطالبت بإرسال قضاة للمشاركة في التحقيق، غير أن صربيا رفضت ذلك واعتبرته مساً بسيادتها. دفع ذلك النمسا إلى إعلان الحرب عليها يوم 28 جويلية 1914 وذلك بتحريض من ألمانيا التي أرسلت إنذاراً إلى كل من فرنسا وإنجلترا، وبحكم الأحلاف القائمة تحولت الحرب من حرب بين طرفين إلى حرب عالمية، كما انضمت دول أخرى إلى الحلفين مثل انضمام اليابان (1914) وإيطاليا (1915) ورومانيا والبرتغال والولايات المتحدة الأمريكية (1917) إلى جانب الوفاق الثلاثي، وانضمام الإمبراطورية العثمانية (1914) وبلغاريا (1915) إلى دول المركز.",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defTreaty: "📜 معاهدات",
+                defOthers: "📌 أخرى",
+                defYears: "📅 سنوات وفترات",
+                defYear1879Desc: "توقيع الحلف الثنائي بين ألمانيا والنمسا-المجر (7 أكتوبر).",
+                defYear1882Desc: "انضمام إيطاليا إلى الحلف الثلاثي (20 ماي).",
+                defYear1898Desc: "أزمة فاشودا بين فرنسا وإنجلترا.",
+                defYear1902Desc: "الاتفاق السري بين إيطاليا وفرنسا.",
+                defYear1904Desc: "توقيع الوفاق الودي بين فرنسا وإنجلترا (8 أفريل).",
+                defYear1905Desc: "اندلاع أزمة طنجة (31 مارس).",
+                defYear1908Desc: "احتلال النمسا-المجر للبوسنة والهرسك (6 أكتوبر).",
+                defYear1911Desc: "اندلاع أزمة أغادير (1 جويلية).",
+                defYear1912Desc: "فرض الحماية الفرنسية على المغرب الأقصى (30 مارس).",
+                defYear1913Desc: "اشتداد سباق التسلح وبلوغ الجيوش الأوروبية ذروتها.",
+                defYear1914Desc: "حادثة سراييفو (28 جوان) واندلاع الحرب العالمية الأولى.",
+                defYear1915Desc: "انضمام إيطاليا إلى الوفاق الثلاثي بموجب معاهدة لندن السرية (26 أفريل).",
+                defYear1917Desc: "دخول الولايات المتحدة الأمريكية الحرب (6 أفريل) والثورة البلشفية في روسيا (7 نوفمبر).",
+                defWilhelmII: "غليوم الثاني",
+                defWilhelmIIDesc: "إمبراطور ألمانيا (1888–1918)، وُلد في 27 جانفي 1859 ببرلين وتوفي في 4 جوان 1941 بمنفاه في دورن بهولندا. تبنى سياسة «السياسة العالمية» (Weltpolitik) الهادفة إلى تعزيز النفوذ البحري والاستعماري لألمانيا بعد عزله للمستشار بسمارك عام 1890. سعى إلى بناء أسطول بحري قوي ينافس البحرية البريطانية، وتغلغل اقتصادياً في الدولة العثمانية وآسيا، مما زاد من عزلة ألمانيا الدولية وأدى إلى توتر علاقاتها مع إنجلترا وفرنسا، ومهد لانخراطها في الحرب العالمية الأولى. تنازل عن العرش في 9 نوفمبر 1918 وهرب إلى هولندا.",
+                defFranzFerdinand: "فرنسوا فرديناند",
+                defFranzFerdinandDesc: "ولي عهد الإمبراطورية النمساوية المجرية، وُلد في 18 ديسمبر 1863 بغراتس وتوفي في 28 جوان 1914 بسراييفو. اغتيل مع زوجته صوفيا شوتيك على يد الطالب البوسني غافريلو برينسيب (1894–1918) المنتمي لحركة «اليد السوداء» القومية السلافية. اتخذت النمسا من هذا الاغتيال ذريعة لتوجيه إنذار لصربيا ثم إعلان الحرب عليها في 28 جويلية 1914، مما أشعل سلسلة التحالفات الأوروبية وفجر الحرب العالمية الأولى.",
+                defGermany: "ألمانيا",
+                defGermanyDesc: "قوة إمبريالية صاعدة توحدت في 18 جانفي 1871 (الإمبراطورية الألمانية 1871–1918) وشهدت نمواً صناعياً وعسكرياً متسارعاً. سعت في عهد الإمبراطور غليوم الثاني إلى انتزاع مكانة استعمارية وتوسيع أسطولها البحري، فدخلت في تنافس حاد مع إنجلترا وفرنسا. شكلت مع النمسا-المجر وإيطاليا الحلف الثلاثي (1882)، ثم أصبحت القوة المحورية في دول المركز خلال الحرب، وانتهت بهزيمتها وتوقيع معاهدة فرساي (28 جوان 1919) التي أثقلتها بتعويضات باهظة واقتطعت أجزاء من أراضيها.",
+                defAustriaHungary: "الإمبراطورية النمساوية المجرية",
+                defAustriaHungaryDesc: "ملكية مزدوجة متعددة القوميات قامت بموجب تسوية 1867 بين النمسا والمجر (1867–1918)، عاشت توترات داخلية حادة بسبب المطالب القومية. ضمت البوسنة والهرسك عام 1908 مما صعّد الصراع مع صربيا وروسيا في منطقة البلقان. كانت أول من أعلن الحرب على صربيا في 28 جويلية 1914 بعد حادثة سراييفو، وبحكم تحالفاتها انجرفت إلى الحرب العالمية الأولى التي انتهت بتفككها إلى دول قومية صغرى بموجب معاهدات سان جرمان (1919) وتريانون (1920).",
+                defSerbia: "صربيا",
+                defSerbiaDesc: "مملكة سلافية في البلقان (أُعلنت مملكة عام 1882) سعت إلى توحيد السلاف الجنوبيين تحت رايتها، ودعمت الحركات القومية المناهضة للنمسا داخل البوسنة والهرسك. اتُهمت بالتورط في اغتيال ولي العهد النمساوي، وكان رفضها للإنذار النمساوي سبباً مباشراً في إعلان النمسا الحرب عليها في 28 جويلية 1914، فانطلقت شرارة الحرب العالمية الأولى. كانت مسرحاً للحروب البلقانية 1912-1913، وأصبحت لاحقاً (1918) نواة مملكة الصرب والكروات والسلوفينيين (يوغوسلافيا).",
+                defOttoman: "الإمبراطورية العثمانية",
+                defOttomanDesc: "دولة متعددة القوميات تأسست حوالي 1299 وكانت تُعرف بـ «رجل أوروبا المريض» بسبب ضعفها المتزايد. انضمت إلى جانب دول المركز في الحرب العالمية الأولى في 2 نوفمبر 1914 على أمل استعادة أمجادها. بعد الهزيمة (هدنة مودروس 30 أكتوبر 1918)، تعرضت للتقسيم بموجب معاهدة سيفر (10 أوت 1920) التي وضعت مناطق واسعة تحت السيطرة الأجنبية. أدى رفض مصطفى كمال لهذه المعاهدة إلى حرب الاستقلال وتوقيع معاهدة لوزان (24 جويلية 1923) التي أسست للجمهورية التركية الحديثة (29 أكتوبر 1923)، وأُلغيت السلطنة في 1 نوفمبر 1922.",
+                defRussia: "الإمبراطورية الروسية",
+                defRussiaDesc: "قوة عظمى متعددة القوميات (1721–1917) حكمتها أسرة رومانوف، اعتبرت نفسها حامية السلاف الأرثوذكس في البلقان. طمحت للوصول إلى المياه الدافئة عبر مضيق البسفور والدردنيل، فدخلت في صراع مع النمسا-المجر والعثمانية. انضمت إلى الوفاق الثلاثي، لكنها تعرضت لثورة 1917 البلشفية (7 نوفمبر 1917) التي أخرجتها من الحرب بتوقيع معاهدة بريست-ليتوفسك (3 مارس 1918)، وانتهت الإمبراطورية بتنازل القيصر نيقولا الثاني (2 مارس 1917) وإعدامه مع أسرته في 17 جويلية 1918.",
+                defUSA: "الولايات المتحدة الأمريكية",
+                defUSADesc: "قوة اقتصادية صاعدة ظلت محايدة في بداية الحرب (1914–1917)، لكنها دخلتها في 6 أفريل 1917 إلى جانب الوفاق الثلاثي بعد أن تضررت مصالحها التجارية بسبب حرب الغواصات الألمانية غير المقيّدة (إغراق لوسيتانيا 7 ماي 1915) وقضية تلغراف زيمرمان (جانفي 1917). قدمت دعماً مالياً وعسكرياً حاسماً تحت قيادة الرئيس وودرو ولسن (1856–1924)، وتحولت بعد الحرب إلى أكبر دائن في العالم ومركز للثقل المالي العالمي بانتقاله من لندن إلى نيويورك. كما حاول ولسن صياغة سلام قائم على مبادئه المثالية (مبادئ النقاط الأربع عشرة).",
+                defFrance: "فرنسا",
+                defFranceDesc: "إحدى القوى الأوروبية الكبرى (الجمهورية الفرنسية الثالثة 1870–1940) التي خسرت إقليمي الألزاس واللوران لصالح ألمانيا بعد حرب 1870 (معاهدة فرانكفورت 10 ماي 1871)، فظلت تطمح لاستعادتهما والثأر. بادرت بعقد تحالفات (الوفاق الودي مع إنجلترا في 8 أفريل 1904، والوفاق الروسي 1892–1894) للخروج من عزلتها وتطويق ألمانيا. تحملت العبء الأكبر من القتال على الجبهة الغربية، وسعت في مؤتمر الصلح إلى فرض شروط قاسية على ألمانيا لإضعافها وضمان أمنها القومي (استعادة الألزاس واللوران بموجب معاهدة فرساي).",
+                defBritain: "إنجلترا",
+                defBritainDesc: "أكبر قوة بحرية واستعمارية آنذاك، اعتمدت سياسة «التوازن الأوروبي» لمنع هيمنة أي دولة على القارة. شعرت بتهديد متزايد من طموحات ألمانيا البحرية والاستعمارية، فدخلت الحرب في 4 أوت 1914 بعد خرق ألمانيا لحياد بلجيكا (خطة شليفن). لعبت دوراً محورياً في فرض الحصار البحري على دول المركز، كما كانت طرفاً أساسياً في مؤتمر الصلح وسعت إلى إضعاف ألمانيا دون تدميرها بالكامل للحفاظ على التوازن الأوروبي.",
+                defBulgaria: "بلغاريا",
+                defBulgariaDesc: "مملكة بلقانية (1908–1946) خسرت أراضي واسعة في حرب البلقان الثانية (1913)، مما دفعها للانضمام إلى دول المركز في 14 أكتوبر 1915 سعياً لاستعادة مقدونيا ومناطق أخرى. شاركت في العمليات العسكرية ضد صربيا ورومانيا، وانتهت الحرب بتوقيعها هدنة سالونيك (29 سبتمبر 1918) ثم معاهدة نويي (27 نوفمبر 1919) التي فرضت عليها قيوداً عسكرية وخسائر إقليمية جديدة.",
+                defJapan: "اليابان",
+                defJapanDesc: "قوة آسيوية صاعدة (إمبراطورية اليابان 1868–1947) انضمت إلى الوفاق الثلاثي في 23 أوت 1914، واستولت على المستعمرات الألمانية في الصين والمحيط الهادئ (مثل شاندونغ وجزر ماريانا وكارولين). استفادت اقتصادياً من الحرب بتوسع صناعاتها وصادراتها، وجلست على طاولة المنتصرين في مؤتمر الصلح (معاهدة فرساي)، مما عزز مكانتها الدولية.",
+                defRomania: "رومانيا",
+                defRomaniaDesc: "مملكة بلقانية انضمت إلى الوفاق الثلاثي في 27 أوت 1916 بعد تلقّي وعود بالحصول على أراضٍ نمساوية مجرية (ترانسلفانيا). تعرضت لهزيمة سريعة واحتلال جزئي (بوخارست سقطت في 6 ديسمبر 1916)، لكنها استفادت من انتصار الوفاق في نهاية الحرب، وتوسعت إقليمياً بشكل كبير بموجب معاهدات الصلح (استعادة ترانسلفانيا وبوكوفينا وبيسارابيا).",
+                defPortugal: "البرتغال",
+                defPortugalDesc: "جمهورية صغيرة (الجمهورية البرتغالية الأولى 1910–1926) دخلت الحرب إلى جانب الوفاق الثلاثي في 9 مارس 1916 دفاعاً عن مستعمراتها الإفريقية ومصالحها التجارية مع بريطانيا. شاركت بقوات محدودة (فيلق المشاة البرتغالي) على الجبهة الغربية، واستفادت معنوياً من موقعها ضمن الدول المنتصرة.",
+                defFashodaCrisis: "أزمة فاشودا (1898)",
+                defFashodaCrisisDesc: "مواجهة استعمارية كادت تشعل حرباً بين فرنسا وإنجلترا في منطقة فاشودا بالسودان (18 سبتمبر – 3 نوفمبر 1898)، حين التقت بعثة فرنسية بقيادة مارشان تهدف لربط ممتلكاتها من الغرب إلى الشرق مع القوات البريطانية بقيادة كتشنر المتجهة جنوباً من مصر. انتهت الأزمة بانسحاب فرنسا دبلوماسياً ومهدت لتسوية الخلافات الاستعمارية بين البلدين، ثم لتوقيع الوفاق الودي (Entente Cordiale) في 8 أفريل 1904.",
+                defTangierCrisis: "أزمة طنجة (1905)",
+                defTangierCrisisDesc: "أولى الأزمات المغربية (31 مارس 1905)، أثارها الإمبراطور غليوم الثاني بزيارته إلى طنجة ودعمه لاستقلال المغرب في وجه الطموحات الفرنسية. أدت إلى انعقاد مؤتمر الجزيرة الخضراء (16 جانفي – 7 أفريل 1906) الذي أكد سيادة المغرب مع إعطاء فرنسا وإسبانيا امتيازات أمنية. فشلت ألمانيا في كسر الوفاق الفرنسي-البريطاني بل زادت من تماسكه.",
+                defAgadirCrisis: "أزمة أغادير (1911)",
+                defAgadirCrisisDesc: "أزمة مغربية ثانية (1 جويلية 1911) أرسلت خلالها ألمانيا الزورق الحربي «بانثر» إلى ميناء أغادير احتجاجاً على تقدم النفوذ الفرنسي في المغرب. سُويت الأزمة بمعاهدة 4 نوفمبر 1911 بتقديم تنازلات استعمارية لألمانيا (جزء من الكونغو الفرنسي «الكونغو الجديد») مقابل قبولها بالحماية الفرنسية على المغرب (30 مارس 1912). عمقت الأزمة الكراهية بين فرنسا وألمانيا وسرّعت سباق التسلح.",
+                defSecretAgreement1902: "الاتفاق السري بين إيطاليا وفرنسا (1902)",
+                defSecretAgreement1902Desc: "اتفاق دبلوماسي سري (1–2 نوفمبر 1902) وقّعته إيطاليا مع فرنسا، تعهدت بموجبه روما بالبقاء على الحياد في حال تعرضت فرنسا لهجوم ألماني، رغم كون إيطاليا لا تزال عضواً في الحلف الثلاثي. كشف هذا الاتفاق هشاشة الحلف الثلاثي وازدواجية التحالفات الأوروبية قبل الحرب.",
+                defSarajevoAssassination: "حادثة سراييفو (28 جوان 1914)",
+                defSarajevoAssassinationDesc: "اغتيال الأرشيدوق فرنسوا فرديناند، ولي عهد النمسا-المجر، وزوجته صوفيا في 28 جوان 1914 بسراييفو على يد الطالب الصربي البوسني غافريلو برينسيب (1894–1918). اعتبرته النمسا دليلاً على تورط صربيا في دعم الإرهاب، فوجهت إليها إنذاراً قاسياً (23 جويلية 1914) ثم أعلنت الحرب في 28 جويلية 1914، مما فجّر نظام التحالفات الأوروبية وأشعل الحرب العالمية الأولى.",
+                defBalkanWars: "الحروب البلقانية (1912-1913)",
+                defBalkanWarsDesc: "حربان متعاقبتان في منطقة البلقان: الأولى (8 أكتوبر 1912 – 30 ماي 1913) شنتها عصبة البلقان (صربيا، بلغاريا، اليونان، الجبل الأسود) ضد الدولة العثمانية وانتزعت منها معظم أراضيها الأوروبية (معاهدة لندن 30 ماي 1913). الثانية (29 جوان – 18 جويلية 1913) نشبت بين بلغاريا من جهة وحلفائها السابقين إلى جانب رومانيا والعثمانيين من جهة أخرى (معاهدة بوخارست 10 أوت 1913). انتهت بهزيمة بلغاريا وزيادة التوتر الإقليمي، مما جعل البلقان «برميل بارود» أوروبا.",
+                defBolshevikRevolution: "الثورة البلشفية (1917)",
+                defBolshevikRevolutionDesc: "ثورة قادها فلاديمير لينين (1870–1924) والحزب البلشفي في روسيا في 25 أكتوبر 1917 (7 نوفمبر بالتقويم الغريغوري)، أطاحت بالحكومة المؤقتة برئاسة كيرينسكي وأقامت نظاماً شيوعياً. كان من أول قراراتها الانسحاب من الحرب العالمية الأولى عبر توقيع معاهدة بريست-ليتوفسك مع ألمانيا في 3 مارس 1918، مما حرر القوات الألمانية للتركيز على الجبهة الغربية وأثر على مجرى الحرب.",
+                defTreatyLondon: "معاهدة لندن السرية (1915)",
+                defTreatyLondonDesc: "اتفاق سري (26 أفريل 1915) بين إيطاليا ودول الوفاق الثلاثي (فرنسا، إنجلترا، روسيا) وعد إيطاليا بالحصول على أراضٍ نمساوية (ترياست، ترنتينو، أجزاء من دلماسيا) ومستعمرات ألمانية في إفريقيا مقابل دخولها الحرب إلى جانب الوفاق. شكل هذا الاتفاق الإطار القانوني لانسحاب إيطاليا من الحلف الثلاثي وانضمامها للحلف المقابل.",
+                defWeltpolitik: "السياسة العالمية",
+                defWeltpolitikDesc: "تعريب لمصطلح «Weltpolitik» وهي الاستراتيجية التوسعية التي انتهجها الإمبراطور غليوم الثاني بعد إقالة بسمارك عام 1890. هدفت إلى بناء أسطول بحري ضخم (خطة تيربيتز 1898)، واقتناص مستعمرات في إفريقيا وآسيا، ومد نفوذ اقتصادي عبر مشروع سكة حديد برلين-بغداد (1903). أدت هذه السياسة إلى صدام مباشر مع المصالح البريطانية والفرنسية والروسية وساهمت في تشكيل أحلاف مضادة لألمانيا.",
+                defGreatDepression: "الكساد الكبير",
+                defGreatDepressionDesc: "أزمة اقتصادية عالمية ضربت الاقتصاديات الرأسمالية بين 1873 و1896 (أو حتى 1886). تراجعت خلالها الأسعار والأرباح وزادت البطالة، مما دفع الدول الأوروبية إلى فرض سياسات حمائية والبحث عن أسواق خارجية لتصريف فائض الإنتاج ورؤوس الأموال، فاشتد التنافس الاستعماري وزاد التوتر بين القوى الكبرى.",
+                defTripleAlliance: "الحلف الثلاثي",
+                defTripleAllianceDesc: "تحالف عسكري دفاعي نشأ تدريجياً بين ألمانيا والإمبراطورية النمساوية المجرية (أكتوبر 1879) وانضمت إليه إيطاليا في مارس 1882. هدف في الأصل إلى عزل فرنسا والحفاظ على الوضع القائم في أوروبا. ثم تعزز بانضمام الدولة العثمانية (2 نوفمبر 1914) وبلغاريا (14 أكتوبر 1915) ليشكل نواة «دول المركز» خلال الحرب العالمية الأولى.",
+                defTripleEntente: "الوفاق الثلاثي",
+                defTripleEntenteDesc: "تكتل سياسي وعسكري ضم فرنسا وإنجلترا والإمبراطورية الروسية، تشكل عبر سلسلة من الاتفاقيات الثنائية (الوفاق الودي 1904، الوفاق الروسي-الفرنسي 1892–1894، الاتفاق الإنجليزي-الروسي 1907). كان يهدف إلى تطويق ألمانيا وإخراج فرنسا من عزلتها الدبلوماسية. اتسع لاحقاً لينضم إليه اليابان (23 أوت 1914) وإيطاليا (26 أفريل 1915) ورومانيا (27 أوت 1916) والبرتغال (9 مارس 1916) والولايات المتحدة أثناء الحرب (6 أفريل 1917).",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+    returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "خريطة أوروبا 1914",
+                galleryAlt2: "صورة غليوم الثاني",
+                galleryAlt3: "صورة فرنسوا فرديناند",
+                galleryAlt4: "صورة غافريلو برينسيب",
+                galleryAlt5: "حادثة سراييفو 1914",
+                galleryAlt6: "خريطة الحلف الثلاثي",
+                galleryAlt7: "خريطة الوفاق الثلاثي",
+                galleryAlt8: "خريطة الحروب البلقانية",
+                galleryAlt9: "خريطة الإمبراطورية النمساوية المجرية",
+                galleryAlt10: "خريطة الإمبراطورية العثمانية",
+                galleryAlt11: "خريطة الإمبراطورية الروسية",
+                galleryAlt12: "قصر فرساي"
+            }
+        };
+    </script>
+    <!-- ══════════ KEYWORD AUTO‑WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+    en: [
+        // Locations
+        { text: "Germany", class: "key-location", i18n: "defGermany" },
+        { text: "Austria-Hungary", class: "key-location", i18n: "defAustriaHungary" },
+        { text: "Serbia", class: "key-location", i18n: "defSerbia" },
+        { text: "Ottoman Empire", class: "key-location", i18n: "defOttoman" },
+        { text: "Russian Empire", class: "key-location", i18n: "defRussia" },
+        { text: "United States", class: "key-location", i18n: "defUSA" },
+        { text: "France", class: "key-location", i18n: "defFrance" },
+        { text: "Britain", class: "key-location", i18n: "defBritain" },
+        { text: "Bulgaria", class: "key-location", i18n: "defBulgaria" },
+        { text: "Japan", class: "key-location", i18n: "defJapan" },
+        { text: "Romania", class: "key-location", i18n: "defRomania" },
+        { text: "Portugal", class: "key-location", i18n: "defPortugal" },
+
+        // Persons
+        { text: "Wilhelm II", class: "key-person", i18n: "defWilhelmII" },
+        { text: "Franz Ferdinand", class: "key-person", i18n: "defFranzFerdinand" },
+        { text: "Gavrilo Princip", class: "key-person", i18n: "defFranzFerdinand" },
+
+        // Events
+        { text: "Fashoda Crisis", class: "key-event", i18n: "defFashodaCrisis" },
+        { text: "Tangier Crisis", class: "key-event", i18n: "defTangierCrisis" },
+        { text: "Agadir Crisis", class: "key-event", i18n: "defAgadirCrisis" },
+        { text: "Secret Italy-France Agreement", class: "key-event", i18n: "defSecretAgreement1902" },
+        { text: "Sarajevo Assassination", class: "key-event", i18n: "defSarajevoAssassination" },
+        { text: "Balkan Wars", class: "key-event", i18n: "defBalkanWars" },
+        { text: "Bolshevik Revolution", class: "key-event", i18n: "defBolshevikRevolution" },
+
+        // Treaties
+        { text: "Secret Treaty of London", class: "key-treaty", i18n: "defTreatyLondon" },
+
+        // Other
+        { text: "Weltpolitik", class: "key-other", i18n: "defWeltpolitik" },
+        { text: "Great Depression", class: "key-other", i18n: "defGreatDepression" },
+        { text: "Triple Alliance", class: "key-other", i18n: "defTripleAlliance" },
+        { text: "Triple Entente", class: "key-other", i18n: "defTripleEntente" },
+
+        // Years (important for highlighting)
+        { text: "1870", class: "key-year", i18n: null },
+        { text: "1873", class: "key-year", i18n: null },
+        { text: "1881", class: "key-year", i18n: null },
+        { text: "1882", class: "key-year", i18n: null },
+        { text: "1886", class: "key-year", i18n: null },
+        { text: "1898", class: "key-year", i18n: null },
+        { text: "1902", class: "key-year", i18n: null },
+        { text: "1904", class: "key-year", i18n: null },
+        { text: "1905", class: "key-year", i18n: null },
+        { text: "1908", class: "key-year", i18n: null },
+        { text: "1911", class: "key-year", i18n: null },
+        { text: "1912", class: "key-year", i18n: null },
+        { text: "1913", class: "key-year", i18n: null },
+        { text: "1914", class: "key-year", i18n: null },
+        { text: "1915", class: "key-year", i18n: null },
+        { text: "1917", class: "key-year", i18n: null }
+    ],
+    fr: [
+        // Locations
+        { text: "Allemagne", class: "key-location", i18n: "defGermany" },
+        { text: "Autriche-Hongrie", class: "key-location", i18n: "defAustriaHungary" },
+        { text: "Serbie", class: "key-location", i18n: "defSerbia" },
+        { text: "Empire ottoman", class: "key-location", i18n: "defOttoman" },
+        { text: "Russie", class: "key-location", i18n: "defRussia" },
+        { text: "États-Unis", class: "key-location", i18n: "defUSA" },
+        { text: "France", class: "key-location", i18n: "defFrance" },
+        { text: "Grande-Bretagne", class: "key-location", i18n: "defBritain" },
+        { text: "Bulgarie", class: "key-location", i18n: "defBulgaria" },
+        { text: "Japon", class: "key-location", i18n: "defJapan" },
+        { text: "Roumanie", class: "key-location", i18n: "defRomania" },
+        { text: "Portugal", class: "key-location", i18n: "defPortugal" },
+
+        // Persons
+        { text: "Guillaume II", class: "key-person", i18n: "defWilhelmII" },
+        { text: "François-Ferdinand", class: "key-person", i18n: "defFranzFerdinand" },
+        { text: "Gavrilo Princip", class: "key-person", i18n: "defFranzFerdinand" },
+
+        // Events
+        { text: "Crise de Fachoda", class: "key-event", i18n: "defFashodaCrisis" },
+        { text: "Crise de Tanger", class: "key-event", i18n: "defTangierCrisis" },
+        { text: "Crise d'Agadir", class: "key-event", i18n: "defAgadirCrisis" },
+        { text: "Accord secret Italie-France", class: "key-event", i18n: "defSecretAgreement1902" },
+        { text: "Attentat de Sarajevo", class: "key-event", i18n: "defSarajevoAssassination" },
+        { text: "Guerres balkaniques", class: "key-event", i18n: "defBalkanWars" },
+        { text: "Révolution bolchevique", class: "key-event", i18n: "defBolshevikRevolution" },
+
+        // Treaties
+        { text: "Traité secret de Londres", class: "key-treaty", i18n: "defTreatyLondon" },
+
+        // Other
+        { text: "Weltpolitik", class: "key-other", i18n: "defWeltpolitik" },
+        { text: "Grande Dépression", class: "key-other", i18n: "defGreatDepression" },
+        { text: "Triple Alliance", class: "key-other", i18n: "defTripleAlliance" },
+        { text: "Triple Entente", class: "key-other", i18n: "defTripleEntente" },
+
+        // Years
+        { text: "1870", class: "key-year", i18n: null },
+        { text: "1873", class: "key-year", i18n: null },
+        { text: "1881", class: "key-year", i18n: null },
+        { text: "1882", class: "key-year", i18n: null },
+        { text: "1886", class: "key-year", i18n: null },
+        { text: "1898", class: "key-year", i18n: null },
+        { text: "1902", class: "key-year", i18n: null },
+        { text: "1904", class: "key-year", i18n: null },
+        { text: "1905", class: "key-year", i18n: null },
+        { text: "1908", class: "key-year", i18n: null },
+        { text: "1911", class: "key-year", i18n: null },
+        { text: "1912", class: "key-year", i18n: null },
+        { text: "1913", class: "key-year", i18n: null },
+        { text: "1914", class: "key-year", i18n: null },
+        { text: "1915", class: "key-year", i18n: null },
+        { text: "1917", class: "key-year", i18n: null }
+    ],
+    ar: [
+        // Locations
+        { text: "ألمانيا", class: "key-location", i18n: "defGermany" },
+        { text: "الإمبراطورية النمساوية المجرية", class: "key-location", i18n: "defAustriaHungary" },
+        { text: "صربيا", class: "key-location", i18n: "defSerbia" },
+        { text: "الإمبراطورية العثمانية", class: "key-location", i18n: "defOttoman" },
+        { text: "الإمبراطورية الروسية", class: "key-location", i18n: "defRussia" },
+        { text: "الولايات المتحدة الأمريكية", class: "key-location", i18n: "defUSA" },
+        { text: "فرنسا", class: "key-location", i18n: "defFrance" },
+        { text: "إنجلترا", class: "key-location", i18n: "defBritain" },
+        { text: "بلغاريا", class: "key-location", i18n: "defBulgaria" },
+        { text: "اليابان", class: "key-location", i18n: "defJapan" },
+        { text: "رومانيا", class: "key-location", i18n: "defRomania" },
+        { text: "البرتغال", class: "key-location", i18n: "defPortugal" },
+
+        // Persons
+        { text: "غليوم الثاني", class: "key-person", i18n: "defWilhelmII" },
+        { text: "فرنسوا فرديناند", class: "key-person", i18n: "defFranzFerdinand" },
+        { text: "غافريلو برينسيب", class: "key-person", i18n: "defFranzFerdinand" },
+
+        // Events
+        { text: "أزمة فاشودا", class: "key-event", i18n: "defFashodaCrisis" },
+        { text: "أزمة طنجة", class: "key-event", i18n: "defTangierCrisis" },
+        { text: "أزمة أغادير", class: "key-event", i18n: "defAgadirCrisis" },
+        { text: "الاتفاق السري بين إيطاليا وفرنسا", class: "key-event", i18n: "defSecretAgreement1902" },
+        { text: "حادثة سراييفو", class: "key-event", i18n: "defSarajevoAssassination" },
+        { text: "الحروب البلقانية", class: "key-event", i18n: "defBalkanWars" },
+        { text: "الثورة البلشفية", class: "key-event", i18n: "defBolshevikRevolution" },
+
+        // Treaties
+        { text: "معاهدة لندن السرية", class: "key-treaty", i18n: "defTreatyLondon" },
+
+        // Other
+        { text: "السياسة العالمية", class: "key-other", i18n: "defWeltpolitik" },
+        { text: "الكساد الكبير", class: "key-other", i18n: "defGreatDepression" },
+        { text: "الحلف الثلاثي", class: "key-other", i18n: "defTripleAlliance" },
+        { text: "الوفاق الثلاثي", class: "key-other", i18n: "defTripleEntente" },
+
+        // Years
+        { text: "1870", class: "key-year", i18n: null },
+        { text: "1873", class: "key-year", i18n: null },
+        { text: "1881", class: "key-year", i18n: null },
+        { text: "1882", class: "key-year", i18n: null },
+        { text: "1886", class: "key-year", i18n: null },
+        { text: "1898", class: "key-year", i18n: null },
+        { text: "1902", class: "key-year", i18n: null },
+        { text: "1904", class: "key-year", i18n: null },
+        { text: "1905", class: "key-year", i18n: null },
+        { text: "1908", class: "key-year", i18n: null },
+        { text: "1911", class: "key-year", i18n: null },
+        { text: "1912", class: "key-year", i18n: null },
+        { text: "1913", class: "key-year", i18n: null },
+        { text: "1914", class: "key-year", i18n: null },
+        { text: "1915", class: "key-year", i18n: null },
+        { text: "1917", class: "key-year", i18n: null }
+    ]
+};
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

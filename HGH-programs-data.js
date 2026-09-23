@@ -1416,390 +1416,390 @@ window.HGH_YEAR_PROGRAMS = {
 		]
 	},
 	y1sec: {
-	title: {
-		ar: '📚 الأولى ثانوي',
-		en: '📚 1st Secondary',
-		fr: '📚 1ère secondaire'
-	},
-	programs: [
-		{
-			type: 'his',
-			icon: '📜',
-			subject: {
-				ar: 'التاريخ',
-				en: 'History',
-				fr: 'Histoire'
-			},
-			modules: [
-				{
-					name: {
-						ar: 'الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)',
-						en: 'Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)',
-						fr: 'Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)'
-					},
-					lessons: [
-						{
-							title: {
-								ar: 'الدرس 1: قرطاج البونية وإشعاعها في المتوسط',
-								en: 'Lesson 1: Punic Carthage and Its Influence in the Mediterranean',
-								fr: 'Leçon 1 : Carthage punique et son rayonnement en Méditerranée'
-							},
-							parts: [
-								{
-									title: {
-										ar: 'المؤسسات السياسية',
-										en: 'Political Institutions',
-										fr: 'Les institutions politiques'
-									}
-								},
-								{
-									title: {
-										ar: 'الديانة',
-										en: 'Religion',
-										fr: 'La religion'
-									}
-								},
-								{
-									title: {
-										ar: 'الميناء والتوسع التجاري',
-										en: 'The Port and Commercial Expansion',
-										fr: 'Le port et l’expansion commerciale'
-									}
-								},
-								{
-									title: {
-										ar: 'موسوعة ماغون',
-										en: 'The Encyclopedia of Mago',
-										fr: 'L’encyclopédie de Magon'
-									}
-								},
-								{
-									title: {
-										ar: 'عبقرية حنبعل',
-										en: 'The Genius of Hannibal',
-										fr: 'Le génie d’Hannibal'
-									}
-								}
-							]
-						},
-						{
-							title: {
-								ar: 'الدرس 2: قرطاج وإسهاماتها في الحضارة الرومانية',
-								en: 'Lesson 2: Carthage and Its Contributions to Roman Civilization',
-								fr: 'Leçon 2 : Carthage et ses apports à la civilisation romaine'
-							},
-							parts: [
-								{
-									title: {
-										ar: 'الازدهار العمراني',
-										en: 'Urban Prosperity',
-										fr: 'La prospérité urbanistique'
-									}
-								},
-								{
-									title: {
-										ar: 'الازدهار الاقتصادي: الفلاحة',
-										en: 'Economic Prosperity: Agriculture',
-										fr: 'Prospérité économique : l’agriculture'
-									}
-								},
-								{
-									title: {
-										ar: 'أبوليوس',
-										en: 'Apuleius',
-										fr: 'Apulée'
-									}
-								},
-								{
-									title: {
-										ar: 'القديس أوغسطينوس',
-										en: 'Saint Augustine',
-										fr: 'Saint Augustin'
-									}
-								}
-							]
-						}
-					]
-				},
-				{
-					name: {
-						ar: 'الوحدة الثانية: القيروان وتونس مركزا إشعاع الحضارة العربية الإسلامية في الغرب الإسلامي (من 670 م إلى نهاية القرن الرابع عشر ميلادي)',
-						en: 'Unit 2: Kairouan and Tunis, Centers of Arab-Islamic Civilization in the Islamic West (670 AD – end of the 14th century)',
-						fr: 'Unité 2 : Kairouan et Tunis, centres de rayonnement de la civilisation arabo-islamique en Occident musulman (670 – fin du XIVe siècle)'
-					},
-					lessons: [
-						{
-							title: {
-								ar: 'الدرس 1: القيروان ودورها في نشر الحضارة العربية الإسلامية',
-								en: 'Lesson 1: Kairouan and Its Role in Spreading Arab-Islamic Civilization',
-								fr: 'Leçon 1 : Kairouan et son rôle dans la diffusion de la civilisation arabo-islamique'
-							},
-							parts: [
-								{
-									title: {
-										ar: 'القيروان قاعدة الانتشار العربي الإسلامي',
-										en: 'Kairouan as a Base for Arab-Islamic Expansion',
-										fr: 'Kairouan, base de l’expansion arabo-islamique'
-									}
-								},
-								{
-									title: {
-										ar: 'الدور الاقتصادي للقيروان: أهمية النشاط التجاري',
-										en: 'The Economic Role of Kairouan: Importance of Trade',
-										fr: 'Le rôle économique de Kairouan : l’importance de l’activité commerciale'
-									}
-								},
-								{
-									title: {
-										ar: 'خصائص العمارة',
-										en: 'Characteristics of Architecture',
-										fr: 'Les caractéristiques de l’architecture'
-									}
-								},
-								{
-									title: {
-										ar: 'الإشعاع الفكري',
-										en: 'Intellectual Influence',
-										fr: 'Le rayonnement intellectuel'
-									}
-								}
-							]
-						},
-						{
-							title: {
-								ar: 'الدرس 2: تونس في العهد الحفصي مركز إشعاع ثقافي',
-								en: 'Lesson 2: Tunis in the Hafsid Era, a Center of Cultural Influence',
-								fr: 'Leçon 2 : Tunis à l’époque hafside, centre de rayonnement culturel'
-							},
-							parts: [
-								{
-									title: {
-										ar: 'عمارة مدينة تونس',
-										en: 'Architecture of the City of Tunis',
-										fr: 'L’architecture de la ville de Tunis'
-									}
-								},
-								{
-									title: {
-										ar: 'عبد الرحمان بن خلدون',
-										en: 'Abd al-Rahman Ibn Khaldun',
-										fr: 'Abd al-Rahman Ibn Khaldoun'
-									}
-								}
-							]
-						}
-					]
-				},
-				{
-					name: {
-						ar: 'الوحدة الثالثة: البلاد التونسية من الإصلاح إلى التحديث (من القرن التاسع عشر إلى 1987)',
-						en: 'Unit 3: Tunisia from Reform to Modernization (19th Century – 1987)',
-						fr: 'Unité 3 : La Tunisie de la réforme à la modernisation (XIXe siècle – 1987)'
-					},
-					lessons: [
-						{
-							title: {
-								ar: 'الدرس 1: إضاءات حول تاريخ تونس في العصر الحديث',
-								en: 'Lesson 1: Insights into the Modern History of Tunisia',
-								fr: 'Leçon 1 : Éclairages sur l’histoire moderne de la Tunisie'
-							},
-							parts: [
-								{
-									title: {
-										ar: 'الفكر الإصلاحي',
-										en: 'Reformist Thought',
-										fr: 'La pensée réformiste'
-									}
-								},
-								{
-									title: {
-										ar: 'التجربة التونسية في مقاومة الاستعمار',
-										en: 'The Tunisian Experience in Anti-Colonial Resistance',
-										fr: 'L’expérience tunisienne de résistance au colonialisme'
-									}
-								},
-								{
-									title: {
-										ar: 'تعصير الدولة وتحديث المجتمع',
-										en: 'Modernization of the State and Society',
-										fr: 'Modernisation de l’État et de la société'
-									}
-								}
-							]
-						}
-					]
-				}
-			],
-			pedagogy: {
-				label: {
-					ar: 'وثائق:',
-					en: 'Docs:',
-					fr: 'Docs :'
-				},
-				linkText: {
-					ar: 'كراس التاريخ',
-					en: 'History Booklet',
-					fr: "Cahier d'Histoire"
-				}
-			}
+		title: {
+			ar: '📚 الأولى ثانوي',
+			en: '📚 1st Secondary',
+			fr: '📚 1ère secondaire'
 		},
-		{
-			type: 'geo',
-			icon: '🌐',
-			subject: {
-				ar: 'الجغرافيا',
-				en: 'Geography',
-				fr: 'Géographie'
-			},
-			modules: [
-				{
-					name: {
-						ar: 'المحور الأول: الإنسان يعمر الأرض',
-						en: 'Axis 1: Humans Inhabit the Earth',
-						fr: 'Axe 1 : L’homme habite la Terre'
-					},
-					lessons: [
-						{
-							title: {
-								ar: 'الدرس 1: التوزيع الجغرافي للسكان في العالم',
-								en: 'Lesson 1: Geographical Distribution of the World Population',
-								fr: 'Leçon 1 : La répartition géographique de la population mondiale'
-							}
-						},
-						{
-							title: {
-								ar: 'الدرس 2: الحركة الديمغرافية للسكان',
-								en: 'Lesson 2: Demographic Dynamics of the Population',
-								fr: 'Leçon 2 : La dynamique démographique de la population'
-							}
-						},
-						{
-							title: {
-								ar: 'الدرس 3: الحركية المجالية للسكان: مثال هجرات العمل',
-								en: 'Lesson 3: Spatial Mobility of Populations: The Example of Labor Migration',
-								fr: 'Leçon 3 : La mobilité spatiale des populations : l’exemple des migrations de travail'
-							}
-						},
-						{
-							title: {
-								ar: 'الدرس 4: الإنفجار الحضري',
-								en: 'Lesson 4: Urban Explosion',
-								fr: 'Leçon 4 : L’explosion urbaine'
-							}
-						},
-						{
-							title: {
-								ar: 'الدرس 5: تركيبة المدينة: دراسة حالة القاهرة',
-								en: 'Lesson 5: Composition of the City: Case Study of Cairo',
-								fr: 'Leçon 5 : La composition de la ville : étude de cas du Caire'
-							}
-						}
-					]
+		programs: [
+			{
+				type: 'his',
+				icon: '📜',
+				subject: {
+					ar: 'التاريخ',
+					en: 'History',
+					fr: 'Histoire'
 				},
-				{
-					name: {
-						ar: 'المحور الثاني: الإنسان يستثمر الموارد الطبيعية',
-						en: 'Axis 2: Humans Exploit Natural Resources',
-						fr: 'Axe 2 : L’homme exploite les ressources naturelles'
+				modules: [
+					{
+						name: {
+							ar: 'الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)',
+							en: 'Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)',
+							fr: 'Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)'
+						},
+						lessons: [
+							{
+								title: {
+									ar: 'الدرس 1: قرطاج البونية وإشعاعها في المتوسط',
+									en: 'Lesson 1: Punic Carthage and Its Influence in the Mediterranean',
+									fr: 'Leçon 1 : Carthage punique et son rayonnement en Méditerranée'
+								},
+								parts: [
+									{
+										title: {
+											ar: 'المؤسسات السياسية',
+											en: 'Political Institutions',
+											fr: 'Les institutions politiques'
+										}
+									},
+									{
+										title: {
+											ar: 'الديانة',
+											en: 'Religion',
+											fr: 'La religion'
+										}
+									},
+									{
+										title: {
+											ar: 'الميناء والتوسع التجاري',
+											en: 'The Port and Commercial Expansion',
+											fr: 'Le port et l’expansion commerciale'
+										}
+									},
+									{
+										title: {
+											ar: 'موسوعة ماغون',
+											en: 'The Encyclopedia of Mago',
+											fr: 'L’encyclopédie de Magon'
+										}
+									},
+									{
+										title: {
+											ar: 'عبقرية حنبعل',
+											en: 'The Genius of Hannibal',
+											fr: 'Le génie d’Hannibal'
+										}
+									}
+								]
+							},
+							{
+								title: {
+									ar: 'الدرس 2: قرطاج وإسهاماتها في الحضارة الرومانية',
+									en: 'Lesson 2: Carthage and Its Contributions to Roman Civilization',
+									fr: 'Leçon 2 : Carthage et ses apports à la civilisation romaine'
+								},
+								parts: [
+									{
+										title: {
+											ar: 'الازدهار العمراني',
+											en: 'Urban Prosperity',
+											fr: 'La prospérité urbanistique'
+										}
+									},
+									{
+										title: {
+											ar: 'الازدهار الاقتصادي: الفلاحة',
+											en: 'Economic Prosperity: Agriculture',
+											fr: 'Prospérité économique : l’agriculture'
+										}
+									},
+									{
+										title: {
+											ar: 'أبوليوس',
+											en: 'Apuleius',
+											fr: 'Apulée'
+										}
+									},
+									{
+										title: {
+											ar: 'القديس أوغسطينوس',
+											en: 'Saint Augustine',
+											fr: 'Saint Augustin'
+										}
+									}
+								]
+							}
+						]
 					},
-					lessons: [
-						{
-							title: {
-								ar: 'الدرس 1: الموارد المائية وتوزيعها الجغرافي',
-								en: 'Lesson 1: Water Resources and Their Geographical Distribution',
-								fr: 'Leçon 1 : Les ressources en eau et leur répartition géographique'
-							}
+					{
+						name: {
+							ar: 'الوحدة الثانية: القيروان وتونس مركزا إشعاع الحضارة العربية الإسلامية في الغرب الإسلامي (من 670 م إلى نهاية القرن الرابع عشر ميلادي)',
+							en: 'Unit 2: Kairouan and Tunis, Centers of Arab-Islamic Civilization in the Islamic West (670 AD – end of the 14th century)',
+							fr: 'Unité 2 : Kairouan et Tunis, centres de rayonnement de la civilisation arabo-islamique en Occident musulman (670 – fin du XIVe siècle)'
 						},
-						{
-							title: {
-								ar: 'الدرس 2: تعبئة المياه',
-								en: 'Lesson 2: Water Mobilization',
-								fr: 'Leçon 2 : La mobilisation de l’eau'
+						lessons: [
+							{
+								title: {
+									ar: 'الدرس 1: القيروان ودورها في نشر الحضارة العربية الإسلامية',
+									en: 'Lesson 1: Kairouan and Its Role in Spreading Arab-Islamic Civilization',
+									fr: 'Leçon 1 : Kairouan et son rôle dans la diffusion de la civilisation arabo-islamique'
+								},
+								parts: [
+									{
+										title: {
+											ar: 'القيروان قاعدة الانتشار العربي الإسلامي',
+											en: 'Kairouan as a Base for Arab-Islamic Expansion',
+											fr: 'Kairouan, base de l’expansion arabo-islamique'
+										}
+									},
+									{
+										title: {
+											ar: 'الدور الاقتصادي للقيروان: أهمية النشاط التجاري',
+											en: 'The Economic Role of Kairouan: Importance of Trade',
+											fr: 'Le rôle économique de Kairouan : l’importance de l’activité commerciale'
+										}
+									},
+									{
+										title: {
+											ar: 'خصائص العمارة',
+											en: 'Characteristics of Architecture',
+											fr: 'Les caractéristiques de l’architecture'
+										}
+									},
+									{
+										title: {
+											ar: 'الإشعاع الفكري',
+											en: 'Intellectual Influence',
+											fr: 'Le rayonnement intellectuel'
+										}
+									}
+								]
+							},
+							{
+								title: {
+									ar: 'الدرس 2: تونس في العهد الحفصي مركز إشعاع ثقافي',
+									en: 'Lesson 2: Tunis in the Hafsid Era, a Center of Cultural Influence',
+									fr: 'Leçon 2 : Tunis à l’époque hafside, centre de rayonnement culturel'
+								},
+								parts: [
+									{
+										title: {
+											ar: 'عمارة مدينة تونس',
+											en: 'Architecture of the City of Tunis',
+											fr: 'L’architecture de la ville de Tunis'
+										}
+									},
+									{
+										title: {
+											ar: 'عبد الرحمان بن خلدون',
+											en: 'Abd al-Rahman Ibn Khaldun',
+											fr: 'Abd al-Rahman Ibn Khaldoun'
+										}
+									}
+								]
 							}
-						},
-						{
-							title: {
-								ar: 'الدرس 3: رهانات الماء',
-								en: 'Lesson 3: Water Stakes',
-								fr: 'Leçon 3 : Les enjeux de l’eau'
-							}
-						},
-						{
-							title: {
-								ar: 'الدرس 4: الموارد النفطية: الإنتاج والاستهلاك والمبادلات',
-								en: 'Lesson 4: Oil Resources: Production, Consumption and Trade',
-								fr: 'Leçon 4 : Les ressources pétrolières : production, consommation et échanges'
-							}
-						},
-						{
-							title: {
-								ar: 'الدرس 5: رهانات النفط',
-								en: 'Lesson 5: Oil Stakes',
-								fr: 'Leçon 5 : Les enjeux du pétrole'
-							}
-						}
-					]
-				},
-				{
-					name: {
-						ar: 'المحور الثالث: الإنسان والأوساط الطبيعية',
-						en: 'Axis 3: Humans and Natural Environments',
-						fr: 'Axe 3 : L’homme et les milieux naturels'
+						]
 					},
-					lessons: [
-						{
-							title: {
-								ar: 'الدرس 1: الإنسان والوسط الطبيعي',
-								en: 'Lesson 1: Humans and the Natural Environment',
-								fr: 'Leçon 1 : L’homme et le milieu naturel'
-							}
+					{
+						name: {
+							ar: 'الوحدة الثالثة: البلاد التونسية من الإصلاح إلى التحديث (من القرن التاسع عشر إلى 1987)',
+							en: 'Unit 3: Tunisia from Reform to Modernization (19th Century – 1987)',
+							fr: 'Unité 3 : La Tunisie de la réforme à la modernisation (XIXe siècle – 1987)'
 						},
-						{
-							title: {
-								ar: 'الدرس 2: من المخاطر الطبيعية إلى الكوارث: الزلازل والبراكين',
-								en: 'Lesson 2: From Natural Hazards to Disasters: Earthquakes and Volcanoes',
-								fr: 'Leçon 2 : Des risques naturels aux catastrophes : séismes et volcans'
+						lessons: [
+							{
+								title: {
+									ar: 'الدرس 1: إضاءات حول تاريخ تونس في العصر الحديث',
+									en: 'Lesson 1: Insights into the Modern History of Tunisia',
+									fr: 'Leçon 1 : Éclairages sur l’histoire moderne de la Tunisie'
+								},
+								parts: [
+									{
+										title: {
+											ar: 'الفكر الإصلاحي',
+											en: 'Reformist Thought',
+											fr: 'La pensée réformiste'
+										}
+									},
+									{
+										title: {
+											ar: 'التجربة التونسية في مقاومة الاستعمار',
+											en: 'The Tunisian Experience in Anti-Colonial Resistance',
+											fr: 'L’expérience tunisienne de résistance au colonialisme'
+										}
+									},
+									{
+										title: {
+											ar: 'تعصير الدولة وتحديث المجتمع',
+											en: 'Modernization of the State and Society',
+											fr: 'Modernisation de l’État et de la société'
+										}
+									}
+								]
 							}
-						},
-						{
-							title: {
-								ar: 'الدرس 3: الفيضانات',
-								en: 'Lesson 3: Floods',
-								fr: 'Leçon 3 : Les inondations'
-							}
-						},
-						{
-							title: {
-								ar: 'الدرس 4: تدهور الأوساط الطبيعية: مثال التصحر',
-								en: 'Lesson 4: Degradation of Natural Environments: The Example of Desertification',
-								fr: 'Leçon 4 : La dégradation des milieux naturels : l’exemple de la désertification'
-							}
-						},
-						{
-							title: {
-								ar: 'الدرس 5: تدهور وسط غابي: مثال الغابة المتوسطية',
-								en: 'Lesson 5: Degradation of a Forest Environment: The Example of the Mediterranean Forest',
-								fr: 'Leçon 5 : La dégradation d’un milieu forestier : l’exemple de la forêt méditerranéenne'
-							}
-						}
-					]
+						]
+					}
+				],
+				pedagogy: {
+					label: {
+						ar: 'وثائق:',
+						en: 'Docs:',
+						fr: 'Docs :'
+					},
+					linkText: {
+						ar: 'كراس التاريخ',
+						en: 'History Booklet',
+						fr: "Cahier d'Histoire"
+					}
 				}
-			],
-			pedagogy: {
-				label: {
-					ar: 'وثائق:',
-					en: 'Docs:',
-					fr: 'Docs :'
+			},
+			{
+				type: 'geo',
+				icon: '🌐',
+				subject: {
+					ar: 'الجغرافيا',
+					en: 'Geography',
+					fr: 'Géographie'
 				},
-				linkText: {
-					ar: 'كراس الجغرافيا',
-					en: 'Geography Booklet',
-					fr: 'Cahier de Géographie'
+				modules: [
+					{
+						name: {
+							ar: 'المحور الأول: الإنسان يعمر الأرض',
+							en: 'Axis 1: Humans Inhabit the Earth',
+							fr: 'Axe 1 : L’homme habite la Terre'
+						},
+						lessons: [
+							{
+								title: {
+									ar: 'الدرس 1: التوزيع الجغرافي للسكان في العالم',
+									en: 'Lesson 1: Geographical Distribution of the World Population',
+									fr: 'Leçon 1 : La répartition géographique de la population mondiale'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 2: الحركة الديمغرافية للسكان',
+									en: 'Lesson 2: Demographic Dynamics of the Population',
+									fr: 'Leçon 2 : La dynamique démographique de la population'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 3: الحركية المجالية للسكان: مثال هجرات العمل',
+									en: 'Lesson 3: Spatial Mobility of Populations: The Example of Labor Migration',
+									fr: 'Leçon 3 : La mobilité spatiale des populations : l’exemple des migrations de travail'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 4: الإنفجار الحضري',
+									en: 'Lesson 4: Urban Explosion',
+									fr: 'Leçon 4 : L’explosion urbaine'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 5: تركيبة المدينة: دراسة حالة القاهرة',
+									en: 'Lesson 5: Composition of the City: Case Study of Cairo',
+									fr: 'Leçon 5 : La composition de la ville : étude de cas du Caire'
+								}
+							}
+						]
+					},
+					{
+						name: {
+							ar: 'المحور الثاني: الإنسان يستثمر الموارد الطبيعية',
+							en: 'Axis 2: Humans Exploit Natural Resources',
+							fr: 'Axe 2 : L’homme exploite les ressources naturelles'
+						},
+						lessons: [
+							{
+								title: {
+									ar: 'الدرس 1: الموارد المائية وتوزيعها الجغرافي',
+									en: 'Lesson 1: Water Resources and Their Geographical Distribution',
+									fr: 'Leçon 1 : Les ressources en eau et leur répartition géographique'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 2: تعبئة المياه',
+									en: 'Lesson 2: Water Mobilization',
+									fr: 'Leçon 2 : La mobilisation de l’eau'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 3: رهانات الماء',
+									en: 'Lesson 3: Water Stakes',
+									fr: 'Leçon 3 : Les enjeux de l’eau'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 4: الموارد النفطية: الإنتاج والاستهلاك والمبادلات',
+									en: 'Lesson 4: Oil Resources: Production, Consumption and Trade',
+									fr: 'Leçon 4 : Les ressources pétrolières : production, consommation et échanges'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 5: رهانات النفط',
+									en: 'Lesson 5: Oil Stakes',
+									fr: 'Leçon 5 : Les enjeux du pétrole'
+								}
+							}
+						]
+					},
+					{
+						name: {
+							ar: 'المحور الثالث: الإنسان والأوساط الطبيعية',
+							en: 'Axis 3: Humans and Natural Environments',
+							fr: 'Axe 3 : L’homme et les milieux naturels'
+						},
+						lessons: [
+							{
+								title: {
+									ar: 'الدرس 1: الإنسان والوسط الطبيعي',
+									en: 'Lesson 1: Humans and the Natural Environment',
+									fr: 'Leçon 1 : L’homme et le milieu naturel'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 2: من المخاطر الطبيعية إلى الكوارث: الزلازل والبراكين',
+									en: 'Lesson 2: From Natural Hazards to Disasters: Earthquakes and Volcanoes',
+									fr: 'Leçon 2 : Des risques naturels aux catastrophes : séismes et volcans'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 3: الفيضانات',
+									en: 'Lesson 3: Floods',
+									fr: 'Leçon 3 : Les inondations'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 4: تدهور الأوساط الطبيعية: مثال التصحر',
+									en: 'Lesson 4: Degradation of Natural Environments: The Example of Desertification',
+									fr: 'Leçon 4 : La dégradation des milieux naturels : l’exemple de la désertification'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 5: تدهور وسط غابي: مثال الغابة المتوسطية',
+									en: 'Lesson 5: Degradation of a Forest Environment: The Example of the Mediterranean Forest',
+									fr: 'Leçon 5 : La dégradation d’un milieu forestier : l’exemple de la forêt méditerranéenne'
+								}
+							}
+						]
+					}
+				],
+				pedagogy: {
+					label: {
+						ar: 'وثائق:',
+						en: 'Docs:',
+						fr: 'Docs :'
+					},
+					linkText: {
+						ar: 'كراس الجغرافيا',
+						en: 'Geography Booklet',
+						fr: 'Cahier de Géographie'
+					}
 				}
 			}
-		}
-	]
-},
+		]
+	},
 	y2sec: {
 		title: {
 			ar: '📚 الثانية ثانوي',
@@ -3847,17 +3847,247 @@ window.HGH_YEAR_PROGRAMS = {
 					modules: [
 						{
 							name: {
-								ar: 'المحور 1',
-								en: 'Axis 1',
-								fr: 'Axe 1'
+								ar: '1. العالم المعاصر من 1914 إلى 1945',
+								en: '1. The Contemporary World from 1914 to 1945',
+								fr: '1. Le monde contemporain de 1914 à 1945'
 							},
 							lessons: [
 								{
 									title: {
-										ar: 'الدرس 1',
-										en: 'Lesson 1',
-										fr: 'Leçon 1'
-									}
+										ar: 'الدرس 1: الحرب العالمية الأولى',
+										en: 'Lesson 1: World War I',
+										fr: 'Leçon 1 : La Première Guerre mondiale'
+									},
+									parts: [
+										{
+											title: {
+												ar: 'الأسباب',
+												en: 'Causes',
+												fr: 'Causes'
+											}
+										},
+										{
+											title: {
+												ar: 'النتائج',
+												en: 'Consequences',
+												fr: 'Conséquences'
+											}
+										}
+									]
+								},
+								{
+									title: {
+										ar: 'الدرس 2: الحرب العالمية الثانية',
+										en: 'Lesson 2: World War II',
+										fr: 'Leçon 2 : La Seconde Guerre mondiale'
+									},
+									parts: [
+										{
+											title: {
+												ar: 'الأسباب',
+												en: 'Causes',
+												fr: 'Causes'
+											}
+										},
+										{
+											title: {
+												ar: 'النتائج',
+												en: 'Consequences',
+												fr: 'Conséquences'
+											}
+										}
+									]
+								},
+								{
+									title: {
+										ar: 'الدرس 3: تونس في العشرينات',
+										en: 'Lesson 3: Tunisia in the 1920s',
+										fr: 'Leçon 3 : La Tunisie dans les années 1920'
+									},
+									parts: [
+										{
+											title: {
+												ar: 'الظرفية الداخلية والخارجية',
+												en: 'Domestic and International Context',
+												fr: 'Contexte intérieur et extérieur'
+											}
+										},
+										{
+											title: {
+												ar: 'تطور الحركة الوطنية',
+												en: 'Evolution of the National Movement',
+												fr: 'Évolution du mouvement national'
+											}
+										}
+									]
+								},
+								{
+									title: {
+										ar: 'الدرس 4: تونس في الثلاثينات',
+										en: 'Lesson 4: Tunisia in the 1930s',
+										fr: 'Leçon 4 : La Tunisie dans les années 1930'
+									},
+									parts: [
+										{
+											title: {
+												ar: 'الظرفية الداخلية والخارجية',
+												en: 'Domestic and International Context',
+												fr: 'Contexte intérieur et extérieur'
+											}
+										},
+										{
+											title: {
+												ar: 'الحركة الوطنية وانتعاش العمل الوطني',
+												en: 'National Movement and Revival of National Action',
+												fr: "Mouvement national et regain de l'action nationale"
+											}
+										}
+									]
+								},
+								{
+									title: {
+										ar: 'الدرس 5: تونس أثناء الحرب العالمية الثانية',
+										en: 'Lesson 5: Tunisia during World War II',
+										fr: 'Leçon 5 : La Tunisie pendant la Seconde Guerre mondiale'
+									},
+									parts: [
+										{
+											title: {
+												ar: 'الظرفية الداخلية والخارجية',
+												en: 'Domestic and International Context',
+												fr: 'Contexte intérieur et extérieur'
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							name: {
+								ar: '2. العالم المعاصر بعد 1945',
+								en: '2. The Contemporary World after 1945',
+								fr: '2. Le monde contemporain après 1945'
+							},
+							lessons: [
+								{
+									title: {
+										ar: 'الدرس 1: العلاقات الدولية من الحرب الباردة إلى انهيار الاتحاد السوفياتي',
+										en: 'Lesson 1: International Relations from the Cold War to the Collapse of the USSR',
+										fr: "Leçon 1 : Les relations internationales de la Guerre froide à l'effondrement de l'URSS"
+									},
+									parts: [
+										{
+											title: {
+												ar: 'القطبية الثنائية',
+												en: 'Bipolarity',
+												fr: 'Bipolarité'
+											}
+										},
+										{
+											title: {
+												ar: 'أزمات الحرب الباردة',
+												en: 'Cold War Crises',
+												fr: 'Crises de la Guerre froide'
+											}
+										},
+										{
+											title: {
+												ar: 'سياسة الانفراج الدولي',
+												en: 'Détente Policy',
+												fr: 'Politique de détente'
+											}
+										},
+										{
+											title: {
+												ar: 'عودة التوتر وانهيار الاتحاد السوفياتي',
+												en: 'Return of Tensions and Collapse of the USSR',
+												fr: "Retour des tensions et effondrement de l'URSS"
+											}
+										}
+									]
+								},
+								{
+									title: {
+										ar: 'الدرس 2: استقلال المستعمرات',
+										en: 'Lesson 2: Independence of Colonies',
+										fr: 'Leçon 2 : Indépendance des colonies'
+									},
+									parts: [
+										{
+											title: {
+												ar: 'العوامل المساعدة على التحرر',
+												en: 'Factors Facilitating Liberation',
+												fr: 'Facteurs favorisant la libération'
+											}
+										},
+										{
+											title: {
+												ar: 'موجة استقلال المستعمرات في آسيا وأفريقيا',
+												en: 'The Wave of Independence in Asia and Africa',
+												fr: "La vague d'indépendance en Asie et en Afrique"
+											}
+										}
+									]
+								},
+								{
+									title: {
+										ar: 'الدرس 3: تونس من 1945 إلى 1956',
+										en: 'Lesson 3: Tunisia from 1945 to 1956',
+										fr: 'Leçon 3 : La Tunisie de 1945 à 1956'
+									},
+									parts: [
+										{
+											title: {
+												ar: 'المسيرة نحو الاستقلال',
+												en: 'The March towards Independence',
+												fr: "La marche vers l'indépendance"
+											}
+										},
+										{
+											title: {
+												ar: 'تضافر القوى الوطنية ضد الاستعمار',
+												en: 'Unity of National Forces against Colonialism',
+												fr: 'Convergence des forces nationales contre le colonialisme'
+											}
+										},
+										{
+											title: {
+												ar: 'اندلاع الثورة والظفر بالاستقلال',
+												en: 'Outbreak of the Revolution and Achievement of Independence',
+												fr: "Déclenchement de la révolution et obtention de l'indépendance"
+											}
+										}
+									]
+								},
+								{
+									title: {
+										ar: 'الدرس 4: تونس من 1956 إلى 1964',
+										en: 'Lesson 4: Tunisia from 1956 to 1964',
+										fr: 'Leçon 4 : La Tunisie de 1956 à 1964'
+									},
+									parts: [
+										{
+											title: {
+												ar: 'استكمال السيادة',
+												en: 'Completing Sovereignty',
+												fr: 'Achèvement de la souveraineté'
+											}
+										},
+										{
+											title: {
+												ar: 'بناء الدولة العصرية',
+												en: 'Building the Modern State',
+												fr: "Construction de l'État moderne"
+											}
+										},
+										{
+											title: {
+												ar: 'تحديث المجتمع',
+												en: 'Modernizing Society',
+												fr: 'Modernisation de la société'
+											}
+										}
+									]
 								}
 							]
 						}
@@ -3885,18 +4115,223 @@ window.HGH_YEAR_PROGRAMS = {
 					},
 					modules: [
 						{
-							name: {
-								ar: 'المحور 1',
-								en: 'Axis 1',
-								fr: 'Axe 1'
+							"name": {
+								"ar": "المحور الأول: مجال عالمي مترابط ومتفاوت",
+								"en": "Axis 1: An Interconnected and Unequal Global Space",
+								"fr": "Axe 1 : Un espace mondial interconnecté et inégal"
 							},
-							lessons: [
+							"lessons": [
 								{
-									title: {
-										ar: 'الدرس 1',
-										en: 'Lesson 1',
-										fr: 'Leçon 1'
-									}
+									"title": {
+										"ar": "الدرس 1: الأدفاق التجارية العالمية",
+										"en": "Lesson 1: Global Trade Flows",
+										"fr": "Leçon 1 : Les flux commerciaux mondiaux"
+									},
+									"parts": [
+										{
+											"title": {
+												"ar": "المظاهر والعوامل",
+												"en": "Manifestations and Factors",
+												"fr": "Manifestations et facteurs"
+											}
+										},
+										{
+											"title": {
+												"ar": "الأطراف المتدخلة",
+												"en": "Actors Involved",
+												"fr": "Acteurs impliqués"
+											}
+										},
+										{
+											"title": {
+												"ar": "الجغرافية والبنية",
+												"en": "Geography and Structure",
+												"fr": "Géographie et structure"
+											}
+										}
+									]
+								},
+								{
+									"title": {
+										"ar": "الدرس 2: الأدفاق المالية العالمية",
+										"en": "Lesson 2: Global Financial Flows",
+										"fr": "Leçon 2 : Les flux financiers mondiaux"
+									},
+									"parts": [
+										{
+											"title": {
+												"ar": "الأدفاق المالية وبنيتها",
+												"en": "Financial Flows and Their Structure",
+												"fr": "Flux financiers et leur structure"
+											}
+										},
+										{
+											"title": {
+												"ar": "عوامل تناميها",
+												"en": "Factors Behind Their Growth",
+												"fr": "Facteurs de leur croissance"
+											}
+										},
+										{
+											"title": {
+												"ar": "الأطراف المتدخلة فيها",
+												"en": "Stakeholders Involved",
+												"fr": "Acteurs impliqués"
+											}
+										}
+									]
+								},
+								{
+									"title": {
+										"ar": "الدرس 3: المجال العالمي: التفاوت في التقدم والتركيبة",
+										"en": "Lesson 3: Global Space: Inequalities in Development and Composition",
+										"fr": "Leçon 3 : L'espace mondial : inégalités de développement et composition"
+									},
+									"parts": [
+										{
+											"title": {
+												"ar": "مظاهر التفاوت في التقدم",
+												"en": "Manifestations of Development Inequalities",
+												"fr": "Manifestations des inégalités de développement"
+											}
+										},
+										{
+											"title": {
+												"ar": "عوامل التفاوت في التقدم",
+												"en": "Factors of Development Inequalities",
+												"fr": "Facteurs des inégalités de développement"
+											}
+										},
+										{
+											"title": {
+												"ar": "تركيبة المجال العالمي",
+												"en": "Composition of the Global Space",
+												"fr": "Composition de l'espace mondial"
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": {
+								"ar": "المحور الثاني: الأقطاب المتحكمة في المجال العالمي",
+								"en": "Axis 2: The Poles Dominating the Global Space",
+								"fr": "Axe 2 : Les pôles qui dominent l'espace mondial"
+							},
+							"lessons": [
+								{
+									"title": {
+										"ar": "الدرس 1: الولايات المتحدة الأمريكية: قوة عالمية عظمى",
+										"en": "Lesson 1: The United States of America: A Global Superpower",
+										"fr": "Leçon 1 : Les États-Unis d'Amérique : une superpuissance mondiale"
+									},
+									"parts": [
+										{
+											"title": {
+												"ar": "القوة الإنتاجية والمكانة العالمية",
+												"en": "Productive Power and Global Standing",
+												"fr": "Puissance productive et statut mondial"
+											}
+										},
+										{
+											"title": {
+												"ar": "دعائم القوة",
+												"en": "Foundations of Power",
+												"fr": "Fondements de la puissance"
+											}
+										},
+										{
+											"title": {
+												"ar": "النفوذ العالمي",
+												"en": "Global Influence",
+												"fr": "Influence mondiale"
+											}
+										},
+										{
+											"title": {
+												"ar": "الميغالوبوليس الأمريكية",
+												"en": "The American Megalopolis",
+												"fr": "La mégalopole américaine"
+											}
+										}
+									]
+								},
+								{
+									"title": {
+										"ar": "الدرس 2: الاتحاد الأوروبي: تكتل اقتصادي قوي",
+										"en": "Lesson 2: The European Union: A Strong Economic Bloc",
+										"fr": "Leçon 2 : L'Union européenne : un bloc économique puissant"
+									},
+									"parts": [
+										{
+											"title": {
+												"ar": "القوة الإنتاجية والمكانة العالمية",
+												"en": "Productive Power and Global Standing",
+												"fr": "Puissance productive et statut mondial"
+											}
+										},
+										{
+											"title": {
+												"ar": "دعائم القوة",
+												"en": "Foundations of Power",
+												"fr": "Fondements de la puissance"
+											}
+										},
+										{
+											"title": {
+												"ar": "النفوذ العالمي",
+												"en": "Global Influence",
+												"fr": "Influence mondiale"
+											}
+										},
+										{
+											"title": {
+												"ar": "الميغالوبوليس الأوروبية",
+												"en": "The European Megalopolis",
+												"fr": "La mégalopole européenne"
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": {
+								"ar": "المحور الثالث: الجنوب",
+								"en": "Axis 3: The South",
+								"fr": "Axe 3 : Le Sud"
+							},
+							"lessons": [
+								{
+									"title": {
+										"ar": "الدرس 1: البرازيل: بلد صناعي جديد",
+										"en": "Lesson 1: Brazil: A Newly Industrialized Country",
+										"fr": "Leçon 1 : Le Brésil : un pays industriel émergent"
+									},
+									"parts": [
+										{
+											"title": {
+												"ar": "مظاهر القفزة الاقتصادية",
+												"en": "Manifestations of the Economic Leap",
+												"fr": "Manifestations du bond économique"
+											}
+										},
+										{
+											"title": {
+												"ar": "دعائم القفزة الاقتصادية",
+												"en": "Foundations of the Economic Leap",
+												"fr": "Fondements du bond économique"
+											}
+										},
+										{
+											"title": {
+												"ar": "التباينات الاجتماعية والمجالية",
+												"en": "Social and Spatial Disparities",
+												"fr": "Disparités sociales et spatiales"
+											}
+										}
+									]
 								}
 							]
 						}
