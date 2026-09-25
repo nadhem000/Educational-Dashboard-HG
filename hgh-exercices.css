@@ -1461,7 +1461,500 @@ body {
         text-decoration: underline;
     }
 }
+/* ---------- 14. Type 7: Fill in the Blanks ---------- */
+.hgh-exercices-type7-fillBlanks-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--ED-General-color-surface);
+    border: 1px solid var(--ED-General-color-border);
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(var(--ED-General-color-shadow-rgb), 0.04);
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.hgh-exercices-type7-fillBlanks-section:hover {
+    box-shadow: 0 14px 44px rgba(var(--ED-General-color-shadow-rgb), 0.07);
+    border-color: var(--ED-General-color-border-hover);
+}
+.hgh-exercices-type7-fillBlanks-question {
+    font-weight: 650;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: var(--ED-General-color-text-primary);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+.hgh-exercices-type7-fillBlanks-question .question-number {
+    background: var(--ED-General-color-accent-default);
+    color: var(--ED-General-color-text-on-accent);
+    font-weight: 800;
+    font-size: 0.9rem;
+    min-width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+.hgh-exercices-type7-fillBlanks-wordbank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+    margin: 0 0 1.2rem;
+    background: var(--ED-General-color-accent-soft);
+    border: 1px dashed var(--ED-General-color-accent-default);
+    border-radius: 14px;
+}
+.hgh-exercices-type7-fillBlanks-word {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    background: var(--ED-General-color-surface);
+    border: 2px solid var(--ED-General-color-border);
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ED-General-color-text-primary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+.hgh-exercices-type7-fillBlanks-word:hover {
+    border-color: var(--ED-General-color-accent-default);
+    transform: translateY(-1px);
+}
+.hgh-exercices-type7-fillBlanks-word.selected {
+    background: var(--ED-General-color-accent-default);
+    color: var(--ED-General-color-text-on-accent);
+    border-color: var(--ED-General-color-accent-default);
+    box-shadow: 0 4px 12px rgba(var(--ED-General-color-accent-rgb), 0.35);
+}
+.hgh-exercices-type7-fillBlanks-word.used {
+    opacity: 0.35;
+    pointer-events: none;
+    text-decoration: line-through;
+}
+.hgh-exercices-type7-fillBlanks-text {
+    font-size: 1.05rem;
+    line-height: 2.4;
+    color: var(--ED-General-color-text-primary);
+    margin: 1rem 0;
+}
+.hgh-exercices-type7-fillBlanks-blank {
+    display: inline-block;
+    min-width: 90px;
+    padding: 0.1rem 0.55rem;
+    margin: 0 0.25rem;
+    border-bottom: 2px solid var(--ED-General-color-accent-default);
+    text-align: center;
+    font-weight: 700;
+    color: var(--ED-General-color-accent-default);
+    cursor: pointer;
+    border-radius: 4px 4px 0 0;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.hgh-exercices-type7-fillBlanks-blank:hover {
+    background: var(--ED-General-color-accent-soft);
+}
+.hgh-exercices-type7-fillBlanks-blank.filled {
+    background: var(--ED-General-color-accent-soft);
+}
+.hgh-exercices-type7-fillBlanks-blank.correct {
+    color: #219653;
+    border-bottom-color: #219653;
+    background: rgba(33, 150, 83, 0.12);
+}
+.hgh-exercices-type7-fillBlanks-blank.wrong {
+    color: #eb5757;
+    border-bottom-color: #eb5757;
+    background: rgba(235, 87, 87, 0.12);
+}
+.hgh-exercices-type7-fillBlanks-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.4rem;
+    background: var(--ED-General-color-accent-default);
+    color: var(--ED-General-color-text-on-accent);
+    border: none;
+    border-radius: 30px;
+    font-weight: 650;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3);
+    transition: all 0.2s;
+}
+.hgh-exercices-type7-fillBlanks-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(var(--ED-General-color-accent-rgb), 0.4);
+}
+.hgh-exercices-type7-fillBlanks-answer {
+    display: none;
+    margin-top: 1.4rem;
+    padding: 1.5rem;
+    background: var(--ED-General-color-bg-secondary);
+    border-radius: 18px;
+    border-left: 5px solid var(--ED-General-color-accent-default);
+    animation: hgh-exercices-type7-fade-in 0.3s ease-out;
+    font-size: 1.05rem;
+    line-height: 2.4;
+}
+.hgh-exercices-type7-fillBlanks-answer.visible {
+    display: block;
+}
+@keyframes hgh-exercices-type7-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
 
+/* ---------- 15. Type 8: Match Columns ---------- */
+.hgh-exercices-type8-matchColumns-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--ED-General-color-surface);
+    border: 1px solid var(--ED-General-color-border);
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(var(--ED-General-color-shadow-rgb), 0.04);
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.hgh-exercices-type8-matchColumns-section:hover {
+    box-shadow: 0 14px 44px rgba(var(--ED-General-color-shadow-rgb), 0.07);
+    border-color: var(--ED-General-color-border-hover);
+}
+.hgh-exercices-type8-matchColumns-question {
+    font-weight: 650;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: var(--ED-General-color-text-primary);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+.hgh-exercices-type8-matchColumns-question .question-number {
+    background: var(--ED-General-color-accent-default);
+    color: var(--ED-General-color-text-on-accent);
+    font-weight: 800;
+    font-size: 0.9rem;
+    min-width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+.hgh-exercices-type8-matchColumns-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+}
+@media (max-width: 600px) {
+    .hgh-exercices-type8-matchColumns-columns {
+        grid-template-columns: 1fr;
+    }
+}
+.hgh-exercices-type8-matchColumns-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.hgh-exercices-type8-matchColumns-column-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--ED-General-color-text-secondary);
+    padding: 0.3rem 0.5rem;
+    border-bottom: 2px solid var(--ED-General-color-border);
+    margin-bottom: 0.4rem;
+}
+.hgh-exercices-type8-matchColumns-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    background: var(--ED-General-color-bg-secondary);
+    border: 2px solid var(--ED-General-color-border);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ED-General-color-text-primary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+.hgh-exercices-type8-matchColumns-item:hover {
+    border-color: var(--ED-General-color-accent-default);
+    background: var(--ED-General-color-accent-soft);
+}
+.hgh-exercices-type8-matchColumns-item.selected {
+    border-color: var(--ED-General-color-accent-default);
+    background: var(--ED-General-color-accent-soft);
+    box-shadow: 0 0 0 3px rgba(var(--ED-General-color-accent-rgb), 0.15);
+}
+.hgh-exercices-type8-matchColumns-item.matched {
+    border-color: #5ba85a;
+    background: rgba(91, 168, 90, 0.1);
+}
+.hgh-exercices-type8-matchColumns-item.correct {
+    border-color: #219653;
+    background: rgba(33, 150, 83, 0.12);
+}
+.hgh-exercices-type8-matchColumns-item.wrong {
+    border-color: #eb5757;
+    background: rgba(235, 87, 87, 0.12);
+}
+.hgh-exercices-type8-matchColumns-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    height: 26px;
+    padding: 0 0.35rem;
+    background: var(--ED-General-color-accent-default);
+    color: var(--ED-General-color-text-on-accent);
+    font-weight: 800;
+    font-size: 0.78rem;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+.hgh-exercices-type8-matchColumns-item.correct .hgh-exercices-type8-matchColumns-badge,
+.hgh-exercices-type8-matchColumns-item.matched .hgh-exercices-type8-matchColumns-badge {
+    background: #219653;
+}
+.hgh-exercices-type8-matchColumns-item.wrong .hgh-exercices-type8-matchColumns-badge {
+    background: #eb5757;
+}
+.hgh-exercices-type8-matchColumns-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.4rem;
+    background: var(--ED-General-color-accent-default);
+    color: var(--ED-General-color-text-on-accent);
+    border: none;
+    border-radius: 30px;
+    font-weight: 650;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3);
+    transition: all 0.2s;
+}
+.hgh-exercices-type8-matchColumns-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(var(--ED-General-color-accent-rgb), 0.4);
+}
+.hgh-exercices-type8-matchColumns-answer {
+    display: none;
+    margin-top: 1.4rem;
+    padding: 1.5rem;
+    background: var(--ED-General-color-bg-secondary);
+    border-radius: 18px;
+    border-left: 5px solid var(--ED-General-color-accent-default);
+    animation: hgh-exercices-type8-fade-in 0.3s ease-out;
+}
+.hgh-exercices-type8-matchColumns-answer.visible {
+    display: block;
+}
+@keyframes hgh-exercices-type8-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.hgh-exercices-type8-matchColumns-pairing {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--ED-General-color-text-primary);
+}
+.hgh-exercices-type8-matchColumns-pairing .arrow {
+    color: var(--ED-General-color-accent-default);
+    font-weight: 800;
+}
+
+/* ---------- 16. Type 9: Multiple Choice ---------- */
+.hgh-exercices-type9-multipleChoice-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--ED-General-color-surface);
+    border: 1px solid var(--ED-General-color-border);
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(var(--ED-General-color-shadow-rgb), 0.04);
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.hgh-exercices-type9-multipleChoice-section:hover {
+    box-shadow: 0 14px 44px rgba(var(--ED-General-color-shadow-rgb), 0.07);
+    border-color: var(--ED-General-color-border-hover);
+}
+.hgh-exercices-type9-multipleChoice-question {
+    font-weight: 650;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: var(--ED-General-color-text-primary);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+.hgh-exercices-type9-multipleChoice-question .question-number {
+    background: var(--ED-General-color-accent-default);
+    color: var(--ED-General-color-text-on-accent);
+    font-weight: 800;
+    font-size: 0.9rem;
+    min-width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+.hgh-exercices-type9-multipleChoice-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1rem 0 1.5rem;
+}
+.hgh-exercices-type9-multipleChoice-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--ED-General-color-bg-secondary);
+    border: 2px solid var(--ED-General-color-border);
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ED-General-color-text-primary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+.hgh-exercices-type9-multipleChoice-option:hover {
+    border-color: var(--ED-General-color-accent-default);
+    background: var(--ED-General-color-accent-soft);
+}
+.hgh-exercices-type9-multipleChoice-option.selected {
+    border-color: var(--ED-General-color-accent-default);
+    background: var(--ED-General-color-accent-soft);
+    box-shadow: 0 0 0 3px rgba(var(--ED-General-color-accent-rgb), 0.15);
+}
+.hgh-exercices-type9-multipleChoice-option.correct {
+    border-color: #219653;
+    background: rgba(33, 150, 83, 0.12);
+    box-shadow: 0 0 0 3px rgba(33, 150, 83, 0.15);
+}
+.hgh-exercices-type9-multipleChoice-option.wrong {
+    border-color: #eb5757;
+    background: rgba(235, 87, 87, 0.12);
+    box-shadow: 0 0 0 3px rgba(235, 87, 87, 0.15);
+}
+.hgh-exercices-type9-multipleChoice-marker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: var(--ED-General-color-surface);
+    border: 2px solid var(--ED-General-color-border-hover);
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: var(--ED-General-color-text-secondary);
+    flex-shrink: 0;
+}
+.hgh-exercices-type9-multipleChoice-option.selected .hgh-exercices-type9-multipleChoice-marker {
+    background: var(--ED-General-color-accent-default);
+    border-color: var(--ED-General-color-accent-default);
+    color: var(--ED-General-color-text-on-accent);
+}
+.hgh-exercices-type9-multipleChoice-option.correct .hgh-exercices-type9-multipleChoice-marker {
+    background: #219653;
+    border-color: #219653;
+    color: #fff;
+}
+.hgh-exercices-type9-multipleChoice-option.wrong .hgh-exercices-type9-multipleChoice-marker {
+    background: #eb5757;
+    border-color: #eb5757;
+    color: #fff;
+}
+.hgh-exercices-type9-multipleChoice-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.4rem;
+    background: var(--ED-General-color-accent-default);
+    color: var(--ED-General-color-text-on-accent);
+    border: none;
+    border-radius: 30px;
+    font-weight: 650;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3);
+    transition: all 0.2s;
+}
+.hgh-exercices-type9-multipleChoice-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(var(--ED-General-color-accent-rgb), 0.4);
+}
+.hgh-exercices-type9-multipleChoice-answer {
+    display: none;
+    margin-top: 1.4rem;
+    padding: 1.5rem;
+    background: var(--ED-General-color-bg-secondary);
+    border-radius: 18px;
+    border-left: 5px solid var(--ED-General-color-accent-default);
+    animation: hgh-exercices-type9-fade-in 0.3s ease-out;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ED-General-color-text-primary);
+}
+.hgh-exercices-type9-multipleChoice-answer.visible {
+    display: block;
+}
+@keyframes hgh-exercices-type9-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.hgh-exercices-type9-multipleChoice-answer strong {
+    color: #219653;
+}
+
+/* ---------- Print overrides for new types ---------- */
+@media print {
+    .hgh-exercices-type7-fillBlanks-wordbank {
+        border-style: solid;
+        background: #fff !important;
+    }
+    .hgh-exercices-type7-fillBlanks-word,
+    .hgh-exercices-type8-matchColumns-item,
+    .hgh-exercices-type9-multipleChoice-option {
+        background: #fff !important;
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .hgh-exercices-type7-fillBlanks-blank.correct,
+    .hgh-exercices-type8-matchColumns-item.correct,
+    .hgh-exercices-type9-multipleChoice-option.correct {
+        border-color: #000 !important;
+        background: #e8f5e9 !important;
+    }
+    .hgh-exercices-type7-fillBlanks-blank.wrong,
+    .hgh-exercices-type8-matchColumns-item.wrong,
+    .hgh-exercices-type9-multipleChoice-option.wrong {
+        border-color: #000 !important;
+        background: #fdecea !important;
+    }
+    .hgh-exercices-type7-fillBlanks-answer.visible,
+    .hgh-exercices-type8-matchColumns-answer.visible,
+    .hgh-exercices-type9-multipleChoice-answer.visible {
+        display: block !important;
+    }
+    .hgh-exercices-type7-fillBlanks-answer,
+    .hgh-exercices-type8-matchColumns-answer,
+    .hgh-exercices-type9-multipleChoice-answer {
+        display: none;
+    }
+}
 /* ══════════════════════════════════════════════════════════════
    OLD DEFINITIONS (REMOVED – kept as comment for reference)
    ══════════════════════════════════════════════════════════════ */

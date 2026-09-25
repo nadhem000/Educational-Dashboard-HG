@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">الجغرافيا / المواقع والاتجاهات الجغرافيّة</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">موقع مدرستي</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">لتحديد موقع أيّ مكان من حولنا، نستعمل الاتجاهات الأربع الرئيسة: الشرق والغرب والشمال والجنوب. فبها نتمكّن من تحديد موقع مدرستنا ومنزلنا والمحيط الذي نعيش فيه، ونتمكّن من توجيه أنفسنا عند التنقّل.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي الاتجاهات الأربع الرئيسة؟ وكيف نحدّدها؟ وما هي الوسائل التي اعتمدها الإنسان لمعرفتها؟ وكيف نستعملها في حياتنا اليومية؟</p>
+            </div>
+
+            <!-- Part I : The Four Main Directions -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">الاتجاهات الأربع الرئيسة</span>
+                </h2>
+                <p data-i18n="directionsIntro">تنقسم الاتجاهات المعتمدة في تحديد الأمكنة إلى أربعة اتّجاهات رئيسة، وهي:</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="directionEastTitle">جهة الشرق</span>
+                </h4>
+                <p data-i18n="directionEastText">وهي الجهة التي تشرق منها الشمس، فتظهر عند الصباح الباكر من ناحية الشرق.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="directionWestTitle">جهة الغرب</span>
+                </h4>
+                <p data-i18n="directionWestText">وهي الجهة التي تغرب منها الشمس، فتختفي عند المساء من ناحية الغرب.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="directionNorthTitle">جهة الشمال</span>
+                </h4>
+                <p data-i18n="directionNorthText">وهي الجهة التي تتوسّط الشرق والغرب من أعلى.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">4</span>.
+                    <span data-i18n="directionSouthTitle">جهة الجنوب</span>
+                </h4>
+                <p data-i18n="directionSouthText">وهي الجهة التي تتوسّط الشرق والغرب من أسفل.</p>
+            </div>
+
+            <!-- Part II : The Compass -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">البوصلة: آلة تحديد الاتجاهات</span>
+                </h2>
+                <p data-i18n="compassText1">منذ القدم، عرف الإنسان الاتجاهات مهتديًا بالشمس نهارًا وبالنجوم ليلًا، ممّا مكّنه من التنقّل والتوجّه في البرّ والبحر.</p>
+                <p data-i18n="compassText2">إلاّ أنّ صنع أجهزة مكّنته من معرفة الاتجاهات بسهولة، وأهمّها اختراع البوصلة التي تُعدّ آلة لتحديد الاتجاه. وقد صنعها العرب واستعملوها في أسفارهم، ثمّ تمّ تطويرها فيما بعد لتُصبح أداة دقيقة يستعملها الناس في كلّ مكان.</p>
+            </div>
+
+            <!-- Part III : Practical Example -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span> <span data-i18n="sectionPart3">مثال تطبيقي: كيف أعود إلى منزلي بالاتجاهات؟</span>
+                </h2>
+                <p data-i18n="exampleIntro">لنأخذ مثالاً بسيطًا يوضّح لنا كيف نستعمل الاتجاهات في حياتنا اليومية. تخيّل أنّ التلميذ <strong>أمين</strong> يريد العودة من مدرسته إلى منزله بعد نهاية الدروس.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="exampleStep1Title">الخطوة الأولى: تحديد جهة الانطلاق</span>
+                </h4>
+                <p data-i18n="exampleStep1Text">خرج أمين من باب المدرسة، ولاحظ أنّ الباب يفتح على جهة <strong>الشرق</strong>. فبدأ مسيره نحو الشرق.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="exampleStep2Title">الخطوة الثانية: السير نحو الشرق</span>
+                </h4>
+                <p data-i18n="exampleStep2Text">سار أمين نحو الشرق حوالي <strong>300 متر</strong>، حتى بلغ تقاطع الطرق القريب من المدرسة.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="exampleStep3Title">الخطوة الثالثة: الانعطاف نحو الشمال</span>
+                </h4>
+                <p data-i18n="exampleStep3Text">عند التقاطع، انعطف أمين نحو <strong>الشمال</strong>، فمرّ بجانب الحديقة العمومية. سار في هذا الاتجاه حوالي <strong>150 مترًا</strong>.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">4</span>.
+                    <span data-i18n="exampleStep4Title">الخطوة الرابعة: الانعطاف نحو الغرب والوصول</span>
+                </h4>
+                <p data-i18n="exampleStep4Text">ثمّ انعطف أمين نحو <strong>الغرب</strong>، فوجد منزله على يمينه بعد حوالي <strong>100 متر</strong>. وهكذا تمكّن أمين من الوصول إلى منزله مستعينًا بالاتجاهات الأربع، دون أن يضلّ الطريق.</p>
+
+                <p data-i18n="exampleConclusion">ويمكننا تلخيص مسار أمين في الجدول التالي:</p>
+
+                <div class="table-scroll-wrapper" style="margin-top:1rem;">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="exampleTable_step">الخطوة</th>
+                            <th data-i18n="exampleTable_direction">الاتجاه</th>
+                            <th data-i18n="exampleTable_distance">المسافة</th>
+                            <th data-i18n="exampleTable_landmark">المعلم</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td data-i18n="directionEastTitle">جهة الشرق</td>
+                            <td>300 <span data-i18n="unitsTable_meters">متر</span></td>
+                            <td data-i18n="exampleTable_landmark1">من باب المدرسة إلى تقاطع الطرق</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td data-i18n="directionNorthTitle">جهة الشمال</td>
+                            <td>150 <span data-i18n="unitsTable_meters">متر</span></td>
+                            <td data-i18n="exampleTable_landmark2">بجانب الحديقة العمومية</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td data-i18n="directionWestTitle">جهة الغرب</td>
+                            <td>100 <span data-i18n="unitsTable_meters">متر</span></td>
+                            <td data-i18n="exampleTable_landmark3">الوصول إلى المنزل</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">تساعدنا الاتجاهات الأربع (الشرق، والغرب، والشمال، والجنوب) على تحديد موقع الأمكنة من حولنا، وعلى رأسها موقع مدرستنا ومنزلنا. وقد عرف الإنسان هذه الاتجاهات منذ القدم بواسطة الشمس والنجوم، ثمّ طوّر أدوات دقيقة لتحديدها وأهمّها البوصلة، التي ما تزال تُستعمل إلى اليوم في التنقّل والسفر.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defDirections">🧭 الاتجاهات الأربع</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defEast">جهة الشرق</strong>: <span data-i18n="defEastDesc">الجهة التي تشرق منها الشمس، فتظهر عند الصباح الباكر من ناحية الشرق.</span></li>
+                        <li><strong class="key-location" data-i18n="defWest">جهة الغرب</strong>: <span data-i18n="defWestDesc">الجهة التي تغرب منها الشمس، فتختفي عند المساء من ناحية الغرب.</span></li>
+                        <li><strong class="key-location" data-i18n="defNorth">جهة الشمال</strong>: <span data-i18n="defNorthDesc">الجهة التي تتوسّط الشرق والغرب من أعلى.</span></li>
+                        <li><strong class="key-location" data-i18n="defSouth">جهة الجنوب</strong>: <span data-i18n="defSouthDesc">الجهة التي تتوسّط الشرق والغرب من أسفل.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defDirectionsTerm">الاتجاهات</strong>: <span data-i18n="defDirectionsTermDesc">أربع جهات رئيسة تُستعمل لتحديد موقع الأمكنة، وهي: الشرق والغرب والشمال والجنوب.</span></li>
+                        <li><strong class="key-other" data-i18n="defCompass">البوصلة</strong>: <span data-i18n="defCompassDesc">آلة لتحديد الاتجاه، صنعها العرب واستعملوها في أسفارهم، ثمّ تمّ تطويرها فيما بعد لتصبح أداة دقيقة يستعملها الناس في كلّ مكان.</span></li>
+                        <li><strong class="key-other" data-i18n="defRoute">المسار</strong>: <span data-i18n="defRouteDesc">الطريق الذي يسلكه الشخص للانتقال من مكان إلى آخر، ويتكوّن من سلسلة من الاتجاهات والمسافات، مثل مسار التلميذ من المدرسة إلى المنزل.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: الاتجاهات الأربع الرئيسة هي: الشرق (تشرق منه الشمس)، والغرب (تغرب منه الشمس)، والشمال (يتوسّط الشرق والغرب من أعلى)، والجنوب (يتوسّط الشرق والغرب من أسفل). وقد عرف الإنسان هذه الاتجاهات منذ القدم بالشمس والنجوم، ثمّ اخترع البوصلة التي تُعدّ آلة لتحديد الاتجاه، صنعها العرب واستعملوها وطوّرها الناس فيما بعد. ونستعمل هذه الاتجاهات يوميًّا لتحديد مساراتنا، كما في مسار التلميذ من مدرسته إلى منزله.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وسائل تحديد الاتجاهات</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/geography/unit1/lesson1/compass.jpg" alt="البوصلة الحديثة" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">البوصلة الحديثة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/geography/unit1/lesson1/old_arab_compass.jpg" alt="البوصلة العربية القديمة" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">البوصلة العربية القديمة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/geography/unit1/lesson1/sun_directions.jpg" alt="الشمس واتجاهاتها" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">الشمس واتجاهاتها</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/geography/unit1/lesson1/stars_directions.jpg" alt="النجوم واتجاهاتها" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">النجوم واتجاهاتها</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_geo_exercisess_mod1_lesson1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية والاتجاهات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">وسائل تحديد الاتجاهات</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "Geography / Geographical Locations and Directions",
+                lessonTitleSample: "My School Location",
+                sectionIntro: "Introduction",
+                introText: "To locate any place around us, we use the four main directions: East, West, North, and South. With them we can locate our school, our home, and the environment we live in, and we can orient ourselves when moving around.",
+                problematiqueText: "What are the four main directions? How do we identify them? What means did humans use to know them? And how do we use them in our daily lives?",
+                sectionPart1: "The Four Main Directions",
+                directionsIntro: "The directions used to locate places are divided into four main directions:",
+                directionEastTitle: "The East",
+                directionEastText: "It is the direction from which the sun rises; it appears early in the morning from the east side.",
+                directionWestTitle: "The West",
+                directionWestText: "It is the direction in which the sun sets; it disappears in the evening on the west side.",
+                directionNorthTitle: "The North",
+                directionNorthText: "It is the direction that lies midway between East and West from above.",
+                directionSouthTitle: "The South",
+                directionSouthText: "It is the direction that lies midway between East and West from below.",
+                sectionPart2: "The Compass: A Direction-Finding Instrument",
+                compassText1: "Since ancient times, humans have known directions by being guided by the sun during the day and by the stars at night, which enabled them to move and orient themselves on land and at sea.",
+                compassText2: "However, the making of instruments enabled them to know directions easily, the most important of which was the invention of the compass, which is considered a direction-finding instrument. The Arabs made it and used it in their travels, and it was later developed to become a precise tool used by people everywhere.",
+
+                sectionPart3: "Practical Example: How Do I Get Home Using Directions?",
+                exampleIntro: "Let us take a simple example that shows us how we use directions in our daily lives. Imagine that the student <strong>Amin</strong> wants to return home from his school after classes end.",
+                exampleStep1Title: "Step 1: Determining the Starting Direction",
+                exampleStep1Text: "Amin left the school gate and noticed that the gate opens towards the <strong>East</strong>. So he started walking eastward.",
+                exampleStep2Title: "Step 2: Walking East",
+                exampleStep2Text: "Amin walked east for about <strong>300 meters</strong>, until he reached the road intersection near the school.",
+                exampleStep3Title: "Step 3: Turning North",
+                exampleStep3Text: "At the intersection, Amin turned towards the <strong>North</strong>, passing by the public garden. He walked in this direction for about <strong>150 meters</strong>.",
+                exampleStep4Title: "Step 4: Turning West and Arriving",
+                exampleStep4Text: "Then Amin turned towards the <strong>West</strong> and found his house on his right after about <strong>100 meters</strong>. Thus Amin managed to reach his house using the four directions, without getting lost.",
+                exampleConclusion: "We can summarise Amin's route in the following table:",
+                exampleTable_step: "Step",
+                exampleTable_direction: "Direction",
+                exampleTable_distance: "Distance",
+                exampleTable_landmark: "Landmark",
+                exampleTable_landmark1: "From the school gate to the road intersection",
+                exampleTable_landmark2: "Beside the public garden",
+                exampleTable_landmark3: "Arrival at home",
+                unitsTable_meters: "meters",
+
+                sectionConclusion: "Conclusion",
+                conclusionText: "The four directions (East, West, North, and South) help us locate the places around us, foremost among them our school and home. Humans have known these directions since ancient times through the sun and the stars, then developed precise tools to determine them, the most important of which is the compass, which is still used today for travel and navigation.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Direction-Finding Tools",
+                defDirections: "🧭 The Four Directions",
+                defOthers: "📌 Other",
+                defEast: "The East",
+                defEastDesc: "The direction from which the sun rises; it appears early in the morning from the east side.",
+                defWest: "The West",
+                defWestDesc: "The direction in which the sun sets; it disappears in the evening on the west side.",
+                defNorth: "The North",
+                defNorthDesc: "The direction that lies midway between East and West from above.",
+                defSouth: "The South",
+                defSouthDesc: "The direction that lies midway between East and West from below.",
+                defDirectionsTerm: "Directions",
+                defDirectionsTermDesc: "Four main directions used to locate places: East, West, North, and South.",
+                defCompass: "The Compass",
+                defCompassDesc: "A direction-finding instrument made by the Arabs and used in their travels, later developed to become a precise tool used by people everywhere.",
+                defRoute: "The Route",
+                defRouteDesc: "The path a person takes to move from one place to another, consisting of a series of directions and distances, such as a student's route from school to home.",
+                summaryText: "Key takeaway: The four main directions are: East (where the sun rises), West (where the sun sets), North (midway between East and West from above), and South (midway between East and West from below). Humans have known these directions since ancient times through the sun and the stars, then invented the compass, a direction-finding instrument made by the Arabs, used by them, and later developed. We use these directions daily to determine our routes, as in the student's route from school to home.",
+                galleryAlt1: "Modern compass",
+                galleryAlt2: "Old Arab compass",
+                galleryAlt3: "The sun and its directions",
+                galleryAlt4: "The stars and their directions",
+                galleryCap1: "Modern compass",
+                galleryCap2: "Old Arab compass",
+                galleryCap3: "The sun and its directions",
+                galleryCap4: "The stars and their directions",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Géographie / Positions et directions géographiques",
+                lessonTitleSample: "Emplacement de mon école",
+                sectionIntro: "Introduction",
+                introText: "Pour situer n'importe quel lieu autour de nous, nous utilisons les quatre directions principales : l'Est, l'Ouest, le Nord et le Sud. Grâce à elles, nous pouvons localiser notre école, notre maison et le milieu dans lequel nous vivons, et nous pouvons nous orienter lors de nos déplacements.",
+                problematiqueText: "Quelles sont les quatre directions principales ? Comment les identifier ? Quels moyens l'être humain a-t-il utilisés pour les connaître ? Et comment les utilisons-nous dans notre vie quotidienne ?",
+                sectionPart1: "Les quatre directions principales",
+                directionsIntro: "Les directions utilisées pour situer les lieux se divisent en quatre directions principales :",
+                directionEastTitle: "L'Est",
+                directionEastText: "C'est la direction d'où le soleil se lève ; il apparaît tôt le matin du côté est.",
+                directionWestTitle: "L'Ouest",
+                directionWestText: "C'est la direction où le soleil se couche ; il disparaît le soir du côté ouest.",
+                directionNorthTitle: "Le Nord",
+                directionNorthText: "C'est la direction qui se situe à mi-chemin entre l'Est et l'Ouest par le haut.",
+                directionSouthTitle: "Le Sud",
+                directionSouthText: "C'est la direction qui se situe à mi-chemin entre l'Est et l'Ouest par le bas.",
+                sectionPart2: "La boussole : un instrument d'orientation",
+                compassText1: "Depuis l'Antiquité, l'être humain connaît les directions en se guidant par le soleil le jour et par les étoiles la nuit, ce qui lui a permis de se déplacer et de s'orienter sur terre et en mer.",
+                compassText2: "Cependant, la fabrication d'instruments lui a permis de connaître facilement les directions, dont le plus important est l'invention de la boussole, considérée comme un instrument d'orientation. Les Arabes l'ont fabriquée et utilisée dans leurs voyages, puis elle a été développée par la suite pour devenir un outil précis utilisé par les gens partout.",
+
+                sectionPart3: "Exemple pratique : Comment rentrer chez moi en utilisant les directions ?",
+                exampleIntro: "Prenons un exemple simple qui nous montre comment nous utilisons les directions dans notre vie quotidienne. Imaginez que l'élève <strong>Amin</strong> veuille rentrer chez lui après la fin des cours.",
+                exampleStep1Title: "Étape 1 : Déterminer la direction de départ",
+                exampleStep1Text: "Amin est sorti du portail de l'école et a remarqué que le portail s'ouvre vers l'<strong>Est</strong>. Il a donc commencé à marcher vers l'est.",
+                exampleStep2Title: "Étape 2 : Marcher vers l'Est",
+                exampleStep2Text: "Amin a marché vers l'est sur environ <strong>300 mètres</strong>, jusqu'à atteindre l'intersection routière proche de l'école.",
+                exampleStep3Title: "Étape 3 : Tourner vers le Nord",
+                exampleStep3Text: "À l'intersection, Amin a tourné vers le <strong>Nord</strong>, en passant à côté du jardin public. Il a marché dans cette direction sur environ <strong>150 mètres</strong>.",
+                exampleStep4Title: "Étape 4 : Tourner vers l'Ouest et arriver",
+                exampleStep4Text: "Puis Amin a tourné vers l'<strong>Ouest</strong> et a trouvé sa maison sur sa droite après environ <strong>100 mètres</strong>. Amin a ainsi réussi à rentrer chez lui en utilisant les quatre directions, sans se perdre.",
+                exampleConclusion: "Nous pouvons résumer le parcours d'Amin dans le tableau suivant :",
+                exampleTable_step: "Étape",
+                exampleTable_direction: "Direction",
+                exampleTable_distance: "Distance",
+                exampleTable_landmark: "Point de repère",
+                exampleTable_landmark1: "Du portail de l'école à l'intersection",
+                exampleTable_landmark2: "À côté du jardin public",
+                exampleTable_landmark3: "Arrivée à la maison",
+                unitsTable_meters: "mètres",
+
+                sectionConclusion: "Conclusion",
+                conclusionText: "Les quatre directions (l'Est, l'Ouest, le Nord et le Sud) nous aident à situer les lieux qui nous entourent, et en premier lieu notre école et notre maison. L'être humain connaît ces directions depuis l'Antiquité grâce au soleil et aux étoiles, puis a développé des outils précis pour les déterminer, dont le plus important est la boussole, encore utilisée aujourd'hui pour les voyages et la navigation.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Instruments d'orientation",
+                defDirections: "🧭 Les quatre directions",
+                defOthers: "📌 Autres",
+                defEast: "L'Est",
+                defEastDesc: "La direction d'où le soleil se lève ; il apparaît tôt le matin du côté est.",
+                defWest: "L'Ouest",
+                defWestDesc: "La direction où le soleil se couche ; il disparaît le soir du côté ouest.",
+                defNorth: "Le Nord",
+                defNorthDesc: "La direction qui se situe à mi-chemin entre l'Est et l'Ouest par le haut.",
+                defSouth: "Le Sud",
+                defSouthDesc: "La direction qui se situe à mi-chemin entre l'Est et l'Ouest par le bas.",
+                defDirectionsTerm: "Les directions",
+                defDirectionsTermDesc: "Quatre directions principales utilisées pour situer les lieux : l'Est, l'Ouest, le Nord et le Sud.",
+                defCompass: "La boussole",
+                defCompassDesc: "Un instrument d'orientation fabriqué par les Arabes et utilisé dans leurs voyages, puis développé pour devenir un outil précis utilisé par les gens partout.",
+                defRoute: "Le parcours",
+                defRouteDesc: "Le chemin qu'une personne emprunte pour se déplacer d'un lieu à un autre, composé d'une série de directions et de distances, comme le parcours d'un élève de l'école à la maison.",
+                summaryText: "À retenir : Les quatre directions principales sont : l'Est (où le soleil se lève), l'Ouest (où le soleil se couche), le Nord (à mi-chemin entre l'Est et l'Ouest par le haut) et le Sud (à mi-chemin entre l'Est et l'Ouest par le bas). L'être humain connaît ces directions depuis l'Antiquité grâce au soleil et aux étoiles, puis a inventé la boussole, un instrument d'orientation fabriqué par les Arabes, utilisé par eux et développé par la suite. Nous utilisons ces directions quotidiennement pour déterminer nos parcours, comme le parcours d'un élève de l'école à la maison.",
+                galleryAlt1: "Boussole moderne",
+                galleryAlt2: "Ancienne boussole arabe",
+                galleryAlt3: "Le soleil et ses directions",
+                galleryAlt4: "Les étoiles et leurs directions",
+                galleryCap1: "Boussole moderne",
+                galleryCap2: "Ancienne boussole arabe",
+                galleryCap3: "Le soleil et ses directions",
+                galleryCap4: "Les étoiles et leurs directions",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "الجغرافيا / المواقع والاتجاهات الجغرافيّة",
+                lessonTitleSample: "موقع مدرستي",
+                sectionIntro: "مقدمة",
+                introText: "لتحديد موقع أيّ مكان من حولنا، نستعمل الاتجاهات الأربع الرئيسة: الشرق والغرب والشمال والجنوب. فبها نتمكّن من تحديد موقع مدرستنا ومنزلنا والمحيط الذي نعيش فيه، ونتمكّن من توجيه أنفسنا عند التنقّل.",
+                problematiqueText: "ما هي الاتجاهات الأربع الرئيسة؟ وكيف نحدّدها؟ وما هي الوسائل التي اعتمدها الإنسان لمعرفتها؟ وكيف نستعملها في حياتنا اليومية؟",
+                sectionPart1: "الاتجاهات الأربع الرئيسة",
+                directionsIntro: "تنقسم الاتجاهات المعتمدة في تحديد الأمكنة إلى أربعة اتّجاهات رئيسة، وهي:",
+                directionEastTitle: "جهة الشرق",
+                directionEastText: "وهي الجهة التي تشرق منها الشمس، فتظهر عند الصباح الباكر من ناحية الشرق.",
+                directionWestTitle: "جهة الغرب",
+                directionWestText: "وهي الجهة التي تغرب منها الشمس، فتختفي عند المساء من ناحية الغرب.",
+                directionNorthTitle: "جهة الشمال",
+                directionNorthText: "وهي الجهة التي تتوسّط الشرق والغرب من أعلى.",
+                directionSouthTitle: "جهة الجنوب",
+                directionSouthText: "وهي الجهة التي تتوسّط الشرق والغرب من أسفل.",
+                sectionPart2: "البوصلة: آلة تحديد الاتجاهات",
+                compassText1: "منذ القدم، عرف الإنسان الاتجاهات مهتديًا بالشمس نهارًا وبالنجوم ليلًا، ممّا مكّنه من التنقّل والتوجّه في البرّ والبحر.",
+                compassText2: "إلاّ أنّ صنع أجهزة مكّنته من معرفة الاتجاهات بسهولة، وأهمّها اختراع البوصلة التي تُعدّ آلة لتحديد الاتجاه. وقد صنعها العرب واستعملوها في أسفارهم، ثمّ تمّ تطويرها فيما بعد لتُصبح أداة دقيقة يستعملها الناس في كلّ مكان.",
+
+                sectionPart3: "مثال تطبيقي: كيف أعود إلى منزلي بالاتجاهات؟",
+                exampleIntro: "لنأخذ مثالاً بسيطًا يوضّح لنا كيف نستعمل الاتجاهات في حياتنا اليومية. تخيّل أنّ التلميذ <strong>أمين</strong> يريد العودة من مدرسته إلى منزله بعد نهاية الدروس.",
+                exampleStep1Title: "الخطوة الأولى: تحديد جهة الانطلاق",
+                exampleStep1Text: "خرج أمين من باب المدرسة، ولاحظ أنّ الباب يفتح على جهة <strong>الشرق</strong>. فبدأ مسيره نحو الشرق.",
+                exampleStep2Title: "الخطوة الثانية: السير نحو الشرق",
+                exampleStep2Text: "سار أمين نحو الشرق حوالي <strong>300 متر</strong>، حتى بلغ تقاطع الطرق القريب من المدرسة.",
+                exampleStep3Title: "الخطوة الثالثة: الانعطاف نحو الشمال",
+                exampleStep3Text: "عند التقاطع، انعطف أمين نحو <strong>الشمال</strong>، فمرّ بجانب الحديقة العمومية. سار في هذا الاتجاه حوالي <strong>150 مترًا</strong>.",
+                exampleStep4Title: "الخطوة الرابعة: الانعطاف نحو الغرب والوصول",
+                exampleStep4Text: "ثمّ انعطف أمين نحو <strong>الغرب</strong>، فوجد منزله على يمينه بعد حوالي <strong>100 متر</strong>. وهكذا تمكّن أمين من الوصول إلى منزله مستعينًا بالاتجاهات الأربع، دون أن يضلّ الطريق.",
+                exampleConclusion: "ويمكننا تلخيص مسار أمين في الجدول التالي:",
+                exampleTable_step: "الخطوة",
+                exampleTable_direction: "الاتجاه",
+                exampleTable_distance: "المسافة",
+                exampleTable_landmark: "المعلم",
+                exampleTable_landmark1: "من باب المدرسة إلى تقاطع الطرق",
+                exampleTable_landmark2: "بجانب الحديقة العمومية",
+                exampleTable_landmark3: "الوصول إلى المنزل",
+                unitsTable_meters: "متر",
+
+                sectionConclusion: "خاتمة",
+                conclusionText: "تساعدنا الاتجاهات الأربع (الشرق، والغرب، والشمال، والجنوب) على تحديد موقع الأمكنة من حولنا، وعلى رأسها موقع مدرستنا ومنزلنا. وقد عرف الإنسان هذه الاتجاهات منذ القدم بواسطة الشمس والنجوم، ثمّ طوّر أدوات دقيقة لتحديدها وأهمّها البوصلة، التي ما تزال تُستعمل إلى اليوم في التنقّل والسفر.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وسائل تحديد الاتجاهات",
+                defDirections: "🧭 الاتجاهات الأربع",
+                defOthers: "📌 أخرى",
+                defEast: "جهة الشرق",
+                defEastDesc: "الجهة التي تشرق منها الشمس، فتظهر عند الصباح الباكر من ناحية الشرق.",
+                defWest: "جهة الغرب",
+                defWestDesc: "الجهة التي تغرب منها الشمس، فتختفي عند المساء من ناحية الغرب.",
+                defNorth: "جهة الشمال",
+                defNorthDesc: "الجهة التي تتوسّط الشرق والغرب من أعلى.",
+                defSouth: "جهة الجنوب",
+                defSouthDesc: "الجهة التي تتوسّط الشرق والغرب من أسفل.",
+                defDirectionsTerm: "الاتجاهات",
+                defDirectionsTermDesc: "أربع جهات رئيسة تُستعمل لتحديد موقع الأمكنة، وهي: الشرق والغرب والشمال والجنوب.",
+                defCompass: "البوصلة",
+                defCompassDesc: "آلة لتحديد الاتجاه، صنعها العرب واستعملوها في أسفارهم، ثمّ تمّ تطويرها فيما بعد لتصبح أداة دقيقة يستعملها الناس في كلّ مكان.",
+                defRoute: "المسار",
+                defRouteDesc: "الطريق الذي يسلكه الشخص للانتقال من مكان إلى آخر، ويتكوّن من سلسلة من الاتجاهات والمسافات، مثل مسار التلميذ من المدرسة إلى المنزل.",
+                summaryText: "خلاصة: الاتجاهات الأربع الرئيسة هي: الشرق (تشرق منه الشمس)، والغرب (تغرب منه الشمس)، والشمال (يتوسّط الشرق والغرب من أعلى)، والجنوب (يتوسّط الشرق والغرب من أسفل). وقد عرف الإنسان هذه الاتجاهات منذ القدم بالشمس والنجوم، ثمّ اخترع البوصلة التي تُعدّ آلة لتحديد الاتجاه، صنعها العرب واستعملوها وطوّرها الناس فيما بعد. ونستعمل هذه الاتجاهات يوميًّا لتحديد مساراتنا، كما في مسار التلميذ من مدرسته إلى منزله.",
+                galleryAlt1: "البوصلة الحديثة",
+                galleryAlt2: "البوصلة العربية القديمة",
+                galleryAlt3: "الشمس واتجاهاتها",
+                galleryAlt4: "النجوم واتجاهاتها",
+                galleryCap1: "البوصلة الحديثة",
+                galleryCap2: "البوصلة العربية القديمة",
+                galleryCap3: "الشمس واتجاهاتها",
+                galleryCap4: "النجوم واتجاهاتها",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "The East", class: "key-location", i18n: "defEast" },
+                { text: "The West", class: "key-location", i18n: "defWest" },
+                { text: "The North", class: "key-location", i18n: "defNorth" },
+                { text: "The South", class: "key-location", i18n: "defSouth" },
+                { text: "The Compass", class: "key-other", i18n: "defCompass" },
+                { text: "Directions", class: "key-other", i18n: "defDirectionsTerm" },
+                { text: "The Route", class: "key-other", i18n: "defRoute" }
+            ],
+            fr: [
+                { text: "L'Est", class: "key-location", i18n: "defEast" },
+                { text: "L'Ouest", class: "key-location", i18n: "defWest" },
+                { text: "Le Nord", class: "key-location", i18n: "defNorth" },
+                { text: "Le Sud", class: "key-location", i18n: "defSouth" },
+                { text: "La boussole", class: "key-other", i18n: "defCompass" },
+                { text: "Les directions", class: "key-other", i18n: "defDirectionsTerm" },
+                { text: "Le parcours", class: "key-other", i18n: "defRoute" }
+            ],
+            ar: [
+                { text: "جهة الشرق", class: "key-location", i18n: "defEast" },
+                { text: "جهة الغرب", class: "key-location", i18n: "defWest" },
+                { text: "جهة الشمال", class: "key-location", i18n: "defNorth" },
+                { text: "جهة الجنوب", class: "key-location", i18n: "defSouth" },
+                { text: "البوصلة", class: "key-other", i18n: "defCompass" },
+                { text: "الاتجاهات", class: "key-other", i18n: "defDirectionsTerm" },
+                { text: "المسار", class: "key-other", i18n: "defRoute" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

@@ -1199,7 +1199,7 @@ window.HGH_YEAR_PROGRAMS = {
 			}
 		]
 	},
-	y09: {
+		y09: {
 		title: {
 			ar: '📚 التاسعة أساسي',
 			en: '📚 9th Basic',
@@ -1217,92 +1217,118 @@ window.HGH_YEAR_PROGRAMS = {
 				modules: [
 					{
 						name: {
-							ar: 'الوحدة 1: العصور القديمة',
-							en: 'Module 1: Ancient Times',
-							fr: 'Module 1 : Antiquité'
+							ar: 'المحور 1: تونس والعالم من الحرب العالمية الأولى إلى الحرب العالمية الثانية',
+							en: 'Axis 1: Tunisia and the World from World War I to World War II',
+							fr: 'Axe 1 : La Tunisie et le monde de la Première à la Seconde Guerre mondiale'
 						},
 						lessons: [
 							{
 								title: {
-									ar: 'الدرس 1: حضارة بلاد الرافدين',
-									en: 'Lesson 1: Mesopotamia',
-									fr: 'Leçon 1 : Mésopotamie'
+									ar: 'الدرس 1: الحرب العالمية الأولى: الأسباب وأبرز النتائج',
+									en: 'Lesson 1: World War I: Causes and Main Consequences',
+									fr: 'Leçon 1 : La Première Guerre mondiale : causes et principales conséquences'
 								}
 							},
 							{
 								title: {
-									ar: 'الدرس 2: الحضارة الفرعونية',
-									en: 'Lesson 2: Pharaonic Civilization',
-									fr: 'Leçon 2 : Civilisation pharaonique'
-								},
-								parts: [
-									{
-										title: {
-											ar: 'الجزء 1: المملكة القديمة',
-											en: 'Part 1: Old Kingdom',
-											fr: 'Partie 1 : Ancien Empire'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 2: المملكة الحديثة',
-											en: 'Part 2: New Kingdom',
-											fr: 'Partie 2 : Nouvel Empire'
-										}
-									}
-								]
+									ar: 'الدرس 2: الحركة الوطنية التونسية في العشرينات',
+									en: 'Lesson 2: The Tunisian National Movement in the 1920s',
+									fr: 'Leçon 2 : Le mouvement national tunisien dans les années 1920'
+								}
 							},
 							{
 								title: {
-									ar: 'الدرس 3: الإغريق والرومان',
-									en: 'Lesson 3: Greeks & Romans',
-									fr: 'Leçon 3 : Grecs et Romains'
+									ar: 'الدرس 3: الحركة الوطنية التونسية في الثلاثينات',
+									en: 'Lesson 3: The Tunisian National Movement in the 1930s',
+									fr: 'Leçon 3 : Le mouvement national tunisien dans les années 1930'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 4: أسباب الحرب العالمية الثانية',
+									en: 'Lesson 4: Causes of World War II',
+									fr: 'Leçon 4 : Les causes de la Seconde Guerre mondiale'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 5: نتائج الحرب العالمية الثانية',
+									en: 'Lesson 5: Consequences of World War II',
+									fr: 'Leçon 5 : Les conséquences de la Seconde Guerre mondiale'
 								}
 							}
 						]
 					},
 					{
 						name: {
-							ar: 'الوحدة 2: العصور الوسطى',
-							en: 'Module 2: Middle Ages',
-							fr: 'Module 2 : Moyen Âge'
+							ar: 'المحور 2: العالم بعد الحرب العالمية الثانية',
+							en: 'Axis 2: The World after World War II',
+							fr: 'Axe 2 : Le monde après la Seconde Guerre mondiale'
 						},
 						lessons: [
 							{
 								title: {
-									ar: 'الدرس 4: الفتوحات الإسلامية',
-									en: 'Lesson 4: Islamic Conquests',
-									fr: 'Leçon 4 : Conquêtes islamiques'
-								},
-								parts: [
-									{
-										title: {
-											ar: 'الجزء 1: عصر الخلفاء الراشدين',
-											en: 'Part 1: Rashidun Caliphs',
-											fr: 'Partie 1 : Califes bien guidés'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 2: العصر الأموي',
-											en: 'Part 2: Umayyad Era',
-											fr: 'Partie 2 : Ère omeyyade'
-										}
-									}
-								]
-							},
-							{
-								title: {
-									ar: 'الدرس 5: الحضارة الإسلامية في الأندلس',
-									en: 'Lesson 5: Islamic Spain',
-									fr: 'Leçon 5 : Al-Andalus'
+									ar: 'الدرس 6: الحرب الباردة',
+									en: 'Lesson 6: The Cold War',
+									fr: 'Leçon 6 : La Guerre froide'
 								}
 							},
 							{
 								title: {
-									ar: 'الدرس 6: الحروب الصليبية',
-									en: 'Lesson 6: The Crusades',
-									fr: 'Leçon 6 : Les Croisades'
+									ar: 'الدرس 7: تحرر الشعوب المستعمرة',
+									en: 'Lesson 7: Liberation of Colonized Peoples',
+									fr: 'Leçon 7 : La libération des peuples colonisés'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 8: القضية الفلسطينية',
+									en: 'Lesson 8: The Palestinian Cause',
+									fr: 'Leçon 8 : La cause palestinienne'
+								}
+							}
+						]
+					},
+					{
+						name: {
+							ar: 'المحور 3: استقلال بلدان المغرب العربي',
+							en: 'Axis 3: Independence of the Maghreb Countries',
+							fr: "Axe 3 : L'indépendance des pays du Maghreb"
+						},
+						lessons: [
+							{
+								title: {
+									ar: 'الدرس 9: الحركة الوطنية التونسية من 1945 إلى 1956',
+									en: 'Lesson 9: The Tunisian National Movement from 1945 to 1956',
+									fr: 'Leçon 9 : Le mouvement national tunisien de 1945 à 1956'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 10: تونس من 1956 إلى 1987',
+									en: 'Lesson 10: Tunisia from 1956 to 1987',
+									fr: 'Leçon 10 : La Tunisie de 1956 à 1987'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 11: الحركة الوطنية الجزائرية',
+									en: 'Lesson 11: The Algerian National Movement',
+									fr: 'Leçon 11 : Le mouvement national algérien'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 12: الحركة الوطنية المغربية',
+									en: 'Lesson 12: The Moroccan National Movement',
+									fr: 'Leçon 12 : Le mouvement national marocain'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 13: الحركة الوطنية الليبية',
+									en: 'Lesson 13: The Libyan National Movement',
+									fr: 'Leçon 13 : Le mouvement national libyen'
 								}
 							}
 						]
@@ -1332,69 +1358,88 @@ window.HGH_YEAR_PROGRAMS = {
 				modules: [
 					{
 						name: {
-							ar: 'الوحدة 1: البيئة الطبيعية',
-							en: 'Module 1: Natural Environment',
-							fr: 'Module 1 : Environnement naturel'
+							ar: 'المحور 1: المغرب العربي',
+							en: 'Axis 1: The Maghreb',
+							fr: 'Axe 1 : Le Maghreb'
 						},
 						lessons: [
 							{
 								title: {
-									ar: 'الدرس 1: التضاريس والمناخ',
-									en: 'Lesson 1: Landforms & Climate',
-									fr: 'Leçon 1 : Relief et climat'
+									ar: 'الدرس 1: الوسط الطبيعي بالمغرب العربي: المزايا والضغوطات',
+									en: 'Lesson 1: The Natural Environment of the Maghreb: Advantages and Constraints',
+									fr: 'Leçon 1 : Le milieu naturel au Maghreb : atouts et contraintes'
 								}
 							},
 							{
 								title: {
-									ar: 'الدرس 2: الثروات الطبيعية',
-									en: 'Lesson 2: Natural Resources',
-									fr: 'Leçon 2 : Ressources naturelles'
-								},
-								parts: [
-									{
-										title: {
-											ar: 'الجزء 1: المياه والنبات',
-											en: 'Part 1: Water & Vegetation',
-											fr: 'Partie 1 : Eau et végétation'
-										}
-									},
-									{
-										title: {
-											ar: 'الجزء 2: المعادن والطاقة',
-											en: 'Part 2: Minerals & Energy',
-											fr: 'Partie 2 : Minerais et énergie'
-										}
-									}
-								]
+									ar: 'الدرس 2: الموارد الطبيعية بالمغرب العربي',
+									en: 'Lesson 2: Natural Resources in the Maghreb',
+									fr: 'Leçon 2 : Les ressources naturelles au Maghreb'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 3: السكان والتنمية البشرية بالمغرب العربي',
+									en: 'Lesson 3: Population and Human Development in the Maghreb',
+									fr: 'Leçon 3 : Population et développement humain au Maghreb'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 4: التنمية الاقتصادية بالمغرب العربي',
+									en: 'Lesson 4: Economic Development in the Maghreb',
+									fr: 'Leçon 4 : Le développement économique au Maghreb'
+								}
 							}
 						]
 					},
 					{
 						name: {
-							ar: 'الوحدة 2: الإنسان والمجال',
-							en: 'Module 2: People & Space',
-							fr: 'Module 2 : Homme et espace'
+							ar: 'المحور 2: البلاد التونسية',
+							en: 'Axis 2: Tunisia',
+							fr: 'Axe 2 : La Tunisie'
 						},
 						lessons: [
 							{
 								title: {
-									ar: 'الدرس 3: توزيع السكان',
-									en: 'Lesson 3: Population Distribution',
-									fr: 'Leçon 3 : Répartition de la population'
+									ar: 'الدرس 5: السكان بالبلاد التونسية',
+									en: 'Lesson 5: Population in Tunisia',
+									fr: 'Leçon 5 : La population en Tunisie'
 								}
 							},
 							{
 								title: {
-									ar: 'الدرس 4: المدن والأرياف',
-									en: 'Lesson 4: Cities & Countryside',
-									fr: 'Leçon 4 : Villes et campagnes'
+									ar: 'الدرس 6: التنمية الفلاحية بالبلاد التونسية',
+									en: 'Lesson 6: Agricultural Development in Tunisia',
+									fr: 'Leçon 6 : Le développement agricole en Tunisie'
 								}
 							},
 							{
 								title: {
-									ar: 'الدرس 5: النقل والمواصلات',
-									en: 'Lesson 5: Transportation',
-									fr: 'Leçon 5 : Transports'
+									ar: 'الدرس 7: التنمية الصناعية بالبلاد التونسية',
+									en: 'Lesson 7: Industrial Development in Tunisia',
+									fr: 'Leçon 7 : Le développement industriel en Tunisie'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 8: التنمية السياحية بالبلاد التونسية',
+									en: 'Lesson 8: Tourism Development in Tunisia',
+									fr: 'Leçon 8 : Le développement touristique en Tunisie'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 9: تنمية التجارة الخارجية بالبلاد التونسية',
+									en: 'Lesson 9: Foreign Trade Development in Tunisia',
+									fr: 'Leçon 9 : Le développement du commerce extérieur en Tunisie'
+								}
+							},
+							{
+								title: {
+									ar: 'الدرس 10: حصيلة التنمية بالبلاد التونسية',
+									en: 'Lesson 10: Development Assessment in Tunisia',
+									fr: 'Leçon 10 : Le bilan du développement en Tunisie'
 								}
 							}
 						]

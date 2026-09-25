@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / التمهيد لدراسة التاريخ</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">أتموقع في الزمان والمكان</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">نتعرّض في حياتنا اليومية إلى أحداث كثيرة ومتنوّعة. وبعض هذه الأحداث يبقى في الذاكرة ويُحتفل به، بينما البعض الآخر يمرّ دون أن ننتبه إليه. ولكي ندرس التاريخ، لا بدّ أن نتعلّم التمييز بين نوعين من الأحداث: الحدث التاريخي والحدث غير التاريخي.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هو الحدث التاريخي؟ وما الفرق بينه وبين الحدث غير التاريخي؟ وما هي أهمّ الأمثلة على كلّ منهما؟</p>
+            </div>
+
+            <!-- Part I : Historical Event -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">الحدث التاريخي</span>
+                </h2>
+                <p data-i18n="historicalEventText">هو الحدث الهام في حياة الفرد أو المجموعة، وهو عادة ما يقع مرّة واحدة ولا يتكرّر إلاّ نادرًا، ويُحتفظ به في الذّاكرة. ومن خصائصه أنّه يُمثّل محطّة بارزة في حياة الإنسان أو المجتمع، ويُدوَّن في التاريخ لأنّه يحمل قيمة ودلالة خاصّة.</p>
+            </div>
+
+            <!-- Part II : Examples of Historical Events -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">أمثلة على الأحداث التاريخية</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="example1Title">تاريخ الولادة</span>
+                </h4>
+                <p data-i18n="example1Text">يُعدّ تاريخ ولادة الفرد من أهمّ الأحداث التاريخية في حياته، لأنّه يمثّل بداية وجوده ويُحتفل به كلّ سنة في عيد ميلاده.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="example2Title">تاريخ الزواج</span>
+                </h4>
+                <p data-i18n="example2Text">يُعدّ تاريخ الزواج من الأحداث التاريخية التي تمتلك أهمية كبيرة في حياة الأزواج، إذ يمثّل بداية تكوين أسرة جديدة.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="example3Title">تاريخ التخرّج</span>
+                </h4>
+                <p data-i18n="example3Text">يُعدّ تاريخ التخرّج من الأحداث التاريخية المميّزة التي تعكس نجاح الفرد في تحقيق تعليمه الأكاديمي، ويُحتفل به مع الأهل والأصدقاء.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">4</span>.
+                    <span data-i18n="example4Title">تاريخ الاستقلال</span>
+                </h4>
+                <p data-i18n="example4Text">يشير تاريخ الاستقلال إلى الحدث التاريخي الذي يرمز لتحقيق الدولة أو المجتمع للحرية والاستقلال عن سيطرة خارجية، ويُحتفل به كلّ سنة على المستوى الوطني.</p>
+            </div>
+
+            <!-- Part III : Non-Historical Event -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span> <span data-i18n="sectionPart3">الحدث غير التاريخي</span>
+                </h2>
+                <p data-i18n="nonHistoricalEventText">هو الحدث العادي الذي يتكرّر كلّ يوم أو بشكل دوري، ولا يُحتفظ به في الذاكرة لأنّه لا يحمل أهمّية خاصّة. ومن أمثلته: الأكل، والنوم، والذهاب إلى المدرسة، واللعب مع الأصدقاء.</p>
+                <p data-i18n="nonHistoricalEventCompare">وهكذا نلاحظ أنّ الحدث التاريخي يقع مرّة واحدة ويُحفظ في الذاكرة، أمّا الحدث غير التاريخي فيتكرّر يوميًّا ولا يُحفظ في الذاكرة.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">تنقسم الأحداث في حياتنا إلى نوعين: أحداث تاريخية هامّة تُحفظ في الذاكرة ويُحتفل بها، وأحداث غير تاريخية عادية تتكرّر يوميًّا. ويكفي أن نعرف أنّ الأحداث التاريخية هي التي تُدوَّن في التاريخ وتبقى في الذاكرة الجماعية للأفراد والشعوب.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defBirthDate">تاريخ الولادة</strong>: <span data-i18n="defBirthDateDesc">يُعدّ تاريخ ولادة الفرد من أهمّ الأحداث التاريخية في حياته، لأنّه يمثّل بداية وجوده ويُحتفل به كلّ سنة في عيد ميلاده.</span></li>
+                        <li><strong class="key-event" data-i18n="defMarriageDate">تاريخ الزواج</strong>: <span data-i18n="defMarriageDateDesc">من الأحداث التاريخية التي تمتلك أهمّية كبيرة في حياة الأزواج، إذ يمثّل بداية تكوين أسرة جديدة.</span></li>
+                        <li><strong class="key-event" data-i18n="defGraduationDate">تاريخ التخرّج</strong>: <span data-i18n="defGraduationDateDesc">من الأحداث التاريخية المميّزة التي تعكس نجاح الفرد في تحقيق تعليمه الأكاديمي، ويُحتفل به مع الأهل والأصدقاء.</span></li>
+                        <li><strong class="key-event" data-i18n="defIndependenceDate">تاريخ الاستقلال</strong>: <span data-i18n="defIndependenceDateDesc">الحدث التاريخي الذي يرمز لتحقيق الدولة أو المجتمع للحرية والاستقلال عن سيطرة خارجية، ويُحتفل به كلّ سنة على المستوى الوطني.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defHistoricalEvent">الحدث التاريخي</strong>: <span data-i18n="defHistoricalEventDesc">هو الحدث الهام في حياة الفرد أو المجموعة، وهو عادة ما يقع مرّة واحدة ولا يتكرّر إلاّ نادرًا، ويُحتفظ به في الذّاكرة، مثل تاريخ الولادة أو الزواج أو التخرّج أو الاستقلال.</span></li>
+                        <li><strong class="key-other" data-i18n="defNonHistoricalEvent">الحدث غير التاريخي</strong>: <span data-i18n="defNonHistoricalEventDesc">هو الحدث العادي المتكرّر الذي يقع كلّ يوم أو بشكل دوري، ولا يُحتفظ به في الذاكرة لأنّه لا يحمل أهمّية خاصّة، مثل الأكل والنوم والذهاب إلى المدرسة.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: تنقسم الأحداث إلى نوعين: الحدث التاريخي وهو حدث هامّ يقع مرّة واحدة ويُحفظ في الذاكرة (مثل تاريخ الولادة والزواج والتخرّج والاستقلال)، والحدث غير التاريخي وهو حدث عادي متكرّر لا يُحفظ في الذاكرة.</div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod1_lesson1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية والأمثلة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Introduction to the Study of History",
+                lessonTitleSample: "Locating Myself in Time and Space",
+                sectionIntro: "Introduction",
+                introText: "In our daily lives we experience many and varied events. Some of these events remain in memory and are celebrated, while others pass without us noticing. In order to study history, we must learn to distinguish between two types of events: the historical event and the non-historical event.",
+                problematiqueText: "What is a historical event? What is the difference between it and a non-historical event? And what are the most important examples of each?",
+                sectionPart1: "The Historical Event",
+                historicalEventText: "It is the important event in the life of an individual or a group. It usually happens once and rarely repeats, and it is kept in memory. Its characteristic is that it represents a prominent milestone in the life of a person or a society, and it is recorded in history because it carries a special value and meaning.",
+                sectionPart2: "Examples of Historical Events",
+                example1Title: "Date of Birth",
+                example1Text: "A person's date of birth is one of the most important historical events in their life, because it marks the beginning of their existence and is celebrated every year on their birthday.",
+                example2Title: "Date of Marriage",
+                example2Text: "The date of marriage is one of the historical events of great importance in the life of spouses, as it marks the beginning of forming a new family.",
+                example3Title: "Date of Graduation",
+                example3Text: "The date of graduation is one of the distinguished historical events that reflects a person's success in completing their academic education, and it is celebrated with family and friends.",
+                example4Title: "Date of Independence",
+                example4Text: "The date of independence refers to the historical event that symbolizes the achievement of freedom and independence by a state or society from external control, and it is celebrated every year at the national level.",
+                sectionPart3: "The Non-Historical Event",
+                nonHistoricalEventText: "It is the ordinary event that repeats every day or periodically, and it is not kept in memory because it carries no special importance. Examples include: eating, sleeping, going to school, and playing with friends.",
+                nonHistoricalEventCompare: "Thus we notice that the historical event happens once and is kept in memory, whereas the non-historical event repeats daily and is not kept in memory.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Events in our lives are divided into two types: important historical events that are kept in memory and celebrated, and ordinary non-historical events that repeat daily. It is enough to know that historical events are those that are recorded in history and remain in the collective memory of individuals and peoples.",
+                sectionDefinitions: "📖 Definitions",
+                defEvents: "⚔️ Key Events",
+                defOthers: "📌 Other",
+                defBirthDate: "Date of Birth",
+                defBirthDateDesc: "A person's date of birth is one of the most important historical events in their life, because it marks the beginning of their existence and is celebrated every year on their birthday.",
+                defMarriageDate: "Date of Marriage",
+                defMarriageDateDesc: "One of the historical events of great importance in the life of spouses, as it marks the beginning of forming a new family.",
+                defGraduationDate: "Date of Graduation",
+                defGraduationDateDesc: "One of the distinguished historical events that reflects a person's success in completing their academic education, and it is celebrated with family and friends.",
+                defIndependenceDate: "Date of Independence",
+                defIndependenceDateDesc: "The historical event that symbolizes the achievement of freedom and independence by a state or society from external control, and it is celebrated every year at the national level.",
+                defHistoricalEvent: "Historical Event",
+                defHistoricalEventDesc: "The important event in the life of an individual or a group. It usually happens once and rarely repeats, and it is kept in memory, such as the date of birth, marriage, graduation, or independence.",
+                defNonHistoricalEvent: "Non-Historical Event",
+                defNonHistoricalEventDesc: "The ordinary recurring event that happens every day or periodically, and it is not kept in memory because it carries no special importance, such as eating, sleeping, and going to school.",
+                summaryText: "Key takeaway: Events are divided into two types: the historical event, which is an important event that happens once and is kept in memory (such as the date of birth, marriage, graduation, and independence), and the non-historical event, which is an ordinary recurring event that is not kept in memory.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / Introduction à l'étude de l'histoire",
+                lessonTitleSample: "Se situer dans le temps et l'espace",
+                sectionIntro: "Introduction",
+                introText: "Dans notre vie quotidienne, nous vivons de nombreux événements variés. Certains de ces événements restent en mémoire et sont célébrés, tandis que d'autres passent sans que nous nous en apercevions. Pour étudier l'histoire, nous devons apprendre à distinguer deux types d'événements : l'événement historique et l'événement non historique.",
+                problematiqueText: "Qu'est-ce qu'un événement historique ? Quelle est la différence entre lui et un événement non historique ? Et quels sont les exemples les plus importants de chacun ?",
+                sectionPart1: "L'événement historique",
+                historicalEventText: "C'est l'événement important dans la vie d'un individu ou d'un groupe. Il se produit généralement une seule fois et se répète rarement, et il est conservé en mémoire. Sa caractéristique est qu'il représente une étape marquante dans la vie d'une personne ou d'une société, et il est enregistré dans l'histoire parce qu'il porte une valeur et une signification particulières.",
+                sectionPart2: "Exemples d'événements historiques",
+                example1Title: "Date de naissance",
+                example1Text: "La date de naissance d'une personne est l'un des événements historiques les plus importants de sa vie, car elle marque le début de son existence et est célébrée chaque année à l'occasion de son anniversaire.",
+                example2Title: "Date de mariage",
+                example2Text: "La date de mariage est l'un des événements historiques d'une grande importance dans la vie des époux, car elle marque le début de la formation d'une nouvelle famille.",
+                example3Title: "Date de remise des diplômes",
+                example3Text: "La date de remise des diplômes est l'un des événements historiques distingués qui reflète la réussite d'une personne dans l'achèvement de son éducation académique, et elle est célébrée avec la famille et les amis.",
+                example4Title: "Date d'indépendance",
+                example4Text: "La date d'indépendance désigne l'événement historique qui symbolise l'obtention de la liberté et de l'indépendance par un État ou une société vis-à-vis d'un contrôle extérieur, et elle est célébrée chaque année au niveau national.",
+                sectionPart3: "L'événement non historique",
+                nonHistoricalEventText: "C'est l'événement ordinaire qui se répète chaque jour ou périodiquement, et il n'est pas conservé en mémoire car il ne porte aucune importance particulière. Parmi ses exemples : manger, dormir, aller à l'école et jouer avec des amis.",
+                nonHistoricalEventCompare: "Ainsi nous remarquons que l'événement historique se produit une fois et est conservé en mémoire, tandis que l'événement non historique se répète quotidiennement et n'est pas conservé en mémoire.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Les événements de notre vie se divisent en deux types : les événements historiques importants qui sont conservés en mémoire et célébrés, et les événements non historiques ordinaires qui se répètent quotidiennement. Il suffit de savoir que les événements historiques sont ceux qui sont enregistrés dans l'histoire et qui restent dans la mémoire collective des individus et des peuples.",
+                sectionDefinitions: "📖 Définitions",
+                defEvents: "⚔️ Événements clés",
+                defOthers: "📌 Autres",
+                defBirthDate: "Date de naissance",
+                defBirthDateDesc: "La date de naissance d'une personne est l'un des événements historiques les plus importants de sa vie, car elle marque le début de son existence et est célébrée chaque année à l'occasion de son anniversaire.",
+                defMarriageDate: "Date de mariage",
+                defMarriageDateDesc: "L'un des événements historiques d'une grande importance dans la vie des époux, car il marque le début de la formation d'une nouvelle famille.",
+                defGraduationDate: "Date de remise des diplômes",
+                defGraduationDateDesc: "L'un des événements historiques distingués qui reflète la réussite d'une personne dans l'achèvement de son éducation académique, et il est célébré avec la famille et les amis.",
+                defIndependenceDate: "Date d'indépendance",
+                defIndependenceDateDesc: "L'événement historique qui symbolise l'obtention de la liberté et de l'indépendance par un État ou une société vis-à-vis d'un contrôle extérieur, et il est célébré chaque année au niveau national.",
+                defHistoricalEvent: "Événement historique",
+                defHistoricalEventDesc: "L'événement important dans la vie d'un individu ou d'un groupe. Il se produit généralement une seule fois et se répète rarement, et il est conservé en mémoire, comme la date de naissance, de mariage, de remise des diplômes ou d'indépendance.",
+                defNonHistoricalEvent: "Événement non historique",
+                defNonHistoricalEventDesc: "L'événement ordinaire récurrent qui se produit chaque jour ou périodiquement, et il n'est pas conservé en mémoire car il ne porte aucune importance particulière, comme manger, dormir et aller à l'école.",
+                summaryText: "À retenir : Les événements se divisent en deux types : l'événement historique, qui est un événement important qui se produit une fois et est conservé en mémoire (comme la date de naissance, de mariage, de remise des diplômes et d'indépendance), et l'événement non historique, qui est un événement ordinaire récurrent qui n'est pas conservé en mémoire.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / التمهيد لدراسة التاريخ",
+                lessonTitleSample: "أتموقع في الزمان والمكان",
+                sectionIntro: "مقدمة",
+                introText: "نتعرّض في حياتنا اليومية إلى أحداث كثيرة ومتنوّعة. وبعض هذه الأحداث يبقى في الذاكرة ويُحتفل به، بينما البعض الآخر يمرّ دون أن ننتبه إليه. ولكي ندرس التاريخ، لا بدّ أن نتعلّم التمييز بين نوعين من الأحداث: الحدث التاريخي والحدث غير التاريخي.",
+                problematiqueText: "ما هو الحدث التاريخي؟ وما الفرق بينه وبين الحدث غير التاريخي؟ وما هي أهمّ الأمثلة على كلّ منهما؟",
+                sectionPart1: "الحدث التاريخي",
+                historicalEventText: "هو الحدث الهام في حياة الفرد أو المجموعة، وهو عادة ما يقع مرّة واحدة ولا يتكرّر إلاّ نادرًا، ويُحتفظ به في الذّاكرة. ومن خصائصه أنّه يُمثّل محطّة بارزة في حياة الإنسان أو المجتمع، ويُدوَّن في التاريخ لأنّه يحمل قيمة ودلالة خاصّة.",
+                sectionPart2: "أمثلة على الأحداث التاريخية",
+                example1Title: "تاريخ الولادة",
+                example1Text: "يُعدّ تاريخ ولادة الفرد من أهمّ الأحداث التاريخية في حياته، لأنّه يمثّل بداية وجوده ويُحتفل به كلّ سنة في عيد ميلاده.",
+                example2Title: "تاريخ الزواج",
+                example2Text: "يُعدّ تاريخ الزواج من الأحداث التاريخية التي تمتلك أهمية كبيرة في حياة الأزواج، إذ يمثّل بداية تكوين أسرة جديدة.",
+                example3Title: "تاريخ التخرّج",
+                example3Text: "يُعدّ تاريخ التخرّج من الأحداث التاريخية المميّزة التي تعكس نجاح الفرد في تحقيق تعليمه الأكاديمي، ويُحتفل به مع الأهل والأصدقاء.",
+                example4Title: "تاريخ الاستقلال",
+                example4Text: "يشير تاريخ الاستقلال إلى الحدث التاريخي الذي يرمز لتحقيق الدولة أو المجتمع للحرية والاستقلال عن سيطرة خارجية، ويُحتفل به كلّ سنة على المستوى الوطني.",
+                sectionPart3: "الحدث غير التاريخي",
+                nonHistoricalEventText: "هو الحدث العادي الذي يتكرّر كلّ يوم أو بشكل دوري، ولا يُحتفظ به في الذاكرة لأنّه لا يحمل أهمّية خاصّة. ومن أمثلته: الأكل، والنوم، والذهاب إلى المدرسة، واللعب مع الأصدقاء.",
+                nonHistoricalEventCompare: "وهكذا نلاحظ أنّ الحدث التاريخي يقع مرّة واحدة ويُحفظ في الذاكرة، أمّا الحدث غير التاريخي فيتكرّر يوميًّا ولا يُحفظ في الذاكرة.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "تنقسم الأحداث في حياتنا إلى نوعين: أحداث تاريخية هامّة تُحفظ في الذاكرة ويُحتفل بها، وأحداث غير تاريخية عادية تتكرّر يوميًّا. ويكفي أن نعرف أنّ الأحداث التاريخية هي التي تُدوَّن في التاريخ وتبقى في الذاكرة الجماعية للأفراد والشعوب.",
+                sectionDefinitions: "📖 تعريفات",
+                defEvents: "⚔️ أحداث هامة",
+                defOthers: "📌 أخرى",
+                defBirthDate: "تاريخ الولادة",
+                defBirthDateDesc: "يُعدّ تاريخ ولادة الفرد من أهمّ الأحداث التاريخية في حياته، لأنّه يمثّل بداية وجوده ويُحتفل به كلّ سنة في عيد ميلاده.",
+                defMarriageDate: "تاريخ الزواج",
+                defMarriageDateDesc: "من الأحداث التاريخية التي تمتلك أهمّية كبيرة في حياة الأزواج، إذ يمثّل بداية تكوين أسرة جديدة.",
+                defGraduationDate: "تاريخ التخرّج",
+                defGraduationDateDesc: "من الأحداث التاريخية المميّزة التي تعكس نجاح الفرد في تحقيق تعليمه الأكاديمي، ويُحتفل به مع الأهل والأصدقاء.",
+                defIndependenceDate: "تاريخ الاستقلال",
+                defIndependenceDateDesc: "الحدث التاريخي الذي يرمز لتحقيق الدولة أو المجتمع للحرية والاستقلال عن سيطرة خارجية، ويُحتفل به كلّ سنة على المستوى الوطني.",
+                defHistoricalEvent: "الحدث التاريخي",
+                defHistoricalEventDesc: "هو الحدث الهام في حياة الفرد أو المجموعة، وهو عادة ما يقع مرّة واحدة ولا يتكرّر إلاّ نادرًا، ويُحتفظ به في الذّاكرة، مثل تاريخ الولادة أو الزواج أو التخرّج أو الاستقلال.",
+                defNonHistoricalEvent: "الحدث غير التاريخي",
+                defNonHistoricalEventDesc: "هو الحدث العادي المتكرّر الذي يقع كلّ يوم أو بشكل دوري، ولا يُحتفظ به في الذاكرة لأنّه لا يحمل أهمّية خاصّة، مثل الأكل والنوم والذهاب إلى المدرسة.",
+                summaryText: "خلاصة: تنقسم الأحداث إلى نوعين: الحدث التاريخي وهو حدث هامّ يقع مرّة واحدة ويُحفظ في الذاكرة (مثل تاريخ الولادة والزواج والتخرّج والاستقلال)، والحدث غير التاريخي وهو حدث عادي متكرّر لا يُحفظ في الذاكرة.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Historical Event", class: "key-other", i18n: "defHistoricalEvent" },
+                { text: "Non-Historical Event", class: "key-other", i18n: "defNonHistoricalEvent" },
+                { text: "Date of Birth", class: "key-event", i18n: "defBirthDate" },
+                { text: "Date of Marriage", class: "key-event", i18n: "defMarriageDate" },
+                { text: "Date of Graduation", class: "key-event", i18n: "defGraduationDate" },
+                { text: "Date of Independence", class: "key-event", i18n: "defIndependenceDate" }
+            ],
+            fr: [
+                { text: "Événement historique", class: "key-other", i18n: "defHistoricalEvent" },
+                { text: "Événement non historique", class: "key-other", i18n: "defNonHistoricalEvent" },
+                { text: "Date de naissance", class: "key-event", i18n: "defBirthDate" },
+                { text: "Date de mariage", class: "key-event", i18n: "defMarriageDate" },
+                { text: "Date de remise des diplômes", class: "key-event", i18n: "defGraduationDate" },
+                { text: "Date d'indépendance", class: "key-event", i18n: "defIndependenceDate" }
+            ],
+            ar: [
+                { text: "الحدث التاريخي", class: "key-other", i18n: "defHistoricalEvent" },
+                { text: "الحدث غير التاريخي", class: "key-other", i18n: "defNonHistoricalEvent" },
+                { text: "تاريخ الولادة", class: "key-event", i18n: "defBirthDate" },
+                { text: "تاريخ الزواج", class: "key-event", i18n: "defMarriageDate" },
+                { text: "تاريخ التخرّج", class: "key-event", i18n: "defGraduationDate" },
+                { text: "تاريخ الاستقلال", class: "key-event", i18n: "defIndependenceDate" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

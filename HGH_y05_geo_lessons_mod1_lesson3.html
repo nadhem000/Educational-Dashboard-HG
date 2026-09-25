@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">الجغرافيا / المواقع والاتجاهات الجغرافيّة</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">القارات والمحيطات والوحدات التضارسيّة الكبرى</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">تتكوّن الكرة الأرضيّة التي نعيش عليها من قسمين كبيرين: قسم يابس تشغله القارات، وقسم مائي تشغله المحيطات والبحار. ولمعرفة موقع كلّ مكان على سطح الأرض، اعتمد العلماء على خطوط وهميّة هي خطوط الطول وخطوط العرض. كما تتوزّع على سطح الكرة الأرضيّة وحدات تضاريسيّة كبرى من جبال وسهول وهضاب.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي القارات والمحيطات؟ وكيف نحدّد الأمكنة على الكرة الأرضيّة؟ وما هي الوحدات التضاريسيّة الكبرى؟</p>
+            </div>
+
+            <!-- Part I : Continents and Oceans -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">القارات والمحيطات</span>
+                </h2>
+                <p data-i18n="continentsIntro">تنقسم الكرة الأرضيّة إلى قسمين: القسم اليابس والقسم المائي.</p>
+
+                <!-- A. Land Section -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="landSectionTitle">القسم اليابس</span>
+                </h4>
+                <p data-i18n="landSectionText">يمثّل هذا القسم <strong>¼ مساحة الكرّة الأرضيّة</strong>، ويشمل <strong>5 قارات</strong>:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="continentAfrica">القارة الإفريقيّة.</li>
+                    <li data-i18n="continentEurope">القارة الأوروبيّة.</li>
+                    <li data-i18n="continentAsia">القارة الآسيويّة.</li>
+                    <li data-i18n="continentAmerica">القارة الأمريكيّة.</li>
+                    <li data-i18n="continentAntarctica">القارة الأنتركتيكيّة.</li>
+                </ul>
+
+                <!-- B. Water Section -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="waterSectionTitle">القسم المائي</span>
+                </h4>
+                <p data-i18n="waterSectionText">وهو يمثّل <strong>¾ مساحة الكرّة الأرضيّة</strong>، ويتكوّن من المحيطات والبحار.</p>
+
+                <!-- Oceans -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="oceansTitle">المحيطات</span>
+                </h4>
+                <p data-i18n="oceansIntro">وهي خمسة محيطات:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="oceanIndian">المحيط الهندي.</li>
+                    <li data-i18n="oceanPacific">المحيط الهادي.</li>
+                    <li data-i18n="oceanAtlantic">المحيط الأطلسي.</li>
+                    <li data-i18n="oceanAntarctic">المحيط المتجمّد.</li>
+                    <li data-i18n="oceanArctic">المحيط الاركتيكي.</li>
+                </ul>
+
+                <!-- Seas -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="seasTitle">البحار</span>
+                </h4>
+                <p data-i18n="seasIntro">والتي من بينها:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="seaMediterranean">البحر الأبيض المتوسّط.</li>
+                    <li data-i18n="seaDead">البحر الميّت.</li>
+                    <li data-i18n="seaRed">البحر الأحمر.</li>
+                    <li data-i18n="seaArab">بحر العرب.</li>
+                    <li data-i18n="seaBlack">البحر الأسود.</li>
+                </ul>
+            </div>
+
+            <!-- Part II : Lines of Longitude and Latitude -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">خطوط الطول وخطوط العرض</span>
+                </h2>
+                <p data-i18n="linesIntro">لتحديد الأمكنة على الكرّة الأرضيّة، اعتمد العلماء على خطوط وهميّة تُعرف بخطوط الطول وخطوط العرض.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="longitudeTitle">خطوط الطول</span>
+                </h4>
+                <p data-i18n="longitudeText">عددها <strong>360 خطًّا</strong>، يتوسّطها <strong>خطّ غرينيتش</strong>.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="latitudeTitle">خطوط العرض</span>
+                </h4>
+                <p data-i18n="latitudeText">عددها <strong>180 خطًّا</strong>، يتوسّطها <strong>خطّ الاستواء</strong>، وهو الخطّ الذي يُقسّم الكرّة الأرضيّة إلى نصفين متساويين:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="northernHemisphere"><strong>نصف شمالي</strong>: يشمل الجزء الأكبر من اليابسة.</li>
+                    <li data-i18n="southernHemisphere"><strong>نصف جنوبي</strong>: يغطّي أغلبه الماء.</li>
+                </ul>
+
+                <p data-i18n="linesSummary">ويمكننا تلخيص ذلك في الجدول التالي:</p>
+
+                <div class="table-scroll-wrapper" style="margin-top:1rem;">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="linesTable_type">نوع الخطوط</th>
+                            <th data-i18n="linesTable_count">العدد</th>
+                            <th data-i18n="linesTable_middle">الخطّ المتوسّط</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="longitudeTitle">خطوط الطول</td>
+                            <td>360 <span data-i18n="linesTable_line">خطًّا</span></td>
+                            <td data-i18n="defGreenwich">خطّ غرينيتش</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="latitudeTitle">خطوط العرض</td>
+                            <td>180 <span data-i18n="linesTable_line">خطًّا</span></td>
+                            <td data-i18n="defEquator">خطّ الاستواء</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Part III : Major Landforms -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span> <span data-i18n="sectionPart3">الوحدات التضاريسيّة الكبرى</span>
+                </h2>
+                <p data-i18n="landformsIntro">تغلب على المشهد التضاريسي ثلاث وحدات تضاريسيّة هامّة، وهي: السلاسل الجبليّة، والسهول، والهضاب.</p>
+
+                <!-- A. Mountain Ranges -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="mountainsTitle">السلاسل الجبليّة</span>
+                </h4>
+                <p data-i18n="mountainsIntro">مثل:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="mountainsAtlas">جبال الأطلس وطوبقال بالمغرب.</li>
+                    <li data-i18n="mountainsRocky">جبال الروكي وجبال الآلند بالقارة الأمريكيّة.</li>
+                    <li data-i18n="mountainsAlps">جبال الألب بأوروبّا.</li>
+                </ul>
+
+                <!-- B. Plains -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="plainsTitle">السهول</span>
+                </h4>
+                <p data-i18n="plainsIntro">من أهمّها:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="plainsAmazon">سهول الأمازون وسهول أمريكا بالقارة الأمريكيّة.</li>
+                    <li data-i18n="plainsEurope">سهول أوروبّا بالقارة الأوروبيّة.</li>
+                    <li data-i18n="plainsSiberia">سهول سيبيريا بالقارة الآسيويّة.</li>
+                </ul>
+
+                <!-- C. Plateaus -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="plateausTitle">الهضاب</span>
+                </h4>
+                <p data-i18n="plateausIntro">من أهمّها:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="plateausChina">هضاب الصين بالقارة الآسيويّة.</li>
+                    <li data-i18n="plateausLmond">هضاب لموند بالقارة الإفريقيّة.</li>
+                    <li data-i18n="plateausBrazil">هضاب البرازيل بالقارة الأمريكيّة.</li>
+                </ul>
+
+                <p data-i18n="landformsSummary">ويمكننا تلخيص الوحدات التضاريسيّة الكبرى في الجدول التالي:</p>
+
+                <div class="table-scroll-wrapper" style="margin-top:1rem;">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="landformsTable_unit">الوحدة التضاريسيّة</th>
+                            <th data-i18n="landformsTable_examples">أمثلة</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="mountainsTitle">السلاسل الجبليّة</td>
+                            <td data-i18n="landformsTable_mountainsExamples">جبال الأطلس وطوبقال، جبال الروكي والآلند، جبال الألب</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="plainsTitle">السهول</td>
+                            <td data-i18n="landformsTable_plainsExamples">سهول الأمازون وأمريكا، سهول أوروبّا، سهول سيبيريا</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="plateausTitle">الهضاب</td>
+                            <td data-i18n="landformsTable_plateausExamples">هضاب الصين، هضاب لموند، هضاب البرازيل</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Part IV : Practical Example -->
+            <div class="lesson-part" id="part4" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">IV</span> <span data-i18n="sectionPart4">مثال تطبيقي: كيف أصف رحلة حول العالم؟</span>
+                </h2>
+                <p data-i18n="exampleIntro">لنأخذ مثالاً يوضّح لنا كيف نستعمل ما تعلّمناه عن القارات والمحيطات والوحدات التضاريسيّة. تخيّل أنّ التلميذ <strong>يوسف</strong> يريد أن يصف رحلة حول العالم بالطائرة.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="exampleStep1Title">الخطوة الأولى: الانطلاق من إفريقيا</span>
+                </h4>
+                <p data-i18n="exampleStep1Text">انطلق يوسف من <strong>القارة الإفريقيّة</strong>، حيث تقع بلادنا تونس، ومرّ فوق جبال الأطلس.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="exampleStep2Title">الخطوة الثانية: عبور البحر الأبيض المتوسّط نحو أوروبّا</span>
+                </h4>
+                <p data-i18n="exampleStep2Text">ثمّ عبر <strong>البحر الأبيض المتوسّط</strong> شمالًا، فحلّ في <strong>القارة الأوروبيّة</strong>، ومرّ فوق <strong>جبال الألب</strong> و<strong>سهول أوروبّا</strong>.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="exampleStep3Title">الخطوة الثالثة: نحو القارة الآسيويّة</span>
+                </h4>
+                <p data-i18n="exampleStep3Text">ثمّ واصل الرحلة شرقًا نحو <strong>القارة الآسيويّة</strong>، حيث شاهد <strong>سهول سيبيريا</strong> و<strong>هضاب الصين</strong>.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">4</span>.
+                    <span data-i18n="exampleStep4Title">الخطوة الرابعة: عبور المحيط الهادي نحو الأمريكيّتين</span>
+                </h4>
+                <p data-i18n="exampleStep4Text">ثمّ عبر <strong>المحيط الهادي</strong> شرقًا، فحلّ في <strong>القارة الأمريكيّة</strong>، حيث شاهد <strong>جبال الروكي</strong> و<strong>سهول الأمازون</strong> و<strong>هضاب البرازيل</strong>.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">5</span>.
+                    <span data-i18n="exampleStep5Title">الخطوة الخامسة: العودة عبر المحيط الأطلسي</span>
+                </h4>
+                <p data-i18n="exampleStep5Text">وفي الأخير، عبر <strong>المحيط الأطلسي</strong> شرقًا عائدًا إلى إفريقيا، فأنهى يوسف رحلته حول العالم في خمس محطّات، متنقّلاً بين خمس قارات وخمسة محيطات، ومشاهدًا مختلف الوحدات التضاريسيّة.</p>
+
+                <p data-i18n="exampleConclusion">ويمكننا تلخيص مسار يوسف في الجدول التالي:</p>
+
+                <div class="table-scroll-wrapper" style="margin-top:1rem;">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="routeTable_stage">المحطة</th>
+                            <th data-i18n="routeTable_continent">القارة</th>
+                            <th data-i18n="routeTable_landform">وحدة تضاريسيّة</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td data-i18n="continentAfrica">القارة الإفريقيّة</td>
+                            <td data-i18n="mountainsAtlas">جبال الأطلس وطوبقال</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td data-i18n="continentEurope">القارة الأوروبيّة</td>
+                            <td data-i18n="routeTable_europeLandform">جبال الألب وسهول أوروبّا</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td data-i18n="continentAsia">القارة الآسيويّة</td>
+                            <td data-i18n="routeTable_asiaLandform">سهول سيبيريا وهضاب الصين</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td data-i18n="continentAmerica">القارة الأمريكيّة</td>
+                            <td data-i18n="routeTable_americaLandform">جبال الروكي وسهول الأمازون وهضاب البرازيل</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td data-i18n="continentAfrica">القارة الإفريقيّة</td>
+                            <td data-i18n="routeTable_returnLandform">العودة عبر المحيط الأطلسي</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">تنقسم الكرة الأرضيّة إلى قسم يابس يشمل خمس قارات (إفريقيا، وأوروبّا، وآسيا، وأمريكا، والأنتركتيك)، وقسم مائي يشمل المحيطات والبحار. ولمعرفة الأمكنة على سطحها، اعتمد العلماء على خطوط الطول (360 خطًّا يتوسّطها غرينيتش) وخطوط العرض (180 خطًّا يتوسّطها خطّ الاستواء). كما تتوزّع على سطح الأرض ثلاث وحدات تضاريسيّة كبرى: السلاسل الجبليّة، والسهول، والهضاب.</p>
+            </div>
+
+                        <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defContinentAfrica">القارة الإفريقيّة</strong>: <span data-i18n="defContinentAfricaDesc">إحدى قارات العالم الخمس، وتقع البلاد التونسيّة في شمالها.</span></li>
+                        <li><strong class="key-location" data-i18n="defContinentEurope">القارة الأوروبيّة</strong>: <span data-i18n="defContinentEuropeDesc">إحدى قارات العالم الخمس، تقع شمال البحر الأبيض المتوسّط، وتشتهر بجبال الألب وسهولها الواسعة.</span></li>
+                        <li><strong class="key-location" data-i18n="defContinentAsia">القارة الآسيويّة</strong>: <span data-i18n="defContinentAsiaDesc">إحدى قارات العالم الخمس، وهي أكبر القارات مساحةً وأكثرها سكّانًا، وتشتهر بسهول سيبيريا وهضاب الصين.</span></li>
+                        <li><strong class="key-location" data-i18n="defContinentAmerica">القارة الأمريكيّة</strong>: <span data-i18n="defContinentAmericaDesc">إحدى قارات العالم الخمس، وتشتهر بجبال الروكي وجبال الآلند وسهول الأمازون وهضاب البرازيل.</span></li>
+                        <li><strong class="key-location" data-i18n="defContinentAntarctica">القارة الأنتركتيكيّة</strong>: <span data-i18n="defContinentAntarcticaDesc">إحدى قارات العالم الخمس، تقع في أقصى الجنوب، وتغطّيها الثلوج معظم فصول السنة.</span></li>
+                        <li><strong class="key-location" data-i18n="defOceanIndian">المحيط الهندي</strong>: <span data-i18n="defOceanIndianDesc">أحد محيطات العالم الخمسة، يقع بين إفريقيا وآسيا وأستراليا.</span></li>
+                        <li><strong class="key-location" data-i18n="defOceanPacific">المحيط الهادي</strong>: <span data-i18n="defOceanPacificDesc">أكبر محيطات العالم، يفصل بين آسيا وأستراليا شرقًا والأمريكيّتين غربًا.</span></li>
+                        <li><strong class="key-location" data-i18n="defOceanAtlantic">المحيط الأطلسي</strong>: <span data-i18n="defOceanAtlanticDesc">أحد محيطات العالم الخمسة، يفصل بين إفريقيا وأوروبّا شرقًا والأمريكيّتين غربًا.</span></li>
+                        <li><strong class="key-location" data-i18n="defOceanAntarctic">المحيط المتجمّد</strong>: <span data-i18n="defOceanAntarcticDesc">أحد محيطات العالم، يقع قرب القطب الجنوبي وتغطّيه الثلوج.</span></li>
+                        <li><strong class="key-location" data-i18n="defOceanArctic">المحيط الاركتيكي</strong>: <span data-i18n="defOceanArcticDesc">أحد محيطات العالم، يقع في أقصى الشمال قرب القطب الشمالي.</span></li>
+                        <li><strong class="key-location" data-i18n="defSeaMediterranean">البحر الأبيض المتوسّط</strong>: <span data-i18n="defSeaMediterraneanDesc">بحر يفصل بين القارّة الإفريقيّة جنوبًا والقارّة الأوروبيّة شمالًا، ويطلّ عليه عديد البلدان.</span></li>
+                        <li><strong class="key-location" data-i18n="defMountains">السلاسل الجبليّة</strong>: <span data-i18n="defMountainsDesc">إحدى الوحدات التضاريسيّة الكبرى، ومنها: جبال الأطلس وطوبقال بالمغرب، وجبال الروكي والآلند بالقارة الأمريكيّة، وجبال الألب بأوروبّا.</span></li>
+                        <li><strong class="key-location" data-i18n="defPlains">السهول</strong>: <span data-i18n="defPlainsDesc">إحدى الوحدات التضاريسيّة الكبرى، ومن أهمّها: سهول الأمازون وأمريكا بالقارة الأمريكيّة، وسهول أوروبّا، وسهول سيبيريا بالقارة الآسيويّة.</span></li>
+                        <li><strong class="key-location" data-i18n="defPlateaus">الهضاب</strong>: <span data-i18n="defPlateausDesc">إحدى الوحدات التضاريسيّة الكبرى، ومن أهمّها: هضاب الصين بالقارة الآسيويّة، وهضاب لموند بالقارة الإفريقيّة، وهضاب البرازيل بالقارة الأمريكيّة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defGreenwich">خطّ غرينيتش</strong>: <span data-i18n="defGreenwichDesc">الخطّ الذي يتوسّط خطوط الطول وعددها 360 خطًّا.</span></li>
+                        <li><strong class="key-other" data-i18n="defEquator">خطّ الاستواء</strong>: <span data-i18n="defEquatorDesc">الخطّ الذي يتوسّط خطوط العرض وعددها 180 خطًّا، ويُقسّم الكرّة الأرضيّة إلى نصف شمالي يشمل الجزء الأكبر من اليابسة ونصف جنوبي يغطّي أغلبه الماء.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: تنقسم الكرة الأرضيّة إلى قسم يابس يمثّل ¼ مساحتها ويشمل 5 قارات (إفريقيا، أوروبّا، آسيا، أمريكا، الأنتركتيك)، وقسم مائي يمثّل ¾ مساحتها ويشمل المحيطات والبحار. ولمعرفة الأمكنة على سطحها، اعتمد العلماء على خطوط الطول (360 خطًّا يتوسّطها غرينيتش) وخطوط العرض (180 خطًّا يتوسّطها خطّ الاستواء). وتغلب على المشهد التضاريسي ثلاث وحدات كبرى: السلاسل الجبليّة، والسهول، والهضاب.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط وصور توضيحيّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/geography/unit1/lesson3/world_continents_oceans_map.jpg" alt="خريطة القارات والمحيطات" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">خريطة القارات والمحيطات</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/geography/unit1/lesson3/longitude_latitude_lines.jpg" alt="خطوط الطول وخطوط العرض" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">خطوط الطول وخطوط العرض</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/geography/unit1/lesson3/greenwich_equator.jpg" alt="خطّ غرينيتش وخطّ الاستواء" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">خطّ غرينيتش وخطّ الاستواء</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/geography/unit1/lesson3/world_landforms_map.jpg" alt="خريطة الوحدات التضاريسيّة الكبرى" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">خريطة الوحدات التضاريسيّة الكبرى</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_geo_exercisess_mod1_lesson3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">القارات، المحيطات، الخطوط الوهميّة، الوحدات التضاريسيّة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الخرائط والصور التوضيحيّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "Geography / Geographical Locations and Directions",
+                lessonTitleSample: "Continents, Oceans and Major Landforms",
+                sectionIntro: "Introduction",
+                introText: "The Earth we live on is made up of two great parts: a land part occupied by continents, and a water part occupied by oceans and seas. To know the location of any place on the Earth's surface, scientists relied on imaginary lines: lines of longitude and lines of latitude. Major landform units — mountains, plains, and plateaus — are also distributed across the Earth's surface.",
+                problematiqueText: "What are the continents and oceans? How do we locate places on the Earth? And what are the major landform units?",
+                sectionPart1: "Continents and Oceans",
+                continentsIntro: "The Earth is divided into two parts: the land part and the water part.",
+                landSectionTitle: "The Land Part",
+                landSectionText: "This part represents <strong>¼ of the Earth's surface</strong>, and includes <strong>5 continents</strong>:",
+                continentAfrica: "The African continent.",
+                continentEurope: "The European continent.",
+                continentAsia: "The Asian continent.",
+                continentAmerica: "The American continent.",
+                continentAntarctica: "The Antarctic continent.",
+                waterSectionTitle: "The Water Part",
+                waterSectionText: "It represents <strong>¾ of the Earth's surface</strong>, and consists of oceans and seas.",
+                oceansTitle: "The Oceans",
+                oceansIntro: "There are five oceans:",
+                oceanIndian: "The Indian Ocean.",
+                oceanPacific: "The Pacific Ocean.",
+                oceanAtlantic: "The Atlantic Ocean.",
+                oceanAntarctic: "The Antarctic Ocean.",
+                oceanArctic: "The Arctic Ocean.",
+                seasTitle: "The Seas",
+                seasIntro: "Among which are:",
+                seaMediterranean: "The Mediterranean Sea.",
+                seaDead: "The Dead Sea.",
+                seaRed: "The Red Sea.",
+                seaArab: "The Arabian Sea.",
+                seaBlack: "The Black Sea.",
+                sectionPart2: "Lines of Longitude and Latitude",
+                linesIntro: "To locate places on the Earth, scientists relied on imaginary lines known as lines of longitude and lines of latitude.",
+                longitudeTitle: "Lines of Longitude",
+                longitudeText: "There are <strong>360 lines</strong>, with the <strong>Greenwich line</strong> in the middle.",
+                latitudeTitle: "Lines of Latitude",
+                latitudeText: "There are <strong>180 lines</strong>, with the <strong>Equator</strong> in the middle, which divides the Earth into two equal halves:",
+                northernHemisphere: "<strong>The Northern Hemisphere</strong>: contains the larger part of the land.",
+                southernHemisphere: "<strong>The Southern Hemisphere</strong>: mostly covered by water.",
+                linesSummary: "We can summarise this in the following table:",
+                linesTable_type: "Type of lines",
+                linesTable_count: "Number",
+                linesTable_middle: "Middle line",
+                linesTable_line: "lines",
+                sectionPart3: "Major Landform Units",
+                landformsIntro: "Three major landform units dominate the landscape: mountain ranges, plains, and plateaus.",
+                mountainsTitle: "Mountain Ranges",
+                mountainsIntro: "Such as:",
+                mountainsAtlas: "The Atlas and Toubkal mountains in Morocco.",
+                mountainsRocky: "The Rocky Mountains and the Andes in the American continent.",
+                mountainsAlps: "The Alps in Europe.",
+                plainsTitle: "Plains",
+                plainsIntro: "Among the most important are:",
+                plainsAmazon: "The Amazon plains and the American plains in the American continent.",
+                plainsEurope: "The plains of Europe in the European continent.",
+                plainsSiberia: "The plains of Siberia in the Asian continent.",
+                plateausTitle: "Plateaus",
+                plateausIntro: "Among the most important are:",
+                plateausChina: "The plateaus of China in the Asian continent.",
+                plateausLmond: "The plateaus of Lmond in the African continent.",
+                plateausBrazil: "The plateaus of Brazil in the American continent.",
+                landformsSummary: "We can summarise the major landform units in the following table:",
+                landformsTable_unit: "Landform unit",
+                landformsTable_examples: "Examples",
+                landformsTable_mountainsExamples: "Atlas and Toubkal, Rocky Mountains and Andes, Alps",
+                landformsTable_plainsExamples: "Amazon and American plains, European plains, Siberian plains",
+                landformsTable_plateausExamples: "Chinese plateaus, Lmond plateaus, Brazilian plateaus",
+                sectionPart4: "Practical Example: How Do I Describe a Trip around the World?",
+                exampleIntro: "Let us take an example that shows us how we use what we have learned about continents, oceans, and landform units. Imagine that the student <strong>Youssef</strong> wants to describe a trip around the world by plane.",
+                exampleStep1Title: "Step 1: Departure from Africa",
+                exampleStep1Text: "Youssef departed from the <strong>African continent</strong>, where our country Tunisia is located, and passed over the Atlas Mountains.",
+                exampleStep2Title: "Step 2: Crossing the Mediterranean towards Europe",
+                exampleStep2Text: "He then crossed the <strong>Mediterranean Sea</strong> northward, arriving in the <strong>European continent</strong>, passing over the <strong>Alps</strong> and the <strong>plains of Europe</strong>.",
+                exampleStep3Title: "Step 3: Towards the Asian Continent",
+                exampleStep3Text: "He then continued eastward towards the <strong>Asian continent</strong>, where he saw the <strong>plains of Siberia</strong> and the <strong>plateaus of China</strong>.",
+                exampleStep4Title: "Step 4: Crossing the Pacific towards the Americas",
+                exampleStep4Text: "He then crossed the <strong>Pacific Ocean</strong> eastward, arriving in the <strong>American continent</strong>, where he saw the <strong>Rocky Mountains</strong>, the <strong>Amazon plains</strong>, and the <strong>plateaus of Brazil</strong>.",
+                exampleStep5Title: "Step 5: Return across the Atlantic",
+                exampleStep5Text: "Finally, he crossed the <strong>Atlantic Ocean</strong> eastward back to Africa. Thus Youssef completed his trip around the world in five stops, moving between five continents and five oceans, and observing different landform units.",
+                exampleConclusion: "We can summarise Youssef's route in the following table:",
+                routeTable_stage: "Stop",
+                routeTable_continent: "Continent",
+                routeTable_landform: "Landform unit",
+                routeTable_europeLandform: "The Alps and the plains of Europe",
+                routeTable_asiaLandform: "Plains of Siberia and plateaus of China",
+                routeTable_americaLandform: "Rocky Mountains, Amazon plains and Brazilian plateaus",
+                routeTable_returnLandform: "Return across the Atlantic Ocean",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Earth is divided into a land part including five continents (Africa, Europe, Asia, America, and Antarctica), and a water part including oceans and seas. To know places on its surface, scientists relied on lines of longitude (360 lines with Greenwich in the middle) and lines of latitude (180 lines with the Equator in the middle). Three major landform units are distributed across the Earth's surface: mountain ranges, plains, and plateaus.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Illustrative Images",
+                defLocations: "🌍 Places and Regions",
+                ddefOthers: "📌 Other",
+                defContinentAfrica: "The African Continent",
+                defContinentAfricaDesc: "One of the world's five continents; Tunisia is located in its north.",
+                defContinentEurope: "The European Continent",
+                defContinentEuropeDesc: "One of the world's five continents, located north of the Mediterranean Sea, known for the Alps and its vast plains.",
+                defContinentAsia: "The Asian Continent",
+                defContinentAsiaDesc: "One of the world's five continents; the largest in area and the most populated, known for the plains of Siberia and the plateaus of China.",
+                defContinentAmerica: "The American Continent",
+                defContinentAmericaDesc: "One of the world's five continents, known for the Rocky Mountains, the Andes, the Amazon plains, and the Brazilian plateaus.",
+                defContinentAntarctica: "The Antarctic Continent",
+                defContinentAntarcticaDesc: "One of the world's five continents, located in the far south, covered with snow most of the year.",
+                defOceanIndian: "The Indian Ocean",
+                defOceanIndianDesc: "One of the world's five oceans, located between Africa, Asia, and Australia.",
+                defOceanPacific: "The Pacific Ocean",
+                defOceanPacificDesc: "The largest ocean in the world, separating Asia and Australia to the east from the Americas to the west.",
+                defOceanAtlantic: "The Atlantic Ocean",
+                defOceanAtlanticDesc: "One of the world's five oceans, separating Africa and Europe to the east from the Americas to the west.",
+                defOceanAntarctic: "The Antarctic Ocean",
+                defOceanAntarcticDesc: "One of the world's oceans, located near the South Pole and covered with snow.",
+                defOceanArctic: "The Arctic Ocean",
+                defOceanArcticDesc: "One of the world's oceans, located in the far north near the North Pole.",
+                defSeaMediterranean: "The Mediterranean Sea",
+                defSeaMediterraneanDesc: "A sea separating the African continent to the south and the European continent to the north, bordered by many countries.",
+                defGreenwich: "The Greenwich Line",
+                defGreenwichDesc: "The line in the middle of the lines of longitude, which number 360 lines.",
+                defEquator: "The Equator",
+                defEquatorDesc: "The line in the middle of the lines of latitude, which number 180 lines, dividing the Earth into a northern hemisphere containing most of the land and a southern hemisphere mostly covered by water.",
+                defMountains: "Mountain Ranges",
+                defMountainsDesc: "One of the major landform units, including: the Atlas and Toubkal mountains in Morocco, the Rocky Mountains and the Andes in the American continent, and the Alps in Europe.",
+                defPlains: "Plains",
+                defPlainsDesc: "One of the major landform units, the most important of which are: the Amazon plains and American plains in the American continent, the plains of Europe, and the plains of Siberia in the Asian continent.",
+                defPlateaus: "Plateaus",
+                defPlateausDesc: "One of the major landform units, the most important of which are: the plateaus of China in the Asian continent, the plateaus of Lmond in the African continent, and the plateaus of Brazil in the American continent.",
+                summaryText: "Key takeaway: The Earth is divided into a land part representing ¼ of its surface and including 5 continents (Africa, Europe, Asia, America, Antarctica), and a water part representing ¾ of its surface and including oceans and seas. To know places on its surface, scientists relied on lines of longitude (360 lines with Greenwich in the middle) and lines of latitude (180 lines with the Equator in the middle). Three major landform units dominate the landscape: mountain ranges, plains, and plateaus.",
+                galleryAlt1: "Map of continents and oceans",
+                galleryAlt2: "Lines of longitude and latitude",
+                galleryAlt3: "Greenwich line and Equator",
+                galleryAlt4: "Map of major landform units",
+                galleryCap1: "Map of continents and oceans",
+                galleryCap2: "Lines of longitude and latitude",
+                galleryCap3: "Greenwich line and Equator",
+                galleryCap4: "Map of major landform units",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Géographie / Positions et directions géographiques",
+                lessonTitleSample: "Continents, océans et grandes unités de relief",
+                sectionIntro: "Introduction",
+                introText: "La Terre sur laquelle nous vivons se compose de deux grandes parties : une partie terrestre occupée par les continents, et une partie aquatique occupée par les océans et les mers. Pour connaître la situation de n'importe quel lieu à la surface de la Terre, les savants se sont appuyés sur des lignes imaginaires : les lignes de longitude et les lignes de latitude. De grandes unités de relief — montagnes, plaines et plateaux — sont également réparties à la surface du globe.",
+                problematiqueText: "Quels sont les continents et les océans ? Comment situons-nous les lieux sur la Terre ? Et quelles sont les grandes unités de relief ?",
+                sectionPart1: "Continents et océans",
+                continentsIntro: "La Terre se divise en deux parties : la partie terrestre et la partie aquatique.",
+                landSectionTitle: "La partie terrestre",
+                landSectionText: "Cette partie représente <strong>¼ de la surface de la Terre</strong> et comprend <strong>5 continents</strong> :",
+                continentAfrica: "Le continent africain.",
+                continentEurope: "Le continent européen.",
+                continentAsia: "Le continent asiatique.",
+                continentAmerica: "Le continent américain.",
+                continentAntarctica: "Le continent antarctique.",
+                waterSectionTitle: "La partie aquatique",
+                waterSectionText: "Elle représente <strong>¾ de la surface de la Terre</strong> et se compose des océans et des mers.",
+                oceansTitle: "Les océans",
+                oceansIntro: "Il y a cinq océans :",
+                oceanIndian: "L'océan Indien.",
+                oceanPacific: "L'océan Pacifique.",
+                oceanAtlantic: "L'océan Atlantique.",
+                oceanAntarctic: "L'océan Antarctique.",
+                oceanArctic: "L'océan Arctique.",
+                seasTitle: "Les mers",
+                seasIntro: "Parmi lesquelles :",
+                seaMediterranean: "La mer Méditerranée.",
+                seaDead: "La mer Morte.",
+                seaRed: "La mer Rouge.",
+                seaArab: "La mer d'Arabie.",
+                seaBlack: "La mer Noire.",
+                sectionPart2: "Lignes de longitude et de latitude",
+                linesIntro: "Pour situer les lieux sur la Terre, les savants se sont appuyés sur des lignes imaginaires appelées lignes de longitude et lignes de latitude.",
+                longitudeTitle: "Les lignes de longitude",
+                longitudeText: "Elles sont au nombre de <strong>360 lignes</strong>, avec la <strong>ligne de Greenwich</strong> au milieu.",
+                latitudeTitle: "Les lignes de latitude",
+                latitudeText: "Elles sont au nombre de <strong>180 lignes</strong>, avec l'<strong>équateur</strong> au milieu, qui divise la Terre en deux moitiés égales :",
+                northernHemisphere: "<strong>L'hémisphère Nord</strong> : contient la plus grande partie des terres.",
+                southernHemisphere: "<strong>L'hémisphère Sud</strong> : majoritairement couvert d'eau.",
+                linesSummary: "Nous pouvons résumer cela dans le tableau suivant :",
+                linesTable_type: "Type de lignes",
+                linesTable_count: "Nombre",
+                linesTable_middle: "Ligne du milieu",
+                linesTable_line: "lignes",
+                sectionPart3: "Les grandes unités de relief",
+                landformsIntro: "Trois grandes unités de relief dominent le paysage : les chaînes de montagnes, les plaines et les plateaux.",
+                mountainsTitle: "Les chaînes de montagnes",
+                mountainsIntro: "Telles que :",
+                mountainsAtlas: "Les montagnes de l'Atlas et du Toubkal au Maroc.",
+                mountainsRocky: "Les montagnes Rocheuses et les Andes sur le continent américain.",
+                mountainsAlps: "Les Alpes en Europe.",
+                plainsTitle: "Les plaines",
+                plainsIntro: "Parmi les plus importantes :",
+                plainsAmazon: "Les plaines de l'Amazone et les plaines américaines sur le continent américain.",
+                plainsEurope: "Les plaines d'Europe sur le continent européen.",
+                plainsSiberia: "Les plaines de Sibérie sur le continent asiatique.",
+                plateausTitle: "Les plateaux",
+                plateausIntro: "Parmi les plus importants :",
+                plateausChina: "Les plateaux de Chine sur le continent asiatique.",
+                plateausLmond: "Les plateaux de Lmond sur le continent africain.",
+                plateausBrazil: "Les plateaux du Brésil sur le continent américain.",
+                landformsSummary: "Nous pouvons résumer les grandes unités de relief dans le tableau suivant :",
+                landformsTable_unit: "Unité de relief",
+                landformsTable_examples: "Exemples",
+                landformsTable_mountainsExamples: "Atlas et Toubkal, Rocheuses et Andes, Alpes",
+                landformsTable_plainsExamples: "Plaines de l'Amazone et américaines, plaines d'Europe, plaines de Sibérie",
+                landformsTable_plateausExamples: "Plateaux de Chine, plateaux de Lmond, plateaux du Brésil",
+                sectionPart4: "Exemple pratique : Comment décrire un tour du monde ?",
+                exampleIntro: "Prenons un exemple qui nous montre comment nous utilisons ce que nous avons appris sur les continents, les océans et les unités de relief. Imaginez que l'élève <strong>Youssef</strong> veuille décrire un tour du monde en avion.",
+                exampleStep1Title: "Étape 1 : Départ d'Afrique",
+                exampleStep1Text: "Youssef est parti du <strong>continent africain</strong>, où se trouve notre pays la Tunisie, et a survolé les montagnes de l'Atlas.",
+                exampleStep2Title: "Étape 2 : Traversée de la Méditerranée vers l'Europe",
+                exampleStep2Text: "Il a ensuite traversé la <strong>mer Méditerranée</strong> vers le nord, arrivant sur le <strong>continent européen</strong>, en survolant les <strong>Alpes</strong> et les <strong>plaines d'Europe</strong>.",
+                exampleStep3Title: "Étape 3 : Vers le continent asiatique",
+                exampleStep3Text: "Il a ensuite continué vers l'est vers le <strong>continent asiatique</strong>, où il a vu les <strong>plaines de Sibérie</strong> et les <strong>plateaux de Chine</strong>.",
+                exampleStep4Title: "Étape 4 : Traversée du Pacifique vers les Amériques",
+                exampleStep4Text: "Il a ensuite traversé l'<strong>océan Pacifique</strong> vers l'est, arrivant sur le <strong>continent américain</strong>, où il a vu les <strong>montagnes Rocheuses</strong>, les <strong>plaines de l'Amazone</strong> et les <strong>plateaux du Brésil</strong>.",
+                exampleStep5Title: "Étape 5 : Retour à travers l'Atlantique",
+                exampleStep5Text: "Enfin, il a traversé l'<strong>océan Atlantique</strong> vers l'est pour revenir en Afrique. Ainsi Youssef a achevé son tour du monde en cinq étapes, se déplaçant entre cinq continents et cinq océans, et observant différentes unités de relief.",
+                exampleConclusion: "Nous pouvons résumer le parcours de Youssef dans le tableau suivant :",
+                routeTable_stage: "Étape",
+                routeTable_continent: "Continent",
+                routeTable_landform: "Unité de relief",
+                routeTable_europeLandform: "Les Alpes et les plaines d'Europe",
+                routeTable_asiaLandform: "Plaines de Sibérie et plateaux de Chine",
+                routeTable_americaLandform: "Montagnes Rocheuses, plaines de l'Amazone et plateaux du Brésil",
+                routeTable_returnLandform: "Retour à travers l'océan Atlantique",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La Terre se divise en une partie terrestre comprenant cinq continents (Afrique, Europe, Asie, Amérique et Antarctique), et une partie aquatique comprenant les océans et les mers. Pour connaître les lieux à sa surface, les savants se sont appuyés sur les lignes de longitude (360 lignes avec Greenwich au milieu) et les lignes de latitude (180 lignes avec l'équateur au milieu). Trois grandes unités de relief sont réparties à la surface du globe : les chaînes de montagnes, les plaines et les plateaux.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et images illustratives",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Autres",
+                defContinentAfrica: "Le continent africain",
+                defContinentAfricaDesc: "L'un des cinq continents du monde ; la Tunisie se situe au nord de celui-ci.",
+                defContinentEurope: "Le continent européen",
+                defContinentEuropeDesc: "L'un des cinq continents du monde, situé au nord de la mer Méditerranée, connu pour les Alpes et ses vastes plaines.",
+                defContinentAsia: "Le continent asiatique",
+                defContinentAsiaDesc: "L'un des cinq continents du monde ; le plus vaste et le plus peuplé, connu pour les plaines de Sibérie et les plateaux de Chine.",
+                defContinentAmerica: "Le continent américain",
+                defContinentAmericaDesc: "L'un des cinq continents du monde, connu pour les montagnes Rocheuses, les Andes, les plaines de l'Amazone et les plateaux du Brésil.",
+                defContinentAntarctica: "Le continent antarctique",
+                defContinentAntarcticaDesc: "L'un des cinq continents du monde, situé à l'extrême sud, couvert de neige la majeure partie de l'année.",
+                defOceanIndian: "L'océan Indien",
+                defOceanIndianDesc: "L'un des cinq océans du monde, situé entre l'Afrique, l'Asie et l'Australie.",
+                defOceanPacific: "L'océan Pacifique",
+                defOceanPacificDesc: "Le plus grand océan du monde, séparant l'Asie et l'Australie à l'est des Amériques à l'ouest.",
+                defOceanAtlantic: "L'océan Atlantique",
+                defOceanAtlanticDesc: "L'un des cinq océans du monde, séparant l'Afrique et l'Europe à l'est des Amériques à l'ouest.",
+                defOceanAntarctic: "L'océan Antarctique",
+                defOceanAntarcticDesc: "L'un des océans du monde, situé près du pôle Sud et couvert de neige.",
+                defOceanArctic: "L'océan Arctique",
+                defOceanArcticDesc: "L'un des océans du monde, situé à l'extrême nord près du pôle Nord.",
+                defSeaMediterranean: "La mer Méditerranée",
+                defSeaMediterraneanDesc: "Une mer séparant le continent africain au sud et le continent européen au nord, bordée par de nombreux pays.",
+                defGreenwich: "La ligne de Greenwich",
+                defGreenwichDesc: "La ligne au milieu des lignes de longitude, qui sont au nombre de 360.",
+                defEquator: "L'équateur",
+                defEquatorDesc: "La ligne au milieu des lignes de latitude, qui sont au nombre de 180, divisant la Terre en un hémisphère Nord contenant la majeure partie des terres et un hémisphère Sud majoritairement couvert d'eau.",
+                defMountains: "Les chaînes de montagnes",
+                defMountainsDesc: "L'une des grandes unités de relief, comprenant : les montagnes de l'Atlas et du Toubkal au Maroc, les montagnes Rocheuses et les Andes sur le continent américain, et les Alpes en Europe.",
+                defPlains: "Les plaines",
+                defPlainsDesc: "L'une des grandes unités de relief, dont les plus importantes sont : les plaines de l'Amazone et les plaines américaines sur le continent américain, les plaines d'Europe et les plaines de Sibérie sur le continent asiatique.",
+                defPlateaus: "Les plateaux",
+                defPlateausDesc: "L'une des grandes unités de relief, dont les plus importants sont : les plateaux de Chine sur le continent asiatique, les plateaux de Lmond sur le continent africain, et les plateaux du Brésil sur le continent américain.",
+                summaryText: "À retenir : La Terre se divise en une partie terrestre représentant ¼ de sa surface et comprenant 5 continents (Afrique, Europe, Asie, Amérique, Antarctique), et une partie aquatique représentant ¾ de sa surface et comprenant les océans et les mers. Pour connaître les lieux à sa surface, les savants se sont appuyés sur les lignes de longitude (360 lignes avec Greenwich au milieu) et les lignes de latitude (180 lignes avec l'équateur au milieu). Trois grandes unités de relief dominent le paysage : les chaînes de montagnes, les plaines et les plateaux.",
+                galleryAlt1: "Carte des continents et des océans",
+                galleryAlt2: "Lignes de longitude et de latitude",
+                galleryAlt3: "Ligne de Greenwich et équateur",
+                galleryAlt4: "Carte des grandes unités de relief",
+                galleryCap1: "Carte des continents et des océans",
+                galleryCap2: "Lignes de longitude et de latitude",
+                galleryCap3: "Ligne de Greenwich et équateur",
+                galleryCap4: "Carte des grandes unités de relief",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "الجغرافيا / المواقع والاتجاهات الجغرافيّة",
+                lessonTitleSample: "القارات والمحيطات والوحدات التضارسيّة الكبرى",
+                sectionIntro: "مقدمة",
+                introText: "تتكوّن الكرة الأرضيّة التي نعيش عليها من قسمين كبيرين: قسم يابس تشغله القارات، وقسم مائي تشغله المحيطات والبحار. ولمعرفة موقع كلّ مكان على سطح الأرض، اعتمد العلماء على خطوط وهميّة هي خطوط الطول وخطوط العرض. كما تتوزّع على سطح الكرة الأرضيّة وحدات تضاريسيّة كبرى من جبال وسهول وهضاب.",
+                problematiqueText: "ما هي القارات والمحيطات؟ وكيف نحدّد الأمكنة على الكرة الأرضيّة؟ وما هي الوحدات التضاريسيّة الكبرى؟",
+                sectionPart1: "القارات والمحيطات",
+                continentsIntro: "تنقسم الكرة الأرضيّة إلى قسمين: القسم اليابس والقسم المائي.",
+                landSectionTitle: "القسم اليابس",
+                landSectionText: "يمثّل هذا القسم <strong>¼ مساحة الكرّة الأرضيّة</strong>، ويشمل <strong>5 قارات</strong>:",
+                continentAfrica: "القارة الإفريقيّة.",
+                continentEurope: "القارة الأوروبيّة.",
+                continentAsia: "القارة الآسيويّة.",
+                continentAmerica: "القارة الأمريكيّة.",
+                continentAntarctica: "القارة الأنتركتيكيّة.",
+                waterSectionTitle: "القسم المائي",
+                waterSectionText: "وهو يمثّل <strong>¾ مساحة الكرّة الأرضيّة</strong>، ويتكوّن من المحيطات والبحار.",
+                oceansTitle: "المحيطات",
+                oceansIntro: "وهي خمسة محيطات:",
+                oceanIndian: "المحيط الهندي.",
+                oceanPacific: "المحيط الهادي.",
+                oceanAtlantic: "المحيط الأطلسي.",
+                oceanAntarctic: "المحيط المتجمّد.",
+                oceanArctic: "المحيط الاركتيكي.",
+                seasTitle: "البحار",
+                seasIntro: "والتي من بينها:",
+                seaMediterranean: "البحر الأبيض المتوسّط.",
+                seaDead: "البحر الميّت.",
+                seaRed: "البحر الأحمر.",
+                seaArab: "بحر العرب.",
+                seaBlack: "البحر الأسود.",
+                sectionPart2: "خطوط الطول وخطوط العرض",
+                linesIntro: "لتحديد الأمكنة على الكرّة الأرضيّة، اعتمد العلماء على خطوط وهميّة تُعرف بخطوط الطول وخطوط العرض.",
+                longitudeTitle: "خطوط الطول",
+                longitudeText: "عددها <strong>360 خطًّا</strong>، يتوسّطها <strong>خطّ غرينيتش</strong>.",
+                latitudeTitle: "خطوط العرض",
+                latitudeText: "عددها <strong>180 خطًّا</strong>، يتوسّطها <strong>خطّ الاستواء</strong>، وهو الخطّ الذي يُقسّم الكرّة الأرضيّة إلى نصفين متساويين:",
+                northernHemisphere: "<strong>نصف شمالي</strong>: يشمل الجزء الأكبر من اليابسة.",
+                southernHemisphere: "<strong>نصف جنوبي</strong>: يغطّي أغلبه الماء.",
+                linesSummary: "ويمكننا تلخيص ذلك في الجدول التالي:",
+                linesTable_type: "نوع الخطوط",
+                linesTable_count: "العدد",
+                linesTable_middle: "الخطّ المتوسّط",
+                linesTable_line: "خطًّا",
+                sectionPart3: "الوحدات التضاريسيّة الكبرى",
+                landformsIntro: "تغلب على المشهد التضاريسي ثلاث وحدات تضاريسيّة هامّة، وهي: السلاسل الجبليّة، والسهول، والهضاب.",
+                mountainsTitle: "السلاسل الجبليّة",
+                mountainsIntro: "مثل:",
+                mountainsAtlas: "جبال الأطلس وطوبقال بالمغرب.",
+                mountainsRocky: "جبال الروكي وجبال الآلند بالقارة الأمريكيّة.",
+                mountainsAlps: "جبال الألب بأوروبّا.",
+                plainsTitle: "السهول",
+                plainsIntro: "من أهمّها:",
+                plainsAmazon: "سهول الأمازون وسهول أمريكا بالقارة الأمريكيّة.",
+                plainsEurope: "سهول أوروبّا بالقارة الأوروبيّة.",
+                plainsSiberia: "سهول سيبيريا بالقارة الآسيويّة.",
+                plateausTitle: "الهضاب",
+                plateausIntro: "من أهمّها:",
+                plateausChina: "هضاب الصين بالقارة الآسيويّة.",
+                plateausLmond: "هضاب لموند بالقارة الإفريقيّة.",
+                plateausBrazil: "هضاب البرازيل بالقارة الأمريكيّة.",
+                landformsSummary: "ويمكننا تلخيص الوحدات التضاريسيّة الكبرى في الجدول التالي:",
+                landformsTable_unit: "الوحدة التضاريسيّة",
+                landformsTable_examples: "أمثلة",
+                landformsTable_mountainsExamples: "جبال الأطلس وطوبقال، جبال الروكي والآلند، جبال الألب",
+                landformsTable_plainsExamples: "سهول الأمازون وأمريكا، سهول أوروبّا، سهول سيبيريا",
+                landformsTable_plateausExamples: "هضاب الصين، هضاب لموند، هضاب البرازيل",
+                sectionPart4: "مثال تطبيقي: كيف أصف رحلة حول العالم؟",
+                exampleIntro: "لنأخذ مثالاً يوضّح لنا كيف نستعمل ما تعلّمناه عن القارات والمحيطات والوحدات التضاريسيّة. تخيّل أنّ التلميذ <strong>يوسف</strong> يريد أن يصف رحلة حول العالم بالطائرة.",
+                exampleStep1Title: "الخطوة الأولى: الانطلاق من إفريقيا",
+                exampleStep1Text: "انطلق يوسف من <strong>القارة الإفريقيّة</strong>، حيث تقع بلادنا تونس، ومرّ فوق جبال الأطلس.",
+                exampleStep2Title: "الخطوة الثانية: عبور البحر الأبيض المتوسّط نحو أوروبّا",
+                exampleStep2Text: "ثمّ عبر <strong>البحر الأبيض المتوسّط</strong> شمالًا، فحلّ في <strong>القارة الأوروبيّة</strong>، ومرّ فوق <strong>جبال الألب</strong> و<strong>سهول أوروبّا</strong>.",
+                exampleStep3Title: "الخطوة الثالثة: نحو القارة الآسيويّة",
+                exampleStep3Text: "ثمّ واصل الرحلة شرقًا نحو <strong>القارة الآسيويّة</strong>، حيث شاهد <strong>سهول سيبيريا</strong> و<strong>هضاب الصين</strong>.",
+                exampleStep4Title: "الخطوة الرابعة: عبور المحيط الهادي نحو الأمريكيّتين",
+                exampleStep4Text: "ثمّ عبر <strong>المحيط الهادي</strong> شرقًا، فحلّ في <strong>القارة الأمريكيّة</strong>، حيث شاهد <strong>جبال الروكي</strong> و<strong>سهول الأمازون</strong> و<strong>هضاب البرازيل</strong>.",
+                exampleStep5Title: "الخطوة الخامسة: العودة عبر المحيط الأطلسي",
+                exampleStep5Text: "وفي الأخير، عبر <strong>المحيط الأطلسي</strong> شرقًا عائدًا إلى إفريقيا، فأنهى يوسف رحلته حول العالم في خمس محطّات، متنقّلاً بين خمس قارات وخمسة محيطات، ومشاهدًا مختلف الوحدات التضاريسيّة.",
+                exampleConclusion: "ويمكننا تلخيص مسار يوسف في الجدول التالي:",
+                routeTable_stage: "المحطة",
+                routeTable_continent: "القارة",
+                routeTable_landform: "وحدة تضاريسيّة",
+                routeTable_europeLandform: "جبال الألب وسهول أوروبّا",
+                routeTable_asiaLandform: "سهول سيبيريا وهضاب الصين",
+                routeTable_americaLandform: "جبال الروكي وسهول الأمازون وهضاب البرازيل",
+                routeTable_returnLandform: "العودة عبر المحيط الأطلسي",
+                sectionConclusion: "خاتمة",
+                conclusionText: "تنقسم الكرة الأرضيّة إلى قسم يابس يشمل خمس قارات (إفريقيا، وأوروبّا، وآسيا، وأمريكا، والأنتركتيك)، وقسم مائي يشمل المحيطات والبحار. ولمعرفة الأمكنة على سطحها، اعتمد العلماء على خطوط الطول (360 خطًّا يتوسّطها غرينيتش) وخطوط العرض (180 خطًّا يتوسّطها خطّ الاستواء). كما تتوزّع على سطح الأرض ثلاث وحدات تضاريسيّة كبرى: السلاسل الجبليّة، والسهول، والهضاب.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط وصور توضيحيّة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 أخرى",
+                defContinentAfrica: "القارة الإفريقيّة",
+                defContinentAfricaDesc: "إحدى قارات العالم الخمس، وتقع البلاد التونسيّة في شمالها.",
+                defContinentEurope: "القارة الأوروبيّة",
+                defContinentEuropeDesc: "إحدى قارات العالم الخمس، تقع شمال البحر الأبيض المتوسّط، وتشتهر بجبال الألب وسهولها الواسعة.",
+                defContinentAsia: "القارة الآسيويّة",
+                defContinentAsiaDesc: "إحدى قارات العالم الخمس، وهي أكبر القارات مساحةً وأكثرها سكّانًا، وتشتهر بسهول سيبيريا وهضاب الصين.",
+                defContinentAmerica: "القارة الأمريكيّة",
+                defContinentAmericaDesc: "إحدى قارات العالم الخمس، وتشتهر بجبال الروكي وجبال الآلند وسهول الأمازون وهضاب البرازيل.",
+                defContinentAntarctica: "القارة الأنتركتيكيّة",
+                defContinentAntarcticaDesc: "إحدى قارات العالم الخمس، تقع في أقصى الجنوب، وتغطّيها الثلوج معظم فصول السنة.",
+                defOceanIndian: "المحيط الهندي",
+                defOceanIndianDesc: "أحد محيطات العالم الخمسة، يقع بين إفريقيا وآسيا وأستراليا.",
+                defOceanPacific: "المحيط الهادي",
+                defOceanPacificDesc: "أكبر محيطات العالم، يفصل بين آسيا وأستراليا شرقًا والأمريكيّتين غربًا.",
+                defOceanAtlantic: "المحيط الأطلسي",
+                defOceanAtlanticDesc: "أحد محيطات العالم الخمسة، يفصل بين إفريقيا وأوروبّا شرقًا والأمريكيّتين غربًا.",
+                defOceanAntarctic: "المحيط المتجمّد",
+                defOceanAntarcticDesc: "أحد محيطات العالم، يقع قرب القطب الجنوبي وتغطّيه الثلوج.",
+                defOceanArctic: "المحيط الاركتيكي",
+                defOceanArcticDesc: "أحد محيطات العالم، يقع في أقصى الشمال قرب القطب الشمالي.",
+                defSeaMediterranean: "البحر الأبيض المتوسّط",
+                defSeaMediterraneanDesc: "بحر يفصل بين القارّة الإفريقيّة جنوبًا والقارّة الأوروبيّة شمالًا، ويطلّ عليه عديد البلدان.",
+                defGreenwich: "خطّ غرينيتش",
+                defGreenwichDesc: "الخطّ الذي يتوسّط خطوط الطول وعددها 360 خطًّا.",
+                defEquator: "خطّ الاستواء",
+                defEquatorDesc: "الخطّ الذي يتوسّط خطوط العرض وعددها 180 خطًّا، ويُقسّم الكرّة الأرضيّة إلى نصف شمالي يشمل الجزء الأكبر من اليابسة ونصف جنوبي يغطّي أغلبه الماء.",
+                defMountains: "السلاسل الجبليّة",
+                defMountainsDesc: "إحدى الوحدات التضاريسيّة الكبرى، ومنها: جبال الأطلس وطوبقال بالمغرب، وجبال الروكي والآلند بالقارة الأمريكيّة، وجبال الألب بأوروبّا.",
+                defPlains: "السهول",
+                defPlainsDesc: "إحدى الوحدات التضاريسيّة الكبرى، ومن أهمّها: سهول الأمازون وأمريكا بالقارة الأمريكيّة، وسهول أوروبّا، وسهول سيبيريا بالقارة الآسيويّة.",
+                defPlateaus: "الهضاب",
+                defPlateausDesc: "إحدى الوحدات التضاريسيّة الكبرى، ومن أهمّها: هضاب الصين بالقارة الآسيويّة، وهضاب لموند بالقارة الإفريقيّة، وهضاب البرازيل بالقارة الأمريكيّة.",
+                summaryText: "خلاصة: تنقسم الكرة الأرضيّة إلى قسم يابس يمثّل ¼ مساحتها ويشمل 5 قارات (إفريقيا، أوروبّا، آسيا، أمريكا، الأنتركتيك)، وقسم مائي يمثّل ¾ مساحتها ويشمل المحيطات والبحار. ولمعرفة الأمكنة على سطحها، اعتمد العلماء على خطوط الطول (360 خطًّا يتوسّطها غرينيتش) وخطوط العرض (180 خطًّا يتوسّطها خطّ الاستواء). وتغلب على المشهد التضاريسي ثلاث وحدات كبرى: السلاسل الجبليّة، والسهول، والهضاب.",
+                galleryAlt1: "خريطة القارات والمحيطات",
+                galleryAlt2: "خطوط الطول وخطوط العرض",
+                galleryAlt3: "خطّ غرينيتش وخطّ الاستواء",
+                galleryAlt4: "خريطة الوحدات التضاريسيّة الكبرى",
+                galleryCap1: "خريطة القارات والمحيطات",
+                galleryCap2: "خطوط الطول وخطوط العرض",
+                galleryCap3: "خطّ غرينيتش وخطّ الاستواء",
+                galleryCap4: "خريطة الوحدات التضاريسيّة الكبرى",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+        <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "The African Continent", class: "key-location", i18n: "defContinentAfrica" },
+                { text: "The European Continent", class: "key-location", i18n: "defContinentEurope" },
+                { text: "The Asian Continent", class: "key-location", i18n: "defContinentAsia" },
+                { text: "The American Continent", class: "key-location", i18n: "defContinentAmerica" },
+                { text: "The Antarctic Continent", class: "key-location", i18n: "defContinentAntarctica" },
+                { text: "The Mediterranean Sea", class: "key-location", i18n: "defSeaMediterranean" },
+                { text: "Mountain Ranges", class: "key-location", i18n: "defMountains" },
+                { text: "Plains", class: "key-location", i18n: "defPlains" },
+                { text: "Plateaus", class: "key-location", i18n: "defPlateaus" },
+                { text: "Greenwich", class: "key-other", i18n: "defGreenwich" },
+                { text: "Equator", class: "key-other", i18n: "defEquator" }
+            ],
+            fr: [
+                { text: "Le continent africain", class: "key-location", i18n: "defContinentAfrica" },
+                { text: "Le continent européen", class: "key-location", i18n: "defContinentEurope" },
+                { text: "Le continent asiatique", class: "key-location", i18n: "defContinentAsia" },
+                { text: "Le continent américain", class: "key-location", i18n: "defContinentAmerica" },
+                { text: "Le continent antarctique", class: "key-location", i18n: "defContinentAntarctica" },
+                { text: "La mer Méditerranée", class: "key-location", i18n: "defSeaMediterranean" },
+                { text: "Les chaînes de montagnes", class: "key-location", i18n: "defMountains" },
+                { text: "Les plaines", class: "key-location", i18n: "defPlains" },
+                { text: "Les plateaux", class: "key-location", i18n: "defPlateaus" },
+                { text: "Greenwich", class: "key-other", i18n: "defGreenwich" },
+                { text: "équateur", class: "key-other", i18n: "defEquator" }
+            ],
+            ar: [
+                { text: "القارة الإفريقيّة", class: "key-location", i18n: "defContinentAfrica" },
+                { text: "القارة الأوروبيّة", class: "key-location", i18n: "defContinentEurope" },
+                { text: "القارة الآسيويّة", class: "key-location", i18n: "defContinentAsia" },
+                { text: "القارة الأمريكيّة", class: "key-location", i18n: "defContinentAmerica" },
+                { text: "القارة الأنتركتيكيّة", class: "key-location", i18n: "defContinentAntarctica" },
+                { text: "البحر الأبيض المتوسّط", class: "key-location", i18n: "defSeaMediterranean" },
+                { text: "السلاسل الجبليّة", class: "key-location", i18n: "defMountains" },
+                { text: "السهول", class: "key-location", i18n: "defPlains" },
+                { text: "الهضاب", class: "key-location", i18n: "defPlateaus" },
+                { text: "خطّ غرينيتش", class: "key-other", i18n: "defGreenwich" },
+                { text: "خطّ الاستواء", class: "key-other", i18n: "defEquator" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

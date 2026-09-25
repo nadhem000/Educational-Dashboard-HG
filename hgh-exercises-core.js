@@ -705,3 +705,273 @@ async function hghExercicesHandlePrintWithOptions() {
     setTimeout(restore, 2000); // fallback
   }, 200);
 }
+/* ══════════════════════════════════════════════════════════
+   Type 7 – Fill in the Blanks (interactive + auth-gated reveal)
+   ══════════════════════════════════════════════════════════ */
+
+/**
+ * Selects a word chip in the word bank. Deselects all others in the same bank.
+ *
+ * @param {HTMLElement} wordEl – The word chip element that was clicked.
+ */
+function hghExercicesType7SelectWord(wordEl) {
+  const bank = wordEl.closest('.hgh-exercices-type7-fillBlanks-wordbank');
+  if (!bank) return;
+  bank.querySelectorAll('.hgh-exercices-type7-fillBlanks-word').forEach(w => {
+    if (w !== wordEl) w.classList.remove('selected');
+  });
+  wordEl.classList.toggle('selected');
+}
+
+/**
+ * Fills (or clears) a blank slot with the currently selected word.
+ *
+ * @param {HTMLElement} blankEl – The blank span that was clicked.
+ */
+function hghExercicesType7FillBlank(blankEl) {
+  const section = blankEl.closest('.hgh-exercices-type7-fillBlanks-section');
+  if (!section) return;
+
+  // Clicking a filled blank clears it
+  if (blankEl.dataset.filledWith) {
+    const prevKey = blankEl.dataset.filledWith;
+    blankEl.textContent = '';
+    blankEl.classList.remove('filled', 'correct', 'wrong');
+    delete blankEl.dataset.filledWith;
+    // free the word back in the bank
+    section.querySelectorAll('.hgh-exercices-type7-fillBlanks-word').forEach(w => {
+      if ((w.dataset.key || w.textContent.trim()) === prevKey) {
+        w.classList.remove('used');
+      }
+    });
+    return;
+  }
+
+  // Otherwise, fill with the currently selected word
+  const selected = section.querySelector('.hgh-exercices-type7-fillBlanks-word.selected');
+  if (!selected) return;
+  const key = selected.dataset.key || selected.textContent.trim();
+  blankEl.textContent = selected.textContent.trim();
+  blankEl.classList.add('filled');
+  blankEl.dataset.filledWith = key;
+  selected.classList.remove('selected');
+  selected.classList.add('used');
+}
+
+/**
+ * Auth-gated toggle that reveals the correct answers for Type 7.
+ * After reveal, adds `.correct` / `.wrong` classes to each blank
+ * (non-destructive; the user's text is preserved if it differs from the answer).
+ *
+ * @param {HTMLElement} button   – The clicked button.
+ * @param {string} answerId      – ID of the answer container.
+ * @returns {Promise<void>}
+ */
+async function hghExercicesType7ToggleAnswer(button, answerId) {
+  const answerDiv = document.getElementById(answerId);
+  if (!answerDiv) return;
+
+  if (answerDiv.classList.contains('visible')) {
+    answerDiv.classList.remove('visible');
+    const section = answerDiv.closest('.hgh-exercices-type7-fillBlanks-section');
+    if (section) {
+      section.querySelectorAll('.hgh-exercices-type7-fillBlanks-blank').forEach(b => {
+        b.classList.remove('correct', 'wrong');
+      });
+    }
+    return;
+  }
+
+  const registered = await isUserRegistered();
+  if (!registered) {
+    const t = window.t || (k => k);
+    alert(t('alertNotSigned') || 'You must sign in to view answers.');
+    return;
+  }
+
+  answerDiv.classList.add('visible');
+
+  const section = answerDiv.closest('.hgh-exercices-type7-fillBlanks-section');
+  if (section) {
+    section.querySelectorAll('.hgh-exercices-type7-fillBlanks-blank').forEach(b => {
+      const correct = (b.dataset.correct || '').trim();
+      const userVal = (b.dataset.filledWith || '').trim();
+      b.classList.remove('correct', 'wrong');
+      if (!userVal) return;                     // user left it empty → no marker
+      if (userVal === correct) {
+        b.classList.add('correct');
+      } else {
+        b.classList.add('wrong');
+      }
+    });
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   Type 8 – Match Column A with Column B
+   ══════════════════════════════════════════════════════════ */
+
+/**
+ * Handles selecting/matching items across two columns.
+ * Each item must have `data-key` (its own id) and its parent column must
+ * have `data-side="A"` or `data-side="B"`.
+ *
+ * @param {HTMLElement} itemEl – The item that was clicked.
+ */
+function hghExercicesType8SelectItem(itemEl) {
+  const col = itemEl.closest('.hgh-exercices-type8-matchColumns-column');
+  const section = itemEl.closest('.hgh-exercices-type8-matchColumns-section');
+  if (!col || !section) return;
+  const side = col.dataset.side;
+  if (!side) return;
+
+  // If item was already matched, ignore (or allow toggling off)
+  if (itemEl.classList.contains('matched')) {
+    itemEl.classList.remove('matched');
+    itemEl.classList.remove('correct', 'wrong');
+    delete itemEl.dataset.pairedWith;
+    return;
+  }
+
+  // Toggle selection within the same side
+  const sameSideSelected = section.querySelector(
+    `.hgh-exercices-type8-matchColumns-column[data-side="${side}"] .hgh-exercices-type8-matchColumns-item.selected`
+  );
+  if (sameSideSelected === itemEl) {
+    itemEl.classList.remove('selected');
+    return;
+  }
+  section.querySelectorAll(
+    `.hgh-exercices-type8-matchColumns-column[data-side="${side}"] .hgh-exercices-type8-matchColumns-item.selected`
+  ).forEach(i => i.classList.remove('selected'));
+  itemEl.classList.add('selected');
+
+  // Check the other side
+  const otherSide = side === 'A' ? 'B' : 'A';
+  const otherSel = section.querySelector(
+    `.hgh-exercices-type8-matchColumns-column[data-side="${otherSide}"] .hgh-exercices-type8-matchColumns-item.selected`
+  );
+  if (otherSel) {
+    // Pair them
+    itemEl.classList.remove('selected');
+    otherSel.classList.remove('selected');
+    itemEl.classList.add('matched');
+    otherSel.classList.add('matched');
+    itemEl.dataset.pairedWith = otherSel.dataset.key;
+    otherSel.dataset.pairedWith = itemEl.dataset.key;
+  }
+}
+
+/**
+ * Auth-gated toggle that reveals the correct pairings for Type 8.
+ * Correct pairings are indicated in the HTML via `data-match="<key>"` on each item.
+ *
+ * @param {HTMLElement} button   – The clicked button.
+ * @param {string} answerId      – ID of the answer container.
+ * @returns {Promise<void>}
+ */
+async function hghExercicesType8ToggleAnswer(button, answerId) {
+  const answerDiv = document.getElementById(answerId);
+  if (!answerDiv) return;
+
+  if (answerDiv.classList.contains('visible')) {
+    answerDiv.classList.remove('visible');
+    const section = answerDiv.closest('.hgh-exercices-type8-matchColumns-section');
+    if (section) {
+      section.querySelectorAll('.hgh-exercices-type8-matchColumns-item').forEach(i => {
+        i.classList.remove('correct', 'wrong');
+      });
+    }
+    return;
+  }
+
+  const registered = await isUserRegistered();
+  if (!registered) {
+    const t = window.t || (k => k);
+    alert(t('alertNotSigned') || 'You must sign in to view answers.');
+    return;
+  }
+
+  answerDiv.classList.add('visible');
+
+  const section = answerDiv.closest('.hgh-exercices-type8-matchColumns-section');
+  if (!section) return;
+
+  // Mark each item based on its data-match vs. the user's pairedWith
+  section.querySelectorAll('.hgh-exercices-type8-matchColumns-item').forEach(i => {
+    i.classList.remove('correct', 'wrong');
+    const expected = i.dataset.match;
+    const userPaired = i.dataset.pairedWith;
+    if (!userPaired) return;
+    if (userPaired === expected) {
+      i.classList.add('correct');
+    } else {
+      i.classList.add('wrong');
+    }
+  });
+}
+
+/* ══════════════════════════════════════════════════════════
+   Type 9 – Multiple Choice
+   ══════════════════════════════════════════════════════════ */
+
+/**
+ * Selects a single MCQ option (radio-style).
+ *
+ * @param {HTMLElement} optionEl – The option element that was clicked.
+ */
+function hghExercicesType9SelectOption(optionEl) {
+  const section = optionEl.closest('.hgh-exercices-type9-multipleChoice-section');
+  if (!section) return;
+  section.querySelectorAll('.hgh-exercices-type9-multipleChoice-option').forEach(o => {
+    if (o !== optionEl) o.classList.remove('selected');
+  });
+  optionEl.classList.toggle('selected');
+}
+
+/**
+ * Auth-gated toggle that reveals the correct option for Type 9.
+ * The correct option is marked in the HTML via `data-correct="true"`.
+ *
+ * @param {HTMLElement} button   – The clicked button.
+ * @param {string} answerId      – ID of the answer container.
+ * @returns {Promise<void>}
+ */
+async function hghExercicesType9ToggleAnswer(button, answerId) {
+  const answerDiv = document.getElementById(answerId);
+  if (!answerDiv) return;
+
+  if (answerDiv.classList.contains('visible')) {
+    answerDiv.classList.remove('visible');
+    const section = answerDiv.closest('.hgh-exercices-type9-multipleChoice-section');
+    if (section) {
+      section.querySelectorAll('.hgh-exercices-type9-multipleChoice-option').forEach(o => {
+        o.classList.remove('correct', 'wrong');
+      });
+    }
+    return;
+  }
+
+  const registered = await isUserRegistered();
+  if (!registered) {
+    const t = window.t || (k => k);
+    alert(t('alertNotSigned') || 'You must sign in to view answers.');
+    return;
+  }
+
+  answerDiv.classList.add('visible');
+
+  const section = answerDiv.closest('.hgh-exercices-type9-multipleChoice-section');
+  if (!section) return;
+
+  section.querySelectorAll('.hgh-exercices-type9-multipleChoice-option').forEach(o => {
+    o.classList.remove('correct', 'wrong');
+    const isCorrect = o.dataset.correct === 'true';
+    const wasSelected = o.classList.contains('selected');
+    if (isCorrect) {
+      o.classList.add('correct');
+    } else if (wasSelected) {
+      o.classList.add('wrong');
+    }
+  });
+}

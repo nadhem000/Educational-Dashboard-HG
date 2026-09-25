@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / التمهيد لدراسة التاريخ</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">وحدات قيس الزمن التاريخي</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">لكي ندرس التاريخ ونحدّد موقع الأحداث في الزمن، نحتاج إلى وحدات لقيس الزمن التاريخي. فكما نقيس الطول بالمتر والوزن بالكيلوغرام، فإنّنا نقيس الزمن التاريخي بالسنة والعقد والجيل والقرن. ومن خلال هذه الوحدات نستطيع أن نرتّب الأحداث ونقارن بينها.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي أهمّ الأحداث التي اتّخذها المؤرّخون نقطة انطلاق لحساب التاريخ؟ وما هي وحدات قيس الزمن التاريخي؟</p>
+            </div>
+
+            <!-- Part I : Reminder -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">تذكير بالحدث التاريخي</span>
+                </h2>
+                <p data-i18n="reminderText">الحدث التاريخي هو الحدث الهامّ في حياة الفرد أو المجموعة، وهو عادة ما يقع مرّة واحدة ولا يتكرّر، ويُحتفظ به في الذاكرة. فمن بين هذه الأحداث ما يُؤرَّخ ويُكتب في مفكّرة وتشهد المجموعة على آثاره، ومنها ما ينساه الجميع تمامًا. وكلّها تكوّن تاريخ الإنسان.</p>
+            </div>
+
+            <!-- Part II : Reference events -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">أحداث اتُّخذت نقطة انطلاق لحساب التاريخ</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="example1Title">ميلاد عيسى بن مريم</span>
+                </h4>
+                <p data-i18n="example1Text">ميلاد عيسى بن مريم حدث بارز عند المسيحيين، فقد اتّخذه المؤرّخون نقطة انطلاق لحساب التاريخ الميلادي، فانقسمت المرحلة التاريخية إلى ما قبل الميلاد (ق.م) وما بعد الميلاد (م).</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="example2Title">هجرة الرسول (ص) إلى يثرب</span>
+                </h4>
+                <p data-i18n="example2Text">تُعتبر هجرة الرسول (ص) إلى يثرب حدثًا هامًّا في تاريخ المسلمين، الذي اعتبروها السَّنة المنطلق للتاريخ الإسلامي (التاريخ الهجري).</p>
+            </div>
+
+            <!-- Part III : Duration of historical event -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span> <span data-i18n="sectionPart3">مدّة الحدث التاريخي</span>
+                </h2>
+                <p data-i18n="durationText">قد يدوم الحدث التاريخي مدّة زمنية طويلة أو قصيرة أو متوسّطة. وقد حدّد المؤرّخون لهذه المدّة وحدات لقيسها.</p>
+            </div>
+
+            <!-- Part IV : Units -->
+            <div class="lesson-part" id="part4" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">IV</span> <span data-i18n="sectionPart4">وحدات قيس الزمن التاريخي</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="unit1Title">العقد</span>
+                </h4>
+                <p data-i18n="unit1Text">العقد هو وحدة لقيس الزمن التاريخي ويساوي <strong>10 سنوات</strong>.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="unit2Title">الجيل</span>
+                </h4>
+                <p data-i18n="unit2Text">الجيل هو وحدة لقيس الزمن التاريخي ويساوي حوالي <strong>30 سنة</strong>.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="unit3Title">القرن</span>
+                </h4>
+                <p data-i18n="unit3Text">القرن هو وحدة لقيس الزمن التاريخي ويساوي <strong>100 سنة</strong>، أي ما يعادل <strong>ثلاثة أجيال وعقدًا</strong> (30 × 3 + 10 = 100 سنة).</p>
+
+                <div class="table-scroll-wrapper" style="margin-top:1rem;">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="unitsTable_unit">الوحدة</th>
+                            <th data-i18n="unitsTable_equals">ما يعادلها</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="unit1Title">العقد</td>
+                            <td>10 <span data-i18n="unitsTable_years">سنوات</span></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="unit2Title">الجيل</td>
+                            <td>30 <span data-i18n="unitsTable_years">سنة</span> (حوالي)</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="unit3Title">القرن</td>
+                            <td>100 <span data-i18n="unitsTable_years">سنة</span> = 3 <span data-i18n="unitsTable_generations">أجيال</span> + <span data-i18n="unit1Title">عقد</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">لكي نؤرّخ الأحداث ونرتّبها في الزمن، اعتمد المؤرّخون أحداثًا كبرى كنقطة انطلاق لحساب التاريخ، مثل ميلاد عيسى بن مريم (التاريخ الميلادي) وهجرة الرسول (ص) (التاريخ الهجري). وقد حدّدوا لوحدات قيس الزمن التاريخي: العقد (10 سنوات)، والجيل (حوالي 30 سنة)، والقرن (100 سنة).</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defChristmas">ميلاد عيسى بن مريم</strong>: <span data-i18n="defChristmasDesc">حدث بارز عند المسيحيين، اتّخذه المؤرّخون نقطة انطلاق لحساب التاريخ الميلادي، فانقسمت المرحلة التاريخية إلى ما قبل الميلاد (ق.م) وما بعد الميلاد (م).</span></li>
+                        <li><strong class="key-event" data-i18n="defHijra">هجرة الرسول (ص) إلى يثرب</strong>: <span data-i18n="defHijraDesc">حدث هامّ في تاريخ المسلمين، اعتبروها السَّنة المنطلق للتاريخ الإسلامي (التاريخ الهجري).</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year" data-i18n="defDecade">العقد</strong>: <span data-i18n="defDecadeDesc">وحدة لقيس الزمن التاريخي ويساوي 10 سنوات.</span></li>
+                        <li><strong class="key-year" data-i18n="defGeneration">الجيل</strong>: <span data-i18n="defGenerationDesc">وحدة لقيس الزمن التاريخي ويساوي حوالي 30 سنة.</span></li>
+                        <li><strong class="key-year" data-i18n="defCentury">القرن</strong>: <span data-i18n="defCenturyDesc">وحدة لقيس الزمن التاريخي ويساوي 100 سنة، أي ما يعادل ثلاثة أجيال وعقدًا (30 × 3 + 10 = 100 سنة).</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defBC">ما قبل الميلاد (ق.م)</strong>: <span data-i18n="defBCDesc">الفترة التاريخية السابقة لميلاد عيسى بن مريم، وتُكتب سنواتها مع إضافة (ق.م).</span></li>
+                        <li><strong class="key-other" data-i18n="defAD">ما بعد الميلاد (م)</strong>: <span data-i18n="defADDesc">الفترة التاريخية اللاحقة لميلاد عيسى بن مريم، وتُكتب سنواتها مع إضافة (م).</span></li>
+                        <li><strong class="key-other" data-i18n="defGregorianCalendar">التاريخ الميلادي</strong>: <span data-i18n="defGregorianCalendarDesc">تقويم تاريخي نقطة انطلاقه ميلاد عيسى بن مريم، ويعتمد في معظم دول العالم.</span></li>
+                        <li><strong class="key-other" data-i18n="defHijriCalendar">التاريخ الإسلامي (الهجري)</strong>: <span data-i18n="defHijriCalendarDesc">تقويم تاريخي نقطة انطلاقه هجرة الرسول (ص) إلى يثرب، ويعتمده المسلمون.</span></li>
+                        <li><strong class="key-other" data-i18n="defHistoricalEvent">الحدث التاريخي</strong>: <span data-i18n="defHistoricalEventDesc">حدث هامّ في حياة الفرد أو المجموعة، يقع عادة مرّة واحدة ولا يتكرّر، ويُحتفظ به في الذاكرة. وقد يدوم مدّة زمنية طويلة أو قصيرة أو متوسّطة.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: اتّخذ المؤرّخون أحداثًا كبرى نقطة انطلاق لحساب التاريخ، مثل ميلاد عيسى بن مريم (التاريخ الميلادي) وهجرة الرسول (ص) (التاريخ الهجري). ويُقاس الزمن التاريخي بوحدات ثلاث هي: العقد (10 سنوات)، والجيل (حوالي 30 سنة)، والقرن (100 سنة = 3 أجيال + عقد).</div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod1_lesson2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية والأمثلة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Introduction to the Study of History",
+                lessonTitleSample: "Units of Historical Time Measurement",
+                sectionIntro: "Introduction",
+                introText: "In order to study history and locate events in time, we need units for measuring historical time. Just as we measure length in metres and weight in kilograms, we measure historical time in years, decades, generations, and centuries. Through these units we can organise events and compare them.",
+                problematiqueText: "What are the most important events that historians took as starting points for reckoning history? And what are the units of historical time measurement?",
+                sectionPart1: "Reminder about the Historical Event",
+                reminderText: "The historical event is the important event in the life of an individual or a group. It usually happens once and does not repeat, and it is kept in memory. Some of these events are dated and written down in a notebook, and the group bears witness to their effects; others are completely forgotten by everyone. All of them form the history of humanity.",
+                sectionPart2: "Events Taken as Starting Points for Reckoning History",
+                example1Title: "The Birth of Jesus Son of Mary",
+                example1Text: "The birth of Jesus son of Mary is a prominent event for Christians. Historians took it as the starting point for reckoning the Gregorian calendar, and thus the historical period was divided into before Christ (BC) and after Christ (AD).",
+                example2Title: "The Hijra of the Prophet (PBUH) to Yathrib",
+                example2Text: "The Hijra of the Prophet (PBUH) to Yathrib is considered an important event in the history of Muslims, who took it as the starting year for the Islamic calendar (the Hijri calendar).",
+                sectionPart3: "Duration of the Historical Event",
+                durationText: "The historical event may last for a long, short, or medium period of time. Historians have defined units for measuring this duration.",
+                sectionPart4: "Units of Historical Time Measurement",
+                unit1Title: "The Decade",
+                unit1Text: "The decade is a unit of historical time measurement and equals <strong>10 years</strong>.",
+                unit2Title: "The Generation",
+                unit2Text: "The generation is a unit of historical time measurement and equals about <strong>30 years</strong>.",
+                unit3Title: "The Century",
+                unit3Text: "The century is a unit of historical time measurement and equals <strong>100 years</strong>, which is equivalent to <strong>three generations and a decade</strong> (30 × 3 + 10 = 100 years).",
+                unitsTable_unit: "Unit",
+                unitsTable_equals: "Equivalent to",
+                unitsTable_years: "years",
+                unitsTable_generations: "generations",
+                sectionConclusion: "Conclusion",
+                conclusionText: "In order to date events and organise them in time, historians adopted major events as starting points for reckoning history, such as the birth of Jesus son of Mary (the Gregorian calendar) and the Hijra of the Prophet (PBUH) (the Hijri calendar). They defined the units of historical time measurement: the decade (10 years), the generation (about 30 years), and the century (100 years).",
+                sectionDefinitions: "📖 Definitions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defChristmas: "The Birth of Jesus Son of Mary",
+                defChristmasDesc: "A prominent event for Christians. Historians took it as the starting point for reckoning the Gregorian calendar, and thus the historical period was divided into before Christ (BC) and after Christ (AD).",
+                defHijra: "The Hijra of the Prophet (PBUH) to Yathrib",
+                defHijraDesc: "An important event in the history of Muslims, who took it as the starting year for the Islamic calendar (the Hijri calendar).",
+                defDecade: "The Decade",
+                defDecadeDesc: "A unit of historical time measurement and equals 10 years.",
+                defGeneration: "The Generation",
+                defGenerationDesc: "A unit of historical time measurement and equals about 30 years.",
+                defCentury: "The Century",
+                defCenturyDesc: "A unit of historical time measurement and equals 100 years, which is equivalent to three generations and a decade (30 × 3 + 10 = 100 years).",
+                defBC: "Before Christ (BC)",
+                defBCDesc: "The historical period preceding the birth of Jesus son of Mary, whose years are written with the addition of (BC).",
+                defAD: "After Christ (AD)",
+                defADDesc: "The historical period following the birth of Jesus son of Mary, whose years are written with the addition of (AD).",
+                defGregorianCalendar: "The Gregorian Calendar",
+                defGregorianCalendarDesc: "A historical calendar whose starting point is the birth of Jesus son of Mary, used in most countries of the world.",
+                defHijriCalendar: "The Islamic (Hijri) Calendar",
+                defHijriCalendarDesc: "A historical calendar whose starting point is the Hijra of the Prophet (PBUH) to Yathrib, adopted by Muslims.",
+                defHistoricalEvent: "The Historical Event",
+                defHistoricalEventDesc: "An important event in the life of an individual or a group. It usually happens once and does not repeat, and it is kept in memory. It may last for a long, short, or medium period of time.",
+                summaryText: "Key takeaway: Historians adopted major events as starting points for reckoning history, such as the birth of Jesus son of Mary (the Gregorian calendar) and the Hijra of the Prophet (PBUH) (the Hijri calendar). Historical time is measured in three units: the decade (10 years), the generation (about 30 years), and the century (100 years = 3 generations + a decade).",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / Introduction à l'étude de l'histoire",
+                lessonTitleSample: "Unités de mesure du temps historique",
+                sectionIntro: "Introduction",
+                introText: "Pour étudier l'histoire et situer les événements dans le temps, nous avons besoin d'unités pour mesurer le temps historique. De même que nous mesurons la longueur en mètres et le poids en kilogrammes, nous mesurons le temps historique en années, décennies, générations et siècles. Grâce à ces unités, nous pouvons organiser les événements et les comparer.",
+                problematiqueText: "Quels sont les événements les plus importants que les historiens ont pris comme points de départ pour compter l'histoire ? Et quelles sont les unités de mesure du temps historique ?",
+                sectionPart1: "Rappel sur l'événement historique",
+                reminderText: "L'événement historique est l'événement important dans la vie d'un individu ou d'un groupe. Il se produit généralement une seule fois et ne se répète pas, et il est conservé en mémoire. Parmi ces événements, certains sont datés et écrits dans un carnet, et le groupe témoigne de leurs effets ; d'autres sont complètement oubliés par tout le monde. Tous constituent l'histoire de l'humanité.",
+                sectionPart2: "Événements pris comme points de départ pour compter l'histoire",
+                example1Title: "La naissance de Jésus fils de Marie",
+                example1Text: "La naissance de Jésus fils de Marie est un événement marquant pour les chrétiens. Les historiens l'ont prise comme point de départ pour le calcul du calendrier grégorien, et la période historique a ainsi été divisée en avant Jésus-Christ (av. J.-C.) et après Jésus-Christ (ap. J.-C.).",
+                example2Title: "L'Hégire du Prophète (PBSL) vers Yathrib",
+                example2Text: "L'Hégire du Prophète (PBSL) vers Yathrib est considérée comme un événement important dans l'histoire des musulmans, qui l'ont prise comme année de départ du calendrier islamique (le calendrier hégirien).",
+                sectionPart3: "Durée de l'événement historique",
+                durationText: "L'événement historique peut durer une période longue, courte ou moyenne. Les historiens ont défini des unités pour mesurer cette durée.",
+                sectionPart4: "Unités de mesure du temps historique",
+                unit1Title: "La décennie",
+                unit1Text: "La décennie est une unité de mesure du temps historique et équivaut à <strong>10 ans</strong>.",
+                unit2Title: "La génération",
+                unit2Text: "La génération est une unité de mesure du temps historique et équivaut à environ <strong>30 ans</strong>.",
+                unit3Title: "Le siècle",
+                unit3Text: "Le siècle est une unité de mesure du temps historique et équivaut à <strong>100 ans</strong>, soit <strong>trois générations et une décennie</strong> (30 × 3 + 10 = 100 ans).",
+                unitsTable_unit: "Unité",
+                unitsTable_equals: "Équivalent à",
+                unitsTable_years: "ans",
+                unitsTable_generations: "générations",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Pour dater les événements et les organiser dans le temps, les historiens ont adopté des événements majeurs comme points de départ pour compter l'histoire, tels que la naissance de Jésus fils de Marie (le calendrier grégorien) et l'Hégire du Prophète (PBSL) (le calendrier hégirien). Ils ont défini les unités de mesure du temps historique : la décennie (10 ans), la génération (environ 30 ans) et le siècle (100 ans).",
+                sectionDefinitions: "📖 Définitions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defChristmas: "La naissance de Jésus fils de Marie",
+                defChristmasDesc: "Un événement marquant pour les chrétiens. Les historiens l'ont prise comme point de départ pour le calcul du calendrier grégorien, et la période historique a ainsi été divisée en avant Jésus-Christ (av. J.-C.) et après Jésus-Christ (ap. J.-C.).",
+                defHijra: "L'Hégire du Prophète (PBSL) vers Yathrib",
+                defHijraDesc: "Un événement important dans l'histoire des musulmans, qui l'ont prise comme année de départ du calendrier islamique (le calendrier hégirien).",
+                defDecade: "La décennie",
+                defDecadeDesc: "Une unité de mesure du temps historique et équivaut à 10 ans.",
+                defGeneration: "La génération",
+                defGenerationDesc: "Une unité de mesure du temps historique et équivaut à environ 30 ans.",
+                defCentury: "Le siècle",
+                defCenturyDesc: "Une unité de mesure du temps historique et équivaut à 100 ans, soit trois générations et une décennie (30 × 3 + 10 = 100 ans).",
+                defBC: "Avant Jésus-Christ (av. J.-C.)",
+                defBCDesc: "La période historique précédant la naissance de Jésus fils de Marie, dont les années sont écrites avec l'ajout de (av. J.-C.).",
+                defAD: "Après Jésus-Christ (ap. J.-C.)",
+                defADDesc: "La période historique suivant la naissance de Jésus fils de Marie, dont les années sont écrites avec l'ajout de (ap. J.-C.).",
+                defGregorianCalendar: "Le calendrier grégorien",
+                defGregorianCalendarDesc: "Un calendrier historique dont le point de départ est la naissance de Jésus fils de Marie, utilisé dans la plupart des pays du monde.",
+                defHijriCalendar: "Le calendrier islamique (hégirien)",
+                defHijriCalendarDesc: "Un calendrier historique dont le point de départ est l'Hégire du Prophète (PBSL) vers Yathrib, adopté par les musulmans.",
+                defHistoricalEvent: "L'événement historique",
+                defHistoricalEventDesc: "Un événement important dans la vie d'un individu ou d'un groupe. Il se produit généralement une seule fois et ne se répète pas, et il est conservé en mémoire. Il peut durer une période longue, courte ou moyenne.",
+                summaryText: "À retenir : Les historiens ont adopté des événements majeurs comme points de départ pour compter l'histoire, tels que la naissance de Jésus fils de Marie (le calendrier grégorien) et l'Hégire du Prophète (PBSL) (le calendrier hégirien). Le temps historique se mesure en trois unités : la décennie (10 ans), la génération (environ 30 ans) et le siècle (100 ans = 3 générations + une décennie).",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / التمهيد لدراسة التاريخ",
+                lessonTitleSample: "وحدات قيس الزمن التاريخي",
+                sectionIntro: "مقدمة",
+                introText: "لكي ندرس التاريخ ونحدّد موقع الأحداث في الزمن، نحتاج إلى وحدات لقيس الزمن التاريخي. فكما نقيس الطول بالمتر والوزن بالكيلوغرام، فإنّنا نقيس الزمن التاريخي بالسنة والعقد والجيل والقرن. ومن خلال هذه الوحدات نستطيع أن نرتّب الأحداث ونقارن بينها.",
+                problematiqueText: "ما هي أهمّ الأحداث التي اتّخذها المؤرّخون نقطة انطلاق لحساب التاريخ؟ وما هي وحدات قيس الزمن التاريخي؟",
+                sectionPart1: "تذكير بالحدث التاريخي",
+                reminderText: "الحدث التاريخي هو الحدث الهامّ في حياة الفرد أو المجموعة، وهو عادة ما يقع مرّة واحدة ولا يتكرّر، ويُحتفظ به في الذاكرة. فمن بين هذه الأحداث ما يُؤرَّخ ويُكتب في مفكّرة وتشهد المجموعة على آثاره، ومنها ما ينساه الجميع تمامًا. وكلّها تكوّن تاريخ الإنسان.",
+                sectionPart2: "أحداث اتُّخذت نقطة انطلاق لحساب التاريخ",
+                example1Title: "ميلاد عيسى بن مريم",
+                example1Text: "ميلاد عيسى بن مريم حدث بارز عند المسيحيين، فقد اتّخذه المؤرّخون نقطة انطلاق لحساب التاريخ الميلادي، فانقسمت المرحلة التاريخية إلى ما قبل الميلاد (ق.م) وما بعد الميلاد (م).",
+                example2Title: "هجرة الرسول (ص) إلى يثرب",
+                example2Text: "تُعتبر هجرة الرسول (ص) إلى يثرب حدثًا هامًّا في تاريخ المسلمين، الذي اعتبروها السَّنة المنطلق للتاريخ الإسلامي (التاريخ الهجري).",
+                sectionPart3: "مدّة الحدث التاريخي",
+                durationText: "قد يدوم الحدث التاريخي مدّة زمنية طويلة أو قصيرة أو متوسّطة. وقد حدّد المؤرّخون لهذه المدّة وحدات لقيسها.",
+                sectionPart4: "وحدات قيس الزمن التاريخي",
+                unit1Title: "العقد",
+                unit1Text: "العقد هو وحدة لقيس الزمن التاريخي ويساوي <strong>10 سنوات</strong>.",
+                unit2Title: "الجيل",
+                unit2Text: "الجيل هو وحدة لقيس الزمن التاريخي ويساوي حوالي <strong>30 سنة</strong>.",
+                unit3Title: "القرن",
+                unit3Text: "القرن هو وحدة لقيس الزمن التاريخي ويساوي <strong>100 سنة</strong>، أي ما يعادل <strong>ثلاثة أجيال وعقدًا</strong> (30 × 3 + 10 = 100 سنة).",
+                unitsTable_unit: "الوحدة",
+                unitsTable_equals: "ما يعادلها",
+                unitsTable_years: "سنوات",
+                unitsTable_generations: "أجيال",
+                sectionConclusion: "خاتمة",
+                conclusionText: "لكي نؤرّخ الأحداث ونرتّبها في الزمن، اعتمد المؤرّخون أحداثًا كبرى كنقطة انطلاق لحساب التاريخ، مثل ميلاد عيسى بن مريم (التاريخ الميلادي) وهجرة الرسول (ص) (التاريخ الهجري). وقد حدّدوا لوحدات قيس الزمن التاريخي: العقد (10 سنوات)، والجيل (حوالي 30 سنة)، والقرن (100 سنة).",
+                sectionDefinitions: "📖 تعريفات",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defChristmas: "ميلاد عيسى بن مريم",
+                defChristmasDesc: "حدث بارز عند المسيحيين، اتّخذه المؤرّخون نقطة انطلاق لحساب التاريخ الميلادي، فانقسمت المرحلة التاريخية إلى ما قبل الميلاد (ق.م) وما بعد الميلاد (م).",
+                defHijra: "هجرة الرسول (ص) إلى يثرب",
+                defHijraDesc: "حدث هامّ في تاريخ المسلمين، اعتبروها السَّنة المنطلق للتاريخ الإسلامي (التاريخ الهجري).",
+                defDecade: "العقد",
+                defDecadeDesc: "وحدة لقيس الزمن التاريخي ويساوي 10 سنوات.",
+                defGeneration: "الجيل",
+                defGenerationDesc: "وحدة لقيس الزمن التاريخي ويساوي حوالي 30 سنة.",
+                defCentury: "القرن",
+                defCenturyDesc: "وحدة لقيس الزمن التاريخي ويساوي 100 سنة، أي ما يعادل ثلاثة أجيال وعقدًا (30 × 3 + 10 = 100 سنة).",
+                defBC: "ما قبل الميلاد (ق.م)",
+                defBCDesc: "الفترة التاريخية السابقة لميلاد عيسى بن مريم، وتُكتب سنواتها مع إضافة (ق.م).",
+                defAD: "ما بعد الميلاد (م)",
+                defADDesc: "الفترة التاريخية اللاحقة لميلاد عيسى بن مريم، وتُكتب سنواتها مع إضافة (م).",
+                defGregorianCalendar: "التاريخ الميلادي",
+                defGregorianCalendarDesc: "تقويم تاريخي نقطة انطلاقه ميلاد عيسى بن مريم، ويعتمد في معظم دول العالم.",
+                defHijriCalendar: "التاريخ الإسلامي (الهجري)",
+                defHijriCalendarDesc: "تقويم تاريخي نقطة انطلاقه هجرة الرسول (ص) إلى يثرب، ويعتمده المسلمون.",
+                defHistoricalEvent: "الحدث التاريخي",
+                defHistoricalEventDesc: "حدث هامّ في حياة الفرد أو المجموعة، يقع عادة مرّة واحدة ولا يتكرّر، ويُحتفظ به في الذاكرة. وقد يدوم مدّة زمنية طويلة أو قصيرة أو متوسّطة.",
+                summaryText: "خلاصة: اتّخذ المؤرّخون أحداثًا كبرى نقطة انطلاق لحساب التاريخ، مثل ميلاد عيسى بن مريم (التاريخ الميلادي) وهجرة الرسول (ص) (التاريخ الهجري). ويُقاس الزمن التاريخي بوحدات ثلاث هي: العقد (10 سنوات)، والجيل (حوالي 30 سنة)، والقرن (100 سنة = 3 أجيال + عقد).",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "The Decade", class: "key-year", i18n: "defDecade" },
+                { text: "The Generation", class: "key-year", i18n: "defGeneration" },
+                { text: "The Century", class: "key-year", i18n: "defCentury" },
+                { text: "Before Christ", class: "key-other", i18n: "defBC" },
+                { text: "After Christ", class: "key-other", i18n: "defAD" },
+                { text: "Gregorian Calendar", class: "key-other", i18n: "defGregorianCalendar" },
+                { text: "Hijri Calendar", class: "key-other", i18n: "defHijriCalendar" },
+                { text: "Historical Event", class: "key-other", i18n: "defHistoricalEvent" },
+                { text: "Birth of Jesus", class: "key-event", i18n: "defChristmas" },
+                { text: "Hijra of the Prophet", class: "key-event", i18n: "defHijra" }
+            ],
+            fr: [
+                { text: "La décennie", class: "key-year", i18n: "defDecade" },
+                { text: "La génération", class: "key-year", i18n: "defGeneration" },
+                { text: "Le siècle", class: "key-year", i18n: "defCentury" },
+                { text: "Avant Jésus-Christ", class: "key-other", i18n: "defBC" },
+                { text: "Après Jésus-Christ", class: "key-other", i18n: "defAD" },
+                { text: "calendrier grégorien", class: "key-other", i18n: "defGregorianCalendar" },
+                { text: "calendrier hégirien", class: "key-other", i18n: "defHijriCalendar" },
+                { text: "Événement historique", class: "key-other", i18n: "defHistoricalEvent" },
+                { text: "La naissance de Jésus", class: "key-event", i18n: "defChristmas" },
+                { text: "L'Hégire du Prophète", class: "key-event", i18n: "defHijra" }
+            ],
+            ar: [
+                { text: "العقد", class: "key-year", i18n: "defDecade" },
+                { text: "الجيل", class: "key-year", i18n: "defGeneration" },
+                { text: "القرن", class: "key-year", i18n: "defCentury" },
+                { text: "ما قبل الميلاد", class: "key-other", i18n: "defBC" },
+                { text: "ما بعد الميلاد", class: "key-other", i18n: "defAD" },
+                { text: "التاريخ الميلادي", class: "key-other", i18n: "defGregorianCalendar" },
+                { text: "التاريخ الإسلامي", class: "key-other", i18n: "defHijriCalendar" },
+                { text: "الحدث التاريخي", class: "key-other", i18n: "defHistoricalEvent" },
+                { text: "ميلاد عيسى بن مريم", class: "key-event", i18n: "defChristmas" },
+                { text: "هجرة الرسول", class: "key-event", i18n: "defHijra" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

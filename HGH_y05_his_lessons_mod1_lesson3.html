@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / التمهيد لدراسة التاريخ</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">أتعرّف الوثائق التاريخية</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">كلّ وثيقة لها امتداد زمني في الماضي، وهي تُمثّل المصدر الذي يعتمد عليه المؤرّخ للتعرّف على حياة الأمم والحضارات. وتُصنَّف الوثائق التاريخية إلى صنفين: الوثائق التاريخية الصامتة والوثائق التاريخية المكتوبة.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي أنواع الوثائق التاريخية؟ وما الفرق بين الوثيقة الصامتة والوثيقة المكتوبة؟ وكيف ساهمت الوثائق التاريخية في التعرّف على الحضارات القديمة؟</p>
+            </div>
+
+            <!-- Part I : Silent documents -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">الوثائق الصامتة</span>
+                </h2>
+                <p data-i18n="silentText">تتمثّل الوثائق الصامتة في المباني الضخمة التي تعكس تطوّر العمارة والمعمار الروماني والإغريقي والقرطاجي، وتشمل الأواني الفخارية والأسلحة المستخدمة في الحروب والمعارك، والحلي والملابس التي تعبّر عن ثقافة تلك الحضارات القديمة.</p>
+            </div>
+
+            <!-- Part II : Written documents -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">الوثائق المكتوبة</span>
+                </h2>
+                <p data-i18n="writtenText">تتجلّى الوثائق المكتوبة في النقوش على الحجارة والنصوص المكتوبة على الجلود والورق، التي تحمل تاريخًا وثقافة وحكايا الأمم والحضارات. ومع التقنيات الحديثة، تمّت طباعة المعرفة على الأقراص الليزرية للحفاظ عليها للأجيال القادمة.</p>
+            </div>
+
+            <!-- Part III : Note -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span> <span data-i18n="sectionPart3">ملاحظة</span>
+                </h2>
+                <p data-i18n="noteText">ساهمت الوثائق التاريخية في التعرّف على عديد الحضارات التي سبقت واندثرت كالحضارة الإغريقية والرومانية والقرطاجية، من حيث اللغة والدين والعلوم.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">تُصنَّف الوثائق التاريخية إلى صنفين: وثائق صامتة (مبانٍ وأوانٍ وأسلحة وحليّ وملابس) ووثائق مكتوبة (نقوش على الحجارة، ونصوص مخطوطة على الجلد والورق، ومطبوعات على الأقراص الليزرية). وقد ساهمت هذه الوثائق في التعرّف على الحضارات القديمة التي اندثرت مثل الحضارة الإغريقية والرومانية والقرطاجية.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defHistoricalDoc">الوثيقة التاريخية</strong>: <span data-i18n="defHistoricalDocDesc">كلّ وثيقة لها امتداد زمني في الماضي، وهي المصدر الذي يعتمد عليه المؤرّخ للتعرّف على حياة الأمم والحضارات. وتُصنَّف إلى وثائق صامتة ووثائق مكتوبة.</span></li>
+                        <li><strong class="key-other" data-i18n="defSilentDoc">الوثيقة الصامتة</strong>: <span data-i18n="defSilentDocDesc">هي المباني الضخمة التي تعكس تطوّر العمارة والمعمار الروماني والإغريقي والقرطاجي، وتشمل الأواني الفخارية والأسلحة المستخدمة في الحروب والمعارك والحلي والملابس التي تعبّر عن ثقافة تلك الحضارات القديمة.</span></li>
+                        <li><strong class="key-other" data-i18n="defWrittenDoc">الوثيقة المكتوبة</strong>: <span data-i18n="defWrittenDocDesc">هي النقوش على الحجارة والنصوص المكتوبة على الجلود والورق، التي تحمل تاريخًا وثقافة وحكايا الأمم والحضارات. ومع التقنيات الحديثة، تمّت طباعة المعرفة على الأقراص الليزرية للحفاظ عليها للأجيال القادمة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ حضارات</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defGreekCivilization">الحضارة الإغريقية</strong>: <span data-i18n="defGreekCivilizationDesc">من الحضارات التي سبقت واندثرت، وقد ساهمت الوثائق التاريخية في التعرّف عليها من حيث اللغة والدين والعلوم.</span></li>
+                        <li><strong class="key-event" data-i18n="defRomanCivilization">الحضارة الرومانية</strong>: <span data-i18n="defRomanCivilizationDesc">من الحضارات التي سبقت واندثرت، وقد ساهمت الوثائق التاريخية في التعرّف عليها من حيث اللغة والدين والعلوم.</span></li>
+                        <li><strong class="key-event" data-i18n="defCarthaginianCivilization">الحضارة القرطاجية</strong>: <span data-i18n="defCarthaginianCivilizationDesc">من الحضارات التي سبقت واندثرت، وقد ساهمت الوثائق التاريخية في التعرّف عليها من حيث اللغة والدين والعلوم.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: تُصنَّف الوثائق التاريخية إلى صنفين: وثائق صامتة (مبانٍ، أوانٍ، أسلحة، حليّ، ملابس) ووثائق مكتوبة (نقوش على الحجارة، نصوص مخطوطة على الجلد والورق، مطبوعات على الأقراص الليزرية)، وقد ساهمت في التعرّف على الحضارات القديمة التي اندثرت مثل الحضارة الإغريقية والرومانية والقرطاجية.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق مصوّرة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit1/lesson3/manuscript_on_leather.jpg" alt="كتابة مخطوطة على الجلد" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">كتابة مخطوطة على الجلد</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit1/lesson3/inscription_on_stone.jpg" alt="كتابة منقوشة على الحجارة" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">كتابة منقوشة على الحجارة</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod1_lesson3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية والحضارات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والوثائق المصوّرة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Introduction to the Study of History",
+                lessonTitleSample: "Discovering Historical Documents",
+                sectionIntro: "Introduction",
+                introText: "Every document has a temporal extension in the past, and it represents the source on which the historian relies to learn about the life of nations and civilizations. Historical documents are classified into two categories: silent historical documents and written historical documents.",
+                problematiqueText: "What are the types of historical documents? What is the difference between a silent document and a written document? And how have historical documents contributed to our knowledge of ancient civilizations?",
+                sectionPart1: "Silent Documents",
+                silentText: "Silent documents consist of monumental buildings that reflect the development of architecture, including Roman, Greek, and Carthaginian architecture. They also include pottery vessels, weapons used in wars and battles, and jewellery and clothing that express the culture of those ancient civilizations.",
+                silentSummary: "They consist of buildings, vessels, weapons, jewellery, and clothing.",
+                sectionPart2: "Written Documents",
+                writtenText: "Written documents are manifested in inscriptions on stone and texts written on leather and paper, which carry the history, culture, and stories of nations and civilizations. With modern technologies, knowledge has been printed on laser discs to preserve it for future generations.",
+                writtenSummary: "They consist of writings inscribed on stone or handwritten on leather and paper, and printed on laser discs.",
+                sectionPart3: "Note",
+                noteText: "Historical documents have contributed to our knowledge of many civilizations that preceded and vanished, such as Greek, Roman, and Carthaginian civilizations, in terms of language, religion, and sciences.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Historical documents are classified into two categories: silent documents (buildings, vessels, weapons, jewellery, and clothing) and written documents (inscriptions on stone, texts handwritten on leather and paper, and prints on laser discs). These documents have contributed to our knowledge of ancient civilizations that vanished, such as Greek, Roman, and Carthaginian civilizations.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Illustrated Documents",
+                defOthers: "📌 Other",
+                defEvents: "⚔️ Civilizations",
+                defHistoricalDoc: "Historical Document",
+                defHistoricalDocDesc: "Every document has a temporal extension in the past, and it is the source on which the historian relies to learn about the life of nations and civilizations. It is classified into silent documents and written documents.",
+                defSilentDoc: "Silent Document",
+                defSilentDocDesc: "Monumental buildings that reflect the development of Roman, Greek, and Carthaginian architecture. They include pottery vessels, weapons used in wars and battles, and jewellery and clothing that express the culture of those ancient civilizations.",
+                defWrittenDoc: "Written Document",
+                defWrittenDocDesc: "Inscriptions on stone and texts written on leather and paper, which carry the history, culture, and stories of nations and civilizations. With modern technologies, knowledge has been printed on laser discs to preserve it for future generations.",
+                defGreekCivilization: "Greek Civilization",
+                defGreekCivilizationDesc: "One of the civilizations that preceded and vanished, and whose language, religion, and sciences historical documents have helped us discover.",
+                defRomanCivilization: "Roman Civilization",
+                defRomanCivilizationDesc: "One of the civilizations that preceded and vanished, and whose language, religion, and sciences historical documents have helped us discover.",
+                defCarthaginianCivilization: "Carthaginian Civilization",
+                defCarthaginianCivilizationDesc: "One of the civilizations that preceded and vanished, and whose language, religion, and sciences historical documents have helped us discover.",
+                summaryText: "Key takeaway: Historical documents are classified into two categories: silent documents (buildings, vessels, weapons, jewellery, and clothing) and written documents (inscriptions on stone, texts handwritten on leather and paper, prints on laser discs). They have helped us discover ancient civilizations that vanished, such as Greek, Roman, and Carthaginian civilizations.",
+                galleryAlt1: "Handwritten text on leather",
+                galleryAlt2: "Inscription on stone",
+                galleryCap1: "Handwritten text on leather",
+                galleryCap2: "Inscription on stone",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / Introduction à l'étude de l'histoire",
+                lessonTitleSample: "Découvrir les documents historiques",
+                sectionIntro: "Introduction",
+                introText: "Chaque document a une extension temporelle dans le passé, et il représente la source sur laquelle l'historien s'appuie pour connaître la vie des nations et des civilisations. Les documents historiques sont classés en deux catégories : les documents historiques silencieux et les documents historiques écrits.",
+                problematiqueText: "Quels sont les types de documents historiques ? Quelle est la différence entre un document silencieux et un document écrit ? Et comment les documents historiques ont-ils contribué à notre connaissance des civilisations anciennes ?",
+                sectionPart1: "Les documents silencieux",
+                silentText: "Les documents silencieux consistent en des bâtiments monumentaux qui reflètent le développement de l'architecture, y compris l'architecture romaine, grecque et carthaginoise. Ils comprennent également des poteries, des armes utilisées dans les guerres et les batailles, ainsi que des bijoux et des vêtements qui expriment la culture de ces civilisations anciennes.",
+                silentSummary: "Ils comprennent des bâtiments, des poteries, des armes, des bijoux et des vêtements.",
+                sectionPart2: "Les documents écrits",
+                writtenText: "Les documents écrits se manifestent par des inscriptions sur pierre et des textes écrits sur cuir et sur papier, qui portent l'histoire, la culture et les récits des nations et des civilisations. Avec les technologies modernes, le savoir a été imprimé sur des disques laser pour le préserver pour les générations futures.",
+                writtenSummary: "Ils comprennent des écrits gravés sur pierre ou manuscrits sur cuir et papier, et imprimés sur des disques laser.",
+                sectionPart3: "Remarque",
+                noteText: "Les documents historiques ont contribué à la connaissance de nombreuses civilisations qui ont précédé et disparu, comme les civilisations grecque, romaine et carthaginoise, sur le plan de la langue, de la religion et des sciences.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Les documents historiques sont classés en deux catégories : les documents silencieux (bâtiments, poteries, armes, bijoux et vêtements) et les documents écrits (inscriptions sur pierre, textes manuscrits sur cuir et papier, et imprimés sur disques laser). Ces documents ont contribué à notre connaissance des civilisations anciennes qui ont disparu, telles que les civilisations grecque, romaine et carthaginoise.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents illustrés",
+                defOthers: "📌 Autres",
+                defEvents: "⚔️ Civilisations",
+                defHistoricalDoc: "Document historique",
+                defHistoricalDocDesc: "Chaque document a une extension temporelle dans le passé, et il est la source sur laquelle l'historien s'appuie pour connaître la vie des nations et des civilisations. Il est classé en document silencieux et document écrit.",
+                defSilentDoc: "Document silencieux",
+                defSilentDocDesc: "Des bâtiments monumentaux qui reflètent le développement de l'architecture romaine, grecque et carthaginoise. Ils comprennent des poteries, des armes utilisées dans les guerres et les batailles, ainsi que des bijoux et des vêtements qui expriment la culture de ces civilisations anciennes.",
+                defWrittenDoc: "Document écrit",
+                defWrittenDocDesc: "Des inscriptions sur pierre et des textes écrits sur cuir et sur papier, qui portent l'histoire, la culture et les récits des nations et des civilisations. Avec les technologies modernes, le savoir a été imprimé sur des disques laser pour le préserver pour les générations futures.",
+                defGreekCivilization: "Civilisation grecque",
+                defGreekCivilizationDesc: "L'une des civilisations qui ont précédé et disparu, dont les documents historiques ont permis de découvrir la langue, la religion et les sciences.",
+                defRomanCivilization: "Civilisation romaine",
+                defRomanCivilizationDesc: "L'une des civilisations qui ont précédé et disparu, dont les documents historiques ont permis de découvrir la langue, la religion et les sciences.",
+                defCarthaginianCivilization: "Civilisation carthaginoise",
+                defCarthaginianCivilizationDesc: "L'une des civilisations qui ont précédé et disparu, dont les documents historiques ont permis de découvrir la langue, la religion et les sciences.",
+                summaryText: "À retenir : Les documents historiques sont classés en deux catégories : les documents silencieux (bâtiments, poteries, armes, bijoux et vêtements) et les documents écrits (inscriptions sur pierre, textes manuscrits sur cuir et papier, imprimés sur disques laser). Ils ont permis de découvrir des civilisations anciennes disparues, telles que les civilisations grecque, romaine et carthaginoise.",
+                galleryAlt1: "Écrit manuscrit sur cuir",
+                galleryAlt2: "Inscription sur pierre",
+                galleryCap1: "Écrit manuscrit sur cuir",
+                galleryCap2: "Inscription sur pierre",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / التمهيد لدراسة التاريخ",
+                lessonTitleSample: "أتعرّف الوثائق التاريخية",
+                sectionIntro: "مقدمة",
+                introText: "كلّ وثيقة لها امتداد زمني في الماضي، وهي تُمثّل المصدر الذي يعتمد عليه المؤرّخ للتعرّف على حياة الأمم والحضارات. وتُصنَّف الوثائق التاريخية إلى صنفين: الوثائق التاريخية الصامتة والوثائق التاريخية المكتوبة.",
+                problematiqueText: "ما هي أنواع الوثائق التاريخية؟ وما الفرق بين الوثيقة الصامتة والوثيقة المكتوبة؟ وكيف ساهمت الوثائق التاريخية في التعرّف على الحضارات القديمة؟",
+                sectionPart1: "الوثائق الصامتة",
+                silentText: "تتمثّل الوثائق الصامتة في المباني الضخمة التي تعكس تطوّر العمارة والمعمار الروماني والإغريقي والقرطاجي، وتشمل الأواني الفخارية والأسلحة المستخدمة في الحروب والمعارك، والحلي والملابس التي تعبّر عن ثقافة تلك الحضارات القديمة.",
+                silentSummary: "تتمثّل في المباني والأواني والأسلحة والحليّ والملابس.",
+                sectionPart2: "الوثائق المكتوبة",
+                writtenText: "تتجلّى الوثائق المكتوبة في النقوش على الحجارة والنصوص المكتوبة على الجلود والورق، التي تحمل تاريخًا وثقافة وحكايا الأمم والحضارات. ومع التقنيات الحديثة، تمّت طباعة المعرفة على الأقراص الليزرية للحفاظ عليها للأجيال القادمة.",
+                writtenSummary: "تتمثّل في الكتابات المنقوشة على الحجارة أو المخطوطة على الجلد والورق والمطبوعة على الأقراص الليزرية.",
+                sectionPart3: "ملاحظة",
+                noteText: "ساهمت الوثائق التاريخية في التعرّف على عديد الحضارات التي سبقت واندثرت كالحضارة الإغريقية والرومانية والقرطاجية، من حيث اللغة والدين والعلوم.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "تُصنَّف الوثائق التاريخية إلى صنفين: وثائق صامتة (مبانٍ وأوانٍ وأسلحة وحليّ وملابس) ووثائق مكتوبة (نقوش على الحجارة، ونصوص مخطوطة على الجلد والورق، ومطبوعات على الأقراص الليزرية). وقد ساهمت هذه الوثائق في التعرّف على الحضارات القديمة التي اندثرت مثل الحضارة الإغريقية والرومانية والقرطاجية.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق مصوّرة",
+                defOthers: "📌 أخرى",
+                defEvents: "⚔️ حضارات",
+                defHistoricalDoc: "الوثيقة التاريخية",
+                defHistoricalDocDesc: "كلّ وثيقة لها امتداد زمني في الماضي، وهي المصدر الذي يعتمد عليه المؤرّخ للتعرّف على حياة الأمم والحضارات. وتُصنَّف إلى وثائق صامتة ووثائق مكتوبة.",
+                defSilentDoc: "الوثيقة الصامتة",
+                defSilentDocDesc: "هي المباني الضخمة التي تعكس تطوّر العمارة والمعمار الروماني والإغريقي والقرطاجي، وتشمل الأواني الفخارية والأسلحة المستخدمة في الحروب والمعارك والحلي والملابس التي تعبّر عن ثقافة تلك الحضارات القديمة.",
+                defWrittenDoc: "الوثيقة المكتوبة",
+                defWrittenDocDesc: "هي النقوش على الحجارة والنصوص المكتوبة على الجلود والورق، التي تحمل تاريخًا وثقافة وحكايا الأمم والحضارات. ومع التقنيات الحديثة، تمّت طباعة المعرفة على الأقراص الليزرية للحفاظ عليها للأجيال القادمة.",
+                defGreekCivilization: "الحضارة الإغريقية",
+                defGreekCivilizationDesc: "من الحضارات التي سبقت واندثرت، وقد ساهمت الوثائق التاريخية في التعرّف عليها من حيث اللغة والدين والعلوم.",
+                defRomanCivilization: "الحضارة الرومانية",
+                defRomanCivilizationDesc: "من الحضارات التي سبقت واندثرت، وقد ساهمت الوثائق التاريخية في التعرّف عليها من حيث اللغة والدين والعلوم.",
+                defCarthaginianCivilization: "الحضارة القرطاجية",
+                defCarthaginianCivilizationDesc: "من الحضارات التي سبقت واندثرت، وقد ساهمت الوثائق التاريخية في التعرّف عليها من حيث اللغة والدين والعلوم.",
+                summaryText: "خلاصة: تُصنَّف الوثائق التاريخية إلى صنفين: وثائق صامتة (مبانٍ، أوانٍ، أسلحة، حليّ، ملابس) ووثائق مكتوبة (نقوش على الحجارة، نصوص مخطوطة على الجلد والورق، مطبوعات على الأقراص الليزرية)، وقد ساهمت في التعرّف على الحضارات القديمة التي اندثرت مثل الحضارة الإغريقية والرومانية والقرطاجية.",
+                galleryAlt1: "كتابة مخطوطة على الجلد",
+                galleryAlt2: "كتابة منقوشة على الحجارة",
+                galleryCap1: "كتابة مخطوطة على الجلد",
+                galleryCap2: "كتابة منقوشة على الحجارة",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Historical Document", class: "key-other", i18n: "defHistoricalDoc" },
+                { text: "Silent Document", class: "key-other", i18n: "defSilentDoc" },
+                { text: "Written Document", class: "key-other", i18n: "defWrittenDoc" },
+                { text: "Greek Civilization", class: "key-event", i18n: "defGreekCivilization" },
+                { text: "Roman Civilization", class: "key-event", i18n: "defRomanCivilization" },
+                { text: "Carthaginian Civilization", class: "key-event", i18n: "defCarthaginianCivilization" }
+            ],
+            fr: [
+                { text: "Document historique", class: "key-other", i18n: "defHistoricalDoc" },
+                { text: "Document silencieux", class: "key-other", i18n: "defSilentDoc" },
+                { text: "Document écrit", class: "key-other", i18n: "defWrittenDoc" },
+                { text: "Civilisation grecque", class: "key-event", i18n: "defGreekCivilization" },
+                { text: "Civilisation romaine", class: "key-event", i18n: "defRomanCivilization" },
+                { text: "Civilisation carthaginoise", class: "key-event", i18n: "defCarthaginianCivilization" }
+            ],
+            ar: [
+                { text: "الوثيقة التاريخية", class: "key-other", i18n: "defHistoricalDoc" },
+                { text: "الوثيقة الصامتة", class: "key-other", i18n: "defSilentDoc" },
+                { text: "الوثيقة المكتوبة", class: "key-other", i18n: "defWrittenDoc" },
+                { text: "الحضارة الإغريقية", class: "key-event", i18n: "defGreekCivilization" },
+                { text: "الحضارة الرومانية", class: "key-event", i18n: "defRomanCivilization" },
+                { text: "الحضارة القرطاجية", class: "key-event", i18n: "defCarthaginianCivilization" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
