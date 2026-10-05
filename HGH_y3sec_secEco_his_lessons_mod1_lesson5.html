@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+        .lesson-quote {
+            background: var(--ED-General-color-bg-secondary);
+            border-right: 4px solid var(--ED-General-color-accent-default);
+            padding: 1rem 1.2rem;
+            margin: 1.2rem 0;
+            border-radius: 10px;
+            font-style: italic;
+            color: var(--ED-General-color-text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.9;
+        }
+        [dir="rtl"] .lesson-quote { border-right: 4px solid var(--ED-General-color-accent-default); border-left: none; }
+        [dir="ltr"] .lesson-quote { border-left: 4px solid var(--ED-General-color-accent-default); border-right: none; }
+        .lesson-quote-author {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--ED-General-color-accent-default);
+        }
+        .lesson-quote-source { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); }
+        .lesson-stat-highlight {
+            display: inline-block;
+            background: var(--ED-General-color-accent-light);
+            color: var(--ED-General-color-accent-default);
+            padding: 0.15rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+        .info-card {
+            background: var(--ED-General-color-bg-secondary);
+            border: 1px solid var(--ED-General-color-border);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+        .info-card-label {
+            font-size: 0.82rem;
+            color: var(--ED-General-color-text-tertiary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+        .info-card-value {
+            font-size: 1rem;
+            color: var(--ED-General-color-text-primary);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: أوروبا والعالم المتوسطي في القرن السادس عشر</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">توسع الإمبراطورية العثمانية وتنظيمها في القرن السادس عشر</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">تنسب الإمبراطورية العثمانية إلى مؤسسها عثمان الأول الذي استفاد من تفكك دولة السلاجقة الروم بالأناضول (مرتفعات شرق تركيا اليوم) في أواخر القرن الثالث عشر الميلادي (XIII م)، ليحوّل إمارته التركية إلى دولة مُحاربة، تمكّنت من القضاء على الإمبراطورية البيزنطية، ومن الاستيلاء على عاصمتها القسطنطينية في 1453 م (إستنبول منذ ذلك الحين)، وجعلت منها عاصمة إمبراطورية امتد مجالها في القرنين الموالين إلى آسيا الصغرى (شرقا) والبلقان (جنوبا)، وشهدت الإمبراطورية العثمانية أوج توسّعها وذروة قوتها وقوّة تأثيرها السّياسي خلال القرن السادس عشر الميلادي (XVI م) في عهد عاشر سلاطينها سليمان الأول الملقّب بـ«القانوني» (1566-1520).</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي مظاهر التوسع العثماني في القرن السادس عشر؟ وكيف نظّم العثمانيون إمبراطوريتهم في عهد سليمان القانوني؟</p>
+            </div>
+
+            <!-- Part I : Ottoman Expansion in the 16th Century -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">التوسعات العثمانية في القرن السادس عشر</span>
+                </h2>
+                <p data-i18n="part1Intro">واصل سلاطين القرن السادس عشر توسيع مجال الإمبراطورية العثمانية على حساب خصومهم في أوروبا والشرق الإسلامي، اعتمادا على قوّتهم العسكرية حينا، والطرق الديبلوماسية لتحجيم تشتيت قواتهم في أكثر من جبهة حينا آخر.</p>
+
+                <!-- A. Expansion in the Arab East and Western Persia -->
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">أ</span>.
+                    <span data-i18n="expansionEastTitle">التوسعات في الشرق العربي وفي غرب فارس</span>
+                </h3>
+
+                <h4 class="sub-numeric-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="safavidTitle">التوسّع على حساب الدولة الصفوية</span>
+                </h4>
+                <p data-i18n="safavidText">شكّلت الدولة الصفوية في إيران، منذ قيامها، خطرا على الإمبراطورية العثمانية، بسبب توجّهها الشّيعي وسياستها التوسعية. كما أثارت ممتلكاتها على المحيط الهندي أطماع العثمانيين، فضلا عن نشاط السلطان سليم الأول (1512-1520 م) حربا على مُلكها شاه إسماعيل، وهزمه في معركة جالدران (1514 م) دون أن يُزيل الخطر الصفوي نهائيا. ثمّ أخضع جنوب شرق الأناضول.</p>
+                <p data-i18n="safavidText2">واصل سليمان القانوني مقاومة الصفويين، فنظم حملتين ضدّهم في 1533 و 1534 سيطر العثمانيون على العراق وغربي فارس. فتمكّن العثمانيون بذلك من النّفاذ إلى مياه الخليج، بعد ضمّ البصرة في 1547 م.</p>
+
+                <h4 class="sub-numeric-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="syriaEgyptTitle">التوسّع في الشام ومصر</span>
+                </h4>
+                <p data-i18n="syriaEgyptText">تمكّنت الجيوش العثمانية من السيطرة على الشام في 1516 م بعد انتصاراتها على جيش المماليك في «مرج دابق»، ليفتح أمامها طريق والي الشام. وانفردت دولة المماليك بمركز انهيار (حرب الجزر الشامية والبرية: حلب، حمص، دمشق، بيروت...). فاحتلّ سليم الأول معظم بلاد الشام والجزيرة العربية. كما جاءت حملته على مصر لاسقاط دولة المماليك في مثل هذا التاريخ ليفتح «حامد الحرمين الشريفين» الذي حملها المماليك من قبل.</p>
+
+                <h4 class="sub-numeric-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="arabianPeninsulaTitle">التوسّع في جنوب شرق الجزيرة العربية</span>
+                </h4>
+                <p data-i18n="arabianPeninsulaText">عمل السلطان سليمان على مدى استقراره على عرش الدولة العثمانية على توطيد سلطة العثمانية على شبه الجزيرة العربية (الحجاز، عمان، الأحساء...)، وتشكيل الحضور العثماني على البحر الأحمر. عين والي مصر بمركزه على عدن (جنوب اليمن)، وتركيز الحضور العثماني بجنوب اليمن. ثمّ استولى قائد الأسطول «بيري رئيس» على مسقط (عمان) في 1551 م.</p>
+
+                <!-- B. Expansion in Europe, the Mediterranean and the Maghreb -->
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">ب</span>.
+                    <span data-i18n="expansionEuropeTitle">التوسّع في أوروبا وفي المتوسط وبلاد المغرب</span>
+                </h3>
+                <p data-i18n="expansionEuropeIntro">استهدف توسّع الإمبراطورية العثمانية المسيحية في أوروبا. فاستغلّت الدولة العثمانية انشغال شارلكان (شارل الخامس) ملك إسبانيا وامبراطورها (1519-1556) في حروبه ضدّ فرنسا. كما استغلّت انشغال بابا روما. كما استفاد العثمانيون من الصراع بين الإسبان والبرتغال على المستعمرات، واستغلّوا التنافس بين الدول الأوروبية.</p>
+
+                <h4 class="sub-numeric-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="europeExpansionTitle">التوسّع في أوروبا</span>
+                </h4>
+                <p data-i18n="europeExpansionText">وقد كان فتح القسطنطينية 1453 م منطلقا لسلسلة الفتوحات العثمانية في أوروبا. فقد تقدّم العثمانيون نحو بلاد المجر (هنغاريا) فاحتلوا بلاد المجر (هنغاريا) وجعلوها ولاية عثمانية. كما فتحوا بلاد المجر (هنغاريا) وبلاد البوسنة والهرسك (البوسنة والهرسك) وبلاد الصرب (صربيا) وبلاد الأفلاق (رومانيا) وبلاد البغدان (مولدافيا). كما وصلوا في فتوحاتهم إلى أسوار فيينا (عاصمة النمسا) فحاصروها في 1529 م.</p>
+
+                <h4 class="sub-numeric-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="mediterraneanExpansionTitle">التوسّع في المتوسط وبلاد المغرب</span>
+                </h4>
+                <p data-i18n="mediterraneanExpansionText">تكتسب بلاد المغرب أهمية حيوية في نظر العثمانيين، إلاّ بعد احتلالهم مصر سنة 1517 م. وتعزّزت مكانتها الاستراتيجية لدى سلاطين العثمانيين في فتح الطرق التجارية العالمية في البحر المتوسط. انطلق العثمانيون في فتح بلاد المغرب العربي، فعملوا على طرد الإسبان من سواحل شمال إفريقيا. فتمكّن العثمانيون بقيادة «خير الدين بربروس» من إخضاع تونس ثم الجزائر. ثمّ استطاعوا بأسطولهم البحري بقيادة «خير الدين بربروس» من إخضاع تونس ثم الجزائر. كما اتجه العثمانيون إلى البحر الأبيض المتوسط...</p>
+            </div>
+
+            <!-- Part II : Organization of the Empire under Suleiman I -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">تنظيم الإمبراطورية في عهد سليمان الأول</span>
+                </h2>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">أ</span>.
+                    <span data-i18n="adminOrgTitle">التنظيم الإداري</span>
+                </h3>
+                <p data-i18n="adminOrgText">قام التنظيم الإداري للدولة العثمانية على أسس مركزية محكمة، حيث يجمع السلطان بين السلطتين الدينية والزمنية، ويُعاونه في إدارة شؤون الدولة:</p>
+                <ul>
+                    <li data-i18n="adminOrgBullet1"><strong>الصدر الأعظم (Grand Vizier):</strong> رئيس الوزراء، يمثل السلطان في إدارة شؤون الدولة ويشرف على باقي الوزراء.</li>
+                    <li data-i18n="adminOrgBullet2"><strong>الديوان (Divan):</strong> المجلس الاستشاري الأعلى الذي يضم كبار رجال الدولة لمناقشة القضايا الكبرى.</li>
+                    <li data-i18n="adminOrgBullet3"><strong>الولاة (Walis):</strong> يحكمون الولايات (الإيالات) التي قُسّمت إليها الإمبراطورية، ويرجعون مباشرة إلى السلطان.</li>
+                    <li data-i18n="adminOrgBullet4"><strong>القضاة (Qadis):</strong> يشرفون على العدالة وتطبيق الشريعة الإسلامية والقانون العثماني (القانون نامه).</li>
+                </ul>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">ب</span>.
+                    <span data-i18n="militaryOrgTitle">التنظيم العسكري</span>
+                </h3>
+                <p data-i18n="militaryOrgText">اعتمدت الإمبراطورية العثمانية على جيش قوي ومنظّم كان من أقوى الجيوش في العالم آنذاك، وتكوّن من:</p>
+                <ul>
+                    <li data-i18n="militaryOrgBullet1"><strong>الجيش الانكشاري (Janissaries):</strong> المشاة النظاميون، وهم نخبة الجيش العثماني، يتم تجنيدهم من الأطفال المسيحيين الذين يُحوّلون إلى الإسلام ويُدرّبون تدريبًا عسكريًا صارمًا.</li>
+                    <li data-i18n="militaryOrgBullet2"><strong>السباهية (Sipahis):</strong> الفرسان الذين يحصلون على إقطاعات أرضية مقابل خدماتهم العسكرية.</li>
+                    <li data-i18n="militaryOrgBullet3"><strong>الأسطول البحري:</strong> قوة بحرية هائلة ساهمت في توسع الإمبراطورية في البحر المتوسط والبحر الأحمر والمحيط الهندي.</li>
+                    <li data-i18n="militaryOrgBullet4"><strong>الأسطول البحري بقيادة خير الدين بربروس:</strong> الذي تمكّن من إخضاع تونس والجزائر وطرد الإسبان من سواحل شمال إفريقيا.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">شكّلت الإمبراطورية العثمانية في القرن السادس عشر قوة عالمية كبرى بفضل توسعاتها الواسعة في أوروبا وآسيا وإفريقيا، وتنظيمها الإداري والعسكري المحكم، مما جعلها محطّ أنظار القوى الأوروبية ومنافسًا خطيرًا لها في البحر المتوسط والطرق التجارية العالمية.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defSuleiman">سليمان الأول (القانوني) (Suleiman I)</strong>: <span data-i18n="defSuleimanDesc">عاشر سلاطين الإمبراطورية العثمانية (1520-1566)، لُقّب بـ«القانوني» لوضعه قانونًا نامه (القانون العثماني). شهدت الإمبراطورية في عهده أوج توسعها وذروة قوتها. نظّم حملات ضد الصفويين والسيطرة على العراق وغربي فارس، ووصلت فتوحاته إلى أسوار فيينا (1529).</span></li>
+                        <li><strong class="key-person" data-i18n="defSelimI">سليم الأول (Selim I)</strong>: <span data-i18n="defSelimIDesc">السلطان العثماني (1512-1520)، هزم شاه إسماعيل الصفوي في معركة جالدران (1514)، وتمكّن من السيطرة على الشام (1516) ومصر (1517) بعد القضاء على دولة المماليك.</span></li>
+                        <li><strong class="key-person" data-i18n="defOsmanI">عثمان الأول (Osman I)</strong>: <span data-i18n="defOsmanIDesc">مؤسس الإمبراطورية العثمانية، استفاد من تفكك دولة السلاجقة الروم بالأناضول في أواخر القرن الثالث عشر الميلادي، وحوّل إمارته التركية إلى دولة محاربة.</span></li>
+                        <li><strong class="key-person" data-i18n="defShahIsmail">شاه إسماعيل (Shah Ismail)</strong>: <span data-i18n="defShahIsmailDesc">ملك الدولة الصفوية في إيران، هزمه السلطان سليم الأول في معركة جالدران (1514) لكن الخطر الصفوي لم يُزل نهائيا.</span></li>
+                        <li><strong class="key-person" data-i18n="defKhayrEddine">خير الدين بربروس (Khayr ad-Din Barbarossa)</strong>: <span data-i18n="defKhayrEddineDesc">قائد الأسطول البحري العثماني، قاد حملات بحرية ناجحة تمكّن بها من إخضاع تونس والجزائر وطرد الإسبان من سواحل شمال إفريقيا.</span></li>
+                        <li><strong class="key-person" data-i18n="defPiriReis">بيري رئيس (Piri Reis)</strong>: <span data-i18n="defPiriReisDesc">قائد الأسطول العثماني، استولى على مسقط (عمان) في 1551 م، وعمل على توطيد الحضور العثماني في جنوب الجزيرة العربية.</span></li>
+                        <li><strong class="key-person" data-i18n="defCharlesV">شارلكان (شارل الخامس) (Charles V)</strong>: <span data-i18n="defCharlesVDesc">ملك إسبانيا وإمبراطور الإمبراطورية الرومانية المقدسة (1519-1556)، انشغل بحروبه ضد فرنسا، مما استغلته الدولة العثمانية في توسعاتها.</span></li>
+                        <li><strong class="key-person" data-i18n="defAndreClot">أندري كلو (André Clot)</strong>: <span data-i18n="defAndreClotDesc">مؤرخ فرنسي، صاحب كتاب «سليمان القانوني» (بيروت: دار الجيل، 1991)، ومنه اقتبس النص الوارد في مدخل الدرس.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defAnatolia">الأناضول</strong>: <span data-i18n="defAnatoliaDesc">مرتفعات شرق تركيا اليوم، موطن نشأة الإمارة العثمانية بعد تفكك دولة السلاجقة الروم.</span></li>
+                        <li><strong class="key-location" data-i18n="defConstantinople">القسطنطينية (إستنبول)</strong>: <span data-i18n="defConstantinopleDesc">عاصمة الإمبراطورية البيزنطية، فتحها العثمانيون سنة 1453 م وجعلوها عاصمة إمبراطوريتهم.</span></li>
+                        <li><strong class="key-location" data-i18n="defBalkans">البلقان</strong>: <span data-i18n="defBalkansDesc">منطقة في جنوب شرق أوروبا، امتد إليها التوسع العثماني في القرنين XV و XVI.</span></li>
+                        <li><strong class="key-location" data-i18n="defIran">إيران (بلاد فارس)</strong>: <span data-i18n="defIranDesc">موطن الدولة الصفوية، التي شكّلت خطرا على الإمبراطورية العثمانية بسبب توجّهها الشيعي وسياستها التوسعية.</span></li>
+                        <li><strong class="key-location" data-i18n="defIraq">العراق</strong>: <span data-i18n="defIraqDesc">سيطر عليه العثمانيون في حملاتهم ضد الصفويين (1533-1534)، وضمّوا البصرة في 1547 م للنفاذ إلى مياه الخليج.</span></li>
+                        <li><strong class="key-location" data-i18n="defSyria">الشام</strong>: <span data-i18n="defSyriaDesc">سيطرت عليها الجيوش العثمانية في 1516 م بعد انتصاراتها على المماليك في «مرج دابق».</span></li>
+                        <li><strong class="key-location" data-i18n="defEgypt">مصر</strong>: <span data-i18n="defEgyptDesc">أسقطها سليم الأول سنة 1517 م بعد القضاء على دولة المماليك، وحمل لقب «حامد الحرمين الشريفين».</span></li>
+                        <li><strong class="key-location" data-i18n="defHejaz">الحجاز</strong>: <span data-i18n="defHejazDesc">منطقة في غرب الجزيرة العربية، عمل العثمانيون على توطيد سلطتهم عليها وتشكيل حضورهم على البحر الأحمر.</span></li>
+                        <li><strong class="key-location" data-i18n="defAden">عدن</strong>: <span data-i18n="defAdenDesc">مدينة في جنوب اليمن، عيّن فيها والي مصر مركزا للحضور العثماني في جنوب الجزيرة العربية.</span></li>
+                        <li><strong class="key-location" data-i18n="defMuscat">مسقط</strong>: <span data-i18n="defMuscatDesc">عاصمة عمان، استولى عليها قائد الأسطول «بيري رئيس» في 1551 م.</span></li>
+                        <li><strong class="key-location" data-i18n="defHungary">بلاد المجر (هنغاريا)</strong>: <span data-i18n="defHungaryDesc">احتلّها العثمانيون وجعلوها ولاية عثمانية في القرن XVI.</span></li>
+                        <li><strong class="key-location" data-i18n="defBosnia">البوسنة والهرسك</strong>: <span data-i18n="defBosniaDesc">من المناطق التي فتحها العثمانيون في أوروبا.</span></li>
+                        <li><strong class="key-location" data-i18n="defSerbia">صربيا</strong>: <span data-i18n="defSerbiaDesc">من المناطق التي فتحها العثمانيون في أوروبا.</span></li>
+                        <li><strong class="key-location" data-i18n="defWallachia">الأفلاق (رومانيا)</strong>: <span data-i18n="defWallachiaDesc">من المناطق التي فتحها العثمانيون في أوروبا.</span></li>
+                        <li><strong class="key-location" data-i18n="defMoldavia">البغدان (مولدافيا)</strong>: <span data-i18n="defMoldaviaDesc">من المناطق التي فتحها العثمانيون في أوروبا.</span></li>
+                        <li><strong class="key-location" data-i18n="defVienna">فيينا</strong>: <span data-i18n="defViennaDesc">عاصمة النمسا، وصلت إليها الفتوحات العثمانية فحاصرها العثمانيون في 1529 م.</span></li>
+                        <li><strong class="key-location" data-i18n="defTunisia">تونس</strong>: <span data-i18n="defTunisiaDesc">أخضعها العثمانيون بقيادة خير الدين بربروس في إطار توسعهم في بلاد المغرب.</span></li>
+                        <li><strong class="key-location" data-i18n="defAlgeria">الجزائر</strong>: <span data-i18n="defAlgeriaDesc">أخضعها العثمانيون بقيادة خير الدين بربروس في إطار توسعهم في بلاد المغرب.</span></li>
+                        <li><strong class="key-location" data-i18n="defMorocco">المغرب الأقصى</strong>: <span data-i18n="defMoroccoDesc">من مناطق بلاد المغرب التي استهدفتها التوسعات العثمانية.</span></li>
+                        <li><strong class="key-location" data-i18n="defBasra">البصرة</strong>: <span data-i18n="defBasraDesc">ضمّها العثمانيون في 1547 م، مما أتاح لهم النفاذ إلى مياه الخليج.</span></li>
+                        <li><strong class="key-location" data-i18n="defAleppo">حلب</strong>: <span data-i18n="defAleppoDesc">من المدن الشامية التي سقطت في أيدي العثمانيين بعد معركة مرج دابق.</span></li>
+                        <li><strong class="key-location" data-i18n="defDamascus">دمشق</strong>: <span data-i18n="defDamascusDesc">من المدن الشامية التي سقطت في أيدي العثمانيين بعد معركة مرج دابق.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defConquestConstantinople">فتح القسطنطينية (1453)</strong>: <span data-i18n="defConquestConstantinopleDesc">فتحها العثمانيون بقيادة السلطان محمد الفاتح، وجعلوها عاصمة إمبراطوريتهم، وكان منطلقا لسلسلة الفتوحات العثمانية في أوروبا.</span></li>
+                        <li><strong class="key-event" data-i18n="defBattleChaldiran">معركة جالدران (1514)</strong>: <span data-i18n="defBattleChaldiranDesc">معركة بين السلطان سليم الأول وشاه إسماعيل الصفوي، هزم فيها العثمانيون الصفويين دون أن يُزيلوا الخطر الصفوي نهائيا.</span></li>
+                        <li><strong class="key-event" data-i18n="defBattleMarjDabiq">معركة مرج دابق (1516)</strong>: <span data-i18n="defBattleMarjDabiqDesc">معركة بين العثمانيين والمماليك، انتصر فيها العثمانيون وتمكّنوا من السيطرة على الشام.</span></li>
+                        <li><strong class="key-event" data-i18n="defSiegeVienna">حصار فيينا (1529)</strong>: <span data-i18n="defSiegeViennaDesc">وصلت الفتوحات العثمانية إلى أسوار فيينا (عاصمة النمسا) فحاصرها العثمانيون في 1529 م.</span></li>
+                        <li><strong class="key-event" data-i18n="defCaptureMuscat">الاستيلاء على مسقط (1551)</strong>: <span data-i18n="defCaptureMuscatDesc">استولى قائد الأسطول «بيري رئيس» على مسقط (عمان) في 1551 م، مما عزز الحضور العثماني في جنوب الجزيرة العربية.</span></li>
+                        <li><strong class="key-event" data-i18n="defAnnexBasra">ضم البصرة (1547)</strong>: <span data-i18n="defAnnexBasraDesc">ضمّ العثمانيون البصرة في 1547 م، مما أتاح لهم النفاذ إلى مياه الخليج.</span></li>
+                        <li><strong class="key-event" data-i18n="defBattleGalgala">معركة جالدران (1514)</strong>: <span data-i18n="defBattleGalgalaDesc">هزم فيها السلطان سليم الأول شاه إسماعيل الصفوي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-treaties">
+                    <h3 data-i18n="defTreaty">📜 تنظيمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-treaty" data-i18n="defDivan">الديوان (Divan)</strong>: <span data-i18n="defDivanDesc">المجلس الاستشاري الأعلى في الدولة العثمانية، يضم كبار رجال الدولة لمناقشة القضايا الكبرى.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defGrandVizier">الصدر الأعظم (Grand Vizier)</strong>: <span data-i18n="defGrandVizierDesc">رئيس الوزراء، يمثل السلطان في إدارة شؤون الدولة ويشرف على باقي الوزراء.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defWali">الوالي (Wali)</strong>: <span data-i18n="defWaliDesc">يحكم الولاية (الإيالة) التي قُسّمت إليها الإمبراطورية، ويرجع مباشرة إلى السلطان.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defQadi">القاضي (Qadi)</strong>: <span data-i18n="defQadiDesc">يشرف على العدالة وتطبيق الشريعة الإسلامية والقانون العثماني (القانون نامه).</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1299</strong>: <span data-i18n="defYear1299Desc">بداية الإمارة العثمانية على يد عثمان الأول.</span></li>
+                        <li><strong class="key-year">1453</strong>: <span data-i18n="defYear1453Desc">فتح القسطنطينية على يد العثمانيين.</span></li>
+                        <li><strong class="key-year">1512-1520</strong>: <span data-i18n="defYear1512Desc">عهد السلطان سليم الأول.</span></li>
+                        <li><strong class="key-year">1514</strong>: <span data-i18n="defYear1514Desc">معركة جالدران بين العثمانيين والصفويين.</span></li>
+                        <li><strong class="key-year">1516</strong>: <span data-i18n="defYear1516Desc">السيطرة العثمانية على الشام بعد معركة مرج دابق.</span></li>
+                        <li><strong class="key-year">1517</strong>: <span data-i18n="defYear1517Desc">إسقاط دولة المماليك والسيطرة على مصر.</span></li>
+                        <li><strong class="key-year">1520-1566</strong>: <span data-i18n="defYear1520Desc">عهد سليمان القانوني، أوج توسع الإمبراطورية العثمانية.</span></li>
+                        <li><strong class="key-year">1529</strong>: <span data-i18n="defYear1529Desc">حصار فيينا على يد العثمانيين.</span></li>
+                        <li><strong class="key-year">1533-1534</strong>: <span data-i18n="defYear1533Desc">حملات سليمان القانوني ضد الصفويين والسيطرة على العراق وغربي فارس.</span></li>
+                        <li><strong class="key-year">1547</strong>: <span data-i18n="defYear1547Desc">ضم البصرة من قبل العثمانيين.</span></li>
+                        <li><strong class="key-year">1551</strong>: <span data-i18n="defYear1551Desc">استيلاء بيري رئيس على مسقط (عمان).</span></li>
+                        <li><strong class="key-year">1574</strong>: <span data-i18n="defYear1574Desc">إلحاق تونس بالدولة العثمانية نهائيا.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defJanissaries">الانكشارية (Janissaries)</strong>: <span data-i18n="defJanissariesDesc">المشاة النظاميون في الجيش العثماني، نخبة الجيش، يتم تجنيدهم من الأطفال المسيحيين الذين يُحوّلون إلى الإسلام ويُدرّبون تدريبًا عسكريًا صارمًا.</span></li>
+                        <li><strong class="key-other" data-i18n="defSipahis">السباهية (Sipahis)</strong>: <span data-i18n="defSipahisDesc">الفرسان في الجيش العثماني، يحصلون على إقطاعات أرضية مقابل خدماتهم العسكرية.</span></li>
+                        <li><strong class="key-other" data-i18n="defOttomanNavy">الأسطول البحري العثماني</strong>: <span data-i18n="defOttomanNavyDesc">قوة بحرية هائلة ساهمت في توسع الإمبراطورية في البحر المتوسط والبحر الأحمر والمحيط الهندي، وقادها خير الدين بربروس.</span></li>
+                        <li><strong class="key-other" data-i18n="defKanunNameh">القانون نامه (Kanunnameh)</strong>: <span data-i18n="defKanunNamehDesc">القانون العثماني الذي وضعه سليمان القانوني، والذي جمع بين الشريعة الإسلامية والقوانين السلطانية.</span></li>
+                        <li><strong class="key-other" data-i18n="defSultanDecree">المراسيم السلطانية</strong>: <span data-i18n="defSultanDecreeDesc">أوامر يصدرها السلطان العثماني، ومنها المرسوم الوارد في مدخل الدرس الذي يدعو إلى منع المظالم وتوفير الطمأنينة للرعية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: شكّلت الإمبراطورية العثمانية في القرن السادس عشر قوة عالمية كبرى بفضل توسعاتها الواسعة في أوروبا وآسيا وإفريقيا، وتنظيمها الإداري والعسكري المحكم. وقد امتدت فتوحاتها من أسوار فيينا شمالا إلى سواحل اليمن وعمان جنوبا، ومن العراق وغربي فارس شرقا إلى بلاد المغرب العربي غربا، مما جعلها محطّ أنظار القوى الأوروبية ومنافسًا خطيرًا لها في البحر المتوسط والطرق التجارية العالمية.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson5/ottoman_empire_map_16th.jpg" alt="خريطة التوسعات العثمانية في القرن السادس عشر" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">خريطة التوسعات العثمانية في القرن السادس عشر</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson5/suleiman_portrait.jpg" alt="سليمان القانوني" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">سليمان القانوني (1520-1566)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson5/constantinople_conquest.jpg" alt="فتح القسطنطينية 1453" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">فتح القسطنطينية 1453</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson5/battle_chaldiran.jpg" alt="معركة جالدران 1514" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">معركة جالدران 1514</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson5/ottoman_janissaries.jpg" alt="الانكشارية" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">الانكشارية (الجيش العثماني)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson5/barbarossa_fleet.jpg" alt="أسطول خير الدين بربروس" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">أسطول خير الدين بربروس</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson5/ottoman_divan.jpg" alt="الديوان العثماني" data-i18n-alt="galleryAlt7" loading="lazy">
+                        <figcaption data-i18n="galleryCap7">الديوان العثماني (المجلس الاستشاري)</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y3sec_secEco_his_exercisess_mod1_lesson5.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                moduleName: "History / Unit 1: Europe and the Mediterranean World in the 16th Century",
+                lessonTitleSample: "Expansion of the Ottoman Empire and Its Organization in the 16th Century",
+                sectionIntro: "Introduction",
+                introText: "The Ottoman Empire is attributed to its founder Osman I, who took advantage of the disintegration of the Seljuk Sultanate of Rum in Anatolia (the highlands of eastern Turkey today) in the late 13th century AD, transforming his Turkish principality into a warrior state that managed to eliminate the Byzantine Empire and seize its capital Constantinople in 1453 AD (Istanbul since then), making it the capital of an empire whose domain extended in the following two centuries to Asia Minor (east) and the Balkans (south). The Ottoman Empire witnessed the peak of its expansion and the zenith of its power and political influence during the 16th century AD in the era of its tenth sultan, Suleiman I, nicknamed \"the Lawgiver\" (1520-1566).",
+                problematiqueText: "What are the manifestations of Ottoman expansion in the 16th century? And how did the Ottomans organize their empire in the era of Suleiman the Lawgiver?",
+                sectionPart1: "Ottoman Expansion in the 16th Century",
+                part1Intro: "The sultans of the 16th century continued to expand the domain of the Ottoman Empire at the expense of their opponents in Europe and the Islamic East, relying sometimes on their military power, and sometimes on diplomatic methods to avoid dispersing their forces on more than one front.",
+                expansionEastTitle: "Expansion in the Arab East and Western Persia",
+                safavidTitle: "Expansion at the Expense of the Safavid State",
+                safavidText: "The Safavid state in Iran, since its establishment, posed a danger to the Ottoman Empire due to its Shiite orientation and expansionist policy. Its possessions on the Indian Ocean also aroused Ottoman ambitions. Sultan Selim I (1512-1520) launched a war against its king Shah Ismail, defeating him at the Battle of Chaldiran (1514) without completely eliminating the Safavid threat. He then subjugated southeastern Anatolia.",
+                safavidText2: "Suleiman the Lawgiver continued resisting the Safavids, organizing two campaigns against them in 1533 and 1534, during which the Ottomans controlled Iraq and western Persia. The Ottomans were thus able to access the waters of the Gulf after annexing Basra in 1547.",
+                syriaEgyptTitle: "Expansion in Syria and Egypt",
+                syriaEgyptText: "The Ottoman armies managed to control Syria in 1516 after their victories over the Mamluk army at Marj Dabiq, opening the way for the Ottoman governor of Syria. The Mamluk state collapsed. Selim I occupied most of Syria and the Arabian Peninsula. His campaign against Egypt led to the overthrow of the Mamluk state and the assumption of the title \"Servant of the Two Holy Mosques\" which the Mamluks had held before.",
+                arabianPeninsulaTitle: "Expansion in Southeastern Arabia",
+                arabianPeninsulaText: "Sultan Suleiman worked during his reign to consolidate Ottoman authority over the Arabian Peninsula (Hejaz, Oman, Al-Ahsa...), and to establish an Ottoman presence on the Red Sea. He appointed the governor of Egypt as his center in Aden (southern Yemen), and concentrated the Ottoman presence in southern Yemen. Then the fleet commander \"Piri Reis\" captured Muscat (Oman) in 1551.",
+                expansionEuropeTitle: "Expansion in Europe, the Mediterranean and the Maghreb",
+                expansionEuropeIntro: "The expansion of the Ottoman Empire targeted Christian Europe. The Ottoman state exploited the preoccupation of Charles V, King of Spain and Emperor (1519-1556), with his wars against France. It also exploited the preoccupation of the Pope. The Ottomans also benefited from the conflict between the Spanish and Portuguese over colonies, and exploited the rivalry between European states.",
+                europeExpansionTitle: "Expansion in Europe",
+                europeExpansionText: "The conquest of Constantinople in 1453 was the starting point for a series of Ottoman conquests in Europe. The Ottomans advanced towards Hungary, occupied it and made it an Ottoman province. They also conquered Bosnia and Herzegovina, Serbia, Wallachia (Romania), and Moldavia. They reached the walls of Vienna (capital of Austria) and besieged it in 1529.",
+                mediterraneanExpansionTitle: "Expansion in the Mediterranean and the Maghreb",
+                mediterraneanExpansionText: "The Maghreb acquired vital importance in the eyes of the Ottomans, especially after their occupation of Egypt in 1517. Its strategic importance was strengthened for the Ottoman sultans in opening global trade routes in the Mediterranean. The Ottomans began opening the Maghreb, working to expel the Spanish from the coasts of North Africa. The Ottomans, led by Khayr ad-Din Barbarossa, managed to subjugate Tunisia and then Algeria. They also headed to the Mediterranean...",
+                sectionPart2: "Organization of the Empire under Suleiman I",
+                adminOrgTitle: "Administrative Organization",
+                adminOrgText: "The administrative organization of the Ottoman state was based on tight centralization, where the Sultan combined religious and temporal authority, assisted in managing state affairs by:",
+                adminOrgBullet1: "<strong>The Grand Vizier:</strong> The prime minister, representing the Sultan in managing state affairs and supervising the other ministers.",
+                adminOrgBullet2: "<strong>The Divan:</strong> The supreme advisory council comprising senior state officials to discuss major issues.",
+                adminOrgBullet3: "<strong>The Walis:</strong> Govern the provinces (eyalets) into which the empire was divided, reporting directly to the Sultan.",
+                adminOrgBullet4: "<strong>The Qadis:</strong> Supervise justice and the application of Islamic Sharia and Ottoman law (Kanunnameh).",
+                militaryOrgTitle: "Military Organization",
+                militaryOrgText: "The Ottoman Empire relied on a strong and organized army that was among the strongest in the world at the time, consisting of:",
+                militaryOrgBullet1: "<strong>The Janissaries:</strong> The regular infantry, the elite of the Ottoman army, recruited from Christian children who were converted to Islam and given rigorous military training.",
+                militaryOrgBullet2: "<strong>The Sipahis:</strong> The cavalry who received land grants in exchange for their military service.",
+                militaryOrgBullet3: "<strong>The Naval Fleet:</strong> A huge naval force that contributed to the empire's expansion in the Mediterranean, Red Sea, and Indian Ocean.",
+                militaryOrgBullet4: "<strong>The Naval Fleet led by Khayr ad-Din Barbarossa:</strong> Who managed to subjugate Tunisia and Algeria and expel the Spanish from the coasts of North Africa.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Ottoman Empire in the 16th century constituted a major world power thanks to its vast expansions in Europe, Asia, and Africa, and its tight administrative and military organization, making it the focus of European powers and a dangerous competitor in the Mediterranean and global trade routes.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defTreaty: "📜 Organizations & Institutions",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other Terms",
+                defSuleiman: "Suleiman I (the Lawgiver)",
+                defSuleimanDesc: "The tenth sultan of the Ottoman Empire (1520-1566), nicknamed \"the Lawgiver\" for establishing the Kanunnameh (Ottoman law). The empire witnessed the peak of its expansion and power during his reign. He organized campaigns against the Safavids and controlled Iraq and western Persia, and his conquests reached the walls of Vienna (1529).",
+                defSelimI: "Selim I",
+                defSelimIDesc: "Ottoman Sultan (1512-1520), defeated Shah Ismail the Safavid at the Battle of Chaldiran (1514), and managed to control Syria (1516) and Egypt (1517) after eliminating the Mamluk state.",
+                defOsmanI: "Osman I",
+                defOsmanIDesc: "Founder of the Ottoman Empire, who took advantage of the disintegration of the Seljuk Sultanate of Rum in Anatolia in the late 13th century AD, transforming his Turkish principality into a warrior state.",
+                defShahIsmail: "Shah Ismail",
+                defShahIsmailDesc: "King of the Safavid state in Iran, defeated by Sultan Selim I at the Battle of Chaldiran (1514), but the Safavid threat was not completely eliminated.",
+                defKhayrEddine: "Khayr ad-Din Barbarossa",
+                defKhayrEddineDesc: "Commander of the Ottoman naval fleet, led successful naval campaigns that subjugated Tunisia and Algeria and expelled the Spanish from the coasts of North Africa.",
+                defPiriReis: "Piri Reis",
+                defPiriReisDesc: "Ottoman fleet commander, captured Muscat (Oman) in 1551, and worked to consolidate the Ottoman presence in southern Arabia.",
+                defCharlesV: "Charles V",
+                defCharlesVDesc: "King of Spain and Emperor of the Holy Roman Empire (1519-1556), preoccupied with his wars against France, which the Ottoman state exploited in its expansions.",
+                defAndreClot: "André Clot",
+                defAndreClotDesc: "French historian, author of \"Suleiman the Magnificent\" (Beirut: Dar al-Jil, 1991), from which the text in the lesson introduction was quoted.",
+                defAnatolia: "Anatolia",
+                defAnatoliaDesc: "The highlands of eastern Turkey today, the birthplace of the Ottoman principality after the disintegration of the Seljuk Sultanate of Rum.",
+                defConstantinople: "Constantinople (Istanbul)",
+                defConstantinopleDesc: "Capital of the Byzantine Empire, conquered by the Ottomans in 1453 and made the capital of their empire.",
+                defBalkans: "The Balkans",
+                defBalkansDesc: "Region in southeastern Europe, which the Ottoman expansion reached in the 15th and 16th centuries.",
+                defIran: "Iran (Persia)",
+                defIranDesc: "Home of the Safavid state, which posed a danger to the Ottoman Empire due to its Shiite orientation and expansionist policy.",
+                defIraq: "Iraq",
+                defIraqDesc: "Controlled by the Ottomans in their campaigns against the Safavids (1533-1534), and they annexed Basra in 1547 to access the Gulf waters.",
+                defSyria: "Syria (Sham)",
+                defSyriaDesc: "Controlled by the Ottoman armies in 1516 after their victories over the Mamluks at Marj Dabiq.",
+                defEgypt: "Egypt",
+                defEgyptDesc: "Overthrown by Selim I in 1517 after eliminating the Mamluk state, assuming the title \"Servant of the Two Holy Mosques\".",
+                defHejaz: "Hejaz",
+                defHejazDesc: "Region in western Arabia, where the Ottomans worked to consolidate their authority and establish their presence on the Red Sea.",
+                defAden: "Aden",
+                defAdenDesc: "City in southern Yemen, where the governor of Egypt was appointed as a center for the Ottoman presence in southern Arabia.",
+                defMuscat: "Muscat",
+                defMuscatDesc: "Capital of Oman, captured by fleet commander \"Piri Reis\" in 1551.",
+                defHungary: "Hungary",
+                defHungaryDesc: "Occupied by the Ottomans and made an Ottoman province in the 16th century.",
+                defBosnia: "Bosnia and Herzegovina",
+                defBosniaDesc: "One of the regions conquered by the Ottomans in Europe.",
+                defSerbia: "Serbia",
+                defSerbiaDesc: "One of the regions conquered by the Ottomans in Europe.",
+                defWallachia: "Wallachia (Romania)",
+                defWallachiaDesc: "One of the regions conquered by the Ottomans in Europe.",
+                defMoldavia: "Moldavia",
+                defMoldaviaDesc: "One of the regions conquered by the Ottomans in Europe.",
+                defVienna: "Vienna",
+                defViennaDesc: "Capital of Austria, reached by Ottoman conquests and besieged by the Ottomans in 1529.",
+                defTunisia: "Tunisia",
+                defTunisiaDesc: "Subjugated by the Ottomans led by Khayr ad-Din Barbarossa as part of their expansion in the Maghreb.",
+                defAlgeria: "Algeria",
+                defAlgeriaDesc: "Subjugated by the Ottomans led by Khayr ad-Din Barbarossa as part of their expansion in the Maghreb.",
+                defMorocco: "Morocco",
+                defMoroccoDesc: "One of the Maghreb regions targeted by Ottoman expansion.",
+                defBasra: "Basra",
+                defBasraDesc: "Annexed by the Ottomans in 1547, allowing them access to the Gulf waters.",
+                defAleppo: "Aleppo",
+                defAleppoDesc: "One of the Syrian cities that fell to the Ottomans after the Battle of Marj Dabiq.",
+                defDamascus: "Damascus",
+                defDamascusDesc: "One of the Syrian cities that fell to the Ottomans after the Battle of Marj Dabiq.",
+                defConquestConstantinople: "Conquest of Constantinople (1453)",
+                defConquestConstantinopleDesc: "Conquered by the Ottomans led by Sultan Mehmed the Conqueror, who made it the capital of their empire, and it was the starting point for a series of Ottoman conquests in Europe.",
+                defBattleChaldiran: "Battle of Chaldiran (1514)",
+                defBattleChaldiranDesc: "Battle between Sultan Selim I and Shah Ismail the Safavid, in which the Ottomans defeated the Safavids without completely eliminating the Safavid threat.",
+                defBattleMarjDabiq: "Battle of Marj Dabiq (1516)",
+                defBattleMarjDabiqDesc: "Battle between the Ottomans and the Mamluks, in which the Ottomans won and managed to control Syria.",
+                defSiegeVienna: "Siege of Vienna (1529)",
+                defSiegeViennaDesc: "Ottoman conquests reached the walls of Vienna (capital of Austria) and besieged it in 1529.",
+                defCaptureMuscat: "Capture of Muscat (1551)",
+                defCaptureMuscatDesc: "Fleet commander \"Piri Reis\" captured Muscat (Oman) in 1551, strengthening the Ottoman presence in southern Arabia.",
+                defAnnexBasra: "Annexation of Basra (1547)",
+                defAnnexBasraDesc: "The Ottomans annexed Basra in 1547, allowing them access to the Gulf waters.",
+                defBattleGalgala: "Battle of Chaldiran (1514)",
+                defBattleGalgalaDesc: "In which Sultan Selim I defeated Shah Ismail the Safavid.",
+                defDivan: "The Divan",
+                defDivanDesc: "The supreme advisory council in the Ottoman state, comprising senior state officials to discuss major issues.",
+                defGrandVizier: "The Grand Vizier",
+                defGrandVizierDesc: "The prime minister, representing the Sultan in managing state affairs and supervising the other ministers.",
+                defWali: "The Wali",
+                defWaliDesc: "Governs the province (eyalet) into which the empire was divided, reporting directly to the Sultan.",
+                defQadi: "The Qadi",
+                defQadiDesc: "Supervises justice and the application of Islamic Sharia and Ottoman law (Kanunnameh).",
+                defYear1299Desc: "Beginning of the Ottoman principality under Osman I.",
+                defYear1453Desc: "Conquest of Constantinople by the Ottomans.",
+                defYear1512Desc: "Reign of Sultan Selim I.",
+                defYear1514Desc: "Battle of Chaldiran between the Ottomans and the Safavids.",
+                defYear1516Desc: "Ottoman control of Syria after the Battle of Marj Dabiq.",
+                defYear1517Desc: "Overthrow of the Mamluk state and control of Egypt.",
+                defYear1520Desc: "Reign of Suleiman the Lawgiver, the peak of Ottoman expansion.",
+                defYear1529Desc: "Siege of Vienna by the Ottomans.",
+                defYear1533Desc: "Campaigns of Suleiman the Lawgiver against the Safavids and control of Iraq and western Persia.",
+                defYear1547Desc: "Annexation of Basra by the Ottomans.",
+                defYear1551Desc: "Capture of Muscat (Oman) by Piri Reis.",
+                defYear1574Desc: "Final annexation of Tunisia to the Ottoman state.",
+                defJanissaries: "The Janissaries",
+                defJanissariesDesc: "The regular infantry in the Ottoman army, the elite of the army, recruited from Christian children who were converted to Islam and given rigorous military training.",
+                defSipahis: "The Sipahis",
+                defSipahisDesc: "The cavalry in the Ottoman army, receiving land grants in exchange for their military service.",
+                defOttomanNavy: "The Ottoman Naval Fleet",
+                defOttomanNavyDesc: "A huge naval force that contributed to the empire's expansion in the Mediterranean, Red Sea, and Indian Ocean, led by Khayr ad-Din Barbarossa.",
+                defKanunNameh: "The Kanunnameh",
+                defKanunNamehDesc: "The Ottoman law established by Suleiman the Lawgiver, combining Islamic Sharia and sultanic laws.",
+                defSultanDecree: "Sultanic Decrees",
+                defSultanDecreeDesc: "Orders issued by the Ottoman Sultan, including the decree in the lesson introduction calling for preventing injustices and providing security for the subjects.",
+                summaryText: "Key takeaway: The Ottoman Empire in the 16th century constituted a major world power thanks to its vast expansions in Europe, Asia, and Africa, and its tight administrative and military organization. Its conquests extended from the walls of Vienna in the north to the coasts of Yemen and Oman in the south, and from Iraq and western Persia in the east to the Maghreb in the west, making it the focus of European powers and a dangerous competitor in the Mediterranean and global trade routes.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Map of Ottoman expansion in the 16th century",
+                galleryAlt2: "Suleiman the Lawgiver",
+                galleryAlt3: "Conquest of Constantinople 1453",
+                galleryAlt4: "Battle of Chaldiran 1514",
+                galleryAlt5: "The Janissaries",
+                galleryAlt6: "Khayr ad-Din Barbarossa's fleet",
+                galleryAlt7: "The Ottoman Divan",
+                galleryCap1: "Map of Ottoman expansion in the 16th century",
+                galleryCap2: "Suleiman the Lawgiver (1520-1566)",
+                galleryCap3: "Conquest of Constantinople 1453",
+                galleryCap4: "Battle of Chaldiran 1514",
+                galleryCap5: "The Janissaries (Ottoman Army)",
+                galleryCap6: "Khayr ad-Din Barbarossa's fleet",
+                galleryCap7: "The Ottoman Divan (Advisory Council)"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                moduleName: "Histoire / Unité 1 : L'Europe et le monde méditerranéen au XVIe siècle",
+                lessonTitleSample: "L'expansion de l'Empire ottoman et son organisation au XVIe siècle",
+                sectionIntro: "Introduction",
+                introText: "L'Empire ottoman est attribué à son fondateur Osman Ier, qui a profité de la désintégration du sultanat seldjoukide de Roum en Anatolie (les hauts plateaux de l'est de la Turquie actuelle) à la fin du XIIIe siècle, transformant sa principauté turque en un État guerrier qui a réussi à éliminer l'Empire byzantin et à s'emparer de sa capitale Constantinople en 1453 (Istanbul depuis lors), en faisant la capitale d'un empire dont le domaine s'est étendu au cours des deux siècles suivants à l'Asie Mineure (est) et aux Balkans (sud). L'Empire ottoman a connu l'apogée de son expansion et le zénith de sa puissance et de son influence politique au XVIe siècle, sous le règne de son dixième sultan, Soliman Ier, surnommé « le Législateur » (1520-1566).",
+                problematiqueText: "Quelles sont les manifestations de l'expansion ottomane au XVIe siècle ? Et comment les Ottomans ont-ils organisé leur empire à l'époque de Soliman le Législateur ?",
+                sectionPart1: "L'expansion ottomane au XVIe siècle",
+                part1Intro: "Les sultans du XVIe siècle ont continué à étendre le domaine de l'Empire ottoman aux dépens de leurs adversaires en Europe et dans l'Orient islamique, en s'appuyant tantôt sur leur puissance militaire, tantôt sur des méthodes diplomatiques pour éviter de disperser leurs forces sur plus d'un front.",
+                expansionEastTitle: "L'expansion dans l'Orient arabe et l'ouest de la Perse",
+                safavidTitle: "L'expansion aux dépens de l'État safavide",
+                safavidText: "L'État safavide en Iran, depuis sa création, constituait un danger pour l'Empire ottoman en raison de son orientation chiite et de sa politique expansionniste. Ses possessions sur l'océan Indien ont également suscité les ambitions ottomanes. Le sultan Sélim Ier (1512-1520) a lancé une guerre contre son roi Shah Ismail, le battant à la bataille de Tchaldiran (1514) sans éliminer complètement la menace safavide. Il a ensuite soumis le sud-est de l'Anatolie.",
+                safavidText2: "Soliman le Législateur a poursuivi la résistance contre les Safavides, organisant deux campagnes contre eux en 1533 et 1534, au cours desquelles les Ottomans ont contrôlé l'Irak et l'ouest de la Perse. Les Ottomans ont ainsi pu accéder aux eaux du Golfe après l'annexion de Bassora en 1547.",
+                syriaEgyptTitle: "L'expansion en Syrie et en Égypte",
+                syriaEgyptText: "Les armées ottomanes ont réussi à contrôler la Syrie en 1516 après leurs victoires sur l'armée mamelouke à Marj Dabiq, ouvrant la voie au gouverneur ottoman de Syrie. L'État mamelouk s'est effondré. Sélim Ier a occupé la majeure partie de la Syrie et de la péninsule arabique. Sa campagne contre l'Égypte a conduit au renversement de l'État mamelouk et à l'assomption du titre « Serviteur des deux saintes mosquées » que les Mamelouks détenaient auparavant.",
+                arabianPeninsulaTitle: "L'expansion dans le sud-est de l'Arabie",
+                arabianPeninsulaText: "Le sultan Soliman a travaillé pendant son règne à consolider l'autorité ottomane sur la péninsule arabique (Hejaz, Oman, Al-Ahsa...), et à établir une présence ottomane sur la mer Rouge. Il a nommé le gouverneur d'Égypte comme son centre à Aden (sud du Yémen), et a concentré la présence ottomane dans le sud du Yémen. Puis le commandant de la flotte « Piri Reis » a capturé Mascate (Oman) en 1551.",
+                expansionEuropeTitle: "L'expansion en Europe, en Méditerranée et au Maghreb",
+                expansionEuropeIntro: "L'expansion de l'Empire ottoman visait l'Europe chrétienne. L'État ottoman a exploité la préoccupation de Charles Quint, roi d'Espagne et empereur (1519-1556), avec ses guerres contre la France. Il a également exploité la préoccupation du pape. Les Ottomans ont également bénéficié du conflit entre les Espagnols et les Portugais sur les colonies, et ont exploité la rivalité entre les États européens.",
+                europeExpansionTitle: "L'expansion en Europe",
+                europeExpansionText: "La conquête de Constantinople en 1453 a été le point de départ d'une série de conquêtes ottomanes en Europe. Les Ottomans ont avancé vers la Hongrie, l'ont occupée et en ont fait une province ottomane. Ils ont également conquis la Bosnie-Herzégovine, la Serbie, la Valachie (Roumanie) et la Moldavie. Ils ont atteint les murs de Vienne (capitale de l'Autriche) et l'ont assiégée en 1529.",
+                mediterraneanExpansionTitle: "L'expansion en Méditerranée et au Maghreb",
+                mediterraneanExpansionText: "Le Maghreb a acquis une importance vitale aux yeux des Ottomans, surtout après leur occupation de l'Égypte en 1517. Son importance stratégique s'est renforcée pour les sultans ottomans dans l'ouverture des routes commerciales mondiales en Méditerranée. Les Ottomans ont commencé l'ouverture du Maghreb, en travaillant à expulser les Espagnols des côtes de l'Afrique du Nord. Les Ottomans, dirigés par Khayr ad-Din Barbarossa, ont réussi à soumettre la Tunisie puis l'Algérie. Ils se sont également dirigés vers la Méditerranée...",
+                sectionPart2: "L'organisation de l'Empire sous Soliman Ier",
+                adminOrgTitle: "L'organisation administrative",
+                adminOrgText: "L'organisation administrative de l'État ottoman reposait sur une centralisation rigoureuse, où le sultan cumulait l'autorité religieuse et temporelle, assisté dans la gestion des affaires de l'État par :",
+                adminOrgBullet1: "<strong>Le Grand Vizir :</strong> Le premier ministre, représentant le sultan dans la gestion des affaires de l'État et supervisant les autres ministres.",
+                adminOrgBullet2: "<strong>Le Divan :</strong> Le conseil consultatif suprême comprenant de hauts fonctionnaires de l'État pour discuter des grandes questions.",
+                adminOrgBullet3: "<strong>Les Walis :</strong> Gouvernent les provinces (eyalets) dans lesquelles l'empire était divisé, relevant directement du sultan.",
+                adminOrgBullet4: "<strong>Les Qadis :</strong> Supervisent la justice et l'application de la charia islamique et du droit ottoman (Kanunnameh).",
+                militaryOrgTitle: "L'organisation militaire",
+                militaryOrgText: "L'Empire ottoman s'appuyait sur une armée forte et organisée qui était parmi les plus puissantes du monde à l'époque, composée de :",
+                militaryOrgBullet1: "<strong>Les Janissaires :</strong> L'infanterie régulière, l'élite de l'armée ottomane, recrutés parmi les enfants chrétiens convertis à l'islam et soumis à un entraînement militaire rigoureux.",
+                militaryOrgBullet2: "<strong>Les Sipahis :</strong> La cavalerie qui recevait des concessions de terres en échange de leurs services militaires.",
+                militaryOrgBullet3: "<strong>La flotte navale :</strong> Une force navale immense qui a contribué à l'expansion de l'empire en Méditerranée, en mer Rouge et dans l'océan Indien.",
+                militaryOrgBullet4: "<strong>La flotte navale dirigée par Khayr ad-Din Barbarossa :</strong> Qui a réussi à soumettre la Tunisie et l'Algérie et à expulser les Espagnols des côtes de l'Afrique du Nord.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "L'Empire ottoman au XVIe siècle constituait une grande puissance mondiale grâce à ses vastes expansions en Europe, en Asie et en Afrique, et à son organisation administrative et militaire rigoureuse, ce qui en a fait le point focal des puissances européennes et un concurrent dangereux en Méditerranée et sur les routes commerciales mondiales.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defTreaty: "📜 Organisations et institutions",
+                defYears: "📅 Années et périodes",
+                defOthers: "📌 Autres termes",
+                defSuleiman: "Soliman Ier (le Législateur)",
+                defSuleimanDesc: "Le dixième sultan de l'Empire ottoman (1520-1566), surnommé « le Législateur » pour avoir établi le Kanunnameh (droit ottoman). L'empire a connu l'apogée de son expansion et de sa puissance sous son règne. Il a organisé des campagnes contre les Safavides et contrôlé l'Irak et l'ouest de la Perse, et ses conquêtes ont atteint les murs de Vienne (1529).",
+                defSelimI: "Sélim Ier",
+                defSelimIDesc: "Sultan ottoman (1512-1520), a vaincu Shah Ismail le Safavide à la bataille de Tchaldiran (1514), et a réussi à contrôler la Syrie (1516) et l'Égypte (1517) après avoir éliminé l'État mamelouk.",
+                defOsmanI: "Osman Ier",
+                defOsmanIDesc: "Fondateur de l'Empire ottoman, qui a profité de la désintégration du sultanat seldjoukide de Roum en Anatolie à la fin du XIIIe siècle, transformant sa principauté turque en un État guerrier.",
+                defShahIsmail: "Shah Ismail",
+                defShahIsmailDesc: "Roi de l'État safavide en Iran, vaincu par le sultan Sélim Ier à la bataille de Tchaldiran (1514), mais la menace safavide n'a pas été complètement éliminée.",
+                defKhayrEddine: "Khayr ad-Din Barbarossa",
+                defKhayrEddineDesc: "Commandant de la flotte navale ottomane, a mené des campagnes navales réussies qui ont soumis la Tunisie et l'Algérie et expulsé les Espagnols des côtes de l'Afrique du Nord.",
+                defPiriReis: "Piri Reis",
+                defPiriReisDesc: "Commandant de la flotte ottomane, a capturé Mascate (Oman) en 1551, et a travaillé à consolider la présence ottomane dans le sud de l'Arabie.",
+                defCharlesV: "Charles Quint",
+                defCharlesVDesc: "Roi d'Espagne et empereur du Saint-Empire romain germanique (1519-1556), préoccupé par ses guerres contre la France, ce que l'État ottoman a exploité dans ses expansions.",
+                defAndreClot: "André Clot",
+                defAndreClotDesc: "Historien français, auteur de « Soliman le Magnifique » (Beyrouth : Dar al-Jil, 1991), d'où le texte de l'introduction de la leçon a été cité.",
+                defAnatolia: "Anatolie",
+                defAnatoliaDesc: "Les hauts plateaux de l'est de la Turquie actuelle, lieu de naissance de la principauté ottomane après la désintégration du sultanat seldjoukide de Roum.",
+                defConstantinople: "Constantinople (Istanbul)",
+                defConstantinopleDesc: "Capitale de l'Empire byzantin, conquise par les Ottomans en 1453 et faite capitale de leur empire.",
+                defBalkans: "Les Balkans",
+                defBalkansDesc: "Région du sud-est de l'Europe, que l'expansion ottomane a atteinte aux XVe et XVIe siècles.",
+                defIran: "Iran (Perse)",
+                defIranDesc: "Patrie de l'État safavide, qui constituait un danger pour l'Empire ottoman en raison de son orientation chiite et de sa politique expansionniste.",
+                defIraq: "Irak",
+                defIraqDesc: "Contrôlé par les Ottomans dans leurs campagnes contre les Safavides (1533-1534), et ils ont annexé Bassora en 1547 pour accéder aux eaux du Golfe.",
+                defSyria: "Syrie (Cham)",
+                defSyriaDesc: "Contrôlée par les armées ottomanes en 1516 après leurs victoires sur les Mamelouks à Marj Dabiq.",
+                defEgypt: "Égypte",
+                defEgyptDesc: "Renversée par Sélim Ier en 1517 après avoir éliminé l'État mamelouk, assumant le titre de « Serviteur des deux saintes mosquées ».",
+                defHejaz: "Hejaz",
+                defHejazDesc: "Région de l'ouest de l'Arabie, où les Ottomans ont travaillé à consolider leur autorité et à établir leur présence sur la mer Rouge.",
+                defAden: "Aden",
+                defAdenDesc: "Ville du sud du Yémen, où le gouverneur d'Égypte a été nommé comme centre de la présence ottomane dans le sud de l'Arabie.",
+                defMuscat: "Mascate",
+                defMuscatDesc: "Capitale d'Oman, capturée par le commandant de la flotte « Piri Reis » en 1551.",
+                defHungary: "Hongrie",
+                defHungaryDesc: "Occupée par les Ottomans et transformée en province ottomane au XVIe siècle.",
+                defBosnia: "Bosnie-Herzégovine",
+                defBosniaDesc: "L'une des régions conquises par les Ottomans en Europe.",
+                defSerbia: "Serbie",
+                defSerbiaDesc: "L'une des régions conquises par les Ottomans en Europe.",
+                defWallachia: "Valachie (Roumanie)",
+                defWallachiaDesc: "L'une des régions conquises par les Ottomans en Europe.",
+                defMoldavia: "Moldavie",
+                defMoldaviaDesc: "L'une des régions conquises par les Ottomans en Europe.",
+                defVienna: "Vienne",
+                defViennaDesc: "Capitale de l'Autriche, atteinte par les conquêtes ottomanes et assiégée par les Ottomans en 1529.",
+                defTunisia: "Tunisie",
+                defTunisiaDesc: "Soumise par les Ottomans dirigés par Khayr ad-Din Barbarossa dans le cadre de leur expansion au Maghreb.",
+                defAlgeria: "Algérie",
+                defAlgeriaDesc: "Soumise par les Ottomans dirigés par Khayr ad-Din Barbarossa dans le cadre de leur expansion au Maghreb.",
+                defMorocco: "Maroc",
+                defMoroccoDesc: "L'une des régions du Maghreb visées par l'expansion ottomane.",
+                defBasra: "Bassora",
+                defBasraDesc: "Annexée par les Ottomans en 1547, leur permettant d'accéder aux eaux du Golfe.",
+                defAleppo: "Alep",
+                defAleppoDesc: "L'une des villes syriennes tombées aux mains des Ottomans après la bataille de Marj Dabiq.",
+                defDamascus: "Damas",
+                defDamascusDesc: "L'une des villes syriennes tombées aux mains des Ottomans après la bataille de Marj Dabiq.",
+                defConquestConstantinople: "Conquête de Constantinople (1453)",
+                defConquestConstantinopleDesc: "Conquise par les Ottomans dirigés par le sultan Mehmed le Conquérant, qui en a fait la capitale de leur empire, et elle a été le point de départ d'une série de conquêtes ottomanes en Europe.",
+                defBattleChaldiran: "Bataille de Tchaldiran (1514)",
+                defBattleChaldiranDesc: "Bataille entre le sultan Sélim Ier et Shah Ismail le Safavide, au cours de laquelle les Ottomans ont vaincu les Safavides sans éliminer complètement la menace safavide.",
+                defBattleMarjDabiq: "Bataille de Marj Dabiq (1516)",
+                defBattleMarjDabiqDesc: "Bataille entre les Ottomans et les Mamelouks, au cours de laquelle les Ottomans ont gagné et ont réussi à contrôler la Syrie.",
+                defSiegeVienna: "Siège de Vienne (1529)",
+                defSiegeViennaDesc: "Les conquêtes ottomanes ont atteint les murs de Vienne (capitale de l'Autriche) et l'ont assiégée en 1529.",
+                defCaptureMuscat: "Capture de Mascate (1551)",
+                defCaptureMuscatDesc: "Le commandant de la flotte « Piri Reis » a capturé Mascate (Oman) en 1551, renforçant la présence ottomane dans le sud de l'Arabie.",
+                defAnnexBasra: "Annexion de Bassora (1547)",
+                defAnnexBasraDesc: "Les Ottomans ont annexé Bassora en 1547, leur permettant d'accéder aux eaux du Golfe.",
+                defBattleGalgala: "Bataille de Tchaldiran (1514)",
+                defBattleGalgalaDesc: "Au cours de laquelle le sultan Sélim Ier a vaincu Shah Ismail le Safavide.",
+                defDivan: "Le Divan",
+                defDivanDesc: "Le conseil consultatif suprême de l'État ottoman, comprenant de hauts fonctionnaires de l'État pour discuter des grandes questions.",
+                defGrandVizier: "Le Grand Vizir",
+                defGrandVizierDesc: "Le premier ministre, représentant le sultan dans la gestion des affaires de l'État et supervisant les autres ministres.",
+                defWali: "Le Wali",
+                defWaliDesc: "Gouverne la province (eyalet) dans laquelle l'empire était divisé, relevant directement du sultan.",
+                defQadi: "Le Qadi",
+                defQadiDesc: "Supervise la justice et l'application de la charia islamique et du droit ottoman (Kanunnameh).",
+                defYear1299Desc: "Début de la principauté ottomane sous Osman Ier.",
+                defYear1453Desc: "Conquête de Constantinople par les Ottomans.",
+                defYear1512Desc: "Règne du sultan Sélim Ier.",
+                defYear1514Desc: "Bataille de Tchaldiran entre les Ottomans et les Safavides.",
+                defYear1516Desc: "Contrôle ottoman de la Syrie après la bataille de Marj Dabiq.",
+                defYear1517Desc: "Renversement de l'État mamelouk et contrôle de l'Égypte.",
+                defYear1520Desc: "Règne de Soliman le Législateur, apogée de l'expansion ottomane.",
+                defYear1529Desc: "Siège de Vienne par les Ottomans.",
+                defYear1533Desc: "Campagnes de Soliman le Législateur contre les Safavides et contrôle de l'Irak et de l'ouest de la Perse.",
+                defYear1547Desc: "Annexion de Bassora par les Ottomans.",
+                defYear1551Desc: "Capture de Mascate (Oman) par Piri Reis.",
+                defYear1574Desc: "Annexion définitive de la Tunisie à l'État ottoman.",
+                defJanissaries: "Les Janissaires",
+                defJanissariesDesc: "L'infanterie régulière de l'armée ottomane, l'élite de l'armée, recrutés parmi les enfants chrétiens convertis à l'islam et soumis à un entraînement militaire rigoureux.",
+                defSipahis: "Les Sipahis",
+                defSipahisDesc: "La cavalerie de l'armée ottomane, recevant des concessions de terres en échange de leurs services militaires.",
+                defOttomanNavy: "La flotte navale ottomane",
+                defOttomanNavyDesc: "Une force navale immense qui a contribué à l'expansion de l'empire en Méditerranée, en mer Rouge et dans l'océan Indien, dirigée par Khayr ad-Din Barbarossa.",
+                defKanunNameh: "Le Kanunnameh",
+                defKanunNamehDesc: "Le droit ottoman établi par Soliman le Législateur, combinant la charia islamique et les lois sultaniennes.",
+                defSultanDecree: "Décrets sultaniens",
+                defSultanDecreeDesc: "Ordres émis par le sultan ottoman, y compris le décret de l'introduction de la leçon appelant à prévenir les injustices et à assurer la sécurité des sujets.",
+                summaryText: "À retenir : L'Empire ottoman au XVIe siècle constituait une grande puissance mondiale grâce à ses vastes expansions en Europe, en Asie et en Afrique, et à son organisation administrative et militaire rigoureuse. Ses conquêtes s'étendaient des murs de Vienne au nord aux côtes du Yémen et d'Oman au sud, et de l'Irak et de l'ouest de la Perse à l'est au Maghreb à l'ouest, ce qui en a fait le point focal des puissances européennes et un concurrent dangereux en Méditerranée et sur les routes commerciales mondiales.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Carte de l'expansion ottomane au XVIe siècle",
+                galleryAlt2: "Soliman le Législateur",
+                galleryAlt3: "Conquête de Constantinople 1453",
+                galleryAlt4: "Bataille de Tchaldiran 1514",
+                galleryAlt5: "Les Janissaires",
+                galleryAlt6: "La flotte de Khayr ad-Din Barbarossa",
+                galleryAlt7: "Le Divan ottoman",
+                galleryCap1: "Carte de l'expansion ottomane au XVIe siècle",
+                galleryCap2: "Soliman le Législateur (1520-1566)",
+                galleryCap3: "Conquête de Constantinople 1453",
+                galleryCap4: "Bataille de Tchaldiran 1514",
+                galleryCap5: "Les Janissaires (Armée ottomane)",
+                galleryCap6: "La flotte de Khayr ad-Din Barbarossa",
+                galleryCap7: "Le Divan ottoman (Conseil consultatif)"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "التاريخ / الوحدة الأولى: أوروبا والعالم المتوسطي في القرن السادس عشر",
+                lessonTitleSample: "توسع الإمبراطورية العثمانية وتنظيمها في القرن السادس عشر",
+                sectionIntro: "مقدمة",
+                introText: "تنسب الإمبراطورية العثمانية إلى مؤسسها عثمان الأول الذي استفاد من تفكك دولة السلاجقة الروم بالأناضول (مرتفعات شرق تركيا اليوم) في أواخر القرن الثالث عشر الميلادي (XIII م)، ليحوّل إمارته التركية إلى دولة مُحاربة، تمكّنت من القضاء على الإمبراطورية البيزنطية، ومن الاستيلاء على عاصمتها القسطنطينية في 1453 م (إستنبول منذ ذلك الحين)، وجعلت منها عاصمة إمبراطورية امتد مجالها في القرنين الموالين إلى آسيا الصغرى (شرقا) والبلقان (جنوبا)، وشهدت الإمبراطورية العثمانية أوج توسّعها وذروة قوتها وقوّة تأثيرها السّياسي خلال القرن السادس عشر الميلادي (XVI م) في عهد عاشر سلاطينها سليمان الأول الملقّب بـ«القانوني» (1566-1520).",
+                problematiqueText: "ما هي مظاهر التوسع العثماني في القرن السادس عشر؟ وكيف نظّم العثمانيون إمبراطوريتهم في عهد سليمان القانوني؟",
+                sectionPart1: "التوسعات العثمانية في القرن السادس عشر",
+                part1Intro: "واصل سلاطين القرن السادس عشر توسيع مجال الإمبراطورية العثمانية على حساب خصومهم في أوروبا والشرق الإسلامي، اعتمادا على قوّتهم العسكرية حينا، والطرق الديبلوماسية لتحجيم تشتيت قواتهم في أكثر من جبهة حينا آخر.",
+                expansionEastTitle: "التوسعات في الشرق العربي وفي غرب فارس",
+                safavidTitle: "التوسّع على حساب الدولة الصفوية",
+                safavidText: "شكّلت الدولة الصفوية في إيران، منذ قيامها، خطرا على الإمبراطورية العثمانية، بسبب توجّهها الشّيعي وسياستها التوسعية. كما أثارت ممتلكاتها على المحيط الهندي أطماع العثمانيين، فضلا عن نشاط السلطان سليم الأول (1512-1520 م) حربا على مُلكها شاه إسماعيل، وهزمه في معركة جالدران (1514 م) دون أن يُزيل الخطر الصفوي نهائيا. ثمّ أخضع جنوب شرق الأناضول.",
+                safavidText2: "واصل سليمان القانوني مقاومة الصفويين، فنظم حملتين ضدّهم في 1533 و 1534 سيطر العثمانيون على العراق وغربي فارس. فتمكّن العثمانيون بذلك من النّفاذ إلى مياه الخليج، بعد ضمّ البصرة في 1547 م.",
+                syriaEgyptTitle: "التوسّع في الشام ومصر",
+                syriaEgyptText: "تمكّنت الجيوش العثمانية من السيطرة على الشام في 1516 م بعد انتصاراتها على جيش المماليك في «مرج دابق»، ليفتح أمامها طريق والي الشام. وانفردت دولة المماليك بمركز انهيار (حرب الجزر الشامية والبرية: حلب، حمص، دمشق، بيروت...). فاحتلّ سليم الأول معظم بلاد الشام والجزيرة العربية. كما جاءت حملته على مصر لاسقاط دولة المماليك في مثل هذا التاريخ ليفتح «حامد الحرمين الشريفين» الذي حملها المماليك من قبل.",
+                arabianPeninsulaTitle: "التوسّع في جنوب شرق الجزيرة العربية",
+                arabianPeninsulaText: "عمل السلطان سليمان على مدى استقراره على عرش الدولة العثمانية على توطيد سلطة العثمانية على شبه الجزيرة العربية (الحجاز، عمان، الأحساء...)، وتشكيل الحضور العثماني على البحر الأحمر. عين والي مصر بمركزه على عدن (جنوب اليمن)، وتركيز الحضور العثماني بجنوب اليمن. ثمّ استولى قائد الأسطول «بيري رئيس» على مسقط (عمان) في 1551 م.",
+                expansionEuropeTitle: "التوسّع في أوروبا وفي المتوسط وبلاد المغرب",
+                expansionEuropeIntro: "استهدف توسّع الإمبراطورية العثمانية المسيحية في أوروبا. فاستغلّت الدولة العثمانية انشغال شارلكان (شارل الخامس) ملك إسبانيا وامبراطورها (1519-1556) في حروبه ضدّ فرنسا. كما استغلّت انشغال بابا روما. كما استفاد العثمانيون من الصراع بين الإسبان والبرتغال على المستعمرات، واستغلّوا التنافس بين الدول الأوروبية.",
+                europeExpansionTitle: "التوسّع في أوروبا",
+                europeExpansionText: "وقد كان فتح القسطنطينية 1453 م منطلقا لسلسلة الفتوحات العثمانية في أوروبا. فقد تقدّم العثمانيون نحو بلاد المجر (هنغاريا) فاحتلوا بلاد المجر (هنغاريا) وجعلوها ولاية عثمانية. كما فتحوا بلاد المجر (هنغاريا) وبلاد البوسنة والهرسك (البوسنة والهرسك) وبلاد الصرب (صربيا) وبلاد الأفلاق (رومانيا) وبلاد البغدان (مولدافيا). كما وصلوا في فتوحاتهم إلى أسوار فيينا (عاصمة النمسا) فحاصروها في 1529 م.",
+                mediterraneanExpansionTitle: "التوسّع في المتوسط وبلاد المغرب",
+                mediterraneanExpansionText: "تكتسب بلاد المغرب أهمية حيوية في نظر العثمانيين، إلاّ بعد احتلالهم مصر سنة 1517 م. وتعزّزت مكانتها الاستراتيجية لدى سلاطين العثمانيين في فتح الطرق التجارية العالمية في البحر المتوسط. انطلق العثمانيون في فتح بلاد المغرب العربي، فعملوا على طرد الإسبان من سواحل شمال إفريقيا. فتمكّن العثمانيون بقيادة «خير الدين بربروس» من إخضاع تونس ثم الجزائر. ثمّ استطاعوا بأسطولهم البحري بقيادة «خير الدين بربروس» من إخضاع تونس ثم الجزائر. كما اتجه العثمانيون إلى البحر الأبيض المتوسط...",
+                sectionPart2: "تنظيم الإمبراطورية في عهد سليمان الأول",
+                adminOrgTitle: "التنظيم الإداري",
+                adminOrgText: "قام التنظيم الإداري للدولة العثمانية على أسس مركزية محكمة، حيث يجمع السلطان بين السلطتين الدينية والزمنية، ويُعاونه في إدارة شؤون الدولة:",
+                adminOrgBullet1: "<strong>الصدر الأعظم (Grand Vizier):</strong> رئيس الوزراء، يمثل السلطان في إدارة شؤون الدولة ويشرف على باقي الوزراء.",
+                adminOrgBullet2: "<strong>الديوان (Divan):</strong> المجلس الاستشاري الأعلى الذي يضم كبار رجال الدولة لمناقشة القضايا الكبرى.",
+                adminOrgBullet3: "<strong>الولاة (Walis):</strong> يحكمون الولايات (الإيالات) التي قُسّمت إليها الإمبراطورية، ويرجعون مباشرة إلى السلطان.",
+                adminOrgBullet4: "<strong>القضاة (Qadis):</strong> يشرفون على العدالة وتطبيق الشريعة الإسلامية والقانون العثماني (القانون نامه).",
+                militaryOrgTitle: "التنظيم العسكري",
+                militaryOrgText: "اعتمدت الإمبراطورية العثمانية على جيش قوي ومنظّم كان من أقوى الجيوش في العالم آنذاك، وتكوّن من:",
+                militaryOrgBullet1: "<strong>الجيش الانكشاري (Janissaries):</strong> المشاة النظاميون، وهم نخبة الجيش العثماني، يتم تجنيدهم من الأطفال المسيحيين الذين يُحوّلون إلى الإسلام ويُدرّبون تدريبًا عسكريًا صارمًا.",
+                militaryOrgBullet2: "<strong>السباهية (Sipahis):</strong> الفرسان الذين يحصلون على إقطاعات أرضية مقابل خدماتهم العسكرية.",
+                militaryOrgBullet3: "<strong>الأسطول البحري:</strong> قوة بحرية هائلة ساهمت في توسع الإمبراطورية في البحر المتوسط والبحر الأحمر والمحيط الهندي.",
+                militaryOrgBullet4: "<strong>الأسطول البحري بقيادة خير الدين بربروس:</strong> الذي تمكّن من إخضاع تونس والجزائر وطرد الإسبان من سواحل شمال إفريقيا.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "شكّلت الإمبراطورية العثمانية في القرن السادس عشر قوة عالمية كبرى بفضل توسعاتها الواسعة في أوروبا وآسيا وإفريقيا، وتنظيمها الإداري والعسكري المحكم، مما جعلها محطّ أنظار القوى الأوروبية ومنافسًا خطيرًا لها في البحر المتوسط والطرق التجارية العالمية.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defTreaty: "📜 تنظيمات ومؤسسات",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defSuleiman: "سليمان الأول (القانوني) (Suleiman I)",
+                defSuleimanDesc: "عاشر سلاطين الإمبراطورية العثمانية (1520-1566)، لُقّب بـ«القانوني» لوضعه قانونًا نامه (القانون العثماني). شهدت الإمبراطورية في عهده أوج توسعها وذروة قوتها. نظّم حملات ضد الصفويين والسيطرة على العراق وغربي فارس، ووصلت فتوحاته إلى أسوار فيينا (1529).",
+                defSelimI: "سليم الأول (Selim I)",
+                defSelimIDesc: "السلطان العثماني (1512-1520)، هزم شاه إسماعيل الصفوي في معركة جالدران (1514)، وتمكّن من السيطرة على الشام (1516) ومصر (1517) بعد القضاء على دولة المماليك.",
+                defOsmanI: "عثمان الأول (Osman I)",
+                defOsmanIDesc: "مؤسس الإمبراطورية العثمانية، استفاد من تفكك دولة السلاجقة الروم بالأناضول في أواخر القرن الثالث عشر الميلادي، وحوّل إمارته التركية إلى دولة محاربة.",
+                defShahIsmail: "شاه إسماعيل (Shah Ismail)",
+                defShahIsmailDesc: "ملك الدولة الصفوية في إيران، هزمه السلطان سليم الأول في معركة جالدران (1514) لكن الخطر الصفوي لم يُزل نهائيا.",
+                defKhayrEddine: "خير الدين بربروس (Khayr ad-Din Barbarossa)",
+                defKhayrEddineDesc: "قائد الأسطول البحري العثماني، قاد حملات بحرية ناجحة تمكّن بها من إخضاع تونس والجزائر وطرد الإسبان من سواحل شمال إفريقيا.",
+                defPiriReis: "بيري رئيس (Piri Reis)",
+                defPiriReisDesc: "قائد الأسطول العثماني، استولى على مسقط (عمان) في 1551 م، وعمل على توطيد الحضور العثماني في جنوب الجزيرة العربية.",
+                defCharlesV: "شارلكان (شارل الخامس) (Charles V)",
+                defCharlesVDesc: "ملك إسبانيا وإمبراطور الإمبراطورية الرومانية المقدسة (1519-1556)، انشغل بحروبه ضد فرنسا، مما استغلته الدولة العثمانية في توسعاتها.",
+                defAndreClot: "أندري كلو (André Clot)",
+                defAndreClotDesc: "مؤرخ فرنسي، صاحب كتاب «سليمان القانوني» (بيروت: دار الجيل، 1991)، ومنه اقتبس النص الوارد في مدخل الدرس.",
+                defAnatolia: "الأناضول",
+                defAnatoliaDesc: "مرتفعات شرق تركيا اليوم، موطن نشأة الإمارة العثمانية بعد تفكك دولة السلاجقة الروم.",
+                defConstantinople: "القسطنطينية (إستنبول)",
+                defConstantinopleDesc: "عاصمة الإمبراطورية البيزنطية، فتحها العثمانيون سنة 1453 م وجعلوها عاصمة إمبراطوريتهم.",
+                defBalkans: "البلقان",
+                defBalkansDesc: "منطقة في جنوب شرق أوروبا، امتد إليها التوسع العثماني في القرنين XV و XVI.",
+                defIran: "إيران (بلاد فارس)",
+                defIranDesc: "موطن الدولة الصفوية، التي شكّلت خطرا على الإمبراطورية العثمانية بسبب توجّهها الشيعي وسياستها التوسعية.",
+                defIraq: "العراق",
+                defIraqDesc: "سيطر عليه العثمانيون في حملاتهم ضد الصفويين (1533-1534)، وضمّوا البصرة في 1547 م للنفاذ إلى مياه الخليج.",
+                defSyria: "الشام",
+                defSyriaDesc: "سيطرت عليها الجيوش العثمانية في 1516 م بعد انتصاراتها على المماليك في «مرج دابق».",
+                defEgypt: "مصر",
+                defEgyptDesc: "أسقطها سليم الأول سنة 1517 م بعد القضاء على دولة المماليك، وحمل لقب «حامد الحرمين الشريفين».",
+                defHejaz: "الحجاز",
+                defHejazDesc: "منطقة في غرب الجزيرة العربية، عمل العثمانيون على توطيد سلطتهم عليها وتشكيل حضورهم على البحر الأحمر.",
+                defAden: "عدن",
+                defAdenDesc: "مدينة في جنوب اليمن، عيّن فيها والي مصر مركزا للحضور العثماني في جنوب الجزيرة العربية.",
+                defMuscat: "مسقط",
+                defMuscatDesc: "عاصمة عمان، استولى عليها قائد الأسطول «بيري رئيس» في 1551 م.",
+                defHungary: "بلاد المجر (هنغاريا)",
+                defHungaryDesc: "احتلّها العثمانيون وجعلوها ولاية عثمانية في القرن XVI.",
+                defBosnia: "البوسنة والهرسك",
+                defBosniaDesc: "من المناطق التي فتحها العثمانيون في أوروبا.",
+                defSerbia: "صربيا",
+                defSerbiaDesc: "من المناطق التي فتحها العثمانيون في أوروبا.",
+                defWallachia: "الأفلاق (رومانيا)",
+                defWallachiaDesc: "من المناطق التي فتحها العثمانيون في أوروبا.",
+                defMoldavia: "البغدان (مولدافيا)",
+                defMoldaviaDesc: "من المناطق التي فتحها العثمانيون في أوروبا.",
+                defVienna: "فيينا",
+                defViennaDesc: "عاصمة النمسا، وصلت إليها الفتوحات العثمانية فحاصرها العثمانيون في 1529 م.",
+                defTunisia: "تونس",
+                defTunisiaDesc: "أخضعها العثمانيون بقيادة خير الدين بربروس في إطار توسعهم في بلاد المغرب.",
+                defAlgeria: "الجزائر",
+                defAlgeriaDesc: "أخضعها العثمانيون بقيادة خير الدين بربروس في إطار توسعهم في بلاد المغرب.",
+                defMorocco: "المغرب الأقصى",
+                defMoroccoDesc: "من مناطق بلاد المغرب التي استهدفتها التوسعات العثمانية.",
+                defBasra: "البصرة",
+                defBasraDesc: "ضمّها العثمانيون في 1547 م، مما أتاح لهم النفاذ إلى مياه الخليج.",
+                defAleppo: "حلب",
+                defAleppoDesc: "من المدن الشامية التي سقطت في أيدي العثمانيين بعد معركة مرج دابق.",
+                defDamascus: "دمشق",
+                defDamascusDesc: "من المدن الشامية التي سقطت في أيدي العثمانيين بعد معركة مرج دابق.",
+                defConquestConstantinople: "فتح القسطنطينية (1453)",
+                defConquestConstantinopleDesc: "فتحها العثمانيون بقيادة السلطان محمد الفاتح، وجعلوها عاصمة إمبراطوريتهم، وكان منطلقا لسلسلة الفتوحات العثمانية في أوروبا.",
+                defBattleChaldiran: "معركة جالدران (1514)",
+                defBattleChaldiranDesc: "معركة بين السلطان سليم الأول وشاه إسماعيل الصفوي، هزم فيها العثمانيون الصفويين دون أن يُزيلوا الخطر الصفوي نهائيا.",
+                defBattleMarjDabiq: "معركة مرج دابق (1516)",
+                defBattleMarjDabiqDesc: "معركة بين العثمانيين والمماليك، انتصر فيها العثمانيون وتمكّنوا من السيطرة على الشام.",
+                defSiegeVienna: "حصار فيينا (1529)",
+                defSiegeViennaDesc: "وصلت الفتوحات العثمانية إلى أسوار فيينا (عاصمة النمسا) فحاصرها العثمانيون في 1529 م.",
+                defCaptureMuscat: "الاستيلاء على مسقط (1551)",
+                defCaptureMuscatDesc: "استولى قائد الأسطول «بيري رئيس» على مسقط (عمان) في 1551 م، مما عزز الحضور العثماني في جنوب الجزيرة العربية.",
+                defAnnexBasra: "ضم البصرة (1547)",
+                defAnnexBasraDesc: "ضمّ العثمانيون البصرة في 1547 م، مما أتاح لهم النفاذ إلى مياه الخليج.",
+                defBattleGalgala: "معركة جالدران (1514)",
+                defBattleGalgalaDesc: "هزم فيها السلطان سليم الأول شاه إسماعيل الصفوي.",
+                defDivan: "الديوان (Divan)",
+                defDivanDesc: "المجلس الاستشاري الأعلى في الدولة العثمانية، يضم كبار رجال الدولة لمناقشة القضايا الكبرى.",
+                defGrandVizier: "الصدر الأعظم (Grand Vizier)",
+                defGrandVizierDesc: "رئيس الوزراء، يمثل السلطان في إدارة شؤون الدولة ويشرف على باقي الوزراء.",
+                defWali: "الوالي (Wali)",
+                defWaliDesc: "يحكم الولاية (الإيالة) التي قُسّمت إليها الإمبراطورية، ويرجع مباشرة إلى السلطان.",
+                defQadi: "القاضي (Qadi)",
+                defQadiDesc: "يشرف على العدالة وتطبيق الشريعة الإسلامية والقانون العثماني (القانون نامه).",
+                defYear1299Desc: "بداية الإمارة العثمانية على يد عثمان الأول.",
+                defYear1453Desc: "فتح القسطنطينية على يد العثمانيين.",
+                defYear1512Desc: "عهد السلطان سليم الأول.",
+                defYear1514Desc: "معركة جالدران بين العثمانيين والصفويين.",
+                defYear1516Desc: "السيطرة العثمانية على الشام بعد معركة مرج دابق.",
+                defYear1517Desc: "إسقاط دولة المماليك والسيطرة على مصر.",
+                defYear1520Desc: "عهد سليمان القانوني، أوج توسع الإمبراطورية العثمانية.",
+                defYear1529Desc: "حصار فيينا على يد العثمانيين.",
+                defYear1533Desc: "حملات سليمان القانوني ضد الصفويين والسيطرة على العراق وغربي فارس.",
+                defYear1547Desc: "ضم البصرة من قبل العثمانيين.",
+                defYear1551Desc: "استيلاء بيري رئيس على مسقط (عمان).",
+                defYear1574Desc: "إلحاق تونس بالدولة العثمانية نهائيا.",
+                defJanissaries: "الانكشارية (Janissaries)",
+                defJanissariesDesc: "المشاة النظاميون في الجيش العثماني، نخبة الجيش، يتم تجنيدهم من الأطفال المسيحيين الذين يُحوّلون إلى الإسلام ويُدرّبون تدريبًا عسكريًا صارمًا.",
+                defSipahis: "السباهية (Sipahis)",
+                defSipahisDesc: "الفرسان في الجيش العثماني، يحصلون على إقطاعات أرضية مقابل خدماتهم العسكرية.",
+                defOttomanNavy: "الأسطول البحري العثماني",
+                defOttomanNavyDesc: "قوة بحرية هائلة ساهمت في توسع الإمبراطورية في البحر المتوسط والبحر الأحمر والمحيط الهندي، وقادها خير الدين بربروس.",
+                defKanunNameh: "القانون نامه (Kanunnameh)",
+                defKanunNamehDesc: "القانون العثماني الذي وضعه سليمان القانوني، والذي جمع بين الشريعة الإسلامية والقوانين السلطانية.",
+                defSultanDecree: "المراسيم السلطانية",
+                defSultanDecreeDesc: "أوامر يصدرها السلطان العثماني، ومنها المرسوم الوارد في مدخل الدرس الذي يدعو إلى منع المظالم وتوفير الطمأنينة للرعية.",
+                summaryText: "خلاصة: شكّلت الإمبراطورية العثمانية في القرن السادس عشر قوة عالمية كبرى بفضل توسعاتها الواسعة في أوروبا وآسيا وإفريقيا، وتنظيمها الإداري والعسكري المحكم. وقد امتدت فتوحاتها من أسوار فيينا شمالا إلى سواحل اليمن وعمان جنوبا، ومن العراق وغربي فارس شرقا إلى بلاد المغرب العربي غربا، مما جعلها محطّ أنظار القوى الأوروبية ومنافسًا خطيرًا لها في البحر المتوسط والطرق التجارية العالمية.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "خريطة التوسعات العثمانية في القرن السادس عشر",
+                galleryAlt2: "سليمان القانوني",
+                galleryAlt3: "فتح القسطنطينية 1453",
+                galleryAlt4: "معركة جالدران 1514",
+                galleryAlt5: "الانكشارية",
+                galleryAlt6: "أسطول خير الدين بربروس",
+                galleryAlt7: "الديوان العثماني",
+                galleryCap1: "خريطة التوسعات العثمانية في القرن السادس عشر",
+                galleryCap2: "سليمان القانوني (1520-1566)",
+                galleryCap3: "فتح القسطنطينية 1453",
+                galleryCap4: "معركة جالدران 1514",
+                galleryCap5: "الانكشارية (الجيش العثماني)",
+                galleryCap6: "أسطول خير الدين بربروس",
+                galleryCap7: "الديوان العثماني (المجلس الاستشاري)"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Suleiman", class: "key-person", i18n: "defSuleiman" },
+                { text: "Selim I", class: "key-person", i18n: "defSelimI" },
+                { text: "Osman I", class: "key-person", i18n: "defOsmanI" },
+                { text: "Shah Ismail", class: "key-person", i18n: "defShahIsmail" },
+                { text: "Khayr ad-Din Barbarossa", class: "key-person", i18n: "defKhayrEddine" },
+                { text: "Piri Reis", class: "key-person", i18n: "defPiriReis" },
+                { text: "Charles V", class: "key-person", i18n: "defCharlesV" },
+                { text: "André Clot", class: "key-person", i18n: "defAndreClot" },
+                { text: "Anatolia", class: "key-location", i18n: "defAnatolia" },
+                { text: "Constantinople", class: "key-location", i18n: "defConstantinople" },
+                { text: "Balkans", class: "key-location", i18n: "defBalkans" },
+                { text: "Iran", class: "key-location", i18n: "defIran" },
+                { text: "Iraq", class: "key-location", i18n: "defIraq" },
+                { text: "Syria", class: "key-location", i18n: "defSyria" },
+                { text: "Egypt", class: "key-location", i18n: "defEgypt" },
+                { text: "Hejaz", class: "key-location", i18n: "defHejaz" },
+                { text: "Aden", class: "key-location", i18n: "defAden" },
+                { text: "Muscat", class: "key-location", i18n: "defMuscat" },
+                { text: "Hungary", class: "key-location", i18n: "defHungary" },
+                { text: "Bosnia", class: "key-location", i18n: "defBosnia" },
+                { text: "Serbia", class: "key-location", i18n: "defSerbia" },
+                { text: "Wallachia", class: "key-location", i18n: "defWallachia" },
+                { text: "Moldavia", class: "key-location", i18n: "defMoldavia" },
+                { text: "Vienna", class: "key-location", i18n: "defVienna" },
+                { text: "Tunisia", class: "key-location", i18n: "defTunisia" },
+                { text: "Algeria", class: "key-location", i18n: "defAlgeria" },
+                { text: "Morocco", class: "key-location", i18n: "defMorocco" },
+                { text: "Basra", class: "key-location", i18n: "defBasra" },
+                { text: "Aleppo", class: "key-location", i18n: "defAleppo" },
+                { text: "Damascus", class: "key-location", i18n: "defDamascus" },
+                { text: "Conquest of Constantinople", class: "key-event", i18n: "defConquestConstantinople" },
+                { text: "Battle of Chaldiran", class: "key-event", i18n: "defBattleChaldiran" },
+                { text: "Battle of Marj Dabiq", class: "key-event", i18n: "defBattleMarjDabiq" },
+                { text: "Siege of Vienna", class: "key-event", i18n: "defSiegeVienna" },
+                { text: "Capture of Muscat", class: "key-event", i18n: "defCaptureMuscat" },
+                { text: "Annexation of Basra", class: "key-event", i18n: "defAnnexBasra" },
+                { text: "Divan", class: "key-treaty", i18n: "defDivan" },
+                { text: "Grand Vizier", class: "key-treaty", i18n: "defGrandVizier" },
+                { text: "Wali", class: "key-treaty", i18n: "defWali" },
+                { text: "Qadi", class: "key-treaty", i18n: "defQadi" },
+                { text: "Janissaries", class: "key-other", i18n: "defJanissaries" },
+                { text: "Sipahis", class: "key-other", i18n: "defSipahis" },
+                { text: "Ottoman Navy", class: "key-other", i18n: "defOttomanNavy" },
+                { text: "Kanunnameh", class: "key-other", i18n: "defKanunNameh" },
+                { text: "Sultanic Decrees", class: "key-other", i18n: "defSultanDecree" }
+            ],
+            fr: [
+                { text: "Soliman", class: "key-person", i18n: "defSuleiman" },
+                { text: "Sélim Ier", class: "key-person", i18n: "defSelimI" },
+                { text: "Osman Ier", class: "key-person", i18n: "defOsmanI" },
+                { text: "Shah Ismail", class: "key-person", i18n: "defShahIsmail" },
+                { text: "Khayr ad-Din Barbarossa", class: "key-person", i18n: "defKhayrEddine" },
+                { text: "Piri Reis", class: "key-person", i18n: "defPiriReis" },
+                { text: "Charles Quint", class: "key-person", i18n: "defCharlesV" },
+                { text: "André Clot", class: "key-person", i18n: "defAndreClot" },
+                { text: "Anatolie", class: "key-location", i18n: "defAnatolia" },
+                { text: "Constantinople", class: "key-location", i18n: "defConstantinople" },
+                { text: "Balkans", class: "key-location", i18n: "defBalkans" },
+                { text: "Iran", class: "key-location", i18n: "defIran" },
+                { text: "Irak", class: "key-location", i18n: "defIraq" },
+                { text: "Syrie", class: "key-location", i18n: "defSyria" },
+                { text: "Égypte", class: "key-location", i18n: "defEgypt" },
+                { text: "Hejaz", class: "key-location", i18n: "defHejaz" },
+                { text: "Aden", class: "key-location", i18n: "defAden" },
+                { text: "Mascate", class: "key-location", i18n: "defMuscat" },
+                { text: "Hongrie", class: "key-location", i18n: "defHungary" },
+                { text: "Bosnie", class: "key-location", i18n: "defBosnia" },
+                { text: "Serbie", class: "key-location", i18n: "defSerbia" },
+                { text: "Valachie", class: "key-location", i18n: "defWallachia" },
+                { text: "Moldavie", class: "key-location", i18n: "defMoldavia" },
+                { text: "Vienne", class: "key-location", i18n: "defVienna" },
+                { text: "Tunisie", class: "key-location", i18n: "defTunisia" },
+                { text: "Algérie", class: "key-location", i18n: "defAlgeria" },
+                { text: "Maroc", class: "key-location", i18n: "defMorocco" },
+                { text: "Bassora", class: "key-location", i18n: "defBasra" },
+                { text: "Alep", class: "key-location", i18n: "defAleppo" },
+                { text: "Damas", class: "key-location", i18n: "defDamascus" },
+                { text: "Conquête de Constantinople", class: "key-event", i18n: "defConquestConstantinople" },
+                { text: "Bataille de Tchaldiran", class: "key-event", i18n: "defBattleChaldiran" },
+                { text: "Bataille de Marj Dabiq", class: "key-event", i18n: "defBattleMarjDabiq" },
+                { text: "Siège de Vienne", class: "key-event", i18n: "defSiegeVienna" },
+                { text: "Capture de Mascate", class: "key-event", i18n: "defCaptureMuscat" },
+                { text: "Annexion de Bassora", class: "key-event", i18n: "defAnnexBasra" },
+                { text: "Divan", class: "key-treaty", i18n: "defDivan" },
+                { text: "Grand Vizir", class: "key-treaty", i18n: "defGrandVizier" },
+                { text: "Wali", class: "key-treaty", i18n: "defWali" },
+                { text: "Qadi", class: "key-treaty", i18n: "defQadi" },
+                { text: "Janissaires", class: "key-other", i18n: "defJanissaries" },
+                { text: "Sipahis", class: "key-other", i18n: "defSipahis" },
+                { text: "flotte navale ottomane", class: "key-other", i18n: "defOttomanNavy" },
+                { text: "Kanunnameh", class: "key-other", i18n: "defKanunNameh" },
+                { text: "Décrets sultaniens", class: "key-other", i18n: "defSultanDecree" }
+            ],
+            ar: [
+                { text: "سليمان", class: "key-person", i18n: "defSuleiman" },
+                { text: "سليم الأول", class: "key-person", i18n: "defSelimI" },
+                { text: "عثمان الأول", class: "key-person", i18n: "defOsmanI" },
+                { text: "شاه إسماعيل", class: "key-person", i18n: "defShahIsmail" },
+                { text: "خير الدين بربروس", class: "key-person", i18n: "defKhayrEddine" },
+                { text: "بيري رئيس", class: "key-person", i18n: "defPiriReis" },
+                { text: "شارلكان", class: "key-person", i18n: "defCharlesV" },
+                { text: "أندري كلو", class: "key-person", i18n: "defAndreClot" },
+                { text: "الأناضول", class: "key-location", i18n: "defAnatolia" },
+                { text: "القسطنطينية", class: "key-location", i18n: "defConstantinople" },
+                { text: "البلقان", class: "key-location", i18n: "defBalkans" },
+                { text: "إيران", class: "key-location", i18n: "defIran" },
+                { text: "العراق", class: "key-location", i18n: "defIraq" },
+                { text: "الشام", class: "key-location", i18n: "defSyria" },
+                { text: "مصر", class: "key-location", i18n: "defEgypt" },
+                { text: "الحجاز", class: "key-location", i18n: "defHejaz" },
+                { text: "عدن", class: "key-location", i18n: "defAden" },
+                { text: "مسقط", class: "key-location", i18n: "defMuscat" },
+                { text: "المجر", class: "key-location", i18n: "defHungary" },
+                { text: "البوسنة", class: "key-location", i18n: "defBosnia" },
+                { text: "صربيا", class: "key-location", i18n: "defSerbia" },
+                { text: "الأفلاق", class: "key-location", i18n: "defWallachia" },
+                { text: "البغدان", class: "key-location", i18n: "defMoldavia" },
+                { text: "فيينا", class: "key-location", i18n: "defVienna" },
+                { text: "تونس", class: "key-location", i18n: "defTunisia" },
+                { text: "الجزائر", class: "key-location", i18n: "defAlgeria" },
+                { text: "المغرب الأقصى", class: "key-location", i18n: "defMorocco" },
+                { text: "البصرة", class: "key-location", i18n: "defBasra" },
+                { text: "حلب", class: "key-location", i18n: "defAleppo" },
+                { text: "دمشق", class: "key-location", i18n: "defDamascus" },
+                { text: "فتح القسطنطينية", class: "key-event", i18n: "defConquestConstantinople" },
+                { text: "معركة جالدران", class: "key-event", i18n: "defBattleChaldiran" },
+                { text: "مرج دابق", class: "key-event", i18n: "defBattleMarjDabiq" },
+                { text: "حصار فيينا", class: "key-event", i18n: "defSiegeVienna" },
+                { text: "الاستيلاء على مسقط", class: "key-event", i18n: "defCaptureMuscat" },
+                { text: "ضم البصرة", class: "key-event", i18n: "defAnnexBasra" },
+                { text: "الديوان", class: "key-treaty", i18n: "defDivan" },
+                { text: "الصدر الأعظم", class: "key-treaty", i18n: "defGrandVizier" },
+                { text: "الوالي", class: "key-treaty", i18n: "defWali" },
+                { text: "القاضي", class: "key-treaty", i18n: "defQadi" },
+                { text: "الانكشارية", class: "key-other", i18n: "defJanissaries" },
+                { text: "السباهية", class: "key-other", i18n: "defSipahis" },
+                { text: "الأسطول البحري", class: "key-other", i18n: "defOttomanNavy" },
+                { text: "القانون نامه", class: "key-other", i18n: "defKanunNameh" },
+                { text: "المراسيم السلطانية", class: "key-other", i18n: "defSultanDecree" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – لوحة الجوكندا (الموناليزا)</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <h1 data-i18n="exerciseTitle">تمارين – لوحة الجوكندا (الموناليزا)</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: السفوماتو (Sfumato)، الكياري-سكورو (Clair-obscur)، المنظور الجوّي (Perspective atmosphérique)، البورتريه (Portrait).</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">السفوماتو (Sfumato):</dt>
+                        <dd data-i18n="ex1_def1_subtitle">تقنية رسم ابتكرها ليوناردو دا فينشي وتعني "التدخين" أو "التلاشي"، وتعتمد على طبقات متعدّدة من الألوان الزيتية الشفّافة المتراكمة بدرجات متدرّجة ناعمة، ممّا يُعطي الوجه ملامح ناعمة واندماجًا متدرّجًا لا تُظهر فيه حدودًا واضحة. وتتجلى هذه التقنية في لوحة الجوكندا خاصة في رسم زاويتي الفم وحدود العينين، حيث يظهر ما يُسمّى "الابتسامة الغامضة".</dd>
+                        <dt data-i18n="ex1_def2_title">الكياري-سكورو (Clair-obscur):</dt>
+                        <dd data-i18n="ex1_def2_subtitle">أسلوب فني يعتمد على التباين بين الظلّ والنور في رسم الأعمال الفنية، يُبرز الحجوم الثلاثية الأبعاد ويُعطي اللوحة واقعية وعمقًا. استخدمه ليوناردو دا فينشي في نمذجة وجه الجوكندا وجسدها لإبراز تقاطيعها بحيوية ودقّة.</dd>
+                        <dt data-i18n="ex1_def3_title">المنظور الجوّي (Perspective atmosphérique):</dt>
+                        <dd data-i18n="ex1_def3_subtitle">تقنية فنية تعتمد على تمثيل المسافات البعيدة بألوان باهتة وأكثر زرقة وضبابية، ممّا يوحي بعمق الفضاء واتّساعه. استخدمها ليوناردو في خلفية لوحة الجوكندا، حيث تظهر الجبال والمناظر البعيدة بدرجات لونية متلاشية تميّزها عن المنظر القريب.</dd>
+                        <dt data-i18n="ex1_def4_title">البورتريه (Portrait):</dt>
+                        <dd data-i18n="ex1_def4_subtitle">نوع فني يهدف إلى تمثيل شخص معيّن (صورته الشخصية)، وتطوّر في عصر النهضة بفضل الإعجاب بالإنسان وقدراته الفردية. ومن أشهر نماذجه لوحة الجوكندا لليوناردو دا فينشي التي تمثّل صورة نصفية (Buste) للسيدة ليزا غيرارديني.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن أهمّ المحطات في تاريخ لوحة الجوكندا.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_event">المحطة</th>
+                            <th data-i18n="ex2_table_year">التاريخ</th>
+                            <th data-i18n="ex2_table_duration">المدّة عن تاريخ إنجاز اللوحة (سنة)</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_creation">بداية إنجاز اللوحة بفلورنسا</td>
+                            <td>1503</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_move">حملها إلى فرنسا من قبل ليوناردو</td>
+                            <td>1516</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_death">وفاة ليوناردو واقتناء فرانسوا الأول اللوحة</td>
+                            <td>1519</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_theft">سرقة اللوحة من متحف اللوفر</td>
+                            <td>1911</td>
+                            <td>408</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_recovery">استرجاع اللوحة</td>
+                            <td>1913</td>
+                            <td>410</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: معطيات الدرس حول تاريخ لوحة الجوكندا (1503-1913)</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Document / Image -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمّل لوحة الجوكندا التالية، ثمّ بيّن: عناصرها الأساسية، والخصائص الفنية التي تُجسّدها، والدلالات الفكرية التي تحملها.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets3eco/exercises/history/unit1/lesson4/mona_lisa_document.png"
+                         alt="لوحة الجوكندا (الموناليزا) – ليوناردو دا فينشي"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets3eco/exercises/history/unit1/lesson4/mona_lisa_document_answer.png"
+                             alt="نموذج الإجابة – تحليل لوحة الجوكندا"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        تمثّل اللوحة صورة نصفية (Buste) لسيدة فلورنسية هي ليزا غيرارديني، زوجة التاجر فرانتشيسكو دل جيوكوندو، وقد رسمها ليوناردو دا فينشي حوالي سنة 1503.
+                        <br><strong>1) العناصر الأساسية للوحة:</strong>
+                        <br>- السيدة في مقدّمة اللوحة، تجلس في مواجهة المشاهد تقريبًا، مع انحراف طفيف نحو اليمين.
+                        <br>- وجهها هادئ، وابتسامة غامضة غير واضحة الحدود، وشعر بني مسترسل على كتفيها.
+                        <br>- ثوب داكن اللون دون أكمام كاملة، بثنيات دقيقة ومتقنة.
+                        <br>- اليد اليمنى موضوعة فوق اليد اليسرى بتقاطع أنيق.
+                        <br>- خلفية منظر طبيعي واسع: جسر، طريق متعرّج، نهر، صخور وجبال في الأفق.
+                        <br><strong>2) الخصائص الفنية:</strong>
+                        <br>- <strong>السفوماتو (Sfumato):</strong> تدريج ناعم للألوان في زاويتي الفم وحدود العينين، ممّا أعطى الابتسامة الغامضة.
+                        <br>- <strong>المنظور الخطّي والجوّي:</strong> توزيع دقيق للأحجام والمسافات، وألوان متلاشية في الخلفية البعيدة.
+                        <br>- <strong>التوازن والتناسب:</strong> جسد السيدة يشكّل شكلًا هرميًّا متوازنًا.
+                        <br>- <strong>الكياري-سكورو:</strong> تباين الظلّ والنور لنمذجة الوجه والجسم.
+                        <br>- <strong>الدقّة الفائقة:</strong> في رسم خصلات الشعر وثنيات القماش والأصابع.
+                        <br><strong>3) الدلالات الفكرية:</strong>
+                        <br>- <strong>الإعجاب بالإنسان (L'humanisme):</strong> اللوحة تحتفي بالإنسان في أبهى صورة وأكثرها خصوصية.
+                        <br>- <strong>الاندماج بين الفن والعلم:</strong> استعان ليوناردو بمعارفه في التشريح والرياضيات.
+                        <br>- <strong>الحرية الإبداعية:</strong> اختيار الفنان لموضوعه وأسلوبه بعيدًا عن قيود الفنّ الديني الوسيطي.
+                        <br>- <strong>الإرث الإغريقي-اللاتيني:</strong> تطبيق مبدأ التناسب الرياضي والجمالي.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل الخصائص الفنية لفن النهضة الأوروبية من خلال لوحة الجوكندا في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        تتجلى خصائص فن النهضة الأوروبية من خلال لوحة الجوكندا في عدة جوانب:
+                        <br>- <strong>الإعتماد على التراث الإغريقي-اللاتيني:</strong> استعان ليوناردو بمبدأ التناسب الرياضي والجمالي الذي أرساه فلاسفة اليونان، وطبّقه في رسم الأبعاد والتناسب بين أعضاء الجسد.
+                        <br>- <strong>تقديم الإنسان في أبهى صورة:</strong> تركّز اللوحة على الإنسان كمحور للعمل الفني، فتعرض ليزا غيرارديني بملامح هادئة وواقعية وجمال إنساني عميق، وهو ما يجسّد مبدأ الإنسانية (L'humanisme).
+                        <br>- <strong>تطبيق القواعد والمقاييس الرياضية:</strong> اعتمد ليوناردو على قواعد المنظور الخطّي الرياضي في توزيع الأحجام والمسافات، وأدخل المنظور الجوّي في رسم الخلفية.
+                        <br>- <strong>الدقّة والواقعية:</strong> أبدع ليوناردو في رسم أدقّ التفاصيل: خصلات الشعر، وثنيات القماش، والشكل الدقيق للأصابع، ممّا يدلّ على رهافة ملاحظته ومهارته العالية.
+                        <br>- <strong>الاندماج بين الفن والعلم:</strong> استعان ليوناردو بمعارفه في التشريح والرياضيات والطبيعة، فجمعت اللوحة بين الدراسة العلمية والرائعة الفنية.
+                        <br>- <strong>تجنّب الإفراط في الزخرفة:</strong> خلافًا للتيّار الباروكي، اتّسم فن النهضة بالتواضع في "الديكور" والتركيز على الإنسان وعلى إبراز جماله الفطري.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تجسّد لوحة الجوكندا لليوناردو دا فينشي خصائص فن النهضة الأوروبية ومبادئه الكبرى. فقد اعتمد الفنان على التراث الإغريقي-اللاتيني، خاصة مبدأ التناسب الرياضي والجمالي، وطبّقه في رسم الأبعاد والتناسب بين أعضاء الجسد. كما جعل الإنسان محور العمل الفني، فعرض ليزا غيرارديني في أبهى صورة وأكثرها خصوصية، وهو ما يعكس مبدأ الإنسانية القائم على الإعجاب بالإنسان وتقديره. وقد مكّنته معارفه في الرياضيات من تطبيق قواعد المنظور الخطّي وتوزيع الأحجام والمسافات، كما استخدم المنظور الجوّي في خلفية اللوحة لتمثيل الفضاء البعيد. وإلى جانب ذلك، أبدع ليوناردو في رسم أدقّ التفاصيل، ممّا يبرز الدقّة والواقعية التي يتّصف بها فن النهضة. وأخيرًا، فقد جمعت اللوحة بين الفن والعلم، إذ استعان ليوناردو بدراساته التشريحية والرياضية، فكانت في الوقت نفسه دراسة علمية ورائعة فنية، متجنّبًا الإفراط في الزخرفة الذي ميّز التيّار الباروكي لاحقًا.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول لوحة الجوكندا (الموناليزا) كرمز لفكر عصر النهضة الأوروبية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        حلّل لوحة الجوكندا كرمز لفكر عصر النهضة من خلال أربعة محاور: بطاقة تعريفها وصاحبها (ليوناردو دا فينشي، ليزا غيرارديني، 1503-1519، متحف اللوفر)، خصائصها الفنية (السفوماتو، الكياري-سكورو، المنظور الخطّي والجوّي، الدقّة والواقعية)، دلالاتها الفكرية (الإعجاب بالإنسان، الاندماج بين الفن والعلم، الحرية الإبداعية، الإرث الإغريقي-اللاتيني)، وأثرها العالمي (شهرتها، سرقة 1911، دورها في تدريس تاريخ الفن).
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تحديد لوحة الجوكندا كأشهر عمل فني في تاريخ الإنسانية ورمز للنهضة الأوروبية.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. بطاقة تعريف اللوحة وصاحبها؛ ثانياً. خصائصها الفنية والتقنية؛ ثالثاً. دلالاتها الفكرية؛ رابعاً. أثرها العالمي.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: الجوكندا وثيقة حضارية ورمز خالد للإبداع الإنساني.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">تُعدّ لوحة الجوكندا (الموناليزا) أشهر عمل فني في تاريخ الإنسانية، وأبرز رمز على الإطلاق للنهضة الفنية الأوروبية. رسمها الفنان الإيطالي العبقري ليوناردو دا فينشي بين سنتي 1503 و1519، وهي محفوظة اليوم في متحف اللوفر بباريس. وتمثّل هذه اللوحة وثيقة حضارية تنطق بتحوّل الفكر الأوروبي في مطلع العصر الحديث، وتجسّد أبرز مبادئ عصر النهضة ومقوّماته.</p>
+
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_card">أولاً. بطاقة تعريف اللوحة وصاحبها</h4>
+                        <p data-i18n="ex5A_production_p_card">ليوناردو دا فينشي (1452-1519) فنان وعالم إيطالي، يُعدّ النموذج الأمثل لـ"رجل عصر النهضة" بفضل تعدّد مواهبه: رسّام ونحّات ومهندس معماري وعالم تشريح ورياضيات وميكانيك وطبيعيات وجيولوجيا وفلك وموسيقي. رسم لوحة الجوكندا حوالي سنة 1503 بطلب من التاجر الفلورنسي فرانتشيسكو دل جيوكوندو ليزا غيرارديني زوجته. اللوحة من نوع بورتريه، بتقنية زيت على خشب الحور، بأبعاد 77 × 53 سم، محفوظة بمتحف اللوفر بباريس.</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_technique">ثانياً. الخصائص الفنية والتقنية</h4>
+                        <p data-i18n="ex5A_production_p_technique">اعتمد ليوناردو في اللوحة على تقنيات فنية مبتكرة: <strong>السفوماتو (Sfumato)</strong>، وهي تقنية تعتمد على طبقات متعدّدة من الألوان الزيتية الشفّافة المتراكمة بدرجات متدرّجة ناعمة، ما أعطى الابتسامة الغامضة. و<strong>الكياري-سكورو (Clair-obscur)</strong>، وهي أسلوب التباين بين الظلّ والنور لنمذجة الوجه والجسم. و<strong>المنظور الخطّي</strong> لتوزيع الأحجام والمسافات، و<strong>المنظور الجوّي</strong> لتمثيل الفضاء البعيد بألوان متلاشية. إضافة إلى الدقّة الفائقة في رسم خصلات الشعر وثنيات القماش وتفاصيل الأصابع.</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_meaning">ثالثاً. الدلالات الفكرية</h4>
+                        <p data-i18n="ex5A_production_p_meaning">تعكس اللوحة جملة من المبادئ الأساسية في فكر عصر النهضة الأوروبية: <strong>الإعجاب بالإنسان (L'humanisme)</strong>، حيث تُجسّد فكرة أن الإنسان هو محور الاهتمام، وأنّ قيمته تكمن في قدراته الفردية. <strong>الاندماج بين الفن والعلم</strong>، إذ استعان ليوناردو بمعارفه في التشريح والرياضيات والطبيعة. <strong>الحرية الإبداعية</strong>، إذ عبّرت اللوحة عن حرية الفنان في اختيار موضوعه وأسلوبه. و<strong>الإرث الإغريقي-اللاتيني</strong>، خاصة في مبدأ التناسب الرياضي والجمالي.</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_impact">رابعاً. أثر اللوحة العالمي</h4>
+                        <p data-i18n="ex5A_production_p_impact">تجاوزت شهرة الجوكندا حدود المتاحف لتغدو واحدة من أكثر الصور المعروفة في العالم. وهي محفوظة اليوم بمتحف اللوفر بباريس، ويقصدها سنويًّا ملايين الزوّار. وقد تعرّضت لسرقة شهيرة سنة 1911 على يد العامل الإيطالي فينتشنزو بيروجيا، ثم استرجعت سنة 1913، وهو ما ساهم في إشهارها العالمي. وتُعدّ اليوم مرجعًا أساسيًّا في تدريس تاريخ الفن، وموضوع إلهام للعديد من الأعمال الفنية والثقافية.</p>
+
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">تُعدّ لوحة الجوكندا تجسيدًا كاملًا لفكر عصر النهضة الأوروبية ومبادئه، فهي ليست مجرّد صورة لسيدة فلورنسية، بل هي وثيقة حضارية تنطق بتحوّل الفكر الأوروبي في مطلع العصر الحديث، ورمز خالد للإبداع الإنساني.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y3sec_secEco_his_lessons_mod1_lesson4.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                exerciseTitle: "Exercises – The Mona Lisa (La Joconde)",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Sfumato, Chiaroscuro (Clair-obscur), Atmospheric Perspective, Portrait.",
+                ex1_def1_title: "Sfumato:",
+                ex1_def1_subtitle: "A painting technique invented by Leonardo da Vinci, meaning \"smoking\" or \"fading.\" It relies on multiple layers of transparent oil colors accumulated in soft gradient tones, giving the face soft features and gradual blending without showing clear boundaries. This technique is evident in the Mona Lisa especially in the drawing of the corners of the mouth and the edges of the eyes, where the so-called \"mysterious smile\" appears.",
+                ex1_def2_title: "Chiaroscuro (Clair-obscur):",
+                ex1_def2_subtitle: "An artistic style relying on the contrast between shadow and light in painting artworks, highlighting three-dimensional volumes and giving the painting realism and depth. Leonardo da Vinci used it in modeling the face and body of the Mona Lisa to highlight her features with vitality and precision.",
+                ex1_def3_title: "Atmospheric Perspective:",
+                ex1_def3_subtitle: "An artistic technique relying on representing distant distances in faded, bluer, and hazier colors, suggesting the depth and breadth of space. Leonardo used it in the background of the Mona Lisa, where the mountains and distant landscapes appear in fading color gradations distinguishing them from the near view.",
+                ex1_def4_title: "Portrait:",
+                ex1_def4_subtitle: "An artistic genre aiming to represent a specific person (their personal image), which developed in the Renaissance thanks to admiration for man and his individual capabilities. Among its most famous models is Leonardo da Vinci's Mona Lisa, representing a half-length portrait (Buste) of Lady Lisa Gherardini.",
+                ex2Q: "Convert the following table data into a bar chart showing the most important milestones in the history of the Mona Lisa.",
+                ex2_table_event: "Milestone",
+                ex2_table_year: "Date",
+                ex2_table_duration: "Duration from the painting's creation (years)",
+                ex2_table_creation: "Beginning of the painting's creation in Florence",
+                ex2_table_move: "Carried to France by Leonardo",
+                ex2_table_death: "Leonardo's death and Francis I acquiring the painting",
+                ex2_table_theft: "Theft of the painting from the Louvre Museum",
+                ex2_table_recovery: "Recovery of the painting",
+                ex2Q_source: "Source: Lesson data on the history of the Mona Lisa (1503-1913)",
+                ex2A_title: "Major Milestones in the History of the Mona Lisa (Years from Creation)",
+                ex2A_source: "Source: Lesson data on the history of the Mona Lisa (1503-1913)",
+                ex2A_scale: "Scale: 0–450 years; column height proportional to value.",
+                ex2A_key_label: "Key:",
+                ex3Q: "Observe the following Mona Lisa painting, then identify: its basic elements, the artistic characteristics it embodies, and the intellectual meanings it carries.",
+                ex3DocAlt: "The Mona Lisa – Leonardo da Vinci",
+                ex3AnswerImgAlt: "Answer model – Analysis of the Mona Lisa",
+                ex3A: "The painting represents a half-length portrait (Buste) of a Florentine lady, Lisa Gherardini, wife of the merchant Francesco del Giocondo, painted by Leonardo da Vinci around 1503. 1) Basic elements of the painting: The lady in the foreground, seated almost facing the viewer, with a slight tilt to the right; a calm face with a mysterious smile whose boundaries are not clear; brown hair flowing down her shoulders; a dark-colored dress without full sleeves, with precise and masterful folds; the right hand placed over the left hand in an elegant crossing; a background of a wide landscape: a bridge, a winding road, a river, rocks and mountains on the horizon. 2) Artistic characteristics: Sfumato: soft gradient of colors at the corners of the mouth and edges of the eyes, giving the mysterious smile; Linear and atmospheric perspective: precise distribution of sizes and distances, and faded colors in the distant background; Balance and proportion: the lady's body forms a balanced pyramid shape; Chiaroscuro: contrast of shadow and light for modeling the face and body; Extreme precision: in drawing strands of hair, folds of fabric, and fingers. 3) Intellectual meanings: Admiration for man (Humanism): the painting celebrates man in his most beautiful and most personal form; The fusion of art and science: Leonardo used his knowledge of anatomy and mathematics; Creative freedom: the artist's choice of his subject and style away from the restrictions of medieval religious art; The Greek-Latin heritage: application of the principle of mathematical and aesthetic proportion.",
+                ex4Q: "Analyse the artistic characteristics of European Renaissance art through the Mona Lisa painting in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "The artistic characteristics of European Renaissance art are evident through the Mona Lisa in several aspects:\n- Reliance on the Greek-Latin heritage: Leonardo used the principle of mathematical and aesthetic proportion established by Greek philosophers, and applied it in drawing dimensions and proportion between body parts.\n- Presenting man in his most beautiful image: The painting focuses on man as the axis of the artwork, presenting Lisa Gherardini with calm and realistic features and deep human beauty, embodying the principle of Humanism (L'humanisme).\n- Applying mathematical rules and measurements: Leonardo relied on the rules of mathematical linear perspective in distributing sizes and distances, and introduced atmospheric perspective in drawing the background.\n- Precision and realism: Leonardo excelled in drawing the finest details: strands of hair, folds of fabric, and the precise shape of fingers, indicating his refined observation and high skill.\n- The fusion of art and science: Leonardo used his knowledge of anatomy, mathematics, and nature, so the painting combined scientific study and artistic masterpiece.\n- Avoiding excessive ornamentation: Unlike the Baroque current, Renaissance art was characterized by modesty in \"decor\" and focus on man and highlighting his innate beauty.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The Mona Lisa by Leonardo da Vinci embodies the characteristics and great principles of European Renaissance art. The artist relied on the Greek-Latin heritage, especially the principle of mathematical and aesthetic proportion, and applied it in drawing dimensions and proportion between body parts. He also made man the axis of the artwork, presenting Lisa Gherardini in her most beautiful and most personal form, reflecting the principle of Humanism based on admiration and appreciation of man. His knowledge of mathematics enabled him to apply the rules of linear perspective and distribute sizes and distances, and he used atmospheric perspective in the background of the painting to represent distant space. In addition, Leonardo excelled in drawing the finest details, highlighting the precision and realism characteristic of Renaissance art. Finally, the painting combined art and science, as Leonardo used his anatomical and mathematical studies, making it at the same time a scientific study and an artistic masterpiece, avoiding the excessive ornamentation that later characterized the Baroque current.",
+                ex5Q: "Write a short article about the Mona Lisa as a symbol of European Renaissance thought.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Analyse the Mona Lisa as a symbol of Renaissance thought through four axes: its identification card and author (Leonardo da Vinci, Lisa Gherardini, 1503-1519, Louvre Museum), its artistic characteristics (Sfumato, Chiaroscuro, linear and atmospheric perspective, precision and realism), its intellectual meanings (admiration for man, fusion of art and science, creative freedom, Greek-Latin heritage), and its global impact (its fame, the 1911 theft, its role in teaching art history).",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Identifying the Mona Lisa as the most famous artwork in human history and a symbol of the European Renaissance.",
+                ex5A_plan_li2: "Development: I. Identification card of the painting and its author; II. Its artistic and technical characteristics; III. Its intellectual meanings; IV. Its global impact.",
+                ex5A_plan_li3: "Conclusion: The Mona Lisa as a civilizational document and an immortal symbol of human creativity.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The Mona Lisa (La Joconde) is the most famous artwork in human history and the most prominent symbol of the European artistic Renaissance. It was painted by the Italian genius Leonardo da Vinci between 1503 and 1519, and is preserved today in the Louvre Museum in Paris. This painting is a civilizational document that speaks of the transformation of European thought at the dawn of the modern era, and embodies the most prominent principles and components of the Renaissance.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_card: "I. Identification Card of the Painting and Its Author",
+                ex5A_production_p_card: "Leonardo da Vinci (1452-1519) is an Italian artist and scholar, considered the perfect model of the \"Renaissance Man\" thanks to his multiple talents: painter, sculptor, architect, anatomist, mathematician, mechanic, physicist, geologist, astronomer, and musician. He painted the Mona Lisa around 1503 at the request of the Florentine merchant Francesco del Giocondo, to paint his wife Lisa Gherardini. The painting is a portrait, with the technique of oil on poplar wood, dimensions 77 × 53 cm, preserved in the Louvre Museum in Paris.",
+                ex5A_production_h4_technique: "II. Artistic and Technical Characteristics",
+                ex5A_production_p_technique: "Leonardo relied in the painting on innovative artistic techniques: Sfumato, a technique relying on multiple layers of transparent oil colors accumulated in soft gradient tones, giving the mysterious smile. Chiaroscuro, a style of contrast between shadow and light for modeling the face and body. Linear perspective for distributing sizes and distances, and atmospheric perspective for representing distant space in fading colors. In addition to extreme precision in drawing strands of hair, folds of fabric, and details of fingers.",
+                ex5A_production_h4_meaning: "III. Intellectual Meanings",
+                ex5A_production_p_meaning: "The painting reflects a set of fundamental principles in European Renaissance thought: Admiration for man (Humanism), embodying the idea that man is the center of attention, and that his value lies in his individual capabilities. The fusion of art and science, as Leonardo used his knowledge of anatomy, mathematics, and nature. Creative freedom, as the painting expressed the artist's freedom to choose his subject and style. And the Greek-Latin heritage, especially in the principle of mathematical and aesthetic proportion.",
+                ex5A_production_h4_impact: "IV. Global Impact of the Painting",
+                ex5A_production_p_impact: "The fame of the Mona Lisa went beyond the boundaries of museums to become one of the most known images in the world. It is preserved today in the Louvre Museum in Paris, with millions of visitors annually. It was subjected to a famous theft in 1911 by the Italian worker Vincenzo Peruggia, then recovered in 1913, which contributed to its worldwide fame. It is today a fundamental reference in teaching art history, and a subject of inspiration for many artistic and cultural works.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "The Mona Lisa is a complete embodiment of the thought and principles of the European Renaissance, as it is not just a portrait of a Florentine lady, but a civilizational document that speaks of the transformation of European thought at the dawn of the modern era, and an immortal symbol of human creativity.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – La Joconde (Mona Lisa)",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Sfumato, Clair-obscur (Clair-obscur), Perspective atmosphérique, Portrait.",
+                ex1_def1_title: "Sfumato :",
+                ex1_def1_subtitle: "Une technique de peinture inventée par Léonard de Vinci, signifiant « enfumage » ou « estompage ». Elle repose sur de multiples couches de couleurs à l'huile transparentes accumulées en tons dégradés doux, donnant au visage des traits doux et un fondu progressif sans montrer de limites claires. Cette technique est évidente dans la Joconde notamment dans le dessin des coins de la bouche et des bords des yeux, où apparaît ce qu'on appelle le « sourire mystérieux ».",
+                ex1_def2_title: "Clair-obscur (Clair-obscur) :",
+                ex1_def2_subtitle: "Style artistique reposant sur le contraste entre l'ombre et la lumière dans la peinture d'œuvres d'art, mettant en évidence les volumes tridimensionnels et donnant au tableau réalisme et profondeur. Léonard de Vinci l'a utilisé dans le modelage du visage et du corps de la Joconde pour mettre en évidence ses traits avec vitalité et précision.",
+                ex1_def3_title: "Perspective atmosphérique :",
+                ex1_def3_subtitle: "Technique artistique reposant sur la représentation des distances lointaines dans des couleurs fanées, plus bleues et plus brumeuses, suggérant la profondeur et l'étendue de l'espace. Léonard l'a utilisée dans l'arrière-plan de la Joconde, où les montagnes et les paysages lointains apparaissent dans des dégradés de couleurs s'estompant qui les distinguent de la vue rapprochée.",
+                ex1_def4_title: "Portrait :",
+                ex1_def4_subtitle: "Genre artistique visant à représenter une personne spécifique (son image personnelle), qui s'est développé à la Renaissance grâce à l'admiration pour l'homme et ses capacités individuelles. Parmi ses modèles les plus célèbres figure la Joconde de Léonard de Vinci, représentant un portrait en buste (Buste) de Dame Lisa Gherardini.",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant les étapes les plus importantes de l'histoire de la Joconde.",
+                ex2_table_event: "Étape",
+                ex2_table_year: "Date",
+                ex2_table_duration: "Durée depuis la création du tableau (années)",
+                ex2_table_creation: "Début de la création du tableau à Florence",
+                ex2_table_move: "Transporté en France par Léonard",
+                ex2_table_death: "Mort de Léonard et acquisition du tableau par François Ier",
+                ex2_table_theft: "Vol du tableau au musée du Louvre",
+                ex2_table_recovery: "Récupération du tableau",
+                ex2Q_source: "Source : données de la leçon sur l'histoire de la Joconde (1503-1913)",
+                ex2A_title: "Étapes majeures de l'histoire de la Joconde (années depuis la création)",
+                ex2A_source: "Source : données de la leçon sur l'histoire de la Joconde (1503-1913)",
+                ex2A_scale: "Échelle : 0–450 ans ; hauteur des colonnes proportionnelle à la valeur.",
+                ex2A_key_label: "Légende :",
+                ex3Q: "Observez le tableau de la Joconde suivant, puis identifiez : ses éléments de base, les caractéristiques artistiques qu'il incarne, et les significations intellectuelles qu'il porte.",
+                ex3DocAlt: "La Joconde – Léonard de Vinci",
+                ex3AnswerImgAlt: "Modèle de réponse – Analyse de la Joconde",
+                ex3A: "Le tableau représente un portrait en buste (Buste) d'une dame florentine, Lisa Gherardini, épouse du marchand Francesco del Giocondo, peinte par Léonard de Vinci vers 1503. 1) Éléments de base du tableau : La dame au premier plan, assise presque face au spectateur, avec une légère inclinaison vers la droite ; un visage calme avec un sourire mystérieux dont les limites ne sont pas claires ; des cheveux bruns tombant sur ses épaules ; une robe de couleur sombre sans manches complètes, avec des plis précis et magistraux ; la main droite placée sur la main gauche dans un croisement élégant ; un arrière-plan de large paysage : un pont, une route sinueuse, une rivière, des rochers et des montagnes à l'horizon. 2) Caractéristiques artistiques : Sfumato : dégradé doux des couleurs aux coins de la bouche et aux bords des yeux, donnant le sourire mystérieux ; Perspective linéaire et atmosphérique : distribution précise des tailles et des distances, et couleurs fanées dans l'arrière-plan lointain ; Équilibre et proportion : le corps de la dame forme une forme pyramidale équilibrée ; Clair-obscur : contraste d'ombre et de lumière pour le modelage du visage et du corps ; Précision extrême : dans le dessin des mèches de cheveux, des plis du tissu et des doigts. 3) Significations intellectuelles : Admiration de l'homme (Humanisme) : le tableau célèbre l'homme sous sa forme la plus belle et la plus personnelle ; La fusion de l'art et de la science : Léonard utilisa ses connaissances en anatomie et en mathématiques ; Liberté créative : le choix par l'artiste de son sujet et de son style loin des restrictions de l'art religieux médiéval ; L'héritage gréco-latin : application du principe de proportion mathématique et esthétique.",
+                ex4Q: "Analysez les caractéristiques artistiques de l'art de la Renaissance européenne à travers la Joconde en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Les caractéristiques artistiques de l'art de la Renaissance européenne sont évidentes à travers la Joconde sous plusieurs aspects :\n- Appui sur l'héritage gréco-latin : Léonard utilisa le principe de proportion mathématique et esthétique établi par les philosophes grecs, et l'appliqua dans le dessin des dimensions et de la proportion entre les parties du corps.\n- Présentation de l'homme sous sa plus belle image : Le tableau se concentre sur l'homme comme axe de l'œuvre d'art, présentant Lisa Gherardini avec des traits calmes et réalistes et une profonde beauté humaine, incarnant le principe de l'Humanisme (L'humanisme).\n- Application des règles et mesures mathématiques : Léonard s'appuya sur les règles de la perspective linéaire mathématique dans la distribution des tailles et des distances, et introduisit la perspective atmosphérique dans le dessin de l'arrière-plan.\n- Précision et réalisme : Léonard excella dans le dessin des détails les plus fins : mèches de cheveux, plis du tissu, et forme précise des doigts, indiquant son observation raffinée et sa haute compétence.\n- La fusion de l'art et de la science : Léonard utilisa ses connaissances en anatomie, en mathématiques et en nature, de sorte que le tableau combina étude scientifique et chef-d'œuvre artistique.\n- Éviter l'ornementation excessive : Contrairement au courant baroque, l'art de la Renaissance était caractérisé par la modestie du « décor » et la concentration sur l'homme et la mise en évidence de sa beauté innée.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "La Joconde de Léonard de Vinci incarne les caractéristiques et les grands principes de l'art de la Renaissance européenne. L'artiste s'appuya sur l'héritage gréco-latin, en particulier le principe de proportion mathématique et esthétique, et l'appliqua dans le dessin des dimensions et de la proportion entre les parties du corps. Il fit également de l'homme l'axe de l'œuvre d'art, présentant Lisa Gherardini sous sa forme la plus belle et la plus personnelle, reflétant le principe de l'Humanisme basé sur l'admiration et l'appréciation de l'homme. Sa connaissance des mathématiques lui permit d'appliquer les règles de la perspective linéaire et de distribuer les tailles et les distances, et il utilisa la perspective atmosphérique dans l'arrière-plan du tableau pour représenter l'espace lointain. De plus, Léonard excella dans le dessin des détails les plus fins, mettant en évidence la précision et le réalisme caractéristiques de l'art de la Renaissance. Enfin, le tableau combina l'art et la science, car Léonard utilisa ses études anatomiques et mathématiques, en faisant à la fois une étude scientifique et un chef-d'œuvre artistique, évitant l'ornementation excessive qui caractérisa plus tard le courant baroque.",
+                ex5Q: "Rédigez un court article sur la Joconde comme symbole de la pensée de la Renaissance européenne.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Analysez la Joconde comme symbole de la pensée de la Renaissance à travers quatre axes : sa carte d'identité et son auteur (Léonard de Vinci, Lisa Gherardini, 1503-1519, musée du Louvre), ses caractéristiques artistiques (Sfumato, Clair-obscur, perspective linéaire et atmosphérique, précision et réalisme), ses significations intellectuelles (admiration de l'homme, fusion de l'art et de la science, liberté créative, héritage gréco-latin), et son impact mondial (sa renommée, le vol de 1911, son rôle dans l'enseignement de l'histoire de l'art).",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Identifier la Joconde comme l'œuvre d'art la plus célèbre de l'histoire de l'humanité et un symbole de la Renaissance européenne.",
+                ex5A_plan_li2: "Développement : I. Carte d'identité du tableau et de son auteur ; II. Ses caractéristiques artistiques et techniques ; III. Ses significations intellectuelles ; IV. Son impact mondial.",
+                ex5A_plan_li3: "Conclusion : La Joconde comme document civilisationnel et symbole immortel de la créativité humaine.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "La Joconde (La Joconde) est l'œuvre d'art la plus célèbre de l'histoire de l'humanité et le symbole le plus éminent de la Renaissance artistique européenne. Elle a été peinte par le génie italien Léonard de Vinci entre 1503 et 1519, et est conservée aujourd'hui au musée du Louvre à Paris. Ce tableau est un document civilisationnel qui parle de la transformation de la pensée européenne à l'aube de l'époque moderne, et incarne les principes et composantes les plus éminents de la Renaissance.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_card: "I. Carte d'identité du tableau et de son auteur",
+                ex5A_production_p_card: "Léonard de Vinci (1452-1519) est un artiste et savant italien, considéré comme le modèle parfait de l'« Homme de la Renaissance » grâce à ses multiples talents : peintre, sculpteur, architecte, anatomiste, mathématicien, mécanicien, physicien, géologue, astronome et musicien. Il peignit la Joconde vers 1503 à la demande du marchand florentin Francesco del Giocondo, pour peindre son épouse Lisa Gherardini. Le tableau est un portrait, avec la technique de l'huile sur bois de peuplier, dimensions 77 × 53 cm, conservé au musée du Louvre à Paris.",
+                ex5A_production_h4_technique: "II. Caractéristiques artistiques et techniques",
+                ex5A_production_p_technique: "Léonard s'appuya dans le tableau sur des techniques artistiques innovantes : Sfumato, une technique reposant sur de multiples couches de couleurs à l'huile transparentes accumulées en tons dégradés doux, donnant le sourire mystérieux. Clair-obscur, un style de contraste entre l'ombre et la lumière pour le modelage du visage et du corps. Perspective linéaire pour la distribution des tailles et des distances, et perspective atmosphérique pour représenter l'espace lointain dans des couleurs s'estompant. En plus d'une précision extrême dans le dessin des mèches de cheveux, des plis du tissu et des détails des doigts.",
+                ex5A_production_h4_meaning: "III. Significations intellectuelles",
+                ex5A_production_p_meaning: "Le tableau reflète un ensemble de principes fondamentaux de la pensée de la Renaissance européenne : Admiration de l'homme (Humanisme), incarnant l'idée que l'homme est le centre de l'attention, et que sa valeur réside dans ses capacités individuelles. La fusion de l'art et de la science, car Léonard utilisa ses connaissances en anatomie, en mathématiques et en nature. Liberté créative, car le tableau exprima la liberté de l'artiste de choisir son sujet et son style. Et l'héritage gréco-latin, en particulier dans le principe de proportion mathématique et esthétique.",
+                ex5A_production_h4_impact: "IV. Impact mondial du tableau",
+                ex5A_production_p_impact: "La renommée de la Joconde a dépassé les limites des musées pour devenir l'une des images les plus connues au monde. Elle est conservée aujourd'hui au musée du Louvre à Paris, avec des millions de visiteurs annuellement. Elle fut soumise à un vol célèbre en 1911 par l'ouvrier italien Vincenzo Peruggia, puis récupérée en 1913, ce qui contribua à sa renommée mondiale. Elle est aujourd'hui une référence fondamentale dans l'enseignement de l'histoire de l'art, et un sujet d'inspiration pour de nombreuses œuvres artistiques et culturelles.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "La Joconde est une incarnation complète de la pensée et des principes de la Renaissance européenne, car elle n'est pas seulement un portrait d'une dame florentine, mais un document civilisationnel qui parle de la transformation de la pensée européenne à l'aube de l'époque moderne, et un symbole immortel de la créativité humaine.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – لوحة الجوكندا (الموناليزا)",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: السفوماتو (Sfumato)، الكياري-سكورو (Clair-obscur)، المنظور الجوّي (Perspective atmosphérique)، البورتريه (Portrait).",
+                ex1_def1_title: "السفوماتو (Sfumato):",
+                ex1_def1_subtitle: "تقنية رسم ابتكرها ليوناردو دا فينشي وتعني \"التدخين\" أو \"التلاشي\"، وتعتمد على طبقات متعدّدة من الألوان الزيتية الشفّافة المتراكمة بدرجات متدرّجة ناعمة، ممّا يُعطي الوجه ملامح ناعمة واندماجًا متدرّجًا لا تُظهر فيه حدودًا واضحة. وتتجلى هذه التقنية في لوحة الجوكندا خاصة في رسم زاويتي الفم وحدود العينين، حيث يظهر ما يُسمّى \"الابتسامة الغامضة\".",
+                ex1_def2_title: "الكياري-سكورو (Clair-obscur):",
+                ex1_def2_subtitle: "أسلوب فني يعتمد على التباين بين الظلّ والنور في رسم الأعمال الفنية، يُبرز الحجوم الثلاثية الأبعاد ويُعطي اللوحة واقعية وعمقًا. استخدمه ليوناردو دا فينشي في نمذجة وجه الجوكندا وجسدها لإبراز تقاطيعها بحيوية ودقّة.",
+                ex1_def3_title: "المنظور الجوّي (Perspective atmosphérique):",
+                ex1_def3_subtitle: "تقنية فنية تعتمد على تمثيل المسافات البعيدة بألوان باهتة وأكثر زرقة وضبابية، ممّا يوحي بعمق الفضاء واتّساعه. استخدمها ليوناردو في خلفية لوحة الجوكندا، حيث تظهر الجبال والمناظر البعيدة بدرجات لونية متلاشية تميّزها عن المنظر القريب.",
+                ex1_def4_title: "البورتريه (Portrait):",
+                ex1_def4_subtitle: "نوع فني يهدف إلى تمثيل شخص معيّن (صورته الشخصية)، وتطوّر في عصر النهضة بفضل الإعجاب بالإنسان وقدراته الفردية. ومن أشهر نماذجه لوحة الجوكندا لليوناردو دا فينشي التي تمثّل صورة نصفية (Buste) للسيدة ليزا غيرارديني.",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن أهمّ المحطات في تاريخ لوحة الجوكندا.",
+                ex2_table_event: "المحطة",
+                ex2_table_year: "التاريخ",
+                ex2_table_duration: "المدّة عن تاريخ إنجاز اللوحة (سنة)",
+                ex2_table_creation: "بداية إنجاز اللوحة بفلورنسا",
+                ex2_table_move: "حملها إلى فرنسا من قبل ليوناردو",
+                ex2_table_death: "وفاة ليوناردو واقتناء فرانسوا الأول اللوحة",
+                ex2_table_theft: "سرقة اللوحة من متحف اللوفر",
+                ex2_table_recovery: "استرجاع اللوحة",
+                ex2Q_source: "المصدر: معطيات الدرس حول تاريخ لوحة الجوكندا (1503-1913)",
+                ex2A_title: "أهمّ المحطات في تاريخ لوحة الجوكندا (بالسنوات منذ الإنجاز)",
+                ex2A_source: "المصدر: معطيات الدرس حول تاريخ لوحة الجوكندا (1503-1913)",
+                ex2A_scale: "المقياس: 0–450 سنة؛ ارتفاع الأعمدة يتناسب مع القيمة.",
+                ex2A_key_label: "المفتاح:",
+                ex3Q: "تأمّل لوحة الجوكندا التالية، ثمّ بيّن: عناصرها الأساسية، والخصائص الفنية التي تُجسّدها، والدلالات الفكرية التي تحملها.",
+                ex3DocAlt: "لوحة الجوكندا (الموناليزا) – ليوناردو دا فينشي",
+                ex3AnswerImgAlt: "نموذج الإجابة – تحليل لوحة الجوكندا",
+                ex3A: "تمثّل اللوحة صورة نصفية (Buste) لسيدة فلورنسية هي ليزا غيرارديني، زوجة التاجر فرانتشيسكو دل جيوكوندو، وقد رسمها ليوناردو دا فينشي حوالي سنة 1503. 1) العناصر الأساسية للوحة: السيدة في مقدّمة اللوحة، تجلس في مواجهة المشاهد تقريبًا، مع انحراف طفيف نحو اليمين؛ وجهها هادئ، وابتسامة غامضة غير واضحة الحدود، وشعر بني مسترسل على كتفيها؛ ثوب داكن اللون دون أكمام كاملة، بثنيات دقيقة ومتقنة؛ اليد اليمنى موضوعة فوق اليد اليسرى بتقاطع أنيق؛ خلفية منظر طبيعي واسع: جسر، طريق متعرّج، نهر، صخور وجبال في الأفق. 2) الخصائص الفنية: السفوماتو (Sfumato): تدريج ناعم للألوان في زاويتي الفم وحدود العينين، ممّا أعطى الابتسامة الغامضة؛ المنظور الخطّي والجوّي: توزيع دقيق للأحجام والمسافات، وألوان متلاشية في الخلفية البعيدة؛ التوازن والتناسب: جسد السيدة يشكّل شكلًا هرميًّا متوازنًا؛ الكياري-سكورو: تباين الظلّ والنور لنمذجة الوجه والجسم؛ الدقّة الفائقة: في رسم خصلات الشعر وثنيات القماش والأصابع. 3) الدلالات الفكرية: الإعجاب بالإنسان (L'humanisme): اللوحة تحتفي بالإنسان في أبهى صورة وأكثرها خصوصية؛ الاندماج بين الفن والعلم: استعان ليوناردو بمعارفه في التشريح والرياضيات؛ الحرية الإبداعية: اختيار الفنان لموضوعه وأسلوبه بعيدًا عن قيود الفنّ الديني الوسيطي؛ الإرث الإغريقي-اللاتيني: تطبيق مبدأ التناسب الرياضي والجمالي.",
+                ex4Q: "حلّل الخصائص الفنية لفن النهضة الأوروبية من خلال لوحة الجوكندا في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "تتجلى خصائص فن النهضة الأوروبية من خلال لوحة الجوكندا في عدة جوانب:\n- الإعتماد على التراث الإغريقي-اللاتيني: استعان ليوناردو بمبدأ التناسب الرياضي والجمالي الذي أرساه فلاسفة اليونان، وطبّقه في رسم الأبعاد والتناسب بين أعضاء الجسد.\n- تقديم الإنسان في أبهى صورة: تركّز اللوحة على الإنسان كمحور للعمل الفني، فتعرض ليزا غيرارديني بملامح هادئة وواقعية وجمال إنساني عميق، وهو ما يجسّد مبدأ الإنسانية (L'humanisme).\n- تطبيق القواعد والمقاييس الرياضية: اعتمد ليوناردو على قواعد المنظور الخطّي الرياضي في توزيع الأحجام والمسافات، وأدخل المنظور الجوّي في رسم الخلفية.\n- الدقّة والواقعية: أبدع ليوناردو في رسم أدقّ التفاصيل: خصلات الشعر، وثنيات القماش، والشكل الدقيق للأصابع، ممّا يدلّ على رهافة ملاحظته ومهارته العالية.\n- الاندماج بين الفن والعلم: استعان ليوناردو بمعارفه في التشريح والرياضيات والطبيعة، فجمعت اللوحة بين الدراسة العلمية والرائعة الفنية.\n- تجنّب الإفراط في الزخرفة: خلافًا للتيّار الباروكي، اتّسم فن النهضة بالتواضع في \"الديكور\" والتركيز على الإنسان وعلى إبراز جماله الفطري.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تجسّد لوحة الجوكندا لليوناردو دا فينشي خصائص فن النهضة الأوروبية ومبادئه الكبرى. فقد اعتمد الفنان على التراث الإغريقي-اللاتيني، خاصة مبدأ التناسب الرياضي والجمالي، وطبّقه في رسم الأبعاد والتناسب بين أعضاء الجسد. كما جعل الإنسان محور العمل الفني، فعرض ليزا غيرارديني في أبهى صورة وأكثرها خصوصية، وهو ما يعكس مبدأ الإنسانية القائم على الإعجاب بالإنسان وتقديره. وقد مكّنته معارفه في الرياضيات من تطبيق قواعد المنظور الخطّي وتوزيع الأحجام والمسافات، كما استخدم المنظور الجوّي في خلفية اللوحة لتمثيل الفضاء البعيد. وإلى جانب ذلك، أبدع ليوناردو في رسم أدقّ التفاصيل، ممّا يبرز الدقّة والواقعية التي يتّصف بها فن النهضة. وأخيرًا، فقد جمعت اللوحة بين الفن والعلم، إذ استعان ليوناردو بدراساته التشريحية والرياضية، فكانت في الوقت نفسه دراسة علمية ورائعة فنية، متجنّبًا الإفراط في الزخرفة الذي ميّز التيّار الباروكي لاحقًا.",
+                ex5Q: "اكتب مقالاً قصيراً حول لوحة الجوكندا (الموناليزا) كرمز لفكر عصر النهضة الأوروبية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "حلّل لوحة الجوكندا كرمز لفكر عصر النهضة من خلال أربعة محاور: بطاقة تعريفها وصاحبها (ليوناردو دا فينشي، ليزا غيرارديني، 1503-1519، متحف اللوفر)، خصائصها الفنية (السفوماتو، الكياري-سكورو، المنظور الخطّي والجوّي، الدقّة والواقعية)، دلالاتها الفكرية (الإعجاب بالإنسان، الاندماج بين الفن والعلم، الحرية الإبداعية، الإرث الإغريقي-اللاتيني)، وأثرها العالمي (شهرتها، سرقة 1911، دورها في تدريس تاريخ الفن).",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تحديد لوحة الجوكندا كأشهر عمل فني في تاريخ الإنسانية ورمز للنهضة الأوروبية.",
+                ex5A_plan_li2: "تطوير: أولاً. بطاقة تعريف اللوحة وصاحبها؛ ثانياً. خصائصها الفنية والتقنية؛ ثالثاً. دلالاتها الفكرية؛ رابعاً. أثرها العالمي.",
+                ex5A_plan_li3: "خاتمة: الجوكندا وثيقة حضارية ورمز خالد للإبداع الإنساني.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "تُعدّ لوحة الجوكندا (الموناليزا) أشهر عمل فني في تاريخ الإنسانية، وأبرز رمز على الإطلاق للنهضة الفنية الأوروبية. رسمها الفنان الإيطالي العبقري ليوناردو دا فينشي بين سنتي 1503 و1519، وهي محفوظة اليوم في متحف اللوفر بباريس. وتمثّل هذه اللوحة وثيقة حضارية تنطق بتحوّل الفكر الأوروبي في مطلع العصر الحديث، وتجسّد أبرز مبادئ عصر النهضة ومقوّماته.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_card: "أولاً. بطاقة تعريف اللوحة وصاحبها",
+                ex5A_production_p_card: "ليوناردو دا فينشي (1452-1519) فنان وعالم إيطالي، يُعدّ النموذج الأمثل لـ\"رجل عصر النهضة\" بفضل تعدّد مواهبه: رسّام ونحّات ومهندس معماري وعالم تشريح ورياضيات وميكانيك وطبيعيات وجيولوجيا وفلك وموسيقي. رسم لوحة الجوكندا حوالي سنة 1503 بطلب من التاجر الفلورنسي فرانتشيسكو دل جيوكوندو ليزا غيرارديني زوجته. اللوحة من نوع بورتريه، بتقنية زيت على خشب الحور، بأبعاد 77 × 53 سم، محفوظة بمتحف اللوفر بباريس.",
+                ex5A_production_h4_technique: "ثانياً. الخصائص الفنية والتقنية",
+                ex5A_production_p_technique: "اعتمد ليوناردو في اللوحة على تقنيات فنية مبتكرة: السفوماتو (Sfumato)، وهي تقنية تعتمد على طبقات متعدّدة من الألوان الزيتية الشفّافة المتراكمة بدرجات متدرّجة ناعمة، ما أعطى الابتسامة الغامضة. والكياري-سكورو (Clair-obscur)، وهي أسلوب التباين بين الظلّ والنور لنمذجة الوجه والجسم. والمنظور الخطّي لتوزيع الأحجام والمسافات، والمنظور الجوّي لتمثيل الفضاء البعيد بألوان متلاشية. إضافة إلى الدقّة الفائقة في رسم خصلات الشعر وثنيات القماش وتفاصيل الأصابع.",
+                ex5A_production_h4_meaning: "ثالثاً. الدلالات الفكرية",
+                ex5A_production_p_meaning: "تعكس اللوحة جملة من المبادئ الأساسية في فكر عصر النهضة الأوروبية: الإعجاب بالإنسان (L'humanisme)، حيث تُجسّد فكرة أن الإنسان هو محور الاهتمام، وأنّ قيمته تكمن في قدراته الفردية. الاندماج بين الفن والعلم، إذ استعان ليوناردو بمعارفه في التشريح والرياضيات والطبيعة. الحرية الإبداعية، إذ عبّرت اللوحة عن حرية الفنان في اختيار موضوعه وأسلوبه. والإرث الإغريقي-اللاتيني، خاصة في مبدأ التناسب الرياضي والجمالي.",
+                ex5A_production_h4_impact: "رابعاً. أثر اللوحة العالمي",
+                ex5A_production_p_impact: "تجاوزت شهرة الجوكندا حدود المتاحف لتغدو واحدة من أكثر الصور المعروفة في العالم. وهي محفوظة اليوم بمتحف اللوفر بباريس، ويقصدها سنويًّا ملايين الزوّار. وقد تعرّضت لسرقة شهيرة سنة 1911 على يد العامل الإيطالي فينتشنزو بيروجيا، ثم استرجعت سنة 1913، وهو ما ساهم في إشهارها العالمي. وتُعدّ اليوم مرجعًا أساسيًّا في تدريس تاريخ الفن، وموضوع إلهام للعديد من الأعمال الفنية والثقافية.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "تُعدّ لوحة الجوكندا تجسيدًا كاملًا لفكر عصر النهضة الأوروبية ومبادئه، فهي ليست مجرّد صورة لسيدة فلورنسية، بل هي وثيقة حضارية تنطق بتحوّل الفكر الأوروبي في مطلع العصر الحديث، ورمز خالد للإبداع الإنساني.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '0', value: 0, valueFormatted: '0' },
+                { label: '13', value: 13, valueFormatted: '13' },
+                { label: '16', value: 16, valueFormatted: '16' },
+                { label: '408', value: 408, valueFormatted: '408' },
+                { label: '410', value: 410, valueFormatted: '410' }
+            ],
+            maxValue: 450,
+            ySteps: [450, 360, 270, 180, 90, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            }
+        };
+    </script>
+</body>
+</html>

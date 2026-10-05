@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – نيكولا كوبرنيك (دراسة شخصية علمية)</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <h1 data-i18n="exerciseTitle">تمارين – نيكولا كوبرنيك (دراسة شخصية علمية)</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: مركزية الأرض (Géocentrisme)، مركزية الشمس (Héliocentrisme)، الحركة الظاهرية للنجوم، الثورة العلمية الحديثة.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">مركزية الأرض (Le géocentrisme):</dt>
+                        <dd data-i18n="ex1_def1_subtitle">نظرية فلكية وضعها العالم الإغريقي بطليموس في القرن II م في كتابه "المجسطي"، تقوم على أن الأرض ثابتة وتقع في مركز الكون، وأن الكواكب والنجوم تدور حولها، وتترتّب حسب بعدها عن سطح الأرض (القمر، عطارد، الزهرة، الشمس، المريخ، المشتري، زحل، ثم النجوم الثابتة). وقد توافقت هذه النظرية مع فلسفة أرسطو والتصور الديني للكنيسة، وسادت في أوروبا طوال أربعة عشر قرنًا.</dd>
+                        <dt data-i18n="ex1_def2_title">مركزية الشمس (L'héliocentrisme):</dt>
+                        <dd data-i18n="ex1_def2_subtitle">نظرية فلكية جديدة قدّمها نيكولاس كوبرنيكوس في كتابه "دوران الأجرام السماوية" (1543)، تقوم على أن الشمس في مركز الكون، وأن الأرض كوكب متحرك يدور حولها مع بقية الكواكب. وتخضع الأرض لثلاث حركات: يومية حول محورها، وسنوية حول الشمس، وارتجاجية (تغيّر ميل المحور). وقد مثّلت قطيعة مع التصور القديم للكون.</dd>
+                        <dt data-i18n="ex1_def3_title">الحركة الظاهرية للنجوم:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">الحركة التي يبدو للراصد على سطح الأرض أن النجوم تقوم بها في السماء. وقد بيّن كوبرنيكوس أنها ليست إلا نتيجة بصرية ناتجة عن الحركة الحقيقية للأرض (حركتها اليومية والسنوية)، وليست حركة فعلية للنجوم في حدّ ذاتها، خلافًا لما كان يعتقده بطليموس.</dd>
+                        <dt data-i18n="ex1_def4_title">الثورة العلمية الحديثة:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">حركة علمية انطلقت من أعمال نيكولاس كوبرنيكوس في القرن XVI، وامتدّت على يد كبلر وغاليليو ونيوتن في القرنين XVII وXVIII. أرست أسس العلم الحديث القائم على الرصد والتجربة والاستنتاج الرياضي بدلًا من التسليم للسلطة الدينية، وحرّرت العقل الأوروبي من قيود الكنيسة.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن المراحل الكبرى لحياة نيكولاس كوبرنيكوس ومدّتها الزمنية.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_phase">المرحلة</th>
+                            <th data-i18n="ex2_table_period">الفترة</th>
+                            <th data-i18n="ex2_table_duration">المدّة (سنة)</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_poland">التكوين ببولندا (تورون وكراكوف)</td>
+                            <td>1473-1496</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_italy">الدراسة بإيطاليا (بولونيا، بادوفا، فيرارا)</td>
+                            <td>1496-1503</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_work">العمل الفلكي في فرومبورك (تأليف ونشر)</td>
+                            <td>1503-1543</td>
+                            <td>40</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: معطيات الدرس حول محطات حياة كوبرنيكوس</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Document / Diagram -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمّل الرسمين التاليين اللذين يمثّلان التصورين القديم والجديد للكون (مركزية الأرض / مركزية الشمس)، وبيّن أهم الفروق بينهما، وأثر ذلك على الفكر الأوروبي.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets3eco/exercises/history/unit1/lesson3/geocentric_vs_heliocentric_diagram.png"
+                         alt="مقارنة بين مركزية الأرض ومركزية الشمس"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets3eco/exercises/history/unit1/lesson3/geocentric_vs_heliocentric_answer.png"
+                             alt="نموذج الإجابة – الفروق بين التصورين"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        يمثّل الرسمان تصوّرين متقابلين للكون:
+                        <br><strong>1) التصور القديم (مركزية الأرض – بطليموس):</strong> الأرض ثابتة في مركز الكون، والكواكب والنجوم تدور حولها في مدارات دائرية مرتّبة حسب بعدها عن سطح الأرض (القمر، عطارد، الزهرة، الشمس، المريخ، المشتري، زحل، ثم النجوم الثابتة). يخضع هذا التصور لفلسفة أرسطو وللاهوت الكنيسة.
+                        <br><strong>2) التصور الجديد (مركزية الشمس – كوبرنيكوس):</strong> الشمس في مركز الكون، والأرض كوكب متحرك يدور حولها مع بقية الكواكب. وتخضع الأرض لثلاث حركات: يومية حول محورها (تعاقب الليل والنهار)، وسنوية حول الشمس (تعاقب الفصول)، وارتجاجية (تغيّر ميل المحور). وترتيب الكواكب من الشمس: عطارد، الزهرة، الأرض (ويتبعها القمر)، المريخ، المشتري، زحل، ثم النجوم الثابتة.
+                        <br><strong>3) أهم الفروق:</strong>
+                        <br>- <strong>مركز الكون:</strong> الأرض (قديم) ← الشمس (جديد).
+                        <br>- <strong>حركة الأرض:</strong> ثابتة (قديم) ← ثلاث حركات (جديد).
+                        <br>- <strong>الحركة الظاهرية للنجوم:</strong> حركة حقيقية (قديم) ← نتيجة بصرية لحركة الأرض (جديد).
+                        <br>- <strong>طبيعة النموذج:</strong> معقّد يحتاج إلى "أفلاك تدوير" (قديم) ← أبسط وأكثر انسجامًا (جديد).
+                        <br>- <strong>التوافق الفكري:</strong> متوافق مع أرسطو والكنيسة (قديم) ← مخالف للفلسفة السائدة وللكنيسة (جديد).
+                        <br><strong>4) الأثر على الفكر الأوروبي:</strong>
+                        <br>- تحرير العلم من قيود الكنيسة والنصوص المقدّسة.
+                        <br>- إرساء مبدأ الاعتماد على الرصد والتجربة والاستنتاج الرياضي.
+                        <br>- إزالة الإنسان والأرض من مركز الكون، وهو تحوّل جذري في تصوّر الإنسان لنفسه وللعالم.
+                        <br>- تأسيس الثورة العلمية الحديثة على يد كبلر وغاليليو ونيوتن.
+                        <br>- الرفض الكنسي: إدراج الكتاب ضمن الكتب الممنوعة (1616)، إحراق جوردانو برونو (1600)، ومحاكمة غاليليو (1633).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل أثر نظرية كوبرنيكوس الفلكية على الفكر الأوروبي في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        أثر نظرية كوبرنيكوس الفلكية على الفكر الأوروبي:
+                        <br>- <strong>تحرير العلم من قيود الكنيسة:</strong> أرست النظرية مبدأ الاعتماد على الرصد والتجربة والاستنتاج الرياضي بدلًا من التسليم للسلطة الدينية والنصوص المقدّسة، ففتحت الطريق أمام البحث العلمي الحرّ.
+                        <br>- <strong>تحوّل جذري في تصوّر الإنسان للكون:</strong> بإزالة الأرض والإنسان من مركز الكون، فقدت النظرة اللاهوتية التي كانت ترى أن الكون خُلق من أجل الإنسان مصداقيتها، فتحوّل الإنسان من محور الكون إلى جزء من نظام كوني أكبر.
+                        <br>- <strong>رفض الكنيسة ونتائجه:</strong> أدرجت الكنيسة كتاب "دوران الأجرام السماوية" ضمن قائمة الكتب الممنوعة سنة 1616، وأُحرق جوردانو برونو حيًّا سنة 1600، وحوكم غاليليو سنة 1633 وأُجبر على التراجع، ممّا يدلّ على حجم الصدام بين العلم والسلطة الدينية.
+                        <br>- <strong>انطلاق الثورة العلمية الحديثة:</strong> مهّدت النظرية لأعمال كبلر (المدارات الإهليلجية)، وغاليليو (المنظار الفلكي والدلائل التجريبية)، ونيوتن (قانون الجذب العام)، وأرسلت أسس العلم الحديث القائم على الملاحظة والاستنتاج الرياضي.
+                        <br>- <strong>تحضير عصر الأنوار:</strong> أسهمت في انطلاق حركة نقدية شاملة شملت مجالات الفكر والدين والسياسة في القرنين XVII وXVIII.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        كان لنظرية كوبرنيكوس الفلكية أثر عميق على الفكر الأوروبي تجاوز مجال الفلك إلى مجمل مجالات المعرفة. فقد حرّرت العلم من قيود الكنيسة بإرساء مبدأ الاعتماد على الرصد والتجربة والاستنتاج الرياضي بدلًا من التسليم للسلطة الدينية، وأحدثت تحوّلًا جذريًا في تصوّر الإنسان للكون بإزالة الأرض والإنسان من مركزه، ممّا أفقد النظرة اللاهوتية مصداقيتها. وقد واجهت النظرية رفضًا كنسيًا عنيفًا تجلّى في إدراج كتاب كوبرنيكوس ضمن قائمة الكتب الممنوعة سنة 1616، وإحراق جوردانو برونو حيًّا سنة 1600، ومحاكمة غاليليو سنة 1633. ورغم ذلك، فقد مهّدت النظرية لانطلاق الثورة العلمية الحديثة على يد كبلر وغاليليو ونيوتن، وأسهمت في تحضير عصر الأنوار الذي قلبت فيه حركة نقدية شاملة أسس الفكر الأوروبي في القرنين السابع عشر والثامن عشر.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول شخصية نيكولاس كوبرنيكوس ونظريته الفلكية وإسهاماته في الثورة العلمية الحديثة.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        حلّل شخصية كوبرنيكوس وإسهاماته من خلال أربعة محاور: التكوين العلمي والثقافي (بولندا، إيطاليا، تعدّد المعارف)، نظرية مركزية الشمس (الشمس في المركز، الأرض كوكب بثلاث حركات، أبسط من النظام البطلمي)، الرفض الكنسي والاضطهاد (قائمة الكتب الممنوعة 1616، جوردانو برونو 1600، محاكمة غاليليو 1633)، امتداد أعماله (كبلر، غاليليو، نيوتن) وتأسيس الثورة العلمية الحديثة.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تحديد كوبرنيكوس كأحد أبرز روّاد الثورة العلمية في عصر النهضة.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. تكوينه العلمي المتعدّد؛ ثانياً. نظرية مركزية الشمس؛ ثالثاً. الرفض الكنسي؛ رابعاً. امتداد أعماله مع كبلر وغاليليو ونيوتن.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: نظرية كوبرنيكوس إيذانًا ببداية العلم الحديث.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">يُعدّ نيكولاس كوبرنيكوس (1473-1543) من أبرز روّاد الثورة العلمية في عصر النهضة، إذ قدّم تصورًا جديدًا للكون قلب فيه التصوّر القديم الذي ساد أربعة عشر قرنًا، فتحوّل بذلك من عالم مغمور إلى رمز للتحرّر العلمي من قيود السلطة الدينية.</p>
+
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_formation">أولاً. تكوينه العلمي المتعدّد</h4>
+                        <p data-i18n="ex5A_production_p_formation">وُلد كوبرنيكوس سنة 1473 بمدينة تورون البولندية في أسرة ميسورة الحال. درس الفلك والرياضيات بجامعة كراكوف (1491)، ثم انتقل إلى إيطاليا حيث درس القانون الكنسي بجامعة بولونيا (1496) والطب بجامعة بادوفا، وتحصّل سنة 1503 على الدكتوراه في القانون الكنسي من جامعة فيرارا. وقد جمع بين تكوين جامعي رصين وتجربة عملية متعدّدة، فكان فقيهًا قانونيًا وطبيبًا واقتصاديًا وعالم رياضيات وفلك ورجل دين، ما مكّنه من الجمع بين التأمّل النظري والرصد الفلكي.</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_theory">ثانياً. نظرية مركزية الشمس</h4>
+                        <p data-i18n="ex5A_production_p_theory">قدّم كوبرنيكوس في كتابه الرئيس "دوران الأجرام السماوية" (De revolutionibus orbium coelestium) الذي نُشر سنة 1543، نظامًا جديدًا للكون جعل فيه الشمس في المركز والأرض كوكبًا متحركًا. وقد أثبت أن الأرض تخضع لثلاث حركات: يومية حول محورها، وسنوية حول الشمس، وارتجاجية (تغيّر ميل المحور)، وبيّن أن الحركة الظاهرية للنجوم ليست إلا نتيجة بصرية لحركة الأرض. وكان نظامه أبسط وأكثر انسجامًا من نظام بطليموس القديم.</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_church">ثالثاً. الرفض الكنسي</h4>
+                        <p data-i18n="ex5A_production_p_church">واجهت النظرية الجديدة رفضًا عنيفًا من الكنيسة التي اعتبرتها مخالفة للدين وللكتاب المقدّس. فقد أُدرج كتاب كوبرنيكوس ضمن قائمة الكتب الممنوعة سنة 1616، وأُحرق الفيلسوف الإيطالي جوردانو برونو حيًّا سنة 1600 بسبب تبنّيه لمركزية الشمس، وحوكم غاليليو سنة 1633 وأُجبر على التراجع عن قوله. ورغم هذا الرفض، لم تتوقف مسيرة العلم.</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_legacy">رابعاً. امتداد أعماله وتأسيس العلم الحديث</h4>
+                        <p data-i18n="ex5A_production_p_legacy">مهّدت نظرية كوبرنيكوس لأعمال علماء كبار دفعوا الفكر العلمي إلى الأمام: يوهانس كبلر (1571-1630) الذي أثبت أن مدارات الكواكب إهليلجية وليست دائرية، وغاليليو غاليلي (1564-1642) الذي استخدم منظارًا فلكيًا بقدرة تكبيرية تصل إلى نحو 20 مرّة ورصد أدلة جديدة دعمت مركزية الشمس، وإسحاق نيوتن (1643-1727) الذي صاغ قانون الجذب العام وتوّج بذلك أعمال من سبقه. وهكذا أرسلت هذه الأعمال أسس العلم الحديث القائم على الرصد والتجربة والاستنتاج الرياضي.</p>
+
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا كانت نظرية كوبرنيكوس إيذانًا ببداية العلم الحديث، إذ حرّرت العقل الأوروبي من قيود الكنيسة وفتحت الطريق أمام الثورة العلمية التي غيّرت وجه العالم.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y3sec_secEco_his_lessons_mod1_lesson3.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                exerciseTitle: "Exercises – Nicolaus Copernicus (Scientific Figure Study)",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Geocentrism, Heliocentrism, the Apparent Motion of the Stars, the Modern Scientific Revolution.",
+                ex1_def1_title: "Geocentrism (Le géocentrisme):",
+                ex1_def1_subtitle: "An astronomical theory formulated by the Greek scholar Ptolemy in the 2nd century AD in his book \"Almagest\", based on the idea that the Earth is stationary and located at the center of the universe, and that the planets and stars revolve around it, arranged according to their distance from the Earth's surface (the Moon, Mercury, Venus, the Sun, Mars, Jupiter, Saturn, then the fixed stars). This theory was compatible with Aristotle's philosophy and the Church's religious conception, and prevailed in Europe for fourteen centuries.",
+                ex1_def2_title: "Heliocentrism (L'héliocentrisme):",
+                ex1_def2_subtitle: "A new astronomical theory presented by Nicolaus Copernicus in his book \"On the Revolutions of the Celestial Spheres\" (1543), based on the idea that the Sun is at the center of the universe, and that the Earth is a moving planet revolving around it along with the rest of the planets. The Earth is subject to three movements: daily around its axis, annual around the Sun, and wobbling (change in axial tilt). It represented a break with the old conception of the universe.",
+                ex1_def3_title: "The Apparent Motion of the Stars:",
+                ex1_def3_subtitle: "The motion that an observer on the Earth's surface perceives the stars as performing in the sky. Copernicus showed that it is nothing but a visual result of the real motion of the Earth (its daily and annual motion), and not an actual motion of the stars themselves, contrary to what Ptolemy believed.",
+                ex1_def4_title: "The Modern Scientific Revolution:",
+                ex1_def4_subtitle: "A scientific movement that started from the work of Nicolaus Copernicus in the 16th century, and extended through Kepler, Galileo, and Newton in the 17th and 18th centuries. It established the foundations of modern science based on observation, experimentation, and mathematical deduction instead of submitting to religious authority, and liberated the European mind from the Church's restrictions.",
+                ex2Q: "Convert the following table data into a bar chart showing the major phases of Nicolaus Copernicus's life and their duration.",
+                ex2_table_phase: "Phase",
+                ex2_table_period: "Period",
+                ex2_table_duration: "Duration (years)",
+                ex2_table_poland: "Formation in Poland (Toruń and Kraków)",
+                ex2_table_italy: "Studies in Italy (Bologna, Padua, Ferrara)",
+                ex2_table_work: "Astronomical work at Frombork (writing and publication)",
+                ex2Q_source: "Source: Lesson data on the stages of Copernicus's life",
+                ex2A_title: "Major Phases of Nicolaus Copernicus's Life (Duration in Years)",
+                ex2A_source: "Source: Lesson data on the stages of Copernicus's life",
+                ex2A_scale: "Scale: 0–45 years; column height proportional to value.",
+                ex2A_key_label: "Key:",
+                ex3Q: "Observe the following two diagrams representing the old and new conceptions of the universe (geocentrism / heliocentrism), identify the main differences between them, and their impact on European thought.",
+                ex3DocAlt: "Comparison between geocentrism and heliocentrism",
+                ex3AnswerImgAlt: "Answer model – Differences between the two conceptions",
+                ex3A: "The two diagrams represent two opposing conceptions of the universe: 1) The Old Conception (Geocentrism – Ptolemy): The Earth is stationary at the center of the universe, and the planets and stars revolve around it in circular orbits arranged according to their distance from the Earth's surface (the Moon, Mercury, Venus, the Sun, Mars, Jupiter, Saturn, then the fixed stars). This conception is subject to Aristotle's philosophy and the Church's theology. 2) The New Conception (Heliocentrism – Copernicus): The Sun is at the center of the universe, and the Earth is a moving planet revolving around it along with the rest of the planets. The Earth is subject to three movements: daily around its axis (alternation of day and night), annual around the Sun (alternation of seasons), and wobbling (change in axial tilt). The order of the planets from the Sun: Mercury, Venus, Earth (followed by the Moon), Mars, Jupiter, Saturn, then the fixed stars. 3) Main Differences: Center of the universe: Earth (old) → Sun (new). Motion of the Earth: stationary (old) → three movements (new). Apparent motion of the stars: real motion (old) → visual result of the Earth's motion (new). Nature of the model: complex, requiring epicycles (old) → simpler and more coherent (new). Intellectual compatibility: compatible with Aristotle and the Church (old) → contrary to the prevailing philosophy and the Church (new). 4) Impact on European Thought: Liberation of science from the Church's restrictions and sacred texts; establishment of the principle of relying on observation, experimentation, and mathematical deduction; removal of man and the Earth from the center of the universe, constituting a radical transformation in man's conception of himself and the world; foundation of the modern scientific revolution by Kepler, Galileo, and Newton; Church rejection: inclusion of the book in the Index of Forbidden Books (1616), burning of Giordano Bruno (1600), and Galileo's trial (1633).",
+                ex4Q: "Analyse the impact of Copernicus's astronomical theory on European thought in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Impact of Copernicus's astronomical theory on European thought:\n- Liberation of science from the Church's restrictions: The theory established the principle of relying on observation, experimentation, and mathematical deduction instead of submitting to religious authority and sacred texts, opening the way for free scientific research.\n- Radical transformation in man's conception of the universe: By removing the Earth and man from the center of the universe, the theological vision which held that the universe was created for man lost its credibility, and man was transformed from the center of the universe to a part of a larger cosmic system.\n- The Church's rejection and its consequences: The Church placed \"On the Revolutions of the Celestial Spheres\" on the Index of Forbidden Books in 1616, Giordano Bruno was burned alive in 1600, and Galileo was tried in 1633 and forced to recant, indicating the scale of the clash between science and religious authority.\n- Launch of the modern scientific revolution: The theory paved the way for the work of Kepler (elliptical orbits), Galileo (telescope and experimental evidence), and Newton (law of universal gravitation), and laid the foundations of modern science based on observation and mathematical deduction.\n- Preparation of the Enlightenment: It contributed to the launch of a comprehensive critical movement that covered the fields of thought, religion, and politics in the 17th and 18th centuries.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "Copernicus's astronomical theory had a profound impact on European thought that went beyond the field of astronomy to all fields of knowledge. It liberated science from the Church's restrictions by establishing the principle of relying on observation, experimentation, and mathematical deduction instead of submitting to religious authority, and brought about a radical transformation in man's conception of the universe by removing the Earth and man from its center, thereby depriving the theological vision of its credibility. The theory faced violent Church rejection manifested in the inclusion of Copernicus's book in the Index of Forbidden Books in 1616, the burning alive of Giordano Bruno in 1600, and the trial of Galileo in 1633. Nevertheless, the theory paved the way for the launch of the modern scientific revolution by Kepler, Galileo, and Newton, and contributed to the preparation of the Enlightenment, in which a comprehensive critical movement overturned the foundations of European thought in the 17th and 18th centuries.",
+                ex5Q: "Write a short article about the personality of Nicolaus Copernicus, his astronomical theory, and his contributions to the modern scientific revolution.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Analyse Copernicus's personality and contributions through four axes: scientific and cultural formation (Poland, Italy, multidisciplinary knowledge), the heliocentric theory (Sun at the center, Earth a planet with three movements, simpler than the Ptolemaic system), Church rejection and persecution (Index of Forbidden Books 1616, Giordano Bruno 1600, Galileo's trial 1633), and the extension of his work (Kepler, Galileo, Newton) and the founding of the modern scientific revolution.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Identifying Copernicus as one of the most prominent pioneers of the scientific revolution during the Renaissance.",
+                ex5A_plan_li2: "Development: I. His multidisciplinary scientific formation; II. The heliocentric theory; III. Church rejection; IV. Extension of his work with Kepler, Galileo, and Newton.",
+                ex5A_plan_li3: "Conclusion: Copernicus's theory as the beginning of modern science.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Nicolaus Copernicus (1473-1543) is considered one of the most prominent pioneers of the scientific revolution during the Renaissance, as he presented a new conception of the universe that overturned the old view which had prevailed for fourteen centuries, thus transforming from an obscure scholar into a symbol of scientific liberation from the restrictions of religious authority.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_formation: "I. His Multidisciplinary Scientific Formation",
+                ex5A_production_p_formation: "Copernicus was born in 1473 in the Polish city of Toruń into a well-off family. He studied astronomy and mathematics at the University of Kraków (1491), then moved to Italy where he studied canon law at the University of Bologna (1496) and medicine at the University of Padua, and obtained his doctorate in canon law from the University of Ferrara in 1503. He combined rigorous university education with diverse practical experience, being a canon lawyer, physician, economist, mathematician and astronomer, and a man of religion, which enabled him to combine theoretical contemplation with astronomical observation.",
+                ex5A_production_h4_theory: "II. The Heliocentric Theory",
+                ex5A_production_p_theory: "In his main book \"On the Revolutions of the Celestial Spheres\" (De revolutionibus orbium coelestium), published in 1543, Copernicus presented a new system of the universe in which he placed the Sun at the center and made the Earth a moving planet. He proved that the Earth is subject to three movements: daily around its axis, annual around the Sun, and wobbling (change in axial tilt), and showed that the apparent motion of the stars is nothing but a visual result of the Earth's motion. His system was simpler and more coherent than Ptolemy's old system.",
+                ex5A_production_h4_church: "III. Church Rejection",
+                ex5A_production_p_church: "The new theory faced violent rejection from the Church, which considered it contrary to religion and the Holy Scripture. Copernicus's book was placed on the Index of Forbidden Books in 1616, the Italian philosopher Giordano Bruno was burned alive in 1600 for adopting heliocentrism, and Galileo was tried in 1633 and forced to recant his view. Despite this rejection, the march of science did not stop.",
+                ex5A_production_h4_legacy: "IV. Extension of His Work and Foundation of Modern Science",
+                ex5A_production_p_legacy: "Copernicus's theory paved the way for the work of great scholars who pushed scientific thought forward: Johannes Kepler (1571-1630) who proved that planetary orbits are elliptical rather than circular; Galileo Galilei (1564-1642) who used an astronomical telescope with a magnifying power of about 20 times and observed new evidence supporting heliocentrism; and Isaac Newton (1643-1727) who formulated the law of universal gravitation, thus crowning the work of his predecessors. These works laid the foundations of modern science based on observation, experimentation, and mathematical deduction.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus Copernicus's theory announced the beginning of modern science, liberating the European mind from the Church's restrictions and opening the way for the scientific revolution that changed the face of the world.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – Nicolas Copernic (étude d'une figure scientifique)",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : le géocentrisme, l'héliocentrisme, le mouvement apparent des étoiles, la révolution scientifique moderne.",
+                ex1_def1_title: "Le géocentrisme :",
+                ex1_def1_subtitle: "Une théorie astronomique formulée par le savant grec Ptolémée au IIe siècle apr. J.-C. dans son livre « Almageste », basée sur l'idée que la Terre est immobile et située au centre de l'univers, et que les planètes et les étoiles tournent autour d'elle, disposées selon leur distance à la surface de la Terre (la Lune, Mercure, Vénus, le Soleil, Mars, Jupiter, Saturne, puis les étoiles fixes). Cette théorie était compatible avec la philosophie d'Aristote et la conception religieuse de l'Église, et prévalut en Europe pendant quatorze siècles.",
+                ex1_def2_title: "L'héliocentrisme :",
+                ex1_def2_subtitle: "Une nouvelle théorie astronomique présentée par Nicolas Copernic dans son livre « Des révolutions des sphères célestes » (1543), basée sur l'idée que le Soleil est au centre de l'univers, et que la Terre est une planète en mouvement tournant autour de lui avec le reste des planètes. La Terre est soumise à trois mouvements : quotidien autour de son axe, annuel autour du Soleil, et d'oscillation (changement de l'inclinaison de l'axe). Elle représenta une rupture avec l'ancienne conception de l'univers.",
+                ex1_def3_title: "Le mouvement apparent des étoiles :",
+                ex1_def3_subtitle: "Le mouvement qu'un observateur à la surface de la Terre perçoit les étoiles comme exécutant dans le ciel. Copernic montra qu'il n'est qu'un résultat visuel du mouvement réel de la Terre (son mouvement quotidien et annuel), et non un mouvement réel des étoiles elles-mêmes, contrairement à ce que croyait Ptolémée.",
+                ex1_def4_title: "La révolution scientifique moderne :",
+                ex1_def4_subtitle: "Un mouvement scientifique parti des travaux de Nicolas Copernic au XVIe siècle, et prolongé par Kepler, Galilée et Newton aux XVIIe et XVIIIe siècles. Il établit les fondements de la science moderne basée sur l'observation, l'expérimentation et la déduction mathématique au lieu de se soumettre à l'autorité religieuse, et libéra l'esprit européen des restrictions de l'Église.",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant les grandes phases de la vie de Nicolas Copernic et leur durée.",
+                ex2_table_phase: "Phase",
+                ex2_table_period: "Période",
+                ex2_table_duration: "Durée (années)",
+                ex2_table_poland: "Formation en Pologne (Toruń et Cracovie)",
+                ex2_table_italy: "Études en Italie (Bologne, Padoue, Ferrare)",
+                ex2_table_work: "Travail astronomique à Frombork (rédaction et publication)",
+                ex2Q_source: "Source : données de la leçon sur les étapes de la vie de Copernic",
+                ex2A_title: "Grandes phases de la vie de Nicolas Copernic (durée en années)",
+                ex2A_source: "Source : données de la leçon sur les étapes de la vie de Copernic",
+                ex2A_scale: "Échelle : 0–45 ans ; hauteur des colonnes proportionnelle à la valeur.",
+                ex2A_key_label: "Légende :",
+                ex3Q: "Observez les deux diagrammes suivants représentant l'ancienne et la nouvelle conception de l'univers (géocentrisme / héliocentrisme), identifiez les principales différences entre elles, et leur impact sur la pensée européenne.",
+                ex3DocAlt: "Comparaison entre géocentrisme et héliocentrisme",
+                ex3AnswerImgAlt: "Modèle de réponse – Différences entre les deux conceptions",
+                ex3A: "Les deux diagrammes représentent deux conceptions opposées de l'univers : 1) L'ancienne conception (géocentrisme – Ptolémée) : La Terre est immobile au centre de l'univers, et les planètes et les étoiles tournent autour d'elle en orbites circulaires disposées selon leur distance à la surface de la Terre (la Lune, Mercure, Vénus, le Soleil, Mars, Jupiter, Saturne, puis les étoiles fixes). Cette conception est soumise à la philosophie d'Aristote et à la théologie de l'Église. 2) La nouvelle conception (héliocentrisme – Copernic) : Le Soleil est au centre de l'univers, et la Terre est une planète en mouvement tournant autour de lui avec le reste des planètes. La Terre est soumise à trois mouvements : quotidien autour de son axe (alternance du jour et de la nuit), annuel autour du Soleil (alternance des saisons), et d'oscillation (changement de l'inclinaison de l'axe). L'ordre des planètes à partir du Soleil : Mercure, Vénus, la Terre (suivie de la Lune), Mars, Jupiter, Saturne, puis les étoiles fixes. 3) Principales différences : Centre de l'univers : la Terre (ancien) → le Soleil (nouveau). Mouvement de la Terre : immobile (ancien) → trois mouvements (nouveau). Mouvement apparent des étoiles : mouvement réel (ancien) → résultat visuel du mouvement de la Terre (nouveau). Nature du modèle : complexe, nécessitant des épicycles (ancien) → plus simple et plus cohérent (nouveau). Compatibilité intellectuelle : compatible avec Aristote et l'Église (ancien) → contraire à la philosophie dominante et à l'Église (nouveau). 4) Impact sur la pensée européenne : Libération de la science des restrictions de l'Église et des textes sacrés ; établissement du principe de s'appuyer sur l'observation, l'expérimentation et la déduction mathématique ; retrait de l'homme et de la Terre du centre de l'univers, constituant une transformation radicale dans la conception que l'homme a de lui-même et du monde ; fondation de la révolution scientifique moderne par Kepler, Galilée et Newton ; rejet de l'Église : inclusion du livre dans l'Index des livres interdits (1616), bûcher de Giordano Bruno (1600), et procès de Galilée (1633).",
+                ex4Q: "Analysez l'impact de la théorie astronomique de Copernic sur la pensée européenne en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Impact de la théorie astronomique de Copernic sur la pensée européenne :\n- Libération de la science des restrictions de l'Église : La théorie établit le principe de s'appuyer sur l'observation, l'expérimentation et la déduction mathématique au lieu de se soumettre à l'autorité religieuse et aux textes sacrés, ouvrant la voie à la recherche scientifique libre.\n- Transformation radicale dans la conception que l'homme a de l'univers : En retirant la Terre et l'homme du centre de l'univers, la vision théologique qui soutenait que l'univers a été créé pour l'homme perdit sa crédibilité, et l'homme passa du centre de l'univers à une partie d'un système cosmique plus vaste.\n- Le rejet de l'Église et ses conséquences : L'Église plaça « Des révolutions des sphères célestes » sur l'Index des livres interdits en 1616, Giordano Bruno fut brûlé vif en 1600, et Galilée fut jugé en 1633 et contraint de se rétracter, indiquant l'ampleur du choc entre la science et l'autorité religieuse.\n- Lancement de la révolution scientifique moderne : La théorie ouvrit la voie aux travaux de Kepler (orbites elliptiques), Galilée (télescope et preuves expérimentales), et Newton (loi de la gravitation universelle), et posa les fondements de la science moderne basée sur l'observation et la déduction mathématique.\n- Préparation des Lumières : Elle contribua au lancement d'un mouvement critique global qui couvrit les domaines de la pensée, de la religion et de la politique aux XVIIe et XVIIIe siècles.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "La théorie astronomique de Copernic eut un impact profond sur la pensée européenne qui dépassa le domaine de l'astronomie pour toucher tous les domaines de la connaissance. Elle libéra la science des restrictions de l'Église en établissant le principe de s'appuyer sur l'observation, l'expérimentation et la déduction mathématique au lieu de se soumettre à l'autorité religieuse, et apporta une transformation radicale dans la conception que l'homme a de l'univers en retirant la Terre et l'homme de son centre, privant ainsi la vision théologique de sa crédibilité. La théorie fit face à un rejet violent de l'Église qui se manifesta par l'inclusion du livre de Copernic dans l'Index des livres interdits en 1616, le bûcher de Giordano Bruno en 1600, et le procès de Galilée en 1633. Néanmoins, la théorie ouvrit la voie au lancement de la révolution scientifique moderne par Kepler, Galilée et Newton, et contribua à la préparation des Lumières, où un mouvement critique global renversa les fondements de la pensée européenne aux XVIIe et XVIIIe siècles.",
+                ex5Q: "Rédigez un court article sur la personnalité de Nicolas Copernic, sa théorie astronomique et ses contributions à la révolution scientifique moderne.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Analysez la personnalité et les contributions de Copernic à travers quatre axes : la formation scientifique et culturelle (Pologne, Italie, savoir pluridisciplinaire), la théorie héliocentrique (Soleil au centre, Terre planète à trois mouvements, plus simple que le système ptolémaïque), le rejet et la persécution par l'Église (Index des livres interdits 1616, Giordano Bruno 1600, procès de Galilée 1633), et l'extension de ses travaux (Kepler, Galilée, Newton) et la fondation de la révolution scientifique moderne.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Identifier Copernic comme l'un des pionniers les plus éminents de la révolution scientifique à la Renaissance.",
+                ex5A_plan_li2: "Développement : I. Sa formation scientifique pluridisciplinaire ; II. La théorie héliocentrique ; III. Le rejet de l'Église ; IV. L'extension de ses travaux avec Kepler, Galilée et Newton.",
+                ex5A_plan_li3: "Conclusion : La théorie de Copernic comme début de la science moderne.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Nicolas Copernic (1473-1543) est considéré comme l'un des pionniers les plus éminents de la révolution scientifique à la Renaissance, car il présenta une nouvelle conception de l'univers qui renversa l'ancienne vision qui avait prévalu pendant quatorze siècles, se transformant ainsi d'un savant obscur en symbole de la libération scientifique des restrictions de l'autorité religieuse.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_formation: "I. Sa formation scientifique pluridisciplinaire",
+                ex5A_production_p_formation: "Copernic naquit en 1473 dans la ville polonaise de Toruń dans une famille aisée. Il étudia l'astronomie et les mathématiques à l'Université de Cracovie (1491), puis se rendit en Italie où il étudia le droit canon à l'Université de Bologne (1496) et la médecine à l'Université de Padoue, et obtint son doctorat en droit canon de l'Université de Ferrare en 1503. Il combina une formation universitaire rigoureuse avec une expérience pratique diversifiée, étant juriste canoniste, médecin, économiste, mathématicien et astronome, et homme de religion, ce qui lui permit de combiner la contemplation théorique avec l'observation astronomique.",
+                ex5A_production_h4_theory: "II. La théorie héliocentrique",
+                ex5A_production_p_theory: "Dans son livre principal « Des révolutions des sphères célestes » (De revolutionibus orbium coelestium), publié en 1543, Copernic présenta un nouveau système de l'univers dans lequel il plaça le Soleil au centre et fit de la Terre une planète en mouvement. Il prouva que la Terre est soumise à trois mouvements : quotidien autour de son axe, annuel autour du Soleil, et d'oscillation (changement de l'inclinaison de l'axe), et montra que le mouvement apparent des étoiles n'est qu'un résultat visuel du mouvement de la Terre. Son système était plus simple et plus cohérent que l'ancien système de Ptolémée.",
+                ex5A_production_h4_church: "III. Le rejet de l'Église",
+                ex5A_production_p_church: "La nouvelle théorie fit face à un rejet violent de l'Église, qui la considéra contraire à la religion et aux Saintes Écritures. Le livre de Copernic fut placé sur l'Index des livres interdits en 1616, le philosophe italien Giordano Bruno fut brûlé vif en 1600 pour avoir adopté l'héliocentrisme, et Galilée fut jugé en 1633 et contraint de se rétracter. Malgré ce rejet, la marche de la science ne s'arrêta pas.",
+                ex5A_production_h4_legacy: "IV. Extension de ses travaux et fondation de la science moderne",
+                ex5A_production_p_legacy: "La théorie de Copernic ouvrit la voie aux travaux de grands savants qui firent avancer la pensée scientifique : Johannes Kepler (1571-1630) qui prouva que les orbites planétaires sont elliptiques et non circulaires ; Galilée (1564-1642) qui utilisa un télescope astronomique d'un pouvoir grossissant d'environ 20 fois et observa de nouvelles preuves soutenant l'héliocentrisme ; et Isaac Newton (1643-1727) qui formula la loi de la gravitation universelle, couronnant ainsi les travaux de ses prédécesseurs. Ces travaux posèrent les fondements de la science moderne basée sur l'observation, l'expérimentation et la déduction mathématique.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi la théorie de Copernic annonça le début de la science moderne, libérant l'esprit européen des restrictions de l'Église et ouvrant la voie à la révolution scientifique qui changea le visage du monde.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – نيكولا كوبرنيك (دراسة شخصية علمية)",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: مركزية الأرض (Géocentrisme)، مركزية الشمس (Héliocentrisme)، الحركة الظاهرية للنجوم، الثورة العلمية الحديثة.",
+                ex1_def1_title: "مركزية الأرض (Le géocentrisme):",
+                ex1_def1_subtitle: "نظرية فلكية وضعها العالم الإغريقي بطليموس في القرن II م في كتابه \"المجسطي\"، تقوم على أن الأرض ثابتة وتقع في مركز الكون، وأن الكواكب والنجوم تدور حولها، وتترتّب حسب بعدها عن سطح الأرض (القمر، عطارد، الزهرة، الشمس، المريخ، المشتري، زحل، ثم النجوم الثابتة). وقد توافقت هذه النظرية مع فلسفة أرسطو والتصور الديني للكنيسة، وسادت في أوروبا طوال أربعة عشر قرنًا.",
+                ex1_def2_title: "مركزية الشمس (L'héliocentrisme):",
+                ex1_def2_subtitle: "نظرية فلكية جديدة قدّمها نيكولاس كوبرنيكوس في كتابه \"دوران الأجرام السماوية\" (1543)، تقوم على أن الشمس في مركز الكون، وأن الأرض كوكب متحرك يدور حولها مع بقية الكواكب. وتخضع الأرض لثلاث حركات: يومية حول محورها، وسنوية حول الشمس، وارتجاجية (تغيّر ميل المحور). وقد مثّلت قطيعة مع التصور القديم للكون.",
+                ex1_def3_title: "الحركة الظاهرية للنجوم:",
+                ex1_def3_subtitle: "الحركة التي يبدو للراصد على سطح الأرض أن النجوم تقوم بها في السماء. وقد بيّن كوبرنيكوس أنها ليست إلا نتيجة بصرية ناتجة عن الحركة الحقيقية للأرض (حركتها اليومية والسنوية)، وليست حركة فعلية للنجوم في حدّ ذاتها، خلافًا لما كان يعتقده بطليموس.",
+                ex1_def4_title: "الثورة العلمية الحديثة:",
+                ex1_def4_subtitle: "حركة علمية انطلقت من أعمال نيكولاس كوبرنيكوس في القرن XVI، وامتدّت على يد كبلر وغاليليو ونيوتن في القرنين XVII وXVIII. أرست أسس العلم الحديث القائم على الرصد والتجربة والاستنتاج الرياضي بدلًا من التسليم للسلطة الدينية، وحرّرت العقل الأوروبي من قيود الكنيسة.",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن المراحل الكبرى لحياة نيكولاس كوبرنيكوس ومدّتها الزمنية.",
+                ex2_table_phase: "المرحلة",
+                ex2_table_period: "الفترة",
+                ex2_table_duration: "المدّة (سنة)",
+                ex2_table_poland: "التكوين ببولندا (تورون وكراكوف)",
+                ex2_table_italy: "الدراسة بإيطاليا (بولونيا، بادوفا، فيرارا)",
+                ex2_table_work: "العمل الفلكي في فرومبورك (تأليف ونشر)",
+                ex2Q_source: "المصدر: معطيات الدرس حول محطات حياة كوبرنيكوس",
+                ex2A_title: "المراحل الكبرى لحياة نيكولاس كوبرنيكوس (المدّة بالسنوات)",
+                ex2A_source: "المصدر: معطيات الدرس حول محطات حياة كوبرنيكوس",
+                ex2A_scale: "المقياس: 0–45 سنة؛ ارتفاع الأعمدة يتناسب مع القيمة.",
+                ex2A_key_label: "المفتاح:",
+                ex3Q: "تأمّل الرسمين التاليين اللذين يمثّلان التصورين القديم والجديد للكون (مركزية الأرض / مركزية الشمس)، وبيّن أهم الفروق بينهما، وأثر ذلك على الفكر الأوروبي.",
+                ex3DocAlt: "مقارنة بين مركزية الأرض ومركزية الشمس",
+                ex3AnswerImgAlt: "نموذج الإجابة – الفروق بين التصورين",
+                ex3A: "يمثّل الرسمان تصوّرين متقابلين للكون: 1) التصور القديم (مركزية الأرض – بطليموس): الأرض ثابتة في مركز الكون، والكواكب والنجوم تدور حولها في مدارات دائرية مرتّبة حسب بعدها عن سطح الأرض (القمر، عطارد، الزهرة، الشمس، المريخ، المشتري، زحل، ثم النجوم الثابتة). يخضع هذا التصور لفلسفة أرسطو ولاهوت الكنيسة. 2) التصور الجديد (مركزية الشمس – كوبرنيكوس): الشمس في مركز الكون، والأرض كوكب متحرك يدور حولها مع بقية الكواكب. وتخضع الأرض لثلاث حركات: يومية حول محورها (تعاقب الليل والنهار)، وسنوية حول الشمس (تعاقب الفصول)، وارتجاجية (تغيّر ميل المحور). وترتيب الكواكب من الشمس: عطارد، الزهرة، الأرض (ويتبعها القمر)، المريخ، المشتري، زحل، ثم النجوم الثابتة. 3) أهم الفروق: مركز الكون: الأرض (قديم) ← الشمس (جديد). حركة الأرض: ثابتة (قديم) ← ثلاث حركات (جديد). الحركة الظاهرية للنجوم: حركة حقيقية (قديم) ← نتيجة بصرية لحركة الأرض (جديد). طبيعة النموذج: معقّد يحتاج إلى \"أفلاك تدوير\" (قديم) ← أبسط وأكثر انسجامًا (جديد). التوافق الفكري: متوافق مع أرسطو والكنيسة (قديم) ← مخالف للفلسفة السائدة وللكنيسة (جديد). 4) الأثر على الفكر الأوروبي: تحرير العلم من قيود الكنيسة والنصوص المقدّسة؛ إرساء مبدأ الاعتماد على الرصد والتجربة والاستنتاج الرياضي؛ إزالة الإنسان والأرض من مركز الكون، وهو تحوّل جذري في تصوّر الإنسان لنفسه وللعالم؛ تأسيس الثورة العلمية الحديثة على يد كبلر وغاليليو ونيوتن؛ الرفض الكنسي: إدراج الكتاب ضمن الكتب الممنوعة (1616)، إحراق جوردانو برونو (1600)، ومحاكمة غاليليو (1633).",
+                ex4Q: "حلّل أثر نظرية كوبرنيكوس الفلكية على الفكر الأوروبي في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "أثر نظرية كوبرنيكوس الفلكية على الفكر الأوروبي:\n- تحرير العلم من قيود الكنيسة: أرست النظرية مبدأ الاعتماد على الرصد والتجربة والاستنتاج الرياضي بدلًا من التسليم للسلطة الدينية والنصوص المقدّسة، ففتحت الطريق أمام البحث العلمي الحرّ.\n- تحوّل جذري في تصوّر الإنسان للكون: بإزالة الأرض والإنسان من مركز الكون، فقدت النظرة اللاهوتية التي كانت ترى أن الكون خُلق من أجل الإنسان مصداقيتها، فتحوّل الإنسان من محور الكون إلى جزء من نظام كوني أكبر.\n- رفض الكنيسة ونتائجه: أدرجت الكنيسة كتاب \"دوران الأجرام السماوية\" ضمن قائمة الكتب الممنوعة سنة 1616، وأُحرق جوردانو برونو حيًّا سنة 1600، وحوكم غاليليو سنة 1633 وأُجبر على التراجع، ممّا يدلّ على حجم الصدام بين العلم والسلطة الدينية.\n- انطلاق الثورة العلمية الحديثة: مهّدت النظرية لأعمال كبلر (المدارات الإهليلجية)، وغاليليو (المنظار الفلكي والدلائل التجريبية)، ونيوتن (قانون الجذب العام)، وأرسلت أسس العلم الحديث القائم على الملاحظة والاستنتاج الرياضي.\n- تحضير عصر الأنوار: أسهمت في انطلاق حركة نقدية شاملة شملت مجالات الفكر والدين والسياسة في القرنين XVII وXVIII.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "كان لنظرية كوبرنيكوس الفلكية أثر عميق على الفكر الأوروبي تجاوز مجال الفلك إلى مجمل مجالات المعرفة. فقد حرّرت العلم من قيود الكنيسة بإرساء مبدأ الاعتماد على الرصد والتجربة والاستنتاج الرياضي بدلًا من التسليم للسلطة الدينية، وأحدثت تحوّلًا جذريًا في تصوّر الإنسان للكون بإزالة الأرض والإنسان من مركزه، ممّا أفقد النظرة اللاهوتية مصداقيتها. وقد واجهت النظرية رفضًا كنسيًا عنيفًا تجلّى في إدراج كتاب كوبرنيكوس ضمن قائمة الكتب الممنوعة سنة 1616، وإحراق جوردانو برونو حيًّا سنة 1600، ومحاكمة غاليليو سنة 1633. ورغم ذلك، فقد مهّدت النظرية لانطلاق الثورة العلمية الحديثة على يد كبلر وغاليليو ونيوتن، وأسهمت في تحضير عصر الأنوار الذي قلبت فيه حركة نقدية شاملة أسس الفكر الأوروبي في القرنين السابع عشر والثامن عشر.",
+                ex5Q: "اكتب مقالاً قصيراً حول شخصية نيكولاس كوبرنيكوس ونظريته الفلكية وإسهاماته في الثورة العلمية الحديثة.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "حلّل شخصية كوبرنيكوس وإسهاماته من خلال أربعة محاور: التكوين العلمي والثقافي (بولندا، إيطاليا، تعدّد المعارف)، نظرية مركزية الشمس (الشمس في المركز، الأرض كوكب بثلاث حركات، أبسط من النظام البطلمي)، الرفض الكنسي والاضطهاد (قائمة الكتب الممنوعة 1616، جوردانو برونو 1600، محاكمة غاليليو 1633)، امتداد أعماله (كبلر، غاليليو، نيوتن) وتأسيس الثورة العلمية الحديثة.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تحديد كوبرنيكوس كأحد أبرز روّاد الثورة العلمية في عصر النهضة.",
+                ex5A_plan_li2: "تطوير: أولاً. تكوينه العلمي المتعدّد؛ ثانياً. نظرية مركزية الشمس؛ ثالثاً. الرفض الكنسي؛ رابعاً. امتداد أعماله مع كبلر وغاليليو ونيوتن.",
+                ex5A_plan_li3: "خاتمة: نظرية كوبرنيكوس إيذانًا ببداية العلم الحديث.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "يُعدّ نيكولاس كوبرنيكوس (1473-1543) من أبرز روّاد الثورة العلمية في عصر النهضة، إذ قدّم تصورًا جديدًا للكون قلب فيه التصوّر القديم الذي ساد أربعة عشر قرنًا، فتحوّل بذلك من عالم مغمور إلى رمز للتحرّر العلمي من قيود السلطة الدينية.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_formation: "أولاً. تكوينه العلمي المتعدّد",
+                ex5A_production_p_formation: "وُلد كوبرنيكوس سنة 1473 بمدينة تورون البولندية في أسرة ميسورة الحال. درس الفلك والرياضيات بجامعة كراكوف (1491)، ثم انتقل إلى إيطاليا حيث درس القانون الكنسي بجامعة بولونيا (1496) والطب بجامعة بادوفا، وتحصّل سنة 1503 على الدكتوراه في القانون الكنسي من جامعة فيرارا. وقد جمع بين تكوين جامعي رصين وتجربة عملية متعدّدة، فكان فقيهًا قانونيًا وطبيبًا واقتصاديًا وعالم رياضيات وفلك ورجل دين، ما مكّنه من الجمع بين التأمّل النظري والرصد الفلكي.",
+                ex5A_production_h4_theory: "ثانياً. نظرية مركزية الشمس",
+                ex5A_production_p_theory: "قدّم كوبرنيكوس في كتابه الرئيس \"دوران الأجرام السماوية\" (De revolutionibus orbium coelestium) الذي نُشر سنة 1543، نظامًا جديدًا للكون جعل فيه الشمس في المركز والأرض كوكبًا متحركًا. وقد أثبت أن الأرض تخضع لثلاث حركات: يومية حول محورها، وسنوية حول الشمس، وارتجاجية (تغيّر ميل المحور)، وبيّن أن الحركة الظاهرية للنجوم ليست إلا نتيجة بصرية لحركة الأرض. وكان نظامه أبسط وأكثر انسجامًا من نظام بطليموس القديم.",
+                ex5A_production_h4_church: "ثالثاً. الرفض الكنسي",
+                ex5A_production_p_church: "واجهت النظرية الجديدة رفضًا عنيفًا من الكنيسة التي اعتبرتها مخالفة للدين وللكتاب المقدّس. فقد أُدرج كتاب كوبرنيكوس ضمن قائمة الكتب الممنوعة سنة 1616، وأُحرق الفيلسوف الإيطالي جوردانو برونو حيًّا سنة 1600 بسبب تبنّيه لمركزية الشمس، وحوكم غاليليو سنة 1633 وأُجبر على التراجع عن قوله. ورغم هذا الرفض، لم تتوقف مسيرة العلم.",
+                ex5A_production_h4_legacy: "رابعاً. امتداد أعماله وتأسيس العلم الحديث",
+                ex5A_production_p_legacy: "مهّدت نظرية كوبرنيكوس لأعمال علماء كبار دفعوا الفكر العلمي إلى الأمام: يوهانس كبلر (1571-1630) الذي أثبت أن مدارات الكواكب إهليلجية وليست دائرية، وغاليليو غاليلي (1564-1642) الذي استخدم منظارًا فلكيًا بقدرة تكبيرية تصل إلى نحو 20 مرّة ورصد أدلة جديدة دعمت مركزية الشمس، وإسحاق نيوتن (1643-1727) الذي صاغ قانون الجذب العام وتوّج بذلك أعمال من سبقه. وهكذا أرسلت هذه الأعمال أسس العلم الحديث القائم على الرصد والتجربة والاستنتاج الرياضي.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا كانت نظرية كوبرنيكوس إيذانًا ببداية العلم الحديث، إذ حرّرت العقل الأوروبي من قيود الكنيسة وفتحت الطريق أمام الثورة العلمية التي غيّرت وجه العالم.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '23', value: 23, valueFormatted: '23' },
+                { label: '7', value: 7, valueFormatted: '7' },
+                { label: '40', value: 40, valueFormatted: '40' }
+            ],
+            maxValue: 45,
+            ySteps: [45, 36, 27, 18, 9, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            }
+        };
+    </script>
+</body>
+</html>

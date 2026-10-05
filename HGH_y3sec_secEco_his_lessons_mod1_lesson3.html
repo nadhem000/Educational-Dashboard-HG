@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+        .lesson-quote {
+            background: var(--ED-General-color-bg-secondary);
+            border-right: 4px solid var(--ED-General-color-accent-default);
+            padding: 1rem 1.2rem;
+            margin: 1.2rem 0;
+            border-radius: 10px;
+            font-style: italic;
+            color: var(--ED-General-color-text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.9;
+        }
+        [dir="rtl"] .lesson-quote { border-right: 4px solid var(--ED-General-color-accent-default); border-left: none; }
+        [dir="ltr"] .lesson-quote { border-left: 4px solid var(--ED-General-color-accent-default); border-right: none; }
+        .lesson-quote-author {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--ED-General-color-accent-default);
+        }
+        .lesson-quote-source { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); }
+        .lesson-stat-highlight {
+            display: inline-block;
+            background: var(--ED-General-color-accent-light);
+            color: var(--ED-General-color-accent-default);
+            padding: 0.15rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            font-size: 0.95rem;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid var(--ED-General-color-border);
+            padding: 0.7rem 0.9rem;
+            text-align: right;
+        }
+        [dir="ltr"] .comparison-table th,
+        [dir="ltr"] .comparison-table td { text-align: left; }
+        .comparison-table th {
+            background: var(--ED-General-color-accent-light);
+            color: var(--ED-General-color-accent-default);
+            font-weight: 700;
+        }
+        .comparison-table tr:nth-child(even) td {
+            background: var(--ED-General-color-bg-secondary);
+        }
+        .table-scroll-wrapper { overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: أوروبا والعالم المتوسطي في القرن السادس عشر</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">النهضة الأوروبية: دراسة شخصية علمية – نيكولا كوبرنيك</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">شهد علم الفلك في عصر النهضة تطورًا مهمًا بفضل العالم <strong>نيكولاس كوبرنيكوس</strong> (Nicolas Copernic) الذي عاش بين عامي 1473 و1543. فقد قدّم تصورًا جديدًا للكون قلب فيه التصور القديم الذي ساد لأربعة عشر قرنًا، مبدلًا مركزية الأرض بمركزية الشمس، ممّا مهّد لانطلاق الثورة العلمية الحديثة في أوروبا. فمن هو كوبرنيكوس؟ وما هي نظريته الفلكية؟ وما أبرز تأثيراتها؟</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">من هو كوبرنيكوس؟ وما هي أبرز محطات حياته وأعماله؟ وما هي نظرية مركزية الشمس التي جاء بها؟ وما موقف الكنيسة منها؟ وما تأثيرها على تطور علم الفلك؟</p>
+            </div>
+
+            <!-- Part I : Introduction to Copernicus -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">التعريف بكوبرنيكوس</span>
+                </h2>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="originsTitle">نشأته وتكوينه</span>
+                </h3>
+                <p data-i18n="originsText">وُلد نيكولاس كوبرنيكوس سنة 1473 في مدينة تورون (Toruń) ببولندا، في أسرة ميسورة الحال، حيث كان والده تاجرًا وأمّه من عائلة تجارية ثرية. وفي سنة 1491 التحق بجامعة كراكوف (Kraków) لدراسة الفلك والرياضيات. ثم انتقل سنة 1496 إلى إيطاليا، حيث درس القانون الكنسي في جامعة بولونيا (Bologna)، كما درس الطب في جامعة بادوفا (Padoue). وقد ألقى محاضرات في الرياضيات بروما حوالي سنة 1500، وتحصّل سنة 1503 على شهادة الدكتوراه في القانون الكنسي من جامعة فيرارا (Ferrare). ويُذكر أن عمّه لوكاش فاتزنرودي (Lucas Watzenrode) كان له دور في رعايته وتوجيهه نحو الحياة الكنسية، حيث أصبح أسقفًا على منطقة فارميا (Warmie).</p>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="careerTitle">نشاطه وأعماله</span>
+                </h3>
+                <p data-i18n="careerText">تولّى كوبرنيكوس منصبًا كنسيًا/قانونيًا في كاتدرائية فرومبورك (Frombork)، وواصل في الوقت نفسه أبحاثه في الفلك ودراساته الطبية. وقد ألّف دراسة فلكية بعنوان <strong>"الشروح" أو "التعليقات" (Commentariolus)</strong> حوالي سنة 1514، عرض فيها المبادئ الأساسية لنظرية مركزية الشمس في شكل مخطوط لم يُنشر. كما كتب دراسة اقتصادية حول العملة سنة 1517 بعنوان <strong>"في سكّ العملة" (Monetae cudendae ratio)</strong>. وبين عامي 1520 و1530 ألّف كتابه الرئيس <strong>"دوران الأجرام السماوية" (De revolutionibus orbium coelestium)</strong>، الذي بلور فيه نظريته الفلكية، ونُشر هذا الكتاب سنة 1543 في نورمبيرغ (Nuremberg) قبل وفاته بفترة قصيرة. وقد تُوفي كوبرنيكوس يوم 24 ماي 1543 في فرومبورك.</p>
+
+                <blockquote class="lesson-quote" data-i18n="copernicusBioQuote">
+                    كان كوبرنيكوس رجلًا متعدّد المعارف: فقيه قانوني، وطبيب، واقتصادي، وعالم رياضيات وفلك، ورجل دين. وقد جمع بين التكوين الجامعي الرصين والتجربة العملية، ما مكّنه من الجمع بين التأمّل النظري والرصد الفلكي، وصياغة نظرية علمية متماسكة على أسس رياضية.
+                    <span class="lesson-quote-author" data-i18n="copernicusBioQuoteAuthor">بطاقة تعريف: صورة شاملة لشخصية كوبرنيكوس</span>
+                </blockquote>
+            </div>
+
+            <!-- Part II : Copernicus's Astronomical Theory -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">نظرية كوبرنيكوس الفلكية</span>
+                </h2>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="oldViewTitle">التصور القديم للكون (مركزية الأرض)</span>
+                </h3>
+                <p data-i18n="oldViewText">سادت في أوروبا طوال أربعة عشر قرنًا نظرية <strong>مركزية الأرض</strong> (Le géocentrisme) التي وضعها العالم الإغريقي <strong>بطليموس</strong> (Ptolémée) في القرن II م في كتابه "المجسطي" (Almagest). وكانت تقوم على أن الأرض ثابتة وتقع في مركز الكون، وأن الكواكب والنجوم تدور حولها، وتترتّب حسب بعدها عن سطح الأرض بالترتيب التالي: القمر، عطارد، الزهرة، الشمس، المريخ، المشتري، زحل، ثم النجوم الثابتة. وقد توافقت هذه النظرية مع فلسفة أرسطو (Aristote) التي كانت ترى أن الأجسام الأرضية ثقيلة وتتّجه نحو المركز، ومع التصور الديني للكنيسة الذي كان يرى أن الإنسان يحتلّ مكانة مركزية في الخلق، وأن الأرض هي محور الكون الذي خلقه الله من أجله.</p>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="heliocentrismTitle">كوبرنيكوس ونظرية مركزية الشمس</span>
+                </h3>
+                <p data-i18n="heliocentrismIntro">قدّم كوبرنيكوس نظامًا جديدًا للكون، جعل فيه الأرض متحركة والشمس في المركز. وقد عرض هذا النظام في كتابه "دوران الأجرام السماوية" (1543)، ومن أبرز خصائصه:</p>
+                <ul>
+                    <li data-i18n="heliocentrismBullet1"><strong>الشمس في مركز الكون:</strong> تقع الشمس في مركز الكون وتدور حولها الكواكب، وليست الأرض مركزًا للكون كما كان يعتقد سابقًا.</li>
+                    <li data-i18n="heliocentrismBullet2"><strong>الأرض كوكب:</strong> الأرض ليست جسمًا ثابتًا، بل هي كوكب من الكواكب الخاضعة للحركة مثل بقية الكواكب.</li>
+                    <li data-i18n="heliocentrismBullet3"><strong>حركات الأرض الثلاث:</strong> تخضع الأرض لثلاث حركات:
+                        <ul>
+                            <li><strong>حركة يومية:</strong> حول محورها في مدّة يوم واحد، وهي المسؤولة عن تعاقب الليل والنهار.</li>
+                            <li><strong>حركة سنوية:</strong> حول الشمس في مدّة سنة، وهي المسؤولة عن تعاقب الفصول.</li>
+                            <li><strong>حركة ارتجاجية:</strong> أو تغير في ميل المحور، وهي ضرورية لتفسير بعض الظواهر الفلكية.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="heliocentrismBullet4"><strong>الحركة الظاهرية للنجوم:</strong> بيّن كوبرنيكوس أن الحركة الظاهرية للنجوم ليست إلا نتيجة بصرية ناتجة عن الحركة الحقيقية للأرض، وليست حركة فعلية للنجوم في حدّ ذاتها.</li>
+                    <li data-i18n="heliocentrismBullet5"><strong>ترتيب الكواكب:</strong> يبدأ الترتيب من الشمس: عطارد، الزهرة، الأرض (ويتبعها القمر)، المريخ، المشتري، زحل، ثم النجوم الثابتة في أقصى الكون.</li>
+                </ul>
+
+                <h4 class="sub-numeric-title" data-i18n="comparisonTitle">مقارنة بين التصورين</h4>
+                <div class="table-scroll-wrapper">
+                    <table class="comparison-table">
+                        <tr>
+                            <th data-i18n="compAspect">الوجه</th>
+                            <th data-i18n="compGeo">مركزية الأرض (بطليموس)</th>
+                            <th data-i18n="compHelio">مركزية الشمس (كوبرنيكوس)</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="compCenter">مركز الكون</td>
+                            <td data-i18n="compCenterGeo">الأرض (ثابتة)</td>
+                            <td data-i18n="compCenterHelio">الشمس</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="compEarthMove">حركة الأرض</td>
+                            <td data-i18n="compEarthMoveGeo">ثابتة لا تتحرك</td>
+                            <td data-i18n="compEarthMoveHelio">ثلاث حركات (يومية، سنوية، ارتجاجية)</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="compStarsMove">الحركة الظاهرية للنجوم</td>
+                            <td data-i18n="compStarsMoveGeo">حركة حقيقية للنجوم حول الأرض</td>
+                            <td data-i18n="compStarsMoveHelio">نتيجة بصرية لحركة الأرض</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="compCompatibility">التوافق الفكري</td>
+                            <td data-i18n="compCompatibilityGeo">متوافقة مع أرسطو والكنيسة</td>
+                            <td data-i18n="compCompatibilityHelio">مخالفة للفلسفة السائدة وللكنيسة</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="compModel">طبيعة النموذج</td>
+                            <td data-i18n="compModelGeo">معقّد (يحتاج إلى "أفلاك تدوير")</td>
+                            <td data-i18n="compModelHelio">أبسط وأكثر انسجامًا</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Part III : Effects of the New Theory -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span>
+                    <span data-i18n="sectionPart3">تأثيرات النظرية الجديدة</span>
+                </h2>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="churchPositionTitle">موقف الكنيسة</span>
+                </h3>
+                <p data-i18n="churchPositionText">رفضت الكنيسة النظرية الجديدة واعتبرتها مخالفة للمنطق وللدين المسيحي ولما ورد في الكتاب المقدّس، لأنّها تتعارض مع الفهم الحرفي لبعض النصوص الدينية التي تتحدّث عن ثبات الأرض وحركة الشمس. وقد تأكّد هذا الرفض بقرار صدر سنة <span class="lesson-stat-highlight">1616</span> وضع فيه كتاب "دوران الأجرام السماوية" ضمن <strong>قائمة الكتب الممنوعة</strong> (Index librorum prohibitorum). كما قامت الكنيسة بمصادرة العديد من نسخ كتاب كوبرنيكوس، ومنعت نشر أفكاره. ولم يقتصر الأمر على كوبرنيكوس، بل امتدّ إلى من تبنّى نظريته، ومن أبرز ضحايا هذا الرفض الفيلسوف الإيطالي <strong>جوردانو برونو</strong> (Giordano Bruno) الذي أُحرق حيًّا سنة 1600، وكذلك <strong>غاليليو غاليلي</strong> (Galilée) الذي حوكم سنة 1633 وأُجبر على التراجع عن قوله بمركزية الشمس.</p>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="astronomyDevelopmentTitle">تطور علم الفلك</span>
+                </h3>
+                <p data-i18n="astronomyDevelopmentIntro">أسهمت نظرية كوبرنيكوس في تطوير علم الفلك، وكانت منطلقًا لأعمال علماء آخرين دفعوا الفكر العلمي إلى الأمام، ومن أبرزهم:</p>
+                <ul>
+                    <li data-i18n="keplerText"><strong>يوهانس كبلر (Johannes Kepler) (1571-1630):</strong> عالم ألماني، طوّر فهم المدارات فأثبت أنها إهليلجية (بيضوية) وليست دائرية كما كان يعتقد كوبرنيكوس، وصاغ قوانين حركة الكواكب الثلاثة.</li>
+                    <li data-i18n="galileoText"><strong>غاليليو غاليلي (Galileo Galilei) (1564-1642):</strong> عالم إيطالي، استخدم منظارًا فلكيًا تصل قدرته التكبيرية إلى نحو <span class="lesson-stat-highlight">20 مرّة</span>، ورصد أدلة جديدة دعمت مركزية الشمس، منها أقمار المشتري وأطوار الزهرة وتضاريس القمر والبقع الشمسية.</li>
+                    <li data-i18n="newtonText"><strong>إسحاق نيوتن (Isaac Newton) (1643-1727):</strong> عالم إنجليزي، مهّدت أعمال من سبقه لما جاء به في تفسير الحركة والجاذبية، حيث صاغ قانون الجذب العام الذي فسّر سبب دوران الكواكب حول الشمس.</li>
+                </ul>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="impactOnThoughtTitle">أثر النظرية على الفكر الأوروبي</span>
+                </h3>
+                <p data-i18n="impactOnThoughtText">لم تقتصر أهمية نظرية كوبرنيكوس على مجال الفلك فحسب، بل تجاوزت ذلك لتُحدِث تحوّلًا عميقًا في الفكر الأوروبي عموماً. فقد:
+                    <br>• حرّرت العلم من قيود الكنيسة والتفكير القائم على النصوص المقدّسة.
+                    <br>• أرست مبدأ الاعتماد على الرصد والتجربة والاستنتاج الرياضي بدلًا من التسليم للسلطة الدينية.
+                    <br>• أزالت الإنسان والأرض من مركز الكون، ممّا شكّل تحوّلًا جذريًا في تصوّر الإنسان لنفسه وللعالم.
+                    <br>• مهّدت لقيام الثورة العلمية الحديثة على يد كبلر وغاليليو ونيوتن، ولانطلاق عصر الأنوار في القرن XVIII.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">مثّلت نظرية كوبرنيكوس الجديدة نقطة تحوّل في تحرير العلم من قيود الكنيسة، وكانت مقدّمة لانطلاق العلوم الحديثة في أوروبا، إذ فتحت الطريق أمام رصد الكون على أسس رياضية وتجريبية، ومهّدت لقيام الثورة العلمية التي غيّرت وجه العالم الحديث.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defCopernicus">نيكولاس كوبرنيكوس (Nicolas Copernic)</strong>: <span data-i18n="defCopernicusDesc">عالم فلك بولندي (1473-1543)، درس الفلك والرياضيات بجامعة كراكوف، والقانون الكنسي بجامعة بولونيا، والطب بجامعة بادوفا. صاحب نظرية مركزية الشمس، وألّف كتاب "دوران الأجرام السماوية" (1543). يُعدّ من أبرز روّاد الثورة العلمية في عصر النهضة.</span></li>
+                        <li><strong class="key-person" data-i18n="defPtolemy">بطليموس (Ptolémée)</strong>: <span data-i18n="defPtolemyDesc">عالم إغريقي عاش في القرن II م في الإسكندرية، وضع نظرية مركزية الأرض التي سادت أربعة عشر قرنًا، وشرحها في كتابه "المجسطي" (Almagest).</span></li>
+                        <li><strong class="key-person" data-i18n="defAristotle">أرسطو (Aristote)</strong>: <span data-i18n="defAristotleDesc">فيلسوف إغريقي، كانت فلسفته متوافقة مع نظرية مركزية الأرض، حيث كان يرى أن الأجسام الأرضية ثقيلة وتتّجه نحو المركز.</span></li>
+                        <li><strong class="key-person" data-i18n="defWatzenrode">لوكاش فاتزنرودي (Lucas Watzenrode)</strong>: <span data-i18n="defWatzenrodeDesc">عمّ كوبرنيكوس، أسقف على منطقة فارميا، كان له دور في رعايته وتوجيهه نحو الحياة الكنسية.</span></li>
+                        <li><strong class="key-person" data-i18n="defKepler">يوهانس كبلر (Johannes Kepler)</strong>: <span data-i18n="defKeplerDesc">عالم فلك ألماني (1571-1630)، طوّر نظرية كوبرنيكوس وأثبت أن مدارات الكواكب إهليلجية (بيضوية) وليست دائرية، وصاغ قوانين حركة الكواكب.</span></li>
+                        <li><strong class="key-person" data-i18n="defGalileo">غاليليو غاليلي (Galileo Galilei)</strong>: <span data-i18n="defGalileoDesc">عالم إيطالي (1564-1642)، استخدم منظارًا فلكيًا بقدرة تكبيرية تصل إلى نحو 20 مرّة، ورصد أدلة جديدة دعمت مركزية الشمس (أقمار المشتري، أطوار الزهرة). حوكم من طرف الكنيسة سنة 1633.</span></li>
+                        <li><strong class="key-person" data-i18n="defNewton">إسحاق نيوتن (Isaac Newton)</strong>: <span data-i18n="defNewtonDesc">عالم إنجليزي (1643-1727)، صاغ قانون الجذب العام الذي فسّر دوران الكواكب حول الشمس، وتوّج بذلك أعمال كوبرنيكوس وكبلر وغاليليو.</span></li>
+                        <li><strong class="key-person" data-i18n="defGiordanoBruno">جوردانو برونو (Giordano Bruno)</strong>: <span data-i18n="defGiordanoBrunoDesc">فيلسوف إيطالي تبنّى نظرية مركزية الشمس، أُحرق حيًّا سنة 1600 بسبب آرائه التي اعتبرتها الكنيسة مخالفة للدين.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defPoland">بولندا</strong>: <span data-i18n="defPolandDesc">بلد أوروبي، وُلد فيه كوبرنيكوس سنة 1473 بمدينة تورون.</span></li>
+                        <li><strong class="key-location" data-i18n="defTorun">تورون (Toruń)</strong>: <span data-i18n="defTorunDesc">مدينة بولندية وُلد فيها كوبرنيكوس سنة 1473 في أسرة ميسورة الحال.</span></li>
+                        <li><strong class="key-location" data-i18n="defKrakow">كراكوف (Kraków)</strong>: <span data-i18n="defKrakowDesc">مدينة بولندية، بها جامعة التحق بها كوبرنيكوس سنة 1491 لدراسة الفلك والرياضيات.</span></li>
+                        <li><strong class="key-location" data-i18n="defBologna">بولونيا (Bologna)</strong>: <span data-i18n="defBolognaDesc">مدينة إيطالية، بها جامعة درس فيها كوبرنيكوس القانون الكنسي منذ 1496.</span></li>
+                        <li><strong class="key-location" data-i18n="defPadua">بادوفا (Padoue)</strong>: <span data-i18n="defPaduaDesc">مدينة إيطالية، بها جامعة درس فيها كوبرنيكوس الطب.</span></li>
+                        <li><strong class="key-location" data-i18n="defFerrara">فيرارا (Ferrare)</strong>: <span data-i18n="defFerraraDesc">مدينة إيطالية، بها جامعة تحصّل منها كوبرنيكوس على شهادة الدكتوراه في القانون الكنسي سنة 1503.</span></li>
+                        <li><strong class="key-location" data-i18n="defFrombork">فرومبورك (Frombork)</strong>: <span data-i18n="defFromborkDesc">مدينة بولندية، بها كاتدرائية تولّى فيها كوبرنيكوس منصبًا كنسيًا/قانونيًا، وتُوفي بها سنة 1543.</span></li>
+                        <li><strong class="key-location" data-i18n="defWarmia">فارميا (Warmie)</strong>: <span data-i18n="defWarmiaDesc">منطقة كنسية ببولندا، كان عمّ كوبرنيكوس أسقفًا عليها.</span></li>
+                        <li><strong class="key-location" data-i18n="defNuremberg">نورمبيرغ (Nuremberg)</strong>: <span data-i18n="defNurembergDesc">مدينة ألمانية، نُشر فيها كتاب كوبرنيكوس "دوران الأجرام السماوية" سنة 1543.</span></li>
+                        <li><strong class="key-location" data-i18n="defRome">روما</strong>: <span data-i18n="defRomeDesc">عاصمة إيطاليا، ألقى فيها كوبرنيكوس محاضرات في الرياضيات حوالي سنة 1500.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defPublicationDeRevolutionibus">نشر كتاب "دوران الأجرام السماوية" (1543)</strong>: <span data-i18n="defPublicationDeRevolutionibusDesc">الكتاب الرئيس لكوبرنيكوس الذي بلور فيه نظريته الفلكية بمركزية الشمس، نُشر في نورمبيرغ سنة 1543 قبل وفاته بفترة قصيرة.</span></li>
+                        <li><strong class="key-event" data-i18n="defChurchDecree1616">قرار الكنيسة 1616</strong>: <span data-i18n="defChurchDecree1616Desc">قرار صادر عن الكنيسة وضع فيه كتاب كوبرنيكوس "دوران الأجرام السماوية" ضمن قائمة الكتب الممنوعة، بسبب مخالفته للدين المسيحي.</span></li>
+                        <li><strong class="key-event" data-i18n="defGalileoTrial1633">محاكمة غاليليو 1633</strong>: <span data-i18n="defGalileoTrial1633Desc">محاكمة الكنيسة للعالم الإيطالي غاليليو غاليلي بسبب تبنّيه لمركزية الشمس، وأُجبر على التراجع عن قوله.</span></li>
+                        <li><strong class="key-event" data-i18n="defGiordanoBrunoBurning1600">إحراق جوردانو برونو 1600</strong>: <span data-i18n="defGiordanoBrunoBurning1600Desc">إحراق الفيلسوف الإيطالي جوردانو برونو حيًّا سنة 1600 بسبب آرائه التي اعتبرتها الكنيسة مخالفة للدين، ومنها تبنّيه لمركزية الشمس.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-treaties">
+                    <h3 data-i18n="defTreaty">📜 كتب ومؤلّفات</h3>
+                    <ul>
+                        <li><strong class="key-treaty" data-i18n="defCommentariolus">الشروح أو التعليقات (Commentariolus)</strong>: <span data-i18n="defCommentariolusDesc">دراسة فلكية ألّفها كوبرنيكوس حوالي سنة 1514، عرض فيها المبادئ الأساسية لنظرية مركزية الشمس في شكل مخطوط لم يُنشر.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defDeRevolutionibus">دوران الأجرام السماوية (De revolutionibus orbium coelestium)</strong>: <span data-i18n="defDeRevolutionibusDesc">الكتاب الرئيس لكوبرنيكوس الذي ألّفه بين 1520 و1530، ونُشر سنة 1543 في نورمبيرغ، وبلور فيه نظريته الفلكية بمركزية الشمس.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defMonetae">في سكّ العملة (Monetae cudendae ratio)</strong>: <span data-i18n="defMonetaeDesc">دراسة اقتصادية ألّفها كوبرنيكوس سنة 1517 حول العملة.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defAlmagest">المجسطي (Almagest)</strong>: <span data-i18n="defAlmagestDesc">كتاب بطليموس في القرن II م، شرح فيه نظرية مركزية الأرض التي سادت أربعة عشر قرنًا.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defIndexLibrorum">قائمة الكتب الممنوعة (Index librorum prohibitorum)</strong>: <span data-i18n="defIndexLibrorumDesc">قائمة أصدرتها الكنيسة سنة 1616، وُضع فيها كتاب كوبرنيكوس "دوران الأجرام السماوية" ضمن الكتب الممنوعة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">II م</strong>: <span data-i18n="defYearIIADDesc">القرن الذي عاش فيه بطليموس ووضع فيه نظرية مركزية الأرض.</span></li>
+                        <li><strong class="key-year">1473</strong>: <span data-i18n="defYear1473Desc">سنة ولادة نيكولاس كوبرنيكوس بمدينة تورون البولندية.</span></li>
+                        <li><strong class="key-year">1491</strong>: <span data-i18n="defYear1491Desc">التحاق كوبرنيكوس بجامعة كراكوف لدراسة الفلك والرياضيات.</span></li>
+                        <li><strong class="key-year">1496</strong>: <span data-i18n="defYear1496Desc">انتقال كوبرنيكوس إلى إيطاليا لدراسة القانون الكنسي بجامعة بولونيا.</span></li>
+                        <li><strong class="key-year">1500</strong>: <span data-i18n="defYear1500Desc">إلقاء كوبرنيكوس محاضرات في الرياضيات بروما.</span></li>
+                        <li><strong class="key-year">1503</strong>: <span data-i18n="defYear1503Desc">حصول كوبرنيكوس على شهادة الدكتوراه في القانون الكنسي من جامعة فيرارا.</span></li>
+                        <li><strong class="key-year">1514</strong>: <span data-i18n="defYear1514Desc">تأليف كوبرنيكوس "الشروح" (Commentariolus) التي عرض فيها المبادئ الأساسية لنظرية مركزية الشمس.</span></li>
+                        <li><strong class="key-year">1517</strong>: <span data-i18n="defYear1517Desc">كتابة كوبرنيكوس دراسة اقتصادية حول العملة "في سكّ العملة".</span></li>
+                        <li><strong class="key-year">1520-1530</strong>: <span data-i18n="defYear1520_1530Desc">تأليف كوبرنيكوس كتابه الرئيس "دوران الأجرام السماوية".</span></li>
+                        <li><strong class="key-year">1543</strong>: <span data-i18n="defYear1543Desc">نشر كتاب "دوران الأجرام السماوية" في نورمبيرغ، ووفاة كوبرنيكوس يوم 24 ماي.</span></li>
+                        <li><strong class="key-year">1600</strong>: <span data-i18n="defYear1600Desc">إحراق الفيلسوف الإيطالي جوردانو برونو حيًّا بسبب تبنّيه لمركزية الشمس.</span></li>
+                        <li><strong class="key-year">1616</strong>: <span data-i18n="defYear1616Desc">قرار الكنيسة بوضع كتاب كوبرنيكوس "دوران الأجرام السماوية" ضمن قائمة الكتب الممنوعة.</span></li>
+                        <li><strong class="key-year">1633</strong>: <span data-i18n="defYear1633Desc">محاكمة غاليليو غاليلي من طرف الكنيسة وإجباره على التراجع عن قوله بمركزية الشمس.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defGeocentrism">مركزية الأرض (Le géocentrisme)</strong>: <span data-i18n="defGeocentrismDesc">نظرية فلكية وضعها بطليموس في القرن II م، تقوم على أن الأرض ثابتة وتقع في مركز الكون، وأن الكواكب والنجوم تدور حولها.</span></li>
+                        <li><strong class="key-other" data-i18n="defHeliocentrism">مركزية الشمس (L'héliocentrisme)</strong>: <span data-i18n="defHeliocentrismDesc">نظرية فلكية جديدة قدّمها كوبرنيكوس، تقوم على أن الشمس في مركز الكون، وأن الأرض كوكب متحرك يدور حولها مع بقية الكواكب.</span></li>
+                        <li><strong class="key-other" data-i18n="defDailyMotion">الحركة اليومية للأرض</strong>: <span data-i18n="defDailyMotionDesc">دوران الأرض حول محورها في مدّة يوم واحد، وهي المسؤولة عن تعاقب الليل والنهار.</span></li>
+                        <li><strong class="key-other" data-i18n="defAnnualMotion">الحركة السنوية للأرض</strong>: <span data-i18n="defAnnualMotionDesc">دوران الأرض حول الشمس في مدّة سنة، وهي المسؤولة عن تعاقب الفصول.</span></li>
+                        <li><strong class="key-other" data-i18n="defWobbleMotion">الحركة الارتجاجية للأرض</strong>: <span data-i18n="defWobbleMotionDesc">تغيّر في ميل محور الأرض، وهي حركة ضرورية لتفسير بعض الظواهر الفلكية.</span></li>
+                        <li><strong class="key-other" data-i18n="defApparentMotion">الحركة الظاهرية للنجوم</strong>: <span data-i18n="defApparentMotionDesc">نتيجة بصرية ناتجة عن الحركة الحقيقية للأرض، وليست حركة فعلية للنجوم في حدّ ذاتها، حسب كوبرنيكوس.</span></li>
+                        <li><strong class="key-other" data-i18n="defScientificRevolution">الثورة العلمية الحديثة</strong>: <span data-i18n="defScientificRevolutionDesc">حركة علمية انطلقت من أعمال كوبرنيكوس، وامتدّت على يد كبلر وغاليليو ونيوتن، وأرست أسس العلم الحديث القائم على الرصد والتجربة والاستنتاج الرياضي.</span></li>
+                        <li><strong class="key-other" data-i18n="defTelescope">المنظار الفلكي (Le télescope)</strong>: <span data-i18n="defTelescopeDesc">آلة استخدمها غاليليو بقدرة تكبيرية تصل إلى نحو 20 مرّة، ورصد بها أدلة جديدة دعمت مركزية الشمس (أقمار المشتري، أطوار الزهرة، تضاريس القمر، البقع الشمسية).</span></li>
+                        <li><strong class="key-other" data-i18n="defUniversalGravitation">الجذب العام (La gravitation universelle)</strong>: <span data-i18n="defUniversalGravitationDesc">قانون صاغه إسحاق نيوتن، يفسّر دوران الكواكب حول الشمس، وتوّج بذلك أعمال كوبرنيكوس وكبلر وغاليليو.</span></li>
+                        <li><strong class="key-other" data-i18n="defEllipticalOrbit">المدار الإهليلجي</strong>: <span data-i18n="defEllipticalOrbitDesc">شكل مدار الكواكب الذي أثبته كبلر (بيضوي) وليس دائريًا كما كان يعتقد كوبرنيكوس.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: مثّلت نظرية كوبرنيكوس (1473-1543) نقطة تحوّل في تاريخ العلم، إذ قلبت التصور القديم للكون الذي ساد أربعة عشر قرنًا، ومهّدت لانطلاق الثورة العلمية الحديثة التي أرسى أسسها كبلر وغاليليو ونيوتن، فحرّرت العلم من قيود الكنيسة وأطلقت العقل الأوروبي في مسار الفكر الحديث القائم على الرصد والتجربة والاستنتاج الرياضي.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson3/copernicus_portrait.jpg" alt="نيكولا كوبرنيك" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">نيكولا كوبرنيك (1473-1543)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson3/heliocentric_system.jpg" alt="النظام الشمسي حسب كوبرنيك" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">النظام الشمسي حسب كوبرنيك (مركزية الشمس)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson3/geocentric_vs_heliocentric.jpg" alt="مقارنة بين مركزية الأرض ومركزية الشمس" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">مقارنة بين مركزية الأرض ومركزية الشمس</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson3/de_revolutionibus_cover.jpg" alt="كتاب دوران الأجرام السماوية" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">كتاب "دوران الأجرام السماوية" (1543)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson3/galileo_telescope.jpg" alt="منظار غاليليو الفلكي" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">منظار غاليليو الفلكي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson3/kepler_orbits.jpg" alt="مدارات كبلر الإهليلجية" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">مدارات كبلر الإهليلجية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y3sec_secEco_his_exercisess_mod1_lesson3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                moduleName: "History / Unit 1: Europe and the Mediterranean World in the 16th Century",
+                lessonTitleSample: "The European Renaissance: Scientific Figure Study – Nicolaus Copernicus",
+                sectionIntro: "Introduction",
+                introText: "Astronomy witnessed an important development during the Renaissance thanks to the scholar Nicolaus Copernicus (1473-1543). He presented a new conception of the universe that overturned the old view which had prevailed for fourteen centuries, replacing geocentrism with heliocentrism, thus paving the way for the launch of the modern scientific revolution in Europe. Who was Copernicus? What was his astronomical theory? And what were its most prominent effects?",
+                problematiqueText: "Who is Copernicus? What are the most prominent stages of his life and works? What is the heliocentric theory he brought? What was the Church's position on it? And what was its impact on the development of astronomy?",
+                sectionPart1: "Introduction to Copernicus",
+                originsTitle: "His Origins and Education",
+                originsText: "Nicolaus Copernicus was born in 1473 in the city of Toruń in Poland, into a well-off family, as his father was a merchant and his mother came from a wealthy merchant family. In 1491, he enrolled at the University of Kraków to study astronomy and mathematics. He then moved in 1496 to Italy, where he studied canon law at the University of Bologna, and also studied medicine at the University of Padua. He lectured in mathematics in Rome around 1500, and obtained his doctorate in canon law from the University of Ferrara in 1503. It is worth noting that his uncle Lucas Watzenrode played a role in his upbringing and guiding him toward ecclesiastical life, as he became bishop of the Warmia region.",
+                careerTitle: "His Career and Works",
+                careerText: "Copernicus held an ecclesiastical/legal position at Frombork Cathedral, and continued at the same time his research in astronomy and his medical studies. He wrote an astronomical study entitled \"Commentariolus\" around 1514, in which he presented the basic principles of the heliocentric theory in the form of an unpublished manuscript. He also wrote an economic study on currency in 1517 entitled \"Monetae cudendae ratio\". Between 1520 and 1530, he wrote his main book \"On the Revolutions of the Celestial Spheres\" (De revolutionibus orbium coelestium), in which he crystallized his astronomical theory. This book was published in 1543 in Nuremberg, shortly before his death. Copernicus died on May 24, 1543 in Frombork.",
+                copernicusBioQuote: "Copernicus was a multi-talented man: a canon lawyer, physician, economist, mathematician and astronomer, and a man of religion. He combined rigorous university education with practical experience, which enabled him to combine theoretical contemplation with astronomical observation, and to formulate a coherent scientific theory on mathematical foundations.",
+                copernicusBioQuoteAuthor: "Profile: A comprehensive portrait of Copernicus's personality",
+                sectionPart2: "Copernicus's Astronomical Theory",
+                oldViewTitle: "The Old Conception of the Universe (Geocentrism)",
+                oldViewText: "For fourteen centuries, Europe was dominated by the theory of geocentrism, formulated by the Greek scholar Ptolemy in the 2nd century AD in his book \"Almagest\". It was based on the idea that the Earth is stationary and located at the center of the universe, and that the planets and stars revolve around it, arranged according to their distance from the Earth's surface in the following order: the Moon, Mercury, Venus, the Sun, Mars, Jupiter, Saturn, then the fixed stars. This theory was compatible with Aristotle's philosophy, which held that earthly bodies are heavy and move toward the center, and with the Church's religious conception, which held that man occupies a central place in creation, and that the Earth is the center of the universe which God created for him.",
+                heliocentrismTitle: "Copernicus and the Heliocentric Theory",
+                heliocentrismIntro: "Copernicus presented a new system of the universe, in which he made the Earth move and the Sun at the center. He presented this system in his book \"On the Revolutions of the Celestial Spheres\" (1543). Among its most prominent features:",
+                heliocentrismBullet1: "<strong>The Sun at the center of the universe:</strong> The Sun is at the center of the universe and the planets revolve around it, and the Earth is not the center of the universe as was previously believed.",
+                heliocentrismBullet2: "<strong>The Earth is a planet:</strong> The Earth is not a stationary body, but a planet subject to motion like the rest of the planets.",
+                heliocentrismBullet3: "<strong>The three movements of the Earth:</strong> The Earth is subject to three movements: a daily movement around its axis in the span of one day, responsible for the alternation of day and night; an annual movement around the Sun in the span of a year, responsible for the alternation of seasons; and a wobbling movement or change in the axial tilt, necessary to explain certain astronomical phenomena.",
+                heliocentrismBullet4: "<strong>The apparent motion of the stars:</strong> Copernicus showed that the apparent motion of the stars is nothing but a visual result of the real motion of the Earth, and not an actual motion of the stars themselves.",
+                heliocentrismBullet5: "<strong>The order of the planets:</strong> The order begins from the Sun: Mercury, Venus, Earth (followed by the Moon), Mars, Jupiter, Saturn, then the fixed stars at the farthest reaches of the universe.",
+                comparisonTitle: "Comparison between the Two Conceptions",
+                compAspect: "Aspect",
+                compGeo: "Geocentrism (Ptolemy)",
+                compHelio: "Heliocentrism (Copernicus)",
+                compCenter: "Center of the universe",
+                compCenterGeo: "The Earth (stationary)",
+                compCenterHelio: "The Sun",
+                compEarthMove: "Motion of the Earth",
+                compEarthMoveGeo: "Stationary, does not move",
+                compEarthMoveHelio: "Three movements (daily, annual, wobbling)",
+                compStarsMove: "Apparent motion of the stars",
+                compStarsMoveGeo: "Real motion of the stars around the Earth",
+                compStarsMoveHelio: "Visual result of the Earth's motion",
+                compCompatibility: "Intellectual compatibility",
+                compCompatibilityGeo: "Compatible with Aristotle and the Church",
+                compCompatibilityHelio: "Contrary to the prevailing philosophy and the Church",
+                compModel: "Nature of the model",
+                compModelGeo: "Complex (requires epicycles)",
+                compModelHelio: "Simpler and more coherent",
+                sectionPart3: "Effects of the New Theory",
+                churchPositionTitle: "The Church's Position",
+                churchPositionText: "The Church rejected the new theory and considered it contrary to logic, to the Christian religion, and to what is stated in the Holy Scripture, because it contradicted the literal understanding of some religious texts that speak of the Earth's stability and the Sun's motion. This rejection was confirmed by a decree issued in 1616 that placed the book \"On the Revolutions of the Celestial Spheres\" on the Index of Forbidden Books (Index librorum prohibitorum). The Church also confiscated many copies of Copernicus's book and prohibited the publication of his ideas. This was not limited to Copernicus, but extended to those who adopted his theory, among the most prominent victims of this rejection being the Italian philosopher Giordano Bruno, who was burned alive in 1600, as well as Galileo Galilei, who was tried in 1633 and forced to recant his heliocentric views.",
+                astronomyDevelopmentTitle: "Development of Astronomy",
+                astronomyDevelopmentIntro: "Copernicus's theory contributed to the development of astronomy and was a starting point for the work of other scholars who pushed scientific thought forward, among the most prominent of whom:",
+                keplerText: "<strong>Johannes Kepler (1571-1630):</strong> A German scholar who developed the understanding of orbits by proving that they are elliptical rather than circular as Copernicus had believed, and formulated the three laws of planetary motion.",
+                galileoText: "<strong>Galileo Galilei (1564-1642):</strong> An Italian scholar who used an astronomical telescope with a magnifying power of about 20 times, and observed new evidence supporting heliocentrism, including Jupiter's moons, the phases of Venus, the Moon's relief, and sunspots.",
+                newtonText: "<strong>Isaac Newton (1643-1727):</strong> An English scholar, whose predecessors' work paved the way for his explanation of motion and gravity, as he formulated the law of universal gravitation that explained why the planets revolve around the Sun.",
+                impactOnThoughtTitle: "The Theory's Impact on European Thought",
+                impactOnThoughtText: "The importance of Copernicus's theory was not limited to the field of astronomy, but went beyond it to bring about a profound transformation in European thought in general. It: liberated science from the Church's restrictions and from thinking based on sacred texts; established the principle of relying on observation, experimentation, and mathematical deduction instead of submitting to religious authority; removed man and the Earth from the center of the universe, constituting a radical transformation in man's conception of himself and the world; and paved the way for the modern scientific revolution by Kepler, Galileo, and Newton, and for the launch of the Enlightenment in the 18th century.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Copernicus's new theory represented a turning point in liberating science from the Church's restrictions, and was a prelude to the launch of modern sciences in Europe, as it opened the way for observing the universe on mathematical and experimental foundations, and paved the way for the scientific revolution that changed the face of the modern world.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defTreaty: "📜 Books & Works",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other Terms",
+                defCopernicus: "Nicolaus Copernicus (Nicolas Copernic)",
+                defCopernicusDesc: "Polish astronomer (1473-1543), studied astronomy and mathematics at the University of Kraków, canon law at the University of Bologna, and medicine at the University of Padua. Author of the heliocentric theory and of \"On the Revolutions of the Celestial Spheres\" (1543). Considered one of the most prominent pioneers of the scientific revolution during the Renaissance.",
+                defPtolemy: "Ptolemy (Ptolémée)",
+                defPtolemyDesc: "Greek scholar who lived in the 2nd century AD in Alexandria, formulated the geocentric theory that prevailed for fourteen centuries, and explained it in his book \"Almagest\".",
+                defAristotle: "Aristotle (Aristote)",
+                defAristotleDesc: "Greek philosopher whose philosophy was compatible with the geocentric theory, as he held that earthly bodies are heavy and move toward the center.",
+                defWatzenrode: "Lucas Watzenrode",
+                defWatzenrodeDesc: "Copernicus's uncle, bishop of the Warmia region, who played a role in his upbringing and guiding him toward ecclesiastical life.",
+                defKepler: "Johannes Kepler",
+                defKeplerDesc: "German astronomer (1571-1630), developed Copernicus's theory and proved that planetary orbits are elliptical rather than circular, and formulated the laws of planetary motion.",
+                defGalileo: "Galileo Galilei",
+                defGalileoDesc: "Italian scholar (1564-1642), used an astronomical telescope with a magnifying power of about 20 times, and observed new evidence supporting heliocentrism (Jupiter's moons, phases of Venus). He was tried by the Church in 1633.",
+                defNewton: "Isaac Newton",
+                defNewtonDesc: "English scholar (1643-1727), formulated the law of universal gravitation that explained the revolution of the planets around the Sun, thus crowning the work of Copernicus, Kepler, and Galileo.",
+                defGiordanoBruno: "Giordano Bruno",
+                defGiordanoBrunoDesc: "Italian philosopher who adopted the heliocentric theory, burned alive in 1600 for his views which the Church considered contrary to religion.",
+                defPoland: "Poland",
+                defPolandDesc: "European country where Copernicus was born in 1473 in the city of Toruń.",
+                defTorun: "Toruń",
+                defTorunDesc: "Polish city where Copernicus was born in 1473 into a well-off family.",
+                defKrakow: "Kraków",
+                defKrakowDesc: "Polish city, whose university Copernicus enrolled in in 1491 to study astronomy and mathematics.",
+                defBologna: "Bologna",
+                defBolognaDesc: "Italian city, whose university Copernicus studied canon law at from 1496.",
+                defPadua: "Padua (Padoue)",
+                defPaduaDesc: "Italian city, whose university Copernicus studied medicine at.",
+                defFerrara: "Ferrara (Ferrare)",
+                defFerraraDesc: "Italian city, from whose university Copernicus obtained his doctorate in canon law in 1503.",
+                defFrombork: "Frombork",
+                defFromborkDesc: "Polish city, whose cathedral Copernicus held an ecclesiastical/legal position at, and where he died in 1543.",
+                defWarmia: "Warmia (Warmie)",
+                defWarmiaDesc: "Ecclesiastical region in Poland, where Copernicus's uncle was bishop.",
+                defNuremberg: "Nuremberg",
+                defNurembergDesc: "German city where Copernicus's book \"On the Revolutions of the Celestial Spheres\" was published in 1543.",
+                defRome: "Rome",
+                defRomeDesc: "Capital of Italy, where Copernicus lectured in mathematics around 1500.",
+                defPublicationDeRevolutionibus: "Publication of \"On the Revolutions of the Celestial Spheres\" (1543)",
+                defPublicationDeRevolutionibusDesc: "Copernicus's main book in which he crystallized his astronomical theory of heliocentrism, published in Nuremberg in 1543 shortly before his death.",
+                defChurchDecree1616: "The Church's Decree of 1616",
+                defChurchDecree1616Desc: "A decree issued by the Church placing Copernicus's book \"On the Revolutions of the Celestial Spheres\" on the Index of Forbidden Books, for its contradiction with the Christian religion.",
+                defGalileoTrial1633: "Galileo's Trial of 1633",
+                defGalileoTrial1633Desc: "The Church's trial of the Italian scholar Galileo Galilei for adopting heliocentrism, and he was forced to recant his view.",
+                defGiordanoBrunoBurning1600: "Burning of Giordano Bruno in 1600",
+                defGiordanoBrunoBurning1600Desc: "The burning alive of the Italian philosopher Giordano Bruno in 1600 for his views which the Church considered contrary to religion, including his adoption of heliocentrism.",
+                defCommentariolus: "Commentariolus (The Commentaries)",
+                defCommentariolusDesc: "An astronomical study written by Copernicus around 1514, in which he presented the basic principles of the heliocentric theory in the form of an unpublished manuscript.",
+                defDeRevolutionibus: "On the Revolutions of the Celestial Spheres (De revolutionibus orbium coelestium)",
+                defDeRevolutionibusDesc: "Copernicus's main book, written between 1520 and 1530, published in 1543 in Nuremberg, in which he crystallized his astronomical theory of heliocentrism.",
+                defMonetae: "On the Minting of Coin (Monetae cudendae ratio)",
+                defMonetaeDesc: "An economic study written by Copernicus in 1517 on currency.",
+                defAlmagest: "The Almagest",
+                defAlmagestDesc: "Ptolemy's book from the 2nd century AD, explaining the geocentric theory that prevailed for fourteen centuries.",
+                defIndexLibrorum: "Index of Forbidden Books (Index librorum prohibitorum)",
+                defIndexLibrorumDesc: "A list issued by the Church in 1616, placing Copernicus's book \"On the Revolutions of the Celestial Spheres\" among the forbidden books.",
+                defYearIIADDesc: "The century in which Ptolemy lived and formulated the geocentric theory.",
+                defYear1473Desc: "The year of Nicolaus Copernicus's birth in the Polish city of Toruń.",
+                defYear1491Desc: "Copernicus's enrollment at the University of Kraków to study astronomy and mathematics.",
+                defYear1496Desc: "Copernicus's move to Italy to study canon law at the University of Bologna.",
+                defYear1500Desc: "Copernicus lectured in mathematics in Rome.",
+                defYear1503Desc: "Copernicus obtaining his doctorate in canon law from the University of Ferrara.",
+                defYear1514Desc: "Copernicus writing \"Commentariolus,\" in which he presented the basic principles of the heliocentric theory.",
+                defYear1517Desc: "Copernicus writing his economic study on currency \"On the Minting of Coin.\"",
+                defYear1520_1530Desc: "Copernicus writing his main book \"On the Revolutions of the Celestial Spheres.\"",
+                defYear1543Desc: "Publication of \"On the Revolutions of the Celestial Spheres\" in Nuremberg, and Copernicus's death on May 24.",
+                defYear1600Desc: "The burning alive of the Italian philosopher Giordano Bruno for adopting heliocentrism.",
+                defYear1616Desc: "The Church's decree placing Copernicus's book \"On the Revolutions of the Celestial Spheres\" on the Index of Forbidden Books.",
+                defYear1633Desc: "The Church's trial of Galileo Galilei and forcing him to recant his heliocentric views.",
+                defGeocentrism: "Geocentrism (Le géocentrisme)",
+                defGeocentrismDesc: "An astronomical theory formulated by Ptolemy in the 2nd century AD, based on the idea that the Earth is stationary and located at the center of the universe, and that the planets and stars revolve around it.",
+                defHeliocentrism: "Heliocentrism (L'héliocentrisme)",
+                defHeliocentrismDesc: "A new astronomical theory presented by Copernicus, based on the idea that the Sun is at the center of the universe, and that the Earth is a moving planet revolving around it along with the rest of the planets.",
+                defDailyMotion: "The Earth's Daily Motion",
+                defDailyMotionDesc: "The Earth's rotation around its axis in the span of one day, responsible for the alternation of day and night.",
+                defAnnualMotion: "The Earth's Annual Motion",
+                defAnnualMotionDesc: "The Earth's revolution around the Sun in the span of a year, responsible for the alternation of seasons.",
+                defWobbleMotion: "The Earth's Wobbling Motion",
+                defWobbleMotionDesc: "A change in the tilt of the Earth's axis, a movement necessary to explain certain astronomical phenomena.",
+                defApparentMotion: "The Apparent Motion of the Stars",
+                defApparentMotionDesc: "A visual result of the real motion of the Earth, and not an actual motion of the stars themselves, according to Copernicus.",
+                defScientificRevolution: "The Modern Scientific Revolution",
+                defScientificRevolutionDesc: "A scientific movement that started from Copernicus's work, and extended through Kepler, Galileo, and Newton, establishing the foundations of modern science based on observation, experimentation, and mathematical deduction.",
+                defTelescope: "The Telescope (Le télescope)",
+                defTelescopeDesc: "An instrument used by Galileo with a magnifying power of about 20 times, with which he observed new evidence supporting heliocentrism (Jupiter's moons, phases of Venus, the Moon's relief, sunspots).",
+                defUniversalGravitation: "Universal Gravitation (La gravitation universelle)",
+                defUniversalGravitationDesc: "A law formulated by Isaac Newton, explaining the revolution of the planets around the Sun, thus crowning the work of Copernicus, Kepler, and Galileo.",
+                defEllipticalOrbit: "Elliptical Orbit",
+                defEllipticalOrbitDesc: "The shape of planetary orbits proven by Kepler (oval) rather than circular as Copernicus had believed.",
+                summaryText: "Key takeaway: Copernicus's theory (1473-1543) represented a turning point in the history of science, as it overturned the old conception of the universe that had prevailed for fourteen centuries, and paved the way for the modern scientific revolution founded by Kepler, Galileo, and Newton. It liberated science from the Church's restrictions and launched the European mind on the path of modern thought based on observation, experimentation, and mathematical deduction.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Nicolaus Copernicus",
+                galleryAlt2: "The solar system according to Copernicus",
+                galleryAlt3: "Comparison between geocentrism and heliocentrism",
+                galleryAlt4: "On the Revolutions of the Celestial Spheres",
+                galleryAlt5: "Galileo's astronomical telescope",
+                galleryAlt6: "Kepler's elliptical orbits",
+                galleryCap1: "Nicolaus Copernicus (1473-1543)",
+                galleryCap2: "The solar system according to Copernicus (heliocentrism)",
+                galleryCap3: "Comparison between geocentrism and heliocentrism",
+                galleryCap4: "\"On the Revolutions of the Celestial Spheres\" (1543)",
+                galleryCap5: "Galileo's astronomical telescope",
+                galleryCap6: "Kepler's elliptical orbits"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                moduleName: "Histoire / Unité 1 : L'Europe et le monde méditerranéen au XVIe siècle",
+                lessonTitleSample: "La Renaissance européenne : étude d'une figure scientifique – Nicolas Copernic",
+                sectionIntro: "Introduction",
+                introText: "L'astronomie a connu un développement important à l'époque de la Renaissance grâce au savant Nicolas Copernic (1473-1543). Il a présenté une nouvelle conception de l'univers qui a renversé l'ancienne vision qui avait prévalu pendant quatorze siècles, remplaçant le géocentrisme par l'héliocentrisme, ouvrant ainsi la voie au lancement de la révolution scientifique moderne en Europe. Qui était Copernic ? Quelle était sa théorie astronomique ? Et quels ont été ses effets les plus marquants ?",
+                problematiqueText: "Qui est Copernic ? Quelles sont les étapes les plus marquantes de sa vie et de ses œuvres ? Quelle est la théorie héliocentrique qu'il a apportée ? Quelle a été la position de l'Église à son égard ? Et quel a été son impact sur le développement de l'astronomie ?",
+                sectionPart1: "Présentation de Copernic",
+                originsTitle: "Ses origines et sa formation",
+                originsText: "Nicolas Copernic est né en 1473 dans la ville de Toruń en Pologne, dans une famille aisée, son père étant marchand et sa mère issue d'une riche famille de commerçants. En 1491, il s'inscrivit à l'Université de Cracovie pour étudier l'astronomie et les mathématiques. Il se rendit ensuite en 1496 en Italie, où il étudia le droit canon à l'Université de Bologne, et étudia également la médecine à l'Université de Padoue. Il donna des conférences en mathématiques à Rome vers 1500, et obtint en 1503 son doctorat en droit canon de l'Université de Ferrare. Il convient de noter que son oncle Lucas Watzenrode a joué un rôle dans son éducation et son orientation vers la vie ecclésiastique, puisqu'il devint évêque de la région de Warmie.",
+                careerTitle: "Sa carrière et ses œuvres",
+                careerText: "Copernic occupa un poste ecclésiastique/juridique à la cathédrale de Frombork, et poursuivit en même temps ses recherches en astronomie et ses études médicales. Il rédigea une étude astronomique intitulée « Commentariolus » vers 1514, dans laquelle il présenta les principes de base de la théorie héliocentrique sous forme de manuscrit non publié. Il écrivit également une étude économique sur la monnaie en 1517 intitulée « Monetae cudendae ratio ». Entre 1520 et 1530, il rédigea son livre principal « Des révolutions des sphères célestes » (De revolutionibus orbium coelestium), dans lequel il cristallisa sa théorie astronomique. Ce livre fut publié en 1543 à Nuremberg, peu avant sa mort. Copernic mourut le 24 mai 1543 à Frombork.",
+                copernicusBioQuote: "Copernic était un homme aux multiples talents : juriste canoniste, médecin, économiste, mathématicien et astronome, et homme de religion. Il a combiné une formation universitaire rigoureuse avec une expérience pratique, ce qui lui a permis de combiner la contemplation théorique avec l'observation astronomique, et de formuler une théorie scientifique cohérente sur des fondements mathématiques.",
+                copernicusBioQuoteAuthor: "Profil : Portrait complet de la personnalité de Copernic",
+                sectionPart2: "La théorie astronomique de Copernic",
+                oldViewTitle: "L'ancienne conception de l'univers (géocentrisme)",
+                oldViewText: "Pendant quatorze siècles, l'Europe fut dominée par la théorie du géocentrisme, formulée par le savant grec Ptolémée au IIe siècle apr. J.-C. dans son livre « Almageste ». Elle reposait sur l'idée que la Terre est immobile et située au centre de l'univers, et que les planètes et les étoiles tournent autour d'elle, disposées selon leur distance à la surface de la Terre dans l'ordre suivant : la Lune, Mercure, Vénus, le Soleil, Mars, Jupiter, Saturne, puis les étoiles fixes. Cette théorie était compatible avec la philosophie d'Aristote, qui soutenait que les corps terrestres sont lourds et se dirigent vers le centre, et avec la conception religieuse de l'Église, qui soutenait que l'homme occupe une place centrale dans la création, et que la Terre est le centre de l'univers que Dieu a créé pour lui.",
+                heliocentrismTitle: "Copernic et la théorie héliocentrique",
+                heliocentrismIntro: "Copernic présenta un nouveau système de l'univers, dans lequel il fit de la Terre un corps en mouvement et plaça le Soleil au centre. Il présenta ce système dans son livre « Des révolutions des sphères célestes » (1543). Parmi ses caractéristiques les plus marquantes :",
+                heliocentrismBullet1: "<strong>Le Soleil au centre de l'univers :</strong> Le Soleil est au centre de l'univers et les planètes tournent autour de lui, et la Terre n'est pas le centre de l'univers comme on le croyait auparavant.",
+                heliocentrismBullet2: "<strong>La Terre est une planète :</strong> La Terre n'est pas un corps immobile, mais une planète soumise au mouvement comme le reste des planètes.",
+                heliocentrismBullet3: "<strong>Les trois mouvements de la Terre :</strong> La Terre est soumise à trois mouvements : un mouvement quotidien autour de son axe en l'espace d'un jour, responsable de l'alternance du jour et de la nuit ; un mouvement annuel autour du Soleil en l'espace d'une année, responsable de l'alternance des saisons ; et un mouvement d'oscillation ou changement de l'inclinaison de l'axe, nécessaire pour expliquer certains phénomènes astronomiques.",
+                heliocentrismBullet4: "<strong>Le mouvement apparent des étoiles :</strong> Copernic montra que le mouvement apparent des étoiles n'est qu'un résultat visuel du mouvement réel de la Terre, et non un mouvement réel des étoiles elles-mêmes.",
+                heliocentrismBullet5: "<strong>L'ordre des planètes :</strong> L'ordre commence par le Soleil : Mercure, Vénus, la Terre (suivie de la Lune), Mars, Jupiter, Saturne, puis les étoiles fixes aux confins de l'univers.",
+                comparisonTitle: "Comparaison entre les deux conceptions",
+                compAspect: "Aspect",
+                compGeo: "Géocentrisme (Ptolémée)",
+                compHelio: "Héliocentrisme (Copernic)",
+                compCenter: "Centre de l'univers",
+                compCenterGeo: "La Terre (immobile)",
+                compCenterHelio: "Le Soleil",
+                compEarthMove: "Mouvement de la Terre",
+                compEarthMoveGeo: "Immobile, ne bouge pas",
+                compEarthMoveHelio: "Trois mouvements (quotidien, annuel, oscillation)",
+                compStarsMove: "Mouvement apparent des étoiles",
+                compStarsMoveGeo: "Mouvement réel des étoiles autour de la Terre",
+                compStarsMoveHelio: "Résultat visuel du mouvement de la Terre",
+                compCompatibility: "Compatibilité intellectuelle",
+                compCompatibilityGeo: "Compatible avec Aristote et l'Église",
+                compCompatibilityHelio: "Contraire à la philosophie dominante et à l'Église",
+                compModel: "Nature du modèle",
+                compModelGeo: "Complexe (nécessite des épicycles)",
+                compModelHelio: "Plus simple et plus cohérent",
+                sectionPart3: "Effets de la nouvelle théorie",
+                churchPositionTitle: "La position de l'Église",
+                churchPositionText: "L'Église rejeta la nouvelle théorie et la considéra contraire à la logique, à la religion chrétienne et à ce qui est énoncé dans les Saintes Écritures, car elle contredisait la compréhension littérale de certains textes religieux qui parlent de la stabilité de la Terre et du mouvement du Soleil. Ce rejet fut confirmé par un décret publié en 1616 qui plaça le livre « Des révolutions des sphères célestes » sur la liste des livres interdits (Index librorum prohibitorum). L'Église confisqua également de nombreux exemplaires du livre de Copernic et interdit la publication de ses idées. Cela ne se limita pas à Copernic, mais s'étendit à ceux qui adoptèrent sa théorie, parmi les victimes les plus notables de ce rejet le philosophe italien Giordano Bruno, qui fut brûlé vif en 1600, ainsi que Galilée, qui fut jugé en 1633 et contraint de se rétracter sur sa vision héliocentrique.",
+                astronomyDevelopmentTitle: "Développement de l'astronomie",
+                astronomyDevelopmentIntro: "La théorie de Copernic contribua au développement de l'astronomie et fut un point de départ pour les travaux d'autres savants qui firent avancer la pensée scientifique, parmi les plus marquants :",
+                keplerText: "<strong>Johannes Kepler (1571-1630) :</strong> Savant allemand qui développa la compréhension des orbites en prouvant qu'elles sont elliptiques et non circulaires comme le croyait Copernic, et formula les trois lois du mouvement planétaire.",
+                galileoText: "<strong>Galilée (1564-1642) :</strong> Savant italien qui utilisa un télescope astronomique d'un pouvoir grossissant d'environ 20 fois, et observa de nouvelles preuves soutenant l'héliocentrisme, notamment les lunes de Jupiter, les phases de Vénus, le relief de la Lune et les taches solaires.",
+                newtonText: "<strong>Isaac Newton (1643-1727) :</strong> Savant anglais, dont les travaux de ses prédécesseurs ouvrirent la voie à son explication du mouvement et de la gravité, puisqu'il formula la loi de la gravitation universelle qui expliqua pourquoi les planètes tournent autour du Soleil.",
+                impactOnThoughtTitle: "Impact de la théorie sur la pensée européenne",
+                impactOnThoughtText: "L'importance de la théorie de Copernic ne se limita pas au domaine de l'astronomie, mais alla au-delà pour provoquer une transformation profonde de la pensée européenne en général. Elle : libéra la science des restrictions de l'Église et de la pensée fondée sur les textes sacrés ; établit le principe de s'appuyer sur l'observation, l'expérimentation et la déduction mathématique au lieu de se soumettre à l'autorité religieuse ; retira l'homme et la Terre du centre de l'univers, constituant une transformation radicale dans la conception que l'homme a de lui-même et du monde ; et ouvrit la voie à la révolution scientifique moderne par Kepler, Galilée et Newton, et au lancement des Lumières au XVIIIe siècle.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La nouvelle théorie de Copernic représenta un tournant dans la libération de la science des restrictions de l'Église, et fut un prélude au lancement des sciences modernes en Europe, car elle ouvrit la voie à l'observation de l'univers sur des fondements mathématiques et expérimentaux, et prépara la révolution scientifique qui changea le visage du monde moderne.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defTreaty: "📜 Livres et œuvres",
+                defYears: "📅 Années et périodes",
+                defOthers: "📌 Autres termes",
+                defCopernicus: "Nicolas Copernic",
+                defCopernicusDesc: "Astronome polonais (1473-1543), étudia l'astronomie et les mathématiques à l'Université de Cracovie, le droit canon à l'Université de Bologne, et la médecine à l'Université de Padoue. Auteur de la théorie héliocentrique et de « Des révolutions des sphères célestes » (1543). Considéré comme l'un des pionniers les plus éminents de la révolution scientifique à la Renaissance.",
+                defPtolemy: "Ptolémée",
+                defPtolemyDesc: "Savant grec qui vécut au IIe siècle apr. J.-C. à Alexandrie, formula la théorie géocentrique qui prévalut pendant quatorze siècles, et l'expliqua dans son livre « Almageste ».",
+                defAristotle: "Aristote",
+                defAristotleDesc: "Philosophe grec dont la philosophie était compatible avec la théorie géocentrique, car il soutenait que les corps terrestres sont lourds et se dirigent vers le centre.",
+                defWatzenrode: "Lucas Watzenrode",
+                defWatzenrodeDesc: "Oncle de Copernic, évêque de la région de Warmie, qui joua un rôle dans son éducation et son orientation vers la vie ecclésiastique.",
+                defKepler: "Johannes Kepler",
+                defKeplerDesc: "Astronome allemand (1571-1630), développa la théorie de Copernic et prouva que les orbites planétaires sont elliptiques et non circulaires, et formula les lois du mouvement planétaire.",
+                defGalileo: "Galilée",
+                defGalileoDesc: "Savant italien (1564-1642), utilisa un télescope astronomique d'un pouvoir grossissant d'environ 20 fois, et observa de nouvelles preuves soutenant l'héliocentrisme (lunes de Jupiter, phases de Vénus). Il fut jugé par l'Église en 1633.",
+                defNewton: "Isaac Newton",
+                defNewtonDesc: "Savant anglais (1643-1727), formula la loi de la gravitation universelle qui expliqua la révolution des planètes autour du Soleil, couronnant ainsi les travaux de Copernic, Kepler et Galilée.",
+                defGiordanoBruno: "Giordano Bruno",
+                defGiordanoBrunoDesc: "Philosophe italien qui adopta la théorie héliocentrique, brûlé vif en 1600 pour ses opinions que l'Église considérait contraires à la religion.",
+                defPoland: "Pologne",
+                defPolandDesc: "Pays européen où Copernic est né en 1473 dans la ville de Toruń.",
+                defTorun: "Toruń",
+                defTorunDesc: "Ville polonaise où Copernic est né en 1473 dans une famille aisée.",
+                defKrakow: "Cracovie",
+                defKrakowDesc: "Ville polonaise, dont l'université Copernic intégra en 1491 pour étudier l'astronomie et les mathématiques.",
+                defBologna: "Bologne",
+                defBolognaDesc: "Ville italienne, dont l'université Copernic étudia le droit canon à partir de 1496.",
+                defPadua: "Padoue",
+                defPaduaDesc: "Ville italienne, dont l'université Copernic étudia la médecine.",
+                defFerrara: "Ferrare",
+                defFerraraDesc: "Ville italienne, dont l'université Copernic obtint son doctorat en droit canon en 1503.",
+                defFrombork: "Frombork",
+                defFromborkDesc: "Ville polonaise, dont la cathédrale Copernic occupa un poste ecclésiastique/juridique, et où il mourut en 1543.",
+                defWarmia: "Warmie",
+                defWarmiaDesc: "Région ecclésiastique en Pologne, où l'oncle de Copernic était évêque.",
+                defNuremberg: "Nuremberg",
+                defNurembergDesc: "Ville allemande où le livre de Copernic « Des révolutions des sphères célestes » fut publié en 1543.",
+                defRome: "Rome",
+                defRomeDesc: "Capitale de l'Italie, où Copernic donna des conférences en mathématiques vers 1500.",
+                defPublicationDeRevolutionibus: "Publication de « Des révolutions des sphères célestes » (1543)",
+                defPublicationDeRevolutionibusDesc: "Livre principal de Copernic dans lequel il cristallisa sa théorie astronomique de l'héliocentrisme, publié à Nuremberg en 1543 peu avant sa mort.",
+                defChurchDecree1616: "Le décret de l'Église de 1616",
+                defChurchDecree1616Desc: "Un décret publié par l'Église plaçant le livre de Copernic « Des révolutions des sphères célestes » sur la liste des livres interdits, pour sa contradiction avec la religion chrétienne.",
+                defGalileoTrial1633: "Le procès de Galilée de 1633",
+                defGalileoTrial1633Desc: "Le procès par l'Église du savant italien Galilée pour avoir adopté l'héliocentrisme, et il fut contraint de se rétracter.",
+                defGiordanoBrunoBurning1600: "Le bûcher de Giordano Bruno en 1600",
+                defGiordanoBrunoBurning1600Desc: "Le bûcher du philosophe italien Giordano Bruno en 1600 pour ses opinions que l'Église considérait contraires à la religion, notamment son adoption de l'héliocentrisme.",
+                defCommentariolus: "Commentariolus (Les Commentaires)",
+                defCommentariolusDesc: "Une étude astronomique rédigée par Copernic vers 1514, dans laquelle il présenta les principes de base de la théorie héliocentrique sous forme de manuscrit non publié.",
+                defDeRevolutionibus: "Des révolutions des sphères célestes (De revolutionibus orbium coelestium)",
+                defDeRevolutionibusDesc: "Le livre principal de Copernic, écrit entre 1520 et 1530, publié en 1543 à Nuremberg, dans lequel il cristallisa sa théorie astronomique de l'héliocentrisme.",
+                defMonetae: "Du monnayage de la monnaie (Monetae cudendae ratio)",
+                defMonetaeDesc: "Une étude économique rédigée par Copernic en 1517 sur la monnaie.",
+                defAlmagest: "L'Almageste",
+                defAlmagestDesc: "Le livre de Ptolémée du IIe siècle apr. J.-C., expliquant la théorie géocentrique qui prévalut pendant quatorze siècles.",
+                defIndexLibrorum: "Index des livres interdits (Index librorum prohibitorum)",
+                defIndexLibrorumDesc: "Une liste publiée par l'Église en 1616, plaçant le livre de Copernic « Des révolutions des sphères célestes » parmi les livres interdits.",
+                defYearIIADDesc: "Le siècle où vécut Ptolémée et formula la théorie géocentrique.",
+                defYear1473Desc: "L'année de la naissance de Nicolas Copernic dans la ville polonaise de Toruń.",
+                defYear1491Desc: "L'inscription de Copernic à l'Université de Cracovie pour étudier l'astronomie et les mathématiques.",
+                defYear1496Desc: "Le départ de Copernic pour l'Italie pour étudier le droit canon à l'Université de Bologne.",
+                defYear1500Desc: "Les conférences de Copernic en mathématiques à Rome.",
+                defYear1503Desc: "L'obtention par Copernic de son doctorat en droit canon de l'Université de Ferrare.",
+                defYear1514Desc: "La rédaction par Copernic du « Commentariolus », dans lequel il présenta les principes de base de la théorie héliocentrique.",
+                defYear1517Desc: "La rédaction par Copernic de son étude économique sur la monnaie « Du monnayage de la monnaie ».",
+                defYear1520_1530Desc: "La rédaction par Copernic de son livre principal « Des révolutions des sphères célestes ».",
+                defYear1543Desc: "La publication de « Des révolutions des sphères célestes » à Nuremberg, et la mort de Copernic le 24 mai.",
+                defYear1600Desc: "Le bûcher du philosophe italien Giordano Bruno pour avoir adopté l'héliocentrisme.",
+                defYear1616Desc: "Le décret de l'Église plaçant le livre de Copernic « Des révolutions des sphères célestes » sur la liste des livres interdits.",
+                defYear1633Desc: "Le procès de Galilée par l'Église et son obligation de se rétracter sur ses vues héliocentriques.",
+                defGeocentrism: "Géocentrisme (Le géocentrisme)",
+                defGeocentrismDesc: "Une théorie astronomique formulée par Ptolémée au IIe siècle apr. J.-C., basée sur l'idée que la Terre est immobile et située au centre de l'univers, et que les planètes et les étoiles tournent autour d'elle.",
+                defHeliocentrism: "Héliocentrisme (L'héliocentrisme)",
+                defHeliocentrismDesc: "Une nouvelle théorie astronomique présentée par Copernic, basée sur l'idée que le Soleil est au centre de l'univers, et que la Terre est une planète en mouvement tournant autour de lui avec le reste des planètes.",
+                defDailyMotion: "Le mouvement quotidien de la Terre",
+                defDailyMotionDesc: "La rotation de la Terre autour de son axe en l'espace d'un jour, responsable de l'alternance du jour et de la nuit.",
+                defAnnualMotion: "Le mouvement annuel de la Terre",
+                defAnnualMotionDesc: "La révolution de la Terre autour du Soleil en l'espace d'une année, responsable de l'alternance des saisons.",
+                defWobbleMotion: "Le mouvement d'oscillation de la Terre",
+                defWobbleMotionDesc: "Un changement de l'inclinaison de l'axe de la Terre, un mouvement nécessaire pour expliquer certains phénomènes astronomiques.",
+                defApparentMotion: "Le mouvement apparent des étoiles",
+                defApparentMotionDesc: "Un résultat visuel du mouvement réel de la Terre, et non un mouvement réel des étoiles elles-mêmes, selon Copernic.",
+                defScientificRevolution: "La révolution scientifique moderne",
+                defScientificRevolutionDesc: "Un mouvement scientifique parti des travaux de Copernic, et prolongé par Kepler, Galilée et Newton, établissant les fondements de la science moderne basée sur l'observation, l'expérimentation et la déduction mathématique.",
+                defTelescope: "Le télescope (Le télescope)",
+                defTelescopeDesc: "Un instrument utilisé par Galilée avec un pouvoir grossissant d'environ 20 fois, avec lequel il observa de nouvelles preuves soutenant l'héliocentrisme (lunes de Jupiter, phases de Vénus, relief de la Lune, taches solaires).",
+                defUniversalGravitation: "La gravitation universelle (La gravitation universelle)",
+                defUniversalGravitationDesc: "Une loi formulée par Isaac Newton, expliquant la révolution des planètes autour du Soleil, couronnant ainsi les travaux de Copernic, Kepler et Galilée.",
+                defEllipticalOrbit: "L'orbite elliptique",
+                defEllipticalOrbitDesc: "La forme des orbites planétaires prouvée par Kepler (ovale) plutôt que circulaire comme le croyait Copernic.",
+                summaryText: "À retenir : la théorie de Copernic (1473-1543) représenta un tournant dans l'histoire de la science, car elle renversa l'ancienne conception de l'univers qui avait prévalu pendant quatorze siècles, et prépara la révolution scientifique moderne fondée par Kepler, Galilée et Newton. Elle libéra la science des restrictions de l'Église et lança l'esprit européen sur la voie de la pensée moderne basée sur l'observation, l'expérimentation et la déduction mathématique.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Nicolas Copernic",
+                galleryAlt2: "Le système solaire selon Copernic",
+                galleryAlt3: "Comparaison entre géocentrisme et héliocentrisme",
+                galleryAlt4: "Des révolutions des sphères célestes",
+                galleryAlt5: "Le télescope astronomique de Galilée",
+                galleryAlt6: "Les orbites elliptiques de Kepler",
+                galleryCap1: "Nicolas Copernic (1473-1543)",
+                galleryCap2: "Le système solaire selon Copernic (héliocentrisme)",
+                galleryCap3: "Comparaison entre géocentrisme et héliocentrisme",
+                galleryCap4: "« Des révolutions des sphères célestes » (1543)",
+                galleryCap5: "Le télescope astronomique de Galilée",
+                galleryCap6: "Les orbites elliptiques de Kepler"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "التاريخ / الوحدة الأولى: أوروبا والعالم المتوسطي في القرن السادس عشر",
+                lessonTitleSample: "النهضة الأوروبية: دراسة شخصية علمية – نيكولا كوبرنيك",
+                sectionIntro: "مقدمة",
+                introText: "شهد علم الفلك في عصر النهضة تطورًا مهمًا بفضل العالم نيكولاس كوبرنيكوس (Nicolas Copernic) الذي عاش بين عامي 1473 و1543. فقد قدّم تصورًا جديدًا للكون قلب فيه التصور القديم الذي ساد لأربعة عشر قرنًا، مبدلًا مركزية الأرض بمركزية الشمس، ممّا مهّد لانطلاق الثورة العلمية الحديثة في أوروبا. فمن هو كوبرنيكوس؟ وما هي نظريته الفلكية؟ وما أبرز تأثيراتها؟",
+                problematiqueText: "من هو كوبرنيكوس؟ وما هي أبرز محطات حياته وأعماله؟ وما هي نظرية مركزية الشمس التي جاء بها؟ وما موقف الكنيسة منها؟ وما تأثيرها على تطور علم الفلك؟",
+                sectionPart1: "التعريف بكوبرنيكوس",
+                originsTitle: "نشأته وتكوينه",
+                originsText: "وُلد نيكولاس كوبرنيكوس سنة 1473 في مدينة تورون (Toruń) ببولندا، في أسرة ميسورة الحال، حيث كان والده تاجرًا وأمّه من عائلة تجارية ثرية. وفي سنة 1491 التحق بجامعة كراكوف (Kraków) لدراسة الفلك والرياضيات. ثم انتقل سنة 1496 إلى إيطاليا، حيث درس القانون الكنسي في جامعة بولونيا (Bologna)، كما درس الطب في جامعة بادوفا (Padoue). وقد ألقى محاضرات في الرياضيات بروما حوالي سنة 1500، وتحصّل سنة 1503 على شهادة الدكتوراه في القانون الكنسي من جامعة فيرارا (Ferrare). ويُذكر أن عمّه لوكاش فاتزنرودي (Lucas Watzenrode) كان له دور في رعايته وتوجيهه نحو الحياة الكنسية، حيث أصبح أسقفًا على منطقة فارميا (Warmie).",
+                careerTitle: "نشاطه وأعماله",
+                careerText: "تولّى كوبرنيكوس منصبًا كنسيًا/قانونيًا في كاتدرائية فرومبورك (Frombork)، وواصل في الوقت نفسه أبحاثه في الفلك ودراساته الطبية. وقد ألّف دراسة فلكية بعنوان \"الشروح\" أو \"التعليقات\" (Commentariolus) حوالي سنة 1514، عرض فيها المبادئ الأساسية لنظرية مركزية الشمس في شكل مخطوط لم يُنشر. كما كتب دراسة اقتصادية حول العملة سنة 1517 بعنوان \"في سكّ العملة\" (Monetae cudendae ratio). وبين عامي 1520 و1530 ألّف كتابه الرئيس \"دوران الأجرام السماوية\" (De revolutionibus orbium coelestium)، الذي بلور فيه نظريته الفلكية، ونُشر هذا الكتاب سنة 1543 في نورمبيرغ (Nuremberg) قبل وفاته بفترة قصيرة. وقد تُوفي كوبرنيكوس يوم 24 ماي 1543 في فرومبورك.",
+                copernicusBioQuote: "كان كوبرنيكوس رجلًا متعدّد المعارف: فقيه قانوني، وطبيب، واقتصادي، وعالم رياضيات وفلك، ورجل دين. وقد جمع بين التكوين الجامعي الرصين والتجربة العملية، ما مكّنه من الجمع بين التأمّل النظري والرصد الفلكي، وصياغة نظرية علمية متماسكة على أسس رياضية.",
+                copernicusBioQuoteAuthor: "بطاقة تعريف: صورة شاملة لشخصية كوبرنيكوس",
+                sectionPart2: "نظرية كوبرنيكوس الفلكية",
+                oldViewTitle: "التصور القديم للكون (مركزية الأرض)",
+                oldViewText: "سادت في أوروبا طوال أربعة عشر قرنًا نظرية مركزية الأرض (Le géocentrisme) التي وضعها العالم الإغريقي بطليموس (Ptolémée) في القرن II م في كتابه \"المجسطي\" (Almagest). وكانت تقوم على أن الأرض ثابتة وتقع في مركز الكون، وأن الكواكب والنجوم تدور حولها، وتترتّب حسب بعدها عن سطح الأرض بالترتيب التالي: القمر، عطارد، الزهرة، الشمس، المريخ، المشتري، زحل، ثم النجوم الثابتة. وقد توافقت هذه النظرية مع فلسفة أرسطو (Aristote) التي كانت ترى أن الأجسام الأرضية ثقيلة وتتّجه نحو المركز، ومع التصور الديني للكنيسة الذي كان يرى أن الإنسان يحتلّ مكانة مركزية في الخلق، وأن الأرض هي محور الكون الذي خلقه الله من أجله.",
+                heliocentrismTitle: "كوبرنيكوس ونظرية مركزية الشمس",
+                heliocentrismIntro: "قدّم كوبرنيكوس نظامًا جديدًا للكون، جعل فيه الأرض متحركة والشمس في المركز. وقد عرض هذا النظام في كتابه \"دوران الأجرام السماوية\" (1543)، ومن أبرز خصائصه:",
+                heliocentrismBullet1: "<strong>الشمس في مركز الكون:</strong> تقع الشمس في مركز الكون وتدور حولها الكواكب، وليست الأرض مركزًا للكون كما كان يعتقد سابقًا.",
+                heliocentrismBullet2: "<strong>الأرض كوكب:</strong> الأرض ليست جسمًا ثابتًا، بل هي كوكب من الكواكب الخاضعة للحركة مثل بقية الكواكب.",
+                heliocentrismBullet3: "<strong>حركات الأرض الثلاث:</strong> تخضع الأرض لثلاث حركات: حركة يومية حول محورها في مدّة يوم واحد، وهي المسؤولة عن تعاقب الليل والنهار؛ وحركة سنوية حول الشمس في مدّة سنة، وهي المسؤولة عن تعاقب الفصول؛ وحركة ارتجاجية أو تغير في ميل المحور، وهي ضرورية لتفسير بعض الظواهر الفلكية.",
+                heliocentrismBullet4: "<strong>الحركة الظاهرية للنجوم:</strong> بيّن كوبرنيكوس أن الحركة الظاهرية للنجوم ليست إلا نتيجة بصرية ناتجة عن الحركة الحقيقية للأرض، وليست حركة فعلية للنجوم في حدّ ذاتها.",
+                heliocentrismBullet5: "<strong>ترتيب الكواكب:</strong> يبدأ الترتيب من الشمس: عطارد، الزهرة، الأرض (ويتبعها القمر)، المريخ، المشتري، زحل، ثم النجوم الثابتة في أقصى الكون.",
+                comparisonTitle: "مقارنة بين التصورين",
+                compAspect: "الوجه",
+                compGeo: "مركزية الأرض (بطليموس)",
+                compHelio: "مركزية الشمس (كوبرنيكوس)",
+                compCenter: "مركز الكون",
+                compCenterGeo: "الأرض (ثابتة)",
+                compCenterHelio: "الشمس",
+                compEarthMove: "حركة الأرض",
+                compEarthMoveGeo: "ثابتة لا تتحرك",
+                compEarthMoveHelio: "ثلاث حركات (يومية، سنوية، ارتجاجية)",
+                compStarsMove: "الحركة الظاهرية للنجوم",
+                compStarsMoveGeo: "حركة حقيقية للنجوم حول الأرض",
+                compStarsMoveHelio: "نتيجة بصرية لحركة الأرض",
+                compCompatibility: "التوافق الفكري",
+                compCompatibilityGeo: "متوافقة مع أرسطو والكنيسة",
+                compCompatibilityHelio: "مخالفة للفلسفة السائدة وللكنيسة",
+                compModel: "طبيعة النموذج",
+                compModelGeo: "معقّد (يحتاج إلى \"أفلاك تدوير\")",
+                compModelHelio: "أبسط وأكثر انسجامًا",
+                sectionPart3: "تأثيرات النظرية الجديدة",
+                churchPositionTitle: "موقف الكنيسة",
+                churchPositionText: "رفضت الكنيسة النظرية الجديدة واعتبرتها مخالفة للمنطق وللدين المسيحي ولما ورد في الكتاب المقدّس، لأنّها تتعارض مع الفهم الحرفي لبعض النصوص الدينية التي تتحدّث عن ثبات الأرض وحركة الشمس. وقد تأكّد هذا الرفض بقرار صدر سنة 1616 وضع فيه كتاب \"دوران الأجرام السماوية\" ضمن قائمة الكتب الممنوعة (Index librorum prohibitorum). كما قامت الكنيسة بمصادرة العديد من نسخ كتاب كوبرنيكوس، ومنعت نشر أفكاره. ولم يقتصر الأمر على كوبرنيكوس، بل امتدّ إلى من تبنّى نظريته، ومن أبرز ضحايا هذا الرفض الفيلسوف الإيطالي جوردانو برونو (Giordano Bruno) الذي أُحرق حيًّا سنة 1600، وكذلك غاليليو غاليلي (Galilée) الذي حوكم سنة 1633 وأُجبر على التراجع عن قوله بمركزية الشمس.",
+                astronomyDevelopmentTitle: "تطور علم الفلك",
+                astronomyDevelopmentIntro: "أسهمت نظرية كوبرنيكوس في تطوير علم الفلك، وكانت منطلقًا لأعمال علماء آخرين دفعوا الفكر العلمي إلى الأمام، ومن أبرزهم:",
+                keplerText: "<strong>يوهانس كبلر (Johannes Kepler) (1571-1630):</strong> عالم ألماني، طوّر فهم المدارات فأثبت أنها إهليلجية (بيضوية) وليست دائرية كما كان يعتقد كوبرنيكوس، وصاغ قوانين حركة الكواكب الثلاثة.",
+                galileoText: "<strong>غاليليو غاليلي (Galileo Galilei) (1564-1642):</strong> عالم إيطالي، استخدم منظارًا فلكيًا تصل قدرته التكبيرية إلى نحو 20 مرّة، ورصد أدلة جديدة دعمت مركزية الشمس، منها أقمار المشتري وأطوار الزهرة وتضاريس القمر والبقع الشمسية.",
+                newtonText: "<strong>إسحاق نيوتن (Isaac Newton) (1643-1727):</strong> عالم إنجليزي، مهّدت أعمال من سبقه لما جاء به في تفسير الحركة والجاذبية، حيث صاغ قانون الجذب العام الذي فسّر سبب دوران الكواكب حول الشمس.",
+                impactOnThoughtTitle: "أثر النظرية على الفكر الأوروبي",
+                impactOnThoughtText: "لم تقتصر أهمية نظرية كوبرنيكوس على مجال الفلك فحسب، بل تجاوزت ذلك لتُحدِث تحوّلًا عميقًا في الفكر الأوروبي عموماً. فقد حرّرت العلم من قيود الكنيسة والتفكير القائم على النصوص المقدّسة، وأرست مبدأ الاعتماد على الرصد والتجربة والاستنتاج الرياضي بدلًا من التسليم للسلطة الدينية، وأزالت الإنسان والأرض من مركز الكون، ممّا شكّل تحوّلًا جذريًا في تصوّر الإنسان لنفسه وللعالم، ومهّدت لقيام الثورة العلمية الحديثة على يد كبلر وغاليليو ونيوتن، ولانطلاق عصر الأنوار في القرن XVIII.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "مثّلت نظرية كوبرنيكوس الجديدة نقطة تحوّل في تحرير العلم من قيود الكنيسة، وكانت مقدّمة لانطلاق العلوم الحديثة في أوروبا، إذ فتحت الطريق أمام رصد الكون على أسس رياضية وتجريبية، ومهّدت لقيام الثورة العلمية التي غيّرت وجه العالم الحديث.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defTreaty: "📜 كتب ومؤلّفات",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defCopernicus: "نيكولاس كوبرنيكوس (Nicolas Copernic)",
+                defCopernicusDesc: "عالم فلك بولندي (1473-1543)، درس الفلك والرياضيات بجامعة كراكوف، والقانون الكنسي بجامعة بولونيا، والطب بجامعة بادوفا. صاحب نظرية مركزية الشمس، وألّف كتاب \"دوران الأجرام السماوية\" (1543). يُعدّ من أبرز روّاد الثورة العلمية في عصر النهضة.",
+                defPtolemy: "بطليموس (Ptolémée)",
+                defPtolemyDesc: "عالم إغريقي عاش في القرن II م في الإسكندرية، وضع نظرية مركزية الأرض التي سادت أربعة عشر قرنًا، وشرحها في كتابه \"المجسطي\" (Almagest).",
+                defAristotle: "أرسطو (Aristote)",
+                defAristotleDesc: "فيلسوف إغريقي، كانت فلسفته متوافقة مع نظرية مركزية الأرض، حيث كان يرى أن الأجسام الأرضية ثقيلة وتتّجه نحو المركز.",
+                defWatzenrode: "لوكاش فاتزنرودي (Lucas Watzenrode)",
+                defWatzenrodeDesc: "عمّ كوبرنيكوس، أسقف على منطقة فارميا، كان له دور في رعايته وتوجيهه نحو الحياة الكنسية.",
+                defKepler: "يوهانس كبلر (Johannes Kepler)",
+                defKeplerDesc: "عالم فلك ألماني (1571-1630)، طوّر نظرية كوبرنيكوس وأثبت أن مدارات الكواكب إهليلجية (بيضوية) وليست دائرية، وصاغ قوانين حركة الكواكب.",
+                defGalileo: "غاليليو غاليلي (Galileo Galilei)",
+                defGalileoDesc: "عالم إيطالي (1564-1642)، استخدم منظارًا فلكيًا بقدرة تكبيرية تصل إلى نحو 20 مرّة، ورصد أدلة جديدة دعمت مركزية الشمس (أقمار المشتري، أطوار الزهرة). حوكم من طرف الكنيسة سنة 1633.",
+                defNewton: "إسحاق نيوتن (Isaac Newton)",
+                defNewtonDesc: "عالم إنجليزي (1643-1727)، صاغ قانون الجذب العام الذي فسّر دوران الكواكب حول الشمس، وتوّج بذلك أعمال كوبرنيكوس وكبلر وغاليليو.",
+                defGiordanoBruno: "جوردانو برونو (Giordano Bruno)",
+                defGiordanoBrunoDesc: "فيلسوف إيطالي تبنّى نظرية مركزية الشمس، أُحرق حيًّا سنة 1600 بسبب آرائه التي اعتبرتها الكنيسة مخالفة للدين.",
+                defPoland: "بولندا",
+                defPolandDesc: "بلد أوروبي، وُلد فيه كوبرنيكوس سنة 1473 بمدينة تورون.",
+                defTorun: "تورون (Toruń)",
+                defTorunDesc: "مدينة بولندية وُلد فيها كوبرنيكوس سنة 1473 في أسرة ميسورة الحال.",
+                defKrakow: "كراكوف (Kraków)",
+                defKrakowDesc: "مدينة بولندية، بها جامعة التحق بها كوبرنيكوس سنة 1491 لدراسة الفلك والرياضيات.",
+                defBologna: "بولونيا (Bologna)",
+                defBolognaDesc: "مدينة إيطالية، بها جامعة درس فيها كوبرنيكوس القانون الكنسي منذ 1496.",
+                defPadua: "بادوفا (Padoue)",
+                defPaduaDesc: "مدينة إيطالية، بها جامعة درس فيها كوبرنيكوس الطب.",
+                defFerrara: "فيرارا (Ferrare)",
+                defFerraraDesc: "مدينة إيطالية، بها جامعة تحصّل منها كوبرنيكوس على شهادة الدكتوراه في القانون الكنسي سنة 1503.",
+                defFrombork: "فرومبورك (Frombork)",
+                defFromborkDesc: "مدينة بولندية، بها كاتدرائية تولّى فيها كوبرنيكوس منصبًا كنسيًا/قانونيًا، وتُوفي بها سنة 1543.",
+                defWarmia: "فارميا (Warmie)",
+                defWarmiaDesc: "منطقة كنسية ببولندا، كان عمّ كوبرنيكوس أسقفًا عليها.",
+                defNuremberg: "نورمبيرغ (Nuremberg)",
+                defNurembergDesc: "مدينة ألمانية، نُشر فيها كتاب كوبرنيكوس \"دوران الأجرام السماوية\" سنة 1543.",
+                defRome: "روما",
+                defRomeDesc: "عاصمة إيطاليا، ألقى فيها كوبرنيكوس محاضرات في الرياضيات حوالي سنة 1500.",
+                defPublicationDeRevolutionibus: "نشر كتاب \"دوران الأجرام السماوية\" (1543)",
+                defPublicationDeRevolutionibusDesc: "الكتاب الرئيس لكوبرنيكوس الذي بلور فيه نظريته الفلكية بمركزية الشمس، نُشر في نورمبيرغ سنة 1543 قبل وفاته بفترة قصيرة.",
+                defChurchDecree1616: "قرار الكنيسة 1616",
+                defChurchDecree1616Desc: "قرار صادر عن الكنيسة وضع فيه كتاب كوبرنيكوس \"دوران الأجرام السماوية\" ضمن قائمة الكتب الممنوعة، بسبب مخالفته للدين المسيحي.",
+                defGalileoTrial1633: "محاكمة غاليليو 1633",
+                defGalileoTrial1633Desc: "محاكمة الكنيسة للعالم الإيطالي غاليليو غاليلي بسبب تبنّيه لمركزية الشمس، وأُجبر على التراجع عن قوله.",
+                defGiordanoBrunoBurning1600: "إحراق جوردانو برونو 1600",
+                defGiordanoBrunoBurning1600Desc: "إحراق الفيلسوف الإيطالي جوردانو برونو حيًّا سنة 1600 بسبب آرائه التي اعتبرتها الكنيسة مخالفة للدين، ومنها تبنّيه لمركزية الشمس.",
+                defCommentariolus: "الشروح أو التعليقات (Commentariolus)",
+                defCommentariolusDesc: "دراسة فلكية ألّفها كوبرنيكوس حوالي سنة 1514، عرض فيها المبادئ الأساسية لنظرية مركزية الشمس في شكل مخطوط لم يُنشر.",
+                defDeRevolutionibus: "دوران الأجرام السماوية (De revolutionibus orbium coelestium)",
+                defDeRevolutionibusDesc: "الكتاب الرئيس لكوبرنيكوس الذي ألّفه بين 1520 و1530، ونُشر سنة 1543 في نورمبيرغ، وبلور فيه نظريته الفلكية بمركزية الشمس.",
+                defMonetae: "في سكّ العملة (Monetae cudendae ratio)",
+                defMonetaeDesc: "دراسة اقتصادية ألّفها كوبرنيكوس سنة 1517 حول العملة.",
+                defAlmagest: "المجسطي (Almagest)",
+                defAlmagestDesc: "كتاب بطليموس في القرن II م، شرح فيه نظرية مركزية الأرض التي سادت أربعة عشر قرنًا.",
+                defIndexLibrorum: "قائمة الكتب الممنوعة (Index librorum prohibitorum)",
+                defIndexLibrorumDesc: "قائمة أصدرتها الكنيسة سنة 1616، وُضع فيها كتاب كوبرنيكوس \"دوران الأجرام السماوية\" ضمن الكتب الممنوعة.",
+                defYearIIADDesc: "القرن الذي عاش فيه بطليموس ووضع فيه نظرية مركزية الأرض.",
+                defYear1473Desc: "سنة ولادة نيكولاس كوبرنيكوس بمدينة تورون البولندية.",
+                defYear1491Desc: "التحاق كوبرنيكوس بجامعة كراكوف لدراسة الفلك والرياضيات.",
+                defYear1496Desc: "انتقال كوبرنيكوس إلى إيطاليا لدراسة القانون الكنسي بجامعة بولونيا.",
+                defYear1500Desc: "إلقاء كوبرنيكوس محاضرات في الرياضيات بروما.",
+                defYear1503Desc: "حصول كوبرنيكوس على شهادة الدكتوراه في القانون الكنسي من جامعة فيرارا.",
+                defYear1514Desc: "تأليف كوبرنيكوس \"الشروح\" (Commentariolus) التي عرض فيها المبادئ الأساسية لنظرية مركزية الشمس.",
+                defYear1517Desc: "كتابة كوبرنيكوس دراسة اقتصادية حول العملة \"في سكّ العملة\".",
+                defYear1520_1530Desc: "تأليف كوبرنيكوس كتابه الرئيس \"دوران الأجرام السماوية\".",
+                defYear1543Desc: "نشر كتاب \"دوران الأجرام السماوية\" في نورمبيرغ، ووفاة كوبرنيكوس يوم 24 ماي.",
+                defYear1600Desc: "إحراق الفيلسوف الإيطالي جوردانو برونو حيًّا بسبب تبنّيه لمركزية الشمس.",
+                defYear1616Desc: "قرار الكنيسة بوضع كتاب كوبرنيكوس \"دوران الأجرام السماوية\" ضمن قائمة الكتب الممنوعة.",
+                defYear1633Desc: "محاكمة غاليليو غاليلي من طرف الكنيسة وإجباره على التراجع عن قوله بمركزية الشمس.",
+                defGeocentrism: "مركزية الأرض (Le géocentrisme)",
+                defGeocentrismDesc: "نظرية فلكية وضعها بطليموس في القرن II م، تقوم على أن الأرض ثابتة وتقع في مركز الكون، وأن الكواكب والنجوم تدور حولها.",
+                defHeliocentrism: "مركزية الشمس (L'héliocentrisme)",
+                defHeliocentrismDesc: "نظرية فلكية جديدة قدّمها كوبرنيكوس، تقوم على أن الشمس في مركز الكون، وأن الأرض كوكب متحرك يدور حولها مع بقية الكواكب.",
+                defDailyMotion: "الحركة اليومية للأرض",
+                defDailyMotionDesc: "دوران الأرض حول محورها في مدّة يوم واحد، وهي المسؤولة عن تعاقب الليل والنهار.",
+                defAnnualMotion: "الحركة السنوية للأرض",
+                defAnnualMotionDesc: "دوران الأرض حول الشمس في مدّة سنة، وهي المسؤولة عن تعاقب الفصول.",
+                defWobbleMotion: "الحركة الارتجاجية للأرض",
+                defWobbleMotionDesc: "تغيّر في ميل محور الأرض، وهي حركة ضرورية لتفسير بعض الظواهر الفلكية.",
+                defApparentMotion: "الحركة الظاهرية للنجوم",
+                defApparentMotionDesc: "نتيجة بصرية ناتجة عن الحركة الحقيقية للأرض، وليست حركة فعلية للنجوم في حدّ ذاتها، حسب كوبرنيكوس.",
+                defScientificRevolution: "الثورة العلمية الحديثة",
+                defScientificRevolutionDesc: "حركة علمية انطلقت من أعمال كوبرنيكوس، وامتدّت على يد كبلر وغاليليو ونيوتن، وأرست أسس العلم الحديث القائم على الرصد والتجربة والاستنتاج الرياضي.",
+                defTelescope: "المنظار الفلكي (Le télescope)",
+                defTelescopeDesc: "آلة استخدمها غاليليو بقدرة تكبيرية تصل إلى نحو 20 مرّة، ورصد بها أدلة جديدة دعمت مركزية الشمس (أقمار المشتري، أطوار الزهرة، تضاريس القمر، البقع الشمسية).",
+                defUniversalGravitation: "الجذب العام (La gravitation universelle)",
+                defUniversalGravitationDesc: "قانون صاغه إسحاق نيوتن، يفسّر دوران الكواكب حول الشمس، وتوّج بذلك أعمال كوبرنيكوس وكبلر وغاليليو.",
+                defEllipticalOrbit: "المدار الإهليلجي",
+                defEllipticalOrbitDesc: "شكل مدار الكواكب الذي أثبته كبلر (بيضوي) وليس دائريًا كما كان يعتقد كوبرنيكوس.",
+                summaryText: "خلاصة: مثّلت نظرية كوبرنيكوس (1473-1543) نقطة تحوّل في تاريخ العلم، إذ قلبت التصور القديم للكون الذي ساد أربعة عشر قرنًا، ومهّدت لانطلاق الثورة العلمية الحديثة التي أرسى أسسها كبلر وغاليليو ونيوتن، فحرّرت العلم من قيود الكنيسة وأطلقت العقل الأوروبي في مسار الفكر الحديث القائم على الرصد والتجربة والاستنتاج الرياضي.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "نيكولا كوبرنيك",
+                galleryAlt2: "النظام الشمسي حسب كوبرنيك",
+                galleryAlt3: "مقارنة بين مركزية الأرض ومركزية الشمس",
+                galleryAlt4: "كتاب دوران الأجرام السماوية",
+                galleryAlt5: "منظار غاليليو الفلكي",
+                galleryAlt6: "مدارات كبلر الإهليلجية",
+                galleryCap1: "نيكولا كوبرنيك (1473-1543)",
+                galleryCap2: "النظام الشمسي حسب كوبرنيك (مركزية الشمس)",
+                galleryCap3: "مقارنة بين مركزية الأرض ومركزية الشمس",
+                galleryCap4: "كتاب \"دوران الأجرام السماوية\" (1543)",
+                galleryCap5: "منظار غاليليو الفلكي",
+                galleryCap6: "مدارات كبلر الإهليلجية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Copernicus", class: "key-person", i18n: "defCopernicus" },
+                { text: "Nicolaus Copernicus", class: "key-person", i18n: "defCopernicus" },
+                { text: "Ptolemy", class: "key-person", i18n: "defPtolemy" },
+                { text: "Aristotle", class: "key-person", i18n: "defAristotle" },
+                { text: "Watzenrode", class: "key-person", i18n: "defWatzenrode" },
+                { text: "Kepler", class: "key-person", i18n: "defKepler" },
+                { text: "Galileo", class: "key-person", i18n: "defGalileo" },
+                { text: "Newton", class: "key-person", i18n: "defNewton" },
+                { text: "Giordano Bruno", class: "key-person", i18n: "defGiordanoBruno" },
+                { text: "Poland", class: "key-location", i18n: "defPoland" },
+                { text: "Toruń", class: "key-location", i18n: "defTorun" },
+                { text: "Kraków", class: "key-location", i18n: "defKrakow" },
+                { text: "Bologna", class: "key-location", i18n: "defBologna" },
+                { text: "Padua", class: "key-location", i18n: "defPadua" },
+                { text: "Ferrara", class: "key-location", i18n: "defFerrara" },
+                { text: "Frombork", class: "key-location", i18n: "defFrombork" },
+                { text: "Warmia", class: "key-location", i18n: "defWarmia" },
+                { text: "Nuremberg", class: "key-location", i18n: "defNuremberg" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "On the Revolutions of the Celestial Spheres", class: "key-event", i18n: "defPublicationDeRevolutionibus" },
+                { text: "Church's Decree of 1616", class: "key-event", i18n: "defChurchDecree1616" },
+                { text: "Galileo's Trial", class: "key-event", i18n: "defGalileoTrial1633" },
+                { text: "Burning of Giordano Bruno", class: "key-event", i18n: "defGiordanoBrunoBurning1600" },
+                { text: "Commentariolus", class: "key-treaty", i18n: "defCommentariolus" },
+                { text: "De revolutionibus orbium coelestium", class: "key-treaty", i18n: "defDeRevolutionibus" },
+                { text: "Monetae cudendae ratio", class: "key-treaty", i18n: "defMonetae" },
+                { text: "Almagest", class: "key-treaty", i18n: "defAlmagest" },
+                { text: "Index librorum prohibitorum", class: "key-treaty", i18n: "defIndexLibrorum" },
+                { text: "Geocentrism", class: "key-other", i18n: "defGeocentrism" },
+                { text: "Heliocentrism", class: "key-other", i18n: "defHeliocentrism" },
+                { text: "Daily Motion", class: "key-other", i18n: "defDailyMotion" },
+                { text: "Annual Motion", class: "key-other", i18n: "defAnnualMotion" },
+                { text: "Wobbling Motion", class: "key-other", i18n: "defWobbleMotion" },
+                { text: "Apparent Motion", class: "key-other", i18n: "defApparentMotion" },
+                { text: "Scientific Revolution", class: "key-other", i18n: "defScientificRevolution" },
+                { text: "Telescope", class: "key-other", i18n: "defTelescope" },
+                { text: "Universal Gravitation", class: "key-other", i18n: "defUniversalGravitation" },
+                { text: "Elliptical Orbit", class: "key-other", i18n: "defEllipticalOrbit" }
+            ],
+            fr: [
+                { text: "Copernic", class: "key-person", i18n: "defCopernicus" },
+                { text: "Ptolémée", class: "key-person", i18n: "defPtolemy" },
+                { text: "Aristote", class: "key-person", i18n: "defAristotle" },
+                { text: "Watzenrode", class: "key-person", i18n: "defWatzenrode" },
+                { text: "Kepler", class: "key-person", i18n: "defKepler" },
+                { text: "Galilée", class: "key-person", i18n: "defGalileo" },
+                { text: "Newton", class: "key-person", i18n: "defNewton" },
+                { text: "Giordano Bruno", class: "key-person", i18n: "defGiordanoBruno" },
+                { text: "Pologne", class: "key-location", i18n: "defPoland" },
+                { text: "Toruń", class: "key-location", i18n: "defTorun" },
+                { text: "Cracovie", class: "key-location", i18n: "defKrakow" },
+                { text: "Bologne", class: "key-location", i18n: "defBologna" },
+                { text: "Padoue", class: "key-location", i18n: "defPadua" },
+                { text: "Ferrare", class: "key-location", i18n: "defFerrara" },
+                { text: "Frombork", class: "key-location", i18n: "defFrombork" },
+                { text: "Warmie", class: "key-location", i18n: "defWarmia" },
+                { text: "Nuremberg", class: "key-location", i18n: "defNuremberg" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Des révolutions des sphères célestes", class: "key-event", i18n: "defPublicationDeRevolutionibus" },
+                { text: "décret de l'Église", class: "key-event", i18n: "defChurchDecree1616" },
+                { text: "procès de Galilée", class: "key-event", i18n: "defGalileoTrial1633" },
+                { text: "bûcher de Giordano Bruno", class: "key-event", i18n: "defGiordanoBrunoBurning1600" },
+                { text: "Commentariolus", class: "key-treaty", i18n: "defCommentariolus" },
+                { text: "De revolutionibus orbium coelestium", class: "key-treaty", i18n: "defDeRevolutionibus" },
+                { text: "Monetae cudendae ratio", class: "key-treaty", i18n: "defMonetae" },
+                { text: "Almageste", class: "key-treaty", i18n: "defAlmagest" },
+                { text: "Index librorum prohibitorum", class: "key-treaty", i18n: "defIndexLibrorum" },
+                { text: "Géocentrisme", class: "key-other", i18n: "defGeocentrism" },
+                { text: "Héliocentrisme", class: "key-other", i18n: "defHeliocentrism" },
+                { text: "mouvement quotidien", class: "key-other", i18n: "defDailyMotion" },
+                { text: "mouvement annuel", class: "key-other", i18n: "defAnnualMotion" },
+                { text: "mouvement d'oscillation", class: "key-other", i18n: "defWobbleMotion" },
+                { text: "mouvement apparent", class: "key-other", i18n: "defApparentMotion" },
+                { text: "révolution scientifique", class: "key-other", i18n: "defScientificRevolution" },
+                { text: "télescope", class: "key-other", i18n: "defTelescope" },
+                { text: "gravitation universelle", class: "key-other", i18n: "defUniversalGravitation" },
+                { text: "orbite elliptique", class: "key-other", i18n: "defEllipticalOrbit" }
+            ],
+            ar: [
+                { text: "كوبرنيكوس", class: "key-person", i18n: "defCopernicus" },
+                { text: "نيكولاس كوبرنيكوس", class: "key-person", i18n: "defCopernicus" },
+                { text: "بطليموس", class: "key-person", i18n: "defPtolemy" },
+                { text: "أرسطو", class: "key-person", i18n: "defAristotle" },
+                { text: "فاتزنرودي", class: "key-person", i18n: "defWatzenrode" },
+                { text: "كبلر", class: "key-person", i18n: "defKepler" },
+                { text: "غاليليو", class: "key-person", i18n: "defGalileo" },
+                { text: "نيوتن", class: "key-person", i18n: "defNewton" },
+                { text: "جوردانو برونو", class: "key-person", i18n: "defGiordanoBruno" },
+                { text: "بولندا", class: "key-location", i18n: "defPoland" },
+                { text: "تورون", class: "key-location", i18n: "defTorun" },
+                { text: "كراكوف", class: "key-location", i18n: "defKrakow" },
+                { text: "بولونيا", class: "key-location", i18n: "defBologna" },
+                { text: "بادوفا", class: "key-location", i18n: "defPadua" },
+                { text: "فيرارا", class: "key-location", i18n: "defFerrara" },
+                { text: "فرومبورك", class: "key-location", i18n: "defFrombork" },
+                { text: "فارميا", class: "key-location", i18n: "defWarmia" },
+                { text: "نورمبيرغ", class: "key-location", i18n: "defNuremberg" },
+                { text: "روما", class: "key-location", i18n: "defRome" },
+                { text: "دوران الأجرام السماوية", class: "key-event", i18n: "defPublicationDeRevolutionibus" },
+                { text: "قرار الكنيسة 1616", class: "key-event", i18n: "defChurchDecree1616" },
+                { text: "محاكمة غاليليو 1633", class: "key-event", i18n: "defGalileoTrial1633" },
+                { text: "إحراق جوردانو برونو 1600", class: "key-event", i18n: "defGiordanoBrunoBurning1600" },
+                { text: "الشروح", class: "key-treaty", i18n: "defCommentariolus" },
+                { text: "التعليقات", class: "key-treaty", i18n: "defCommentariolus" },
+                { text: "De revolutionibus orbium coelestium", class: "key-treaty", i18n: "defDeRevolutionibus" },
+                { text: "في سكّ العملة", class: "key-treaty", i18n: "defMonetae" },
+                { text: "المجسطي", class: "key-treaty", i18n: "defAlmagest" },
+                { text: "الكتب الممنوعة", class: "key-treaty", i18n: "defIndexLibrorum" },
+                { text: "مركزية الأرض", class: "key-other", i18n: "defGeocentrism" },
+                { text: "مركزية الشمس", class: "key-other", i18n: "defHeliocentrism" },
+                { text: "الحركة اليومية", class: "key-other", i18n: "defDailyMotion" },
+                { text: "الحركة السنوية", class: "key-other", i18n: "defAnnualMotion" },
+                { text: "الحركة الارتجاجية", class: "key-other", i18n: "defWobbleMotion" },
+                { text: "الحركة الظاهرية", class: "key-other", i18n: "defApparentMotion" },
+                { text: "الثورة العلمية", class: "key-other", i18n: "defScientificRevolution" },
+                { text: "المنظار الفلكي", class: "key-other", i18n: "defTelescope" },
+                { text: "الجذب العام", class: "key-other", i18n: "defUniversalGravitation" },
+                { text: "المدار الإهليلجي", class: "key-other", i18n: "defEllipticalOrbit" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

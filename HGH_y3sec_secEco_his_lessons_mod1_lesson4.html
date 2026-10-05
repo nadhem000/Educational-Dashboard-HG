@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+        .lesson-quote {
+            background: var(--ED-General-color-bg-secondary);
+            border-right: 4px solid var(--ED-General-color-accent-default);
+            padding: 1rem 1.2rem;
+            margin: 1.2rem 0;
+            border-radius: 10px;
+            font-style: italic;
+            color: var(--ED-General-color-text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.9;
+        }
+        [dir="rtl"] .lesson-quote { border-right: 4px solid var(--ED-General-color-accent-default); border-left: none; }
+        [dir="ltr"] .lesson-quote { border-left: 4px solid var(--ED-General-color-accent-default); border-right: none; }
+        .lesson-quote-author {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--ED-General-color-accent-default);
+        }
+        .lesson-stat-highlight {
+            display: inline-block;
+            background: var(--ED-General-color-accent-light);
+            color: var(--ED-General-color-accent-default);
+            padding: 0.15rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+        .info-card {
+            background: var(--ED-General-color-bg-secondary);
+            border: 1px solid var(--ED-General-color-border);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+        }
+        .info-card-label {
+            font-size: 0.82rem;
+            color: var(--ED-General-color-text-tertiary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+        .info-card-value {
+            font-size: 1rem;
+            color: var(--ED-General-color-text-primary);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: أوروبا والعالم المتوسطي في القرن السادس عشر</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">النهضة الأوروبية: دراسة أثر فني – لوحة الجوكندا (الموناليزا)</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">تُعدّ لوحة <strong>الجوكندا</strong> (La Joconde)، أو ما يُعرف عالميًّا بـ<strong>الموناليزا</strong> (Mona Lisa)، أشهر عمل فني في تاريخ الإنسانية، وأبرز رمز على الإطلاق للنهضة الفنية الأوروبية. رسمها الفنان الإيطالي العبقري <strong>ليوناردو دا فينشي</strong> (Léonard de Vinci) بين سنتي 1503 و1519 تقريبًا، وهي محفوظة اليوم في متحف اللوفر (Louvre) بباريس. فما هي هذه اللوحة؟ ومن هو صاحبها؟ وما هي خصائصها الفنية؟ وما سرّ شهرتها العالمية؟</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي لوحة الجوكندا ومن رسمها؟ وما السياق التاريخي لإنجازها؟ وما خصائصها الفنية والتقنية؟ وما دلالاتها الرمزية والفكرية؟ وما سرّ شهرتها العالمية؟</p>
+            </div>
+
+            <!-- Part I : Presentation -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">التعريف باللوحة وصاحبها</span>
+                </h2>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="authorTitle">صاحب اللوحة: ليوناردو دا فينشي</span>
+                </h3>
+                <p data-i18n="authorText">وُلد <strong>ليوناردو دا فينشي</strong> سنة 1452 ببلدة فينشي (Vinci) قرب فلورنسا (Florence) بإيطاليا، وتوفّي سنة 1519 في قلعة كلو-لوسي (Clos-Lucé) بفرنسا. يُعدّ النموذج الأمثل لـ<strong>"رجل عصر النهضة"</strong> (L'uomo universale) بفضل تعدّد مواهبه الاستثنائية، فقد كان رسّامًا ونحّاتًا ومهندسًا معماريًّا وعالمًا في التشريح (Anatomie) والرياضيات والميكانيك والطبيعيات والجيولوجيا والفلك، إضافة إلى كونه موسيقيًّا وشاعرًا. تتلمذ على يد الفنان <strong>أندريا دل فرّوكيو</strong> (Andrea del Verrocchio) في فلورنسا، وعمل في خدمة أبرز أمراء عصره، ومنهم <strong>لوران دي ميديسي</strong> (Laurent de Médicis) في فلورنسا، و<strong>لودوفيكو سفورزا</strong> (Ludovico Sforza) دوق ميلانو، والملك الفرنسي <strong>فرانسوا الأول</strong> (François 1er) الذي اقتنى لوحته الجوكندا في نهاية حياته.</p>
+                <p data-i18n="authorWorks">ومن أشهر أعماله الفنية إلى جانب الجوكندا: <strong>لوحة العشاء الأخير</strong> (La Cène) المرسومة على جدار كنيسة سانتا ماريا ديلي غراتزي بميلانو (1495-1498)، و<strong>لوحة الرجل الفيتروفي</strong> (L'Homme de Vitruve) التي تجسّد التناسب المثالي لجسم الإنسان، إضافة إلى <strong>رسمة السيدة وابن عرس</strong> (La Dame à l'hermine) و<strong>العذراء في الصخور</strong> (La Vierge aux rochers).</p>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="artworkTitle">اللوحة: بطاقة تعريف</span>
+                </h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <span class="info-card-label" data-i18n="cardTitleLabel">العنوان</span>
+                        <span class="info-card-value" data-i18n="cardTitleValue">الجوكندا / الموناليزا (La Joconde / Mona Lisa)</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-card-label" data-i18n="cardArtistLabel">الفنان</span>
+                        <span class="info-card-value" data-i18n="cardArtistValue">ليوناردو دا فينشي (Léonard de Vinci)</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-card-label" data-i18n="cardDateLabel">تاريخ الإنجاز</span>
+                        <span class="info-card-value" data-i18n="cardDateValue">حوالي 1503-1519</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-card-label" data-i18n="cardTypeLabel">النوع</span>
+                        <span class="info-card-value" data-i18n="cardTypeValue">بورتريه (صورة شخصية)</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-card-label" data-i18n="cardTechniqueLabel">التقنية</span>
+                        <span class="info-card-value" data-i18n="cardTechniqueValue">زيت على خشب الحور (Peuplier)</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-card-label" data-i18n="cardDimensionsLabel">الأبعاد</span>
+                        <span class="info-card-value" data-i18n="cardDimensionsValue">77 × 53 سم</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-card-label" data-i18n="cardLocationLabel">مكان الحفظ</span>
+                        <span class="info-card-value" data-i18n="cardLocationValue">متحف اللوفر (Louvre) – باريس</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-card-label" data-i18n="cardModelLabel">الشخصية المرسومة</span>
+                        <span class="info-card-value" data-i18n="cardModelValue">ليزا غيرارديني (Lisa Gherardini)، زوجة التاجر الفلورنسي فرانتشيسكو دل جيوكوندو</span>
+                    </div>
+                </div>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="contextTitle">سياق إنجاز اللوحة</span>
+                </h3>
+                <p data-i18n="contextText">أنجز ليوناردو دا فينشي هذه اللوحة على مرحلتين: بدأها في فلورنسا حوالي سنة 1503 بطلب من التاجر الفلورنسي <strong>فرانتشيسكو دل جيوكوندو</strong> (Francesco del Giocondo) ليرسم زوجته <strong>ليزا غيرارديني</strong> (Lisa Gherardini)، وهي سيدة من أسرة نبيلة فلورنسية. لكن ليوناردو لم يُسلّم اللوحة لأصحابها، بل احتفظ بها معه طوال حياته، وحملها معه إلى فرنسا سنة 1516 عندما دُعي إلى بلاط الملك فرانسوا الأول. وبعد وفاته سنة 1519، اشتراها الملك الفرنسي فرانسوا الأول وأصبحت من مقتنيات التاج الفرنسي، ثم انتقلت بعد الثورة الفرنسية إلى <strong>متحف اللوفر</strong> بباريس حيث لا تزال محفوظة إلى اليوم. ويُرجّح أن ليوناردو واصل تحسين اللوحة وتعديلها خلال السنوات الأخيرة من حياته، ممّا يجعلها من أكثر الأعمال الفنية تعقيدًا وإتقانًا في تاريخ الفن.</p>
+            </div>
+
+            <!-- Part II : Description and Artistic Analysis -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">وصف اللوحة وتحليلها الفني</span>
+                </h2>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="descriptionTitle">الوصف الظاهري للوحة</span>
+                </h3>
+                <p data-i18n="descriptionText">تمثّل اللوحة صورة نصفية (Buste) لسيدة تجلس في مواجهة المشاهد تقريبًا، مع انحراف طفيف نحو اليمين. تُظهر السيدة وجهًا هادئًا وابتسامة غامضة غير واضحة الحدود، وشعرًا بنيًّا مسترسلًا على كتفيها، وثوبًا داكن اللون دون أكمام كاملة، مع ثنيات دقيقة ومتقنة تبرز التمكّن من رسم القماش. ويستند كوعها الأيسر إلى مسند ذراع الكرسي، بينما تضع يدها اليمنى فوق يدها اليسرى بتقاطع أنيق وهادئ. وتنفتح خلف السيدة منظر طبيعي واسع، يبرز فيه جسر وطريق متعرّج ونهر وبعض الصخور والجبال في الأفق، إضافة إلى إحساس عميق بالفضاء والهواء (الاستشراف الجوّي).</p>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="techniqueTitle">أهم الخصائص الفنية والتقنية</span>
+                </h3>
+                <p data-i18n="techniqueIntro">جسّدت اللوحة أبرز مقوّمات فن النهضة الأوروبية، ومن أبرز خصائصها الفنية والتقنية:</p>
+                <ul>
+                    <li data-i18n="techBullet1"><strong>التقنية الزيتية المتدرّجة (Sfumato):</strong> استخدم ليوناردو تقنية "السفوماتو" التي تعني "التدخين" أو "التلاشي"، وتعتمد على طبقات متعدّدة من الألوان الزيتية الشفّافة المتراكمة بدرجات متدرّجة ناعمة، ممّا أعطى الوجه ملامح ناعمة واندماجًا متدرّجًا لا تُظهر فيه حدودًا واضحة. وقد ظهر هذا جليًّا في رسم زاويتي الفم وحدود العينين، وهما موضع ما يُسمّى "<strong>الابتسامة الغامضة</strong>".</li>
+                    <li data-i18n="techBullet2"><strong>المنظور الخطّي والهوائي (Perspective):</strong> طبّق ليوناردو قواعد المنظور الخطّي الرياضي التي أرساها في عصر النهضة، فأحسن توزيع الأحجام والمسافات في اللوحة. كما اعتمد <strong>المنظور الجوّي</strong> (الاستشراف الهوائي)، حيث تظهر الجبال والمسافات البعيدة في الخلفية بألوان باهتة وأكثر زرقة وضبابية، ممّا يوحي بعمق الفضاء واتّساعه.</li>
+                    <li data-i18n="techBullet3"><strong>التوازن والتناسب:</strong> وظّف ليوناردو معرفته بالرياضيات وقواعد التناسب، فجعل السيدة تقف في موضع يجعل جسدها يشكّل <strong>شكلًا هرميًّا</strong> يخضع لمبدأ التناسب والانسجام، مع توازن بين كتلة الجسم والمنظر الطبيعي في الخلفية.</li>
+                    <li data-i18n="techBullet4"><strong>الاهتمام بالتفاصيل:</strong> أبدع ليوناردو في رسم أدقّ التفاصيل: خصلات الشعر، وثنيات القماش، والشكل الدقيق للأصابع، وتفاصيل الملابس، ممّا يدلّ على رهافة ملاحظته ومهارته اليدوية العالية.</li>
+                    <li data-i18n="techBullet5"><strong>الاهتمام بالإنسان (Anatomie):</strong> تُجسّد اللوحة مبدأ <strong>الإنسانية (L'humanisme)</strong> في عصر النهضة القائم على الإعجاب بالإنسان وتقديم قدراته في أبهى صورة. وقد استعان ليوناردو بدراساته التشريحية الدقيقة في رسم الأعضاء والملامح بشكل واقعي ودقيق.</li>
+                    <li data-i18n="techBullet6"><strong>الكياري-سكورو (Clair-obscur):</strong> اعتمد ليوناردو على أسلوب الظلّ والنور (الكياري-سكورو) في نمذجة الوجه والجسم، لإبراز الحجوم الثلاثية الأبعاد وإعطاء اللوحة واقعية وعمقًا إضافيًّا.</li>
+                </ul>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="hiddenDetailsTitle">تفاصيل دقيقة وأسرار اللوحة</span>
+                </h3>
+                <p data-i18n="hiddenDetailsText">تعتبر الجوكندا من أكثر الأعمال الفنية إثارةً للفضول بفضل غموضها وتفاصيلها الدقيقة، ومن أبرز هذه التفاصيل:</p>
+                <ul>
+                    <li data-i18n="detail1"><strong>الابتسامة الغامضة:</strong> تظهر ابتسامة الجوكندا متغيّرة حسب زاوية النظر إليها، فتبدو حاضرة عند النظر إلى عينيها، وتكاد تختفي عند النظر مباشرة إلى فمها. ويُرجّح أن السبب في ذلك تقنية "السفوماتو" التي رسم بها زاويتي الفم بلمسات ناعمة متلاشية.</li>
+                    <li data-i18n="detail2"><strong>غياب الحواجب والرموش:</strong> تظهر الجوكندا بدون حواجب ولا رموش واضحة، وقد اختلف الباحثون في تفسير ذلك بين من يرى أن العادة الجمالية في ذلك العصر كانت تقضي بحلق الحواجب، ومن يرى أن الحواجب كانت مرسومة ثم تلاشت بفعل الزمن وبفعل عمليات الترميم.</li>
+                    <li data-i18n="detail3"><strong>النظر المباشر نحو المشاهد:</strong> تُعدّ نظرة الجوكندا نحو المشاهد مباشرة من أوائل النظرات المباشرة في تاريخ البورتريه الأوروبي، ممّا يُشعر المشاهد بأنها تتعمّق في داخله وتعرف كل شيء عنه.</li>
+                    <li data-i18n="detail4"><strong>الاندماج بين الشخصية والخلفية:</strong> على عكس كثير من البورتريهات السابقة، لا تظهر الجوكندا منعزلة في فضاء مغلق، بل مندمجة في منظر طبيعي واسع، ممّا يعطي انطباعًا بالحياة والحركة والتناغم بين الإنسان والطبيعة.</li>
+                </ul>
+
+                <blockquote class="lesson-quote" data-i18n="jocondeQuote">
+                    «تُعدّ الجوكندا أكثر اللوحات شهرة في العالم، وأكثرها تعرّضًا للدراسة والتأويل. فهي في آن واحد: صورة ذاتية لواقعية الرسم الليوناردي، ووثيقة على مركزية الإنسان في فكر عصر النهضة، ورمز للجمال الإنساني الذي لا تنفد أسراره».
+                    <span class="lesson-quote-author" data-i18n="jocondeQuoteAuthor">حول دلالات لوحة الجوكندا</span>
+                </blockquote>
+            </div>
+
+            <!-- Part III : Significance and Global Impact -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span>
+                    <span data-i18n="sectionPart3">دلالات اللوحة وأثرها العالمي</span>
+                </h2>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="significanceTitle">دلالات اللوحة الفكرية والفنية</span>
+                </h3>
+                <p data-i18n="significanceIntro">تعكس لوحة الجوكندا جملة من المبادئ والقيم الأساسية في فكر عصر النهضة الأوروبية، ومن أهمّها:</p>
+                <ul>
+                    <li data-i18n="significance1"><strong>الإعجاب بالإنسان (L'humanisme):</strong> تجسّد اللوحة فكرة أن الإنسان هو محور الاهتمام في عصر النهضة، وأنّ قيمته تكمن في قدراته وإمكاناته الفردية، وليس في انتمائه لطبقة اجتماعية أو سلطة دينية. فاللوحة تحتفي بالإنسان في أبهى صورة وأكثرها خصوصية.</li>
+                    <li data-i18n="significance2"><strong>العلم والتجربة:</strong> تُجسّد اللوحة اندماج الفن مع العلم، فقد استعان ليوناردو بمعارفه في التشريح والرياضيات والطبيعة في رسم اللوحة، ممّا جعلها في نفس الوقت دراسة علمية ورائعة فنية.</li>
+                    <li data-i18n="significance3"><strong>الواقعية والدقّة:</strong> تُبرز اللوحة توجّه فن النهضة نحو الواقعية والدقّة في نقل الطبيعة والإنسان، خلافًا للفنّ الديني الوسيطي الذي كان يقوم على رموز ثابتة ومثالية مفارقة للواقع.</li>
+                    <li data-i18n="significance4"><strong>الحرية الإبداعية:</strong> عبّرت اللوحة عن حرية الفنان في اختيار موضوعه وأسلوبه، وهو أمر لم يكن متاحًا في العصور الوسيطية التي سيطرت فيها الكنيسة على الفن ورسمت أهدافه.</li>
+                    <li data-i18n="significance5"><strong>الإرث الإغريقي-اللاتيني:</strong> استعان ليوناردو بالتراث الفني والفكري الإغريقي واللاتيني، خاصة في مبدأ التناسب الرياضي والجمالي الذي أرساه فلاسفة اليونان، وطبّقه في رسم الأبعاد والتناسب بين أعضاء الجسد.</li>
+                </ul>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="globalImpactTitle">أثر اللوحة العالمي</span>
+                </h3>
+                <p data-i18n="globalImpactText">تجاوزت شهرة الجوكندا حدود المتاحف وصالات العرض الفني لتغدو واحدة من أكثر الصور المعروفة في العالم، وشكّلت على مدار القرون موضوع إلهام للمبدعين، ونقطة جذب لملايين الزوّار من مختلف أنحاء العالم. ومن أبرز مظاهر أثرها العالمي:
+                    <br>• وجودها اليوم في <strong>متحف اللوفر</strong> بباريس كأحد أبرز معالم الجذب السياحي، ويقصدها سنويًّا ملايين الزوّار.
+                    <br>• تعرّضها لسرقة شهيرة سنة <span class="lesson-stat-highlight">1911</span> على يد العامل الإيطالي فينتشنزو بيروجيا (Vincenzo Peruggia)، ثم استرجاعها بعد سنتين، وهو ما ساهم في إشهارها العالمي.
+                    <br>• اعتبارها مرجعًا أساسيًّا في تدريس تاريخ الفن، ودليلًا على خصائص فن النهضة الأوروبية.
+                    <br>• استلهامها في أعمال فنية وثقافية كثيرة: أفلام، أغاني، لوحات معاصرة، إعلانات، ونصوص أدبية.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">تُعدّ لوحة الجوكندا تجسيدًا كاملًا لفكر عصر النهضة الأوروبية ومبادئه، إذ جمعت بين دقّة الرسم العلمي، وعمق الطرح الإنساني، وحرية الإبداع الفني. وهي بذلك ليست مجرّد صورة لسيدة فلورنسية، بل هي وثيقة حضارية تنطق بتحوّل الفكر الأوروبي في مطلع العصر الحديث، ورمز خالد للإبداع الإنساني.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defVinci">ليوناردو دا فينشي (Léonard de Vinci)</strong>: <span data-i18n="defVinciDesc">فنان وعالم إيطالي (1452-1519)، وُلد في بلدة فينشي قرب فلورنسا. يُعدّ النموذج الأمثل لـ"رجل عصر النهضة" بفضل تعدّد مواهبه: رسّام ونحّات ومهندس معماري وعالم تشريح ورياضيات وميكانيك وطبيعيات وجيولوجيا وفلك وموسيقي. صاحب لوحة الجوكندا و"العشاء الأخير" و"الرجل الفيتروفي".</span></li>
+                        <li><strong class="key-person" data-i18n="defLisaGherardini">ليزا غيرارديني (Lisa Gherardini)</strong>: <span data-i18n="defLisaGherardiniDesc">سيدة فلورنسية من أسرة نبيلة، زوجة التاجر فرانتشيسكو دل جيوكوندو، وهي الشخصية التي رسمها ليوناردو في لوحة الجوكندا حوالي سنة 1503.</span></li>
+                        <li><strong class="key-person" data-i18n="defGiocondo">فرانتشيسكو دل جيوكوندو (Francesco del Giocondo)</strong>: <span data-i18n="defGiocondoDesc">تاجر فلورنسي من الطبقة الثرية، طلب من ليوناردو دا فينشي رسم بورتريه لزوجته ليزا غيرارديني، وهو ما عُرف بـ"لا جيوكوندا" أي "الزوجة جيوكوندو".</span></li>
+                        <li><strong class="key-person" data-i18n="defVerrocchio">أندريا دل فرّوكيو (Andrea del Verrocchio)</strong>: <span data-i18n="defVerrocchioDesc">فنان إيطالي من فلورنسا، أستاذ ليوناردو دا فينشي الذي تتلمذ في ورشته.</span></li>
+                        <li><strong class="key-person" data-i18n="defLaurentMedicis">لوران دي ميديسي (Laurent de Médicis)</strong>: <span data-i18n="defLaurentMedicisDesc">رجل أعمال فلورنسي وراعي فنون، كان ليوناردو دا فينشي في خدمته بفلورنسا.</span></li>
+                        <li><strong class="key-person" data-i18n="defSforza">لودوفيكو سفورزا (Ludovico Sforza)</strong>: <span data-i18n="defSforzaDesc">دوق ميلانو، كان ليوناردو دا فينشي في خدمته وأنجز له بعض أعماله الفنية والهندسية.</span></li>
+                        <li><strong class="key-person" data-i18n="defFrancois1">فرانسوا الأول (François 1er)</strong>: <span data-i18n="defFrancois1Desc">ملك فرنسا (1494-1574)، استدعى ليوناردو دا فينشي إلى بلاطه في نهاية حياته، واقتنى لوحة الجوكندا بعد وفاته، فأصبحت من مقتنيات التاج الفرنسي ثم من مقتنيات متحف اللوفر.</span></li>
+                        <li><strong class="key-person" data-i18n="defPeruggia">فينتشنزو بيروجيا (Vincenzo Peruggia)</strong>: <span data-i18n="defPeruggiaDesc">عامل إيطالي، من مواليد 1881، اشتهر بسرقته للوحة الجوكندا من متحف اللوفر سنة 1911، ثم أعادها سنة 1913 بعد محاولة بيعه إياها لمتحف إيطالي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defVinciTown">فينشي (Vinci)</strong>: <span data-i18n="defVinciTownDesc">بلدة إيطالية قرب فلورنسا، وُلد فيها ليوناردو دا فينشي سنة 1452.</span></li>
+                        <li><strong class="key-location" data-i18n="defFlorence">فلورنسا (Florence)</strong>: <span data-i18n="defFlorenceDesc">مدينة إيطالية، مهد عصر النهضة، تتلمذ فيها ليوناردو دا فينشي وبدأ رسم لوحة الجوكندا.</span></li>
+                        <li><strong class="key-location" data-i18n="defMilan">ميلانو (Milan)</strong>: <span data-i18n="defMilanDesc">مدينة إيطالية، عمل بها ليوناردو دا فينشي في خدمة الدوق لودوفيكو سفورزا، ورسم فيها لوحة "العشاء الأخير".</span></li>
+                        <li><strong class="key-location" data-i18n="defClosLuce">كلو-لوسي (Clos-Lucé)</strong>: <span data-i18n="defClosLuceDesc">قلعة فرنسية قرب أمبوز (Amboise)، أقام فيها ليوناردو دا فينشي في نهاية حياته، وتوفي فيها سنة 1519.</span></li>
+                        <li><strong class="key-location" data-i18n="defParis">باريس</strong>: <span data-i18n="defParisDesc">عاصمة فرنسا، بها متحف اللوفر حيث تُحفظ لوحة الجوكندا إلى اليوم.</span></li>
+                        <li><strong class="key-location" data-i18n="defLouvre">متحف اللوفر (Le Louvre)</strong>: <span data-i18n="defLouvreDesc">متحف فرنسي بباريس، يُعدّ من أكبر المتاحف في العالم، ويحتوي على لوحة الجوكندا، ويقصده سنويًّا ملايين الزوّار.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defSfumato">تقنية السفوماتو (Sfumato) – اختراع ليوناردو</strong>: <span data-i18n="defSfumatoDesc">تقنية رسم ابتكرها ليوناردو دا فينشي وتعتمد على طبقات متعدّدة من الألوان الزيتية الشفّافة المتراكمة بدرجات متدرّجة ناعمة، ممّا يعطي الوجه ملامح ناعمة واندماجًا متدرّجًا لا تُظهر فيه حدودًا واضحة.</span></li>
+                        <li><strong class="key-event" data-i18n="defChiaroscuro">الكياري-سكورو (Clair-obscur)</strong>: <span data-i18n="defChiaroscuroDesc">أسلوب فني يعتمد على تباين الظلّ والنور في رسم الأعمال الفنية، استخدمه ليوناردو في الجوكندا لإبراز الحجوم الثلاثية الأبعاد ولإعطاء اللوحة واقعية وعمقًا.</span></li>
+                        <li><strong class="key-event" data-i18n="defPerspective">المنظور الجوّي (Perspective atmosphérique)</strong>: <span data-i18n="defPerspectiveDesc">تقنية فنية تعتمد على تمثيل المسافات البعيدة بألوان باهتة وأكثر زرقة وضبابية، ممّا يوحي بعمق الفضاء واتّساعه، استخدمها ليوناردو في خلفية الجوكندا.</span></li>
+                        <li><strong class="key-event" data-i18n="defJocondeTheft1911">سرقة الجوكندا 1911</strong>: <span data-i18n="defJocondeTheft1911Desc">سرقة لوحة الجوكندا من متحف اللوفر سنة 1911 على يد العامل الإيطالي فينتشنزو بيروجيا، ثم استرجاعها سنة 1913 بعد محاولة بيعه إياها لمتحف إيطالي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-treaties">
+                    <h3 data-i18n="defTreaty">📜 أعمال فنية</h3>
+                    <ul>
+                        <li><strong class="key-treaty" data-i18n="defJoconde">لوحة الجوكندا (La Joconde / Mona Lisa)</strong>: <span data-i18n="defJocondeDesc">أشهر لوحة في تاريخ الفن، رسمها ليوناردو دا فينشي حوالي 1503-1519، تمثّل صورة نصفية لسيدة فلورنسية هي ليزا غيرارديني، محفوظة بمتحف اللوفر بباريس.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defLastSupper">لوحة العشاء الأخير (La Cène)</strong>: <span data-i18n="defLastSupperDesc">من أشهر أعمال ليوناردو دا فينشي، مرسومة على جدار كنيسة سانتا ماريا ديلي غراتزي بميلانو بين 1495 و1498.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defVitruvianMan">الرجل الفيتروفي (L'Homme de Vitruve)</strong>: <span data-i18n="defVitruvianManDesc">رسمة لليوناردو دا فينشي تجسّد التناسب المثالي لجسم الإنسان، وهي مستوحاة من كتابات المعماري الروماني فيتروفيوس.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defLadyErmine">السيدة وابن عرس (La Dame à l'hermine)</strong>: <span data-i18n="defLadyErmineDesc">من أشهر بورتريهات ليوناردو دا فينشي، أُنجز حوالي سنة 1490، تمثّل سيسيليا غاليراني عشيقة دوق ميلانو لودوفيكو سفورزا.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defVirginRocks">العذراء في الصخور (La Vierge aux rochers)</strong>: <span data-i18n="defVirginRocksDesc">من أهم أعمال ليوناردو دا فينشي، أُنجز بين 1483 و1486، محفوظ بمتحف اللوفر.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1452</strong>: <span data-i18n="defYear1452Desc">سنة ولادة ليوناردو دا فينشي ببلدة فينشي قرب فلورنسا.</span></li>
+                        <li><strong class="key-year">1495-1498</strong>: <span data-i18n="defYear1495Desc">إنجاز ليوناردو دا فينشي لوحة "العشاء الأخير" بميلانو.</span></li>
+                        <li><strong class="key-year">1503</strong>: <span data-i18n="defYear1503Desc">بدء ليوناردو دا فينشي في رسم لوحة الجوكندا بفلورنسا.</span></li>
+                        <li><strong class="key-year">1516</strong>: <span data-i18n="defYear1516Desc">انتقال ليوناردو دا فينشي إلى فرنسا بدعوة من الملك فرانسوا الأول، حاملًا معه لوحة الجوكندا.</span></li>
+                        <li><strong class="key-year">1519</strong>: <span data-i18n="defYear1519Desc">سنة وفاة ليوناردو دا فينشي بقلعة كلو-لوسي بفرنسا.</span></li>
+                        <li><strong class="key-year">1911</strong>: <span data-i18n="defYear1911Desc">سرقة لوحة الجوكندا من متحف اللوفر على يد العامل الإيطالي فينتشنزو بيروجيا.</span></li>
+                        <li><strong class="key-year">1913</strong>: <span data-i18n="defYear1913Desc">استرجاع لوحة الجوكندا بعد سنتين من سرقتها.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defRenaissanceArt">فن النهضة</strong>: <span data-i18n="defRenaissanceArtDesc">تيّار فني انطلق من إيطاليا في القرن XV وانتشر في أوروبا، يتّسم بالدقّة والواقعيّة وتواضع "الديكور"، ويعتمد على التراث الإغريقي-اللاتيني، ويقدّم الإنسان في أبهى صورة، ويطبّق القواعد والمقاييس الرياضية.</span></li>
+                        <li><strong class="key-other" data-i18n="defUniversalMan">رجل عصر النهضة (L'uomo universale)</strong>: <span data-i18n="defUniversalManDesc">مفهوم يجسّد الإنسان المتعدّد المواهب والمتمكّن من مختلف مجالات المعرفة والفن، ويتجلّى نموذجه الأبرز في شخصية ليوناردو دا فينشي.</span></li>
+                        <li><strong class="key-other" data-i18n="defPortrait">البورتريه (Portrait)</strong>: <span data-i18n="defPortraitDesc">نوع فني يهدف إلى تمثيل شخص معيّن، وتطوّر في عصر النهضة بفضل الاهتمام بالإنسان وقدراته الفردية، ومن أشهر نماذجه لوحة الجوكندا.</span></li>
+                        <li><strong class="key-other" data-i18n="defMonaLisaSmile">الابتسامة الغامضة</strong>: <span data-i18n="defMonaLisaSmileDesc">سمة مميّزة لوجه الجوكندا، تظهر متغيّرة حسب زاوية النظر إليها، وتُعزى إلى تقنية "السفوماتو" التي رسم بها ليوناردو زاويتي الفم بلمسات ناعمة متلاشية.</span></li>
+                        <li><strong class="key-other" data-i18n="defLinearPerspective">المنظور الخطّي (Perspective linéaire)</strong>: <span data-i18n="defLinearPerspectiveDesc">قواعد رياضية لتوزيع الأحجام والمسافات في اللوحة لإعطاء إحساس بالعمق، أرساها فنانون في عصر النهضة، واستخدمها ليوناردو في رسم الجوكندا.</span></li>
+                        <li><strong class="key-other" data-i18n="defProportion">التناسب (Proportion)</strong>: <span data-i18n="defProportionDesc">مبدأ فني ورياضي يقضي بانسجام العلاقات بين مختلف أجزاء العمل الفني، ويعتمد على نسب رياضية مستمدّة من الطبيعة، طبّقه ليوناردو في رسم الجوكندا.</span></li>
+                        <li><strong class="key-other" data-i18n="defAnatomie">علم التشريح (Anatomie)</strong>: <span data-i18n="defAnatomieDesc">العلم الذي يدرس بنية جسم الكائنات الحية، اعتمده ليوناردو دا فينشي في دراسة تفاصيل جسم الإنسان وملامحه، ممّا ساعده في رسم الجوكندا بدقّة واقعية.</span></li>
+                        <li><strong class="key-other" data-i18n="defOilPainting">التقنية الزيتية (Peinture à l'huile)</strong>: <span data-i18n="defOilPaintingDesc">تقنية فنية تعتمد على الألوان المخلوطة بزيت، طبّقها ليوناردو دا فينشي بشكل مبتكر في رسم الجوكندا باستخدام طبقات شفّافة متراكمة تُعطي نعومة وعمقًا.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: تُعدّ لوحة الجوكندا (الموناليزا) تجسيدًا كاملًا لفكر عصر النهضة الأوروبية ومبادئه. فقد جمعت بين دقّة الرسم العلمي، وعمق الطرح الإنساني، وحرية الإبداع الفني، فهي ليست مجرّد صورة لسيدة فلورنسية، بل هي وثيقة حضارية تنطق بتحوّل الفكر الأوروبي في مطلع العصر الحديث، ورمز خالد للإبداع الإنساني.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson4/mona_lisa_full.jpg" alt="لوحة الجوكندا (الموناليزا)" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">لوحة الجوكندا (الموناليزا)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson4/leonardo_self_portrait.jpg" alt="صورة لليوناردو دا فينشي" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">ليوناردو دا فينشي (1452-1519)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson4/mona_lisa_detail_face.jpg" alt="تفاصيل وجه الجوكندا" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">تفاصيل وجه الجوكندا والابتسامة الغامضة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson4/mona_lisa_background.jpg" alt="خلفية اللوحة" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">خلفية اللوحة: المنظر الطبيعي والمنظور الجوّي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson4/sfumato_technique.jpg" alt="تقنية السفوماتو" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">تقنية السفوماتو (Sfumato)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson4/louvre_museum.jpg" alt="متحف اللوفر" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">متحف اللوفر بباريس</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y3sec_secEco_his_exercisess_mod1_lesson4.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                moduleName: "History / Unit 1: Europe and the Mediterranean World in the 16th Century",
+                lessonTitleSample: "The European Renaissance: Artistic Work Study – The Mona Lisa (La Joconde)",
+                sectionIntro: "Introduction",
+                introText: "The Mona Lisa (La Joconde), known worldwide as the Mona Lisa, is the most famous artwork in human history and the most prominent symbol of the European artistic Renaissance. It was painted by the Italian genius Leonardo da Vinci between approximately 1503 and 1519, and is now preserved in the Louvre Museum in Paris. What is this painting? Who is its author? What are its artistic characteristics? And what is the secret of its worldwide fame?",
+                problematiqueText: "What is the Mona Lisa and who painted it? What is the historical context of its creation? What are its artistic and technical characteristics? What are its symbolic and intellectual meanings? And what is the secret of its worldwide fame?",
+                sectionPart1: "Presentation of the Painting and Its Author",
+                authorTitle: "The Author: Leonardo da Vinci",
+                authorText: "Leonardo da Vinci was born in 1452 in the town of Vinci near Florence, Italy, and died in 1519 at the Château du Clos-Lucé in France. He is considered the perfect model of the \"Renaissance Man\" (L'uomo universale) thanks to his exceptional multiple talents: he was a painter, sculptor, architect, anatomist, mathematician, mechanic, physicist, geologist, astronomer, and also a musician and poet. He was a student of the artist Andrea del Verrocchio in Florence, and worked in the service of the most prominent princes of his era, including Laurent de Médicis in Florence, Ludovico Sforza Duke of Milan, and the French King Francis I who acquired his painting Mona Lisa at the end of his life.",
+                authorWorks: "Among his most famous artworks besides the Mona Lisa: \"The Last Supper\" (La Cène) painted on the wall of the Church of Santa Maria delle Grazie in Milan (1495-1498), and \"The Vitruvian Man\" (L'Homme de Vitruve) which embodies the ideal proportion of the human body, in addition to \"The Lady with an Ermine\" (La Dame à l'hermine) and \"The Virgin of the Rocks\" (La Vierge aux rochers).",
+                artworkTitle: "The Painting: Identification Card",
+                cardTitleLabel: "Title",
+                cardTitleValue: "La Joconde / Mona Lisa",
+                cardArtistLabel: "Artist",
+                cardArtistValue: "Leonardo da Vinci",
+                cardDateLabel: "Date of Creation",
+                cardDateValue: "Approximately 1503-1519",
+                cardTypeLabel: "Type",
+                cardTypeValue: "Portrait",
+                cardTechniqueLabel: "Technique",
+                cardTechniqueValue: "Oil on poplar wood",
+                cardDimensionsLabel: "Dimensions",
+                cardDimensionsValue: "77 × 53 cm",
+                cardLocationLabel: "Location",
+                cardLocationValue: "The Louvre Museum – Paris",
+                cardModelLabel: "Painted Figure",
+                cardModelValue: "Lisa Gherardini, wife of the Florentine merchant Francesco del Giocondo",
+                contextTitle: "Context of the Painting's Creation",
+                contextText: "Leonardo da Vinci created this painting in two stages: he began it in Florence around 1503 at the request of the Florentine merchant Francesco del Giocondo to paint his wife Lisa Gherardini, a lady from a noble Florentine family. However, Leonardo did not deliver the painting to its owners, but kept it with him throughout his life, and carried it with him to France in 1516 when he was invited to the court of King Francis I. After his death in 1519, the French King Francis I bought it and it became part of the French Crown's collections, then after the French Revolution it was transferred to the Louvre Museum in Paris where it is still preserved today. It is likely that Leonardo continued to improve and modify the painting during the last years of his life, making it one of the most complex and masterful artworks in the history of art.",
+                sectionPart2: "Description and Artistic Analysis of the Painting",
+                descriptionTitle: "Visual Description of the Painting",
+                descriptionText: "The painting represents a half-length portrait (Buste) of a lady seated almost facing the viewer, with a slight tilt to the right. The lady shows a calm face with a mysterious smile whose boundaries are not clear, brown hair flowing down her shoulders, and a dark-colored dress without full sleeves, with precise and masterful folds that highlight the mastery of painting fabric. Her left elbow rests on the armrest of the chair, while her right hand rests over her left hand in an elegant and calm crossing. Behind the lady opens a wide landscape, in which a bridge, a winding road, a river, and some rocks and mountains appear on the horizon, in addition to a deep sense of space and air (atmospheric perspective).",
+                techniqueTitle: "Main Artistic and Technical Characteristics",
+                techniqueIntro: "The painting embodied the most prominent components of European Renaissance art. Among its most prominent artistic and technical characteristics:",
+                techBullet1: "<strong>The gradient oil technique (Sfumato):</strong> Leonardo used the \"sfumato\" technique, which means \"smoking\" or \"fading,\" relying on multiple layers of transparent oil colors accumulated in soft gradient tones, giving the face soft features and gradual blending without showing clear boundaries. This appeared clearly in the drawing of the corners of the mouth and the edges of the eyes, which is the location of what is called the \"mysterious smile.\"",
+                techBullet2: "<strong>Linear and atmospheric perspective:</strong> Leonardo applied the rules of mathematical linear perspective established in the Renaissance, so he mastered the distribution of sizes and distances in the painting. He also adopted atmospheric perspective, where mountains and distant distances appear in the background in faded, bluer, and hazier colors, suggesting the depth and breadth of space.",
+                techBullet3: "<strong>Balance and proportion:</strong> Leonardo employed his knowledge of mathematics and the rules of proportion, making the lady stand in a position that makes her body form a pyramid shape subject to the principle of proportion and harmony, with a balance between the mass of the body and the landscape in the background.",
+                techBullet4: "<strong>Attention to detail:</strong> Leonardo excelled in drawing the finest details: strands of hair, folds of fabric, the precise shape of fingers, and details of clothing, indicating his refined observation and high manual skill.",
+                techBullet5: "<strong>Attention to man (Anatomy):</strong> The painting embodies the principle of Humanism in the Renaissance based on admiration for man and presenting his capabilities in their most beautiful form. Leonardo used his precise anatomical studies in drawing organs and features realistically and accurately.",
+                techBullet6: "<strong>Chiaroscuro (Clair-obscur):</strong> Leonardo relied on the style of shadow and light (chiaroscuro) in modeling the face and body, to highlight three-dimensional volumes and give the painting realism and additional depth.",
+                hiddenDetailsTitle: "Fine Details and Secrets of the Painting",
+                hiddenDetailsText: "The Mona Lisa is considered one of the most curiosity-provoking artworks thanks to its mystery and fine details. Among the most prominent of these details:",
+                detail1: "<strong>The mysterious smile:</strong> The Mona Lisa's smile appears to change according to the angle of view, appearing present when looking at her eyes, and almost disappearing when looking directly at her mouth. It is likely that the reason for this is the \"sfumato\" technique with which she drew the corners of the mouth with soft fading touches.",
+                detail2: "<strong>Absence of eyebrows and eyelashes:</strong> The Mona Lisa appears without clear eyebrows or eyelashes. Researchers have differed in interpreting this, between those who see that the aesthetic custom of that era required shaving the eyebrows, and those who see that the eyebrows were painted and then faded due to time and restoration.",
+                detail3: "<strong>Direct gaze towards the viewer:</strong> The Mona Lisa's direct gaze towards the viewer is considered one of the first direct gazes in the history of European portraiture, making the viewer feel that she is delving into his interior and knowing everything about him.",
+                detail4: "<strong>Integration between the figure and the background:</strong> Unlike many earlier portraits, the Mona Lisa does not appear isolated in a closed space, but is integrated into a wide landscape, giving an impression of life, movement, and harmony between man and nature.",
+                jocondeQuote: "\"The Mona Lisa is considered the most famous painting in the world, and the most subjected to study and interpretation. It is at once: a self-portrait of Leonardo's painterly realism, a document of man's centrality in Renaissance thought, and a symbol of human beauty whose secrets never run out.\"",
+                jocondeQuoteAuthor: "On the meanings of the Mona Lisa",
+                sectionPart3: "Meanings and Global Impact of the Painting",
+                significanceTitle: "Intellectual and Artistic Meanings of the Painting",
+                significanceIntro: "The Mona Lisa reflects a set of fundamental principles and values in European Renaissance thought, the most important of which are:",
+                significance1: "<strong>Admiration for man (Humanism):</strong> The painting embodies the idea that man is the center of attention in the Renaissance, and that his value lies in his individual capabilities and potential, not in his belonging to a social class or religious authority. The painting celebrates man in his most beautiful and most personal form.",
+                significance2: "<strong>Science and experience:</strong> The painting embodies the fusion of art with science, as Leonardo used his knowledge of anatomy, mathematics, and nature in drawing the painting, making it at the same time a scientific study and an artistic masterpiece.",
+                significance3: "<strong>Realism and precision:</strong> The painting highlights the orientation of Renaissance art toward realism and precision in conveying nature and man, unlike medieval religious art which was based on fixed symbols and ideals contrary to reality.",
+                significance4: "<strong>Creative freedom:</strong> The painting expressed the artist's freedom to choose his subject and style, something that was not available in the medieval ages when the Church controlled art and set its goals.",
+                significance5: "<strong>The Greek-Latin heritage:</strong> Leonardo used the Greek and Latin artistic and intellectual heritage, especially in the principle of mathematical and aesthetic proportion established by Greek philosophers, and applied it in drawing dimensions and proportion between body parts.",
+                globalImpactTitle: "Global Impact of the Painting",
+                globalImpactText: "The fame of the Mona Lisa went beyond the boundaries of museums and art galleries to become one of the most known images in the world, and has been throughout the centuries a subject of inspiration for creators, and a point of attraction for millions of visitors from all over the world. Among the most prominent manifestations of its global impact: its presence today in the Louvre Museum in Paris as one of the most prominent tourist attractions, with millions of visitors annually; its exposure to a famous theft in 1911 by the Italian worker Vincenzo Peruggia, and its recovery two years later, which contributed to its worldwide fame; its consideration as a fundamental reference in teaching art history, and evidence of the characteristics of European Renaissance art; and its inspiration in many artistic and cultural works: films, songs, contemporary paintings, advertisements, and literary texts.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Mona Lisa is a complete embodiment of the thought and principles of the European Renaissance. It combined the precision of scientific drawing, the depth of humanist discourse, and the freedom of artistic creativity. It is thus not just a portrait of a Florentine lady, but a civilizational document that speaks of the transformation of European thought at the dawn of the modern era, and an immortal symbol of human creativity.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defTreaty: "📜 Artworks",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other Terms",
+                defVinci: "Leonardo da Vinci (Léonard de Vinci)",
+                defVinciDesc: "Italian artist and scholar (1452-1519), born in the town of Vinci near Florence. Considered the perfect model of the \"Renaissance Man\" thanks to his multiple talents: painter, sculptor, architect, anatomist, mathematician, mechanic, physicist, geologist, astronomer, and musician. Author of the Mona Lisa, \"The Last Supper,\" and \"The Vitruvian Man.\"",
+                defLisaGherardini: "Lisa Gherardini",
+                defLisaGherardiniDesc: "Florentine lady from a noble family, wife of the merchant Francesco del Giocondo, and the figure painted by Leonardo in the Mona Lisa around 1503.",
+                defGiocondo: "Francesco del Giocondo",
+                defGiocondoDesc: "Florentine merchant from the wealthy class, who asked Leonardo da Vinci to paint a portrait of his wife Lisa Gherardini, which became known as \"La Gioconda,\" meaning \"the wife Giocondo.\"",
+                defVerrocchio: "Andrea del Verrocchio",
+                defVerrocchioDesc: "Italian artist from Florence, Leonardo da Vinci's master in whose workshop he was trained.",
+                defLaurentMedicis: "Laurent de Médicis",
+                defLaurentMedicisDesc: "Florentine businessman and patron of the arts, whom Leonardo da Vinci served in Florence.",
+                defSforza: "Ludovico Sforza",
+                defSforzaDesc: "Duke of Milan, whom Leonardo da Vinci served and for whom he produced some of his artistic and engineering works.",
+                defFrancois1: "Francis I (François 1er)",
+                defFrancois1Desc: "King of France (1494-1574), who summoned Leonardo da Vinci to his court at the end of his life, and acquired the Mona Lisa after his death, so it became part of the French Crown's collections, then part of the Louvre Museum's collections.",
+                defPeruggia: "Vincenzo Peruggia",
+                defPeruggiaDesc: "Italian worker, born in 1881, known for stealing the Mona Lisa from the Louvre Museum in 1911, then returned it in 1913 after attempting to sell it to an Italian museum.",
+                defVinciTown: "Vinci",
+                defVinciTownDesc: "Italian town near Florence, where Leonardo da Vinci was born in 1452.",
+                defFlorence: "Florence",
+                defFlorenceDesc: "Italian city, cradle of the Renaissance, where Leonardo da Vinci was trained and began painting the Mona Lisa.",
+                defMilan: "Milan",
+                defMilanDesc: "Italian city, where Leonardo da Vinci worked in the service of Duke Ludovico Sforza, and painted \"The Last Supper.\"",
+                defClosLuce: "Clos-Lucé",
+                defClosLuceDesc: "French château near Amboise, where Leonardo da Vinci lived at the end of his life, and where he died in 1519.",
+                defParis: "Paris",
+                defParisDesc: "Capital of France, home to the Louvre Museum where the Mona Lisa is preserved to this day.",
+                defLouvre: "The Louvre Museum (Le Louvre)",
+                defLouvreDesc: "French museum in Paris, one of the largest museums in the world, containing the Mona Lisa, and receiving millions of visitors annually.",
+                defSfumato: "Sfumato Technique – Leonardo's invention",
+                defSfumatoDesc: "A painting technique invented by Leonardo da Vinci, relying on multiple layers of transparent oil colors accumulated in soft gradient tones, giving the face soft features and gradual blending without showing clear boundaries.",
+                defChiaroscuro: "Chiaroscuro (Clair-obscur)",
+                defChiaroscuroDesc: "An artistic style relying on the contrast of shadow and light in painting artworks, used by Leonardo in the Mona Lisa to highlight three-dimensional volumes and give the painting realism and depth.",
+                defPerspective: "Atmospheric Perspective",
+                defPerspectiveDesc: "An artistic technique relying on representing distant distances in faded, bluer, and hazier colors, suggesting the depth and breadth of space, used by Leonardo in the background of the Mona Lisa.",
+                defJocondeTheft1911: "The Mona Lisa Theft of 1911",
+                defJocondeTheft1911Desc: "The theft of the Mona Lisa from the Louvre Museum in 1911 by the Italian worker Vincenzo Peruggia, then its recovery in 1913 after attempting to sell it to an Italian museum.",
+                defJoconde: "The Mona Lisa (La Joconde / Mona Lisa)",
+                defJocondeDesc: "The most famous painting in the history of art, painted by Leonardo da Vinci around 1503-1519, representing a half-length portrait of a Florentine lady, Lisa Gherardini, preserved in the Louvre Museum in Paris.",
+                defLastSupper: "The Last Supper (La Cène)",
+                defLastSupperDesc: "One of Leonardo da Vinci's most famous works, painted on the wall of the Church of Santa Maria delle Grazie in Milan between 1495 and 1498.",
+                defVitruvianMan: "The Vitruvian Man (L'Homme de Vitruve)",
+                defVitruvianManDesc: "A drawing by Leonardo da Vinci embodying the ideal proportion of the human body, inspired by the writings of the Roman architect Vitruvius.",
+                defLadyErmine: "The Lady with an Ermine (La Dame à l'hermine)",
+                defLadyErmineDesc: "One of Leonardo da Vinci's most famous portraits, created around 1490, representing Cecilia Gallerani, mistress of the Duke of Milan Ludovico Sforza.",
+                defVirginRocks: "The Virgin of the Rocks (La Vierge aux rochers)",
+                defVirginRocksDesc: "One of Leonardo da Vinci's most important works, created between 1483 and 1486, preserved in the Louvre Museum.",
+                defYear1452Desc: "The year of Leonardo da Vinci's birth in the town of Vinci near Florence.",
+                defYear1495Desc: "Leonardo da Vinci's creation of \"The Last Supper\" in Milan.",
+                defYear1503Desc: "Leonardo da Vinci's beginning of painting the Mona Lisa in Florence.",
+                defYear1516Desc: "Leonardo da Vinci's move to France at the invitation of King Francis I, carrying with him the Mona Lisa.",
+                defYear1519Desc: "The year of Leonardo da Vinci's death at the Château du Clos-Lucé in France.",
+                defYear1911Desc: "The theft of the Mona Lisa from the Louvre Museum by the Italian worker Vincenzo Peruggia.",
+                defYear1913Desc: "The recovery of the Mona Lisa two years after its theft.",
+                defRenaissanceArt: "Renaissance Art",
+                defRenaissanceArtDesc: "An artistic movement that started from Italy in the 15th century and spread in Europe, characterized by precision, realism, and modesty of \"decor,\" relying on the Greek-Latin heritage, presenting man in his most beautiful image, and applying mathematical rules and measurements.",
+                defUniversalMan: "The Renaissance Man (L'uomo universale)",
+                defUniversalManDesc: "A concept embodying the multi-talented man mastering various fields of knowledge and art, whose most prominent model is embodied in the personality of Leonardo da Vinci.",
+                defPortrait: "Portrait",
+                defPortraitDesc: "An artistic genre aiming to represent a specific person, which developed in the Renaissance thanks to the interest in man and his individual capabilities. Among its most famous models is the Mona Lisa.",
+                defMonaLisaSmile: "The Mysterious Smile",
+                defMonaLisaSmileDesc: "A distinctive feature of the Mona Lisa's face, appearing to change according to the angle of view, attributed to the \"sfumato\" technique with which Leonardo painted the corners of the mouth with soft fading touches.",
+                defLinearPerspective: "Linear Perspective",
+                defLinearPerspectiveDesc: "Mathematical rules for distributing sizes and distances in a painting to give a sense of depth, established by artists in the Renaissance, and used by Leonardo in painting the Mona Lisa.",
+                defProportion: "Proportion",
+                defProportionDesc: "An artistic and mathematical principle requiring harmony of relationships between the various parts of an artwork, based on mathematical proportions derived from nature, applied by Leonardo in painting the Mona Lisa.",
+                defAnatomie: "Anatomy",
+                defAnatomieDesc: "The science studying the structure of living organisms' bodies, adopted by Leonardo da Vinci in studying the details of the human body and its features, helping him paint the Mona Lisa with realistic precision.",
+                defOilPainting: "Oil Painting",
+                defOilPaintingDesc: "An artistic technique relying on colors mixed with oil, applied innovatively by Leonardo da Vinci in painting the Mona Lisa using accumulated transparent layers giving softness and depth.",
+                summaryText: "Key takeaway: The Mona Lisa is a complete embodiment of the thought and principles of the European Renaissance. It combined the precision of scientific drawing, the depth of humanist discourse, and the freedom of artistic creativity. It is not just a portrait of a Florentine lady, but a civilizational document that speaks of the transformation of European thought at the dawn of the modern era, and an immortal symbol of human creativity.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "The Mona Lisa",
+                galleryAlt2: "Portrait of Leonardo da Vinci",
+                galleryAlt3: "Details of the Mona Lisa's face",
+                galleryAlt4: "The painting's background",
+                galleryAlt5: "Sfumato technique",
+                galleryAlt6: "The Louvre Museum",
+                galleryCap1: "The Mona Lisa",
+                galleryCap2: "Leonardo da Vinci (1452-1519)",
+                galleryCap3: "Details of the Mona Lisa's face and the mysterious smile",
+                galleryCap4: "The painting's background: the landscape and atmospheric perspective",
+                galleryCap5: "Sfumato Technique (Sfumato)",
+                galleryCap6: "The Louvre Museum in Paris"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                moduleName: "Histoire / Unité 1 : L'Europe et le monde méditerranéen au XVIe siècle",
+                lessonTitleSample: "La Renaissance européenne : étude d'une œuvre d'art – La Joconde (Mona Lisa)",
+                sectionIntro: "Introduction",
+                introText: "La Joconde (La Joconde), connue mondialement sous le nom de Mona Lisa, est l'œuvre d'art la plus célèbre de l'histoire de l'humanité et le symbole le plus éminent de la Renaissance artistique européenne. Elle a été peinte par le génie italien Léonard de Vinci entre environ 1503 et 1519, et est aujourd'hui conservée au musée du Louvre à Paris. Qu'est-ce que ce tableau ? Qui en est l'auteur ? Quelles sont ses caractéristiques artistiques ? Et quel est le secret de sa renommée mondiale ?",
+                problematiqueText: "Qu'est-ce que la Joconde et qui l'a peinte ? Quel est le contexte historique de sa création ? Quelles sont ses caractéristiques artistiques et techniques ? Quelles sont ses significations symboliques et intellectuelles ? Et quel est le secret de sa renommée mondiale ?",
+                sectionPart1: "Présentation du tableau et de son auteur",
+                authorTitle: "L'auteur : Léonard de Vinci",
+                authorText: "Léonard de Vinci est né en 1452 dans la ville de Vinci près de Florence, en Italie, et est mort en 1519 au château du Clos-Lucé en France. Il est considéré comme le modèle parfait de l'« Homme de la Renaissance » (L'uomo universale) grâce à ses multiples talents exceptionnels : il était peintre, sculpteur, architecte, anatomiste, mathématicien, mécanicien, physicien, géologue, astronome, ainsi que musicien et poète. Il fut l'élève de l'artiste Andrea del Verrocchio à Florence, et travailla au service des princes les plus éminents de son époque, notamment Laurent de Médicis à Florence, Ludovico Sforza duc de Milan, et le roi de France François Ier qui acquit son tableau la Joconde à la fin de sa vie.",
+                authorWorks: "Parmi ses œuvres les plus célèbres outre la Joconde : « La Cène » peinte sur le mur de l'église Santa Maria delle Grazie à Milan (1495-1498), et « L'Homme de Vitruve » qui incarne la proportion idéale du corps humain, en plus de « La Dame à l'hermine » et « La Vierge aux rochers ».",
+                artworkTitle: "Le tableau : carte d'identité",
+                cardTitleLabel: "Titre",
+                cardTitleValue: "La Joconde / Mona Lisa",
+                cardArtistLabel: "Artiste",
+                cardArtistValue: "Léonard de Vinci",
+                cardDateLabel: "Date de création",
+                cardDateValue: "Environ 1503-1519",
+                cardTypeLabel: "Type",
+                cardTypeValue: "Portrait",
+                cardTechniqueLabel: "Technique",
+                cardTechniqueValue: "Huile sur bois de peuplier",
+                cardDimensionsLabel: "Dimensions",
+                cardDimensionsValue: "77 × 53 cm",
+                cardLocationLabel: "Lieu de conservation",
+                cardLocationValue: "Musée du Louvre – Paris",
+                cardModelLabel: "Personnage peint",
+                cardModelValue: "Lisa Gherardini, épouse du marchand florentin Francesco del Giocondo",
+                contextTitle: "Contexte de la création du tableau",
+                contextText: "Léonard de Vinci réalisa ce tableau en deux étapes : il le commença à Florence vers 1503 à la demande du marchand florentin Francesco del Giocondo pour peindre son épouse Lisa Gherardini, une dame d'une noble famille florentine. Cependant, Léonard ne livra pas le tableau à ses propriétaires, mais le garda avec lui tout au long de sa vie, et l'emporta avec lui en France en 1516 lorsqu'il fut invité à la cour du roi François Ier. Après sa mort en 1519, le roi de France François Ier l'acheta et il fit partie des collections de la Couronne française, puis après la Révolution française il fut transféré au musée du Louvre à Paris où il est encore conservé aujourd'hui. Il est probable que Léonard continua à améliorer et modifier le tableau durant les dernières années de sa vie, ce qui en fait l'une des œuvres d'art les plus complexes et les plus magistrales de l'histoire de l'art.",
+                sectionPart2: "Description et analyse artistique du tableau",
+                descriptionTitle: "Description visuelle du tableau",
+                descriptionText: "Le tableau représente un portrait en buste (Buste) d'une dame assise presque face au spectateur, avec une légère inclinaison vers la droite. La dame présente un visage calme avec un sourire mystérieux dont les limites ne sont pas claires, des cheveux bruns tombant sur ses épaules, et une robe de couleur sombre sans manches complètes, avec des plis précis et magistraux qui mettent en évidence la maîtrise de la peinture du tissu. Son coude gauche repose sur l'accoudoir de la chaise, tandis que sa main droite repose sur sa main gauche dans un croisement élégant et calme. Derrière la dame s'ouvre un large paysage, dans lequel apparaissent un pont, une route sinueuse, une rivière, et quelques rochers et montagnes à l'horizon, en plus d'un profond sentiment d'espace et d'air (perspective atmosphérique).",
+                techniqueTitle: "Principales caractéristiques artistiques et techniques",
+                techniqueIntro: "Le tableau incarne les composantes les plus éminentes de l'art de la Renaissance européenne. Parmi ses caractéristiques artistiques et techniques les plus marquantes :",
+                techBullet1: "<strong>La technique de l'huile dégradée (Sfumato) :</strong> Léonard utilisa la technique du « sfumato » qui signifie « enfumage » ou « estompage », reposant sur de multiples couches de couleurs à l'huile transparentes accumulées en tons dégradés doux, donnant au visage des traits doux et un fondu progressif sans montrer de limites claires. Cela apparaît clairement dans le dessin des coins de la bouche et des bords des yeux, qui est l'emplacement de ce qu'on appelle le « sourire mystérieux ».",
+                techBullet2: "<strong>Perspective linéaire et atmosphérique :</strong> Léonard appliqua les règles de la perspective linéaire mathématique établies à la Renaissance, maîtrisant ainsi la distribution des tailles et des distances dans le tableau. Il adopta également la perspective atmosphérique, où les montagnes et les distances lointaines apparaissent à l'arrière-plan dans des couleurs fanées, plus bleues et plus brumeuses, suggérant la profondeur et l'étendue de l'espace.",
+                techBullet3: "<strong>Équilibre et proportion :</strong> Léonard employa sa connaissance des mathématiques et des règles de proportion, faisant se tenir la dame dans une position qui fait que son corps forme une forme pyramidale soumise au principe de proportion et d'harmonie, avec un équilibre entre la masse du corps et le paysage à l'arrière-plan.",
+                techBullet4: "<strong>Attention aux détails :</strong> Léonard excella dans le dessin des détails les plus fins : mèches de cheveux, plis du tissu, forme précise des doigts, et détails des vêtements, indiquant son observation raffinée et son habileté manuelle élevée.",
+                techBullet5: "<strong>Attention à l'homme (Anatomie) :</strong> Le tableau incarne le principe de l'Humanisme de la Renaissance basé sur l'admiration de l'homme et la présentation de ses capacités sous leur plus belle forme. Léonard utilisa ses études anatomiques précises dans le dessin des organes et des traits de manière réaliste et précise.",
+                techBullet6: "<strong>Le clair-obscur (Clair-obscur) :</strong> Léonard s'appuya sur le style de l'ombre et de la lumière (clair-obscur) dans le modelage du visage et du corps, pour mettre en évidence les volumes tridimensionnels et donner au tableau un réalisme et une profondeur supplémentaires.",
+                hiddenDetailsTitle: "Détails fins et secrets du tableau",
+                hiddenDetailsText: "La Joconde est considérée comme l'une des œuvres d'art les plus intrigantes grâce à son mystère et à ses détails fins. Parmi les plus marquants de ces détails :",
+                detail1: "<strong>Le sourire mystérieux :</strong> Le sourire de la Joconde semble changer selon l'angle de vue, apparaissant présent lorsqu'on regarde ses yeux, et disparaissant presque lorsqu'on regarde directement sa bouche. Il est probable que la raison en soit la technique du « sfumato » avec laquelle elle dessina les coins de la bouche avec des touches douces et estompées.",
+                detail2: "<strong>Absence de sourcils et de cils :</strong> La Joconde apparaît sans sourcils ni cils clairs. Les chercheurs ont divergé dans l'interprétation de cela, entre ceux qui voient que la coutume esthétique de cette époque exigeait de raser les sourcils, et ceux qui voient que les sourcils ont été peints puis ont disparu en raison du temps et des restaurations.",
+                detail3: "<strong>Regard direct vers le spectateur :</strong> Le regard direct de la Joconde vers le spectateur est considéré comme l'un des premiers regards directs dans l'histoire du portrait européen, faisant sentir au spectateur qu'elle pénètre en lui et sait tout de lui.",
+                detail4: "<strong>Intégration entre le personnage et l'arrière-plan :</strong> Contrairement à de nombreux portraits antérieurs, la Joconde n'apparaît pas isolée dans un espace fermé, mais est intégrée dans un large paysage, donnant une impression de vie, de mouvement et d'harmonie entre l'homme et la nature.",
+                jocondeQuote: "« La Joconde est considérée comme le tableau le plus célèbre au monde, et le plus soumis à l'étude et à l'interprétation. Elle est à la fois : un autoportrait du réalisme pictural de Léonard, un document de la centralité de l'homme dans la pensée de la Renaissance, et un symbole de la beauté humaine dont les secrets ne s'épuisent jamais. »",
+                jocondeQuoteAuthor: "Sur les significations de la Joconde",
+                sectionPart3: "Significations et impact mondial du tableau",
+                significanceTitle: "Significations intellectuelles et artistiques du tableau",
+                significanceIntro: "La Joconde reflète un ensemble de principes et de valeurs fondamentaux dans la pensée de la Renaissance européenne, dont les plus importants sont :",
+                significance1: "<strong>L'admiration de l'homme (Humanisme) :</strong> Le tableau incarne l'idée que l'homme est le centre de l'attention à la Renaissance, et que sa valeur réside dans ses capacités et son potentiel individuels, et non dans son appartenance à une classe sociale ou à une autorité religieuse. Le tableau célèbre l'homme sous sa forme la plus belle et la plus personnelle.",
+                significance2: "<strong>Science et expérience :</strong> Le tableau incarne la fusion de l'art avec la science, car Léonard utilisa ses connaissances en anatomie, en mathématiques et en nature pour dessiner le tableau, en faisant à la fois une étude scientifique et un chef-d'œuvre artistique.",
+                significance3: "<strong>Réalisme et précision :</strong> Le tableau met en évidence l'orientation de l'art de la Renaissance vers le réalisme et la précision dans la transmission de la nature et de l'homme, contrairement à l'art religieux médiéval qui reposait sur des symboles fixes et des idéaux contraires à la réalité.",
+                significance4: "<strong>Liberté créative :</strong> Le tableau exprima la liberté de l'artiste de choisir son sujet et son style, ce qui n'était pas disponible au Moyen Âge lorsque l'Église contrôlait l'art et fixait ses objectifs.",
+                significance5: "<strong>L'héritage gréco-latin :</strong> Léonard utilisa l'héritage artistique et intellectuel grec et latin, en particulier le principe de proportion mathématique et esthétique établi par les philosophes grecs, et l'appliqua dans le dessin des dimensions et de la proportion entre les parties du corps.",
+                globalImpactTitle: "Impact mondial du tableau",
+                globalImpactText: "La renommée de la Joconde a dépassé les limites des musées et des galeries d'art pour devenir l'une des images les plus connues au monde, et a été à travers les siècles un sujet d'inspiration pour les créateurs, et un point d'attraction pour des millions de visiteurs du monde entier. Parmi les manifestations les plus marquantes de son impact mondial : sa présence aujourd'hui au musée du Louvre à Paris comme l'une des attractions touristiques les plus éminentes, avec des millions de visiteurs annuels ; son exposition à un vol célèbre en 1911 par l'ouvrier italien Vincenzo Peruggia, et sa récupération deux ans plus tard, ce qui contribua à sa renommée mondiale ; sa considération comme une référence fondamentale dans l'enseignement de l'histoire de l'art, et une preuve des caractéristiques de l'art de la Renaissance européenne ; et son inspiration dans de nombreuses œuvres artistiques et culturelles : films, chansons, peintures contemporaines, publicités et textes littéraires.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La Joconde est une incarnation complète de la pensée et des principes de la Renaissance européenne. Elle a combiné la précision du dessin scientifique, la profondeur du discours humaniste, et la liberté de la créativité artistique. Elle n'est donc pas seulement un portrait d'une dame florentine, mais un document civilisationnel qui parle de la transformation de la pensée européenne à l'aube de l'époque moderne, et un symbole immortel de la créativité humaine.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defTreaty: "📜 Œuvres d'art",
+                defYears: "📅 Années et périodes",
+                defOthers: "📌 Autres termes",
+                defVinci: "Léonard de Vinci",
+                defVinciDesc: "Artiste et savant italien (1452-1519), né dans la ville de Vinci près de Florence. Considéré comme le modèle parfait de l'« Homme de la Renaissance » grâce à ses multiples talents : peintre, sculpteur, architecte, anatomiste, mathématicien, mécanicien, physicien, géologue, astronome et musicien. Auteur de la Joconde, de « La Cène » et de « L'Homme de Vitruve ».",
+                defLisaGherardini: "Lisa Gherardini",
+                defLisaGherardiniDesc: "Dame florentine d'une famille noble, épouse du marchand Francesco del Giocondo, et personnage peint par Léonard dans la Joconde vers 1503.",
+                defGiocondo: "Francesco del Giocondo",
+                defGiocondoDesc: "Marchand florentin de la classe aisée, qui demanda à Léonard de Vinci de peindre un portrait de son épouse Lisa Gherardini, ce qui devint connu sous le nom de « La Gioconda », signifiant « l'épouse Giocondo ».",
+                defVerrocchio: "Andrea del Verrocchio",
+                defVerrocchioDesc: "Artiste italien de Florence, maître de Léonard de Vinci dans l'atelier duquel il fut formé.",
+                defLaurentMedicis: "Laurent de Médicis",
+                defLaurentMedicisDesc: "Homme d'affaires florentin et mécène des arts, que Léonard de Vinci servit à Florence.",
+                defSforza: "Ludovico Sforza",
+                defSforzaDesc: "Duc de Milan, que Léonard de Vinci servit et pour lequel il produisit certaines de ses œuvres artistiques et d'ingénierie.",
+                defFrancois1: "François Ier",
+                defFrancois1Desc: "Roi de France (1494-1574), qui appela Léonard de Vinci à sa cour à la fin de sa vie, et acquit la Joconde après sa mort, de sorte qu'elle fit partie des collections de la Couronne française, puis des collections du musée du Louvre.",
+                defPeruggia: "Vincenzo Peruggia",
+                defPeruggiaDesc: "Ouvrier italien, né en 1881, connu pour avoir volé la Joconde au musée du Louvre en 1911, puis l'avoir restituée en 1913 après avoir tenté de la vendre à un musée italien.",
+                defVinciTown: "Vinci",
+                defVinciTownDesc: "Ville italienne près de Florence, où Léonard de Vinci est né en 1452.",
+                defFlorence: "Florence",
+                defFlorenceDesc: "Ville italienne, berceau de la Renaissance, où Léonard de Vinci fut formé et commença à peindre la Joconde.",
+                defMilan: "Milan",
+                defMilanDesc: "Ville italienne, où Léonard de Vinci travailla au service du duc Ludovico Sforza, et peignit « La Cène ».",
+                defClosLuce: "Clos-Lucé",
+                defClosLuceDesc: "Château français près d'Amboise, où Léonard de Vinci vécut à la fin de sa vie, et où il mourut en 1519.",
+                defParis: "Paris",
+                defParisDesc: "Capitale de la France, abritant le musée du Louvre où la Joconde est conservée aujourd'hui.",
+                defLouvre: "Le musée du Louvre",
+                defLouvreDesc: "Musée français à Paris, l'un des plus grands musées du monde, contenant la Joconde, et recevant des millions de visiteurs annuellement.",
+                defSfumato: "Technique du Sfumato – invention de Léonard",
+                defSfumatoDesc: "Technique de peinture inventée par Léonard de Vinci, reposant sur de multiples couches de couleurs à l'huile transparentes accumulées en tons dégradés doux, donnant au visage des traits doux et un fondu progressif sans montrer de limites claires.",
+                defChiaroscuro: "Clair-obscur (Clair-obscur)",
+                defChiaroscuroDesc: "Style artistique reposant sur le contraste de l'ombre et de la lumière dans la peinture d'œuvres d'art, utilisé par Léonard dans la Joconde pour mettre en évidence les volumes tridimensionnels et donner au tableau réalisme et profondeur.",
+                defPerspective: "Perspective atmosphérique",
+                defPerspectiveDesc: "Technique artistique reposant sur la représentation des distances lointaines dans des couleurs fanées, plus bleues et plus brumeuses, suggérant la profondeur et l'étendue de l'espace, utilisée par Léonard dans l'arrière-plan de la Joconde.",
+                defJocondeTheft1911: "Le vol de la Joconde de 1911",
+                defJocondeTheft1911Desc: "Le vol de la Joconde au musée du Louvre en 1911 par l'ouvrier italien Vincenzo Peruggia, puis sa récupération en 1913 après avoir tenté de la vendre à un musée italien.",
+                defJoconde: "La Joconde (La Joconde / Mona Lisa)",
+                defJocondeDesc: "Le tableau le plus célèbre de l'histoire de l'art, peint par Léonard de Vinci vers 1503-1519, représentant un portrait en buste d'une dame florentine, Lisa Gherardini, conservé au musée du Louvre à Paris.",
+                defLastSupper: "La Cène (La Cène)",
+                defLastSupperDesc: "L'une des œuvres les plus célèbres de Léonard de Vinci, peinte sur le mur de l'église Santa Maria delle Grazie à Milan entre 1495 et 1498.",
+                defVitruvianMan: "L'Homme de Vitruve (L'Homme de Vitruve)",
+                defVitruvianManDesc: "Un dessin de Léonard de Vinci incarnant la proportion idéale du corps humain, inspiré des écrits de l'architecte romain Vitruve.",
+                defLadyErmine: "La Dame à l'hermine (La Dame à l'hermine)",
+                defLadyErmineDesc: "L'un des portraits les plus célèbres de Léonard de Vinci, créé vers 1490, représentant Cecilia Gallerani, maîtresse du duc de Milan Ludovico Sforza.",
+                defVirginRocks: "La Vierge aux rochers (La Vierge aux rochers)",
+                defVirginRocksDesc: "L'une des œuvres les plus importantes de Léonard de Vinci, créée entre 1483 et 1486, conservée au musée du Louvre.",
+                defYear1452Desc: "L'année de la naissance de Léonard de Vinci dans la ville de Vinci près de Florence.",
+                defYear1495Desc: "La création par Léonard de Vinci de « La Cène » à Milan.",
+                defYear1503Desc: "Le début par Léonard de Vinci de la peinture de la Joconde à Florence.",
+                defYear1516Desc: "Le départ de Léonard de Vinci pour la France à l'invitation du roi François Ier, emportant avec lui la Joconde.",
+                defYear1519Desc: "L'année de la mort de Léonard de Vinci au château du Clos-Lucé en France.",
+                defYear1911Desc: "Le vol de la Joconde au musée du Louvre par l'ouvrier italien Vincenzo Peruggia.",
+                defYear1913Desc: "La récupération de la Joconde deux ans après son vol.",
+                defRenaissanceArt: "L'art de la Renaissance",
+                defRenaissanceArtDesc: "Mouvement artistique parti d'Italie au XVe siècle et répandu en Europe, caractérisé par la précision, le réalisme et la modestie du « décor », s'appuyant sur l'héritage gréco-latin, présentant l'homme dans sa plus belle image, et appliquant les règles et mesures mathématiques.",
+                defUniversalMan: "L'Homme de la Renaissance (L'uomo universale)",
+                defUniversalManDesc: "Un concept incarnant l'homme aux multiples talents maîtrisant divers domaines de la connaissance et de l'art, dont le modèle le plus éminent est incarné dans la personnalité de Léonard de Vinci.",
+                defPortrait: "Le portrait",
+                defPortraitDesc: "Genre artistique visant à représenter une personne spécifique, qui s'est développé à la Renaissance grâce à l'intérêt pour l'homme et ses capacités individuelles. Parmi ses modèles les plus célèbres figure la Joconde.",
+                defMonaLisaSmile: "Le sourire mystérieux",
+                defMonaLisaSmileDesc: "Caractéristique distinctive du visage de la Joconde, semblant changer selon l'angle de vue, attribuée à la technique du « sfumato » avec laquelle Léonard peignit les coins de la bouche avec des touches douces et estompées.",
+                defLinearPerspective: "La perspective linéaire",
+                defLinearPerspectiveDesc: "Règles mathématiques pour distribuer les tailles et les distances dans un tableau pour donner une sensation de profondeur, établies par des artistes à la Renaissance, et utilisées par Léonard dans la peinture de la Joconde.",
+                defProportion: "La proportion",
+                defProportionDesc: "Principe artistique et mathématique exigeant l'harmonie des relations entre les différentes parties d'une œuvre d'art, basé sur des proportions mathématiques dérivées de la nature, appliqué par Léonard dans la peinture de la Joconde.",
+                defAnatomie: "L'anatomie",
+                defAnatomieDesc: "La science étudiant la structure du corps des êtres vivants, adoptée par Léonard de Vinci dans l'étude des détails du corps humain et de ses traits, l'aidant à peindre la Joconde avec une précision réaliste.",
+                defOilPainting: "La peinture à l'huile",
+                defOilPaintingDesc: "Technique artistique reposant sur des couleurs mélangées à l'huile, appliquée de manière innovante par Léonard de Vinci dans la peinture de la Joconde en utilisant des couches transparentes accumulées donnant douceur et profondeur.",
+                summaryText: "À retenir : La Joconde est une incarnation complète de la pensée et des principes de la Renaissance européenne. Elle a combiné la précision du dessin scientifique, la profondeur du discours humaniste, et la liberté de la créativité artistique. Elle n'est pas seulement un portrait d'une dame florentine, mais un document civilisationnel qui parle de la transformation de la pensée européenne à l'aube de l'époque moderne, et un symbole immortel de la créativité humaine.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "La Joconde",
+                galleryAlt2: "Portrait de Léonard de Vinci",
+                galleryAlt3: "Détails du visage de la Joconde",
+                galleryAlt4: "L'arrière-plan du tableau",
+                galleryAlt5: "Technique du Sfumato",
+                galleryAlt6: "Le musée du Louvre",
+                galleryCap1: "La Joconde",
+                galleryCap2: "Léonard de Vinci (1452-1519)",
+                galleryCap3: "Détails du visage de la Joconde et le sourire mystérieux",
+                galleryCap4: "L'arrière-plan du tableau : le paysage et la perspective atmosphérique",
+                galleryCap5: "Technique du Sfumato",
+                galleryCap6: "Le musée du Louvre à Paris"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "التاريخ / الوحدة الأولى: أوروبا والعالم المتوسطي في القرن السادس عشر",
+                lessonTitleSample: "النهضة الأوروبية: دراسة أثر فني – لوحة الجوكندا (الموناليزا)",
+                sectionIntro: "مقدمة",
+                introText: "تُعدّ لوحة الجوكندا (La Joconde)، أو ما يُعرف عالميًّا بـالموناليزا (Mona Lisa)، أشهر عمل فني في تاريخ الإنسانية، وأبرز رمز على الإطلاق للنهضة الفنية الأوروبية. رسمها الفنان الإيطالي العبقري ليوناردو دا فينشي (Léonard de Vinci) بين سنتي 1503 و1519 تقريبًا، وهي محفوظة اليوم في متحف اللوفر (Louvre) بباريس. فما هي هذه اللوحة؟ ومن هو صاحبها؟ وما هي خصائصها الفنية؟ وما سرّ شهرتها العالمية؟",
+                problematiqueText: "ما هي لوحة الجوكندا ومن رسمها؟ وما السياق التاريخي لإنجازها؟ وما خصائصها الفنية والتقنية؟ وما دلالاتها الرمزية والفكرية؟ وما سرّ شهرتها العالمية؟",
+                sectionPart1: "التعريف باللوحة وصاحبها",
+                authorTitle: "صاحب اللوحة: ليوناردو دا فينشي",
+                authorText: "وُلد ليوناردو دا فينشي سنة 1452 ببلدة فينشي (Vinci) قرب فلورنسا (Florence) بإيطاليا، وتوفّي سنة 1519 في قلعة كلو-لوسي (Clos-Lucé) بفرنسا. يُعدّ النموذج الأمثل لـرجل عصر النهضة (L'uomo universale) بفضل تعدّد مواهبه الاستثنائية، فقد كان رسّامًا ونحّاتًا ومهندسًا معماريًّا وعالمًا في التشريح (Anatomie) والرياضيات والميكانيك والطبيعيات والجيولوجيا والفلك، إضافة إلى كونه موسيقيًّا وشاعرًا. تتلمذ على يد الفنان أندريا دل فرّوكيو (Andrea del Verrocchio) في فلورنسا، وعمل في خدمة أبرز أمراء عصره، ومنهم لوران دي ميديسي (Laurent de Médicis) في فلورنسا، ولودوفيكو سفورزا (Ludovico Sforza) دوق ميلانو، والملك الفرنسي فرانسوا الأول (François 1er) الذي اقتنى لوحته الجوكندا في نهاية حياته.",
+                authorWorks: "ومن أشهر أعماله الفنية إلى جانب الجوكندا: لوحة العشاء الأخير (La Cène) المرسومة على جدار كنيسة سانتا ماريا ديلي غراتزي بميلانو (1495-1498)، ولوحة الرجل الفيتروفي (L'Homme de Vitruve) التي تجسّد التناسب المثالي لجسم الإنسان، إضافة إلى رسمة السيدة وابن عرس (La Dame à l'hermine) والعذراء في الصخور (La Vierge aux rochers).",
+                artworkTitle: "اللوحة: بطاقة تعريف",
+                cardTitleLabel: "العنوان",
+                cardTitleValue: "الجوكندا / الموناليزا (La Joconde / Mona Lisa)",
+                cardArtistLabel: "الفنان",
+                cardArtistValue: "ليوناردو دا فينشي (Léonard de Vinci)",
+                cardDateLabel: "تاريخ الإنجاز",
+                cardDateValue: "حوالي 1503-1519",
+                cardTypeLabel: "النوع",
+                cardTypeValue: "بورتريه (صورة شخصية)",
+                cardTechniqueLabel: "التقنية",
+                cardTechniqueValue: "زيت على خشب الحور (Peuplier)",
+                cardDimensionsLabel: "الأبعاد",
+                cardDimensionsValue: "77 × 53 سم",
+                cardLocationLabel: "مكان الحفظ",
+                cardLocationValue: "متحف اللوفر (Louvre) – باريس",
+                cardModelLabel: "الشخصية المرسومة",
+                cardModelValue: "ليزا غيرارديني (Lisa Gherardini)، زوجة التاجر الفلورنسي فرانتشيسكو دل جيوكوندو",
+                contextTitle: "سياق إنجاز اللوحة",
+                contextText: "أنجز ليوناردو دا فينشي هذه اللوحة على مرحلتين: بدأها في فلورنسا حوالي سنة 1503 بطلب من التاجر الفلورنسي فرانتشيسكو دل جيوكوندو (Francesco del Giocondo) ليرسم زوجته ليزا غيرارديني (Lisa Gherardini)، وهي سيدة من أسرة نبيلة فلورنسية. لكن ليوناردو لم يُسلّم اللوحة لأصحابها، بل احتفظ بها معه طوال حياته، وحملها معه إلى فرنسا سنة 1516 عندما دُعي إلى بلاط الملك فرانسوا الأول. وبعد وفاته سنة 1519، اشتراها الملك الفرنسي فرانسوا الأول وأصبحت من مقتنيات التاج الفرنسي، ثم انتقلت بعد الثورة الفرنسية إلى متحف اللوفر بباريس حيث لا تزال محفوظة إلى اليوم. ويُرجّح أن ليوناردو واصل تحسين اللوحة وتعديلها خلال السنوات الأخيرة من حياته، ممّا يجعلها من أكثر الأعمال الفنية تعقيدًا وإتقانًا في تاريخ الفن.",
+                sectionPart2: "وصف اللوحة وتحليلها الفني",
+                descriptionTitle: "الوصف الظاهري للوحة",
+                descriptionText: "تمثّل اللوحة صورة نصفية (Buste) لسيدة تجلس في مواجهة المشاهد تقريبًا، مع انحراف طفيف نحو اليمين. تُظهر السيدة وجهًا هادئًا وابتسامة غامضة غير واضحة الحدود، وشعرًا بنيًّا مسترسلًا على كتفيها، وثوبًا داكن اللون دون أكمام كاملة، مع ثنيات دقيقة ومتقنة تبرز التمكّن من رسم القماش. ويستند كوعها الأيسر إلى مسند ذراع الكرسي، بينما تضع يدها اليمنى فوق يدها اليسرى بتقاطع أنيق وهادئ. وتنفتح خلف السيدة منظر طبيعي واسع، يبرز فيه جسر وطريق متعرّج ونهر وبعض الصخور والجبال في الأفق، إضافة إلى إحساس عميق بالفضاء والهواء (الاستشراف الجوّي).",
+                techniqueTitle: "أهم الخصائص الفنية والتقنية",
+                techniqueIntro: "جسّدت اللوحة أبرز مقوّمات فن النهضة الأوروبية، ومن أبرز خصائصها الفنية والتقنية:",
+                techBullet1: "<strong>التقنية الزيتية المتدرّجة (Sfumato):</strong> استخدم ليوناردو تقنية \"السفوماتو\" التي تعني \"التدخين\" أو \"التلاشي\"، وتعتمد على طبقات متعدّدة من الألوان الزيتية الشفّافة المتراكمة بدرجات متدرّجة ناعمة، ممّا أعطى الوجه ملامح ناعمة واندماجًا متدرّجًا لا تُظهر فيه حدودًا واضحة. وقد ظهر هذا جليًّا في رسم زاويتي الفم وحدود العينين، وهما موضع ما يُسمّى \"الابتسامة الغامضة\".",
+                techBullet2: "<strong>المنظور الخطّي والهوائي (Perspective):</strong> طبّق ليوناردو قواعد المنظور الخطّي الرياضي التي أرساها في عصر النهضة، فأحسن توزيع الأحجام والمسافات في اللوحة. كما اعتمد المنظور الجوّي (الاستشراف الهوائي)، حيث تظهر الجبال والمسافات البعيدة في الخلفية بألوان باهتة وأكثر زرقة وضبابية، ممّا يوحي بعمق الفضاء واتّساعه.",
+                techBullet3: "<strong>التوازن والتناسب:</strong> وظّف ليوناردو معرفته بالرياضيات وقواعد التناسب، فجعل السيدة تقف في موضع يجعل جسدها يشكّل شكلًا هرميًّا يخضع لمبدأ التناسب والانسجام، مع توازن بين كتلة الجسم والمنظر الطبيعي في الخلفية.",
+                techBullet4: "<strong>الاهتمام بالتفاصيل:</strong> أبدع ليوناردو في رسم أدقّ التفاصيل: خصلات الشعر، وثنيات القماش، والشكل الدقيق للأصابع، وتفاصيل الملابس، ممّا يدلّ على رهافة ملاحظته ومهارته اليدوية العالية.",
+                techBullet5: "<strong>الاهتمام بالإنسان (Anatomie):</strong> تُجسّد اللوحة مبدأ الإنسانية (L'humanisme) في عصر النهضة القائم على الإعجاب بالإنسان وتقديم قدراته في أبهى صورة. وقد استعان ليوناردو بدراساته التشريحية الدقيقة في رسم الأعضاء والملامح بشكل واقعي ودقيق.",
+                techBullet6: "<strong>الكياري-سكورو (Clair-obscur):</strong> اعتمد ليوناردو على أسلوب الظلّ والنور (الكياري-سكورو) في نمذجة الوجه والجسم، لإبراز الحجوم الثلاثية الأبعاد وإعطاء اللوحة واقعية وعمقًا إضافيًّا.",
+                hiddenDetailsTitle: "تفاصيل دقيقة وأسرار اللوحة",
+                hiddenDetailsText: "تعتبر الجوكندا من أكثر الأعمال الفنية إثارةً للفضول بفضل غموضها وتفاصيلها الدقيقة، ومن أبرز هذه التفاصيل:",
+                detail1: "<strong>الابتسامة الغامضة:</strong> تظهر ابتسامة الجوكندا متغيّرة حسب زاوية النظر إليها، فتبدو حاضرة عند النظر إلى عينيها، وتكاد تختفي عند النظر مباشرة إلى فمها. ويُرجّح أن السبب في ذلك تقنية \"السفوماتو\" التي رسم بها زاويتي الفم بلمسات ناعمة متلاشية.",
+                detail2: "<strong>غياب الحواجب والرموش:</strong> تظهر الجوكندا بدون حواجب ولا رموش واضحة، وقد اختلف الباحثون في تفسير ذلك بين من يرى أن العادة الجمالية في ذلك العصر كانت تقضي بحلق الحواجب، ومن يرى أن الحواجب كانت مرسومة ثم تلاشت بفعل الزمن وبفعل عمليات الترميم.",
+                detail3: "<strong>النظر المباشر نحو المشاهد:</strong> تُعدّ نظرة الجوكندا نحو المشاهد مباشرة من أوائل النظرات المباشرة في تاريخ البورتريه الأوروبي، ممّا يُشعر المشاهد بأنها تتعمّق في داخله وتعرف كل شيء عنه.",
+                detail4: "<strong>الاندماج بين الشخصية والخلفية:</strong> على عكس كثير من البورتريهات السابقة، لا تظهر الجوكندا منعزلة في فضاء مغلق، بل مندمجة في منظر طبيعي واسع، ممّا يعطي انطباعًا بالحياة والحركة والتناغم بين الإنسان والطبيعة.",
+                jocondeQuote: "«تُعدّ الجوكندا أكثر اللوحات شهرة في العالم، وأكثرها تعرّضًا للدراسة والتأويل. فهي في آن واحد: صورة ذاتية لواقعية الرسم الليوناردي، ووثيقة على مركزية الإنسان في فكر عصر النهضة، ورمز للجمال الإنساني الذي لا تنفد أسراره».",
+                jocondeQuoteAuthor: "حول دلالات لوحة الجوكندا",
+                sectionPart3: "دلالات اللوحة وأثرها العالمي",
+                significanceTitle: "دلالات اللوحة الفكرية والفنية",
+                significanceIntro: "تعكس لوحة الجوكندا جملة من المبادئ والقيم الأساسية في فكر عصر النهضة الأوروبية، ومن أهمّها:",
+                significance1: "<strong>الإعجاب بالإنسان (L'humanisme):</strong> تجسّد اللوحة فكرة أن الإنسان هو محور الاهتمام في عصر النهضة، وأنّ قيمته تكمن في قدراته وإمكاناته الفردية، وليس في انتمائه لطبقة اجتماعية أو سلطة دينية. فاللوحة تحتفي بالإنسان في أبهى صورة وأكثرها خصوصية.",
+                significance2: "<strong>العلم والتجربة:</strong> تُجسّد اللوحة اندماج الفن مع العلم، فقد استعان ليوناردو بمعارفه في التشريح والرياضيات والطبيعة في رسم اللوحة، ممّا جعلها في نفس الوقت دراسة علمية ورائعة فنية.",
+                significance3: "<strong>الواقعية والدقّة:</strong> تُبرز اللوحة توجّه فن النهضة نحو الواقعية والدقّة في نقل الطبيعة والإنسان، خلافًا للفنّ الديني الوسيطي الذي كان يقوم على رموز ثابتة ومثالية مفارقة للواقع.",
+                significance4: "<strong>الحرية الإبداعية:</strong> عبّرت اللوحة عن حرية الفنان في اختيار موضوعه وأسلوبه، وهو أمر لم يكن متاحًا في العصور الوسيطية التي سيطرت فيها الكنيسة على الفن ورسمت أهدافه.",
+                significance5: "<strong>الإرث الإغريقي-اللاتيني:</strong> استعان ليوناردو بالتراث الفني والفكري الإغريقي واللاتيني، خاصة في مبدأ التناسب الرياضي والجمالي الذي أرساه فلاسفة اليونان، وطبّقه في رسم الأبعاد والتناسب بين أعضاء الجسد.",
+                globalImpactTitle: "أثر اللوحة العالمي",
+                globalImpactText: "تجاوزت شهرة الجوكندا حدود المتاحف وصالات العرض الفني لتغدو واحدة من أكثر الصور المعروفة في العالم، وشكّلت على مدار القرون موضوع إلهام للمبدعين، ونقطة جذب لملايين الزوّار من مختلف أنحاء العالم. ومن أبرز مظاهر أثرها العالمي: وجودها اليوم في متحف اللوفر بباريس كأحد أبرز معالم الجذب السياحي، ويقصدها سنويًّا ملايين الزوّار. تعرّضها لسرقة شهيرة سنة 1911 على يد العامل الإيطالي فينتشنزو بيروجيا (Vincenzo Peruggia)، ثم استرجاعها بعد سنتين، وهو ما ساهم في إشهارها العالمي. اعتبارها مرجعًا أساسيًّا في تدريس تاريخ الفن، ودليلًا على خصائص فن النهضة الأوروبية. استلهامها في أعمال فنية وثقافية كثيرة: أفلام، أغاني، لوحات معاصرة، إعلانات، ونصوص أدبية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "تُعدّ لوحة الجوكندا تجسيدًا كاملًا لفكر عصر النهضة الأوروبية ومبادئه، إذ جمعت بين دقّة الرسم العلمي، وعمق الطرح الإنساني، وحرية الإبداع الفني. وهي بذلك ليست مجرّد صورة لسيدة فلورنسية، بل هي وثيقة حضارية تنطق بتحوّل الفكر الأوروبي في مطلع العصر الحديث، ورمز خالد للإبداع الإنساني.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defTreaty: "📜 أعمال فنية",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defVinci: "ليوناردو دا فينشي (Léonard de Vinci)",
+                defVinciDesc: "فنان وعالم إيطالي (1452-1519)، وُلد في بلدة فينشي قرب فلورنسا. يُعدّ النموذج الأمثل لـ\"رجل عصر النهضة\" بفضل تعدّد مواهبه: رسّام ونحّات ومهندس معماري وعالم تشريح ورياضيات وميكانيك وطبيعيات وجيولوجيا وفلك وموسيقي. صاحب لوحة الجوكندا و\"العشاء الأخير\" و\"الرجل الفيتروفي\".",
+                defLisaGherardini: "ليزا غيرارديني (Lisa Gherardini)",
+                defLisaGherardiniDesc: "سيدة فلورنسية من أسرة نبيلة، زوجة التاجر فرانتشيسكو دل جيوكوندو، وهي الشخصية التي رسمها ليوناردو في لوحة الجوكندا حوالي سنة 1503.",
+                defGiocondo: "فرانتشيسكو دل جيوكوندو (Francesco del Giocondo)",
+                defGiocondoDesc: "تاجر فلورنسي من الطبقة الثرية، طلب من ليوناردو دا فينشي رسم بورتريه لزوجته ليزا غيرارديني، وهو ما عُرف بـ\"لا جيوكوندا\" أي \"الزوجة جيوكوندو\".",
+                defVerrocchio: "أندريا دل فرّوكيو (Andrea del Verrocchio)",
+                defVerrocchioDesc: "فنان إيطالي من فلورنسا، أستاذ ليوناردو دا فينشي الذي تتلمذ في ورشته.",
+                defLaurentMedicis: "لوران دي ميديسي (Laurent de Médicis)",
+                defLaurentMedicisDesc: "رجل أعمال فلورنسي وراعي فنون، كان ليوناردو دا فينشي في خدمته بفلورنسا.",
+                defSforza: "لودوفيكو سفورزا (Ludovico Sforza)",
+                defSforzaDesc: "دوق ميلانو، كان ليوناردو دا فينشي في خدمته وأنجز له بعض أعماله الفنية والهندسية.",
+                defFrancois1: "فرانسوا الأول (François 1er)",
+                defFrancois1Desc: "ملك فرنسا (1494-1574)، استدعى ليوناردو دا فينشي إلى بلاطه في نهاية حياته، واقتنى لوحة الجوكندا بعد وفاته، فأصبحت من مقتنيات التاج الفرنسي ثم من مقتنيات متحف اللوفر.",
+                defPeruggia: "فينتشنزو بيروجيا (Vincenzo Peruggia)",
+                defPeruggiaDesc: "عامل إيطالي، من مواليد 1881، اشتهر بسرقته للوحة الجوكندا من متحف اللوفر سنة 1911، ثم أعادها سنة 1913 بعد محاولة بيعه إياها لمتحف إيطالي.",
+                defVinciTown: "فينشي (Vinci)",
+                defVinciTownDesc: "بلدة إيطالية قرب فلورنسا، وُلد فيها ليوناردو دا فينشي سنة 1452.",
+                defFlorence: "فلورنسا (Florence)",
+                defFlorenceDesc: "مدينة إيطالية، مهد عصر النهضة، تتلمذ فيها ليوناردو دا فينشي وبدأ رسم لوحة الجوكندا.",
+                defMilan: "ميلانو (Milan)",
+                defMilanDesc: "مدينة إيطالية، عمل بها ليوناردو دا فينشي في خدمة الدوق لودوفيكو سفورزا، ورسم فيها لوحة \"العشاء الأخير\".",
+                defClosLuce: "كلو-لوسي (Clos-Lucé)",
+                defClosLuceDesc: "قلعة فرنسية قرب أمبوز (Amboise)، أقام فيها ليوناردو دا فينشي في نهاية حياته، وتوفي فيها سنة 1519.",
+                defParis: "باريس",
+                defParisDesc: "عاصمة فرنسا، بها متحف اللوفر حيث تُحفظ لوحة الجوكندا إلى اليوم.",
+                defLouvre: "متحف اللوفر (Le Louvre)",
+                defLouvreDesc: "متحف فرنسي بباريس، يُعدّ من أكبر المتاحف في العالم، ويحتوي على لوحة الجوكندا، ويقصده سنويًّا ملايين الزوّار.",
+                defSfumato: "تقنية السفوماتو (Sfumato) – اختراع ليوناردو",
+                defSfumatoDesc: "تقنية رسم ابتكرها ليوناردو دا فينشي وتعتمد على طبقات متعدّدة من الألوان الزيتية الشفّافة المتراكمة بدرجات متدرّجة ناعمة، ممّا يعطي الوجه ملامح ناعمة واندماجًا متدرّجًا لا تُظهر فيه حدودًا واضحة.",
+                defChiaroscuro: "الكياري-سكورو (Clair-obscur)",
+                defChiaroscuroDesc: "أسلوب فني يعتمد على تباين الظلّ والنور في رسم الأعمال الفنية، استخدمه ليوناردو في الجوكندا لإبراز الحجوم الثلاثية الأبعاد ولإعطاء اللوحة واقعية وعمقًا.",
+                defPerspective: "المنظور الجوّي (Perspective atmosphérique)",
+                defPerspectiveDesc: "تقنية فنية تعتمد على تمثيل المسافات البعيدة بألوان باهتة وأكثر زرقة وضبابية، ممّا يوحي بعمق الفضاء واتّساعه، استخدمها ليوناردو في خلفية الجوكندا.",
+                defJocondeTheft1911: "سرقة الجوكندا 1911",
+                defJocondeTheft1911Desc: "سرقة لوحة الجوكندا من متحف اللوفر سنة 1911 على يد العامل الإيطالي فينتشنزو بيروجيا، ثم استرجاعها سنة 1913 بعد محاولة بيعه إياها لمتحف إيطالي.",
+                defJoconde: "لوحة الجوكندا (La Joconde / Mona Lisa)",
+                defJocondeDesc: "أشهر لوحة في تاريخ الفن، رسمها ليوناردو دا فينشي حوالي 1503-1519، تمثّل صورة نصفية لسيدة فلورنسية هي ليزا غيرارديني، محفوظة بمتحف اللوفر بباريس.",
+                defLastSupper: "لوحة العشاء الأخير (La Cène)",
+                defLastSupperDesc: "من أشهر أعمال ليوناردو دا فينشي، مرسومة على جدار كنيسة سانتا ماريا ديلي غراتزي بميلانو بين 1495 و1498.",
+                defVitruvianMan: "الرجل الفيتروفي (L'Homme de Vitruve)",
+                defVitruvianManDesc: "رسمة لليوناردو دا فينشي تجسّد التناسب المثالي لجسم الإنسان، وهي مستوحاة من كتابات المعماري الروماني فيتروفيوس.",
+                defLadyErmine: "السيدة وابن عرس (La Dame à l'hermine)",
+                defLadyErmineDesc: "من أشهر بورتريهات ليوناردو دا فينشي، أُنجز حوالي سنة 1490، تمثّل سيسيليا غاليراني عشيقة دوق ميلانو لودوفيكو سفورزا.",
+                defVirginRocks: "العذراء في الصخور (La Vierge aux rochers)",
+                defVirginRocksDesc: "من أهم أعمال ليوناردو دا فينشي، أُنجز بين 1483 و1486، محفوظ بمتحف اللوفر.",
+                defYear1452Desc: "سنة ولادة ليوناردو دا فينشي ببلدة فينشي قرب فلورنسا.",
+                defYear1495Desc: "إنجاز ليوناردو دا فينشي لوحة \"العشاء الأخير\" بميلانو.",
+                defYear1503Desc: "بدء ليوناردو دا فينشي في رسم لوحة الجوكندا بفلورنسا.",
+                defYear1516Desc: "انتقال ليوناردو دا فينشي إلى فرنسا بدعوة من الملك فرانسوا الأول، حاملًا معه لوحة الجوكندا.",
+                defYear1519Desc: "سنة وفاة ليوناردو دا فينشي بقلعة كلو-لوسي بفرنسا.",
+                defYear1911Desc: "سرقة لوحة الجوكندا من متحف اللوفر على يد العامل الإيطالي فينتشنزو بيروجيا.",
+                defYear1913Desc: "استرجاع لوحة الجوكندا بعد سنتين من سرقتها.",
+                defRenaissanceArt: "فن النهضة",
+                defRenaissanceArtDesc: "تيّار فني انطلق من إيطاليا في القرن XV وانتشر في أوروبا، يتّسم بالدقّة والواقعيّة وتواضع \"الديكور\"، ويعتمد على التراث الإغريقي-اللاتيني، ويقدّم الإنسان في أبهى صورة، ويطبّق القواعد والمقاييس الرياضية.",
+                defUniversalMan: "رجل عصر النهضة (L'uomo universale)",
+                defUniversalManDesc: "مفهوم يجسّد الإنسان المتعدّد المواهب والمتمكّن من مختلف مجالات المعرفة والفن، ويتجلّى نموذجه الأبرز في شخصية ليوناردو دا فينشي.",
+                defPortrait: "البورتريه (Portrait)",
+                defPortraitDesc: "نوع فني يهدف إلى تمثيل شخص معيّن، وتطوّر في عصر النهضة بفضل الاهتمام بالإنسان وقدراته الفردية، ومن أشهر نماذجه لوحة الجوكندا.",
+                defMonaLisaSmile: "الابتسامة الغامضة",
+                defMonaLisaSmileDesc: "سمة مميّزة لوجه الجوكندا، تظهر متغيّرة حسب زاوية النظر إليها، وتُعزى إلى تقنية \"السفوماتو\" التي رسم بها ليوناردو زاويتي الفم بلمسات ناعمة متلاشية.",
+                defLinearPerspective: "المنظور الخطّي (Perspective linéaire)",
+                defLinearPerspectiveDesc: "قواعد رياضية لتوزيع الأحجام والمسافات في اللوحة لإعطاء إحساس بالعمق، أرساها فنانون في عصر النهضة، واستخدمها ليوناردو في رسم الجوكندا.",
+                defProportion: "التناسب (Proportion)",
+                defProportionDesc: "مبدأ فني ورياضي يقضي بانسجام العلاقات بين مختلف أجزاء العمل الفني، ويعتمد على نسب رياضية مستمدّة من الطبيعة، طبّقه ليوناردو في رسم الجوكندا.",
+                defAnatomie: "علم التشريح (Anatomie)",
+                defAnatomieDesc: "العلم الذي يدرس بنية جسم الكائنات الحية، اعتمده ليوناردو دا فينشي في دراسة تفاصيل جسم الإنسان وملامحه، ممّا ساعده في رسم الجوكندا بدقّة واقعية.",
+                defOilPainting: "التقنية الزيتية (Peinture à l'huile)",
+                defOilPaintingDesc: "تقنية فنية تعتمد على الألوان المخلوطة بزيت، طبّقها ليوناردو دا فينشي بشكل مبتكر في رسم الجوكندا باستخدام طبقات شفّافة متراكمة تُعطي نعومة وعمقًا.",
+                summaryText: "خلاصة: تُعدّ لوحة الجوكندا (الموناليزا) تجسيدًا كاملًا لفكر عصر النهضة الأوروبية ومبادئه. فقد جمعت بين دقّة الرسم العلمي، وعمق الطرح الإنساني، وحرية الإبداع الفني، فهي ليست مجرّد صورة لسيدة فلورنسية، بل هي وثيقة حضارية تنطق بتحوّل الفكر الأوروبي في مطلع العصر الحديث، ورمز خالد للإبداع الإنساني.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "لوحة الجوكندا (الموناليزا)",
+                galleryAlt2: "صورة لليوناردو دا فينشي",
+                galleryAlt3: "تفاصيل وجه الجوكندا",
+                galleryAlt4: "خلفية اللوحة",
+                galleryAlt5: "تقنية السفوماتو",
+                galleryAlt6: "متحف اللوفر",
+                galleryCap1: "لوحة الجوكندا (الموناليزا)",
+                galleryCap2: "ليوناردو دا فينشي (1452-1519)",
+                galleryCap3: "تفاصيل وجه الجوكندا والابتسامة الغامضة",
+                galleryCap4: "خلفية اللوحة: المنظر الطبيعي والمنظور الجوّي",
+                galleryCap5: "تقنية السفوماتو (Sfumato)",
+                galleryCap6: "متحف اللوفر بباريس"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Leonardo da Vinci", class: "key-person", i18n: "defVinci" },
+                { text: "Lisa Gherardini", class: "key-person", i18n: "defLisaGherardini" },
+                { text: "Francesco del Giocondo", class: "key-person", i18n: "defGiocondo" },
+                { text: "Verrocchio", class: "key-person", i18n: "defVerrocchio" },
+                { text: "Laurent de Médicis", class: "key-person", i18n: "defLaurentMedicis" },
+                { text: "Ludovico Sforza", class: "key-person", i18n: "defSforza" },
+                { text: "Francis I", class: "key-person", i18n: "defFrancois1" },
+                { text: "Vincenzo Peruggia", class: "key-person", i18n: "defPeruggia" },
+                { text: "Vinci", class: "key-location", i18n: "defVinciTown" },
+                { text: "Florence", class: "key-location", i18n: "defFlorence" },
+                { text: "Milan", class: "key-location", i18n: "defMilan" },
+                { text: "Clos-Lucé", class: "key-location", i18n: "defClosLuce" },
+                { text: "Paris", class: "key-location", i18n: "defParis" },
+                { text: "Louvre", class: "key-location", i18n: "defLouvre" },
+                { text: "Sfumato", class: "key-event", i18n: "defSfumato" },
+                { text: "Chiaroscuro", class: "key-event", i18n: "defChiaroscuro" },
+                { text: "Atmospheric Perspective", class: "key-event", i18n: "defPerspective" },
+                { text: "Mona Lisa Theft", class: "key-event", i18n: "defJocondeTheft1911" },
+                { text: "Mona Lisa", class: "key-treaty", i18n: "defJoconde" },
+                { text: "The Last Supper", class: "key-treaty", i18n: "defLastSupper" },
+                { text: "Vitruvian Man", class: "key-treaty", i18n: "defVitruvianMan" },
+                { text: "Lady with an Ermine", class: "key-treaty", i18n: "defLadyErmine" },
+                { text: "Virgin of the Rocks", class: "key-treaty", i18n: "defVirginRocks" },
+                { text: "Renaissance Art", class: "key-other", i18n: "defRenaissanceArt" },
+                { text: "Renaissance Man", class: "key-other", i18n: "defUniversalMan" },
+                { text: "Portrait", class: "key-other", i18n: "defPortrait" },
+                { text: "Mysterious Smile", class: "key-other", i18n: "defMonaLisaSmile" },
+                { text: "Linear Perspective", class: "key-other", i18n: "defLinearPerspective" },
+                { text: "Proportion", class: "key-other", i18n: "defProportion" },
+                { text: "Anatomy", class: "key-other", i18n: "defAnatomie" },
+                { text: "Oil Painting", class: "key-other", i18n: "defOilPainting" }
+            ],
+            fr: [
+                { text: "Léonard de Vinci", class: "key-person", i18n: "defVinci" },
+                { text: "Lisa Gherardini", class: "key-person", i18n: "defLisaGherardini" },
+                { text: "Francesco del Giocondo", class: "key-person", i18n: "defGiocondo" },
+                { text: "Verrocchio", class: "key-person", i18n: "defVerrocchio" },
+                { text: "Laurent de Médicis", class: "key-person", i18n: "defLaurentMedicis" },
+                { text: "Ludovico Sforza", class: "key-person", i18n: "defSforza" },
+                { text: "François Ier", class: "key-person", i18n: "defFrancois1" },
+                { text: "Vincenzo Peruggia", class: "key-person", i18n: "defPeruggia" },
+                { text: "Vinci", class: "key-location", i18n: "defVinciTown" },
+                { text: "Florence", class: "key-location", i18n: "defFlorence" },
+                { text: "Milan", class: "key-location", i18n: "defMilan" },
+                { text: "Clos-Lucé", class: "key-location", i18n: "defClosLuce" },
+                { text: "Paris", class: "key-location", i18n: "defParis" },
+                { text: "Louvre", class: "key-location", i18n: "defLouvre" },
+                { text: "Sfumato", class: "key-event", i18n: "defSfumato" },
+                { text: "Clair-obscur", class: "key-event", i18n: "defChiaroscuro" },
+                { text: "Perspective atmosphérique", class: "key-event", i18n: "defPerspective" },
+                { text: "vol de la Joconde", class: "key-event", i18n: "defJocondeTheft1911" },
+                { text: "La Joconde", class: "key-treaty", i18n: "defJoconde" },
+                { text: "La Cène", class: "key-treaty", i18n: "defLastSupper" },
+                { text: "L'Homme de Vitruve", class: "key-treaty", i18n: "defVitruvianMan" },
+                { text: "La Dame à l'hermine", class: "key-treaty", i18n: "defLadyErmine" },
+                { text: "La Vierge aux rochers", class: "key-treaty", i18n: "defVirginRocks" },
+                { text: "art de la Renaissance", class: "key-other", i18n: "defRenaissanceArt" },
+                { text: "Homme de la Renaissance", class: "key-other", i18n: "defUniversalMan" },
+                { text: "portrait", class: "key-other", i18n: "defPortrait" },
+                { text: "sourire mystérieux", class: "key-other", i18n: "defMonaLisaSmile" },
+                { text: "perspective linéaire", class: "key-other", i18n: "defLinearPerspective" },
+                { text: "proportion", class: "key-other", i18n: "defProportion" },
+                { text: "anatomie", class: "key-other", i18n: "defAnatomie" },
+                { text: "peinture à l'huile", class: "key-other", i18n: "defOilPainting" }
+            ],
+            ar: [
+                { text: "ليوناردو دا فينشي", class: "key-person", i18n: "defVinci" },
+                { text: "ليزا غيرارديني", class: "key-person", i18n: "defLisaGherardini" },
+                { text: "فرانتشيسكو دل جيوكوندو", class: "key-person", i18n: "defGiocondo" },
+                { text: "أندريا دل فرّوكيو", class: "key-person", i18n: "defVerrocchio" },
+                { text: "لوران دي ميديسي", class: "key-person", i18n: "defLaurentMedicis" },
+                { text: "لودوفيكو سفورزا", class: "key-person", i18n: "defSforza" },
+                { text: "فرانسوا الأول", class: "key-person", i18n: "defFrancois1" },
+                { text: "فينتشنزو بيروجيا", class: "key-person", i18n: "defPeruggia" },
+                { text: "فينشي", class: "key-location", i18n: "defVinciTown" },
+                { text: "فلورنسا", class: "key-location", i18n: "defFlorence" },
+                { text: "ميلانو", class: "key-location", i18n: "defMilan" },
+                { text: "كلو-لوسي", class: "key-location", i18n: "defClosLuce" },
+                { text: "باريس", class: "key-location", i18n: "defParis" },
+                { text: "اللوفر", class: "key-location", i18n: "defLouvre" },
+                { text: "السفوماتو", class: "key-event", i18n: "defSfumato" },
+                { text: "الكياري-سكورو", class: "key-event", i18n: "defChiaroscuro" },
+                { text: "المنظور الجوّي", class: "key-event", i18n: "defPerspective" },
+                { text: "سرقة الجوكندا", class: "key-event", i18n: "defJocondeTheft1911" },
+                { text: "الجوكندا", class: "key-treaty", i18n: "defJoconde" },
+                { text: "الموناليزا", class: "key-treaty", i18n: "defJoconde" },
+                { text: "العشاء الأخير", class: "key-treaty", i18n: "defLastSupper" },
+                { text: "الرجل الفيتروفي", class: "key-treaty", i18n: "defVitruvianMan" },
+                { text: "السيدة وابن عرس", class: "key-treaty", i18n: "defLadyErmine" },
+                { text: "العذراء في الصخور", class: "key-treaty", i18n: "defVirginRocks" },
+                { text: "فن النهضة", class: "key-other", i18n: "defRenaissanceArt" },
+                { text: "رجل عصر النهضة", class: "key-other", i18n: "defUniversalMan" },
+                { text: "البورتريه", class: "key-other", i18n: "defPortrait" },
+                { text: "الابتسامة الغامضة", class: "key-other", i18n: "defMonaLisaSmile" },
+                { text: "المنظور الخطّي", class: "key-other", i18n: "defLinearPerspective" },
+                { text: "التناسب", class: "key-other", i18n: "defProportion" },
+                { text: "علم التشريح", class: "key-other", i18n: "defAnatomie" },
+                { text: "التقنية الزيتية", class: "key-other", i18n: "defOilPainting" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

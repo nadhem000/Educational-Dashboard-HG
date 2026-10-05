@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – النهضة الأوروبية</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <h1 data-i18n="exerciseTitle">تمارين – النهضة الأوروبية</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: النهضة، الحركة الإنسانية، الأسلوب النقدي، الطباعة.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">النهضة:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">حركة فكرية وفنية وأدبية وعلمية انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في أوروبا خلال القرنين الموالين، وأرست أسس الفكر الحديث القائم على العقل والتجربة والنقد. جعلت الإنسان محور اهتمامها، وحرّرت العقل الأوروبي من قيود الكنيسة، ومهّدت لانطلاق العصر الحديث.</dd>
+                        <dt data-i18n="ex1_def2_title">الحركة الإنسانية:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">حركة فكرية انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في بقية أرجاء أوروبا خلال القرنين الموالين بفضل مشاهير روادها أمثال إيرازم دي روتردام وبفضل تطوّر وسائل الطباعة ومساندة التجار الأثرياء الإيطاليين. اهتمّ روّادها بدراسة الآداب الإنسانية انطلاقا من إحياء المؤلّفات الإغريقية والرومانية القديمة، واعتمدوا الأسلوب النقدي القائم على حرية المناقشة والتفكير. جعلت الإنسان محور كلّ الاهتمامات.</dd>
+                        <dt data-i18n="ex1_def3_title">الأسلوب النقدي:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">أسلوب منهجي جديد في معالجة القضايا نشأ عن الحركة الإنسانية، يعتمد حرية المناقشة والتفكير في كافة المبادئ بما فيها الدين والسياسة، ويعتبر أن الحقيقة غير مطلقة ولا يمكن التوصل إليها إلا عن طريق الحوار. وهو أمر طالما حرمته الكنيسة حتى ذلك التاريخ.</dd>
+                        <dt data-i18n="ex1_def4_title">الطباعة:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">ثورة تقنية ومعرفية هائلة أحدثها الألماني يوحنّا غوتنبرغ حوالي سنة 1450 م حين ابتكر طريقة جديدة تعتمد الحروف المنقولة المسكوبة في معدن الرصاص. ساهمت في نشر الفكر الجديد رغم محاولات الكنيسة والسلطة السياسية فرض الرقابة عليها، فقد طبع في أوروبا خلال القرن XVI م أكثر من 250 مليون نسخة كتاب.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن تطور عدد الكتب المطبوعة في أوروبا.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_period">الفترة</th>
+                            <th data-i18n="ex2_table_books">عدد الكتب المطبوعة (مليون نسخة)</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_15th">القرن XV (1450-1500)</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_16th">القرن XVI (1500-1600)</td>
+                            <td>250</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: معطيات الدرس حول تطوّر الطباعة في أوروبا (تقديرات)</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Map / Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمل الخريطة التالية التي تمثل مراكز الأنسنة بأوروبا خلال القرن السادس عشر الميلادي، وبيّن أهم هذه المراكز وكيف انتشرت الحركة الإنسانية.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets3eco/exercises/history/unit1/lesson2/humanism_centers_map.png"
+                         alt="مراكز الأنسنة بأوروبا (القرن السادس عشر الميلادي)"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets3eco/exercises/history/unit1/lesson2/humanism_centers_answer.png"
+                             alt="نموذج الإجابة – مراكز الأنسنة بأوروبا"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        تمثل الخريطة مراكز الأنسنة بأوروبا خلال القرن السادس عشر الميلادي:
+                        مركز الانطلاق: إيطاليا (فلورنسا، روما، البندقية، ميلانو، نابولي)، حيث انطلقت الحركة الإنسانية أثناء القرن XIV م.
+                        مراكز الانتشار: انتقلت الحركة إلى بقية أوروبا خلال القرنين XV وXVI:
+                        - فرنسا: باريس (معهد فرنسا - Collège de France)، ليون.
+                        - إنجلترا: لندن، أكسفورد، كامبريدج.
+                        - ألمانيا: مدن الراين، ومراكز الطباعة (ماينز حيث اخترع غوتنبرغ الطباعة).
+                        - إسبانيا: إشبيلية، سلامنكا.
+                        - هولندا (الأراضي المنخفضة): أنفارس، أمستردام (مراكز طباعة وتبادل فكري).
+                        - سويسرا: بازل، جنيف (نشاط إيرازم وحركة الإصلاح الديني).
+                        العوامل المساعدة على الانتشار:
+                        1. تطوّر وسائل الطباعة التي سهّلت نشر الكتب والمؤلّفات.
+                        2. مساندة التجار الأثرياء والملوك (فرانسوا الأول، لوران دي ميديسي).
+                        3. تأسيس المعاهد والأكاديميات والجمعيات الفكرية.
+                        4. تنقّل المفكّرين والروّاد بين البلدان الأوروبية.
+                        النتيجة: تحوّلت الحركة الإنسانية من ظاهرة إيطالية إلى ظاهرة أوروبية شاملة، وتمكّنت من تأسيس فكر جديد نقدي وعلمي مهّد لانطلاق العصر الحديث.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل العوامل المساعدة على التحوّل في أوروبا خلال القرنين XIV وXV م في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        العوامل المساعدة على التحوّل في أوروبا خلال القرنين XIV وXV م:
+                        - أزمة المجتمع الأوروبي: توالت على الأوروبيين مصائب وكوارث طبيعية (حروب، مجاعات، أوبئة) وخاصة وباء الطاعون (الوباء الأسود) سنة 1348 م الذي أودى بحياة ثلث سكانها. وقد انشغلت الكنيسة بالصراعات السياسية وانغمس رجالها في البذخ وجمع الثروات، كما عانت من الانقسامات وتعدّد المذاهب، ففقدت ثقة الناس وبدأ المجتمع يتطلّع إلى أفكار جديدة.
+                        - حاجة المجتمع إلى تفكير علمي: بروز قيم جديدة تحدّي الكنيسة وأنظمة الحكم، وإرساء أسس البحث الفلسفي والعلمي عبر استعمال العقل، بدعم من ملوك ورجال دين وأثرياء أمثال فرانسوا الأول ولوران دي ميديسي، الذين أسّسوا مدارس ومعاهد وأكاديميات (معهد فرنسا، أكاديمية ألفونس) وجمعيات فكرية.
+                        - تطوّر وسائل الطباعة: الانتقال من الجلد إلى الورق ثم إلى الطباعة بالحروف المنقولة التي ابتكرها غوتنبرغ حوالي 1450 م، ممّا شكّل ثورة تقنية ومعرفية هائلة ساعدت على نشر الفكر الجديد (250 مليون نسخة كتاب في القرن XVI).
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        توافرت لتحوّل المجتمع الأوروبي خلال القرنين XIV وXV م عدة عوامل متكاملة. فقد عاش الأوروبيون أزمة عميقة تمثّلت في الحروب والمجاعات والأوبئة وخاصة وباء الطاعون سنة 1348 م الذي أودى بحياة ثلث السكان، في وقت انشغلت فيه الكنيسة بالصراعات السياسية والبذخ وجمع الثروات بدل القيام بواجباتها الدينية، ففقدت ثقة الناس وأصبح المجتمع يتطلّع إلى أفكار جديدة. وقد دفع هذا الوضع إلى بروز قيم جديدة تحدّي الكنيسة وأنظمة الحكم، وأرست أسس البحث العلمي عبر استعمال العقل، بدعم من ملوك وأثرياء أمثال فرانسوا الأول ولوران دي ميديسي الذين أسّسوا مدارس ومعاهد وجمعيات فكرية. وقد ساعد تطوّر وسائل الطباعة (اختراع غوتنبرغ حوالي 1450 م) على نشر هذه الأفكار الجديدة، ممّا مهّد لانطلاق الحركة الإنسانية والنهضة الأوروبية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول مظاهر الفكر الجديد في النهضة الأوروبية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        حلّل مظاهر الفكر الجديد في النهضة الأوروبية من خلال أربعة محاور: الحركة الإنسانية (إحياء المؤلّفات الإغريقية والرومانية، الأسلوب النقدي، الإنسان محور الاهتمام، روادها إيرازم وليوناردو دا فينشي)، النهضة الفنية (الدقّة والواقعيّة، الاعتماد على التراث الإغريقي-اللاتيني، تقديم الإنسان في أبهى صورة، لوحة الجوكوندة)، الأدب (رابلي، مونتاني، شكسبير، سرفانتس، موليير)، السياسة (ماكيافلّي وكتابه "الأمير"، جون لوك والعقد الاجتماعي).
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تحديد النهضة الأوروبية كتحوّل حاسم في تاريخ الإنسانية.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. الحركة الإنسانية؛ ثانياً. النهضة الفنية؛ ثالثاً. النهضة الأدبية؛ رابعاً. النهضة السياسية.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: النهضة الأوروبية إيذانًا ببداية العصر الحديث.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">تُعدّ النهضة الأوروبية تحوّلًا حاسمًا في تاريخ الإنسانية، إذ انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في بقية أرجاء أوروبا خلال القرنين الموالين، فحرّرت العقل الأوروبي من قيود الكنيسة وأرست أسس الفكر الحديث. وقد تجلّت مظاهر هذا الفكر الجديد في مجالات متعدّدة: الحركة الإنسانية، الفن، الأدب والسياسة.</p>
+
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_humanism">أولاً. الحركة الإنسانية</h4>
+                        <p data-i18n="ex5A_production_p_humanism">اهتمّ روّاد الحركة الإنسانية بدراسة الآداب الإنسانية انطلاقا من إحياء المؤلّفات الإغريقية والرومانية القديمة (أفلاطون، سقراط، مسيير وفي)، واعتمدوا في ذلك على الكتب العربية التي تُرجمت بالأندلس وصقلية قبل سقوطهما بأيدي المسيحيين. ولم يكتفوا بإعادة نشرها بل أخضعوها للتحليل والنقد، فنشأ الأسلوب النقدي القائم على حرية المناقشة والتفكير. وهكذا أصبح الإنسان محور كلّ الاهتمامات، ومن أبرز روّادها إيرازم دي روتردام وليوناردو دا فينشي.</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_art">ثانياً. النهضة الفنية</h4>
+                        <p data-i18n="ex5A_production_p_art">انطلقت من إيطاليا أثناء القرن XV م وامتدّت إلى بقية أوروبا، وشكّلت منعرجا حاسما في تاريخ الفنون. اتّسم فنّ النهضة بالدقّة والواقعيّة وتواضع "الدّيكور" على خلاف التيّار الباروكي، واعتمد على التراث الإغريقي-اللاتيني، وقدّم الإنسان في أبهى صورة، وطبّق القواعد والمقاييس الرياضية. ومن أبرز روّاده ليوناردو دا فينشي الذي أبدع لوحة الجوكوندة (Joconde).</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_literature">ثالثاً. النهضة الأدبية</h4>
+                        <p data-i18n="ex5A_production_p_literature">شهدت الحياة الأدبية نشاطا حثيثا، وجعل أدباء هذه الفترة من الإنسان موضوعهم الرئيسي، فعملوا على تحليل عواطفه وتناقضاته. ومن أشهر كتّاب القرن XVI: الفرنسيان رابلي (صاحب "بنتغريال" ورسالة فارقنتوا) ومونتاني (صاحب "الرّسائل")، والإنجليزي وليام سكسبير (صاحب "عطيل، هملت، تاجر البندقية، روميو وجولييت"). وفي القرن XVII برز الإسباني سرفانتس ("دون كي شوت") والفرنسي موليير ("مدرسة الأزواج، مدرسة النّساء والبخيل").</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_politics">رابعاً. النهضة السياسية</h4>
+                        <p data-i18n="ex5A_production_p_politics">برز مفكّرون استهدفوا عبر كتاباتهم زعزعة الأنظمة الشمولية اعتمادا على دراسات التاريخ، فظهرت العلوم السياسية الحديثة. ومن أبرز روّادها في القرن XVI الإيطالي نيكولاس ماكيافلّي صاحب كتاب "الأمير" (Le Prince) الذي دعا فيه إلى الفصل بين الدين والسياسة واعتمد مبدأ "الغاية تبرّر الوسيلة". وفي القرن XVII برز الإنجليزي جون لوك بكتابه "حول الحكم المدني" الذي دعا إلى استناد السلطة على "عقد اجتماعي" بين الحاكم والمحكومين، ففنّد بذلك نظرية "الحق الإلاهي".</p>
+
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا كانت النهضة الأوروبية إيذانًا ببداية العصر الحديث، إذ أعادت تشكيل الفكر الأوروبي في مختلف مجالاته ودفعت أوروبا في مقدّمة المشهد العالمي.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y3sec_secEco_his_lessons_mod1_lesson2.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                exerciseTitle: "Exercises – The European Renaissance",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: the Renaissance, the Humanist Movement, the Critical Method, Printing.",
+                ex1_def1_title: "The Renaissance:",
+                ex1_def1_subtitle: "An intellectual, artistic, literary, and scientific movement that started from Italy during the 14th century and spread in Europe during the following two centuries, establishing the foundations of modern thought based on reason, experience, and criticism. It made man the center of its attention, liberated the European mind from the Church's restrictions, and paved the way for the beginning of the modern era.",
+                ex1_def2_title: "The Humanist Movement:",
+                ex1_def2_subtitle: "An intellectual movement that started from Italy during the 14th century and spread to the rest of Europe during the following two centuries thanks to its famous pioneers such as Erasmus of Rotterdam, the development of printing, and the support of wealthy Italian merchants. Its pioneers were concerned with studying the humanities based on reviving ancient Greek and Roman works, and adopted the critical method based on freedom of discussion and thinking. It made man the center of all concerns.",
+                ex1_def3_title: "The Critical Method:",
+                ex1_def3_subtitle: "A new methodological approach to dealing with issues that emerged from the humanist movement, relying on freedom of discussion and thinking about all principles, including religion and politics, and considering that truth is not absolute and can only be reached through dialogue. The Church had long prohibited this until that time.",
+                ex1_def4_title: "Printing:",
+                ex1_def4_subtitle: "A tremendous technical and cognitive revolution brought about by the German Johannes Gutenberg around 1450 AD when he invented a new method based on movable type cast in lead metal. It contributed to spreading the new thought despite the Church's and political authority's attempts to impose censorship, as more than 250 million book copies were printed in Europe during the 16th century.",
+                ex2Q: "Convert the following table data into a bar chart showing the development of the number of books printed in Europe.",
+                ex2_table_period: "Period",
+                ex2_table_books: "Number of printed books (millions of copies)",
+                ex2_table_15th: "15th century (1450-1500)",
+                ex2_table_16th: "16th century (1500-1600)",
+                ex2Q_source: "Source: Lesson data on the development of printing in Europe (estimates)",
+                ex2A_title: "Development of Book Printing in Europe (millions of copies)",
+                ex2A_source: "Source: Lesson data on the development of printing in Europe (estimates)",
+                ex2A_scale: "Scale: 0–250 million; column height proportional to value.",
+                ex2A_key_label: "Key:",
+                ex3Q: "Observe the following map showing the centers of humanism in Europe during the 16th century, and identify the most important of these centers and how the humanist movement spread.",
+                ex3DocAlt: "Centers of humanism in Europe (16th century)",
+                ex3AnswerImgAlt: "Answer model – Centers of humanism in Europe",
+                ex3A: "The map represents the centers of humanism in Europe during the 16th century: Origin: Italy (Florence, Rome, Venice, Milan, Naples), where the humanist movement started during the 14th century. Centers of spread: The movement moved to the rest of Europe during the 15th and 16th centuries: France: Paris (Collège de France), Lyon. England: London, Oxford, Cambridge. Germany: Rhineland cities, and printing centers (Mainz where Gutenberg invented printing). Spain: Seville, Salamanca. Netherlands (Low Countries): Antwerp, Amsterdam (printing and intellectual exchange centers). Switzerland: Basel, Geneva (Erasmus's activity and the Reformation movement). Factors facilitating the spread: 1. The development of printing, which facilitated the dissemination of books and works. 2. The support of wealthy merchants and kings (Francis I, Laurent De Médicis). 3. The founding of institutes, academies, and intellectual associations. 4. The movement of thinkers and pioneers between European countries. Result: The humanist movement turned from an Italian phenomenon into a comprehensive European phenomenon, and managed to establish a new critical and scientific thought that paved the way for the beginning of the modern era.",
+                ex4Q: "Analyse the factors facilitating the transformation in Europe during the 14th and 15th centuries in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Factors facilitating the transformation in Europe during the 14th and 15th centuries:\n- Crisis of European society: Europeans suffered calamities and natural disasters (wars, famines, epidemics), especially the plague (Black Death) in 1348 AD which killed one-third of its population. The Church became preoccupied with political conflicts and its men indulged in luxury and wealth accumulation, and it suffered from divisions and multiple sects, losing people's trust, so society began to aspire to new ideas.\n- Society's need for scientific thinking: New values emerged challenging the Church and the prevailing systems of government, and established the foundations of philosophical and scientific research through the use of reason, supported by kings, men of religion, and the wealthy such as Francis I and Laurent De Médicis, who founded schools, institutes, and academies (Collège de France, Academy of Alfonse) and intellectual associations.\n- Development of printing: The transition from leather to paper, then to printing with movable type invented by Gutenberg around 1450 AD, constituting a tremendous technical and cognitive revolution that helped spread the new thought (250 million book copies in the 16th century).",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "Several complementary factors were available for the transformation of European society during the 14th and 15th centuries. Europeans lived a deep crisis represented by wars, famines, and epidemics, especially the plague in 1348 AD which killed one-third of the population, at a time when the Church was preoccupied with political conflicts, luxury, and wealth accumulation instead of fulfilling its religious duties, so it lost people's trust and society began to aspire to new ideas. This situation pushed toward the emergence of new values challenging the Church and the prevailing systems of government, and established the foundations of scientific research through the use of reason, supported by kings and the wealthy such as Francis I and Laurent De Médicis who founded schools, institutes, and intellectual associations. The development of printing (Gutenberg's invention around 1450 AD) helped spread these new ideas, paving the way for the launch of the humanist movement and the European Renaissance.",
+                ex5Q: "Write a short article about the manifestations of the new thought in the European Renaissance.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Analyse the manifestations of the new thought in the European Renaissance through four axes: the humanist movement (reviving Greek and Roman works, the critical method, man as the center of attention, its pioneers Erasmus and Leonardo da Vinci), the artistic Renaissance (precision and realism, reliance on Greek-Latin heritage, presenting man in his most beautiful image, the Mona Lisa), literature (Rabelais, Montaigne, Shakespeare, Cervantes, Molière), politics (Machiavelli and his book \"The Prince,\" John Locke and the social contract).",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Identifying the European Renaissance as a decisive turning point in human history.",
+                ex5A_plan_li2: "Development: I. The humanist movement; II. The artistic Renaissance; III. The literary Renaissance; IV. The political Renaissance.",
+                ex5A_plan_li3: "Conclusion: The European Renaissance as the beginning of the modern era.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The European Renaissance is considered a decisive turning point in human history, as it started from Italy during the 14th century and spread to the rest of Europe during the following two centuries, liberating the European mind from the Church's restrictions and establishing the foundations of modern thought. The manifestations of this new thought appeared in multiple fields: the humanist movement, art, literature, and politics.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_humanism: "I. The Humanist Movement",
+                ex5A_production_p_humanism: "The pioneers of the humanist movement were concerned with studying the humanities based on reviving ancient Greek and Roman works (Plato, Socrates, and others), relying in this on Arabic books translated in Andalusia and Sicily before their fall to the Christians. They did not content themselves with republishing them but subjected them to analysis and criticism, giving rise to the critical method based on freedom of discussion and thinking. Thus man became the center of all concerns, and among its most prominent pioneers are Erasmus of Rotterdam and Leonardo da Vinci.",
+                ex5A_production_h4_art: "II. The Artistic Renaissance",
+                ex5A_production_p_art: "It started from Italy during the 15th century and extended to the rest of Europe, constituting a decisive turning point in the history of the arts. Renaissance art was characterized by precision, realism, and modesty of \"decor,\" unlike the Baroque current, and relied on the Greek-Latin heritage, presented man in his most beautiful image, and applied mathematical rules and measurements. Among its most prominent pioneers is Leonardo da Vinci, who created the Mona Lisa (Joconde).",
+                ex5A_production_h4_literature: "III. The Literary Renaissance",
+                ex5A_production_p_literature: "Literary life witnessed vigorous activity, and the writers of this period made man their main subject, analyzing his emotions and contradictions. Among the most famous 16th-century writers: the Frenchmen Rabelais (author of \"Pantagruel\" and the Letter of Gargantua) and Montaigne (author of \"The Essays\"), and the Englishman William Shakespeare (author of \"Othello, Hamlet, The Merchant of Venice, Romeo and Juliet\"). In the 17th century, the Spaniard Cervantes (\"Don Quixote\") and the Frenchman Molière (\"The School for Husbands, The School for Wives, and The Miser\") emerged.",
+                ex5A_production_h4_politics: "IV. The Political Renaissance",
+                ex5A_production_p_politics: "Thinkers emerged who aimed through their writings to shake totalitarian systems based on historical studies, giving rise to modern political science. Among its most prominent pioneers in the 16th century is the Italian Nicolas Machiavelli, author of \"The Prince\" (Le Prince), in which he called for the separation of religion and politics and adopted the principle that \"the end justifies the means.\" In the 17th century, the Englishman John Locke emerged with his book \"On Civil Government,\" calling for basing authority on a \"social contract\" between the ruler and the ruled, thereby refuting the theory of \"divine right.\"",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus the European Renaissance announced the beginning of the modern era, reshaping European thought in its various fields and pushing Europe to the forefront of the global scene.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – La Renaissance européenne",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : la Renaissance, le mouvement humaniste, la méthode critique, l'imprimerie.",
+                ex1_def1_title: "La Renaissance :",
+                ex1_def1_subtitle: "Un mouvement intellectuel, artistique, littéraire et scientifique parti d'Italie au XIVe siècle et répandu en Europe au cours des deux siècles suivants, posant les fondements de la pensée moderne basée sur la raison, l'expérience et la critique. Il a fait de l'homme le centre de son attention, libéré l'esprit européen des restrictions de l'Église et ouvert la voie au début de l'époque moderne.",
+                ex1_def2_title: "Le mouvement humaniste :",
+                ex1_def2_subtitle: "Un mouvement intellectuel parti d'Italie au XIVe siècle et répandu dans le reste de l'Europe au cours des deux siècles suivants grâce à ses célèbres pionniers comme Érasme de Rotterdam, au développement de l'imprimerie et au soutien des riches marchands italiens. Ses pionniers se sont intéressés à l'étude des humanités en partant de la revival des œuvres grecques et romaines anciennes, et ont adopté la méthode critique basée sur la liberté de discussion et de réflexion. Il a fait de l'homme le centre de toutes les préoccupations.",
+                ex1_def3_title: "La méthode critique :",
+                ex1_def3_subtitle: "Une nouvelle approche méthodologique de traitement des questions issue du mouvement humaniste, reposant sur la liberté de discussion et de réflexion sur tous les principes, y compris la religion et la politique, et considérant que la vérité n'est pas absolue et ne peut être atteinte que par le dialogue. L'Église l'avait longtemps interdit jusqu'à cette date.",
+                ex1_def4_title: "L'imprimerie :",
+                ex1_def4_subtitle: "Une énorme révolution technique et cognitive provoquée par l'Allemand Johannes Gutenberg vers 1450 apr. J.-C. lorsqu'il a inventé une nouvelle méthode basée sur les caractères mobiles coulés dans le métal de plomb. Elle a contribué à diffuser la nouvelle pensée malgré les tentatives de l'Église et de l'autorité politique d'imposer la censure, car plus de 250 millions d'exemplaires de livres ont été imprimés en Europe au XVIe siècle.",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant l'évolution du nombre de livres imprimés en Europe.",
+                ex2_table_period: "Période",
+                ex2_table_books: "Nombre de livres imprimés (millions d'exemplaires)",
+                ex2_table_15th: "XVe siècle (1450-1500)",
+                ex2_table_16th: "XVIe siècle (1500-1600)",
+                ex2Q_source: "Source : données de la leçon sur le développement de l'imprimerie en Europe (estimations)",
+                ex2A_title: "Évolution de l'impression de livres en Europe (millions d'exemplaires)",
+                ex2A_source: "Source : données de la leçon sur le développement de l'imprimerie en Europe (estimations)",
+                ex2A_scale: "Échelle : 0–250 millions ; hauteur des colonnes proportionnelle à la valeur.",
+                ex2A_key_label: "Légende :",
+                ex3Q: "Observez la carte suivante représentant les centres de l'humanisme en Europe au XVIe siècle, et identifiez les plus importants de ces centres et comment le mouvement humaniste s'est répandu.",
+                ex3DocAlt: "Centres de l'humanisme en Europe (XVIe siècle)",
+                ex3AnswerImgAlt: "Modèle de réponse – Centres de l'humanisme en Europe",
+                ex3A: "La carte représente les centres de l'humanisme en Europe au XVIe siècle : Origine : Italie (Florence, Rome, Venise, Milan, Naples), où le mouvement humaniste a commencé au XIVe siècle. Centres de diffusion : Le mouvement s'est déplacé vers le reste de l'Europe aux XVe et XVIe siècles : France : Paris (Collège de France), Lyon. Angleterre : Londres, Oxford, Cambridge. Allemagne : villes du Rhin, et centres d'imprimerie (Mayence où Gutenberg a inventé l'imprimerie). Espagne : Séville, Salamanque. Pays-Bas : Anvers, Amsterdam (centres d'imprimerie et d'échange intellectuel). Suisse : Bâle, Genève (activité d'Érasme et mouvement de la Réforme). Facteurs favorisant la diffusion : 1. Le développement de l'imprimerie, qui a facilité la diffusion des livres et des ouvrages. 2. Le soutien des riches marchands et des rois (François Ier, Laurent De Médicis). 3. La fondation d'instituts, d'académies et d'associations intellectuelles. 4. Le déplacement des penseurs et des pionniers entre les pays européens. Résultat : Le mouvement humaniste est passé d'un phénomène italien à un phénomène européen global, et a réussi à établir une nouvelle pensée critique et scientifique qui a ouvert la voie au début de l'époque moderne.",
+                ex4Q: "Analysez les facteurs favorisant la transformation en Europe aux XIVe et XVe siècles en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Facteurs favorisant la transformation en Europe aux XIVe et XVe siècles :\n- Crise de la société européenne : Les Européens ont subi des malheurs et des catastrophes naturelles (guerres, famines, épidémies), en particulier la peste (Peste noire) en 1348 apr. J.-C. qui a tué un tiers de sa population. L'Église s'est engagée dans les conflits politiques et ses hommes se sont livrés au luxe et à l'accumulation de richesses, et elle a souffert de divisions et de multiples sectes, perdant la confiance des gens, de sorte que la société a commencé à aspirer à de nouvelles idées.\n- Besoin de la société d'une pensée scientifique : De nouvelles valeurs ont émergé, remettant en question l'Église et les systèmes de gouvernement en place, et ont posé les fondements de la recherche philosophique et scientifique par l'usage de la raison, soutenues par des rois, des hommes de religion et des riches comme François Ier et Laurent De Médicis, qui ont fondé des écoles, des instituts et des académies (Collège de France, Académie d'Alfonse) et des associations intellectuelles.\n- Développement de l'imprimerie : Le passage du cuir au papier, puis à l'impression avec des caractères mobiles inventés par Gutenberg vers 1450 apr. J.-C., constituant une énorme révolution technique et cognitive qui a aidé à diffuser la nouvelle pensée (250 millions d'exemplaires de livres au XVIe siècle).",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Plusieurs facteurs complémentaires étaient disponibles pour la transformation de la société européenne aux XIVe et XVe siècles. Les Européens ont vécu une crise profonde représentée par les guerres, les famines et les épidémies, en particulier la peste en 1348 apr. J.-C. qui a tué un tiers de la population, à un moment où l'Église était préoccupée par les conflits politiques, le luxe et l'accumulation de richesses au lieu d'accomplir ses devoirs religieux, de sorte qu'elle a perdu la confiance des gens et la société a commencé à aspirer à de nouvelles idées. Cette situation a poussé vers l'émergence de nouvelles valeurs remettant en question l'Église et les systèmes de gouvernement en place, et a posé les fondements de la recherche scientifique par l'usage de la raison, soutenue par des rois et des riches comme François Ier et Laurent De Médicis qui ont fondé des écoles, des instituts et des associations intellectuelles. Le développement de l'imprimerie (invention de Gutenberg vers 1450 apr. J.-C.) a aidé à diffuser ces nouvelles idées, ouvrant la voie au lancement du mouvement humaniste et de la Renaissance européenne.",
+                ex5Q: "Rédigez un court article sur les manifestations de la nouvelle pensée dans la Renaissance européenne.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Analysez les manifestations de la nouvelle pensée dans la Renaissance européenne à travers quatre axes : le mouvement humaniste (revival des œuvres grecques et romaines, la méthode critique, l'homme comme centre d'attention, ses pionniers Érasme et Léonard de Vinci), la Renaissance artistique (précision et réalisme, appui sur l'héritage gréco-latin, présentation de l'homme dans sa plus belle image, la Joconde), la littérature (Rabelais, Montaigne, Shakespeare, Cervantès, Molière), la politique (Machiavel et son livre « Le Prince », John Locke et le contrat social).",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Identifier la Renaissance européenne comme un tournant décisif dans l'histoire de l'humanité.",
+                ex5A_plan_li2: "Développement : I. Le mouvement humaniste ; II. La Renaissance artistique ; III. La Renaissance littéraire ; IV. La Renaissance politique.",
+                ex5A_plan_li3: "Conclusion : La Renaissance européenne comme début de l'époque moderne.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "La Renaissance européenne est considérée comme un tournant décisif dans l'histoire de l'humanité, car elle est partie d'Italie au XIVe siècle et s'est répandue dans le reste de l'Europe au cours des deux siècles suivants, libérant l'esprit européen des restrictions de l'Église et posant les fondements de la pensée moderne. Les manifestations de cette nouvelle pensée sont apparues dans de multiples domaines : le mouvement humaniste, l'art, la littérature et la politique.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_humanism: "I. Le mouvement humaniste",
+                ex5A_production_p_humanism: "Les pionniers du mouvement humaniste se sont intéressés à l'étude des humanités en partant de la revival des œuvres grecques et romaines anciennes (Platon, Socrate, et autres), en s'appuyant sur les livres arabes traduits en Andalousie et en Sicile avant leur chute aux mains des Chrétiens. Ils ne se sont pas contentés de les republier mais les ont soumis à l'analyse et à la critique, donnant naissance à la méthode critique basée sur la liberté de discussion et de réflexion. Ainsi l'homme est devenu le centre de toutes les préoccupations, et parmi ses pionniers les plus éminents figurent Érasme de Rotterdam et Léonard de Vinci.",
+                ex5A_production_h4_art: "II. La Renaissance artistique",
+                ex5A_production_p_art: "Elle est partie d'Italie au XVe siècle et s'est étendue au reste de l'Europe, constituant un tournant décisif dans l'histoire des arts. L'art de la Renaissance s'est caractérisé par la précision, le réalisme et la modestie du « décor », contrairement au courant baroque, et s'est appuyé sur l'héritage gréco-latin, a présenté l'homme dans sa plus belle image, et a appliqué les règles et mesures mathématiques. Parmi ses pionniers les plus éminents figure Léonard de Vinci, qui a créé la Joconde.",
+                ex5A_production_h4_literature: "III. La Renaissance littéraire",
+                ex5A_production_p_literature: "La vie littéraire a connu une activité intense, et les écrivains de cette période ont fait de l'homme leur sujet principal, analysant ses émotions et ses contradictions. Parmi les écrivains les plus célèbres du XVIe siècle : les Français Rabelais (auteur de « Pantagruel » et de la Lettre de Gargantua) et Montaigne (auteur des « Essais »), et l'Anglais William Shakespeare (auteur d'« Othello, Hamlet, Le Marchand de Venise, Roméo et Juliette »). Au XVIIe siècle, l'Espagnol Cervantès (« Don Quichotte ») et le Français Molière (« L'École des maris, L'École des femmes et L'Avare ») ont émergé.",
+                ex5A_production_h4_politics: "IV. La Renaissance politique",
+                ex5A_production_p_politics: "Des penseurs ont émergé, visant par leurs écrits à ébranler les systèmes totalitaires en s'appuyant sur des études historiques, donnant naissance à la science politique moderne. Parmi ses pionniers les plus éminents au XVIe siècle figure l'Italien Nicolas Machiavel, auteur du « Prince » (Le Prince), dans lequel il a appelé à la séparation de la religion et de la politique et a adopté le principe que « la fin justifie les moyens ». Au XVIIe siècle, l'Anglais John Locke a émergé avec son livre « Du gouvernement civil », appelant à fonder l'autorité sur un « contrat social » entre le gouvernant et les gouvernés, réfutant ainsi la théorie du « droit divin ».",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi la Renaissance européenne a annoncé le début de l'époque moderne, remodelant la pensée européenne dans ses divers domaines et poussant l'Europe au premier plan de la scène mondiale.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – النهضة الأوروبية",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: النهضة، الحركة الإنسانية، الأسلوب النقدي، الطباعة.",
+                ex1_def1_title: "النهضة:",
+                ex1_def1_subtitle: "حركة فكرية وفنية وأدبية وعلمية انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في أوروبا خلال القرنين الموالين، وأرست أسس الفكر الحديث القائم على العقل والتجربة والنقد. جعلت الإنسان محور اهتمامها، وحرّرت العقل الأوروبي من قيود الكنيسة، ومهّدت لانطلاق العصر الحديث.",
+                ex1_def2_title: "الحركة الإنسانية:",
+                ex1_def2_subtitle: "حركة فكرية انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في بقية أرجاء أوروبا خلال القرنين الموالين بفضل مشاهير روادها أمثال إيرازم دي روتردام وبفضل تطوّر وسائل الطباعة ومساندة التجار الأثرياء الإيطاليين. اهتمّ روّادها بدراسة الآداب الإنسانية انطلاقا من إحياء المؤلّفات الإغريقية والرومانية القديمة، واعتمدوا الأسلوب النقدي القائم على حرية المناقشة والتفكير. جعلت الإنسان محور كلّ الاهتمامات.",
+                ex1_def3_title: "الأسلوب النقدي:",
+                ex1_def3_subtitle: "أسلوب منهجي جديد في معالجة القضايا نشأ عن الحركة الإنسانية، يعتمد حرية المناقشة والتفكير في كافة المبادئ بما فيها الدين والسياسة، ويعتبر أن الحقيقة غير مطلقة ولا يمكن التوصل إليها إلا عن طريق الحوار. وهو أمر طالما حرمته الكنيسة حتى ذلك التاريخ.",
+                ex1_def4_title: "الطباعة:",
+                ex1_def4_subtitle: "ثورة تقنية ومعرفية هائلة أحدثها الألماني يوحنّا غوتنبرغ حوالي سنة 1450 م حين ابتكر طريقة جديدة تعتمد الحروف المنقولة المسكوبة في معدن الرصاص. ساهمت في نشر الفكر الجديد رغم محاولات الكنيسة والسلطة السياسية فرض الرقابة عليها، فقد طبع في أوروبا خلال القرن XVI م أكثر من 250 مليون نسخة كتاب.",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن تطور عدد الكتب المطبوعة في أوروبا.",
+                ex2_table_period: "الفترة",
+                ex2_table_books: "عدد الكتب المطبوعة (مليون نسخة)",
+                ex2_table_15th: "القرن XV (1450-1500)",
+                ex2_table_16th: "القرن XVI (1500-1600)",
+                ex2Q_source: "المصدر: معطيات الدرس حول تطوّر الطباعة في أوروبا (تقديرات)",
+                ex2A_title: "تطور طباعة الكتب في أوروبا (مليون نسخة)",
+                ex2A_source: "المصدر: معطيات الدرس حول تطوّر الطباعة في أوروبا (تقديرات)",
+                ex2A_scale: "المقياس: 0–250 مليون؛ ارتفاع الأعمدة يتناسب مع القيمة.",
+                ex2A_key_label: "المفتاح:",
+                ex3Q: "تأمل الخريطة التالية التي تمثل مراكز الأنسنة بأوروبا خلال القرن السادس عشر الميلادي، وبيّن أهم هذه المراكز وكيف انتشرت الحركة الإنسانية.",
+                ex3DocAlt: "مراكز الأنسنة بأوروبا (القرن السادس عشر الميلادي)",
+                ex3AnswerImgAlt: "نموذج الإجابة – مراكز الأنسنة بأوروبا",
+                ex3A: "تمثل الخريطة مراكز الأنسنة بأوروبا خلال القرن السادس عشر الميلادي: مركز الانطلاق: إيطاليا (فلورنسا، روما، البندقية، ميلانو، نابولي)، حيث انطلقت الحركة الإنسانية أثناء القرن XIV م. مراكز الانتشار: انتقلت الحركة إلى بقية أوروبا خلال القرنين XV وXVI: فرنسا: باريس (معهد فرنسا - Collège de France)، ليون. إنجلترا: لندن، أكسفورد، كامبريدج. ألمانيا: مدن الراين، ومراكز الطباعة (ماينز حيث اخترع غوتنبرغ الطباعة). إسبانيا: إشبيلية، سلامنكا. هولندا (الأراضي المنخفضة): أنفارس، أمستردام (مراكز طباعة وتبادل فكري). سويسرا: بازل، جنيف (نشاط إيرازم وحركة الإصلاح الديني). العوامل المساعدة على الانتشار: 1. تطوّر وسائل الطباعة التي سهّلت نشر الكتب والمؤلّفات. 2. مساندة التجار الأثرياء والملوك (فرانسوا الأول، لوران دي ميديسي). 3. تأسيس المعاهد والأكاديميات والجمعيات الفكرية. 4. تنقّل المفكّرين والروّاد بين البلدان الأوروبية. النتيجة: تحوّلت الحركة الإنسانية من ظاهرة إيطالية إلى ظاهرة أوروبية شاملة، وتمكّنت من تأسيس فكر جديد نقدي وعلمي مهّد لانطلاق العصر الحديث.",
+                ex4Q: "حلّل العوامل المساعدة على التحوّل في أوروبا خلال القرنين XIV وXV م في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "العوامل المساعدة على التحوّل في أوروبا خلال القرنين XIV وXV م:\n- أزمة المجتمع الأوروبي: توالت على الأوروبيين مصائب وكوارث طبيعية (حروب، مجاعات، أوبئة) وخاصة وباء الطاعون (الوباء الأسود) سنة 1348 م الذي أودى بحياة ثلث سكانها. وقد انشغلت الكنيسة بالصراعات السياسية وانغمس رجالها في البذخ وجمع الثروات، كما عانت من الانقسامات وتعدّد المذاهب، ففقدت ثقة الناس وبدأ المجتمع يتطلّع إلى أفكار جديدة.\n- حاجة المجتمع إلى تفكير علمي: بروز قيم جديدة تحدّي الكنيسة وأنظمة الحكم، وإرساء أسس البحث الفلسفي والعلمي عبر استعمال العقل، بدعم من ملوك ورجال دين وأثرياء أمثال فرانسوا الأول ولوران دي ميديسي، الذين أسّسوا مدارس ومعاهد وأكاديميات (معهد فرنسا، أكاديمية ألفونس) وجمعيات فكرية.\n- تطوّر وسائل الطباعة: الانتقال من الجلد إلى الورق ثم إلى الطباعة بالحروف المنقولة التي ابتكرها غوتنبرغ حوالي 1450 م، ممّا شكّل ثورة تقنية ومعرفية هائلة ساعدت على نشر الفكر الجديد (250 مليون نسخة كتاب في القرن XVI).",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "توافرت لتحوّل المجتمع الأوروبي خلال القرنين XIV وXV م عدة عوامل متكاملة. فقد عاش الأوروبيون أزمة عميقة تمثّلت في الحروب والمجاعات والأوبئة وخاصة وباء الطاعون سنة 1348 م الذي أودى بحياة ثلث السكان، في وقت انشغلت فيه الكنيسة بالصراعات السياسية والبذخ وجمع الثروات بدل القيام بواجباتها الدينية، ففقدت ثقة الناس وأصبح المجتمع يتطلّع إلى أفكار جديدة. وقد دفع هذا الوضع إلى بروز قيم جديدة تحدّي الكنيسة وأنظمة الحكم، وأرست أسس البحث العلمي عبر استعمال العقل، بدعم من ملوك وأثرياء أمثال فرانسوا الأول ولوران دي ميديسي الذين أسّسوا مدارس ومعاهد وجمعيات فكرية. وقد ساعد تطوّر وسائل الطباعة (اختراع غوتنبرغ حوالي 1450 م) على نشر هذه الأفكار الجديدة، ممّا مهّد لانطلاق الحركة الإنسانية والنهضة الأوروبية.",
+                ex5Q: "اكتب مقالاً قصيراً حول مظاهر الفكر الجديد في النهضة الأوروبية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "حلّل مظاهر الفكر الجديد في النهضة الأوروبية من خلال أربعة محاور: الحركة الإنسانية (إحياء المؤلّفات الإغريقية والرومانية، الأسلوب النقدي، الإنسان محور الاهتمام، روادها إيرازم وليوناردو دا فينشي)، النهضة الفنية (الدقّة والواقعيّة، الاعتماد على التراث الإغريقي-اللاتيني، تقديم الإنسان في أبهى صورة، لوحة الجوكوندة)، الأدب (رابلي، مونتاني، شكسبير، سرفانتس، موليير)، السياسة (ماكيافلّي وكتابه \"الأمير\"، جون لوك والعقد الاجتماعي).",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تحديد النهضة الأوروبية كتحوّل حاسم في تاريخ الإنسانية.",
+                ex5A_plan_li2: "تطوير: أولاً. الحركة الإنسانية؛ ثانياً. النهضة الفنية؛ ثالثاً. النهضة الأدبية؛ رابعاً. النهضة السياسية.",
+                ex5A_plan_li3: "خاتمة: النهضة الأوروبية إيذانًا ببداية العصر الحديث.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "تُعدّ النهضة الأوروبية تحوّلًا حاسمًا في تاريخ الإنسانية، إذ انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في بقية أرجاء أوروبا خلال القرنين الموالين، فحرّرت العقل الأوروبي من قيود الكنيسة وأرست أسس الفكر الحديث. وقد تجلّت مظاهر هذا الفكر الجديد في مجالات متعدّدة: الحركة الإنسانية، الفن، الأدب والسياسة.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_humanism: "أولاً. الحركة الإنسانية",
+                ex5A_production_p_humanism: "اهتمّ روّاد الحركة الإنسانية بدراسة الآداب الإنسانية انطلاقا من إحياء المؤلّفات الإغريقية والرومانية القديمة (أفلاطون، سقراط، مسيير وفي)، واعتمدوا في ذلك على الكتب العربية التي تُرجمت بالأندلس وصقلية قبل سقوطهما بأيدي المسيحيين. ولم يكتفوا بإعادة نشرها بل أخضعوها للتحليل والنقد، فنشأ الأسلوب النقدي القائم على حرية المناقشة والتفكير. وهكذا أصبح الإنسان محور كلّ الاهتمامات، ومن أبرز روّادها إيرازم دي روتردام وليوناردو دا فينشي.",
+                ex5A_production_h4_art: "ثانياً. النهضة الفنية",
+                ex5A_production_p_art: "انطلقت من إيطاليا أثناء القرن XV م وامتدّت إلى بقية أوروبا، وشكّلت منعرجا حاسما في تاريخ الفنون. اتّسم فنّ النهضة بالدقّة والواقعيّة وتواضع \"الدّيكور\" على خلاف التيّار الباروكي، واعتمد على التراث الإغريقي-اللاتيني، وقدّم الإنسان في أبهى صورة، وطبّق القواعد والمقاييس الرياضية. ومن أبرز روّاده ليوناردو دا فينشي الذي أبدع لوحة الجوكوندة (Joconde).",
+                ex5A_production_h4_literature: "ثالثاً. النهضة الأدبية",
+                ex5A_production_p_literature: "شهدت الحياة الأدبية نشاطا حثيثا، وجعل أدباء هذه الفترة من الإنسان موضوعهم الرئيسي، فعملوا على تحليل عواطفه وتناقضاته. ومن أشهر كتّاب القرن XVI: الفرنسيان رابلي (صاحب \"بنتغريال\" ورسالة فارقنتوا) ومونتاني (صاحب \"الرّسائل\")، والإنجليزي وليام سكسبير (صاحب \"عطيل، هملت، تاجر البندقية، روميو وجولييت\"). وفي القرن XVII برز الإسباني سرفانتس (\"دون كي شوت\") والفرنسي موليير (\"مدرسة الأزواج، مدرسة النّساء والبخيل\").",
+                ex5A_production_h4_politics: "رابعاً. النهضة السياسية",
+                ex5A_production_p_politics: "برز مفكّرون استهدفوا عبر كتاباتهم زعزعة الأنظمة الشمولية اعتمادا على دراسات التاريخ، فظهرت العلوم السياسية الحديثة. ومن أبرز روّادها في القرن XVI الإيطالي نيكولاس ماكيافلّي صاحب كتاب \"الأمير\" (Le Prince) الذي دعا فيه إلى الفصل بين الدين والسياسة واعتمد مبدأ \"الغاية تبرّر الوسيلة\". وفي القرن XVII برز الإنجليزي جون لوك بكتابه \"حول الحكم المدني\" الذي دعا إلى استناد السلطة على \"عقد اجتماعي\" بين الحاكم والمحكومين، ففنّد بذلك نظرية \"الحق الإلاهي\".",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا كانت النهضة الأوروبية إيذانًا ببداية العصر الحديث، إذ أعادت تشكيل الفكر الأوروبي في مختلف مجالاته ودفعت أوروبا في مقدّمة المشهد العالمي.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '20', value: 20, valueFormatted: '20' },
+                { label: '250', value: 250, valueFormatted: '250' }
+            ],
+            maxValue: 250,
+            ySteps: [250, 200, 150, 100, 50, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            }
+        };
+    </script>
+</body>
+</html>

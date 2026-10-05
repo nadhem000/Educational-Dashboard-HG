@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+        .lesson-quote {
+            background: var(--ED-General-color-bg-secondary);
+            border-right: 4px solid var(--ED-General-color-accent-default);
+            padding: 1rem 1.2rem;
+            margin: 1.2rem 0;
+            border-radius: 10px;
+            font-style: italic;
+            color: var(--ED-General-color-text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.9;
+        }
+        [dir="rtl"] .lesson-quote { border-right: 4px solid var(--ED-General-color-accent-default); border-left: none; }
+        [dir="ltr"] .lesson-quote { border-left: 4px solid var(--ED-General-color-accent-default); border-right: none; }
+        .lesson-quote-author {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--ED-General-color-accent-default);
+        }
+        .lesson-quote-source { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); }
+        .lesson-stat-highlight {
+            display: inline-block;
+            background: var(--ED-General-color-accent-light);
+            color: var(--ED-General-color-accent-default);
+            padding: 0.15rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: أوروبا والعالم المتوسطي في القرن السادس عشر</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">النهضة الأوروبية</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">عاشت أوروبا طيلة القرون الوسطى تحت سيطرة مؤسّسة الكنيسة الّتي هيمنت على مختلف جوانب الحياة، وأحبطت كلّ محاولات التّجديد باعتبارها مساسًا بالمسيحيّة، فعمّ الركود الفكري كافة أرجاء القارة. لكن الأوضاع بدأت تتغيّر منذ منتصف القرن الخامس عشر الميلادي، حين برزت شتّى بذور عقلية جديدة تؤمن بإمكانية التقدّم وبقدرة الإنسان على تحقيقه.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي العوامل المساعدة على التحوّل؟ وما هي مظاهر الفكر الجديد؟ وما هي أبرز التيّارات الفكريّة والفنيّة الناتجة عنه؟</p>
+            </div>
+
+            <!-- Part I : Factors -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">العوامل المساعدة على التحوّل</span>
+                </h2>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="motive1Title">أزمة المجتمع الأوروبي</span>
+                </h3>
+                <p data-i18n="motive1Text">توالت على الأوروبيين خلال القرنين XIV و XV م العديد من المصائب والكوارث الطبيعية، وتمثّلت بالخصوص في كثرة الحروب وما ترتّب عنها من مجاعات ساهمت بدورها في تفشّي أوبئة، وخاصة وباء الطاعون (الوباء الأسود) الّذي عمّ أرجاء أوروبا سنة 1348 م وأودى بحياة ⅓ سكّانها. فظلّت فكرة الموت حاضرة في أذهان الأوروبيين وتبعت في نفوسهم الحيرة.</p>
+                <p data-i18n="motive1Text2">وقد انشغلت الكنيسة المسيحية بالإنخراط في الصّراعات السّياسيّة وانغمس رجالها في حياة البذخ وجمع الثّروات بدلا من القيام بواجباتهم الدّينيّة تجاه رعاياهم. كما أصبحت المؤسّسة الدّينيّة تعاني من كثرة الإنقسامات وتعدّد المذاهب. واكتفت الكنيسة بدعوة المؤمنين إلى التّحلّي بالصّبر وتكثيف العبادات باعتبار أنّ تلك المصائب قدر محتوم لا يمكن مواجهته.</p>
+                <p data-i18n="motive1Text3">لكنّ هذه المواقف لم تعد ترضي بعض المفكّرين، بل وحتّى بعض رجال الدّين. وهكذا أصبح المجتمع الأوروبي يتطلّع إلى أفكار جديدة تحرّره من الجوّ الّذي يخبّط فيه.</p>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="motive2Title">حاجة المجتمع الأوروبي إلى تفكير علمي</span>
+                </h3>
+                <p data-i18n="motive2Text">برزت قيم جديدة تحدّدت الكنيسة وأنظمة الحكم السّائدة، حيث أرست أسس البحث الفلسفي والعلمي عبر استعمال العقل. وقد أبدع بعض الملوك ورجال الدّين والأثرياء الحاجة إلى هذا الفكر الجديد، ومن ضمن هؤلاء ملوك فرنسا (François 1er) (1494 – 1574) ورجل الأعمال الفلورنسي (إيطاليا) لوران دي ميديسي (Laurent De Médicis) (حكم فلورنسا بين 1469 و 1492).</p>
+                <p data-i18n="motive2Text2">وقد ساند هؤلاء قيام مدارس تلقّن العلوم الصّحيحة إلى جانب العلوم الدّينيّة، وأسّسوا معاهد وأكاديميات أبرزها معهد فرنسا (Collège de France) (باريس) وأكاديميّة ألفونس (في فلورنسا). وتكوّنت جمعيات تعتني بجمع المخطوطات وعقد الندوات وتبادل الآراء مثل جمعيّة الآداب واشهاره.</p>
+
+                <blockquote class="lesson-quote" data-i18n="francoisQuote">
+                    «ليكن في علم الجميع أنّ رغبتنا كانت ولا تزال دعم الآداب وضمان دراسات متينة لشبابنا. فنحن على يقين أنّ التّعليم الجيّد سيوفر لمملكتنا حاجتها من علماء الدّين ورجال القانون والموظّفين الأكفاء الذين يضحّون بمصالحهم الخاصّة لقيادة الصّالح العام...»
+                    <span class="lesson-quote-author" data-i18n="francoisQuoteAuthor">فرانسوا الأول وحركة النهضة بفرنسا</span>
+                </blockquote>
+
+                <p data-i18n="motive2Text3">وقام مثقّفو ذلك العصر بنقل تعاليم القدماء من الإغريق والرّومان، ومؤلّفات العرب والمسلمين إلى برامج التّدريس فوجد فيها الطّلّاب روحا قديمة في منطلقها لكنها جديدة ونوريّة في جوهرها، وهو ما أسّس لفلسفة فكر جديد نقدي ذو منهج علمي وهو ما انفكت الكنيسة تحرّمه. وممّا ساعد على نشره تطوّر وسائل الطّباعة.</p>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="motive3Title">تطوّر وسائل الطّباعة</span>
+                </h3>
+                <p data-i18n="motive3Text">بدأ الأوروبيون يتخلّون عن إستعمال الجلد للكتابة منذ القرن XII م لفائدة الورق الّذي إخترعه الصّينيون ونقله إليهم العرب. وطوّروا إستعمال الورق المصنوع من الخرق البالية – وهي أقلّ كلفة – ثمّ تخلّوا عن الكتابة باليد تدريجيّا بعد أن تمكّن الألماني يوحنّا غوتنبرغ (J. Gutenberg) من إبتكار طريقة جديدة للطباعة تعتمد الحروف المنقولة المسكوبة في معدن الرّصاص، وذلك حوالي سنة 1450 م.</p>
+                <p data-i18n="motive3Text2">ويعدّ ذلك ثورة تقنيّة ومعرفيّة هائلة. فقد طبع في أوروبا خلال القرن XVI م بحسب أكثر من <span class="lesson-stat-highlight">250 مليون نسخة كتاب</span>. وقد أدّى رواج هذه المؤلّفات، رغم محاولات الكنيسة والسّلطة السّياسيّة فرض الرّقابة عليها إلى نشر الفكر الجديد.</p>
+            </div>
+
+            <!-- Part II : New Thought -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">الفكر الجديد</span>
+                </h2>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="humanismTitle">الحركة الإنسانيّة</span>
+                </h3>
+                <p data-i18n="humanismIntro">إنطلقت هذه الحركة من إيطاليا أثناء القرن XIV م وانتشرت في بقية أرجاء أوروبا خلال القرنين الموالين بفضل مشاهير روادها أمثال إيرازم دي روتردام (Erasme de Rotterdam) وبفضل تطوّر وسائل الطّباعة ومساندة التّجار الأثرياء الإيطاليين.</p>
+                <p data-i18n="humanismText1">وقد إهتمّ هؤلاء الرّواد بدراسة الآداب الإنسانيّة إنطلاقا من إحياء المؤلّفات الإغريقيّة والرّومانيّة القديمة، حيث لم يضن القرن XV حتّى تمكّنوا من العثور وترجمة معظم نصوص الفلسفة القدامى أمثال أفلاطون وسقراط ومسيير وفي. واعتمدوا في ذلك على الكتب العربيّة الّتي ترجمت بالأندلس وصقلية قبل سقوطهما بأيدي المسيحيين.</p>
+                <p data-i18n="humanismText2">ولم يكتف روّاد الحركة بإعادة نشر هذه المؤلّفات بل أخضعوها للتّحليل من خلال محاولة التّعرّف على أصحابها والظّروف الّتي كتبت فيها وقارنوا بينها للتّثبّت من صحّتها والوقوف عند قيمتها الحقيقيّة. وهكذا نشأ أسلوب منهجي جديد في معالجة القضايا وهو الأسلوب النّقدي الّذي يعتمد حرّية المناقشة والتفكير في كافة المبادئ بما فيها الدّين والسّياسة، وهو أمر طالما حرمته الكنيسة حتّى ذلك التّاريخ.</p>
+                <p data-i18n="humanismText3">وقد قادهم هذا الأسلوب إلى الشّعور بأنّ الحقيقة غير مطلقة وأنّه لا مجال للتوصّل إليها إلاّ عن طريق الحوار. ومن هنا جاء الإيمان بأنّ التقدّم ممكن وبأنّ الإنسان قادر على تحقيقه على خلاف موقف الكنيسة الّذي يعتمد أحكاما ثابتة لا يجوز الخوض فيها. وهكذا أصبح الإنسان محور كلّ الإهتمامات في هذا التيّار الّذي سُمّي بالحركة الإنسانيّة.</p>
+
+                <blockquote class="lesson-quote" data-i18n="arabTranslationQuote">
+                    أورد تقرير اللجنة الإنسانية العربية لعام 2002 أن العالم العربي يترجم سنويا ما يقرب من <strong>330 كتاب</strong>، وهو خمس ما ترجمه اليونان، وأن الإجمالي التراكمي للكتب المترجمة منذ عصر المأمون (813 - 833 م) حتى الآن [أي خلال 1169 سنة] يبلغ <strong>100 ألف كتاب</strong>، وهو ما يوازي تقريبا ما ترجمه إسبانيا في عام واحد (ص ص 76-77).
+                </blockquote>
+
+                <p data-i18n="humanismText4">ويرى أصحاب هذا المذهب أنّ على الإنسان تنمية قدراته الذّهنيّة والجسمانيّة لتحقيق التقدّم المنشود. ومن ثمّ، أضحى التّهافت على العلم والمعرفة بمثابة المبارزة والبحث عن البطولة. وهو ما يفسّر الثّقافة الواسعة والمتنوّعة الّتي كان عليها مثقّفو تلك المرحلة أمثال الإيطالي ليوناردو دا فينشي (Leonardo De Vinci) (1452 – 1519) الّذي كان رسّاما ونحّاتا ومهندسا وعالم رياضيات وميكانيك وطبيعيات وكيمياء وجيولوجيا في ذات الوقت.</p>
+
+                <p data-i18n="humanismCurrentsIntro">ومدّت الحركة الإنسانية الطّريق أمام بروز تيّارات فكريّة أخرى مثل:</p>
+                <ul>
+                    <li data-i18n="classicalCurrent"><strong>التيّار الكلاسيكي:</strong> الّذي إنطلق من فرنسا والّذي يدعو إلى مواصلة الاعتماد على المصادر القديمة ويشدّد على ضرورة تهذيب سلوك الإنسان.</li>
+                    <li data-i18n="rationalistCurrent"><strong>التيّار العقلاني:</strong> ومن أعلامه الفيلسوف الفرنسي إيمانويل ديكارت (Emmanuel Descartes) صاحب كتاب "مقالة الطريقة" (Discours de la méthode) (1673) والّذي شدّد على أهميّة العقل في تفكير الإنسان.</li>
+                </ul>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="artisticRenaissanceTitle">النهضة الفنيّة</span>
+                </h3>
+                <p data-i18n="artisticRenaissanceText1">إنطلقت هذه الحركة أيضا من إيطاليا أثناء القرن XV م وامتدّت في القرن الخامس عشر إلى بقيّة أوروبا. وقد شكّلت منعرجا حاسما في تاريخ الفنون حيث أبدع روّادها أروع ما أنتجته البشريّة من فنون. ومن هؤلاء ليوناردو دا فينشي الّذي ترجم الفكر الجديد في لوحات ومنحوتات وإنجازات معماريّة خالدة، أبرزها لوحة الجوكوندة (Joconde) والّتي تعكس مقوّمات هذا التيّار الفنيّ الجديد وبالخصوص:</p>
+                <ul>
+                    <li data-i18n="artPrinciple1">الإعتماد على التّراث الإغريقي – اللاّتيني.</li>
+                    <li data-i18n="artPrinciple2">العمل على تقديم الإنسان في أبهى صورة.</li>
+                    <li data-i18n="artPrinciple3">تطبيق القواعد والمقاييس الرّياضيّة عند تخطيط وإنجاز أعمالهم الفنيّة.</li>
+                </ul>
+                <p data-i18n="artisticRenaissanceText2">وهكذا إتّسم فنّ النهضة بالدقّة والواقعيّة وتواضع "الدّيكور" على خلاف التيّار الباروكي الّذي ظهر خلال القرن XVII م وتميّز بميله إلى المواضيع الخياليّة وإفراطه في الزّركشة.</p>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="literatureTitle">في الأدب</span>
+                </h3>
+                <p data-i18n="literatureText1">شهدت الحياة الأدبية نشاطا حثيثا. وقد جعل أدباء هذه الفترة من الإنسان موضوعهم الرئيسي، فعملوا على تحليل عواطفه وتناقضاته وحاولوا إعانته على تنمية قدراته الذاتية.</p>
+                <p data-i18n="literatureText2">ومن أشهر كتّاب القرن XVI الفرنسيين: رايلي (Rabelais) (1494-1554) صاحب كتاب "بنتغريال" ومونتاني (Montaigne) صاحب كتاب "الرّسائل"، والروائي الإنجليزي الشهير وليام سكسبير (W. Shakespeare) (1533-1592) صاحب روائع: "عطيل، هملت، ريتشارد الثالث قلب الأسد، تاجر البندقية وروميو وجولييت".</p>
+
+                <blockquote class="lesson-quote" data-i18n="rabelaisQuote">
+                    «أريدك أن تحقق جيدًا اليونانيَّة والالتَّينِيَّة والعرَبِيَّة والكِدانِيَّة. عندما كُنتَ صبيًا في الخامسة والسادسة من عـمـرك كنـت بعـثـت فيك بعـض الميل للـفنـون الحرة كـالـهندسة والحـساب والموسـيقى، فتـابر على دراستها وواصـل دراسـة عـلـم الـفـلك، واحـفـظ عـن ظهـر قلـب النَّصوص الممتازة من القانون المدني. كما أرغب منك أن تكون شديد التطلُّع إلى ما في الطَّبيعة... ثمَّ كرَّر النَّظر بكلَ عناية في موْلُفات أطبَّاء الإغريق والعرب والرَّومان واكتـسب مـعـرفـة جيَّدة بـجـسم الإنسان بـالإكـثـار من عـمـلـيَّات التَّشـريح وهـكذا يجب أن أرى فيك بحـرا من العلم».
+                    <span class="lesson-quote-author" data-i18n="rabelaisQuoteAuthor">رابلي – رسالة فارقنتوا (Gargantua)</span>
+                </blockquote>
+
+                <p data-i18n="literatureText3">أمّا بالنسبة للقرن XVII، فقد برز بالخصوص الإسباني سرفانتس (Cervantes) صاحب كتاب "دون كي شوت" والفرنسي موليير (Molière) (1622-1673) صاحب الرّوائع: "مدرسة الأزواج، مدرسة النّساء والبخيل".</p>
+
+                <h3 class="sub-alpha-title">
+                    <span class="ordinal-number">4</span>.
+                    <span data-i18n="politicsTitle">في السّياسة</span>
+                </h3>
+                <p data-i18n="politicsText1">برز مفكّرون، إستهدفوا عبر كتاباتهم زعزعة الأنظمة الشّموليّة وذلك إعتمادا على دراسات التّاريخ. فظهرت بذلك العلوم السّياسيّة الحديثة. وكان من أبرز روّادها في القرن XVI الإيطالي نيكولاس ماكيافلّي (Nicolas Machiavelli) (1469-1527) صاحب كتاب "الأمير" Le Prince (1571) الّذي دعا فيه إلى ضرورة الفصل بين الدّين والسّياسة باعتبار أنّ الدّين يتصل بالجانب الرّوحي للإنسان ويسعى إلى رواج الأخلاق الحميدة، بينما السّياسة فتركّز في معالجتها للمواضيع الدّنيويّة على مبدأ "الغاية تبرّر الوسيلة" والّذي قد يدفع أحيانا إلى إرتكاب الخطايا، فلا يجوز بالتالي ربطها بالدّين والأخلاق.</p>
+
+                <blockquote class="lesson-quote" data-i18n="machiavelliQuote">
+                    «... لا يمكن لأمير أن يحترم دوما الفضائل الّتي نصّ عليها الدّين، وتجعل منه في نظر المجتمع إنسانا طيّبا لأنّه في غالب الأحيان، يجد نفسه مضطرا، لكي يدافع عن دولته، أن يتصرّف بكيفيّة تتناقض مع الشّرف، ولا تقبلها الإنسانيّة، ولا الدّين. وانطلاقا من هذا المبدأ، يتعيّن أن يبقى مهيّئا لتوجيه عمله في الاتّجاه الّذي تمليه عليه الظّروف. فعليه ألاّ يبتعد عن فعل الخير، كلّما كان الأمر ممكنا. أمّا إذا اقتضت الضّرورة، فلا يجب أن يتردّد في فعل الشّر...».
+                    <span class="lesson-quote-author" data-i18n="machiavelliQuoteAuthor">ماكيافل – «الأمير» (1513)</span>
+                </blockquote>
+
+                <p data-i18n="politicsText2">وخلال القرن XVII برز في هذا المجال الإنجليزي جون لوك (John Locke) (1632-1704) بكتابه "حول الحكم المدني" (1689) حين دعا إلى إستناد السّلطة على "عقد إجتماعي" بين الحاكم والمحكومين بإعتبار أنّ التّابع أحرار ومتساويين. وقد فنّد بذلك نظريّة "الحق الإلاهي" الّتي كانت سائدة في أوروبا آنذاك.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">شكلت النهضة الأوروبية تحوّلًا حاسمًا في تاريخ الإنسانية، إذ حرّرت العقل الأوروبي من قيود الكنيسة وأرست أسس الفكر الحديث القائم على العقل والتجربة والنقد، ومهّدت بذلك لانطلاق العصر الحديث.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defFrancois1">فرانسوا الأول (François 1er)</strong>: <span data-i18n="defFrancois1Desc">ملك فرنسا (1494-1574)، شجّع الحركة الإنسانية وأسّس معهد فرنسا (Collège de France) بباريس. آمن بأن التعليم الجيد يوفر للمملكة علماء الدين ورجال القانون والموظفين الأكفاء.</span></li>
+                        <li><strong class="key-person" data-i18n="defMedicis">لوران دي ميديسي (Laurent De Médicis)</strong>: <span data-i18n="defMedicisDesc">رجل أعمال فلورنسي (إيطاليا)، حكم فلورنسا بين 1469 و1492. من رعاة الفنون والآداب ودعم الفكر الجديد.</span></li>
+                        <li><strong class="key-person" data-i18n="defGutenberg">يوحنّا غوتنبرغ (J. Gutenberg)</strong>: <span data-i18n="defGutenbergDesc">ألماني ابتكر حوالي سنة 1450م طريقة جديدة للطباعة تعتمد الحروف المنقولة المسكوبة في معدن الرصاص، ممّا أحدث ثورة تقنية ومعرفية هائلة.</span></li>
+                        <li><strong class="key-person" data-i18n="defErasme">إيرازم دي روتردام (Erasme de Rotterdam)</strong>: <span data-i18n="defErasmeDesc">من مشاهير روّاد الحركة الإنسانية، ساهم في انتشارها في بقية أرجاء أوروبا.</span></li>
+                        <li><strong class="key-person" data-i18n="defVinci">ليوناردو دا فينشي (Leonardo De Vinci)</strong>: <span data-i18n="defVinciDesc">إيطالي (1452-1519)، كان رسّاما ونحّاتا ومهندسا وعالم رياضيات وميكانيك وطبيعيات وكيمياء وجيولوجيا في ذات الوقت. من أشهر أعماله لوحة الجوكوندة (Joconde).</span></li>
+                        <li><strong class="key-person" data-i18n="defDescartes">إيمانويل ديكارت (Emmanuel Descartes)</strong>: <span data-i18n="defDescartesDesc">فيلسوف فرنسي، صاحب كتاب "مقالة الطريقة" (Discours de la méthode) (1673)، شدّد على أهميّة العقل في تفكير الإنسان. من أعلام التيّار العقلاني.</span></li>
+                        <li><strong class="key-person" data-i18n="defRabelais">رابلي (Rabelais)</strong>: <span data-i18n="defRabelaisDesc">راهب فرنسي (1494-1554) أصبح طبيبا ثمّ درس القانون واللغات اليونانية واللاتينية والكتب المقدسة. اهتم في كتاباته بالإنسان وكيفية تحقيق سعادته. صاحب كتاب "بنتغريال" (Pantagruel) ورسالة فارقنتوا (Gargantua).</span></li>
+                        <li><strong class="key-person" data-i18n="defMontaigne">مونتاني (Montaigne)</strong>: <span data-i18n="defMontaigneDesc">كاتب فرنسي من القرن XVI، صاحب كتاب "الرّسائل" (Les Essais).</span></li>
+                        <li><strong class="key-person" data-i18n="defShakespeare">وليام سكسبير (W. Shakespeare)</strong>: <span data-i18n="defShakespeareDesc">روائي إنجليزي شهير (1533-1592)، صاحب روائع: "عطيل، هملت، ريتشارد الثالث قلب الأسد، تاجر البندقية وروميو وجولييت".</span></li>
+                        <li><strong class="key-person" data-i18n="defCervantes">سرفانتس (Cervantes)</strong>: <span data-i18n="defCervantesDesc">كاتب إسباني، صاحب كتاب "دون كي شوت" (Don Quichotte)، برز في القرن XVII.</span></li>
+                        <li><strong class="key-person" data-i18n="defMoliere">موليير (Molière)</strong>: <span data-i18n="defMoliereDesc">كاتب فرنسي (1622-1673)، صاحب روائع: "مدرسة الأزواج، مدرسة النّساء والبخيل".</span></li>
+                        <li><strong class="key-person" data-i18n="defMachiavelli">نيكولاس ماكيافلّي (Nicolas Machiavelli)</strong>: <span data-i18n="defMachiavelliDesc">كاتب ودبلوماسي إيطالي (1469-1527)، صاحب كتاب "الأمير" (Le Prince) (1571). دعا إلى الفصل بين الدين والسياسة واعتمد مبدأ "الغاية تبرّر الوسيلة". من روّاد العلوم السياسية الحديثة.</span></li>
+                        <li><strong class="key-person" data-i18n="defLocke">جون لوك (John Locke)</strong>: <span data-i18n="defLockeDesc">فيلسوف إنجليزي (1632-1704)، صاحب كتاب "حول الحكم المدني" (1689). دعا إلى استناد السلطة على "عقد اجتماعي" بين الحاكم والمحكومين، وفنّد نظرية "الحق الإلاهي".</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defItaly">إيطاليا</strong>: <span data-i18n="defItalyDesc">مهد الحركة الإنسانية والنهضة الفنية، انطلقت منها هذه الحركات أثناء القرن XIV وXV م قبل أن تنتشر في بقية أرجاء أوروبا.</span></li>
+                        <li><strong class="key-location" data-i18n="defFlorence">فلورنسا</strong>: <span data-i18n="defFlorenceDesc">مدينة إيطالية حكمها لوران دي ميديسي بين 1469 و1492، وكانت مركزا للفنون والآداب والفكر الجديد. أسّست بها أكاديمية ألفونس.</span></li>
+                        <li><strong class="key-location" data-i18n="defFrance">فرنسا</strong>: <span data-i18n="defFranceDesc">من الدول التي شجّعت الحركة الإنسانية، خاصة في عهد فرانسوا الأول الذي أسّس معهد فرنسا (Collège de France) بباريس. منها انطلق التيّار الكلاسيكي.</span></li>
+                        <li><strong class="key-location" data-i18n="defParis">باريس</strong>: <span data-i18n="defParisDesc">عاصمة فرنسا، بها أسّس فرانسوا الأول معهد فرنسا (Collège de France).</span></li>
+                        <li><strong class="key-location" data-i18n="defAndalusia2">الأندلس</strong>: <span data-i18n="defAndalusia2Desc">منطقة في شبه الجزيرة الإيبيرية، ترجمت فيها الكتب العربية إلى اللاتينية قبل سقوطها بأيدي المسيحيين، ممّا ساعد روّاد الحركة الإنسانية على الاطلاع على الفلسفة القديمة.</span></li>
+                        <li><strong class="key-location" data-i18n="defSicily">صقلية</strong>: <span data-i18n="defSicilyDesc">جزيرة في البحر المتوسط، ترجمت فيها الكتب العربية إلى اللاتينية قبل سقوطها بأيدي المسيحيين.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defBlackDeath">الوباء الأسود (الطاعون) – 1348م</strong>: <span data-i18n="defBlackDeathDesc">وباء الطاعون الذي عمّ أرجاء أوروبا سنة 1348م وأودى بحياة ثلث سكّانها، ممّا ترك فكرة الموت حاضرة في أذهان الأوروبيين.</span></li>
+                        <li><strong class="key-event" data-i18n="defPrintingInvention">اختراع الطباعة – حوالي 1450م</strong>: <span data-i18n="defPrintingInventionDesc">ابتكر الألماني يوحنّا غوتنبرغ طريقة جديدة للطباعة تعتمد الحروف المنقولة المسكوبة في معدن الرصاص، ممّا جعل ذلك ثورة تقنية ومعرفية هائلة. طبع في أوروبا خلال القرن XVI أكثر من 250 مليون نسخة كتاب.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-treaties">
+                    <h3 data-i18n="defTreaty">📜 مؤسسات ومعاهد</h3>
+                    <ul>
+                        <li><strong class="key-treaty" data-i18n="defCollegeFrance">معهد فرنسا (Collège de France)</strong>: <span data-i18n="defCollegeFranceDesc">معهد أسّسه فرانسوا الأول بباريس لتلقين العلوم الصحيحة إلى جانب العلوم الدينية.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defAcademieAlfonse">أكاديمية ألفونس</strong>: <span data-i18n="defAcademieAlfonseDesc">أكاديمية أسّست في فلورنسا بإيطاليا لرعاية الآداب والعلوم.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defSocietyLetters">جمعية الآداب</strong>: <span data-i18n="defSocietyLettersDesc">جمعيات تكوّنت تعتني بجمع المخطوطات وعقد الندوات وتبادل الآراء.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">XII م</strong>: <span data-i18n="defYear12Desc">بداية تخلّي الأوروبيين عن استعمال الجلد للكتابة لفائدة الورق الذي اخترعه الصينيون ونقله إليهم العرب.</span></li>
+                        <li><strong class="key-year">XIV م</strong>: <span data-i18n="defYear14Desc">انطلاق الحركة الإنسانية من إيطاليا، وبداية المصائب والكوارث الطبيعية (حروب، مجاعات، أوبئة).</span></li>
+                        <li><strong class="key-year">1348</strong>: <span data-i18n="defYear1348Desc">وباء الطاعون (الوباء الأسود) الذي عمّ أرجاء أوروبا وأودى بحياة ثلث سكّانها.</span></li>
+                        <li><strong class="key-year">1450</strong>: <span data-i18n="defYear1450Desc">ابتكار يوحنّا غوتنبرغ طريقة جديدة للطباعة بالحروف المنقولة المسكوبة في معدن الرصاص.</span></li>
+                        <li><strong class="key-year">XV م</strong>: <span data-i18n="defYear15Desc">انتشار الحركة الإنسانية في بقية أرجاء أوروبا، وانطلاق النهضة الفنية من إيطاليا. ترجمة معظم نصوص الفلسفة القديمة (أفلاطون، سقراط، مسيير وفي).</span></li>
+                        <li><strong class="key-year">XVI م</strong>: <span data-i18n="defYear16Desc">طبع في أوروبا أكثر من 250 مليون نسخة كتاب. بروز كتّاب القرن XVI: رابلي، مونتاني، شكسبير، ماكيافلّي.</span></li>
+                        <li><strong class="key-year">1494-1574</strong>: <span data-i18n="defYearFrancoisDesc">عهد فرانسوا الأول ملك فرنسا، الراعي الكبير للحركة الإنسانية.</span></li>
+                        <li><strong class="key-year">1469-1492</strong>: <span data-i18n="defYearLaurentDesc">فترة حكم لوران دي ميديسي لفلورنسا.</span></li>
+                        <li><strong class="key-year">1673</strong>: <span data-i18n="defYear1673Desc">صدور كتاب "مقالة الطريقة" (Discours de la méthode) للفيلسوف الفرنسي إيمانويل ديكارت.</span></li>
+                        <li><strong class="key-year">1571</strong>: <span data-i18n="defYear1571Desc">صدور كتاب "الأمير" (Le Prince) لنيكولاس ماكيافلّي.</span></li>
+                        <li><strong class="key-year">1689</strong>: <span data-i18n="defYear1689Desc">صدور كتاب "حول الحكم المدني" لجون لوك.</span></li>
+                        <li><strong class="key-year">XVII م</strong>: <span data-i18n="defYear17Desc">ظهور التيّار الباروكي في الفن، وبروز سرفانتس وموليير في الأدب، وجون لوك في السياسة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defRenaissance">النهضة</strong>: <span data-i18n="defRenaissanceDesc">حركة فكرية وفنية وأدبية وعلمية انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في أوروبا خلال القرنين الموالين، وأرست أسس الفكر الحديث القائم على العقل والتجربة والنقد.</span></li>
+                        <li><strong class="key-other" data-i18n="defHumanism">الحركة الإنسانية</strong>: <span data-i18n="defHumanismDesc">حركة فكرية انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في بقية أرجاء أوروبا خلال القرنين الموالين. اهتمّ روّادها بدراسة الآداب الإنسانية انطلاقا من إحياء المؤلّفات الإغريقية والرومانية القديمة، واعتمدوا الأسلوب النقدي القائم على حرية المناقشة والتفكير. جعلت الإنسان محور كلّ الاهتمامات.</span></li>
+                        <li><strong class="key-other" data-i18n="defCriticalMethod">الأسلوب النقدي</strong>: <span data-i18n="defCriticalMethodDesc">أسلوب منهجي جديد في معالجة القضايا نشأ عن الحركة الإنسانية، يعتمد حرية المناقشة والتفكير في كافة المبادئ بما فيها الدين والسياسة، ويعتبر أن الحقيقة غير مطلقة ولا يمكن التوصل إليها إلا عن طريق الحوار.</span></li>
+                        <li><strong class="key-other" data-i18n="defClassicalCurrent">التيّار الكلاسيكي</strong>: <span data-i18n="defClassicalCurrentDesc">تيّار فكري انطلق من فرنسا، يدعو إلى مواصلة الاعتماد على المصادر القديمة ويشدّد على ضرورة تهذيب سلوك الإنسان.</span></li>
+                        <li><strong class="key-other" data-i18n="defRationalistCurrent">التيّار العقلاني</strong>: <span data-i18n="defRationalistCurrentDesc">تيّار فكري من أعلامه الفيلسوف الفرنسي إيمانويل ديكارت، شدّد على أهميّة العقل في تفكير الإنسان.</span></li>
+                        <li><strong class="key-other" data-i18n="defBaroque">التيّار الباروكي</strong>: <span data-i18n="defBaroqueDesc">تيّار فني ظهر خلال القرن XVII م، تميّز بميله إلى المواضيع الخياليّة وإفراطه في الزّركشة، على خلاف فنّ النهضة المتّسم بالدقّة والواقعيّة وتواضع "الدّيكور".</span></li>
+                        <li><strong class="key-other" data-i18n="defModernPoliticalScience">العلوم السياسية الحديثة</strong>: <span data-i18n="defModernPoliticalScienceDesc">علوم ظهرت بفضل مفكّرين استهدفوا عبر كتاباتهم زعزعة الأنظمة الشمولية اعتمادا على دراسات التاريخ، ومن أبرز روّادها نيكولاس ماكيافلّي وجون لوك.</span></li>
+                        <li><strong class="key-other" data-i18n="defSocialContract">العقد الاجتماعي</strong>: <span data-i18n="defSocialContractDesc">مبدأ دعا إليه جون لوك، ويقوم على استناد السلطة على اتفاق بين الحاكم والمحكومين باعتبار أن التابع أحرار ومتساويين.</span></li>
+                        <li><strong class="key-other" data-i18n="defDivineRight">الحق الإلاهي</strong>: <span data-i18n="defDivineRightDesc">نظرية كانت سائدة في أوروبا آنذاك، تفنّدها نظرية "العقد الاجتماعي" لجون لوك.</span></li>
+                        <li><strong class="key-other" data-i18n="defEndsJustifyMeans">مبدأ "الغاية تبرّر الوسيلة"</strong>: <span data-i18n="defEndsJustifyMeansDesc">مبدأ اعتمده نيكولاس ماكيافلّي في كتابه "الأمير"، وقد يدفع أحيانا إلى ارتكاب الخطايا، ممّا يجعل الفصل بين الدين والسياسة ضروريا.</span></li>
+                        <li><strong class="key-other" data-i18n="defJoconde">لوحة الجوكوندة (Joconde)</strong>: <span data-i18n="defJocondeDesc">من أشهر أعمال ليوناردو دا فينشي، تعكس مقوّمات التيّار الفنيّ الجديد للنهضة: الاعتماد على التراث الإغريقي-اللاتيني، تقديم الإنسان في أبهى صورة، وتطبيق القواعد والمقاييس الرياضية.</span></li>
+                        <li><strong class="key-other" data-i18n="defPantagruel">بنتغريال (Pantagruel)</strong>: <span data-i18n="defPantagruelDesc">كتاب لرابلي الفرنسي، من أشهر مؤلّفات القرن XVI الأدبية التي جعلت من الإنسان موضوعها الرئيسي.</span></li>
+                        <li><strong class="key-other" data-i18n="defGargantua">رسالة فارقنتوا (Gargantua)</strong>: <span data-i18n="defGargantuaDesc">رسالة لرابلي، تدعو إلى التعلّم الشامل للغات (اليونانية، اللاتينية، العربية، العبرية) والفنون الحرة (الهندسة، الحساب، الموسيقى، الفلك) والعلوم (القانون، الطب، التشريح).</span></li>
+                        <li><strong class="key-other" data-i18n="defEssais">كتاب "الرّسائل" (Les Essais)</strong>: <span data-i18n="defEssaisDesc">كتاب لمونتاني الفرنسي، من أشهر مؤلّفات القرن XVI الأدبية.</span></li>
+                        <li><strong class="key-other" data-i18n="defDonQuixote">دون كي شوت (Don Quichotte)</strong>: <span data-i18n="defDonQuixoteDesc">كتاب لسرفانتس الإسباني، من أشهر مؤلّفات القرن XVII الأدبية.</span></li>
+                        <li><strong class="key-other" data-i18n="defPrince">كتاب "الأمير" (Le Prince)</strong>: <span data-i18n="defPrinceDesc">كتاب لنيكولاس ماكيافلّي (1571)، دعا فيه إلى ضرورة الفصل بين الدين والسياسة واعتمد مبدأ "الغاية تبرّر الوسيلة".</span></li>
+                        <li><strong class="key-other" data-i18n="defDiscoursMethode">مقالة الطريقة (Discours de la méthode)</strong>: <span data-i18n="defDiscoursMethodeDesc">كتاب لإيمانويل ديكارت (1673)، شدّد فيه على أهميّة العقل في تفكير الإنسان.</span></li>
+                        <li><strong class="key-other" data-i18n="defCivilGovernment">حول الحكم المدني</strong>: <span data-i18n="defCivilGovernmentDesc">كتاب لجون لوك (1689)، دعا فيه إلى استناد السلطة على "عقد اجتماعي" بين الحاكم والمحكومين.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: شكلت النهضة الأوروبية تحوّلًا حاسمًا في تاريخ الإنسانية، إذ حرّرت العقل الأوروبي من قيود الكنيسة وأرست أسس الفكر الحديث القائم على العقل والتجربة والنقد، ومهّدت بذلك لانطلاق العصر الحديث.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson2/printing_workshop.jpg" alt="ورشة طباعة (القرن الخامس عشر الميلادي)" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">ورشة طباعة (القرن الخامس عشر الميلادي)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson2/humanism_centers_map.jpg" alt="مراكز الأنسنة بأوروبا (القرن السادس عشر الميلادي)" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">مراكز الأنسنة بأوروبا (القرن السادس عشر الميلادي)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson2/leonardo_da_vinci.jpg" alt="ليوناردو دا فينشي" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">ليوناردو دا فينشي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson2/joconde.jpg" alt="لوحة الجوكوندة" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">لوحة الجوكوندة (Joconde)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson2/rabelais_portrait.jpg" alt="رابلي (1554 – 1494)" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">رابلي (1494 – 1554)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/history/unit1/lesson2/art_radiation_map.jpg" alt="مناطق الإشعاع الفني" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">مناطق الإشعاع الفني</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y3sec_secEco_his_exercisess_mod1_lesson2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                moduleName: "History / Unit 1: Europe and the Mediterranean World in the 16th Century",
+                lessonTitleSample: "The European Renaissance",
+                sectionIntro: "Introduction",
+                introText: "Throughout the Middle Ages, Europe lived under the control of the Church institution, which dominated various aspects of life and thwarted all attempts at renewal, considering them an infringement on Christianity, so intellectual stagnation spread across all parts of the continent. But conditions began to change from the mid-15th century, when various seeds of a new mentality believing in the possibility of progress and man's ability to achieve it emerged.",
+                problematiqueText: "What are the factors facilitating the transformation? What are the manifestations of the new thought? And what are the most prominent intellectual and artistic currents resulting from it?",
+                sectionPart1: "Factors Facilitating the Transformation",
+                motive1Title: "Crisis of European Society",
+                motive1Text: "During the 14th and 15th centuries, Europeans suffered many calamities and natural disasters, particularly frequent wars and the resulting famines that in turn contributed to the spread of epidemics, especially the plague (Black Death) which swept across Europe in 1348 AD and killed one-third of its population. The idea of death remained present in the minds of Europeans and left perplexity in their souls.",
+                motive1Text2: "The Christian Church became preoccupied with involvement in political conflicts, and its men indulged in a life of luxury and wealth accumulation instead of fulfilling their religious duties toward their flocks. The religious institution also suffered from numerous divisions and multiple sects. The Church contented itself with calling believers to exercise patience and intensify worship, considering that these calamities were an inevitable fate that could not be confronted.",
+                motive1Text3: "But these positions no longer satisfied some thinkers, and even some men of religion. Thus European society began to aspire to new ideas that would liberate it from the atmosphere in which it was floundering.",
+                motive2Title: "European Society's Need for Scientific Thinking",
+                motive2Text: "New values emerged that challenged the Church and the prevailing systems of government, establishing the foundations of philosophical and scientific research through the use of reason. Some kings, men of religion, and the wealthy demonstrated the need for this new thought, among them the King of France (François 1er) (1494 – 1574) and the Florentine businessman (Italy) Laurent De Médicis (who ruled Florence between 1469 and 1492).",
+                motive2Text2: "These supported the establishment of schools teaching the exact sciences alongside religious sciences, and founded institutes and academies, most notably the Collège de France (Paris) and the Academy of Alfonse (in Florence). Associations were formed concerned with collecting manuscripts, holding seminars, and exchanging opinions, such as the Society of Letters.",
+                francoisQuote: "\"Let it be known to all that our desire has been and remains to support the arts and ensure solid studies for our youth. We are certain that good education will provide our kingdom with its need of religious scholars, men of law, and competent officials who sacrifice their private interests to lead the public good...\"",
+                francoisQuoteAuthor: "Francis I and the Renaissance Movement in France",
+                motive2Text3: "The intellectuals of that era transferred the teachings of the ancients from the Greeks and Romans, and the works of Arabs and Muslims, into teaching programs, in which students found a spirit ancient in its origin but new and enlightening in its essence, which established the philosophy of a new critical thought with a scientific method that the Church had never ceased to prohibit. The development of printing helped spread it.",
+                motive3Title: "Development of Printing",
+                motive3Text: "Europeans began to abandon the use of leather for writing from the 12th century in favor of paper, which the Chinese invented and the Arabs transmitted to them. They developed the use of paper made from worn rags — which was less costly — then gradually abandoned handwriting after the German Johannes Gutenberg (J. Gutenberg) managed to invent a new printing method based on movable type cast in lead metal, around 1450 AD.",
+                motive3Text2: "This is considered a tremendous technical and cognitive revolution. More than 250 million book copies were printed in Europe during the 16th century. The spread of these works, despite the Church's and political authority's attempts to impose censorship on them, led to the dissemination of the new thought.",
+                sectionPart2: "The New Thought",
+                humanismTitle: "The Humanist Movement",
+                humanismIntro: "This movement started from Italy during the 14th century and spread to the rest of Europe during the following two centuries thanks to its famous pioneers such as Erasmus of Rotterdam, the development of printing, and the support of wealthy Italian merchants.",
+                humanismText1: "These pioneers were concerned with studying the humanities based on reviving ancient Greek and Roman works, and the 15th century did not pass before they managed to find and translate most of the texts of ancient philosophers such as Plato, Socrates, and others. They relied in this on Arabic books that were translated in Andalusia and Sicily before their fall to the Christians.",
+                humanismText2: "The pioneers of the movement did not content themselves with republishing these works but subjected them to analysis by trying to identify their authors and the circumstances in which they were written, and compared them to verify their authenticity and determine their true value. Thus a new methodological approach to dealing with issues emerged, namely the critical method, which relies on freedom of discussion and thinking about all principles, including religion and politics, something the Church had long prohibited until that time.",
+                humanismText3: "This approach led them to feel that truth is not absolute and that it can only be reached through dialogue. Hence came the belief that progress is possible and that man is capable of achieving it, unlike the Church's position which relies on fixed judgments that may not be questioned. Thus man became the center of all concerns in this current, which was called the humanist movement.",
+                arabTranslationQuote: "The 2002 report of the Arab Human Development Committee stated that the Arab world translates approximately 330 books annually, which is one-fifth of what Greece translates, and that the cumulative total of translated books since the era of Al-Ma'mun (813-833 AD) until now [i.e., over 1169 years] amounts to 100,000 books, which is approximately equivalent to what Spain translates in one year (pp. 76-77).",
+                humanismText4: "The adherents of this doctrine believe that man must develop his mental and physical abilities to achieve the desired progress. Thus, the rush for science and knowledge became like fencing and seeking heroism. This explains the broad and diverse culture of the intellectuals of that stage, such as the Italian Leonardo De Vinci (1452 – 1519), who was a painter, sculptor, engineer, mathematician, mechanic, physicist, chemist, and geologist at the same time.",
+                humanismCurrentsIntro: "The humanist movement paved the way for the emergence of other intellectual currents such as:",
+                classicalCurrent: "<strong>The Classical Current:</strong> Which started from France and calls for continuing to rely on ancient sources and emphasizes the need to refine human behavior.",
+                rationalistCurrent: "<strong>The Rationalist Current:</strong> Among its figures is the French philosopher Emmanuel Descartes, author of \"Discourse on the Method\" (Discours de la méthode) (1673), who emphasized the importance of reason in human thinking.",
+                artisticRenaissanceTitle: "The Artistic Renaissance",
+                artisticRenaissanceText1: "This movement also started from Italy during the 15th century and extended in the 15th century to the rest of Europe. It constituted a decisive turning point in the history of the arts, as its pioneers produced the most magnificent artistic creations of humanity. Among them is Leonardo da Vinci, who translated the new thought into paintings, sculptures, and immortal architectural achievements, most notably the Mona Lisa (Joconde), which reflects the components of this new artistic current, particularly:",
+                artPrinciple1: "Reliance on the Greek-Latin heritage.",
+                artPrinciple2: "Working to present man in his most beautiful image.",
+                artPrinciple3: "Applying mathematical rules and measurements when planning and executing their artistic works.",
+                artisticRenaissanceText2: "Thus Renaissance art was characterized by precision, realism, and modesty of \"decor,\" unlike the Baroque current that appeared during the 17th century and was characterized by its tendency toward imaginary subjects and excessive ornamentation.",
+                literatureTitle: "In Literature",
+                literatureText1: "Literary life witnessed vigorous activity. The writers of this period made man their main subject, analyzing his emotions and contradictions and trying to help him develop his own capabilities.",
+                literatureText2: "Among the most famous French writers of the 16th century: Rabelais (1494-1554), author of \"Pantagruel,\" and Montaigne, author of \"The Essays,\" and the famous English novelist William Shakespeare (W. Shakespeare) (1533-1592), author of masterpieces: \"Othello, Hamlet, Richard III the Lionheart, The Merchant of Venice, and Romeo and Juliet.\"",
+                rabelaisQuote: "\"I want you to master Greek, Latin, Arabic, and Hebrew well. When you were a boy of five or six, you were given some inclination toward the liberal arts such as geometry, arithmetic, and music; continue their study and pursue the study of astronomy, and memorize by heart the excellent texts of civil law. I also desire that you be strongly aspiring to what is in nature... Then review with all care the works of Greek, Arab, and Roman physicians and acquire a good knowledge of the human body by performing many dissections, and thus I should see in you a sea of knowledge.\"",
+                rabelaisQuoteAuthor: "Rabelais – Letter of Gargantua (Gargantua)",
+                literatureText3: "As for the 17th century, the Spaniard Cervantes, author of \"Don Quixote,\" and the Frenchman Molière (1622-1673), author of masterpieces: \"The School for Husbands, The School for Wives, and The Miser,\" particularly emerged.",
+                politicsTitle: "In Politics",
+                politicsText1: "Thinkers emerged who aimed through their writings to shake totalitarian systems based on historical studies. Thus modern political science appeared. Among its most prominent pioneers in the 16th century was the Italian Nicolas Machiavelli (1469-1527), author of \"The Prince\" (Le Prince) (1571), in which he called for the necessity of separating religion and politics, considering that religion relates to the spiritual aspect of man and seeks the spread of good morals, while politics, in dealing with worldly matters, focuses on the principle that \"the end justifies the means,\" which may sometimes lead to committing sins, and therefore should not be linked to religion and morals.",
+                machiavelliQuote: "\"... A prince cannot always respect the virtues prescribed by religion, which make him appear in the eyes of society as a good man, because he often finds himself compelled, in order to defend his state, to act in a manner that contradicts honor and is unacceptable to humanity and religion. Based on this principle, he must remain ready to direct his action in the direction that circumstances dictate. He should not deviate from doing good whenever it is possible. But if necessity requires it, he must not hesitate to do evil...\"",
+                machiavelliQuoteAuthor: "Machiavelli – \"The Prince\" (1513)",
+                politicsText2: "During the 17th century, the Englishman John Locke (1632-1704) emerged in this field with his book \"On Civil Government\" (1689), in which he called for basing authority on a \"social contract\" between the ruler and the ruled, considering that the subjects are free and equal. He thereby refuted the theory of \"divine right\" that prevailed in Europe at that time.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The European Renaissance constituted a decisive turning point in human history, liberating the European mind from the Church's restrictions and establishing the foundations of modern thought based on reason, experience, and criticism, thus paving the way for the beginning of the modern era.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defTreaty: "📜 Institutions & Institutes",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other Terms",
+                defFrancois1: "Francis I (François 1er)",
+                defFrancois1Desc: "King of France (1494-1574), who encouraged the humanist movement and founded the Collège de France in Paris. He believed that good education provides the kingdom with religious scholars, men of law, and competent officials.",
+                defMedicis: "Laurent De Médicis",
+                defMedicisDesc: "Florentine (Italian) businessman who ruled Florence between 1469 and 1492. A patron of arts and literature who supported the new thought.",
+                defGutenberg: "Johannes Gutenberg (J. Gutenberg)",
+                defGutenbergDesc: "A German who invented around 1450 AD a new printing method based on movable type cast in lead metal, causing a tremendous technical and cognitive revolution.",
+                defErasme: "Erasmus of Rotterdam (Erasme de Rotterdam)",
+                defErasmeDesc: "One of the famous pioneers of the humanist movement, who contributed to its spread throughout the rest of Europe.",
+                defVinci: "Leonardo da Vinci (Leonardo De Vinci)",
+                defVinciDesc: "Italian (1452-1519), who was a painter, sculptor, engineer, mathematician, mechanic, physicist, chemist, and geologist at the same time. Among his most famous works is the Mona Lisa (Joconde).",
+                defDescartes: "Emmanuel Descartes",
+                defDescartesDesc: "French philosopher, author of \"Discourse on the Method\" (Discours de la méthode) (1673), who emphasized the importance of reason in human thinking. One of the figures of the rationalist current.",
+                defRabelais: "Rabelais",
+                defRabelaisDesc: "French monk (1494-1554) who became a physician, then studied law, Greek, Latin, and the Holy Scriptures. He was concerned in his writings with man and how to achieve his happiness. Author of \"Pantagruel\" and the Letter of Gargantua.",
+                defMontaigne: "Montaigne",
+                defMontaigneDesc: "French writer of the 16th century, author of \"The Essays\" (Les Essais).",
+                defShakespeare: "William Shakespeare (W. Shakespeare)",
+                defShakespeareDesc: "Famous English novelist (1533-1592), author of masterpieces: \"Othello, Hamlet, Richard III the Lionheart, The Merchant of Venice, and Romeo and Juliet.\"",
+                defCervantes: "Cervantes",
+                defCervantesDesc: "Spanish writer, author of \"Don Quixote\" (Don Quichotte), who emerged in the 17th century.",
+                defMoliere: "Molière",
+                defMoliereDesc: "French writer (1622-1673), author of masterpieces: \"The School for Husbands, The School for Wives, and The Miser.\"",
+                defMachiavelli: "Nicolas Machiavelli",
+                defMachiavelliDesc: "Italian writer and diplomat (1469-1527), author of \"The Prince\" (Le Prince) (1571). He called for the separation of religion and politics and adopted the principle that \"the end justifies the means.\" One of the pioneers of modern political science.",
+                defLocke: "John Locke",
+                defLockeDesc: "English philosopher (1632-1704), author of \"On Civil Government\" (1689). He called for basing authority on a \"social contract\" between the ruler and the ruled, and refuted the theory of \"divine right.\"",
+                defItaly: "Italy",
+                defItalyDesc: "Cradle of the humanist movement and the artistic Renaissance, from which these movements started during the 14th and 15th centuries before spreading to the rest of Europe.",
+                defFlorence: "Florence",
+                defFlorenceDesc: "Italian city ruled by Laurent De Médicis between 1469 and 1492, and a center of arts, literature, and new thought. The Academy of Alfonse was founded there.",
+                defFrance: "France",
+                defFranceDesc: "One of the countries that encouraged the humanist movement, especially during the reign of Francis I, who founded the Collège de France in Paris. The classical current started from it.",
+                defParis: "Paris",
+                defParisDesc: "Capital of France, where Francis I founded the Collège de France.",
+                defAndalusia2: "Andalusia",
+                defAndalusia2Desc: "Region in the Iberian Peninsula, where Arabic books were translated into Latin before its fall to the Christians, helping the pioneers of the humanist movement to access ancient philosophy.",
+                defSicily: "Sicily",
+                defSicilyDesc: "Island in the Mediterranean, where Arabic books were translated into Latin before its fall to the Christians.",
+                defBlackDeath: "The Black Death (Plague) – 1348 AD",
+                defBlackDeathDesc: "The plague epidemic that swept across Europe in 1348 AD and killed one-third of its population, leaving the idea of death present in the minds of Europeans.",
+                defPrintingInvention: "Invention of Printing – around 1450 AD",
+                defPrintingInventionDesc: "The German Johannes Gutenberg invented a new printing method based on movable type cast in lead metal, constituting a tremendous technical and cognitive revolution. More than 250 million book copies were printed in Europe during the 16th century.",
+                defCollegeFrance: "Collège de France",
+                defCollegeFranceDesc: "An institute founded by Francis I in Paris to teach the exact sciences alongside religious sciences.",
+                defAcademieAlfonse: "Academy of Alfonse",
+                defAcademieAlfonseDesc: "An academy founded in Florence, Italy, to patronize arts and sciences.",
+                defSocietyLetters: "Society of Letters",
+                defSocietyLettersDesc: "Associations formed to collect manuscripts, hold seminars, and exchange opinions.",
+                defYear12Desc: "Beginning of Europeans abandoning the use of leather for writing in favor of paper, which the Chinese invented and the Arabs transmitted to them.",
+                defYear14Desc: "Start of the humanist movement from Italy, and beginning of calamities and natural disasters (wars, famines, epidemics).",
+                defYear1348Desc: "The plague epidemic (Black Death) that swept across Europe and killed one-third of its population.",
+                defYear1450Desc: "Johannes Gutenberg's invention of a new printing method using movable type cast in lead metal.",
+                defYear15Desc: "Spread of the humanist movement throughout the rest of Europe, and start of the artistic Renaissance from Italy. Translation of most ancient philosophy texts (Plato, Socrates, and others).",
+                defYear16Desc: "More than 250 million book copies printed in Europe. Emergence of 16th-century writers: Rabelais, Montaigne, Shakespeare, Machiavelli.",
+                defYearFrancoisDesc: "Reign of Francis I, King of France, the great patron of the humanist movement.",
+                defYearLaurentDesc: "Period of Laurent De Médicis's rule of Florence.",
+                defYear1673Desc: "Publication of \"Discourse on the Method\" (Discours de la méthode) by the French philosopher Emmanuel Descartes.",
+                defYear1571Desc: "Publication of \"The Prince\" (Le Prince) by Nicolas Machiavelli.",
+                defYear1689Desc: "Publication of \"On Civil Government\" by John Locke.",
+                defYear17Desc: "Emergence of the Baroque current in art, and the rise of Cervantes and Molière in literature, and John Locke in politics.",
+                defRenaissance: "The Renaissance",
+                defRenaissanceDesc: "An intellectual, artistic, literary, and scientific movement that started from Italy during the 14th century and spread in Europe during the following two centuries, establishing the foundations of modern thought based on reason, experience, and criticism.",
+                defHumanism: "The Humanist Movement",
+                defHumanismDesc: "An intellectual movement that started from Italy during the 14th century and spread to the rest of Europe during the following two centuries. Its pioneers were concerned with studying the humanities based on reviving ancient Greek and Roman works, and adopted the critical method based on freedom of discussion and thinking. It made man the center of all concerns.",
+                defCriticalMethod: "The Critical Method",
+                defCriticalMethodDesc: "A new methodological approach to dealing with issues that emerged from the humanist movement, relying on freedom of discussion and thinking about all principles, including religion and politics, and considering that truth is not absolute and can only be reached through dialogue.",
+                defClassicalCurrent: "The Classical Current",
+                defClassicalCurrentDesc: "An intellectual current that started from France, calling for continuing to rely on ancient sources and emphasizing the need to refine human behavior.",
+                defRationalistCurrent: "The Rationalist Current",
+                defRationalistCurrentDesc: "An intellectual current among whose figures is the French philosopher Emmanuel Descartes, who emphasized the importance of reason in human thinking.",
+                defBaroque: "The Baroque Current",
+                defBaroqueDesc: "An artistic current that appeared during the 17th century, characterized by its tendency toward imaginary subjects and excessive ornamentation, unlike Renaissance art, which was characterized by precision, realism, and modesty of \"decor.\"",
+                defModernPoliticalScience: "Modern Political Science",
+                defModernPoliticalScienceDesc: "Sciences that emerged thanks to thinkers who aimed through their writings to shake totalitarian systems based on historical studies. Among its most prominent pioneers are Nicolas Machiavelli and John Locke.",
+                defSocialContract: "The Social Contract",
+                defSocialContractDesc: "A principle called for by John Locke, based on basing authority on an agreement between the ruler and the ruled, considering that subjects are free and equal.",
+                defDivineRight: "Divine Right",
+                defDivineRightDesc: "A theory that prevailed in Europe at that time, refuted by John Locke's theory of the \"social contract.\"",
+                defEndsJustifyMeans: "The Principle \"The End Justifies the Means\"",
+                defEndsJustifyMeansDesc: "A principle adopted by Nicolas Machiavelli in his book \"The Prince,\" which may sometimes lead to committing sins, making the separation of religion and politics necessary.",
+                defJoconde: "The Mona Lisa (Joconde)",
+                defJocondeDesc: "One of the most famous works of Leonardo da Vinci, reflecting the components of the new artistic current of the Renaissance: reliance on the Greek-Latin heritage, presenting man in his most beautiful image, and applying mathematical rules and measurements.",
+                defPantagruel: "Pantagruel",
+                defPantagruelDesc: "A book by the Frenchman Rabelais, one of the most famous 16th-century literary works that made man their main subject.",
+                defGargantua: "Letter of Gargantua (Gargantua)",
+                defGargantuaDesc: "A letter by Rabelais, calling for comprehensive learning of languages (Greek, Latin, Arabic, Hebrew) and liberal arts (geometry, arithmetic, music, astronomy) and sciences (law, medicine, anatomy).",
+                defEssais: "\"The Essays\" (Les Essais)",
+                defEssaisDesc: "A book by the Frenchman Montaigne, one of the most famous 16th-century literary works.",
+                defDonQuixote: "Don Quixote (Don Quichotte)",
+                defDonQuixoteDesc: "A book by the Spaniard Cervantes, one of the most famous 17th-century literary works.",
+                defPrince: "\"The Prince\" (Le Prince)",
+                defPrinceDesc: "A book by Nicolas Machiavelli (1571), in which he called for the necessity of separating religion and politics and adopted the principle that \"the end justifies the means.\"",
+                defDiscoursMethode: "Discourse on the Method (Discours de la méthode)",
+                defDiscoursMethodeDesc: "A book by Emmanuel Descartes (1673), in which he emphasized the importance of reason in human thinking.",
+                defCivilGovernment: "On Civil Government",
+                defCivilGovernmentDesc: "A book by John Locke (1689), in which he called for basing authority on a \"social contract\" between the ruler and the ruled.",
+                summaryText: "Key takeaway: The European Renaissance constituted a decisive turning point in human history, liberating the European mind from the Church's restrictions and establishing the foundations of modern thought based on reason, experience, and criticism, thus paving the way for the beginning of the modern era.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Printing workshop (15th century AD)",
+                galleryAlt2: "Humanism centers in Europe (16th century AD)",
+                galleryAlt3: "Leonardo da Vinci",
+                galleryAlt4: "The Mona Lisa (Joconde)",
+                galleryAlt5: "Rabelais (1494-1554)",
+                galleryAlt6: "Artistic radiation areas",
+                galleryCap1: "Printing workshop (15th century AD)",
+                galleryCap2: "Humanism centers in Europe (16th century AD)",
+                galleryCap3: "Leonardo da Vinci",
+                galleryCap4: "The Mona Lisa (Joconde)",
+                galleryCap5: "Rabelais (1494-1554)",
+                galleryCap6: "Artistic radiation areas"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                moduleName: "Histoire / Unité 1 : L'Europe et le monde méditerranéen au XVIe siècle",
+                lessonTitleSample: "La Renaissance européenne",
+                sectionIntro: "Introduction",
+                introText: "Pendant tout le Moyen Âge, l'Europe a vécu sous le contrôle de l'institution ecclésiastique qui dominait les différents aspects de la vie et a contrecarré toutes les tentatives de renouveau, les considérant comme une atteinte au christianisme, de sorte que la stagnation intellectuelle a envahi toutes les régions du continent. Mais la situation a commencé à changer depuis le milieu du XVe siècle, lorsque divers germes d'une nouvelle mentalité croyant à la possibilité du progrès et à la capacité de l'homme à le réaliser ont émergé.",
+                problematiqueText: "Quels sont les facteurs favorisant la transformation ? Quelles sont les manifestations de la nouvelle pensée ? Et quels sont les courants intellectuels et artistiques les plus importants qui en ont résulté ?",
+                sectionPart1: "Facteurs favorisant la transformation",
+                motive1Title: "Crise de la société européenne",
+                motive1Text: "Au cours des XIVe et XVe siècles, les Européens ont subi de nombreux malheurs et catastrophes naturelles, notamment de fréquentes guerres et les famines qui en ont résulté, lesquelles ont à leur tour contribué à la propagation d'épidémies, en particulier la peste (Peste noire) qui a ravagé l'Europe en 1348 apr. J.-C. et a tué un tiers de sa population. L'idée de la mort est restée présente dans les esprits des Européens et a laissé la perplexité dans leurs âmes.",
+                motive1Text2: "L'Église chrétienne s'est engagée dans les conflits politiques, et ses hommes se sont livrés à une vie de luxe et d'accumulation de richesses au lieu d'accomplir leurs devoirs religieux envers leurs fidèles. L'institution religieuse a également souffert de nombreuses divisions et de multiples sectes. L'Église s'est contentée d'appeler les croyants à faire preuve de patience et à intensifier les actes d'adoration, considérant que ces malheurs étaient un destin inévitable auquel on ne pouvait faire face.",
+                motive1Text3: "Mais ces positions ne satisfaisaient plus certains penseurs, et même certains hommes de religion. Ainsi la société européenne a commencé à aspirer à de nouvelles idées qui la libéreraient de l'atmosphère dans laquelle elle pataugeait.",
+                motive2Title: "Besoin de la société européenne d'une pensée scientifique",
+                motive2Text: "De nouvelles valeurs ont émergé, remettant en question l'Église et les systèmes de gouvernement en place, posant les fondements de la recherche philosophique et scientifique par l'usage de la raison. Certains rois, hommes de religion et riches ont manifesté le besoin de cette nouvelle pensée, parmi eux le roi de France (François 1er) (1494 – 1574) et l'homme d'affaires florentin (Italie) Laurent De Médicis (qui a gouverné Florence entre 1469 et 1492).",
+                motive2Text2: "Ceux-ci ont soutenu la création d'écoles enseignant les sciences exactes aux côtés des sciences religieuses, et ont fondé des instituts et des académies, notamment le Collège de France (Paris) et l'Académie d'Alfonse (à Florence). Des associations se sont formées pour collectionner les manuscrits, tenir des séminaires et échanger des opinions, comme la Société des Lettres.",
+                francoisQuote: "« Qu'il soit connu de tous que notre désir a été et reste de soutenir les arts et d'assurer des études solides à notre jeunesse. Nous sommes certains qu'une bonne éducation fournira à notre royaume ce dont il a besoin en savants religieux, hommes de loi et fonctionnaires compétents qui sacrifient leurs intérêts privés pour conduire le bien public... »",
+                francoisQuoteAuthor: "François Ier et le mouvement de la Renaissance en France",
+                motive2Text3: "Les intellectuels de cette époque ont transféré les enseignements des anciens, Grecs et Romains, et les œuvres des Arabes et des Musulmans dans les programmes d'enseignement, où les étudiants ont trouvé un esprit ancien dans son origine mais nouveau et éclairant dans son essence, ce qui a établi la philosophie d'une nouvelle pensée critique dotée d'une méthode scientifique que l'Église n'a cessé d'interdire. Le développement de l'imprimerie a contribué à sa diffusion.",
+                motive3Title: "Développement des moyens d'impression",
+                motive3Text: "Les Européens ont commencé à abandonner l'utilisation du cuir pour l'écriture à partir du XIIe siècle au profit du papier, inventé par les Chinois et transmis aux Européens par les Arabes. Ils ont développé l'utilisation du papier fabriqué à partir de chiffons usés — moins coûteux — puis ont progressivement abandonné l'écriture manuscrite après que l'Allemand Johannes Gutenberg (J. Gutenberg) a réussi à inventer une nouvelle méthode d'impression basée sur les caractères mobiles coulés dans le métal de plomb, vers 1450 apr. J.-C.",
+                motive3Text2: "Cela est considéré comme une révolution technique et cognitive énorme. Plus de 250 millions d'exemplaires de livres ont été imprimés en Europe au cours du XVIe siècle. La diffusion de ces ouvrages, malgré les tentatives de l'Église et de l'autorité politique d'imposer la censure, a conduit à la diffusion de la nouvelle pensée.",
+                sectionPart2: "La nouvelle pensée",
+                humanismTitle: "Le mouvement humaniste",
+                humanismIntro: "Ce mouvement est parti d'Italie au cours du XIVe siècle et s'est répandu dans le reste de l'Europe au cours des deux siècles suivants grâce à ses célèbres pionniers comme Érasme de Rotterdam, au développement de l'imprimerie et au soutien des riches marchands italiens.",
+                humanismText1: "Ces pionniers se sont intéressés à l'étude des humanités en partant de la revival des œuvres grecques et romaines anciennes, et le XVe siècle ne s'est pas écoulé avant qu'ils ne parviennent à trouver et traduire la plupart des textes des philosophes anciens comme Platon, Socrate, et d'autres. Ils se sont appuyés pour cela sur les livres arabes qui ont été traduits en Andalousie et en Sicile avant leur chute aux mains des Chrétiens.",
+                humanismText2: "Les pionniers du mouvement ne se sont pas contentés de republier ces ouvrages mais les ont soumis à l'analyse en essayant d'identifier leurs auteurs et les circonstances dans lesquelles ils ont été écrits, et les ont comparés pour vérifier leur authenticité et déterminer leur véritable valeur. Ainsi est née une nouvelle approche méthodologique de traitement des questions, à savoir la méthode critique, qui repose sur la liberté de discussion et de réflexion sur tous les principes, y compris la religion et la politique, ce que l'Église avait longtemps interdit jusqu'à cette date.",
+                humanismText3: "Cette approche les a amenés à sentir que la vérité n'est pas absolue et qu'on ne peut y parvenir que par le dialogue. De là est venue la croyance que le progrès est possible et que l'homme est capable de le réaliser, contrairement à la position de l'Église qui repose sur des jugements fixes qui ne peuvent être contestés. Ainsi l'homme est devenu le centre de toutes les préoccupations dans ce courant, appelé mouvement humaniste.",
+                arabTranslationQuote: "Le rapport de 2002 du Comité arabe du développement humain a indiqué que le monde arabe traduit environ 330 livres par an, soit un cinquième de ce que traduit la Grèce, et que le total cumulé des livres traduits depuis l'époque d'Al-Ma'mun (813-833 apr. J.-C.) jusqu'à maintenant [soit sur 1169 ans] s'élève à 100 000 livres, ce qui équivaut approximativement à ce que l'Espagne traduit en une année (pp. 76-77).",
+                humanismText4: "Les adeptes de cette doctrine estiment que l'homme doit développer ses capacités mentales et physiques pour réaliser le progrès souhaité. Ainsi, la ruée vers la science et la connaissance est devenue comme l'escrime et la recherche de l'héroïsme. Cela explique la culture large et diversifiée des intellectuels de cette étape, comme l'Italien Leonardo De Vinci (1452 – 1519), qui était peintre, sculpteur, ingénieur, mathématicien, mécanicien, physicien, chimiste et géologue en même temps.",
+                humanismCurrentsIntro: "Le mouvement humaniste a ouvert la voie à l'émergence d'autres courants intellectuels tels que :",
+                classicalCurrent: "<strong>Le courant classique :</strong> Parti de France, il appelle à continuer de s'appuyer sur les sources anciennes et souligne la nécessité de raffiner le comportement humain.",
+                rationalistCurrent: "<strong>Le courant rationaliste :</strong> Parmi ses figures, le philosophe français Emmanuel Descartes, auteur du « Discours de la méthode » (1673), qui a souligné l'importance de la raison dans la pensée humaine.",
+                artisticRenaissanceTitle: "La Renaissance artistique",
+                artisticRenaissanceText1: "Ce mouvement est également parti d'Italie au cours du XVe siècle et s'est étendu au XVe siècle au reste de l'Europe. Il a constitué un tournant décisif dans l'histoire des arts, ses pionniers ayant produit les plus magnifiques créations artistiques de l'humanité. Parmi eux, Léonard de Vinci, qui a traduit la nouvelle pensée en peintures, sculptures et réalisations architecturales immortelles, notamment la Joconde, qui reflète les composantes de ce nouveau courant artistique, en particulier :",
+                artPrinciple1: "L'appui sur l'héritage gréco-latin.",
+                artPrinciple2: "Le travail pour présenter l'homme dans sa plus belle image.",
+                artPrinciple3: "L'application des règles et mesures mathématiques lors de la planification et de l'exécution de leurs œuvres artistiques.",
+                artisticRenaissanceText2: "Ainsi l'art de la Renaissance s'est caractérisé par la précision, le réalisme et la modestie du « décor », contrairement au courant baroque apparu au XVIIe siècle et caractérisé par sa tendance aux sujets imaginaires et son ornementation excessive.",
+                literatureTitle: "En littérature",
+                literatureText1: "La vie littéraire a connu une activité intense. Les écrivains de cette période ont fait de l'homme leur sujet principal, analysant ses émotions et ses contradictions et essayant de l'aider à développer ses propres capacités.",
+                literatureText2: "Parmi les écrivains français les plus célèbres du XVIe siècle : Rabelais (1494-1554), auteur de « Pantagruel », et Montaigne, auteur des « Essais », et le célèbre romancier anglais William Shakespeare (W. Shakespeare) (1533-1592), auteur des chefs-d'œuvre : « Othello, Hamlet, Richard III Cœur de Lion, Le Marchand de Venise et Roméo et Juliette ».",
+                rabelaisQuote: "« Je veux que tu maîtrises bien le grec, le latin, l'arabe et l'hébreu. Quand tu étais un garçon de cinq ou six ans, on t'a donné quelque inclination pour les arts libéraux comme la géométrie, l'arithmétique et la musique ; continue leur étude et poursuis l'étude de l'astronomie, et mémorise par cœur les excellents textes du droit civil. Je désire aussi que tu sois fortement aspirant à ce qui est dans la nature... Puis revois avec tout soin les œuvres des médecins grecs, arabes et romains et acquiers une bonne connaissance du corps humain en pratiquant de nombreuses dissections, et ainsi je devrais voir en toi une mer de science. »",
+                rabelaisQuoteAuthor: "Rabelais – Lettre de Gargantua",
+                literatureText3: "Quant au XVIIe siècle, l'Espagnol Cervantès, auteur de « Don Quichotte », et le Français Molière (1622-1673), auteur des chefs-d'œuvre : « L'École des maris, L'École des femmes et L'Avare », ont particulièrement émergé.",
+                politicsTitle: "En politique",
+                politicsText1: "Des penseurs ont émergé, visant par leurs écrits à ébranler les systèmes totalitaires en s'appuyant sur des études historiques. Ainsi est apparue la science politique moderne. Parmi ses pionniers les plus éminents au XVIe siècle, l'Italien Nicolas Machiavel (1469-1527), auteur du « Prince » (Le Prince) (1571), dans lequel il a appelé à la nécessité de séparer la religion et la politique, considérant que la religion se rapporte à l'aspect spirituel de l'homme et cherche la diffusion des bonnes mœurs, tandis que la politique, dans le traitement des affaires mondaines, se concentre sur le principe que « la fin justifie les moyens », ce qui peut parfois conduire à commettre des péchés, et ne doit donc pas être liée à la religion et à la morale.",
+                machiavelliQuote: "« ... Un prince ne peut pas toujours respecter les vertus prescrites par la religion, qui le font apparaître aux yeux de la société comme un homme bon, car il se trouve souvent contraint, pour défendre son État, d'agir d'une manière qui contredit l'honneur et qui est inacceptable pour l'humanité et la religion. Partant de ce principe, il doit rester prêt à diriger son action dans la direction que les circonstances lui dictent. Il ne doit pas s'écarter de faire le bien chaque fois que cela est possible. Mais si la nécessité l'exige, il ne doit pas hésiter à faire le mal... »",
+                machiavelliQuoteAuthor: "Machiavel – « Le Prince » (1513)",
+                politicsText2: "Au cours du XVIIe siècle, l'Anglais John Locke (1632-1704) a émergé dans ce domaine avec son livre « Du gouvernement civil » (1689), dans lequel il a appelé à fonder l'autorité sur un « contrat social » entre le gouvernant et les gouvernés, considérant que les sujets sont libres et égaux. Il a ainsi réfuté la théorie du « droit divin » qui prévalait en Europe à cette époque.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La Renaissance européenne a constitué un tournant décisif dans l'histoire de l'humanité, libérant l'esprit européen des restrictions de l'Église et posant les fondements de la pensée moderne basée sur la raison, l'expérience et la critique, ouvrant ainsi la voie au début de l'époque moderne.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defTreaty: "📜 Institutions et instituts",
+                defYears: "📅 Années et périodes",
+                defOthers: "📌 Autres termes",
+                defFrancois1: "François Ier (François 1er)",
+                defFrancois1Desc: "Roi de France (1494-1574), qui a encouragé le mouvement humaniste et fondé le Collège de France à Paris. Il croyait qu'une bonne éducation fournit au royaume des savants religieux, des hommes de loi et des fonctionnaires compétents.",
+                defMedicis: "Laurent De Médicis",
+                defMedicisDesc: "Homme d'affaires florentin (italien) qui a gouverné Florence entre 1469 et 1492. Un mécène des arts et des lettres qui a soutenu la nouvelle pensée.",
+                defGutenberg: "Johannes Gutenberg (J. Gutenberg)",
+                defGutenbergDesc: "Allemand qui a inventé vers 1450 apr. J.-C. une nouvelle méthode d'impression basée sur les caractères mobiles coulés dans le métal de plomb, provoquant une énorme révolution technique et cognitive.",
+                defErasme: "Érasme de Rotterdam (Erasme de Rotterdam)",
+                defErasmeDesc: "L'un des célèbres pionniers du mouvement humaniste, qui a contribué à sa diffusion dans le reste de l'Europe.",
+                defVinci: "Léonard de Vinci (Leonardo De Vinci)",
+                defVinciDesc: "Italien (1452-1519), qui était peintre, sculpteur, ingénieur, mathématicien, mécanicien, physicien, chimiste et géologue en même temps. Parmi ses œuvres les plus célèbres figure la Joconde.",
+                defDescartes: "Emmanuel Descartes",
+                defDescartesDesc: "Philosophe français, auteur du « Discours de la méthode » (1673), qui a souligné l'importance de la raison dans la pensée humaine. L'une des figures du courant rationaliste.",
+                defRabelais: "Rabelais",
+                defRabelaisDesc: "Moine français (1494-1554) devenu médecin, puis a étudié le droit, le grec, le latin et les Saintes Écritures. Il s'est intéressé dans ses écrits à l'homme et à la manière de réaliser son bonheur. Auteur de « Pantagruel » et de la Lettre de Gargantua.",
+                defMontaigne: "Montaigne",
+                defMontaigneDesc: "Écrivain français du XVIe siècle, auteur des « Essais » (Les Essais).",
+                defShakespeare: "William Shakespeare (W. Shakespeare)",
+                defShakespeareDesc: "Célèbre romancier anglais (1533-1592), auteur des chefs-d'œuvre : « Othello, Hamlet, Richard III Cœur de Lion, Le Marchand de Venise et Roméo et Juliette ».",
+                defCervantes: "Cervantès",
+                defCervantesDesc: "Écrivain espagnol, auteur de « Don Quichotte », qui a émergé au XVIIe siècle.",
+                defMoliere: "Molière",
+                defMoliereDesc: "Écrivain français (1622-1673), auteur des chefs-d'œuvre : « L'École des maris, L'École des femmes et L'Avare ».",
+                defMachiavelli: "Nicolas Machiavel",
+                defMachiavelliDesc: "Écrivain et diplomate italien (1469-1527), auteur du « Prince » (Le Prince) (1571). Il a appelé à la séparation de la religion et de la politique et a adopté le principe que « la fin justifie les moyens ». L'un des pionniers de la science politique moderne.",
+                defLocke: "John Locke",
+                defLockeDesc: "Philosophe anglais (1632-1704), auteur de « Du gouvernement civil » (1689). Il a appelé à fonder l'autorité sur un « contrat social » entre le gouvernant et les gouvernés, et a réfuté la théorie du « droit divin ».",
+                defItaly: "Italie",
+                defItalyDesc: "Berceau du mouvement humaniste et de la Renaissance artistique, d'où ces mouvements sont partis au cours des XIVe et XVe siècles avant de se répandre dans le reste de l'Europe.",
+                defFlorence: "Florence",
+                defFlorenceDesc: "Ville italienne gouvernée par Laurent De Médicis entre 1469 et 1492, et centre des arts, des lettres et de la nouvelle pensée. L'Académie d'Alfonse y a été fondée.",
+                defFrance: "France",
+                defFranceDesc: "L'un des pays qui ont encouragé le mouvement humaniste, notamment sous le règne de François Ier, qui a fondé le Collège de France à Paris. Le courant classique en est parti.",
+                defParis: "Paris",
+                defParisDesc: "Capitale de la France, où François Ier a fondé le Collège de France.",
+                defAndalusia2: "Andalousie",
+                defAndalusia2Desc: "Région de la péninsule ibérique, où les livres arabes ont été traduits en latin avant sa chute aux mains des Chrétiens, aidant les pionniers du mouvement humaniste à accéder à la philosophie ancienne.",
+                defSicily: "Sicile",
+                defSicilyDesc: "Île de la Méditerranée, où les livres arabes ont été traduits en latin avant sa chute aux mains des Chrétiens.",
+                defBlackDeath: "La Peste noire – 1348 apr. J.-C.",
+                defBlackDeathDesc: "L'épidémie de peste qui a ravagé l'Europe en 1348 apr. J.-C. et a tué un tiers de sa population, laissant l'idée de la mort présente dans les esprits des Européens.",
+                defPrintingInvention: "Invention de l'imprimerie – vers 1450 apr. J.-C.",
+                defPrintingInventionDesc: "L'Allemand Johannes Gutenberg a inventé une nouvelle méthode d'impression basée sur les caractères mobiles coulés dans le métal de plomb, constituant une énorme révolution technique et cognitive. Plus de 250 millions d'exemplaires de livres ont été imprimés en Europe au XVIe siècle.",
+                defCollegeFrance: "Collège de France",
+                defCollegeFranceDesc: "Institut fondé par François Ier à Paris pour enseigner les sciences exactes aux côtés des sciences religieuses.",
+                defAcademieAlfonse: "Académie d'Alfonse",
+                defAcademieAlfonseDesc: "Académie fondée à Florence, en Italie, pour patronner les arts et les sciences.",
+                defSocietyLetters: "Société des Lettres",
+                defSocietyLettersDesc: "Associations formées pour collectionner les manuscrits, tenir des séminaires et échanger des opinions.",
+                defYear12Desc: "Début de l'abandon par les Européens de l'utilisation du cuir pour l'écriture au profit du papier, inventé par les Chinois et transmis par les Arabes.",
+                defYear14Desc: "Début du mouvement humaniste en Italie, et début des malheurs et catastrophes naturelles (guerres, famines, épidémies).",
+                defYear1348Desc: "L'épidémie de peste (Peste noire) qui a ravagé l'Europe et tué un tiers de sa population.",
+                defYear1450Desc: "Invention par Johannes Gutenberg d'une nouvelle méthode d'impression utilisant des caractères mobiles coulés dans le métal de plomb.",
+                defYear15Desc: "Diffusion du mouvement humaniste dans le reste de l'Europe, et début de la Renaissance artistique en Italie. Traduction de la plupart des textes de philosophie ancienne (Platon, Socrate, et autres).",
+                defYear16Desc: "Plus de 250 millions d'exemplaires de livres imprimés en Europe. Émergence des écrivains du XVIe siècle : Rabelais, Montaigne, Shakespeare, Machiavel.",
+                defYearFrancoisDesc: "Règne de François Ier, roi de France, grand mécène du mouvement humaniste.",
+                defYearLaurentDesc: "Période du gouvernement de Florence par Laurent De Médicis.",
+                defYear1673Desc: "Publication du « Discours de la méthode » par le philosophe français Emmanuel Descartes.",
+                defYear1571Desc: "Publication du « Prince » (Le Prince) par Nicolas Machiavel.",
+                defYear1689Desc: "Publication de « Du gouvernement civil » par John Locke.",
+                defYear17Desc: "Émergence du courant baroque dans l'art, et essor de Cervantès et Molière en littérature, et John Locke en politique.",
+                defRenaissance: "La Renaissance",
+                defRenaissanceDesc: "Mouvement intellectuel, artistique, littéraire et scientifique parti d'Italie au XIVe siècle et répandu en Europe au cours des deux siècles suivants, posant les fondements de la pensée moderne basée sur la raison, l'expérience et la critique.",
+                defHumanism: "Le mouvement humaniste",
+                defHumanismDesc: "Mouvement intellectuel parti d'Italie au XIVe siècle et répandu dans le reste de l'Europe au cours des deux siècles suivants. Ses pionniers se sont intéressés à l'étude des humanités en partant de la revival des œuvres grecques et romaines anciennes, et ont adopté la méthode critique basée sur la liberté de discussion et de réflexion. Il a fait de l'homme le centre de toutes les préoccupations.",
+                defCriticalMethod: "La méthode critique",
+                defCriticalMethodDesc: "Nouvelle approche méthodologique de traitement des questions issue du mouvement humaniste, reposant sur la liberté de discussion et de réflexion sur tous les principes, y compris la religion et la politique, et considérant que la vérité n'est pas absolue et ne peut être atteinte que par le dialogue.",
+                defClassicalCurrent: "Le courant classique",
+                defClassicalCurrentDesc: "Courant intellectuel parti de France, appelant à continuer de s'appuyer sur les sources anciennes et soulignant la nécessité de raffiner le comportement humain.",
+                defRationalistCurrent: "Le courant rationaliste",
+                defRationalistCurrentDesc: "Courant intellectuel parmi les figures duquel figure le philosophe français Emmanuel Descartes, qui a souligné l'importance de la raison dans la pensée humaine.",
+                defBaroque: "Le courant baroque",
+                defBaroqueDesc: "Courant artistique apparu au XVIIe siècle, caractérisé par sa tendance aux sujets imaginaires et son ornementation excessive, contrairement à l'art de la Renaissance caractérisé par la précision, le réalisme et la modestie du « décor ».",
+                defModernPoliticalScience: "La science politique moderne",
+                defModernPoliticalScienceDesc: "Sciences apparues grâce à des penseurs qui visaient par leurs écrits à ébranler les systèmes totalitaires en s'appuyant sur des études historiques. Parmi ses pionniers les plus éminents figurent Nicolas Machiavel et John Locke.",
+                defSocialContract: "Le contrat social",
+                defSocialContractDesc: "Principe appelé par John Locke, reposant sur le fait de fonder l'autorité sur un accord entre le gouvernant et les gouvernés, considérant que les sujets sont libres et égaux.",
+                defDivineRight: "Le droit divin",
+                defDivineRightDesc: "Théorie qui prévalait en Europe à cette époque, réfutée par la théorie du « contrat social » de John Locke.",
+                defEndsJustifyMeans: "Le principe « La fin justifie les moyens »",
+                defEndsJustifyMeansDesc: "Principe adopté par Nicolas Machiavel dans son livre « Le Prince », qui peut parfois conduire à commettre des péchés, rendant nécessaire la séparation de la religion et de la politique.",
+                defJoconde: "La Joconde (Joconde)",
+                defJocondeDesc: "L'une des œuvres les plus célèbres de Léonard de Vinci, reflétant les composantes du nouveau courant artistique de la Renaissance : appui sur l'héritage gréco-latin, présentation de l'homme dans sa plus belle image, et application des règles et mesures mathématiques.",
+                defPantagruel: "Pantagruel",
+                defPantagruelDesc: "Livre du Français Rabelais, l'une des œuvres littéraires les plus célèbres du XVIe siècle qui a fait de l'homme son sujet principal.",
+                defGargantua: "Lettre de Gargantua (Gargantua)",
+                defGargantuaDesc: "Lettre de Rabelais, appelant à l'apprentissage complet des langues (grec, latin, arabe, hébreu) et des arts libéraux (géométrie, arithmétique, musique, astronomie) et des sciences (droit, médecine, anatomie).",
+                defEssais: "« Les Essais » (Les Essais)",
+                defEssaisDesc: "Livre du Français Montaigne, l'une des œuvres littéraires les plus célèbres du XVIe siècle.",
+                defDonQuixote: "Don Quichotte (Don Quichotte)",
+                defDonQuixoteDesc: "Livre de l'Espagnol Cervantès, l'une des œuvres littéraires les plus célèbres du XVIIe siècle.",
+                defPrince: "« Le Prince » (Le Prince)",
+                defPrinceDesc: "Livre de Nicolas Machiavel (1571), dans lequel il a appelé à la nécessité de séparer la religion et la politique et a adopté le principe que « la fin justifie les moyens ».",
+                defDiscoursMethode: "Discours de la méthode (Discours de la méthode)",
+                defDiscoursMethodeDesc: "Livre d'Emmanuel Descartes (1673), dans lequel il a souligné l'importance de la raison dans la pensée humaine.",
+                defCivilGovernment: "Du gouvernement civil",
+                defCivilGovernmentDesc: "Livre de John Locke (1689), dans lequel il a appelé à fonder l'autorité sur un « contrat social » entre le gouvernant et les gouvernés.",
+                summaryText: "À retenir : la Renaissance européenne a constitué un tournant décisif dans l'histoire de l'humanité, libérant l'esprit européen des restrictions de l'Église et posant les fondements de la pensée moderne basée sur la raison, l'expérience et la critique, ouvrant ainsi la voie au début de l'époque moderne.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Atelier d'imprimerie (XVe siècle apr. J.-C.)",
+                galleryAlt2: "Centres de l'humanisme en Europe (XVIe siècle apr. J.-C.)",
+                galleryAlt3: "Léonard de Vinci",
+                galleryAlt4: "La Joconde",
+                galleryAlt5: "Rabelais (1494-1554)",
+                galleryAlt6: "Zones de rayonnement artistique",
+                galleryCap1: "Atelier d'imprimerie (XVe siècle apr. J.-C.)",
+                galleryCap2: "Centres de l'humanisme en Europe (XVIe siècle apr. J.-C.)",
+                galleryCap3: "Léonard de Vinci",
+                galleryCap4: "La Joconde",
+                galleryCap5: "Rabelais (1494-1554)",
+                galleryCap6: "Zones de rayonnement artistique"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "التاريخ / الوحدة الأولى: أوروبا والعالم المتوسطي في القرن السادس عشر",
+                lessonTitleSample: "النهضة الأوروبية",
+                sectionIntro: "مقدمة",
+                introText: "عاشت أوروبا طيلة القرون الوسطى تحت سيطرة مؤسّسة الكنيسة الّتي هيمنت على مختلف جوانب الحياة، وأحبطت كلّ محاولات التّجديد باعتبارها مساسًا بالمسيحيّة، فعمّ الركود الفكري كافة أرجاء القارة. لكن الأوضاع بدأت تتغيّر منذ منتصف القرن الخامس عشر الميلادي، حين برزت شتّى بذور عقلية جديدة تؤمن بإمكانية التقدّم وبقدرة الإنسان على تحقيقه.",
+                problematiqueText: "ما هي العوامل المساعدة على التحوّل؟ وما هي مظاهر الفكر الجديد؟ وما هي أبرز التيّارات الفكريّة والفنيّة الناتجة عنه؟",
+                sectionPart1: "العوامل المساعدة على التحوّل",
+                motive1Title: "أزمة المجتمع الأوروبي",
+                motive1Text: "توالت على الأوروبيين خلال القرنين XIV و XV م العديد من المصائب والكوارث الطبيعية، وتمثّلت بالخصوص في كثرة الحروب وما ترتّب عنها من مجاعات ساهمت بدورها في تفشّي أوبئة، وخاصة وباء الطاعون (الوباء الأسود) الّذي عمّ أرجاء أوروبا سنة 1348 م وأودى بحياة ⅓ سكّانها. فظلّت فكرة الموت حاضرة في أذهان الأوروبيين وتبعت في نفوسهم الحيرة.",
+                motive1Text2: "وقد انشغلت الكنيسة المسيحية بالإنخراط في الصّراعات السّياسيّة وانغمس رجالها في حياة البذخ وجمع الثّروات بدلا من القيام بواجباتهم الدّينيّة تجاه رعاياهم. كما أصبحت المؤسّسة الدّينيّة تعاني من كثرة الإنقسامات وتعدّد المذاهب. واكتفت الكنيسة بدعوة المؤمنين إلى التّحلّي بالصّبر وتكثيف العبادات باعتبار أنّ تلك المصائب قدر محتوم لا يمكن مواجهته.",
+                motive1Text3: "لكنّ هذه المواقف لم تعد ترضي بعض المفكّرين، بل وحتّى بعض رجال الدّين. وهكذا أصبح المجتمع الأوروبي يتطلّع إلى أفكار جديدة تحرّره من الجوّ الّذي يخبّط فيه.",
+                motive2Title: "حاجة المجتمع الأوروبي إلى تفكير علمي",
+                motive2Text: "برزت قيم جديدة تحدّدت الكنيسة وأنظمة الحكم السّائدة، حيث أرست أسس البحث الفلسفي والعلمي عبر استعمال العقل. وقد أبدع بعض الملوك ورجال الدّين والأثرياء الحاجة إلى هذا الفكر الجديد، ومن ضمن هؤلاء ملوك فرنسا (François 1er) (1494 – 1574) ورجل الأعمال الفلورنسي (إيطاليا) لوران دي ميديسي (Laurent De Médicis) (حكم فلورنسا بين 1469 و 1492).",
+                motive2Text2: "وقد ساند هؤلاء قيام مدارس تلقّن العلوم الصّحيحة إلى جانب العلوم الدّينيّة، وأسّسوا معاهد وأكاديميات أبرزها معهد فرنسا (Collège de France) (باريس) وأكاديميّة ألفونس (في فلورنسا). وتكوّنت جمعيات تعتني بجمع المخطوطات وعقد الندوات وتبادل الآراء مثل جمعيّة الآداب واشهاره.",
+                francoisQuote: "«ليكن في علم الجميع أنّ رغبتنا كانت ولا تزال دعم الآداب وضمان دراسات متينة لشبابنا. فنحن على يقين أنّ التّعليم الجيّد سيوفر لمملكتنا حاجتها من علماء الدّين ورجال القانون والموظّفين الأكفاء الذين يضحّون بمصالحهم الخاصّة لقيادة الصّالح العام...»",
+                francoisQuoteAuthor: "فرانسوا الأول وحركة النهضة بفرنسا",
+                motive2Text3: "وقام مثقّفو ذلك العصر بنقل تعاليم القدماء من الإغريق والرّومان، ومؤلّفات العرب والمسلمين إلى برامج التّدريس فوجد فيها الطّلّاب روحا قديمة في منطلقها لكنها جديدة ونوريّة في جوهرها، وهو ما أسّس لفلسفة فكر جديد نقدي ذو منهج علمي وهو ما انفكت الكنيسة تحرّمه. وممّا ساعد على نشره تطوّر وسائل الطّباعة.",
+                motive3Title: "تطوّر وسائل الطّباعة",
+                motive3Text: "بدأ الأوروبيون يتخلّون عن إستعمال الجلد للكتابة منذ القرن XII م لفائدة الورق الّذي إخترعه الصّينيون ونقله إليهم العرب. وطوّروا إستعمال الورق المصنوع من الخرق البالية – وهي أقلّ كلفة – ثمّ تخلّوا عن الكتابة باليد تدريجيّا بعد أن تمكّن الألماني يوحنّا غوتنبرغ (J. Gutenberg) من إبتكار طريقة جديدة للطباعة تعتمد الحروف المنقولة المسكوبة في معدن الرّصاص، وذلك حوالي سنة 1450 م.",
+                motive3Text2: "ويعدّ ذلك ثورة تقنيّة ومعرفيّة هائلة. فقد طبع في أوروبا خلال القرن XVI م بحسب أكثر من 250 مليون نسخة كتاب. وقد أدّى رواج هذه المؤلّفات، رغم محاولات الكنيسة والسّلطة السّياسيّة فرض الرّقابة عليها إلى نشر الفكر الجديد.",
+                sectionPart2: "الفكر الجديد",
+                humanismTitle: "الحركة الإنسانيّة",
+                humanismIntro: "إنطلقت هذه الحركة من إيطاليا أثناء القرن XIV م وانتشرت في بقية أرجاء أوروبا خلال القرنين الموالين بفضل مشاهير روادها أمثال إيرازم دي روتردام (Erasme de Rotterdam) وبفضل تطوّر وسائل الطّباعة ومساندة التّجار الأثرياء الإيطاليين.",
+                humanismText1: "وقد إهتمّ هؤلاء الرّواد بدراسة الآداب الإنسانيّة إنطلاقا من إحياء المؤلّفات الإغريقيّة والرّومانيّة القديمة، حيث لم يضن القرن XV حتّى تمكّنوا من العثور وترجمة معظم نصوص الفلسفة القدامى أمثال أفلاطون وسقراط ومسيير وفي. واعتمدوا في ذلك على الكتب العربيّة الّتي ترجمت بالأندلس وصقلية قبل سقوطهما بأيدي المسيحيين.",
+                humanismText2: "ولم يكتف روّاد الحركة بإعادة نشر هذه المؤلّفات بل أخضعوها للتّحليل من خلال محاولة التّعرّف على أصحابها والظّروف الّتي كتبت فيها وقارنوا بينها للتّثبّت من صحّتها والوقوف عند قيمتها الحقيقيّة. وهكذا نشأ أسلوب منهجي جديد في معالجة القضايا وهو الأسلوب النّقدي الّذي يعتمد حرّية المناقشة والتفكير في كافة المبادئ بما فيها الدّين والسّياسة، وهو أمر طالما حرمته الكنيسة حتّى ذلك التّاريخ.",
+                humanismText3: "وقد قادهم هذا الأسلوب إلى الشّعور بأنّ الحقيقة غير مطلقة وأنّه لا مجال للتوصّل إليها إلاّ عن طريق الحوار. ومن هنا جاء الإيمان بأنّ التقدّم ممكن وبأنّ الإنسان قادر على تحقيقه على خلاف موقف الكنيسة الّذي يعتمد أحكاما ثابتة لا يجوز الخوض فيها. وهكذا أصبح الإنسان محور كلّ الإهتمامات في هذا التيّار الّذي سُمّي بالحركة الإنسانيّة.",
+                arabTranslationQuote: "أورد تقرير اللجنة الإنسانية العربية لعام 2002 أن العالم العربي يترجم سنويا ما يقرب من 330 كتاب، وهو خمس ما ترجمه اليونان، وأن الإجمالي التراكمي للكتب المترجمة منذ عصر المأمون (813 - 833 م) حتى الآن [أي خلال 1169 سنة] يبلغ 100 ألف كتاب، وهو ما يوازي تقريبا ما ترجمه إسبانيا في عام واحد (ص ص 76-77).",
+                humanismText4: "ويرى أصحاب هذا المذهب أنّ على الإنسان تنمية قدراته الذّهنيّة والجسمانيّة لتحقيق التقدّم المنشود. ومن ثمّ، أضحى التّهافت على العلم والمعرفة بمثابة المبارزة والبحث عن البطولة. وهو ما يفسّر الثّقافة الواسعة والمتنوّعة الّتي كان عليها مثقّفو تلك المرحلة أمثال الإيطالي ليوناردو دا فينشي (Leonardo De Vinci) (1452 – 1519) الّذي كان رسّاما ونحّاتا ومهندسا وعالم رياضيات وميكانيك وطبيعيات وكيمياء وجيولوجيا في ذات الوقت.",
+                humanismCurrentsIntro: "ومدّت الحركة الإنسانية الطّريق أمام بروز تيّارات فكريّة أخرى مثل:",
+                classicalCurrent: "<strong>التيّار الكلاسيكي:</strong> الّذي إنطلق من فرنسا والّذي يدعو إلى مواصلة الاعتماد على المصادر القديمة ويشدّد على ضرورة تهذيب سلوك الإنسان.",
+                rationalistCurrent: "<strong>التيّار العقلاني:</strong> ومن أعلامه الفيلسوف الفرنسي إيمانويل ديكارت (Emmanuel Descartes) صاحب كتاب \"مقالة الطريقة\" (Discours de la méthode) (1673) والّذي شدّد على أهميّة العقل في تفكير الإنسان.",
+                artisticRenaissanceTitle: "النهضة الفنيّة",
+                artisticRenaissanceText1: "إنطلقت هذه الحركة أيضا من إيطاليا أثناء القرن XV م وامتدّت في القرن الخامس عشر إلى بقيّة أوروبا. وقد شكّلت منعرجا حاسما في تاريخ الفنون حيث أبدع روّادها أروع ما أنتجته البشريّة من فنون. ومن هؤلاء ليوناردو دا فينشي الّذي ترجم الفكر الجديد في لوحات ومنحوتات وإنجازات معماريّة خالدة، أبرزها لوحة الجوكوندة (Joconde) والّتي تعكس مقوّمات هذا التيّار الفنيّ الجديد وبالخصوص:",
+                artPrinciple1: "الإعتماد على التّراث الإغريقي – اللاّتيني.",
+                artPrinciple2: "العمل على تقديم الإنسان في أبهى صورة.",
+                artPrinciple3: "تطبيق القواعد والمقاييس الرّياضيّة عند تخطيط وإنجاز أعمالهم الفنيّة.",
+                artisticRenaissanceText2: "وهكذا إتّسم فنّ النهضة بالدقّة والواقعيّة وتواضع \"الدّيكور\" على خلاف التيّار الباروكي الّذي ظهر خلال القرن XVII م وتميّز بميله إلى المواضيع الخياليّة وإفراطه في الزّركشة.",
+                literatureTitle: "في الأدب",
+                literatureText1: "شهدت الحياة الأدبية نشاطا حثيثا. وقد جعل أدباء هذه الفترة من الإنسان موضوعهم الرئيسي، فعملوا على تحليل عواطفه وتناقضاته وحاولوا إعانته على تنمية قدراته الذاتية.",
+                literatureText2: "ومن أشهر كتّاب القرن XVI الفرنسيين: رايلي (Rabelais) (1494-1554) صاحب كتاب \"بنتغريال\" ومونتاني (Montaigne) صاحب كتاب \"الرّسائل\"، والروائي الإنجليزي الشهير وليام سكسبير (W. Shakespeare) (1533-1592) صاحب روائع: \"عطيل، هملت، ريتشارد الثالث قلب الأسد، تاجر البندقية وروميو وجولييت\".",
+                rabelaisQuote: "«أريدك أن تحقق جيدًا اليونانيَّة والالتَّينِيَّة والعرَبِيَّة والكِدانِيَّة. عندما كُنتَ صبيًا في الخامسة والسادسة من عـمـرك كنـت بعـثـت فيك بعـض الميل للـفنـون الحرة كـالـهندسة والحـساب والموسـيقى، فتـابر على دراستها وواصـل دراسـة عـلـم الـفـلك، واحـفـظ عـن ظهـر قلـب النَّصوص الممتازة من القانون المدني. كما أرغب منك أن تكون شديد التطلُّع إلى ما في الطَّبيعة... ثمَّ كرَّر النَّظر بكلَ عناية في موْلُفات أطبَّاء الإغريق والعرب والرَّومان واكتـسب مـعـرفـة جيَّدة بـجـسم الإنسان بـالإكـثـار من عـمـلـيَّات التَّشـريح وهـكذا يجب أن أرى فيك بحـرا من العلم».",
+                rabelaisQuoteAuthor: "رابلي – رسالة فارقنتوا (Gargantua)",
+                literatureText3: "أمّا بالنسبة للقرن XVII، فقد برز بالخصوص الإسباني سرفانتس (Cervantes) صاحب كتاب \"دون كي شوت\" والفرنسي موليير (Molière) (1622-1673) صاحب الرّوائع: \"مدرسة الأزواج، مدرسة النّساء والبخيل\".",
+                politicsTitle: "في السّياسة",
+                politicsText1: "برز مفكّرون، إستهدفوا عبر كتاباتهم زعزعة الأنظمة الشّموليّة وذلك إعتمادا على دراسات التّاريخ. فظهرت بذلك العلوم السّياسيّة الحديثة. وكان من أبرز روّادها في القرن XVI الإيطالي نيكولاس ماكيافلّي (Nicolas Machiavelli) (1469-1527) صاحب كتاب \"الأمير\" Le Prince (1571) الّذي دعا فيه إلى ضرورة الفصل بين الدّين والسّياسة باعتبار أنّ الدّين يتصل بالجانب الرّوحي للإنسان ويسعى إلى رواج الأخلاق الحميدة، بينما السّياسة فتركّز في معالجتها للمواضيع الدّنيويّة على مبدأ \"الغاية تبرّر الوسيلة\" والّذي قد يدفع أحيانا إلى إرتكاب الخطايا، فلا يجوز بالتالي ربطها بالدّين والأخلاق.",
+                machiavelliQuote: "«... لا يمكن لأمير أن يحترم دوما الفضائل الّتي نصّ عليها الدّين، وتجعل منه في نظر المجتمع إنسانا طيّبا لأنّه في غالب الأحيان، يجد نفسه مضطرا، لكي يدافع عن دولته، أن يتصرّف بكيفيّة تتناقض مع الشّرف، ولا تقبلها الإنسانيّة، ولا الدّين. وانطلاقا من هذا المبدأ، يتعيّن أن يبقى مهيّئا لتوجيه عمله في الاتّجاه الّذي تمليه عليه الظّروف. فعليه ألاّ يبتعد عن فعل الخير، كلّما كان الأمر ممكنا. أمّا إذا اقتضت الضّرورة، فلا يجب أن يتردّد في فعل الشّر...».",
+                machiavelliQuoteAuthor: "ماكيافل – «الأمير» (1513)",
+                politicsText2: "وخلال القرن XVII برز في هذا المجال الإنجليزي جون لوك (John Locke) (1632-1704) بكتابه \"حول الحكم المدني\" (1689) حين دعا إلى إستناد السّلطة على \"عقد إجتماعي\" بين الحاكم والمحكومين بإعتبار أنّ التّابع أحرار ومتساويين. وقد فنّد بذلك نظريّة \"الحق الإلاهي\" الّتي كانت سائدة في أوروبا آنذاك.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "شكلت النهضة الأوروبية تحوّلًا حاسمًا في تاريخ الإنسانية، إذ حرّرت العقل الأوروبي من قيود الكنيسة وأرست أسس الفكر الحديث القائم على العقل والتجربة والنقد، ومهّدت بذلك لانطلاق العصر الحديث.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defTreaty: "📜 مؤسسات ومعاهد",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defFrancois1: "فرانسوا الأول (François 1er)",
+                defFrancois1Desc: "ملك فرنسا (1494-1574)، شجّع الحركة الإنسانية وأسّس معهد فرنسا (Collège de France) بباريس. آمن بأن التعليم الجيد يوفر للمملكة علماء الدين ورجال القانون والموظفين الأكفاء.",
+                defMedicis: "لوران دي ميديسي (Laurent De Médicis)",
+                defMedicisDesc: "رجل أعمال فلورنسي (إيطاليا)، حكم فلورنسا بين 1469 و1492. من رعاة الفنون والآداب ودعم الفكر الجديد.",
+                defGutenberg: "يوحنّا غوتنبرغ (J. Gutenberg)",
+                defGutenbergDesc: "ألماني ابتكر حوالي سنة 1450م طريقة جديدة للطباعة تعتمد الحروف المنقولة المسكوبة في معدن الرصاص، ممّا أحدث ثورة تقنية ومعرفية هائلة.",
+                defErasme: "إيرازم دي روتردام (Erasme de Rotterdam)",
+                defErasmeDesc: "من مشاهير روّاد الحركة الإنسانية، ساهم في انتشارها في بقية أرجاء أوروبا.",
+                defVinci: "ليوناردو دا فينشي (Leonardo De Vinci)",
+                defVinciDesc: "إيطالي (1452-1519)، كان رسّاما ونحّاتا ومهندسا وعالم رياضيات وميكانيك وطبيعيات وكيمياء وجيولوجيا في ذات الوقت. من أشهر أعماله لوحة الجوكوندة (Joconde).",
+                defDescartes: "إيمانويل ديكارت (Emmanuel Descartes)",
+                defDescartesDesc: "فيلسوف فرنسي، صاحب كتاب \"مقالة الطريقة\" (Discours de la méthode) (1673)، شدّد على أهميّة العقل في تفكير الإنسان. من أعلام التيّار العقلاني.",
+                defRabelais: "رابلي (Rabelais)",
+                defRabelaisDesc: "راهب فرنسي (1494-1554) أصبح طبيبا ثمّ درس القانون واللغات اليونانية واللاتينية والكتب المقدسة. اهتم في كتاباته بالإنسان وكيفية تحقيق سعادته. صاحب كتاب \"بنتغريال\" (Pantagruel) ورسالة فارقنتوا (Gargantua).",
+                defMontaigne: "مونتاني (Montaigne)",
+                defMontaigneDesc: "كاتب فرنسي من القرن XVI، صاحب كتاب \"الرّسائل\" (Les Essais).",
+                defShakespeare: "وليام سكسبير (W. Shakespeare)",
+                defShakespeareDesc: "روائي إنجليزي شهير (1533-1592)، صاحب روائع: \"عطيل، هملت، ريتشارد الثالث قلب الأسد، تاجر البندقية وروميو وجولييت\".",
+                defCervantes: "سرفانتس (Cervantes)",
+                defCervantesDesc: "كاتب إسباني، صاحب كتاب \"دون كي شوت\" (Don Quichotte)، برز في القرن XVII.",
+                defMoliere: "موليير (Molière)",
+                defMoliereDesc: "كاتب فرنسي (1622-1673)، صاحب روائع: \"مدرسة الأزواج، مدرسة النّساء والبخيل\".",
+                defMachiavelli: "نيكولاس ماكيافلّي (Nicolas Machiavelli)",
+                defMachiavelliDesc: "كاتب ودبلوماسي إيطالي (1469-1527)، صاحب كتاب \"الأمير\" (Le Prince) (1571). دعا إلى الفصل بين الدين والسياسة واعتمد مبدأ \"الغاية تبرّر الوسيلة\". من روّاد العلوم السياسية الحديثة.",
+                defLocke: "جون لوك (John Locke)",
+                defLockeDesc: "فيلسوف إنجليزي (1632-1704)، صاحب كتاب \"حول الحكم المدني\" (1689). دعا إلى استناد السلطة على \"عقد اجتماعي\" بين الحاكم والمحكومين، وفنّد نظرية \"الحق الإلاهي\".",
+                defItaly: "إيطاليا",
+                defItalyDesc: "مهد الحركة الإنسانية والنهضة الفنية، انطلقت منها هذه الحركات أثناء القرن XIV وXV م قبل أن تنتشر في بقية أرجاء أوروبا.",
+                defFlorence: "فلورنسا",
+                defFlorenceDesc: "مدينة إيطالية حكمها لوران دي ميديسي بين 1469 و1492، وكانت مركزا للفنون والآداب والفكر الجديد. أسّست بها أكاديمية ألفونس.",
+                defFrance: "فرنسا",
+                defFranceDesc: "من الدول التي شجّعت الحركة الإنسانية، خاصة في عهد فرانسوا الأول الذي أسّس معهد فرنسا (Collège de France) بباريس. منها انطلق التيّار الكلاسيكي.",
+                defParis: "باريس",
+                defParisDesc: "عاصمة فرنسا، بها أسّس فرانسوا الأول معهد فرنسا (Collège de France).",
+                defAndalusia2: "الأندلس",
+                defAndalusia2Desc: "منطقة في شبه الجزيرة الإيبيرية، ترجمت فيها الكتب العربية إلى اللاتينية قبل سقوطها بأيدي المسيحيين، ممّا ساعد روّاد الحركة الإنسانية على الاطلاع على الفلسفة القديمة.",
+                defSicily: "صقلية",
+                defSicilyDesc: "جزيرة في البحر المتوسط، ترجمت فيها الكتب العربية إلى اللاتينية قبل سقوطها بأيدي المسيحيين.",
+                defBlackDeath: "الوباء الأسود (الطاعون) – 1348م",
+                defBlackDeathDesc: "وباء الطاعون الذي عمّ أرجاء أوروبا سنة 1348م وأودى بحياة ثلث سكّانها، ممّا ترك فكرة الموت حاضرة في أذهان الأوروبيين.",
+                defPrintingInvention: "اختراع الطباعة – حوالي 1450م",
+                defPrintingInventionDesc: "ابتكر الألماني يوحنّا غوتنبرغ طريقة جديدة للطباعة تعتمد الحروف المنقولة المسكوبة في معدن الرصاص، ممّا جعل ذلك ثورة تقنية ومعرفية هائلة. طبع في أوروبا خلال القرن XVI أكثر من 250 مليون نسخة كتاب.",
+                defCollegeFrance: "معهد فرنسا (Collège de France)",
+                defCollegeFranceDesc: "معهد أسّسه فرانسوا الأول بباريس لتلقين العلوم الصحيحة إلى جانب العلوم الدينية.",
+                defAcademieAlfonse: "أكاديمية ألفونس",
+                defAcademieAlfonseDesc: "أكاديمية أسّست في فلورنسا بإيطاليا لرعاية الآداب والعلوم.",
+                defSocietyLetters: "جمعية الآداب",
+                defSocietyLettersDesc: "جمعيات تكوّنت تعتني بجمع المخطوطات وعقد الندوات وتبادل الآراء.",
+                defYear12Desc: "بداية تخلّي الأوروبيين عن استعمال الجلد للكتابة لفائدة الورق الذي اخترعه الصينيون ونقله إليهم العرب.",
+                defYear14Desc: "انطلاق الحركة الإنسانية من إيطاليا، وبداية المصائب والكوارث الطبيعية (حروب، مجاعات، أوبئة).",
+                defYear1348Desc: "وباء الطاعون (الوباء الأسود) الذي عمّ أرجاء أوروبا وأودى بحياة ثلث سكّانها.",
+                defYear1450Desc: "ابتكار يوحنّا غوتنبرغ طريقة جديدة للطباعة بالحروف المنقولة المسكوبة في معدن الرصاص.",
+                defYear15Desc: "انتشار الحركة الإنسانية في بقية أرجاء أوروبا، وانطلاق النهضة الفنية من إيطاليا. ترجمة معظم نصوص الفلسفة القديمة (أفلاطون، سقراط، مسيير وفي).",
+                defYear16Desc: "طبع في أوروبا أكثر من 250 مليون نسخة كتاب. بروز كتّاب القرن XVI: رابلي، مونتاني، شكسبير، ماكيافلّي.",
+                defYearFrancoisDesc: "عهد فرانسوا الأول ملك فرنسا، الراعي الكبير للحركة الإنسانية.",
+                defYearLaurentDesc: "فترة حكم لوران دي ميديسي لفلورنسا.",
+                defYear1673Desc: "صدور كتاب \"مقالة الطريقة\" (Discours de la méthode) للفيلسوف الفرنسي إيمانويل ديكارت.",
+                defYear1571Desc: "صدور كتاب \"الأمير\" (Le Prince) لنيكولاس ماكيافلّي.",
+                defYear1689Desc: "صدور كتاب \"حول الحكم المدني\" لجون لوك.",
+                defYear17Desc: "ظهور التيّار الباروكي في الفن، وبروز سرفانتس وموليير في الأدب، وجون لوك في السياسة.",
+                defRenaissance: "النهضة",
+                defRenaissanceDesc: "حركة فكرية وفنية وأدبية وعلمية انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في أوروبا خلال القرنين الموالين، وأرست أسس الفكر الحديث القائم على العقل والتجربة والنقد.",
+                defHumanism: "الحركة الإنسانية",
+                defHumanismDesc: "حركة فكرية انطلقت من إيطاليا أثناء القرن XIV م وانتشرت في بقية أرجاء أوروبا خلال القرنين الموالين. اهتمّ روّادها بدراسة الآداب الإنسانية انطلاقا من إحياء المؤلّفات الإغريقية والرومانية القديمة، واعتمدوا الأسلوب النقدي القائم على حرية المناقشة والتفكير. جعلت الإنسان محور كلّ الاهتمامات.",
+                defCriticalMethod: "الأسلوب النقدي",
+                defCriticalMethodDesc: "أسلوب منهجي جديد في معالجة القضايا نشأ عن الحركة الإنسانية، يعتمد حرية المناقشة والتفكير في كافة المبادئ بما فيها الدين والسياسة، ويعتبر أن الحقيقة غير مطلقة ولا يمكن التوصل إليها إلا عن طريق الحوار.",
+                defClassicalCurrent: "التيّار الكلاسيكي",
+                defClassicalCurrentDesc: "تيّار فكري انطلق من فرنسا، يدعو إلى مواصلة الاعتماد على المصادر القديمة ويشدّد على ضرورة تهذيب سلوك الإنسان.",
+                defRationalistCurrent: "التيّار العقلاني",
+                defRationalistCurrentDesc: "تيّار فكري من أعلامه الفيلسوف الفرنسي إيمانويل ديكارت، شدّد على أهميّة العقل في تفكير الإنسان.",
+                defBaroque: "التيّار الباروكي",
+                defBaroqueDesc: "تيّار فني ظهر خلال القرن XVII م، تميّز بميله إلى المواضيع الخياليّة وإفراطه في الزّركشة، على خلاف فنّ النهضة المتّسم بالدقّة والواقعيّة وتواضع \"الدّيكور\".",
+                defModernPoliticalScience: "العلوم السياسية الحديثة",
+                defModernPoliticalScienceDesc: "علوم ظهرت بفضل مفكّرين استهدفوا عبر كتاباتهم زعزعة الأنظمة الشمولية اعتمادا على دراسات التاريخ، ومن أبرز روّادها نيكولاس ماكيافلّي وجون لوك.",
+                defSocialContract: "العقد الاجتماعي",
+                defSocialContractDesc: "مبدأ دعا إليه جون لوك، ويقوم على استناد السلطة على اتفاق بين الحاكم والمحكومين باعتبار أن التابع أحرار ومتساويين.",
+                defDivineRight: "الحق الإلاهي",
+                defDivineRightDesc: "نظرية كانت سائدة في أوروبا آنذاك، تفنّدها نظرية \"العقد الاجتماعي\" لجون لوك.",
+                defEndsJustifyMeans: "مبدأ \"الغاية تبرّر الوسيلة\"",
+                defEndsJustifyMeansDesc: "مبدأ اعتمده نيكولاس ماكيافلّي في كتابه \"الأمير\"، وقد يدفع أحيانا إلى ارتكاب الخطايا، ممّا يجعل الفصل بين الدين والسياسة ضروريا.",
+                defJoconde: "لوحة الجوكوندة (Joconde)",
+                defJocondeDesc: "من أشهر أعمال ليوناردو دا فينشي، تعكس مقوّمات التيّار الفنيّ الجديد للنهضة: الاعتماد على التراث الإغريقي-اللاتيني، تقديم الإنسان في أبهى صورة، وتطبيق القواعد والمقاييس الرياضية.",
+                defPantagruel: "بنتغريال (Pantagruel)",
+                defPantagruelDesc: "كتاب لرابلي الفرنسي، من أشهر مؤلّفات القرن XVI الأدبية التي جعلت من الإنسان موضوعها الرئيسي.",
+                defGargantua: "رسالة فارقنتوا (Gargantua)",
+                defGargantuaDesc: "رسالة لرابلي، تدعو إلى التعلّم الشامل للغات (اليونانية، اللاتينية، العربية، العبرية) والفنون الحرة (الهندسة، الحساب، الموسيقى، الفلك) والعلوم (القانون، الطب، التشريح).",
+                defEssais: "كتاب \"الرّسائل\" (Les Essais)",
+                defEssaisDesc: "كتاب لمونتاني الفرنسي، من أشهر مؤلّفات القرن XVI الأدبية.",
+                defDonQuixote: "دون كي شوت (Don Quichotte)",
+                defDonQuixoteDesc: "كتاب لسرفانتس الإسباني، من أشهر مؤلّفات القرن XVII الأدبية.",
+                defPrince: "كتاب \"الأمير\" (Le Prince)",
+                defPrinceDesc: "كتاب لنيكولاس ماكيافلّي (1571)، دعا فيه إلى ضرورة الفصل بين الدين والسياسة واعتمد مبدأ \"الغاية تبرّر الوسيلة\".",
+                defDiscoursMethode: "مقالة الطريقة (Discours de la méthode)",
+                defDiscoursMethodeDesc: "كتاب لإيمانويل ديكارت (1673)، شدّد فيه على أهميّة العقل في تفكير الإنسان.",
+                defCivilGovernment: "حول الحكم المدني",
+                defCivilGovernmentDesc: "كتاب لجون لوك (1689)، دعا فيه إلى استناد السلطة على \"عقد اجتماعي\" بين الحاكم والمحكومين.",
+                summaryText: "خلاصة: شكلت النهضة الأوروبية تحوّلًا حاسمًا في تاريخ الإنسانية، إذ حرّرت العقل الأوروبي من قيود الكنيسة وأرست أسس الفكر الحديث القائم على العقل والتجربة والنقد، ومهّدت بذلك لانطلاق العصر الحديث.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "ورشة طباعة (القرن الخامس عشر الميلادي)",
+                galleryAlt2: "مراكز الأنسنة بأوروبا (القرن السادس عشر الميلادي)",
+                galleryAlt3: "ليوناردو دا فينشي",
+                galleryAlt4: "لوحة الجوكوندة (Joconde)",
+                galleryAlt5: "رابلي (1494 – 1554)",
+                galleryAlt6: "مناطق الإشعاع الفني",
+                galleryCap1: "ورشة طباعة (القرن الخامس عشر الميلادي)",
+                galleryCap2: "مراكز الأنسنة بأوروبا (القرن السادس عشر الميلادي)",
+                galleryCap3: "ليوناردو دا فينشي",
+                galleryCap4: "لوحة الجوكوندة (Joconde)",
+                galleryCap5: "رابلي (1494 – 1554)",
+                galleryCap6: "مناطق الإشعاع الفني"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Francis I", class: "key-person", i18n: "defFrancois1" },
+                { text: "François 1er", class: "key-person", i18n: "defFrancois1" },
+                { text: "Laurent De Médicis", class: "key-person", i18n: "defMedicis" },
+                { text: "Gutenberg", class: "key-person", i18n: "defGutenberg" },
+                { text: "Erasmus of Rotterdam", class: "key-person", i18n: "defErasme" },
+                { text: "Erasme de Rotterdam", class: "key-person", i18n: "defErasme" },
+                { text: "Leonardo da Vinci", class: "key-person", i18n: "defVinci" },
+                { text: "Leonardo De Vinci", class: "key-person", i18n: "defVinci" },
+                { text: "Emmanuel Descartes", class: "key-person", i18n: "defDescartes" },
+                { text: "Rabelais", class: "key-person", i18n: "defRabelais" },
+                { text: "Montaigne", class: "key-person", i18n: "defMontaigne" },
+                { text: "Shakespeare", class: "key-person", i18n: "defShakespeare" },
+                { text: "Cervantes", class: "key-person", i18n: "defCervantes" },
+                { text: "Molière", class: "key-person", i18n: "defMoliere" },
+                { text: "Machiavelli", class: "key-person", i18n: "defMachiavelli" },
+                { text: "John Locke", class: "key-person", i18n: "defLocke" },
+                { text: "Italy", class: "key-location", i18n: "defItaly" },
+                { text: "Florence", class: "key-location", i18n: "defFlorence" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Paris", class: "key-location", i18n: "defParis" },
+                { text: "Andalusia", class: "key-location", i18n: "defAndalusia2" },
+                { text: "Sicily", class: "key-location", i18n: "defSicily" },
+                { text: "Black Death", class: "key-event", i18n: "defBlackDeath" },
+                { text: "Invention of Printing", class: "key-event", i18n: "defPrintingInvention" },
+                { text: "Collège de France", class: "key-treaty", i18n: "defCollegeFrance" },
+                { text: "Academy of Alfonse", class: "key-treaty", i18n: "defAcademieAlfonse" },
+                { text: "Society of Letters", class: "key-treaty", i18n: "defSocietyLetters" },
+                { text: "Renaissance", class: "key-other", i18n: "defRenaissance" },
+                { text: "Humanist Movement", class: "key-other", i18n: "defHumanism" },
+                { text: "Critical Method", class: "key-other", i18n: "defCriticalMethod" },
+                { text: "Classical Current", class: "key-other", i18n: "defClassicalCurrent" },
+                { text: "Rationalist Current", class: "key-other", i18n: "defRationalistCurrent" },
+                { text: "Baroque", class: "key-other", i18n: "defBaroque" },
+                { text: "Modern Political Science", class: "key-other", i18n: "defModernPoliticalScience" },
+                { text: "Social Contract", class: "key-other", i18n: "defSocialContract" },
+                { text: "Divine Right", class: "key-other", i18n: "defDivineRight" },
+                { text: "The End Justifies the Means", class: "key-other", i18n: "defEndsJustifyMeans" },
+                { text: "Mona Lisa", class: "key-other", i18n: "defJoconde" },
+                { text: "Joconde", class: "key-other", i18n: "defJoconde" },
+                { text: "Pantagruel", class: "key-other", i18n: "defPantagruel" },
+                { text: "Gargantua", class: "key-other", i18n: "defGargantua" },
+                { text: "The Essays", class: "key-other", i18n: "defEssais" },
+                { text: "Don Quixote", class: "key-other", i18n: "defDonQuixote" },
+                { text: "The Prince", class: "key-other", i18n: "defPrince" },
+                { text: "Discourse on the Method", class: "key-other", i18n: "defDiscoursMethode" },
+                { text: "On Civil Government", class: "key-other", i18n: "defCivilGovernment" }
+            ],
+            fr: [
+                { text: "François Ier", class: "key-person", i18n: "defFrancois1" },
+                { text: "Laurent De Médicis", class: "key-person", i18n: "defMedicis" },
+                { text: "Gutenberg", class: "key-person", i18n: "defGutenberg" },
+                { text: "Érasme de Rotterdam", class: "key-person", i18n: "defErasme" },
+                { text: "Léonard de Vinci", class: "key-person", i18n: "defVinci" },
+                { text: "Emmanuel Descartes", class: "key-person", i18n: "defDescartes" },
+                { text: "Rabelais", class: "key-person", i18n: "defRabelais" },
+                { text: "Montaigne", class: "key-person", i18n: "defMontaigne" },
+                { text: "Shakespeare", class: "key-person", i18n: "defShakespeare" },
+                { text: "Cervantès", class: "key-person", i18n: "defCervantes" },
+                { text: "Molière", class: "key-person", i18n: "defMoliere" },
+                { text: "Machiavel", class: "key-person", i18n: "defMachiavelli" },
+                { text: "John Locke", class: "key-person", i18n: "defLocke" },
+                { text: "Italie", class: "key-location", i18n: "defItaly" },
+                { text: "Florence", class: "key-location", i18n: "defFlorence" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Paris", class: "key-location", i18n: "defParis" },
+                { text: "Andalousie", class: "key-location", i18n: "defAndalusia2" },
+                { text: "Sicile", class: "key-location", i18n: "defSicily" },
+                { text: "Peste noire", class: "key-event", i18n: "defBlackDeath" },
+                { text: "Invention de l'imprimerie", class: "key-event", i18n: "defPrintingInvention" },
+                { text: "Collège de France", class: "key-treaty", i18n: "defCollegeFrance" },
+                { text: "Académie d'Alfonse", class: "key-treaty", i18n: "defAcademieAlfonse" },
+                { text: "Société des Lettres", class: "key-treaty", i18n: "defSocietyLetters" },
+                { text: "Renaissance", class: "key-other", i18n: "defRenaissance" },
+                { text: "mouvement humaniste", class: "key-other", i18n: "defHumanism" },
+                { text: "méthode critique", class: "key-other", i18n: "defCriticalMethod" },
+                { text: "courant classique", class: "key-other", i18n: "defClassicalCurrent" },
+                { text: "courant rationaliste", class: "key-other", i18n: "defRationalistCurrent" },
+                { text: "baroque", class: "key-other", i18n: "defBaroque" },
+                { text: "science politique moderne", class: "key-other", i18n: "defModernPoliticalScience" },
+                { text: "contrat social", class: "key-other", i18n: "defSocialContract" },
+                { text: "droit divin", class: "key-other", i18n: "defDivineRight" },
+                { text: "fin justifie les moyens", class: "key-other", i18n: "defEndsJustifyMeans" },
+                { text: "Joconde", class: "key-other", i18n: "defJoconde" },
+                { text: "Pantagruel", class: "key-other", i18n: "defPantagruel" },
+                { text: "Gargantua", class: "key-other", i18n: "defGargantua" },
+                { text: "Essais", class: "key-other", i18n: "defEssais" },
+                { text: "Don Quichotte", class: "key-other", i18n: "defDonQuixote" },
+                { text: "Le Prince", class: "key-other", i18n: "defPrince" },
+                { text: "Discours de la méthode", class: "key-other", i18n: "defDiscoursMethode" },
+                { text: "Du gouvernement civil", class: "key-other", i18n: "defCivilGovernment" }
+            ],
+            ar: [
+                { text: "فرانسوا الأول", class: "key-person", i18n: "defFrancois1" },
+                { text: "لوران دي ميديسي", class: "key-person", i18n: "defMedicis" },
+                { text: "غوتنبرغ", class: "key-person", i18n: "defGutenberg" },
+                { text: "إيرازم دي روتردام", class: "key-person", i18n: "defErasme" },
+                { text: "ليوناردو دا فينشي", class: "key-person", i18n: "defVinci" },
+                { text: "إيمانويل ديكارت", class: "key-person", i18n: "defDescartes" },
+                { text: "رابلي", class: "key-person", i18n: "defRabelais" },
+                { text: "مونتاني", class: "key-person", i18n: "defMontaigne" },
+                { text: "سكسبير", class: "key-person", i18n: "defShakespeare" },
+                { text: "سرفانتس", class: "key-person", i18n: "defCervantes" },
+                { text: "موليير", class: "key-person", i18n: "defMoliere" },
+                { text: "ماكيافلّي", class: "key-person", i18n: "defMachiavelli" },
+                { text: "جون لوك", class: "key-person", i18n: "defLocke" },
+                { text: "إيطاليا", class: "key-location", i18n: "defItaly" },
+                { text: "فلورنسا", class: "key-location", i18n: "defFlorence" },
+                { text: "فرنسا", class: "key-location", i18n: "defFrance" },
+                { text: "باريس", class: "key-location", i18n: "defParis" },
+                { text: "الأندلس", class: "key-location", i18n: "defAndalusia2" },
+                { text: "صقلية", class: "key-location", i18n: "defSicily" },
+                { text: "الوباء الأسود", class: "key-event", i18n: "defBlackDeath" },
+                { text: "اختراع الطباعة", class: "key-event", i18n: "defPrintingInvention" },
+                { text: "معهد فرنسا", class: "key-treaty", i18n: "defCollegeFrance" },
+                { text: "أكاديمية ألفونس", class: "key-treaty", i18n: "defAcademieAlfonse" },
+                { text: "جمعية الآداب", class: "key-treaty", i18n: "defSocietyLetters" },
+                { text: "النهضة", class: "key-other", i18n: "defRenaissance" },
+                { text: "الحركة الإنسانية", class: "key-other", i18n: "defHumanism" },
+                { text: "الأسلوب النقدي", class: "key-other", i18n: "defCriticalMethod" },
+                { text: "التيّار الكلاسيكي", class: "key-other", i18n: "defClassicalCurrent" },
+                { text: "التيّار العقلاني", class: "key-other", i18n: "defRationalistCurrent" },
+                { text: "الباروكي", class: "key-other", i18n: "defBaroque" },
+                { text: "العلوم السياسية الحديثة", class: "key-other", i18n: "defModernPoliticalScience" },
+                { text: "العقد الاجتماعي", class: "key-other", i18n: "defSocialContract" },
+                { text: "الحق الإلاهي", class: "key-other", i18n: "defDivineRight" },
+                { text: "الغاية تبرّر الوسيلة", class: "key-other", i18n: "defEndsJustifyMeans" },
+                { text: "الجوكوندة", class: "key-other", i18n: "defJoconde" },
+                { text: "بنتغريال", class: "key-other", i18n: "defPantagruel" },
+                { text: "فارقنتوا", class: "key-other", i18n: "defGargantua" },
+                { text: "الرّسائل", class: "key-other", i18n: "defEssais" },
+                { text: "دون كي شوت", class: "key-other", i18n: "defDonQuixote" },
+                { text: "الأمير", class: "key-other", i18n: "defPrince" },
+                { text: "مقالة الطريقة", class: "key-other", i18n: "defDiscoursMethode" },
+                { text: "حول الحكم المدني", class: "key-other", i18n: "defCivilGovernment" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – توسع الإمبراطورية العثمانية وتنظيمها في القرن السادس عشر</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <h1 data-i18n="exerciseTitle">تمارين – توسع الإمبراطورية العثمانية وتنظيمها في القرن السادس عشر</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الإمبراطورية العثمانية، الانكشارية، الصدر الأعظم، القانون نامه.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الإمبراطورية العثمانية:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">إمبراطورية إسلامية نشأت في الأناضول على يد عثمان الأول في أواخر القرن الثالث عشر الميلادي (1299م) بعد تفكك دولة السلاجقة الروم. تمكّنت من القضاء على الإمبراطورية البيزنطية والاستيلاء على القسطنطينية سنة 1453م، وبلغت أوج توسعها وقوتها في القرن السادس عشر الميلادي في عهد سليمان القانوني (1520-1566م)، حيث امتدت من أسوار فيينا شمالًا إلى سواحل اليمن وعمان جنوبًا، ومن العراق وغربي فارس شرقًا إلى بلاد المغرب العربي غربًا.</dd>
+                        <dt data-i18n="ex1_def2_title">الانكشارية (Janissaries):</dt>
+                        <dd data-i18n="ex1_def2_subtitle">المشاة النظاميون في الجيش العثماني، وهم نخبة الجيش. يتم تجنيدهم من الأطفال المسيحيين الذين يُحوّلون إلى الإسلام ويُدرّبون تدريبًا عسكريًا صارمًا، وكانوا من أقوى الفرق العسكرية في العالم آنذاك.</dd>
+                        <dt data-i18n="ex1_def3_title">الصدر الأعظم (Grand Vizier):</dt>
+                        <dd data-i18n="ex1_def3_subtitle">رئيس الوزراء في الدولة العثمانية، يمثل السلطان في إدارة شؤون الدولة ويشرف على باقي الوزراء. يُعدّ من أبرز مناصب الدولة العثمانية بعد السلطان.</dd>
+                        <dt data-i18n="ex1_def4_title">القانون نامه (Kanunnameh):</dt>
+                        <dd data-i18n="ex1_def4_subtitle">القانون العثماني الذي وضعه سليمان القانوني، والذي جمع بين الشريعة الإسلامية والقوانين السلطانية. ومنح سليمان القانوني لقبه «القانوني» بسبب وضعه لهذا القانون.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن أهم المحطات الكبرى للتوسع العثماني في القرن السادس عشر.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_event">المحطة</th>
+                            <th data-i18n="ex2_table_year">التاريخ</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_constantinople">فتح القسطنطينية</td>
+                            <td>1453</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_chaldiran">معركة جالدران</td>
+                            <td>1514</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_marj">معركة مرج دابق والسيطرة على الشام</td>
+                            <td>1516</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_egypt">إسقاط المماليك والسيطرة على مصر</td>
+                            <td>1517</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_vienna">حصار فيينا</td>
+                            <td>1529</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_basra">ضم البصرة</td>
+                            <td>1547</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_muscat">الاستيلاء على مسقط</td>
+                            <td>1551</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_tunis">إلحاق تونس نهائيا</td>
+                            <td>1574</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: معطيات الدرس حول التوسعات العثمانية في القرن السادس عشر</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Map / Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمل الخريطة التالية التي تمثل التوسعات العثمانية في القرن السادس عشر، وبيّن أهم المجالات التي امتد إليها التوسع العثماني وحدوده.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets3eco/exercises/history/unit1/lesson5/ottoman_expansion_map.png"
+                         alt="خريطة التوسعات العثمانية في القرن السادس عشر"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets3eco/exercises/history/unit1/lesson5/ottoman_expansion_answer.png"
+                             alt="نموذج الإجابة – التوسعات العثمانية وحدودها"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        تمثّل الخريطة التوسعات العثمانية في القرن السادس عشر، حيث امتدت الإمبراطورية العثمانية على ثلاث قارات:
+                        في آسيا: الأناضول، الشام، العراق، الحجاز، عمان، الأحساء، وصولًا إلى البصرة وغربي فارس.
+                        في أوروبا: القسطنطينية (إستنبول)، البلقان، بلاد المجر، البوسنة والهرسك، صربيا، الأفلاق (رومانيا)، البغدان (مولدافيا)، وصولًا إلى أسوار فيينا (1529).
+                        في إفريقيا: مصر، تونس، الجزائر، وبلاد المغرب.
+                        حدود التوسع: من أسوار فيينا شمالًا (1529) إلى سواحل اليمن وعمان جنوبًا، ومن العراق وغربي فارس شرقًا إلى بلاد المغرب العربي غربًا.
+                        وقد مثّلت هذه التوسعات خطرًا كبيرًا على القوى الأوروبية، خاصة إسبانيا والبرتغال، مما جعل الإمبراطورية العثمانية قوة عالمية كبرى في القرن السادس عشر.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل العوامل التي ساعدت على توسع الإمبراطورية العثمانية في القرن السادس عشر في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        العوامل التي ساعدت على توسع الإمبراطورية العثمانية في القرن السادس عشر:
+                        - القوة العسكرية: جيش الانكشارية المنظم والمدرب تدريبًا صارمًا، والسباهية (الفرسان)، والأسطول البحري القوي بقيادة خير الدين بربروس.
+                        - الدبلوماسية الذكية: استغلال انشغال شارلكان (شارل الخامس) ملك إسبانيا بحروبه ضد فرنسا، واستغلال انشغال بابا روما.
+                        - استغلال التنافس الأوروبي: استفادة العثمانيين من الصراع بين الإسبان والبرتغال على المستعمرات، والتنافس بين الدول الأوروبية.
+                        - الموقع الاستراتيجي: تمركز الإمبراطورية في قلب العالم القديم، مما سهّل التوسع في ثلاث قارات (آسيا وأوروبا وإفريقيا).
+                        - ضعف الخصوم: تفكك دولة السلاجقة الروم، وانهيار دولة المماليك، وضعف الدولة الصفوية.
+                        - التنظيم الإداري المحكم: الديوان والصدر الأعظم والولاة والقضاة، مما وفّر الاستقرار الداخلي الذي ساعد على التوسع الخارجي.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        توافرت لتنظيم الرحلات الاستكشافية ظروف ملائمة متعدّدة. فقد تمثّلت الدوافع الأساسية في البحث عن مسالك بحرية جديدة للوصول إلى الهند بعد أن أحكم المسلمون سيطرتهم على الطرقات المعهودة، وفي رغبة الملوك في دعم قوة دولهم ومواردها (كما فعل هنري الملاح وفرديناند وإيزابيلا)، وفي نشر المسيحية والتصدّي لتوسّع الإمبراطورية العثمانية. أمّا العوامل المساعدة فقد تمثّلت في تطوّر تقنيات الملاحة البحرية بفضل سفينة الكرفال وتحسينات البوصلة والاصطراب والمرشدات البحرية، وفي رواج نظرية كروية الأرض التي أكّدها الجغرافي العربي الإدريسي. وهكذا تفاعلت الدوافع والعوامل المساعدة لتنطلق رحلة الاكتشافات الكبرى. وبالمثل، استفاد العثمانيون في توسعاتهم في القرن السادس عشر من قوّتهم العسكرية الهائلة المتمثلة في جيش الانكشارية والسباهية والأسطول البحري بقيادة خير الدين بربروس، ومن الدبلوماسية الذكية التي استغلت انشغال شارلكان بحروبه ضد فرنسا وانشغال بابا روما، ومن التنافس بين الدول الأوروبية. كما استفادوا من ضعف خصومهم: تفكك دولة السلاجقة الروم، وانهيار دولة المماليك، وتراجع الدولة الصفوية، إضافة إلى موقعهم الاستراتيجي في قلب العالم القديم الذي سهّل توسعهم في ثلاث قارات، وتنظيمهم الإداري المحكم الذي وفّر الاستقرار الداخلي. وهكذا تفاعلت هذه العوامل لتجعل من الإمبراطورية العثمانية قوة عالمية كبرى في القرن السادس عشر.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول تنظيم الإمبراطورية العثمانية في عهد سليمان القانوني وأثره على قوتها وتوسعها.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        حلّل تنظيم الإمبراطورية العثمانية في عهد سليمان القانوني من خلال ثلاثة محاور: التنظيم الإداري (السلطان، الصدر الأعظم، الديوان، الولاة، القضاة، القانون نامه)، التنظيم العسكري (الانكشارية، السباهية، الأسطول البحري)، وأثر هذا التنظيم على قوة الإمبراطورية وتوسعها (الاستقرار الداخلي، الانتصارات العسكرية، التوسع في ثلاث قارات).
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تحديد سليمان القانوني كعاشر سلاطين الإمبراطورية العثمانية وأوج قوتها.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. التنظيم الإداري؛ ثانياً. التنظيم العسكري؛ ثالثاً. أثر التنظيم على قوة الإمبراطورية وتوسعها.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: التنظيم المحكم أساس قوة الإمبراطورية العثمانية وامتدادها.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">يُعدّ سليمان القانوني (1520-1566) عاشر سلاطين الإمبراطورية العثمانية، وقد شهدت الإمبراطورية في عهده أوج توسعها وذروة قوتها. وقد قام هذا النجاح على تنظيم إداري وعسكري محكم، مكّن الإمبراطورية من التوسع في ثلاث قارات والاستمرار في مواجهة القوى الأوروبية.</p>
+
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_admin">أولاً. التنظيم الإداري</h4>
+                        <p data-i18n="ex5A_production_p_admin">قام التنظيم الإداري للدولة العثمانية على أسس مركزية محكمة، حيث يجمع السلطان بين السلطتين الدينية والزمنية، ويُعاونه في إدارة شؤون الدولة الصدر الأعظم (رئيس الوزراء) الذي يمثل السلطان ويشرف على باقي الوزراء، والديوان (المجلس الاستشاري الأعلى) الذي يضم كبار رجال الدولة لمناقشة القضايا الكبرى، والولاة الذين يحكمون الولايات (الإيالات) ويرجعون مباشرة إلى السلطان، والقضاة الذين يشرفون على العدالة وتطبيق الشريعة الإسلامية والقانون العثماني (القانون نامه). وقد وضع سليمان القانوني القانون نامه الذي جمع بين الشريعة الإسلامية والقوانين السلطانية، مما وفّر الاستقرار الداخلي ووحّد التشريعات في مختلف أنحاء الإمبراطورية.</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_military">ثانياً. التنظيم العسكري</h4>
+                        <p data-i18n="ex5A_production_p_military">اعتمدت الإمبراطورية العثمانية على جيش قوي ومنظّم كان من أقوى الجيوش في العالم آنذاك، وتكوّن من الجيش الانكشاري (المشاة النظاميون) الذين يُعدّون نخبة الجيش ويتم تجنيدهم من الأطفال المسيحيين الذين يُحوّلون إلى الإسلام ويُدرّبون تدريبًا عسكريًا صارمًا، والسباهية (الفرسان) الذين يحصلون على إقطاعات أرضية مقابل خدماتهم العسكرية، والأسطول البحري الهائل الذي ساهم في توسع الإمبراطورية في البحر المتوسط والبحر الأحمر والمحيط الهندي، وقد قاده خير الدين بربروس الذي تمكّن من إخضاع تونس والجزائر وطرد الإسبان من سواحل شمال إفريقيا.</p>
+
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_impact">ثالثاً. أثر التنظيم على قوة الإمبراطورية وتوسعها</h4>
+                        <p data-i18n="ex5A_production_p_impact">كان لهذا التنظيم الإداري والعسكري المحكم أثر بالغ على قوة الإمبراطورية العثمانية وتوسعها. فقد وفّر الاستقرار الداخلي الذي ساعد على التوسع الخارجي، ومكّن الإمبراطورية من تحقيق انتصارات عسكرية متتالية: فتح القسطنطينية (1453)، معركة جالدران (1514)، معركة مرج دابق والسيطرة على الشام (1516)، إسقاط المماليك والسيطرة على مصر (1517)، حصار فيينا (1529)، ضم البصرة (1547)، الاستيلاء على مسقط (1551)، وإلحاق تونس نهائيا (1574). وهكذا امتدت الإمبراطورية العثمانية على ثلاث قارات، من أسوار فيينا شمالًا إلى سواحل اليمن وعمان جنوبًا، ومن العراق وغربي فارس شرقًا إلى بلاد المغرب العربي غربًا، مما جعلها قوة عالمية كبرى في القرن السادس عشر ومنافسًا خطيرًا للقوى الأوروبية في البحر المتوسط والطرق التجارية العالمية.</p>
+
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا كان التنظيم الإداري والعسكري المحكم في عهد سليمان القانوني أساس قوة الإمبراطورية العثمانية وامتدادها الواسع في القرن السادس عشر، مما جعلها من أقوى الإمبراطوريات في التاريخ ومنافسًا خطيرًا للقوى الأوروبية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y3sec_secEco_his_lessons_mod1_lesson5.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                exerciseTitle: "Exercises – Expansion of the Ottoman Empire and Its Organization in the 16th Century",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: the Ottoman Empire, the Janissaries, the Grand Vizier, the Kanunnameh.",
+                ex1_def1_title: "The Ottoman Empire:",
+                ex1_def1_subtitle: "An Islamic empire that emerged in Anatolia under Osman I in the late 13th century AD (1299) after the disintegration of the Seljuk Sultanate of Rum. It managed to eliminate the Byzantine Empire and seize Constantinople in 1453, and reached the peak of its expansion and power in the 16th century during the reign of Suleiman the Lawgiver (1520-1566), extending from the walls of Vienna in the north to the coasts of Yemen and Oman in the south, and from Iraq and western Persia in the east to the Maghreb in the west.",
+                ex1_def2_title: "The Janissaries:",
+                ex1_def2_subtitle: "The regular infantry in the Ottoman army, the elite of the army. They were recruited from Christian children who were converted to Islam and given rigorous military training, and were among the strongest military corps in the world at the time.",
+                ex1_def3_title: "The Grand Vizier:",
+                ex1_def3_subtitle: "The prime minister in the Ottoman state, representing the Sultan in managing state affairs and supervising the other ministers. He was one of the most prominent positions in the Ottoman state after the Sultan.",
+                ex1_def4_title: "The Kanunnameh:",
+                ex1_def4_subtitle: "The Ottoman law established by Suleiman the Lawgiver, combining Islamic Sharia and sultanic laws. Suleiman the Lawgiver earned his nickname \"the Lawgiver\" due to establishing this law.",
+                ex2Q: "Convert the following table data into a bar chart showing the major milestones of Ottoman expansion in the 16th century.",
+                ex2_table_event: "Milestone",
+                ex2_table_year: "Date",
+                ex2_table_constantinople: "Conquest of Constantinople",
+                ex2_table_chaldiran: "Battle of Chaldiran",
+                ex2_table_marj: "Battle of Marj Dabiq and control of Syria",
+                ex2_table_egypt: "Overthrow of the Mamluks and control of Egypt",
+                ex2_table_vienna: "Siege of Vienna",
+                ex2_table_basra: "Annexation of Basra",
+                ex2_table_muscat: "Capture of Muscat",
+                ex2_table_tunis: "Final annexation of Tunisia",
+                ex2Q_source: "Source: Lesson data on Ottoman expansion in the 16th century",
+                ex2A_title: "Major Milestones of Ottoman Expansion in the 16th Century",
+                ex2A_source: "Source: Lesson data on Ottoman expansion in the 16th century",
+                ex2A_scale: "Scale: 1450–1580; column height proportional to date.",
+                ex2A_key_label: "Key:",
+                ex3Q: "Observe the following map showing Ottoman expansion in the 16th century, and identify the main areas reached by Ottoman expansion and its boundaries.",
+                ex3DocAlt: "Map of Ottoman expansion in the 16th century",
+                ex3AnswerImgAlt: "Answer model – Ottoman expansion and its boundaries",
+                ex3A: "The map represents Ottoman expansion in the 16th century, as the Ottoman Empire extended over three continents: In Asia: Anatolia, Syria, Iraq, Hejaz, Oman, Al-Ahsa, reaching Basra and western Persia. In Europe: Constantinople (Istanbul), the Balkans, Hungary, Bosnia and Herzegovina, Serbia, Wallachia (Romania), Moldavia, reaching the walls of Vienna (1529). In Africa: Egypt, Tunisia, Algeria, and the Maghreb. Boundaries of expansion: from the walls of Vienna in the north (1529) to the coasts of Yemen and Oman in the south, and from Iraq and western Persia in the east to the Maghreb in the west. These expansions posed a great danger to European powers, especially Spain and Portugal, making the Ottoman Empire a major world power in the 16th century.",
+                ex4Q: "Analyse the factors that helped the expansion of the Ottoman Empire in the 16th century in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Factors that helped the expansion of the Ottoman Empire in the 16th century:\n- Military power: the organized and rigorously trained Janissary army, the Sipahis (cavalry), and the strong naval fleet led by Khayr ad-Din Barbarossa.\n- Smart diplomacy: exploiting the preoccupation of Charles V, King of Spain, with his wars against France, and the preoccupation of the Pope.\n- Exploiting European rivalry: the Ottomans benefited from the conflict between the Spanish and Portuguese over colonies, and the rivalry between European states.\n- Strategic location: the empire's position at the heart of the ancient world, facilitating expansion across three continents (Asia, Europe, and Africa).\n- Weakness of opponents: the disintegration of the Seljuk Sultanate of Rum, the collapse of the Mamluk state, and the weakness of the Safavid state.\n- Tight administrative organization: the Divan, Grand Vizier, Walis, and Qadis, providing internal stability that helped external expansion.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The Ottoman Empire's expansion in the 16th century was facilitated by multiple factors. The Ottomans benefited from their enormous military power represented by the Janissary army, the Sipahis, and the naval fleet led by Khayr ad-Din Barbarossa, as well as smart diplomacy that exploited Charles V's preoccupation with his wars against France and the Pope's preoccupation. They also benefited from rivalry between European states and the conflict between the Spanish and Portuguese over colonies. Additionally, they benefited from the weakness of their opponents: the disintegration of the Seljuk Sultanate of Rum, the collapse of the Mamluk state, and the decline of the Safavid state. Their strategic location at the heart of the ancient world facilitated their expansion across three continents, and their tight administrative organization provided internal stability. Thus these factors interacted to make the Ottoman Empire a major world power in the 16th century.",
+                ex5Q: "Write a short article on the organization of the Ottoman Empire under Suleiman the Lawgiver and its impact on its power and expansion.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Analyse the organization of the Ottoman Empire under Suleiman the Lawgiver through three axes: administrative organization (the Sultan, Grand Vizier, Divan, Walis, Qadis, Kanunnameh), military organization (Janissaries, Sipahis, naval fleet), and the impact of this organization on the empire's power and expansion (internal stability, military victories, expansion across three continents).",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Identifying Suleiman the Lawgiver as the tenth sultan of the Ottoman Empire and the peak of its power.",
+                ex5A_plan_li2: "Development: I. Administrative organization; II. Military organization; III. Impact of the organization on the empire's power and expansion.",
+                ex5A_plan_li3: "Conclusion: Tight organization as the foundation of the Ottoman Empire's power and extension.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Suleiman the Lawgiver (1520-1566) is the tenth sultan of the Ottoman Empire, during whose reign the empire witnessed the peak of its expansion and power. This success was based on a tight administrative and military organization that enabled the empire to expand across three continents and continue confronting European powers.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_admin: "I. Administrative Organization",
+                ex5A_production_p_admin: "The administrative organization of the Ottoman state was based on tight centralization, where the Sultan combined religious and temporal authority, assisted in managing state affairs by the Grand Vizier (prime minister) who represented the Sultan and supervised the other ministers, the Divan (supreme advisory council) comprising senior state officials to discuss major issues, the Walis who governed the provinces (eyalets) and reported directly to the Sultan, and the Qadis who supervised justice and the application of Islamic Sharia and Ottoman law (Kanunnameh). Suleiman the Lawgiver established the Kanunnameh, combining Islamic Sharia and sultanic laws, providing internal stability and unifying legislation across the empire.",
+                ex5A_production_h4_military: "II. Military Organization",
+                ex5A_production_p_military: "The Ottoman Empire relied on a strong and organized army that was among the strongest in the world at the time, consisting of the Janissaries (regular infantry), the elite of the army, recruited from Christian children who were converted to Islam and given rigorous military training; the Sipahis (cavalry) who received land grants in exchange for their military service; and the huge naval fleet that contributed to the empire's expansion in the Mediterranean, Red Sea, and Indian Ocean, led by Khayr ad-Din Barbarossa who managed to subjugate Tunisia and Algeria and expel the Spanish from the coasts of North Africa.",
+                ex5A_production_h4_impact: "III. Impact of the Organization on the Empire's Power and Expansion",
+                ex5A_production_p_impact: "This tight administrative and military organization had a profound impact on the power and expansion of the Ottoman Empire. It provided internal stability that helped external expansion, and enabled the empire to achieve successive military victories: the conquest of Constantinople (1453), the Battle of Chaldiran (1514), the Battle of Marj Dabiq and control of Syria (1516), the overthrow of the Mamluks and control of Egypt (1517), the siege of Vienna (1529), the annexation of Basra (1547), the capture of Muscat (1551), and the final annexation of Tunisia (1574). Thus the Ottoman Empire extended across three continents, from the walls of Vienna in the north to the coasts of Yemen and Oman in the south, and from Iraq and western Persia in the east to the Maghreb in the west, making it a major world power in the 16th century and a dangerous competitor to European powers in the Mediterranean and global trade routes.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus the tight administrative and military organization under Suleiman the Lawgiver was the foundation of the Ottoman Empire's power and its vast extension in the 16th century, making it one of the strongest empires in history and a dangerous competitor to European powers.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – L'expansion de l'Empire ottoman et son organisation au XVIe siècle",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : l'Empire ottoman, les Janissaires, le Grand Vizir, le Kanunnameh.",
+                ex1_def1_title: "L'Empire ottoman :",
+                ex1_def1_subtitle: "Un empire islamique apparu en Anatolie sous Osman Ier à la fin du XIIIe siècle (1299) après la désintégration du sultanat seldjoukide de Roum. Il a réussi à éliminer l'Empire byzantin et à s'emparer de Constantinople en 1453, et a atteint l'apogée de son expansion et de sa puissance au XVIe siècle sous le règne de Soliman le Législateur (1520-1566), s'étendant des murs de Vienne au nord aux côtes du Yémen et d'Oman au sud, et de l'Irak et de l'ouest de la Perse à l'est au Maghreb à l'ouest.",
+                ex1_def2_title: "Les Janissaires :",
+                ex1_def2_subtitle: "L'infanterie régulière de l'armée ottomane, l'élite de l'armée. Ils étaient recrutés parmi les enfants chrétiens convertis à l'islam et soumis à un entraînement militaire rigoureux, et étaient parmi les corps militaires les plus puissants du monde à l'époque.",
+                ex1_def3_title: "Le Grand Vizir :",
+                ex1_def3_subtitle: "Le premier ministre de l'État ottoman, représentant le sultan dans la gestion des affaires de l'État et supervisant les autres ministres. Il était l'un des postes les plus éminents de l'État ottoman après le sultan.",
+                ex1_def4_title: "Le Kanunnameh :",
+                ex1_def4_subtitle: "Le droit ottoman établi par Soliman le Législateur, combinant la charia islamique et les lois sultaniennes. Soliman le Législateur a gagné son surnom « le Législateur » grâce à l'établissement de ce droit.",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant les principales étapes de l'expansion ottomane au XVIe siècle.",
+                ex2_table_event: "Étape",
+                ex2_table_year: "Date",
+                ex2_table_constantinople: "Conquête de Constantinople",
+                ex2_table_chaldiran: "Bataille de Tchaldiran",
+                ex2_table_marj: "Bataille de Marj Dabiq et contrôle de la Syrie",
+                ex2_table_egypt: "Renversement des Mamelouks et contrôle de l'Égypte",
+                ex2_table_vienna: "Siège de Vienne",
+                ex2_table_basra: "Annexion de Bassora",
+                ex2_table_muscat: "Capture de Mascate",
+                ex2_table_tunis: "Annexion définitive de la Tunisie",
+                ex2Q_source: "Source : données de la leçon sur l'expansion ottomane au XVIe siècle",
+                ex2A_title: "Principales étapes de l'expansion ottomane au XVIe siècle",
+                ex2A_source: "Source : données de la leçon sur l'expansion ottomane au XVIe siècle",
+                ex2A_scale: "Échelle : 1450–1580 ; hauteur des colonnes proportionnelle à la date.",
+                ex2A_key_label: "Légende :",
+                ex3Q: "Observez la carte suivante représentant l'expansion ottomane au XVIe siècle, et identifiez les principales zones atteintes par l'expansion ottomane et ses limites.",
+                ex3DocAlt: "Carte de l'expansion ottomane au XVIe siècle",
+                ex3AnswerImgAlt: "Modèle de réponse – L'expansion ottomane et ses limites",
+                ex3A: "La carte représente l'expansion ottomane au XVIe siècle, l'Empire ottoman s'étendant sur trois continents : En Asie : Anatolie, Syrie, Irak, Hejaz, Oman, Al-Ahsa, atteignant Bassora et l'ouest de la Perse. En Europe : Constantinople (Istanbul), les Balkans, la Hongrie, la Bosnie-Herzégovine, la Serbie, la Valachie (Roumanie), la Moldavie, atteignant les murs de Vienne (1529). En Afrique : Égypte, Tunisie, Algérie et Maghreb. Limites de l'expansion : des murs de Vienne au nord (1529) aux côtes du Yémen et d'Oman au sud, et de l'Irak et de l'ouest de la Perse à l'est au Maghreb à l'ouest. Ces expansions ont constitué un grand danger pour les puissances européennes, notamment l'Espagne et le Portugal, faisant de l'Empire ottoman une grande puissance mondiale au XVIe siècle.",
+                ex4Q: "Analysez les facteurs qui ont favorisé l'expansion de l'Empire ottoman au XVIe siècle en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Facteurs qui ont favorisé l'expansion de l'Empire ottoman au XVIe siècle :\n- Puissance militaire : l'armée janissaire organisée et rigoureusement entraînée, les Sipahis (cavalerie), et la puissante flotte navale dirigée par Khayr ad-Din Barbarossa.\n- Diplomatie intelligente : exploitation de la préoccupation de Charles Quint, roi d'Espagne, avec ses guerres contre la France, et de la préoccupation du pape.\n- Exploitation de la rivalité européenne : les Ottomans ont bénéficié du conflit entre les Espagnols et les Portugais sur les colonies, et de la rivalité entre les États européens.\n- Situation stratégique : la position de l'empire au cœur de l'ancien monde, facilitant l'expansion sur trois continents (Asie, Europe et Afrique).\n- Faiblesse des adversaires : la désintégration du sultanat seldjoukide de Roum, l'effondrement de l'État mamelouk et la faiblesse de l'État safavide.\n- Organisation administrative rigoureuse : le Divan, le Grand Vizir, les Walis et les Qadis, assurant la stabilité interne qui a favorisé l'expansion externe.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "L'expansion de l'Empire ottoman au XVIe siècle a été facilitée par de multiples facteurs. Les Ottomans ont bénéficié de leur énorme puissance militaire représentée par l'armée janissaire, les Sipahis et la flotte navale dirigée par Khayr ad-Din Barbarossa, ainsi que d'une diplomatie intelligente qui a exploité la préoccupation de Charles Quint avec ses guerres contre la France et la préoccupation du pape. Ils ont également bénéficié de la rivalité entre les États européens et du conflit entre les Espagnols et les Portugais sur les colonies. De plus, ils ont bénéficié de la faiblesse de leurs adversaires : la désintégration du sultanat seldjoukide de Roum, l'effondrement de l'État mamelouk et le déclin de l'État safavide. Leur situation stratégique au cœur de l'ancien monde a facilité leur expansion sur trois continents, et leur organisation administrative rigoureuse a assuré la stabilité interne. Ainsi ces facteurs ont interagi pour faire de l'Empire ottoman une grande puissance mondiale au XVIe siècle.",
+                ex5Q: "Rédigez un court article sur l'organisation de l'Empire ottoman sous Soliman le Législateur et son impact sur sa puissance et son expansion.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Analysez l'organisation de l'Empire ottoman sous Soliman le Législateur à travers trois axes : l'organisation administrative (le sultan, le Grand Vizir, le Divan, les Walis, les Qadis, le Kanunnameh), l'organisation militaire (les Janissaires, les Sipahis, la flotte navale), et l'impact de cette organisation sur la puissance et l'expansion de l'empire (stabilité interne, victoires militaires, expansion sur trois continents).",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Identifier Soliman le Législateur comme le dixième sultan de l'Empire ottoman et l'apogée de sa puissance.",
+                ex5A_plan_li2: "Développement : I. Organisation administrative ; II. Organisation militaire ; III. Impact de l'organisation sur la puissance et l'expansion de l'empire.",
+                ex5A_plan_li3: "Conclusion : L'organisation rigoureuse comme fondement de la puissance et de l'extension de l'Empire ottoman.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Soliman le Législateur (1520-1566) est le dixième sultan de l'Empire ottoman, sous le règne duquel l'empire a connu l'apogée de son expansion et de sa puissance. Ce succès reposait sur une organisation administrative et militaire rigoureuse qui a permis à l'empire de s'étendre sur trois continents et de continuer à affronter les puissances européennes.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_admin: "I. Organisation administrative",
+                ex5A_production_p_admin: "L'organisation administrative de l'État ottoman reposait sur une centralisation rigoureuse, où le sultan cumulait l'autorité religieuse et temporelle, assisté dans la gestion des affaires de l'État par le Grand Vizir (premier ministre) qui représentait le sultan et supervisait les autres ministres, le Divan (conseil consultatif suprême) comprenant de hauts fonctionnaires de l'État pour discuter des grandes questions, les Walis qui gouvernaient les provinces (eyalets) et relevaient directement du sultan, et les Qadis qui supervisaient la justice et l'application de la charia islamique et du droit ottoman (Kanunnameh). Soliman le Législateur a établi le Kanunnameh, combinant la charia islamique et les lois sultaniennes, assurant la stabilité interne et unifiant la législation à travers l'empire.",
+                ex5A_production_h4_military: "II. Organisation militaire",
+                ex5A_production_p_military: "L'Empire ottoman s'appuyait sur une armée forte et organisée qui était parmi les plus puissantes du monde à l'époque, composée des Janissaires (infanterie régulière), l'élite de l'armée, recrutés parmi les enfants chrétiens convertis à l'islam et soumis à un entraînement militaire rigoureux ; des Sipahis (cavalerie) qui recevaient des concessions de terres en échange de leurs services militaires ; et de l'immense flotte navale qui a contribué à l'expansion de l'empire en Méditerranée, en mer Rouge et dans l'océan Indien, dirigée par Khayr ad-Din Barbarossa qui a réussi à soumettre la Tunisie et l'Algérie et à expulser les Espagnols des côtes de l'Afrique du Nord.",
+                ex5A_production_h4_impact: "III. Impact de l'organisation sur la puissance et l'expansion de l'empire",
+                ex5A_production_p_impact: "Cette organisation administrative et militaire rigoureuse a eu un impact profond sur la puissance et l'expansion de l'Empire ottoman. Elle a assuré la stabilité interne qui a favorisé l'expansion externe, et a permis à l'empire de remporter des victoires militaires successives : la conquête de Constantinople (1453), la bataille de Tchaldiran (1514), la bataille de Marj Dabiq et le contrôle de la Syrie (1516), le renversement des Mamelouks et le contrôle de l'Égypte (1517), le siège de Vienne (1529), l'annexion de Bassora (1547), la capture de Mascate (1551), et l'annexion définitive de la Tunisie (1574). Ainsi l'Empire ottoman s'est étendu sur trois continents, des murs de Vienne au nord aux côtes du Yémen et d'Oman au sud, et de l'Irak et de l'ouest de la Perse à l'est au Maghreb à l'ouest, ce qui en a fait une grande puissance mondiale au XVIe siècle et un concurrent dangereux pour les puissances européennes en Méditerranée et sur les routes commerciales mondiales.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi l'organisation administrative et militaire rigoureuse sous Soliman le Législateur a été le fondement de la puissance de l'Empire ottoman et de sa vaste extension au XVIe siècle, ce qui en a fait l'un des empires les plus puissants de l'histoire et un concurrent dangereux pour les puissances européennes.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – توسع الإمبراطورية العثمانية وتنظيمها في القرن السادس عشر",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الإمبراطورية العثمانية، الانكشارية، الصدر الأعظم، القانون نامه.",
+                ex1_def1_title: "الإمبراطورية العثمانية:",
+                ex1_def1_subtitle: "إمبراطورية إسلامية نشأت في الأناضول على يد عثمان الأول في أواخر القرن الثالث عشر الميلادي (1299م) بعد تفكك دولة السلاجقة الروم. تمكّنت من القضاء على الإمبراطورية البيزنطية والاستيلاء على القسطنطينية سنة 1453م، وبلغت أوج توسعها وقوتها في القرن السادس عشر الميلادي في عهد سليمان القانوني (1520-1566م)، حيث امتدت من أسوار فيينا شمالًا إلى سواحل اليمن وعمان جنوبًا، ومن العراق وغربي فارس شرقًا إلى بلاد المغرب العربي غربًا.",
+                ex1_def2_title: "الانكشارية (Janissaries):",
+                ex1_def2_subtitle: "المشاة النظاميون في الجيش العثماني، وهم نخبة الجيش. يتم تجنيدهم من الأطفال المسيحيين الذين يُحوّلون إلى الإسلام ويُدرّبون تدريبًا عسكريًا صارمًا، وكانوا من أقوى الفرق العسكرية في العالم آنذاك.",
+                ex1_def3_title: "الصدر الأعظم (Grand Vizier):",
+                ex1_def3_subtitle: "رئيس الوزراء في الدولة العثمانية، يمثل السلطان في إدارة شؤون الدولة ويشرف على باقي الوزراء. يُعدّ من أبرز مناصب الدولة العثمانية بعد السلطان.",
+                ex1_def4_title: "القانون نامه (Kanunnameh):",
+                ex1_def4_subtitle: "القانون العثماني الذي وضعه سليمان القانوني، والذي جمع بين الشريعة الإسلامية والقوانين السلطانية. ومنح سليمان القانوني لقبه «القانوني» بسبب وضعه لهذا القانون.",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن أهم المحطات الكبرى للتوسع العثماني في القرن السادس عشر.",
+                ex2_table_event: "المحطة",
+                ex2_table_year: "التاريخ",
+                ex2_table_constantinople: "فتح القسطنطينية",
+                ex2_table_chaldiran: "معركة جالدران",
+                ex2_table_marj: "معركة مرج دابق والسيطرة على الشام",
+                ex2_table_egypt: "إسقاط المماليك والسيطرة على مصر",
+                ex2_table_vienna: "حصار فيينا",
+                ex2_table_basra: "ضم البصرة",
+                ex2_table_muscat: "الاستيلاء على مسقط",
+                ex2_table_tunis: "إلحاق تونس نهائيا",
+                ex2Q_source: "المصدر: معطيات الدرس حول التوسعات العثمانية في القرن السادس عشر",
+                ex2A_title: "أهم المحطات الكبرى للتوسع العثماني في القرن السادس عشر",
+                ex2A_source: "المصدر: معطيات الدرس حول التوسعات العثمانية في القرن السادس عشر",
+                ex2A_scale: "المقياس: 1450–1580؛ ارتفاع الأعمدة يتناسب مع التاريخ.",
+                ex2A_key_label: "المفتاح:",
+                ex3Q: "تأمل الخريطة التالية التي تمثل التوسعات العثمانية في القرن السادس عشر، وبيّن أهم المجالات التي امتد إليها التوسع العثماني وحدوده.",
+                ex3DocAlt: "خريطة التوسعات العثمانية في القرن السادس عشر",
+                ex3AnswerImgAlt: "نموذج الإجابة – التوسعات العثمانية وحدودها",
+                ex3A: "تمثّل الخريطة التوسعات العثمانية في القرن السادس عشر، حيث امتدت الإمبراطورية العثمانية على ثلاث قارات: في آسيا: الأناضول، الشام، العراق، الحجاز، عمان، الأحساء، وصولًا إلى البصرة وغربي فارس. في أوروبا: القسطنطينية (إستنبول)، البلقان، بلاد المجر، البوسنة والهرسك، صربيا، الأفلاق (رومانيا)، البغدان (مولدافيا)، وصولًا إلى أسوار فيينا (1529). في إفريقيا: مصر، تونس، الجزائر، وبلاد المغرب. حدود التوسع: من أسوار فيينا شمالًا (1529) إلى سواحل اليمن وعمان جنوبًا، ومن العراق وغربي فارس شرقًا إلى بلاد المغرب العربي غربًا. وقد مثّلت هذه التوسعات خطرًا كبيرًا على القوى الأوروبية، خاصة إسبانيا والبرتغال، مما جعل الإمبراطورية العثمانية قوة عالمية كبرى في القرن السادس عشر.",
+                ex4Q: "حلّل العوامل التي ساعدت على توسع الإمبراطورية العثمانية في القرن السادس عشر في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "العوامل التي ساعدت على توسع الإمبراطورية العثمانية في القرن السادس عشر:\n- القوة العسكرية: جيش الانكشارية المنظم والمدرب تدريبًا صارمًا، والسباهية (الفرسان)، والأسطول البحري القوي بقيادة خير الدين بربروس.\n- الدبلوماسية الذكية: استغلال انشغال شارلكان (شارل الخامس) ملك إسبانيا بحروبه ضد فرنسا، واستغلال انشغال بابا روما.\n- استغلال التنافس الأوروبي: استفادة العثمانيين من الصراع بين الإسبان والبرتغال على المستعمرات، والتنافس بين الدول الأوروبية.\n- الموقع الاستراتيجي: تمركز الإمبراطورية في قلب العالم القديم، مما سهّل التوسع في ثلاث قارات (آسيا وأوروبا وإفريقيا).\n- ضعف الخصوم: تفكك دولة السلاجقة الروم، وانهيار دولة المماليك، وضعف الدولة الصفوية.\n- التنظيم الإداري المحكم: الديوان والصدر الأعظم والولاة والقضاة، مما وفّر الاستقرار الداخلي الذي ساعد على التوسع الخارجي.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "توافرت لتنظيم الرحلات الاستكشافية ظروف ملائمة متعدّدة. فقد تمثّلت الدوافع الأساسية في البحث عن مسالك بحرية جديدة للوصول إلى الهند بعد أن أحكم المسلمون سيطرتهم على الطرقات المعهودة، وفي رغبة الملوك في دعم قوة دولهم ومواردها (كما فعل هنري الملاح وفرديناند وإيزابيلا)، وفي نشر المسيحية والتصدّي لتوسّع الإمبراطورية العثمانية. أمّا العوامل المساعدة فقد تمثّلت في تطوّر تقنيات الملاحة البحرية بفضل سفينة الكرفال وتحسينات البوصلة والاصطراب والمرشدات البحرية، وفي رواج نظرية كروية الأرض التي أكّدها الجغرافي العربي الإدريسي. وهكذا تفاعلت الدوافع والعوامل المساعدة لتنطلق رحلة الاكتشافات الكبرى. وبالمثل، استفاد العثمانيون في توسعاتهم في القرن السادس عشر من قوّتهم العسكرية الهائلة المتمثلة في جيش الانكشارية والسباهية والأسطول البحري بقيادة خير الدين بربروس، ومن الدبلوماسية الذكية التي استغلت انشغال شارلكان بحروبه ضد فرنسا وانشغال بابا روما، ومن التنافس بين الدول الأوروبية. كما استفادوا من ضعف خصومهم: تفكك دولة السلاجقة الروم، وانهيار دولة المماليك، وتراجع الدولة الصفوية، إضافة إلى موقعهم الاستراتيجي في قلب العالم القديم الذي سهّل توسعهم في ثلاث قارات، وتنظيمهم الإداري المحكم الذي وفّر الاستقرار الداخلي. وهكذا تفاعلت هذه العوامل لتجعل من الإمبراطورية العثمانية قوة عالمية كبرى في القرن السادس عشر.",
+                ex5Q: "اكتب مقالاً قصيراً حول تنظيم الإمبراطورية العثمانية في عهد سليمان القانوني وأثره على قوتها وتوسعها.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "حلّل تنظيم الإمبراطورية العثمانية في عهد سليمان القانوني من خلال ثلاثة محاور: التنظيم الإداري (السلطان، الصدر الأعظم، الديوان، الولاة، القضاة، القانون نامه)، التنظيم العسكري (الانكشارية، السباهية، الأسطول البحري)، وأثر هذا التنظيم على قوة الإمبراطورية وتوسعها (الاستقرار الداخلي، الانتصارات العسكرية، التوسع في ثلاث قارات).",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تحديد سليمان القانوني كعاشر سلاطين الإمبراطورية العثمانية وأوج قوتها.",
+                ex5A_plan_li2: "تطوير: أولاً. التنظيم الإداري؛ ثانياً. التنظيم العسكري؛ ثالثاً. أثر التنظيم على قوة الإمبراطورية وتوسعها.",
+                ex5A_plan_li3: "خاتمة: التنظيم المحكم أساس قوة الإمبراطورية العثمانية وامتدادها.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "يُعدّ سليمان القانوني (1520-1566) عاشر سلاطين الإمبراطورية العثمانية، وقد شهدت الإمبراطورية في عهده أوج توسعها وذروة قوتها. وقد قام هذا النجاح على تنظيم إداري وعسكري محكم، مكّن الإمبراطورية من التوسع في ثلاث قارات والاستمرار في مواجهة القوى الأوروبية.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_admin: "أولاً. التنظيم الإداري",
+                ex5A_production_p_admin: "قام التنظيم الإداري للدولة العثمانية على أسس مركزية محكمة، حيث يجمع السلطان بين السلطتين الدينية والزمنية، ويُعاونه في إدارة شؤون الدولة الصدر الأعظم (رئيس الوزراء) الذي يمثل السلطان ويشرف على باقي الوزراء، والديوان (المجلس الاستشاري الأعلى) الذي يضم كبار رجال الدولة لمناقشة القضايا الكبرى، والولاة الذين يحكمون الولايات (الإيالات) ويرجعون مباشرة إلى السلطان، والقضاة الذين يشرفون على العدالة وتطبيق الشريعة الإسلامية والقانون العثماني (القانون نامه). وقد وضع سليمان القانوني القانون نامه الذي جمع بين الشريعة الإسلامية والقوانين السلطانية، مما وفّر الاستقرار الداخلي ووحّد التشريعات في مختلف أنحاء الإمبراطورية.",
+                ex5A_production_h4_military: "ثانياً. التنظيم العسكري",
+                ex5A_production_p_military: "اعتمدت الإمبراطورية العثمانية على جيش قوي ومنظّم كان من أقوى الجيوش في العالم آنذاك، وتكوّن من الجيش الانكشاري (المشاة النظاميون) الذين يُعدّون نخبة الجيش ويتم تجنيدهم من الأطفال المسيحيين الذين يُحوّلون إلى الإسلام ويُدرّبون تدريبًا عسكريًا صارمًا، والسباهية (الفرسان) الذين يحصلون على إقطاعات أرضية مقابل خدماتهم العسكرية، والأسطول البحري الهائل الذي ساهم في توسع الإمبراطورية في البحر المتوسط والبحر الأحمر والمحيط الهندي، وقد قاده خير الدين بربروس الذي تمكّن من إخضاع تونس والجزائر وطرد الإسبان من سواحل شمال إفريقيا.",
+                ex5A_production_h4_impact: "ثالثاً. أثر التنظيم على قوة الإمبراطورية وتوسعها",
+                ex5A_production_p_impact: "كان لهذا التنظيم الإداري والعسكري المحكم أثر بالغ على قوة الإمبراطورية العثمانية وتوسعها. فقد وفّر الاستقرار الداخلي الذي ساعد على التوسع الخارجي، ومكّن الإمبراطورية من تحقيق انتصارات عسكرية متتالية: فتح القسطنطينية (1453)، معركة جالدران (1514)، معركة مرج دابق والسيطرة على الشام (1516)، إسقاط المماليك والسيطرة على مصر (1517)، حصار فيينا (1529)، ضم البصرة (1547)، الاستيلاء على مسقط (1551)، وإلحاق تونس نهائيا (1574). وهكذا امتدت الإمبراطورية العثمانية على ثلاث قارات، من أسوار فيينا شمالًا إلى سواحل اليمن وعمان جنوبًا، ومن العراق وغربي فارس شرقًا إلى بلاد المغرب العربي غربًا، مما جعلها قوة عالمية كبرى في القرن السادس عشر ومنافسًا خطيرًا للقوى الأوروبية في البحر المتوسط والطرق التجارية العالمية.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا كان التنظيم الإداري والعسكري المحكم في عهد سليمان القانوني أساس قوة الإمبراطورية العثمانية وامتدادها الواسع في القرن السادس عشر، مما جعلها من أقوى الإمبراطوريات في التاريخ ومنافسًا خطيرًا للقوى الأوروبية.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '1453', value: 1453, valueFormatted: '1453' },
+                { label: '1514', value: 1514, valueFormatted: '1514' },
+                { label: '1516', value: 1516, valueFormatted: '1516' },
+                { label: '1517', value: 1517, valueFormatted: '1517' },
+                { label: '1529', value: 1529, valueFormatted: '1529' },
+                { label: '1547', value: 1547, valueFormatted: '1547' },
+                { label: '1551', value: 1551, valueFormatted: '1551' },
+                { label: '1574', value: 1574, valueFormatted: '1574' }
+            ],
+            maxValue: 1580,
+            ySteps: [1580, 1560, 1540, 1520, 1500, 1480, 1460, 1440],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            }
+        };
+    </script>
+</body>
+</html>
