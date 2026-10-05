@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">قرطاج: الميناء والتوسع التجاري</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">مثّل الميناء القرطاجي ركيزة أساسية في بناء القوة التجارية والعسكرية لقرطاج، إذ جمع بين وظيفة تجارية وأخرى عسكرية، ووفّر البنية التحتية اللازمة لتوسعها البحري في البحر المتوسط وخارجه. وقد وصف المؤرخ الإغريقي أبيانوس ميناء قرطاج بأنه من أعظم المنشآت البحرية في العالم القديم، لما تميز به من هندسة مركبة واستغلال محكم للموروث الفينيقي.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي خصائص الميناء القرطاجي ودوره في بناء القوة التجارية والعسكرية لقرطاج؟ وما هي مظاهر التوسع المجالي والعوامل المفسرة له؟</p>
+            </div>
+
+            <!-- Part I : The Port -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">الميناء ودوره في بناء القوة التجارية والعسكرية</span>
+                </h2>
+
+                <!-- 1. Port characteristics -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="portCharTitle">خصائص الميناء ومكوناته</span>
+                </h3>
+                <p data-i18n="portCharIntro">وصف لنا المؤرخ الإغريقي «أبيانوس» (200 ق.م–120 م) في كتابه «لوبيكا» (بونيكا) موانئ قرطاج كما كانت منذ القرن الثالث ق.م. وتميز الميناء القرطاجي ببنية مركبة ومحيط شامل، إذ شمل ميناءً تجارياً وآخر عسكرياً إلى جانب ورشات إصلاح السفن والمخازن، وامتد على مساحة تتجاوز 20 هكتاراً.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="commercialPortTitle">الميناء التجاري</span>
+                </h4>
+                <p data-i18n="commercialPortText">يشكل الميناء التجاري الجزء الخارجي، وهو على هيئة حوض مستطيل الأضلاع، يبلغ طوله 465 متراً وعرضه 325 متراً، ويتيح مجالاً مائياً يقدر بـ 15 هكتاراً. تنفذ إليه السفن عبر بوابة عرضها 70 متراً (ما يقارب 20,72 متراً) تُغلق بسلاسل حديدية.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="militaryPortTitle">الميناء العسكري</span>
+                </h4>
+                <p data-i18n="militaryPortText">يستحوذ الميناء العسكري على الجزء الداخلي، ويتخذ شكل حوض دائري يبلغ قطره 325 متراً، محاط بجدران مزدوجة عالية وببوابة خشبية. ويتوسطه مركز القيادة العامة، ويتيح مجالاً مائياً يقدر بـ 8 هكتارات، ويضم أرصفة ضخمة وماوي لـ 250 سفينة حربية.</p>
+                <p data-i18n="portConclusion">وتميز الميناء بموقع استراتيجي وبموضع محصّن، وعكس قدرة الإنسان القرطاجي على الإبداع وإحكام استغلال الموروث الفينيقي.</p>
+
+                <!-- 2. Port role -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="portRoleTitle">دور الميناء في بناء القوة التجارية والعسكرية</span>
+                </h3>
+                <p data-i18n="portRoleText">ساهم الميناء في بناء القوة التجارية والعسكرية لقرطاج ودعم حضورها في المتوسط. فقد احتلت التجارة المكانة الأولى في الاقتصاد القرطاجي. وقد اكتسبت قرطاج شهرة لدى شعوب البحر المتوسط، بل أصبحت مركزاً لتبادل منتجات أخرى من المحيط الأطلسي وما وراء الصحراء، وكان ذلك نتيجة مهارة القرطاجيين وإقبالهم على المخاطر وتعلّم لغات حرفائهم والتعرّف على أذواقهم.</p>
+            </div>
+
+            <!-- Part II : Spatial expansion -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">التوسع المجالي لقرطاج: المظاهر والعوامل</span>
+                </h2>
+
+                <!-- 1. Expansion in Mediterranean -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="expansionMedTitle">التوسع القرطاجي في المتوسط والمسالك التجارية</span>
+                </h3>
+                <p data-i18n="expansionMedText">تمكنت قرطاج من التوسع مبكراً قبل إنجاز الميناء على الشكل المعروف به في القرن الثالث ق.م. انطلقت السفن القرطاجية من ميناء قرطاج وسيطرت على المسالك التجارية البحرية الهامة في المتوسط، وعزّزت حضورها في جزره (مالطة، سردينيا، بنتلاريا، جزر البليار، غرب جزيرة صقلية) وفي جنوب بلاد الإيبر (إسبانيا والبرتغال) وعلى السواحل المغربية.</p>
+                <p data-i18n="explorersText">تميّز الملاحون القرطاجيون المنتسبون إلى عائلة المغاوين بالجرأة وبخوض الرحلات الاستكشافية خارج المتوسط، مما فتح مسالك تجارية جديدة لقرطاج. فقد قام الملك القرطاجي «حيملكو» (أو حيملكون) برحلة استكشافية سنة 450 ق.م انطلاقاً من ميناء جديد ببلاد الإيبر، مجازياً السواحل الأوروبية الغربية شمالاً، ويبدو أنه بلغ السواحل البريطانية. وتمكن البحّار القرطاجي «حنّون» من القيام برحلة بداية من سنة 425 ق.م انطلاقاً من قرطاج في اتجاه المحيط الأطلسي، مجازياً السواحل الغربية الإفريقية جنوباً إلى غاية خليج الكاميرون.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="tradeRoutesTitle">المسالك التجارية البحرية الأساسية</span>
+                </h4>
+                <p data-i18n="tradeRoutesIntro">واشتملت أربعة مسالك أساسية في التجارة البحرية وهي:</p>
+                <ul>
+                    <li data-i18n="route1">المسلك الذي يربط الموانئ البونية بمملكة «تارشيش» (جنوب إسبانيا)، حيث تتزود السفن القرطاجية بمعادن مختلفة كالفضة والرصاص والنحاس والحديد.</li>
+                    <li data-i18n="route2">المسلك الذي يربط ميناء «جدر» (قادس جنوب إسبانيا) بجنوب شرقي بريطانيا، حيث توجد مناجم القصدير.</li>
+                    <li data-i18n="route3">المسلك الذي يربط ميناء «جدر» بالسواحل الإفريقية المطلة على المحيط الأطلسي، حيث يتوفر الذهب والعاج واللحم والأنعام والعبيد والفيلة.</li>
+                    <li data-i18n="route4">المسلك الذي يربط الموانئ البونية بموانئ المتوسط في مصر وبلاد كنعان (فلسطين) وبينيقيا، حيث العطور والأحجار الكريمة والأقمشة، وفي اتجاه المستوطنات الإغريقية بصفة إيطاليا ومساليا (مرسيليا جنوب فرنسا)، حيث الخزف والفخار والخمور والزيوت.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="exchangesTitle">المبادلات التجارية لقرطاج</span>
+                </h4>
+                <div class="table-scroll-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-i18n="tableSource">المصدر</th>
+                                <th data-i18n="tableGoods">أنواع السلع</th>
+                                <th data-i18n="tableRoutes">المسالك</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="tableRow1Source">جنوب بلاد الإيبر</td>
+                                <td data-i18n="tableRow1Goods">الفضة والنحاس والقصدير والرصاص والحديد</td>
+                                <td data-i18n="tableRow1Routes">البحر</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="tableRow2Source">إفريقيا</td>
+                                <td data-i18n="tableRow2Goods">الذهب والعاج والصمغ والجلود والملح والعبيد والفيلة</td>
+                                <td data-i18n="tableRow2Routes">المحيط ومسالك بريّة صحراويّة</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="tableRow3Source">مصر وبلاد كنعان وقبرص</td>
+                                <td data-i18n="tableRow3Goods">العطور والبخور والحجارة الكريمة والباروديات والأقمشة الرفيعة والتماثيل</td>
+                                <td data-i18n="tableRow3Routes">البحر</td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="tableRow4Source">المستوطنات الإغريقية بصفة إيطاليا ومساليا</td>
+                                <td data-i18n="tableRow4Goods">الخزف والفخار والخمور والزيوت</td>
+                                <td data-i18n="tableRow4Routes">البحر</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 2. Factors of commercial power -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="commercialFactorsTitle">عوامل القوة التجارية القرطاجية</span>
+                </h3>
+                <p data-i18n="commercialFactorsIntro">أولت قرطاج التجارة عناية فائقة، فوّرت الظروف المساعدة على انتشارها ونموّها، وتجلّت تلك العناية في:</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="shipbuildingTitle">بناء السفن وتجهيز الموانئ</span>
+                </h4>
+                <p data-i18n="shipbuildingIntro">حيث وفّرت حظائر بناء السفن في قرطاج أنواعاً عديدة من السفن:</p>
+                <ul>
+                    <li data-i18n="warships">سفن حربية ثلاثية (كل صفّ يعدّ 30 جانباً)، بلغ عددها وفق بعض المصادر 300 سفينة.</li>
+                    <li data-i18n="merchantShips">سفن تجارية تميزت بحجم أكبر وبسرعة أقل، لكنها قادرة على حمل بضائع ومواد أولية هامة.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="protectionTitle">حماية الأساطيل والأسواق</span>
+                </h4>
+                <p data-i18n="protectionText">اتخاذ الإجراءات لحماية الأساطيل من القرصنة وحماية الأسواق من المنافسة، وذلك بإبرام المعاهدات، مثل المعاهدة مع روما سنة 509 ق.م.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="consulsTitle">تعيين القناصل</span>
+                </h4>
+                <p data-i18n="consulsText">تعيين القناصل لدى السلطات الأجنبية للسهر على حماية المواطنين القرطاجيين وضمان حقوقهم.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>.
+                    <span data-i18n="tradeDevelopmentTitle">تطوير المعاملات التجارية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="barter">استعمال المقايضة (مع شعوب السواحل الإفريقية على المحيط الأطلسي).</li>
+                    <li data-i18n="bullion">استعمال الفضة والذهب في شكل سبائك موزونة.</li>
+                    <li data-i18n="currency">استخدام العملة بداية من القرن الخامس ق.م.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">كرّست قرطاج نشاطها التجاري، وعزّزت التلاقح الحضاري، ودعمت جسر التواصل بين شرق المتوسط وغربه. ولكن العبقرية التجارية للبونيين لم تجلب لهم محبة بقية الشعوب، مما بشّر اندلاع المواجهة مع روما حول مناطق النفوذ في غرب المتوسط.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defAppian">أبيانوس</strong>: <span data-i18n="defAppianDesc">مؤرخ إغريقي (200 ق.م – 120 م)، صاحب كتاب «لوبيكا» (بونيكا)، وصف فيه موانئ قرطاج كما كانت منذ القرن الثالث ق.م وصفاً دقيقاً.</span></li>
+                        <li><strong class="key-person" data-i18n="defHimilco">حيملكو (حيملكون)</strong>: <span data-i18n="defHimilcoDesc">ملك قرطاجي قام برحلة استكشافية سنة 450 ق.م انطلاقاً من ميناء جديد ببلاد الإيبر، مجازياً السواحل الأوروبية الغربية شمالاً، ويبدو أنه بلغ السواحل البريطانية.</span></li>
+                        <li><strong class="key-person" data-i18n="defHanno">حنّون</strong>: <span data-i18n="defHannoDesc">بحّار قرطاجي قام برحلة استكشافية بداية من سنة 425 ق.م انطلاقاً من قرطاج في اتجاه المحيط الأطلسي، مجازياً السواحل الغربية الإفريقية جنوباً إلى غاية خليج الكاميرون.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">مركز القوة التجارية والعسكرية في غرب المتوسط، وامتد نفوذها على جزره وسواحله بفضل مينائها المركّب وأسطولها التجاري والحربي.</span></li>
+                        <li><strong class="key-location" data-i18n="defTarshish">تارشيش</strong>: <span data-i18n="defTarshishDesc">مملكة قديمة تقع في جنوب إسبانيا، وكانت مصدراً للمعادن المختلفة كالفضة والرصاص والنحاس والحديد.</span></li>
+                        <li><strong class="key-location" data-i18n="defGadir">جدر (قادس)</strong>: <span data-i18n="defGadirDesc">ميناء يقع في جنوب إسبانيا، ربطته قرطاج بجنوب شرقي بريطانيا من أجل القصدير، وبالسواحل الإفريقية على المحيط الأطلسي.</span></li>
+                        <li><strong class="key-location" data-i18n="defBritain">بريطانيا</strong>: <span data-i18n="defBritainDesc">منطقة في شمال أوروبا كانت مصدراً للقصدير، وربطها ميناء «جدر» القرطاجي بمسلك تجاري بحري.</span></li>
+                        <li><strong class="key-location" data-i18n="defEgyptLoc">مصر</strong>: <span data-i18n="defEgyptLocDesc">إحدى محطات المسلك التجاري الرابع، حيث العطور والأحجار الكريمة والأقمشة.</span></li>
+                        <li><strong class="key-location" data-i18n="defCanaan">بلاد كنعان (فلسطين)</strong>: <span data-i18n="defCanaanDesc">منطقة في شرق المتوسط، إحدى محطات المسلك التجاري الرابع لتزويد قرطاج بالعطور والأقمشة.</span></li>
+                        <li><strong class="key-location" data-i18n="defPhoenicia">بينيقيا</strong>: <span data-i18n="defPhoeniciaDesc">الوطن الأم للقرطاجيين في شرق المتوسط، مصدر الموروث الحضاري والديني والبحري لقرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defMassalia">مساليا (مرسيليا)</strong>: <span data-i18n="defMassaliaDesc">مستوطنة إغريقية في جنوب فرنسا، كانت مورداً للخزف والفخار والخمور والزيوت.</span></li>
+                        <li><strong class="key-location" data-i18n="defItaly">إيطاليا</strong>: <span data-i18n="defItalyDesc">منطقة في جنوب أوروبا، كانت مورداً للخزف والفخار والخمور والزيوت للموانئ البونية.</span></li>
+                        <li><strong class="key-location" data-i18n="defSicily">صقلية</strong>: <span data-i18n="defSicilyDesc">جزيرة في البحر المتوسط، امتد إليها النفوذ القرطاجي خاصة في غربها.</span></li>
+                        <li><strong class="key-location" data-i18n="defSardinia">سردينيا</strong>: <span data-i18n="defSardiniaDesc">جزيرة في البحر المتوسط، امتد إليها النفوذ القرطاجي.</span></li>
+                        <li><strong class="key-location" data-i18n="defMalta">مالطة</strong>: <span data-i18n="defMaltaDesc">جزيرة في البحر المتوسط، امتد إليها النفوذ القرطاجي.</span></li>
+                        <li><strong class="key-location" data-i18n="defBalearic">جزر البليار</strong>: <span data-i18n="defBalearicDesc">مجموعة جزر في غرب البحر المتوسط، امتد إليها النفوذ القرطاجي.</span></li>
+                        <li><strong class="key-location" data-i18n="defIberia">بلاد الإيبر (إسبانيا والبرتغال)</strong>: <span data-i18n="defIberiaDesc">منطقة في غرب أوروبا، امتد إليها النفوذ القرطاجي، وكانت مصدراً للمعادن.</span></li>
+                        <li><strong class="key-location" data-i18n="defMorocco">السواحل المغربية</strong>: <span data-i18n="defMoroccoDesc">منطقة في شمال غرب إفريقيا، امتد إليها النفوذ القرطاجي.</span></li>
+                        <li><strong class="key-location" data-i18n="defAtlantic">المحيط الأطلسي</strong>: <span data-i18n="defAtlanticDesc">محيط تجاوزته الرحلات الاستكشافية القرطاجية بفضل حنّون وحيملكو، مصدراً لمسالك تجارية جديدة.</span></li>
+                        <li><strong class="key-location" data-i18n="defCameroon">خليج الكاميرون</strong>: <span data-i18n="defCameroonDesc">منطقة في غرب إفريقيا، بلغها البحّار القرطاجي حنّون في رحلته الاستكشافية سنة 425 ق.م.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defTreatyRome">المعاهدة مع روما (509 ق.م)</strong>: <span data-i18n="defTreatyRomeDesc">معاهدة أبرمتها قرطاج مع روما بهدف حماية أساطيلها من القرصنة وأسواقها من المنافسة.</span></li>
+                        <li><strong class="key-event" data-i18n="defHimilcoExpedition">رحلة حيملكو الاستكشافية (450 ق.م)</strong>: <span data-i18n="defHimilcoExpeditionDesc">رحلة استكشافية انطلقت من ميناء جديد ببلاد الإيبر، مجازية السواحل الأوروبية الغربية شمالاً حتى السواحل البريطانية.</span></li>
+                        <li><strong class="key-event" data-i18n="defHannoExpedition">رحلة حنّون الاستكشافية (425 ق.م)</strong>: <span data-i18n="defHannoExpeditionDesc">رحلة استكشافية انطلقت من قرطاج في اتجاه المحيط الأطلسي، مجازية السواحل الغربية الإفريقية جنوباً حتى خليج الكاميرون.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">القرن الثالث ق.م</strong>: <span data-i18n="defYear3rdBC">الفترة التي بلغ فيها الميناء القرطاجي شكله المعروف، ووصفه فيها أبيانوس.</span></li>
+                        <li><strong class="key-year">509 ق.م</strong>: <span data-i18n="defYear509BC">إبرام المعاهدة بين قرطاج وروما لحماية الأساطيل والأسواق.</span></li>
+                        <li><strong class="key-year">450 ق.م</strong>: <span data-i18n="defYear450BC">رحلة حيملكو الاستكشافية نحو سواحل أوروبا الغربية والبريطانية.</span></li>
+                        <li><strong class="key-year">425 ق.م</strong>: <span data-i18n="defYear425BC">رحلة حنّون الاستكشافية نحو خليج الكاميرون عبر المحيط الأطلسي.</span></li>
+                        <li><strong class="key-year">القرن الخامس ق.م</strong>: <span data-i18n="defYear5thBC">بداية استخدام العملة في المعاملات التجارية القرطاجية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defCommercialPort">الميناء التجاري</strong>: <span data-i18n="defCommercialPortDesc">الجزء الخارجي من الميناء القرطاجي، على هيئة حوض مستطيل الأضلاع بطول 465م وعرض 325م، ويتيح مجالاً مائياً 15 هكتاراً، تنفذ إليه السفن عبر بوابة عرضها 70م تُغلق بسلاسل حديدية.</span></li>
+                        <li><strong class="key-other" data-i18n="defMilitaryPort">الميناء العسكري</strong>: <span data-i18n="defMilitaryPortDesc">الجزء الداخلي من الميناء القرطاجي، على شكل حوض دائري قطره 325م، محاط بجدران مزدوجة عالية وبوابة خشبية، ويتوسطه مركز القيادة العامة، ويضم أرصفة ضخمة وماوي لـ 250 سفينة حربية.</span></li>
+                        <li><strong class="key-other" data-i18n="defTradeRoute">المسلك التجاري</strong>: <span data-i18n="defTradeRouteDesc">طريق بحري أو بري تستعمله السفن والقوافل التجارية لتبادل السلع بين قرطاج وأقاليم المتوسط والمحيط الأطلسي.</span></li>
+                        <li><strong class="key-other" data-i18n="defTrireme">السفينة الحربية الثلاثية</strong>: <span data-i18n="defTriremeDesc">سفينة حربية قرطاجية تتكون من ثلاثة صفوف من المجدفين، كل صفّ يعدّ 30 جانباً، وبلغ عددها وفق بعض المصادر 300 سفينة.</span></li>
+                        <li><strong class="key-other" data-i18n="defMerchantShip">السفينة التجارية</strong>: <span data-i18n="defMerchantShipDesc">سفينة قرطاجية تميزت بحجم أكبر وبسرعة أقل من السفينة الحربية، لكنها قادرة على حمل بضائع ومواد أولية هامة.</span></li>
+                        <li><strong class="key-other" data-i18n="defConsul">القنصل</strong>: <span data-i18n="defConsulDesc">ممثل قرطاجي معيّن لدى السلطات الأجنبية للسهر على حماية المواطنين القرطاجيين وضمان حقوقهم.</span></li>
+                        <li><strong class="key-other" data-i18n="defBarter">المقايضة</strong>: <span data-i18n="defBarterDesc">نظام تبادل تجاري استعملته قرطاج مع شعوب السواحل الإفريقية على المحيط الأطلسي، يقوم على مبادلة السلع بالسلع دون استعمال النقود.</span></li>
+                        <li><strong class="key-other" data-i18n="defCarthaginianCurrency">العملة القرطاجية</strong>: <span data-i18n="defCarthaginianCurrencyDesc">وسيلة دفع استعملها القرطاجيون في معاملاتهم التجارية بداية من القرن الخامس ق.م، إلى جانب الفضة والذهب في شكل سبائك موزونة.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: مثّل الميناء القرطاجي ركيزة القوة التجارية والعسكرية لقرطاج، بفضل بنيته المركبة (ميناء تجاري + ميناء عسكري + ورشات + مخازن) وموقعه الاستراتيجي. وقد ساهم في السيطرة على المسالك التجارية البحرية في المتوسط وخارجه، وفي تأمين الأسواق والأساطيل بالمعاهدات والقناصل وتطوير المعاملات التجارية (المقايضة، السبائك، العملة).</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/carthage_ports_map.jpg" alt="مخطط ميناء قرطاج" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">مخطط تخيّلي لميناء قرطاج</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/carthage_trade_routes.jpg" alt="المسالك التجارية البحرية لقرطاج" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">المسالك التجارية البحرية لقرطاج في بداية القرن الثالث قبل الميلاد</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/carthage_exchanges.jpg" alt="المبادلات التجارية لقرطاج" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">المبادلات التجارية لقرطاج</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/carthage_warship.jpg" alt="سفينة حربية قرطاجية" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">سفينة حربية قرطاجية من القرن الثالث ق.م</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/carthage_boat.jpg" alt="زورق قرطاجي" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">زورق قرطاجي من القرن الثالث ق.م</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/carthage_port_remains.jpg" alt="آثار الميناء القرطاجي" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">آثار الميناء القرطاجي</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_his_exercisess_mod1_lesson1_part3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "History / Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)",
+                lessonTitleSample: "Carthage: The Port and Commercial Expansion",
+                sectionIntro: "Introduction",
+                introText: "The Carthaginian port was a fundamental pillar in building Carthage's commercial and military power. It combined a commercial function with a military one and provided the infrastructure needed for its maritime expansion in the Mediterranean and beyond. The Greek historian Appian described the port of Carthage as one of the greatest maritime structures of the ancient world, distinguished by its complex engineering and its skillful use of the Phoenician heritage.",
+                problematiqueText: "What are the characteristics of the Carthaginian port and its role in building Carthage's commercial and military power? And what are the manifestations of its spatial expansion and the factors explaining it?",
+                sectionPart1: "The Port and Its Role in Building Commercial and Military Power",
+                portCharTitle: "Characteristics and Components of the Port",
+                portCharIntro: "The Greek historian Appian (200 BC – 120 AD) described in his book 'Libyka' (Punica) the ports of Carthage as they were since the 3rd century BC. The Carthaginian port was distinguished by a complex structure and a comprehensive perimeter: it included a commercial port and a military port, alongside ship repair workshops and warehouses, and extended over an area exceeding 20 hectares.",
+                commercialPortTitle: "The Commercial Port",
+                commercialPortText: "The commercial port constitutes the outer part. It is a rectangular basin, 465 m long and 325 m wide, providing a water area estimated at 15 hectares. Ships enter through a 70-meter-wide gate (approximately 20.72 m) closed with iron chains.",
+                militaryPortTitle: "The Military Port",
+                militaryPortText: "The military port occupies the inner part. It has the shape of a circular basin with a diameter of 325 m, surrounded by high double walls and a wooden gate. At its center lies the general command headquarters. It provides a water area estimated at 8 hectares and includes huge quays and moorings for 250 warships.",
+                portConclusion: "The port was distinguished by a strategic location and a fortified position, and reflected the creativity of the Carthaginian man and his skillful exploitation of the Phoenician heritage.",
+                portRoleTitle: "The Port's Role in Building Commercial and Military Power",
+                portRoleText: "The port contributed to building Carthage's commercial and military power and supporting its presence in the Mediterranean. Trade occupied the first place in the Carthaginian economy. Carthage gained fame among the peoples of the Mediterranean, and even became a center for exchanging products from the Atlantic Ocean and beyond the Sahara. This was the result of the skill of the Carthaginians, their willingness to take risks, their learning of the languages of their customers, and their knowledge of their tastes.",
+                sectionPart2: "Carthage's Spatial Expansion: Manifestations and Factors",
+                expansionMedTitle: "Carthaginian Expansion in the Mediterranean and Trade Routes",
+                expansionMedText: "Carthage was able to expand early before the completion of the port in the form known in the 3rd century BC. Carthaginian ships set out from the port of Carthage and controlled the important maritime trade routes in the Mediterranean. They strengthened their presence in its islands (Malta, Sardinia, Pantelleria, the Balearic Islands, western Sicily) and in southern Iberia (Spain and Portugal) and on the Moroccan coasts.",
+                explorersText: "Carthaginian sailors belonging to the Magonid family were distinguished by their boldness and their undertaking of exploratory voyages outside the Mediterranean, opening new trade routes for Carthage. King Himilco (or Himilcon) undertook an exploratory voyage in 450 BC from a new port in Iberia, sailing along the western European coasts northwards. It appears he reached the British coasts. The Carthaginian sailor Hanno undertook a voyage beginning in 425 BC from Carthage towards the Atlantic Ocean, sailing along the western African coasts southwards as far as the Gulf of Cameroon.",
+                tradeRoutesTitle: "The Main Maritime Trade Routes",
+                tradeRoutesIntro: "Four main routes were included in maritime trade:",
+                route1: "The route linking the Punic ports to the kingdom of 'Tarshish' (southern Spain), where Carthaginian ships obtained various metals such as silver, lead, copper, and iron.",
+                route2: "The route linking the port of 'Gadir' (Cadiz, southern Spain) to southeastern Britain, where tin mines are found.",
+                route3: "The route linking the port of 'Gadir' to the African coasts overlooking the Atlantic Ocean, where gold, ivory, meat, livestock, slaves, and elephants are available.",
+                route4: "The route linking the Punic ports to the Mediterranean ports of Egypt, Canaan (Palestine), and Phoenicia, where perfumes, precious stones, and fabrics are found; and towards the Greek settlements, especially Italy and Massalia (Marseille, southern France), where pottery, ceramics, wines, and oils are found.",
+                exchangesTitle: "Carthage's Commercial Exchanges",
+                tableSource: "Source",
+                tableGoods: "Types of goods",
+                tableRoutes: "Routes",
+                tableRow1Source: "Southern Iberia",
+                tableRow1Goods: "Silver, copper, tin, lead, and iron",
+                tableRow1Routes: "Sea",
+                tableRow2Source: "Africa",
+                tableRow2Goods: "Gold, ivory, gum, leather, salt, slaves, and elephants",
+                tableRow2Routes: "Ocean and Saharan land routes",
+                tableRow3Source: "Egypt, Canaan, and Cyprus",
+                tableRow3Goods: "Perfumes, incense, precious stones, aromatics, fine fabrics, and statues",
+                tableRow3Routes: "Sea",
+                tableRow4Source: "Greek settlements, especially Italy and Massalia",
+                tableRow4Goods: "Pottery, ceramics, wines, and oils",
+                tableRow4Routes: "Sea",
+                commercialFactorsTitle: "Factors of Carthaginian Commercial Power",
+                commercialFactorsIntro: "Carthage gave meticulous attention to trade, providing the conditions that helped its spread and growth. This attention was manifested in:",
+                shipbuildingTitle: "Shipbuilding and Equipping Ports",
+                shipbuildingIntro: "Carthage's shipbuilding yards provided many types of ships:",
+                warships: "Triremes (each row numbering 30 sides), numbering 300 ships according to some sources.",
+                merchantShips: "Merchant ships characterized by a larger size and slower speed, but capable of carrying important goods and raw materials.",
+                protectionTitle: "Protecting Fleets and Markets",
+                protectionText: "Taking measures to protect fleets from piracy and markets from competition, by concluding treaties, such as the treaty with Rome in 509 BC.",
+                consulsTitle: "Appointing Consuls",
+                consulsText: "Appointing consuls to foreign authorities to protect Carthaginian citizens and ensure their rights.",
+                tradeDevelopmentTitle: "Developing Commercial Transactions",
+                barter: "Use of barter (with the peoples of the African coasts on the Atlantic Ocean).",
+                bullion: "Use of silver and gold in the form of weighed ingots.",
+                currency: "Use of currency starting from the 5th century BC.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Carthage devoted its commercial activity, strengthened cultural cross-fertilization, and supported the bridge of communication between the eastern and western Mediterranean. However, the commercial genius of the Punics did not bring them the love of other peoples, which heralded the outbreak of confrontation with Rome over zones of influence in the western Mediterranean.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryCap1: "Imaginary plan of the port of Carthage",
+                galleryCap2: "Carthage's maritime trade routes in the early 3rd century BC",
+                galleryCap3: "Carthage's commercial exchanges",
+                galleryCap4: "Carthaginian warship from the 3rd century BC",
+                galleryCap5: "Carthaginian boat from the 3rd century BC",
+                galleryCap6: "Remains of the Carthaginian port",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defAppian: "Appian",
+                defAppianDesc: "A Greek historian (200 BC – 120 AD), author of 'Libyka' (Punica), in which he described the ports of Carthage as they were since the 3rd century BC.",
+                defHimilco: "Himilco (Himilcon)",
+                defHimilcoDesc: "A Carthaginian king who undertook an exploratory voyage in 450 BC from a new port in Iberia, sailing along the western European coasts northwards. He appears to have reached the British coasts.",
+                defHanno: "Hanno",
+                defHannoDesc: "A Carthaginian sailor who undertook an exploratory voyage beginning in 425 BC from Carthage towards the Atlantic Ocean, sailing along the western African coasts southwards as far as the Gulf of Cameroon.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "The center of commercial and military power in the western Mediterranean. Its influence extended over its islands and coasts thanks to its complex port and its commercial and military fleet.",
+                defTarshish: "Tarshish",
+                defTarshishDesc: "An ancient kingdom located in southern Spain, a source of various metals such as silver, lead, copper, and iron.",
+                defGadir: "Gadir (Cadiz)",
+                defGadirDesc: "A port located in southern Spain, linked by Carthage to southeastern Britain for tin, and to the African coasts on the Atlantic Ocean.",
+                defBritain: "Britain",
+                defBritainDesc: "A region in northern Europe that was a source of tin, linked by the Carthaginian port of 'Gadir' through a maritime trade route.",
+                defEgyptLoc: "Egypt",
+                defEgyptLocDesc: "One of the stops of the fourth trade route, where perfumes, precious stones, and fabrics are found.",
+                defCanaan: "Canaan (Palestine)",
+                defCanaanDesc: "A region in the eastern Mediterranean, one of the stops of the fourth trade route supplying Carthage with perfumes and fabrics.",
+                defPhoenicia: "Phoenicia",
+                defPhoeniciaDesc: "The homeland of the Carthaginians in the eastern Mediterranean, the source of Carthage's cultural, religious, and maritime heritage.",
+                defMassalia: "Massalia (Marseille)",
+                defMassaliaDesc: "A Greek settlement in southern France, a source of pottery, ceramics, wines, and oils.",
+                defItaly: "Italy",
+                defItalyDesc: "A region in southern Europe, a source of pottery, ceramics, wines, and oils for the Punic ports.",
+                defSicily: "Sicily",
+                defSicilyDesc: "An island in the Mediterranean reached by Carthaginian influence, especially in its west.",
+                defSardinia: "Sardinia",
+                defSardiniaDesc: "An island in the Mediterranean reached by Carthaginian influence.",
+                defMalta: "Malta",
+                defMaltaDesc: "An island in the Mediterranean reached by Carthaginian influence.",
+                defBalearic: "Balearic Islands",
+                defBalearicDesc: "A group of islands in the western Mediterranean reached by Carthaginian influence.",
+                defIberia: "Iberia (Spain and Portugal)",
+                defIberiaDesc: "A region in western Europe reached by Carthaginian influence, a source of metals.",
+                defMorocco: "Moroccan coasts",
+                defMoroccoDesc: "A region in northwestern Africa reached by Carthaginian influence.",
+                defAtlantic: "Atlantic Ocean",
+                defAtlanticDesc: "An ocean crossed by Carthaginian exploratory voyages thanks to Hanno and Himilco, a source of new trade routes.",
+                defCameroon: "Gulf of Cameroon",
+                defCameroonDesc: "A region in western Africa reached by the Carthaginian sailor Hanno in his exploratory voyage in 425 BC.",
+                defTreatyRome: "Treaty with Rome (509 BC)",
+                defTreatyRomeDesc: "A treaty concluded by Carthage with Rome to protect its fleets from piracy and its markets from competition.",
+                defHimilcoExpedition: "Himilco's Exploratory Voyage (450 BC)",
+                defHimilcoExpeditionDesc: "An exploratory voyage starting from a new port in Iberia, sailing along the western European coasts northwards to the British coasts.",
+                defHannoExpedition: "Hanno's Exploratory Voyage (425 BC)",
+                defHannoExpeditionDesc: "An exploratory voyage starting from Carthage towards the Atlantic Ocean, sailing along the western African coasts southwards to the Gulf of Cameroon.",
+                defYear3rdBC: "The period in which the Carthaginian port reached its known form, as described by Appian.",
+                defYear509BC: "Conclusion of the treaty between Carthage and Rome to protect fleets and markets.",
+                defYear450BC: "Himilco's exploratory voyage towards the coasts of western Europe and Britain.",
+                defYear425BC: "Hanno's exploratory voyage towards the Gulf of Cameroon via the Atlantic Ocean.",
+                defYear5thBC: "Beginning of the use of currency in Carthaginian commercial transactions.",
+                defCommercialPort: "The Commercial Port",
+                defCommercialPortDesc: "The outer part of the Carthaginian port, a rectangular basin 465 m long and 325 m wide, providing a water area of 15 hectares. Ships enter through a 70-meter-wide gate closed with iron chains.",
+                defMilitaryPort: "The Military Port",
+                defMilitaryPortDesc: "The inner part of the Carthaginian port, a circular basin with a diameter of 325 m, surrounded by high double walls and a wooden gate. At its center lies the general command headquarters. It includes huge quays and moorings for 250 warships.",
+                defTradeRoute: "Trade Route",
+                defTradeRouteDesc: "A maritime or land route used by ships and trade caravans to exchange goods between Carthage and the regions of the Mediterranean and the Atlantic Ocean.",
+                defTrireme: "Trireme Warship",
+                defTriremeDesc: "A Carthaginian warship made up of three rows of oarsmen, each row numbering 30 sides; it numbered 300 ships according to some sources.",
+                defMerchantShip: "Merchant Ship",
+                defMerchantShipDesc: "A Carthaginian ship characterized by a larger size and slower speed than the warship, but capable of carrying important goods and raw materials.",
+                defConsul: "Consul",
+                defConsulDesc: "A Carthaginian representative appointed to foreign authorities to protect Carthaginian citizens and ensure their rights.",
+                defBarter: "Barter",
+                defBarterDesc: "A commercial exchange system used by Carthage with the peoples of the African coasts on the Atlantic Ocean, based on exchanging goods for goods without using money.",
+                defCarthaginianCurrency: "Carthaginian Currency",
+                defCarthaginianCurrencyDesc: "A means of payment used by the Carthaginians in their commercial transactions starting from the 5th century BC, alongside silver and gold in the form of weighed ingots.",
+                summaryText: "Key takeaway: The Carthaginian port was the pillar of Carthage's commercial and military power, thanks to its complex structure (commercial port + military port + workshops + warehouses) and its strategic location. It contributed to controlling the maritime trade routes in the Mediterranean and beyond, and to securing markets and fleets through treaties, consuls, and the development of commercial transactions (barter, ingots, currency).",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Imaginary plan of the port of Carthage",
+                galleryAlt2: "Carthage's maritime trade routes",
+                galleryAlt3: "Carthage's commercial exchanges",
+                galleryAlt4: "Carthaginian warship",
+                galleryAlt5: "Carthaginian boat",
+                galleryAlt6: "Remains of the Carthaginian port"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Histoire / Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)",
+                lessonTitleSample: "Carthage : Le port et l'expansion commerciale",
+                sectionIntro: "Introduction",
+                introText: "Le port carthaginois a constitué un pilier fondamental dans la construction de la puissance commerciale et militaire de Carthage. Il combinait une fonction commerciale et une fonction militaire et fournissait l'infrastructure nécessaire à son expansion maritime en Méditerranée et au-delà. L'historien grec Appien a décrit le port de Carthage comme l'une des plus grandes constructions maritimes du monde antique, en raison de son ingénierie complexe et de son exploitation habile de l'héritage phénicien.",
+                problematiqueText: "Quelles sont les caractéristiques du port carthaginois et son rôle dans la construction de la puissance commerciale et militaire de Carthage ? Et quelles sont les manifestations de son expansion spatiale et les facteurs qui l'expliquent ?",
+                sectionPart1: "Le port et son rôle dans la construction de la puissance commerciale et militaire",
+                portCharTitle: "Caractéristiques et composantes du port",
+                portCharIntro: "L'historien grec Appien (200 av. J.-C. – 120 apr. J.-C.) a décrit dans son livre « Libyka » (Punica) les ports de Carthage tels qu'ils étaient depuis le IIIe siècle av. J.-C. Le port carthaginois se distinguait par une structure complexe et un périmètre complet : il comprenait un port commercial et un port militaire, ainsi que des ateliers de réparation de navires et des entrepôts, et s'étendait sur une superficie dépassant 20 hectares.",
+                commercialPortTitle: "Le port commercial",
+                commercialPortText: "Le port commercial constitue la partie extérieure. C'est un bassin rectangulaire, long de 465 m et large de 325 m, offrant un plan d'eau estimé à 15 hectares. Les navires y entrent par une porte de 70 mètres de large (environ 20,72 m) fermée par des chaînes de fer.",
+                militaryPortTitle: "Le port militaire",
+                militaryPortText: "Le port militaire occupe la partie intérieure. Il a la forme d'un bassin circulaire d'un diamètre de 325 m, entouré de hautes doubles murailles et d'une porte en bois. En son centre se trouve le quartier général du commandement. Il offre un plan d'eau estimé à 8 hectares et comprend d'énormes quais et des mouillages pour 250 navires de guerre.",
+                portConclusion: "Le port se distinguait par une situation stratégique et une position fortifiée, et reflétait la créativité de l'homme carthaginois et son exploitation habile de l'héritage phénicien.",
+                portRoleTitle: "Le rôle du port dans la construction de la puissance commerciale et militaire",
+                portRoleText: "Le port a contribué à la construction de la puissance commerciale et militaire de Carthage et au soutien de sa présence en Méditerranée. Le commerce occupait la première place dans l'économie carthaginoise. Carthage a acquis une renommée auprès des peuples de la Méditerranée, et est même devenue un centre d'échange de produits provenant de l'océan Atlantique et d'au-delà du Sahara. Cela était le résultat de l'habileté des Carthaginois, de leur disposition à prendre des risques, de leur apprentissage des langues de leurs clients et de leur connaissance de leurs goûts.",
+                sectionPart2: "L'expansion spatiale de Carthage : manifestations et facteurs",
+                expansionMedTitle: "L'expansion carthaginoise en Méditerranée et les routes commerciales",
+                expansionMedText: "Carthage a pu s'étendre très tôt avant l'achèvement du port sous la forme connue au IIIe siècle av. J.-C. Les navires carthaginois partaient du port de Carthage et contrôlaient les importantes routes commerciales maritimes de la Méditerranée. Ils ont renforcé leur présence dans ses îles (Malte, Sardaigne, Pantelleria, îles Baléares, ouest de la Sicile) et dans le sud de l'Ibérie (Espagne et Portugal) et sur les côtes marocaines.",
+                explorersText: "Les marins carthaginois appartenant à la famille des Magonides se distinguaient par leur audace et leurs voyages d'exploration en dehors de la Méditerranée, ouvrant de nouvelles routes commerciales pour Carthage. Le roi carthaginois Himilcon a entrepris un voyage d'exploration en 450 av. J.-C. depuis un nouveau port en Ibérie, longeant les côtes de l'Europe occidentale vers le nord. Il semble qu'il ait atteint les côtes britanniques. Le marin carthaginois Hannon a entrepris un voyage à partir de 425 av. J.-C. depuis Carthage vers l'océan Atlantique, longeant les côtes de l'Afrique occidentale vers le sud jusqu'au golfe du Cameroun.",
+                tradeRoutesTitle: "Les principales routes commerciales maritimes",
+                tradeRoutesIntro: "Quatre routes principales étaient incluses dans le commerce maritime :",
+                route1: "La route reliant les ports puniques au royaume de « Tarsis » (sud de l'Espagne), où les navires carthaginois s'approvisionnaient en divers métaux tels que l'argent, le plomb, le cuivre et le fer.",
+                route2: "La route reliant le port de « Gadir » (Cadix, sud de l'Espagne) au sud-est de la Grande-Bretagne, où se trouvent des mines d'étain.",
+                route3: "La route reliant le port de « Gadir » aux côtes africaines donnant sur l'océan Atlantique, où l'on trouve de l'or, de l'ivoire, de la viande, du bétail, des esclaves et des éléphants.",
+                route4: "La route reliant les ports puniques aux ports méditerranéens d'Égypte, de Canaan (Palestine) et de Phénicie, où l'on trouve des parfums, des pierres précieuses et des tissus ; et vers les établissements grecs, notamment l'Italie et Massalia (Marseille, sud de la France), où l'on trouve de la poterie, de la céramique, des vins et des huiles.",
+                exchangesTitle: "Les échanges commerciaux de Carthage",
+                tableSource: "Source",
+                tableGoods: "Types de marchandises",
+                tableRoutes: "Routes",
+                tableRow1Source: "Sud de l'Ibérie",
+                tableRow1Goods: "Argent, cuivre, étain, plomb et fer",
+                tableRow1Routes: "Mer",
+                tableRow2Source: "Afrique",
+                tableRow2Goods: "Or, ivoire, gomme, cuir, sel, esclaves et éléphants",
+                tableRow2Routes: "Océan et routes terrestres sahariennes",
+                tableRow3Source: "Égypte, Canaan et Chypre",
+                tableRow3Goods: "Parfums, encens, pierres précieuses, aromates, tissus fins et statues",
+                tableRow3Routes: "Mer",
+                tableRow4Source: "Établissements grecs, notamment Italie et Massalia",
+                tableRow4Goods: "Poterie, céramique, vins et huiles",
+                tableRow4Routes: "Mer",
+                commercialFactorsTitle: "Les facteurs de la puissance commerciale carthaginoise",
+                commercialFactorsIntro: "Carthage accordait une attention méticuleuse au commerce, fournissant les conditions qui ont favorisé son expansion et sa croissance. Cette attention s'est manifestée par :",
+                shipbuildingTitle: "La construction navale et l'équipement des ports",
+                shipbuildingIntro: "Les chantiers navals de Carthage fournissaient de nombreux types de navires :",
+                warships: "Des trirèmes (chaque rang comptant 30 côtés), au nombre de 300 navires selon certaines sources.",
+                merchantShips: "Des navires marchands caractérisés par une taille plus grande et une vitesse plus lente, mais capables de transporter des marchandises importantes et des matières premières.",
+                protectionTitle: "La protection des flottes et des marchés",
+                protectionText: "La prise de mesures pour protéger les flottes de la piraterie et les marchés de la concurrence, en concluant des traités, comme le traité avec Rome en 509 av. J.-C.",
+                consulsTitle: "La nomination de consuls",
+                consulsText: "La nomination de consuls auprès des autorités étrangères pour veiller à la protection des citoyens carthaginois et garantir leurs droits.",
+                tradeDevelopmentTitle: "Le développement des transactions commerciales",
+                barter: "L'utilisation du troc (avec les peuples des côtes africaines sur l'océan Atlantique).",
+                bullion: "L'utilisation de l'argent et de l'or sous forme de lingots pesés.",
+                currency: "L'utilisation de la monnaie à partir du Ve siècle av. J.-C.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Carthage a consacré son activité commerciale, renforcé le métissage culturel et soutenu le pont de communication entre l'est et l'ouest de la Méditerranée. Mais le génie commercial des Puniques ne leur a pas valu l'amour des autres peuples, ce qui annonçait le déclenchement de la confrontation avec Rome pour les zones d'influence en Méditerranée occidentale.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryCap1: "Plan imaginaire du port de Carthage",
+                galleryCap2: "Les routes commerciales maritimes de Carthage au début du IIIe siècle av. J.-C.",
+                galleryCap3: "Les échanges commerciaux de Carthage",
+                galleryCap4: "Navire de guerre carthaginois du IIIe siècle av. J.-C.",
+                galleryCap5: "Barque carthaginoise du IIIe siècle av. J.-C.",
+                galleryCap6: "Vestiges du port carthaginois",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays & régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defAppian: "Appien",
+                defAppianDesc: "Historien grec (200 av. J.-C. – 120 apr. J.-C.), auteur de « Libyka » (Punica), dans lequel il a décrit les ports de Carthage tels qu'ils étaient depuis le IIIe siècle av. J.-C.",
+                defHimilco: "Himilcon",
+                defHimilcoDesc: "Roi carthaginois qui a entrepris un voyage d'exploration en 450 av. J.-C. depuis un nouveau port en Ibérie, longeant les côtes de l'Europe occidentale vers le nord. Il semble avoir atteint les côtes britanniques.",
+                defHanno: "Hannon",
+                defHannoDesc: "Marin carthaginois qui a entrepris un voyage d'exploration à partir de 425 av. J.-C. depuis Carthage vers l'océan Atlantique, longeant les côtes de l'Afrique occidentale vers le sud jusqu'au golfe du Cameroun.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "Le centre de la puissance commerciale et militaire en Méditerranée occidentale. Son influence s'étendait sur ses îles et ses côtes grâce à son port complexe et à sa flotte commerciale et militaire.",
+                defTarshish: "Tarsis",
+                defTarshishDesc: "Un ancien royaume situé dans le sud de l'Espagne, une source de divers métaux tels que l'argent, le plomb, le cuivre et le fer.",
+                defGadir: "Gadir (Cadix)",
+                defGadirDesc: "Un port situé dans le sud de l'Espagne, relié par Carthage au sud-est de la Grande-Bretagne pour l'étain, et aux côtes africaines sur l'océan Atlantique.",
+                defBritain: "Grande-Bretagne",
+                defBritainDesc: "Une région du nord de l'Europe qui était une source d'étain, reliée par le port carthaginois de « Gadir » par une route commerciale maritime.",
+                defEgyptLoc: "Égypte",
+                defEgyptLocDesc: "L'une des étapes de la quatrième route commerciale, où l'on trouve des parfums, des pierres précieuses et des tissus.",
+                defCanaan: "Canaan (Palestine)",
+                defCanaanDesc: "Une région de l'est de la Méditerranée, l'une des étapes de la quatrième route commerciale approvisionnant Carthage en parfums et en tissus.",
+                defPhoenicia: "Phénicie",
+                defPhoeniciaDesc: "La patrie des Carthaginois dans l'est de la Méditerranée, la source de l'héritage culturel, religieux et maritime de Carthage.",
+                defMassalia: "Massalia (Marseille)",
+                defMassaliaDesc: "Un établissement grec dans le sud de la France, une source de poterie, de céramique, de vins et d'huiles.",
+                defItaly: "Italie",
+                defItalyDesc: "Une région du sud de l'Europe, une source de poterie, de céramique, de vins et d'huiles pour les ports puniques.",
+                defSicily: "Sicile",
+                defSicilyDesc: "Une île de la Méditerranée atteinte par l'influence carthaginoise, en particulier dans son ouest.",
+                defSardinia: "Sardaigne",
+                defSardiniaDesc: "Une île de la Méditerranée atteinte par l'influence carthaginoise.",
+                defMalta: "Malte",
+                defMaltaDesc: "Une île de la Méditerranée atteinte par l'influence carthaginoise.",
+                defBalearic: "Îles Baléares",
+                defBalearicDesc: "Un groupe d'îles dans l'ouest de la Méditerranée atteint par l'influence carthaginoise.",
+                defIberia: "Ibérie (Espagne et Portugal)",
+                defIberiaDesc: "Une région de l'ouest de l'Europe atteinte par l'influence carthaginoise, une source de métaux.",
+                defMorocco: "Côtes marocaines",
+                defMoroccoDesc: "Une région du nord-ouest de l'Afrique atteinte par l'influence carthaginoise.",
+                defAtlantic: "Océan Atlantique",
+                defAtlanticDesc: "Un océan traversé par les voyages d'exploration carthaginois grâce à Hannon et Himilcon, une source de nouvelles routes commerciales.",
+                defCameroon: "Golfe du Cameroun",
+                defCameroonDesc: "Une région de l'Afrique occidentale atteinte par le marin carthaginois Hannon lors de son voyage d'exploration en 425 av. J.-C.",
+                defTreatyRome: "Traité avec Rome (509 av. J.-C.)",
+                defTreatyRomeDesc: "Un traité conclu par Carthage avec Rome pour protéger ses flottes de la piraterie et ses marchés de la concurrence.",
+                defHimilcoExpedition: "Voyage d'exploration d'Himilcon (450 av. J.-C.)",
+                defHimilcoExpeditionDesc: "Un voyage d'exploration partant d'un nouveau port en Ibérie, longeant les côtes de l'Europe occidentale vers le nord jusqu'aux côtes britanniques.",
+                defHannoExpedition: "Voyage d'exploration d'Hannon (425 av. J.-C.)",
+                defHannoExpeditionDesc: "Un voyage d'exploration partant de Carthage vers l'océan Atlantique, longeant les côtes de l'Afrique occidentale vers le sud jusqu'au golfe du Cameroun.",
+                defYear3rdBC: "La période au cours de laquelle le port carthaginois a atteint sa forme connue, telle que décrite par Appien.",
+                defYear509BC: "Conclusion du traité entre Carthage et Rome pour protéger les flottes et les marchés.",
+                defYear450BC: "Voyage d'exploration d'Himilcon vers les côtes de l'Europe occidentale et de la Grande-Bretagne.",
+                defYear425BC: "Voyage d'exploration d'Hannon vers le golfe du Cameroun via l'océan Atlantique.",
+                defYear5thBC: "Début de l'utilisation de la monnaie dans les transactions commerciales carthaginoises.",
+                defCommercialPort: "Le port commercial",
+                defCommercialPortDesc: "La partie extérieure du port carthaginois, un bassin rectangulaire long de 465 m et large de 325 m, offrant un plan d'eau de 15 hectares. Les navires y entrent par une porte de 70 mètres de large fermée par des chaînes de fer.",
+                defMilitaryPort: "Le port militaire",
+                defMilitaryPortDesc: "La partie intérieure du port carthaginois, un bassin circulaire d'un diamètre de 325 m, entouré de hautes doubles murailles et d'une porte en bois. En son centre se trouve le quartier général du commandement. Il comprend d'énormes quais et des mouillages pour 250 navires de guerre.",
+                defTradeRoute: "Route commerciale",
+                defTradeRouteDesc: "Une route maritime ou terrestre utilisée par les navires et les caravanes commerciales pour échanger des marchandises entre Carthage et les régions de la Méditerranée et de l'océan Atlantique.",
+                defTrireme: "Trirème",
+                defTriremeDesc: "Un navire de guerre carthaginois composé de trois rangs de rameurs, chaque rang comptant 30 côtés ; il était au nombre de 300 navires selon certaines sources.",
+                defMerchantShip: "Navire marchand",
+                defMerchantShipDesc: "Un navire carthaginois caractérisé par une taille plus grande et une vitesse plus lente que le navire de guerre, mais capable de transporter des marchandises importantes et des matières premières.",
+                defConsul: "Consul",
+                defConsulDesc: "Un représentant carthaginois nommé auprès des autorités étrangères pour protéger les citoyens carthaginois et garantir leurs droits.",
+                defBarter: "Troc",
+                defBarterDesc: "Un système d'échange commercial utilisé par Carthage avec les peuples des côtes africaines sur l'océan Atlantique, basé sur l'échange de marchandises contre des marchandises sans utiliser d'argent.",
+                defCarthaginianCurrency: "Monnaie carthaginoise",
+                defCarthaginianCurrencyDesc: "Un moyen de paiement utilisé par les Carthaginois dans leurs transactions commerciales à partir du Ve siècle av. J.-C., aux côtés de l'argent et de l'or sous forme de lingots pesés.",
+                summaryText: "À retenir : Le port carthaginois était le pilier de la puissance commerciale et militaire de Carthage, grâce à sa structure complexe (port commercial + port militaire + ateliers + entrepôts) et à sa situation stratégique. Il a contribué à contrôler les routes commerciales maritimes en Méditerranée et au-delà, et à sécuriser les marchés et les flottes par des traités, des consuls et le développement des transactions commerciales (troc, lingots, monnaie).",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Plan imaginaire du port de Carthage",
+                galleryAlt2: "Routes commerciales maritimes de Carthage",
+                galleryAlt3: "Échanges commerciaux de Carthage",
+                galleryAlt4: "Navire de guerre carthaginois",
+                galleryAlt5: "Barque carthaginoise",
+                galleryAlt6: "Vestiges du port carthaginois"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)",
+                lessonTitleSample: "قرطاج: الميناء والتوسع التجاري",
+                sectionIntro: "مقدمة",
+                introText: "مثّل الميناء القرطاجي ركيزة أساسية في بناء القوة التجارية والعسكرية لقرطاج، إذ جمع بين وظيفة تجارية وأخرى عسكرية، ووفّر البنية التحتية اللازمة لتوسعها البحري في البحر المتوسط وخارجه. وقد وصف المؤرخ الإغريقي أبيانوس ميناء قرطاج بأنه من أعظم المنشآت البحرية في العالم القديم، لما تميز به من هندسة مركبة واستغلال محكم للموروث الفينيقي.",
+                problematiqueText: "ما هي خصائص الميناء القرطاجي ودوره في بناء القوة التجارية والعسكرية لقرطاج؟ وما هي مظاهر التوسع المجالي والعوامل المفسرة له؟",
+                sectionPart1: "الميناء ودوره في بناء القوة التجارية والعسكرية",
+                portCharTitle: "خصائص الميناء ومكوناته",
+                portCharIntro: "وصف لنا المؤرخ الإغريقي «أبيانوس» (200 ق.م–120 م) في كتابه «لوبيكا» (بونيكا) موانئ قرطاج كما كانت منذ القرن الثالث ق.م. وتميز الميناء القرطاجي ببنية مركبة ومحيط شامل، إذ شمل ميناءً تجارياً وآخر عسكرياً إلى جانب ورشات إصلاح السفن والمخازن، وامتد على مساحة تتجاوز 20 هكتاراً.",
+                commercialPortTitle: "الميناء التجاري",
+                commercialPortText: "يشكل الميناء التجاري الجزء الخارجي، وهو على هيئة حوض مستطيل الأضلاع، يبلغ طوله 465 متراً وعرضه 325 متراً، ويتيح مجالاً مائياً يقدر بـ 15 هكتاراً. تنفذ إليه السفن عبر بوابة عرضها 70 متراً (ما يقارب 20,72 متراً) تُغلق بسلاسل حديدية.",
+                militaryPortTitle: "الميناء العسكري",
+                militaryPortText: "يستحوذ الميناء العسكري على الجزء الداخلي، ويتخذ شكل حوض دائري يبلغ قطره 325 متراً، محاط بجدران مزدوجة عالية وببوابة خشبية. ويتوسطه مركز القيادة العامة، ويتيح مجالاً مائياً يقدر بـ 8 هكتارات، ويضم أرصفة ضخمة وماوي لـ 250 سفينة حربية.",
+                portConclusion: "وتميز الميناء بموقع استراتيجي وبموضع محصّن، وعكس قدرة الإنسان القرطاجي على الإبداع وإحكام استغلال الموروث الفينيقي.",
+                portRoleTitle: "دور الميناء في بناء القوة التجارية والعسكرية",
+                portRoleText: "ساهم الميناء في بناء القوة التجارية والعسكرية لقرطاج ودعم حضورها في المتوسط. فقد احتلت التجارة المكانة الأولى في الاقتصاد القرطاجي. وقد اكتسبت قرطاج شهرة لدى شعوب البحر المتوسط، بل أصبحت مركزاً لتبادل منتجات أخرى من المحيط الأطلسي وما وراء الصحراء، وكان ذلك نتيجة مهارة القرطاجيين وإقبالهم على المخاطر وتعلّم لغات حرفائهم والتعرّف على أذواقهم.",
+                sectionPart2: "التوسع المجالي لقرطاج: المظاهر والعوامل",
+                expansionMedTitle: "التوسع القرطاجي في المتوسط والمسالك التجارية",
+                expansionMedText: "تمكنت قرطاج من التوسع مبكراً قبل إنجاز الميناء على الشكل المعروف به في القرن الثالث ق.م. انطلقت السفن القرطاجية من ميناء قرطاج وسيطرت على المسالك التجارية البحرية الهامة في المتوسط، وعزّزت حضورها في جزره (مالطة، سردينيا، بنتلاريا، جزر البليار، غرب جزيرة صقلية) وفي جنوب بلاد الإيبر (إسبانيا والبرتغال) وعلى السواحل المغربية.",
+                explorersText: "تميّز الملاحون القرطاجيون المنتسبون إلى عائلة المغاوين بالجرأة وبخوض الرحلات الاستكشافية خارج المتوسط، مما فتح مسالك تجارية جديدة لقرطاج. فقد قام الملك القرطاجي «حيملكو» (أو حيملكون) برحلة استكشافية سنة 450 ق.م انطلاقاً من ميناء جديد ببلاد الإيبر، مجازياً السواحل الأوروبية الغربية شمالاً، ويبدو أنه بلغ السواحل البريطانية. وتمكن البحّار القرطاجي «حنّون» من القيام برحلة بداية من سنة 425 ق.م انطلاقاً من قرطاج في اتجاه المحيط الأطلسي، مجازياً السواحل الغربية الإفريقية جنوباً إلى غاية خليج الكاميرون.",
+                tradeRoutesTitle: "المسالك التجارية البحرية الأساسية",
+                tradeRoutesIntro: "واشتملت أربعة مسالك أساسية في التجارة البحرية وهي:",
+                route1: "المسلك الذي يربط الموانئ البونية بمملكة «تارشيش» (جنوب إسبانيا)، حيث تتزود السفن القرطاجية بمعادن مختلفة كالفضة والرصاص والنحاس والحديد.",
+                route2: "المسلك الذي يربط ميناء «جدر» (قادس جنوب إسبانيا) بجنوب شرقي بريطانيا، حيث توجد مناجم القصدير.",
+                route3: "المسلك الذي يربط ميناء «جدر» بالسواحل الإفريقية المطلة على المحيط الأطلسي، حيث يتوفر الذهب والعاج واللحم والأنعام والعبيد والفيلة.",
+                route4: "المسلك الذي يربط الموانئ البونية بموانئ المتوسط في مصر وبلاد كنعان (فلسطين) وبينيقيا، حيث العطور والأحجار الكريمة والأقمشة، وفي اتجاه المستوطنات الإغريقية بصفة إيطاليا ومساليا (مرسيليا جنوب فرنسا)، حيث الخزف والفخار والخمور والزيوت.",
+                exchangesTitle: "المبادلات التجارية لقرطاج",
+                tableSource: "المصدر",
+                tableGoods: "أنواع السلع",
+                tableRoutes: "المسالك",
+                tableRow1Source: "جنوب بلاد الإيبر",
+                tableRow1Goods: "الفضة والنحاس والقصدير والرصاص والحديد",
+                tableRow1Routes: "البحر",
+                tableRow2Source: "إفريقيا",
+                tableRow2Goods: "الذهب والعاج والصمغ والجلود والملح والعبيد والفيلة",
+                tableRow2Routes: "المحيط ومسالك بريّة صحراويّة",
+                tableRow3Source: "مصر وبلاد كنعان وقبرص",
+                tableRow3Goods: "العطور والبخور والحجارة الكريمة والباروديات والأقمشة الرفيعة والتماثيل",
+                tableRow3Routes: "البحر",
+                tableRow4Source: "المستوطنات الإغريقية بصفة إيطاليا ومساليا",
+                tableRow4Goods: "الخزف والفخار والخمور والزيوت",
+                tableRow4Routes: "البحر",
+                commercialFactorsTitle: "عوامل القوة التجارية القرطاجية",
+                commercialFactorsIntro: "أولت قرطاج التجارة عناية فائقة، فوّرت الظروف المساعدة على انتشارها ونموّها، وتجلّت تلك العناية في:",
+                shipbuildingTitle: "بناء السفن وتجهيز الموانئ",
+                shipbuildingIntro: "حيث وفّرت حظائر بناء السفن في قرطاج أنواعاً عديدة من السفن:",
+                warships: "سفن حربية ثلاثية (كل صفّ يعدّ 30 جانباً)، بلغ عددها وفق بعض المصادر 300 سفينة.",
+                merchantShips: "سفن تجارية تميزت بحجم أكبر وبسرعة أقل، لكنها قادرة على حمل بضائع ومواد أولية هامة.",
+                protectionTitle: "حماية الأساطيل والأسواق",
+                protectionText: "اتخاذ الإجراءات لحماية الأساطيل من القرصنة وحماية الأسواق من المنافسة، وذلك بإبرام المعاهدات، مثل المعاهدة مع روما سنة 509 ق.م.",
+                consulsTitle: "تعيين القناصل",
+                consulsText: "تعيين القناصل لدى السلطات الأجنبية للسهر على حماية المواطنين القرطاجيين وضمان حقوقهم.",
+                tradeDevelopmentTitle: "تطوير المعاملات التجارية",
+                barter: "استعمال المقايضة (مع شعوب السواحل الإفريقية على المحيط الأطلسي).",
+                bullion: "استعمال الفضة والذهب في شكل سبائك موزونة.",
+                currency: "استخدام العملة بداية من القرن الخامس ق.م.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "كرّست قرطاج نشاطها التجاري، وعزّزت التلاقح الحضاري، ودعمت جسر التواصل بين شرق المتوسط وغربه. ولكن العبقرية التجارية للبونيين لم تجلب لهم محبة بقية الشعوب، مما بشّر اندلاع المواجهة مع روما حول مناطق النفوذ في غرب المتوسط.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryCap1: "مخطط تخيّلي لميناء قرطاج",
+                galleryCap2: "المسالك التجارية البحرية لقرطاج في بداية القرن الثالث قبل الميلاد",
+                galleryCap3: "المبادلات التجارية لقرطاج",
+                galleryCap4: "سفينة حربية قرطاجية من القرن الثالث ق.م",
+                galleryCap5: "زورق قرطاجي من القرن الثالث ق.م",
+                galleryCap6: "آثار الميناء القرطاجي",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defAppian: "أبيانوس",
+                defAppianDesc: "مؤرخ إغريقي (200 ق.م – 120 م)، صاحب كتاب «لوبيكا» (بونيكا)، وصف فيه موانئ قرطاج كما كانت منذ القرن الثالث ق.م وصفاً دقيقاً.",
+                defHimilco: "حيملكو (حيملكون)",
+                defHimilcoDesc: "ملك قرطاجي قام برحلة استكشافية سنة 450 ق.م انطلاقاً من ميناء جديد ببلاد الإيبر، مجازياً السواحل الأوروبية الغربية شمالاً، ويبدو أنه بلغ السواحل البريطانية.",
+                defHanno: "حنّون",
+                defHannoDesc: "بحّار قرطاجي قام برحلة استكشافية بداية من سنة 425 ق.م انطلاقاً من قرطاج في اتجاه المحيط الأطلسي، مجازياً السواحل الغربية الإفريقية جنوباً إلى غاية خليج الكاميرون.",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "مركز القوة التجارية والعسكرية في غرب المتوسط، وامتد نفوذها على جزره وسواحله بفضل مينائها المركّب وأسطولها التجاري والحربي.",
+                defTarshish: "تارشيش",
+                defTarshishDesc: "مملكة قديمة تقع في جنوب إسبانيا، وكانت مصدراً للمعادن المختلفة كالفضة والرصاص والنحاس والحديد.",
+                defGadir: "جدر (قادس)",
+                defGadirDesc: "ميناء يقع في جنوب إسبانيا، ربطته قرطاج بجنوب شرقي بريطانيا من أجل القصدير، وبالسواحل الإفريقية على المحيط الأطلسي.",
+                defBritain: "بريطانيا",
+                defBritainDesc: "منطقة في شمال أوروبا كانت مصدراً للقصدير، وربطها ميناء «جدر» القرطاجي بمسلك تجاري بحري.",
+                defEgyptLoc: "مصر",
+                defEgyptLocDesc: "إحدى محطات المسلك التجاري الرابع، حيث العطور والأحجار الكريمة والأقمشة.",
+                defCanaan: "بلاد كنعان (فلسطين)",
+                defCanaanDesc: "منطقة في شرق المتوسط، إحدى محطات المسلك التجاري الرابع لتزويد قرطاج بالعطور والأقمشة.",
+                defPhoenicia: "بينيقيا",
+                defPhoeniciaDesc: "الوطن الأم للقرطاجيين في شرق المتوسط، مصدر الموروث الحضاري والديني والبحري لقرطاج.",
+                defMassalia: "مساليا (مرسيليا)",
+                defMassaliaDesc: "مستوطنة إغريقية في جنوب فرنسا، كانت مورداً للخزف والفخار والخمور والزيوت.",
+                defItaly: "إيطاليا",
+                defItalyDesc: "منطقة في جنوب أوروبا، كانت مورداً للخزف والفخار والخمور والزيوت للموانئ البونية.",
+                defSicily: "صقلية",
+                defSicilyDesc: "جزيرة في البحر المتوسط، امتد إليها النفوذ القرطاجي خاصة في غربها.",
+                defSardinia: "سردينيا",
+                defSardiniaDesc: "جزيرة في البحر المتوسط، امتد إليها النفوذ القرطاجي.",
+                defMalta: "مالطة",
+                defMaltaDesc: "جزيرة في البحر المتوسط، امتد إليها النفوذ القرطاجي.",
+                defBalearic: "جزر البليار",
+                defBalearicDesc: "مجموعة جزر في غرب البحر المتوسط، امتد إليها النفوذ القرطاجي.",
+                defIberia: "بلاد الإيبر (إسبانيا والبرتغال)",
+                defIberiaDesc: "منطقة في غرب أوروبا، امتد إليها النفوذ القرطاجي، وكانت مصدراً للمعادن.",
+                defMorocco: "السواحل المغربية",
+                defMoroccoDesc: "منطقة في شمال غرب إفريقيا، امتد إليها النفوذ القرطاجي.",
+                defAtlantic: "المحيط الأطلسي",
+                defAtlanticDesc: "محيط تجاوزته الرحلات الاستكشافية القرطاجية بفضل حنّون وحيملكو، مصدراً لمسالك تجارية جديدة.",
+                defCameroon: "خليج الكاميرون",
+                defCameroonDesc: "منطقة في غرب إفريقيا، بلغها البحّار القرطاجي حنّون في رحلته الاستكشافية سنة 425 ق.م.",
+                defTreatyRome: "المعاهدة مع روما (509 ق.م)",
+                defTreatyRomeDesc: "معاهدة أبرمتها قرطاج مع روما بهدف حماية أساطيلها من القرصنة وأسواقها من المنافسة.",
+                defHimilcoExpedition: "رحلة حيملكو الاستكشافية (450 ق.م)",
+                defHimilcoExpeditionDesc: "رحلة استكشافية انطلقت من ميناء جديد ببلاد الإيبر، مجازية السواحل الأوروبية الغربية شمالاً حتى السواحل البريطانية.",
+                defHannoExpedition: "رحلة حنّون الاستكشافية (425 ق.م)",
+                defHannoExpeditionDesc: "رحلة استكشافية انطلقت من قرطاج في اتجاه المحيط الأطلسي، مجازية السواحل الغربية الإفريقية جنوباً حتى خليج الكاميرون.",
+                defYear3rdBC: "الفترة التي بلغ فيها الميناء القرطاجي شكله المعروف، ووصفه فيها أبيانوس.",
+                defYear509BC: "إبرام المعاهدة بين قرطاج وروما لحماية الأساطيل والأسواق.",
+                defYear450BC: "رحلة حيملكو الاستكشافية نحو سواحل أوروبا الغربية والبريطانية.",
+                defYear425BC: "رحلة حنّون الاستكشافية نحو خليج الكاميرون عبر المحيط الأطلسي.",
+                defYear5thBC: "بداية استخدام العملة في المعاملات التجارية القرطاجية.",
+                defCommercialPort: "الميناء التجاري",
+                defCommercialPortDesc: "الجزء الخارجي من الميناء القرطاجي، على هيئة حوض مستطيل الأضلاع بطول 465م وعرض 325م، ويتيح مجالاً مائياً 15 هكتاراً، تنفذ إليه السفن عبر بوابة عرضها 70م تُغلق بسلاسل حديدية.",
+                defMilitaryPort: "الميناء العسكري",
+                defMilitaryPortDesc: "الجزء الداخلي من الميناء القرطاجي، على شكل حوض دائري قطره 325م، محاط بجدران مزدوجة عالية وبوابة خشبية، ويتوسطه مركز القيادة العامة، ويضم أرصفة ضخمة وماوي لـ 250 سفينة حربية.",
+                defTradeRoute: "المسلك التجاري",
+                defTradeRouteDesc: "طريق بحري أو بري تستعمله السفن والقوافل التجارية لتبادل السلع بين قرطاج وأقاليم المتوسط والمحيط الأطلسي.",
+                defTrireme: "السفينة الحربية الثلاثية",
+                defTriremeDesc: "سفينة حربية قرطاجية تتكون من ثلاثة صفوف من المجدفين، كل صفّ يعدّ 30 جانباً، وبلغ عددها وفق بعض المصادر 300 سفينة.",
+                defMerchantShip: "السفينة التجارية",
+                defMerchantShipDesc: "سفينة قرطاجية تميزت بحجم أكبر وبسرعة أقل من السفينة الحربية، لكنها قادرة على حمل بضائع ومواد أولية هامة.",
+                defConsul: "القنصل",
+                defConsulDesc: "ممثل قرطاجي معيّن لدى السلطات الأجنبية للسهر على حماية المواطنين القرطاجيين وضمان حقوقهم.",
+                defBarter: "المقايضة",
+                defBarterDesc: "نظام تبادل تجاري استعملته قرطاج مع شعوب السواحل الإفريقية على المحيط الأطلسي، يقوم على مبادلة السلع بالسلع دون استعمال النقود.",
+                defCarthaginianCurrency: "العملة القرطاجية",
+                defCarthaginianCurrencyDesc: "وسيلة دفع استعملها القرطاجيون في معاملاتهم التجارية بداية من القرن الخامس ق.م، إلى جانب الفضة والذهب في شكل سبائك موزونة.",
+                summaryText: "خلاصة: مثّل الميناء القرطاجي ركيزة القوة التجارية والعسكرية لقرطاج، بفضل بنيته المركبة (ميناء تجاري + ميناء عسكري + ورشات + مخازن) وموقعه الاستراتيجي. وقد ساهم في السيطرة على المسالك التجارية البحرية في المتوسط وخارجه، وفي تأمين الأسواق والأساطيل بالمعاهدات والقناصل وتطوير المعاملات التجارية (المقايضة، السبائك، العملة).",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "مخطط تخيّلي لميناء قرطاج",
+                galleryAlt2: "المسالك التجارية البحرية لقرطاج",
+                galleryAlt3: "المبادلات التجارية لقرطاج",
+                galleryAlt4: "سفينة حربية قرطاجية",
+                galleryAlt5: "زورق قرطاجي",
+                galleryAlt6: "آثار الميناء القرطاجي"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Appian", class: "key-person", i18n: "defAppian" },
+                { text: "Himilco", class: "key-person", i18n: "defHimilco" },
+                { text: "Hanno", class: "key-person", i18n: "defHanno" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Tarshish", class: "key-location", i18n: "defTarshish" },
+                { text: "Gadir", class: "key-location", i18n: "defGadir" },
+                { text: "Britain", class: "key-location", i18n: "defBritain" },
+                { text: "Egypt", class: "key-location", i18n: "defEgyptLoc" },
+                { text: "Canaan", class: "key-location", i18n: "defCanaan" },
+                { text: "Phoenicia", class: "key-location", i18n: "defPhoenicia" },
+                { text: "Massalia", class: "key-location", i18n: "defMassalia" },
+                { text: "Italy", class: "key-location", i18n: "defItaly" },
+                { text: "Sicily", class: "key-location", i18n: "defSicily" },
+                { text: "Sardinia", class: "key-location", i18n: "defSardinia" },
+                { text: "Malta", class: "key-location", i18n: "defMalta" },
+                { text: "Balearic", class: "key-location", i18n: "defBalearic" },
+                { text: "Iberia", class: "key-location", i18n: "defIberia" },
+                { text: "Atlantic", class: "key-location", i18n: "defAtlantic" },
+                { text: "Cameroon", class: "key-location", i18n: "defCameroon" },
+                { text: "509 BC", class: "key-event", i18n: "defTreatyRome" },
+                { text: "450 BC", class: "key-event", i18n: "defHimilcoExpedition" },
+                { text: "425 BC", class: "key-event", i18n: "defHannoExpedition" },
+                { text: "Commercial Port", class: "key-other", i18n: "defCommercialPort" },
+                { text: "Military Port", class: "key-other", i18n: "defMilitaryPort" },
+                { text: "Trireme", class: "key-other", i18n: "defTrireme" },
+                { text: "Consul", class: "key-other", i18n: "defConsul" },
+                { text: "Barter", class: "key-other", i18n: "defBarter" }
+            ],
+            fr: [
+                { text: "Appien", class: "key-person", i18n: "defAppian" },
+                { text: "Himilcon", class: "key-person", i18n: "defHimilco" },
+                { text: "Hannon", class: "key-person", i18n: "defHanno" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Tarsis", class: "key-location", i18n: "defTarshish" },
+                { text: "Gadir", class: "key-location", i18n: "defGadir" },
+                { text: "Grande-Bretagne", class: "key-location", i18n: "defBritain" },
+                { text: "Égypte", class: "key-location", i18n: "defEgyptLoc" },
+                { text: "Canaan", class: "key-location", i18n: "defCanaan" },
+                { text: "Phénicie", class: "key-location", i18n: "defPhoenicia" },
+                { text: "Massalia", class: "key-location", i18n: "defMassalia" },
+                { text: "Italie", class: "key-location", i18n: "defItaly" },
+                { text: "Sicile", class: "key-location", i18n: "defSicily" },
+                { text: "Sardaigne", class: "key-location", i18n: "defSardinia" },
+                { text: "Malte", class: "key-location", i18n: "defMalta" },
+                { text: "Baléares", class: "key-location", i18n: "defBalearic" },
+                { text: "Ibérie", class: "key-location", i18n: "defIberia" },
+                { text: "Atlantique", class: "key-location", i18n: "defAtlantic" },
+                { text: "Cameroun", class: "key-location", i18n: "defCameroon" },
+                { text: "509 av", class: "key-event", i18n: "defTreatyRome" },
+                { text: "450 av", class: "key-event", i18n: "defHimilcoExpedition" },
+                { text: "425 av", class: "key-event", i18n: "defHannoExpedition" },
+                { text: "port commercial", class: "key-other", i18n: "defCommercialPort" },
+                { text: "port militaire", class: "key-other", i18n: "defMilitaryPort" },
+                { text: "trirème", class: "key-other", i18n: "defTrireme" },
+                { text: "consul", class: "key-other", i18n: "defConsul" },
+                { text: "troc", class: "key-other", i18n: "defBarter" }
+            ],
+            ar: [
+                { text: "أبيانوس", class: "key-person", i18n: "defAppian" },
+                { text: "حيملكو", class: "key-person", i18n: "defHimilco" },
+                { text: "حنّون", class: "key-person", i18n: "defHanno" },
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "تارشيش", class: "key-location", i18n: "defTarshish" },
+                { text: "جدر", class: "key-location", i18n: "defGadir" },
+                { text: "بريطانيا", class: "key-location", i18n: "defBritain" },
+                { text: "مصر", class: "key-location", i18n: "defEgyptLoc" },
+                { text: "بلاد كنعان", class: "key-location", i18n: "defCanaan" },
+                { text: "بينيقيا", class: "key-location", i18n: "defPhoenicia" },
+                { text: "مساليا", class: "key-location", i18n: "defMassalia" },
+                { text: "إيطاليا", class: "key-location", i18n: "defItaly" },
+                { text: "صقلية", class: "key-location", i18n: "defSicily" },
+                { text: "سردينيا", class: "key-location", i18n: "defSardinia" },
+                { text: "مالطة", class: "key-location", i18n: "defMalta" },
+                { text: "جزر البليار", class: "key-location", i18n: "defBalearic" },
+                { text: "بلاد الإيبر", class: "key-location", i18n: "defIberia" },
+                { text: "المحيط الأطلسي", class: "key-location", i18n: "defAtlantic" },
+                { text: "خليج الكاميرون", class: "key-location", i18n: "defCameroon" },
+                { text: "509 ق.م", class: "key-event", i18n: "defTreatyRome" },
+                { text: "450 ق.م", class: "key-event", i18n: "defHimilcoExpedition" },
+                { text: "425 ق.م", class: "key-event", i18n: "defHannoExpedition" },
+                { text: "الميناء التجاري", class: "key-other", i18n: "defCommercialPort" },
+                { text: "الميناء العسكري", class: "key-other", i18n: "defMilitaryPort" },
+                { text: "السفينة الحربية الثلاثية", class: "key-other", i18n: "defTrireme" },
+                { text: "القنصل", class: "key-other", i18n: "defConsul" },
+                { text: "المقايضة", class: "key-other", i18n: "defBarter" },
+                { text: "العملة القرطاجية", class: "key-other", i18n: "defCarthaginianCurrency" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

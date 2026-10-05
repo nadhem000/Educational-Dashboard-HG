@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – الحركية الديمغرافية للسكان</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60,50,40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <h1 data-i18n="exerciseTitle">تمارين – الحركية الديمغرافية للسكان</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الانفجار الديمغرافي، الفتور السكاني، النمو الطبيعي، الانتقال الديمغرافي.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الانفجار الديمغرافي:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">ارتفاع سريع في عدد السكان ناتج عن ارتفاع نسبة الولادات وتراجع نسبة الوفيات، مما يجعل النمو الطبيعي مرتفعاً (يفوق 2%). تعيشه معظم الدول النامية ومنها كينيا التي بلغ عدد سكانها 54.7 مليون ساكن سنة 2020.</dd>
+                        <dt data-i18n="ex1_def2_title">الفتور السكاني:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">نمو سكاني بطيء ناتج عن تراجع نسبة الولادات وانخفاض نسبة الوفيات، مما يجعل النمو الطبيعي ضعيفاً (0.2%). تعيشه الدول المتقدمة ومنها السويد التي بلغ عدد سكانها 10.4 مليون ساكن سنة 2020.</dd>
+                        <dt data-i18n="ex1_def3_title">النمو الطبيعي:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">الفرق بين نسبة الولادات ونسبة الوفيات في بلد ما خلال سنة، ويُعبّر عنه بالنسبة المائوية، ويكون مرتفعاً في الدول النامية (2.2% في كينيا سنة 2020) وضعيفاً في الدول المتقدمة (0.2% في السويد سنة 2020).</dd>
+                        <dt data-i18n="ex1_def4_title">الانتقال الديمغرافي:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">نظرية ظهرت منذ 1934 في دراسة للعالم الفرنسي أدولف لندري، تُفسّر الانتقال من نظام ديمغرافي تقليدي (ولادات ووفيات مرتفعة) إلى نظام عصري (ولادات ووفيات منخفضة)، وتمرّ بثلاث مراحل: النظام التقليدي، مرحلة الانتقال (طور الانفجار وطور الانتقال)، والنظام العصري (النضج الديمغرافي).</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن الفرق في نسب الولادات والوفيات بين كينيا والسويد سنة 2020.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_country">البلد</th>
+                            <th data-i18n="ex2_table_birth">نسبة الولادات (‰)</th>
+                            <th data-i18n="ex2_table_death">نسبة الوفيات (‰)</th>
+                            <th data-i18n="ex2_table_growth">النمو الطبيعي (%)</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_kenya">كينيا</td>
+                            <td>27</td>
+                            <td>5</td>
+                            <td>2.2</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_sweden">السويد</td>
+                            <td>11</td>
+                            <td>9</td>
+                            <td>0.2</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: معطيات الدرس حول الحركية الديمغرافية للسكان</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Document / Pyramid -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمل هرمي الأعمار التاليين (كينيا والسويد)، وبيّن خصائص كلّ هرم والانعكاسات الديمغرافية والاجتماعية المترتبة عنه.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets1sec/exercises/geography/unit1/lesson2/population_pyramids_kenya_sweden.png"
+                         alt="هرما أعمار كينيا والسويد"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets1sec/exercises/geography/unit1/lesson2/population_pyramids_answer.png"
+                             alt="نموذج الإجابة – خصائص هرمي الأعمار"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        يتميّز هرم أعمار كينيا بقاعدة عريضة بسبب ارتفاع نسبة الأطفال دون 15 سنة (38% سنة 2020) وقمة حادة بسبب انخفاض نسبة الشيوخ (3% فقط)، مما يدل على تركيبة عمرية فتية وانفجار ديمغرافي، ويترتب عن ذلك الرفع من نسبة الاستثمارات الديمغرافية والاجتماعية في الصحة والتعليم على حساب استثمارات التنمية. أما هرم أعمار السويد فيتميّز بتقلّص القاعدة بسبب انخفاض نسبة الأطفال إلى أقل من 18% سنة 2020، وانتفاخ الوسط، وتسطّح القمة بسبب ارتفاع نسبة الشيوخ إلى حوالي 1/5 السكان، مما يدل على تركيبة عمرية متهرّمة ونضج ديمغرافي، ويترتب عن ذلك ارتفاع العمر المتوقع عند الميلاد إلى 82 سنة سنة 2020 وارتفاع كلفة الرعاية الصحية والاجتماعية للمسنين.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل عوامل الانفجار الديمغرافي في كينيا في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        عوامل الانفجار الديمغرافي في كينيا:
+                        - ارتفاع نسبة الولادات إلى 27‰ سنة 2020 رغم تراجعها.
+                        - ارتفاع معدل الخصوبة إلى 3.4 طفل لكل امرأة في سن الإنجاب سنة 2020 رغم تراجعها.
+                        - تراجع نسبة الوفيات.
+                        - تعدّد الزواج والزواج في سنّ مبكر.
+                        - ارتفاع نسبة الأمية ونسبة السكان الريفيين.
+                        - عدم اعتماد سياسة تحديد النسل إلا بصفة محتشمة ومتأخرة.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        يعيش عدد سكان كينيا انفجاراً ديمغرافياً واضحاً، إذ تضاعف أكثر من 9 مرات خلال 70 سنة ليبلغ 54.7 مليون ساكن سنة 2020، وترتفع نسبة النمو الطبيعي إلى 2.2%. ويُفسَّر هذا الانفجار بارتفاع نسبة الولادات إلى 27‰ سنة 2020 رغم تراجعها، وارتفاع معدل الخصوبة إلى 3.4 طفل لكل امرأة في سن الإنجاب رغم تراجعها، وتراجع نسبة الوفيات. كما تُضاف إلى ذلك عوامل اجتماعية وثقافية تتمثل في تعدّد الزواج والزواج في سنّ مبكر، وارتفاع نسبة الأمية ونسبة السكان الريفيين، وعدم اعتماد سياسة تحديد النسل إلا بصفة محتشمة ومتأخرة. وقد ترتب عن هذا الانفجار الديمغرافي تركيبة عمرية فتية (38% دون 15 سنة و3% شيوخ فقط سنة 2020)، مما يرفع من نسبة الاستثمارات الديمغرافية والاجتماعية في الصحة والتعليم على حساب استثمارات التنمية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول اختلاف الحركية الديمغرافية بين العالمين النامي والمتقدم، مقارناً بين حالتَي كينيا والسويد.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        قارن بين حالة كينيا (54.7 مليون ساكن سنة 2020، نمو طبيعي 2.2%، تركيبة عمرية فتية، انفجار ديمغرافي، طور الانفجار ضمن مرحلة الانتقال الديمغرافي) وحالة السويد (10.4 مليون ساكن سنة 2020، نمو طبيعي 0.2%، تركيبة عمرية متهرّمة، فتور سكاني، النظام العصري ضمن مرحلة الانتقال الديمغرافي). أبرز العوامل المفسرة للاختلاف بين الحالتين.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تحديد مفهوم الحركية الديمغرافية واختلافها بين الأقطار.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. حالة كينيا (الانفجار الديمغرافي)؛ ثانياً. حالة السويد (النضج الديمغرافي)؛ ثالثاً. العوامل المفسرة للاختلاف.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: الحركية الديمغرافية خاصية متغيّرة حسب مراحل الانتقال الديمغرافي.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">تهتمّ الحركية الديمغرافية بنمو السكان والعوامل المرتبطة به، وهي تختلف من قطر إلى آخر حسب مرحلة الانتقال الديمغرافي التي يمرّ بها. ويظهر هذا الاختلاف بوضوح في حالة كينيا (العالم النامي) والسويد (العالم المتقدم).</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_kenya">أولاً. حالة كينيا: الانفجار الديمغرافي</h4>
+                        <p data-i18n="ex5A_production_p_kenya">تعيش كينيا انفجاراً ديمغرافياً واضحاً، إذ تضاعف عدد سكانها أكثر من 9 مرات خلال 70 سنة ليبلغ 54.7 مليون ساكن سنة 2020، وترتفع نسبة النمو الطبيعي إلى 2.2%. ويُفسَّر ذلك بارتفاع نسبة الولادات (27‰) وارتفاع معدل الخصوبة (3.4 طفل/امرأة) وتراجع نسبة الوفيات، إضافة إلى عوامل اجتماعية وثقافية كتعدّد الزواج والزواج المبكر وارتفاع نسبة الأمية. وقد ترتب عن ذلك تركيبة عمرية فتية (38% دون 15 سنة و3% شيوخ) وارتفاع الاستثمارات الديمغرافية والاجتماعية على حساب استثمارات التنمية.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_sweden">ثانياً. حالة السويد: النضج الديمغرافي</h4>
+                        <p data-i18n="ex5A_production_p_sweden">تشهد السويد فتوراً سكانياً، إذ لم يتزايد عدد سكانها خلال 70 سنة إلا بـ 3.4 مليون ساكن ليبلغ 10.4 مليون ساكن سنة 2020، وانخفضت نسبة النمو الطبيعي إلى 0.2%. ويُفسَّر ذلك بتراجع نسبة الولادات إلى 11‰ وانخفاض مؤشر الخصوبة إلى 1.7 طفل/امرأة وانخفاض نسبة الوفيات إلى 9‰. وقد ترتب عن ذلك تركيبة عمرية متهرّمة (1/5 شيوخ وأقل من 18% أطفال) وارتفاع العمر المتوقع عند الميلاد إلى 82 سنة. وقد انتهجت السويد سياسة سكانية تشجّع على الإنجاب بتوفير منح العطل طويلة الأمد (450 يوم منها 360 يوم خالصة الأجر) ومنح على الأبناء.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_factors">ثالثاً. العوامل المفسرة للاختلاف</h4>
+                        <p data-i18n="ex5A_production_p_factors">يُفسَّر اختلاف الحركية الديمغرافية بين كينيا والسويد باختلاف مرحلة الانتقال الديمغرافي: فكينيا تقع في طور الانفجار (مرحلة الانتقال الديمغرافي)، بينما تقع السويد في النظام العصري (النضج الديمغرافي). كما يلعب مستوى التنمية الاقتصادية والاجتماعية والثقافية دوراً أساسياً في هذا الاختلاف.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا تختلف الحركية الديمغرافية بين العالم النامي والعالم المتقدم باختلاف مراحل الانتقال الديمغرافي واختلاف مستوى التنمية، وهو ما يبرز من خلال المقارنة بين كينيا والسويد.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y1sec_geo_lessons_mod1_lesson2.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "1st Secondary",
+                exerciseTitle: "Exercises – Demographic Dynamics of the Population",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: demographic explosion, population slowdown, natural growth, demographic transition.",
+                ex1_def1_title: "Demographic explosion:",
+                ex1_def1_subtitle: "A rapid increase in population resulting from high birth rates and declining death rates, making natural growth high (exceeding 2%). Experienced by most developing countries, including Kenya whose population reached 54.7 million in 2020.",
+                ex1_def2_title: "Population slowdown:",
+                ex1_def2_subtitle: "Slow population growth resulting from declining birth rates and low death rates, making natural growth weak (0.2%). Experienced by developed countries, including Sweden whose population reached 10.4 million in 2020.",
+                ex1_def3_title: "Natural growth:",
+                ex1_def3_subtitle: "The difference between the birth rate and the death rate in a country during a year, expressed as a percentage. It is high in developing countries (2.2% in Kenya in 2020) and weak in developed countries (0.2% in Sweden in 2020).",
+                ex1_def4_title: "Demographic transition:",
+                ex1_def4_subtitle: "A theory that appeared in 1934 in a study by the French scholar Adolphe Landry, explaining the transition from a traditional demographic system (high births and deaths) to a modern system (low births and deaths). It passes through three stages: the traditional system, the transition stage (explosion phase and transition phase), and the modern system (demographic maturity).",
+                ex2Q: "Convert the following table data into a bar chart showing the difference in birth and death rates between Kenya and Sweden in 2020.",
+                ex2_table_country: "Country",
+                ex2_table_birth: "Birth rate (‰)",
+                ex2_table_death: "Death rate (‰)",
+                ex2_table_growth: "Natural growth (%)",
+                ex2_table_kenya: "Kenya",
+                ex2_table_sweden: "Sweden",
+                ex2Q_source: "Source: Lesson data on the demographic dynamics of the population",
+                ex2A_title: "Birth and Death Rates in Kenya and Sweden in 2020 (‰)",
+                ex2A_source: "Source: Lesson data on the demographic dynamics of the population",
+                ex2A_scale: "Scale: 0–30‰; column height proportional to value.",
+                ex2A_key_label: "Key:",
+                ex3Q: "Observe the following two age pyramids (Kenya and Sweden), and explain the characteristics of each pyramid and the demographic and social repercussions resulting from it.",
+                ex3DocAlt: "Age pyramids of Kenya and Sweden",
+                ex3AnswerImgAlt: "Answer model – Characteristics of the two age pyramids",
+                ex3A: "Kenya's age pyramid is characterized by a broad base due to the high proportion of children under 15 (38% in 2020) and a sharp peak due to the low proportion of the elderly (only 3%), indicating a young age structure and demographic explosion, which results in raising the proportion of demographic and social investments in health and education at the expense of development investments. Sweden's age pyramid is characterized by a shrinking base due to the proportion of children falling below 18% in 2020, a bulging middle, and a flattened top due to the proportion of the elderly rising to about 1/5 of the population, indicating an ageing age structure and demographic maturity, which results in a rise in life expectancy at birth to 82 years in 2020 and a rise in the cost of health and social care for the elderly.",
+                ex4Q: "Analyse the factors of the demographic explosion in Kenya in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Factors of the demographic explosion in Kenya:\n- High birth rate of 27‰ in 2020 despite its decline.\n- High fertility rate of 3.4 children per woman of childbearing age in 2020 despite its decline.\n- Decline in the death rate.\n- Polygamy and early marriage.\n- High illiteracy rate and rural population rate.\n- The adoption of a birth control policy only modestly and late.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "Kenya's population is experiencing a clear demographic explosion, having multiplied more than 9 times over 70 years to reach 54.7 million in 2020, with a natural growth rate of 2.2%. This explosion is explained by a high birth rate of 27‰ in 2020 despite its decline, a high fertility rate of 3.4 children per woman of childbearing age despite its decline, and a decline in the death rate. Social and cultural factors are also added, including polygamy and early marriage, high illiteracy rate and rural population rate, and the adoption of a birth control policy only modestly and late. This demographic explosion has resulted in a young age structure (38% under 15 and only 3% elderly in 2020), which raises the proportion of demographic and social investments in health and education at the expense of development investments.",
+                ex5Q: "Write a short article on the difference in demographic dynamics between the developing and developed worlds, comparing the cases of Kenya and Sweden.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Compare Kenya's case (54.7 million inhabitants in 2020, natural growth 2.2%, young age structure, demographic explosion, explosion phase of the demographic transition stage) with Sweden's case (10.4 million inhabitants in 2020, natural growth 0.2%, ageing age structure, population slowdown, modern system of the demographic transition stage). Highlight the factors explaining the difference between the two cases.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Defining the concept of demographic dynamics and its variation between countries.",
+                ex5A_plan_li2: "Development: I. Kenya's case (demographic explosion); II. Sweden's case (demographic maturity); III. Factors explaining the difference.",
+                ex5A_plan_li3: "Conclusion: Demographic dynamics is a variable characteristic according to the stages of demographic transition.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Demographic dynamics is concerned with population growth and the factors associated with it, and it differs from one country to another according to the stage of demographic transition it is going through. This difference is clearly evident in the case of Kenya (developing world) and Sweden (developed world).",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_kenya: "I. Kenya's Case: Demographic Explosion",
+                ex5A_production_p_kenya: "Kenya is experiencing a clear demographic explosion, with its population multiplying more than 9 times over 70 years to reach 54.7 million in 2020, with a natural growth rate of 2.2%. This is explained by a high birth rate (27‰), a high fertility rate (3.4 children per woman), and a decline in the death rate, in addition to social and cultural factors such as polygamy, early marriage, and high illiteracy. This has resulted in a young age structure (38% under 15 and 3% elderly) and a rise in demographic and social investments at the expense of development investments.",
+                ex5A_production_h4_sweden: "II. Sweden's Case: Demographic Maturity",
+                ex5A_production_p_sweden: "Sweden is experiencing a population slowdown, with its population increasing by only 3.4 million over 70 years to reach 10.4 million in 2020, and natural growth falling to 0.2%. This is explained by a decline in the birth rate to 11‰, a low fertility rate of 1.7 children per woman, and a decline in the death rate to 9‰. This has resulted in an ageing age structure (1/5 elderly and less than 18% children) and a rise in life expectancy at birth to 82 years. Sweden has adopted a population policy encouraging childbirth by providing long-term leave grants (450 days, of which 360 days are fully paid) and child allowances.",
+                ex5A_production_h4_factors: "III. Factors Explaining the Difference",
+                ex5A_production_p_factors: "The difference in demographic dynamics between Kenya and Sweden is explained by the difference in the stage of demographic transition: Kenya is in the explosion phase (demographic transition stage), while Sweden is in the modern system (demographic maturity). The level of economic, social, and cultural development also plays a fundamental role in this difference.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus demographic dynamics differ between the developing and developed worlds according to the stages of demographic transition and the level of development, as highlighted by the comparison between Kenya and Sweden.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                exerciseTitle: "Exercices – La dynamique démographique de la population",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : explosion démographique, ralentissement démographique, croissance naturelle, transition démographique.",
+                ex1_def1_title: "Explosion démographique :",
+                ex1_def1_subtitle: "Une augmentation rapide de la population résultant de taux de natalité élevés et de taux de mortalité en baisse, rendant la croissance naturelle élevée (supérieure à 2 %). Vécue par la plupart des pays en développement, dont le Kenya dont la population a atteint 54,7 millions en 2020.",
+                ex1_def2_title: "Ralentissement démographique :",
+                ex1_def2_subtitle: "Une croissance démographique lente résultant de la baisse des taux de natalité et de faibles taux de mortalité, rendant la croissance naturelle faible (0,2 %). Vécue par les pays développés, dont la Suède dont la population a atteint 10,4 millions en 2020.",
+                ex1_def3_title: "Croissance naturelle :",
+                ex1_def3_subtitle: "La différence entre le taux de natalité et le taux de mortalité dans un pays pendant une année, exprimée en pourcentage. Elle est élevée dans les pays en développement (2,2 % au Kenya en 2020) et faible dans les pays développés (0,2 % en Suède en 2020).",
+                ex1_def4_title: "Transition démographique :",
+                ex1_def4_subtitle: "Une théorie apparue en 1934 dans une étude du savant français Adolphe Landry, expliquant le passage d'un régime démographique traditionnel (naissances et décès élevés) à un régime moderne (naissances et décès faibles). Elle passe par trois étapes : le régime traditionnel, l'étape de transition (phase d'explosion et phase de transition), et le régime moderne (maturité démographique).",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant la différence des taux de natalité et de mortalité entre le Kenya et la Suède en 2020.",
+                ex2_table_country: "Pays",
+                ex2_table_birth: "Taux de natalité (‰)",
+                ex2_table_death: "Taux de mortalité (‰)",
+                ex2_table_growth: "Croissance naturelle (%)",
+                ex2_table_kenya: "Kenya",
+                ex2_table_sweden: "Suède",
+                ex2Q_source: "Source : données de la leçon sur la dynamique démographique de la population",
+                ex2A_title: "Taux de natalité et de mortalité au Kenya et en Suède en 2020 (‰)",
+                ex2A_source: "Source : données de la leçon sur la dynamique démographique de la population",
+                ex2A_scale: "Échelle : 0–30‰ ; hauteur des colonnes proportionnelle à la valeur.",
+                ex2A_key_label: "Légende :",
+                ex3Q: "Observez les deux pyramides des âges suivantes (Kenya et Suède), et expliquez les caractéristiques de chaque pyramide et les répercussions démographiques et sociales qui en découlent.",
+                ex3DocAlt: "Pyramides des âges du Kenya et de la Suède",
+                ex3AnswerImgAlt: "Modèle de réponse – Caractéristiques des deux pyramides des âges",
+                ex3A: "La pyramide des âges du Kenya se caractérise par une base large en raison de la forte proportion d'enfants de moins de 15 ans (38 % en 2020) et un sommet pointu en raison de la faible proportion de personnes âgées (seulement 3 %), indiquant une structure par âge jeune et une explosion démographique, ce qui entraîne une augmentation de la part des investissements démographiques et sociaux dans la santé et l'éducation au détriment des investissements de développement. La pyramide des âges de la Suède se caractérise par une base rétrécie en raison de la proportion d'enfants tombant en dessous de 18 % en 2020, un milieu bombé et un sommet aplati en raison de la proportion de personnes âgées atteignant environ 1/5 de la population, indiquant une structure par âge vieillissante et une maturité démographique, ce qui entraîne une hausse de l'espérance de vie à la naissance à 82 ans en 2020 et une hausse du coût des soins de santé et sociaux pour les personnes âgées.",
+                ex4Q: "Analysez les facteurs de l'explosion démographique au Kenya en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Facteurs de l'explosion démographique au Kenya :\n- Taux de natalité élevé de 27‰ en 2020 malgré sa baisse.\n- Taux de fécondité élevé de 3,4 enfants par femme en âge de procréer en 2020 malgré sa baisse.\n- Baisse du taux de mortalité.\n- Polygamie et mariage précoce.\n- Taux d'analphabétisme et de population rurale élevés.\n- Adoption d'une politique de contrôle des naissances de manière modeste et tardive.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "La population du Kenya connaît une explosion démographique claire, ayant été multipliée par plus de 9 en 70 ans pour atteindre 54,7 millions en 2020, avec un taux de croissance naturelle de 2,2 %. Cette explosion s'explique par un taux de natalité élevé de 27‰ en 2020 malgré sa baisse, un taux de fécondité élevé de 3,4 enfants par femme en âge de procréer malgré sa baisse, et une baisse du taux de mortalité. Des facteurs sociaux et culturels s'y ajoutent, notamment la polygamie et le mariage précoce, un taux d'analphabétisme et de population rurale élevés, et l'adoption d'une politique de contrôle des naissances de manière modeste et tardive. Cette explosion démographique a entraîné une structure par âge jeune (38 % de moins de 15 ans et seulement 3 % de personnes âgées en 2020), ce qui augmente la part des investissements démographiques et sociaux dans la santé et l'éducation au détriment des investissements de développement.",
+                ex5Q: "Rédigez un court article sur la différence de dynamique démographique entre les mondes en développement et développé, en comparant les cas du Kenya et de la Suède.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Comparez le cas du Kenya (54,7 millions d'habitants en 2020, croissance naturelle 2,2 %, structure par âge jeune, explosion démographique, phase d'explosion de l'étape de transition démographique) avec le cas de la Suède (10,4 millions d'habitants en 2020, croissance naturelle 0,2 %, structure par âge vieillissante, ralentissement démographique, régime moderne de l'étape de transition démographique). Mettez en évidence les facteurs expliquant la différence entre les deux cas.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Définir le concept de dynamique démographique et sa variation entre les pays.",
+                ex5A_plan_li2: "Développement : I. Le cas du Kenya (explosion démographique) ; II. Le cas de la Suède (maturité démographique) ; III. Facteurs expliquant la différence.",
+                ex5A_plan_li3: "Conclusion : La dynamique démographique est une caractéristique variable selon les étapes de la transition démographique.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "La dynamique démographique s'intéresse à la croissance de la population et aux facteurs qui y sont liés, et elle diffère d'un pays à l'autre selon le stade de la transition démographique qu'il traverse. Cette différence est clairement visible dans le cas du Kenya (monde en développement) et de la Suède (monde développé).",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_kenya: "I. Le cas du Kenya : l'explosion démographique",
+                ex5A_production_p_kenya: "Le Kenya connaît une explosion démographique claire, sa population ayant été multipliée par plus de 9 en 70 ans pour atteindre 54,7 millions en 2020, avec un taux de croissance naturelle de 2,2 %. Cela s'explique par un taux de natalité élevé (27‰), un taux de fécondité élevé (3,4 enfants par femme) et une baisse du taux de mortalité, en plus de facteurs sociaux et culturels tels que la polygamie, le mariage précoce et un analphabétisme élevé. Il en résulte une structure par âge jeune (38 % de moins de 15 ans et 3 % de personnes âgées) et une augmentation des investissements démographiques et sociaux au détriment des investissements de développement.",
+                ex5A_production_h4_sweden: "II. Le cas de la Suède : la maturité démographique",
+                ex5A_production_p_sweden: "La Suède connaît un ralentissement démographique, sa population n'ayant augmenté que de 3,4 millions en 70 ans pour atteindre 10,4 millions en 2020, avec une croissance naturelle tombant à 0,2 %. Cela s'explique par une baisse du taux de natalité à 11‰, un faible taux de fécondité de 1,7 enfant par femme et une baisse du taux de mortalité à 9‰. Il en résulte une structure par âge vieillissante (1/5 de personnes âgées et moins de 18 % d'enfants) et une hausse de l'espérance de vie à la naissance à 82 ans. La Suède a adopté une politique démographique encourageant la natalité en offrant des congés de longue durée (450 jours, dont 360 jours entièrement payés) et des allocations familiales.",
+                ex5A_production_h4_factors: "III. Facteurs expliquant la différence",
+                ex5A_production_p_factors: "La différence de dynamique démographique entre le Kenya et la Suède s'explique par la différence d'étape de la transition démographique : le Kenya se situe dans la phase d'explosion (étape de transition démographique), tandis que la Suède se situe dans le régime moderne (maturité démographique). Le niveau de développement économique, social et culturel joue également un rôle fondamental dans cette différence.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi la dynamique démographique diffère entre le monde en développement et le monde développé selon les étapes de la transition démographique et le niveau de développement, comme le met en évidence la comparaison entre le Kenya et la Suède.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                exerciseTitle: "تمارين – الحركية الديمغرافية للسكان",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الانفجار الديمغرافي، الفتور السكاني، النمو الطبيعي، الانتقال الديمغرافي.",
+                ex1_def1_title: "الانفجار الديمغرافي:",
+                ex1_def1_subtitle: "ارتفاع سريع في عدد السكان ناتج عن ارتفاع نسبة الولادات وتراجع نسبة الوفيات، مما يجعل النمو الطبيعي مرتفعاً (يفوق 2%). تعيشه معظم الدول النامية ومنها كينيا التي بلغ عدد سكانها 54.7 مليون ساكن سنة 2020.",
+                ex1_def2_title: "الفتور السكاني:",
+                ex1_def2_subtitle: "نمو سكاني بطيء ناتج عن تراجع نسبة الولادات وانخفاض نسبة الوفيات، مما يجعل النمو الطبيعي ضعيفاً (0.2%). تعيشه الدول المتقدمة ومنها السويد التي بلغ عدد سكانها 10.4 مليون ساكن سنة 2020.",
+                ex1_def3_title: "النمو الطبيعي:",
+                ex1_def3_subtitle: "الفرق بين نسبة الولادات ونسبة الوفيات في بلد ما خلال سنة، ويُعبّر عنه بالنسبة المائوية، ويكون مرتفعاً في الدول النامية (2.2% في كينيا سنة 2020) وضعيفاً في الدول المتقدمة (0.2% في السويد سنة 2020).",
+                ex1_def4_title: "الانتقال الديمغرافي:",
+                ex1_def4_subtitle: "نظرية ظهرت منذ 1934 في دراسة للعالم الفرنسي أدولف لندري، تُفسّر الانتقال من نظام ديمغرافي تقليدي (ولادات ووفيات مرتفعة) إلى نظام عصري (ولادات ووفيات منخفضة)، وتمرّ بثلاث مراحل: النظام التقليدي، مرحلة الانتقال (طور الانفجار وطور الانتقال)، والنظام العصري (النضج الديمغرافي).",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن الفرق في نسب الولادات والوفيات بين كينيا والسويد سنة 2020.",
+                ex2_table_country: "البلد",
+                ex2_table_birth: "نسبة الولادات (‰)",
+                ex2_table_death: "نسبة الوفيات (‰)",
+                ex2_table_growth: "النمو الطبيعي (%)",
+                ex2_table_kenya: "كينيا",
+                ex2_table_sweden: "السويد",
+                ex2Q_source: "المصدر: معطيات الدرس حول الحركية الديمغرافية للسكان",
+                ex2A_title: "نسب الولادات والوفيات في كينيا والسويد سنة 2020 (‰)",
+                ex2A_source: "المصدر: معطيات الدرس حول الحركية الديمغرافية للسكان",
+                ex2A_scale: "المقياس: 0–30‰؛ ارتفاع الأعمدة يتناسب مع القيمة.",
+                ex2A_key_label: "المفتاح:",
+                ex3Q: "تأمل هرمي الأعمار التاليين (كينيا والسويد)، وبيّن خصائص كلّ هرم والانعكاسات الديمغرافية والاجتماعية المترتبة عنه.",
+                ex3DocAlt: "هرما أعمار كينيا والسويد",
+                ex3AnswerImgAlt: "نموذج الإجابة – خصائص هرمي الأعمار",
+                ex3A: "يتميّز هرم أعمار كينيا بقاعدة عريضة بسبب ارتفاع نسبة الأطفال دون 15 سنة (38% سنة 2020) وقمة حادة بسبب انخفاض نسبة الشيوخ (3% فقط)، مما يدل على تركيبة عمرية فتية وانفجار ديمغرافي، ويترتب عن ذلك الرفع من نسبة الاستثمارات الديمغرافية والاجتماعية في الصحة والتعليم على حساب استثمارات التنمية. أما هرم أعمار السويد فيتميّز بتقلّص القاعدة بسبب انخفاض نسبة الأطفال إلى أقل من 18% سنة 2020، وانتفاخ الوسط، وتسطّح القمة بسبب ارتفاع نسبة الشيوخ إلى حوالي 1/5 السكان، مما يدل على تركيبة عمرية متهرّمة ونضج ديمغرافي، ويترتب عن ذلك ارتفاع العمر المتوقع عند الميلاد إلى 82 سنة سنة 2020 وارتفاع كلفة الرعاية الصحية والاجتماعية للمسنين.",
+                ex4Q: "حلّل عوامل الانفجار الديمغرافي في كينيا في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "عوامل الانفجار الديمغرافي في كينيا:\n- ارتفاع نسبة الولادات إلى 27‰ سنة 2020 رغم تراجعها.\n- ارتفاع معدل الخصوبة إلى 3.4 طفل لكل امرأة في سن الإنجاب سنة 2020 رغم تراجعها.\n- تراجع نسبة الوفيات.\n- تعدّد الزواج والزواج في سنّ مبكر.\n- ارتفاع نسبة الأمية ونسبة السكان الريفيين.\n- عدم اعتماد سياسة تحديد النسل إلا بصفة محتشمة ومتأخرة.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "يعيش عدد سكان كينيا انفجاراً ديمغرافياً واضحاً، إذ تضاعف أكثر من 9 مرات خلال 70 سنة ليبلغ 54.7 مليون ساكن سنة 2020، وترتفع نسبة النمو الطبيعي إلى 2.2%. ويُفسَّر هذا الانفجار بارتفاع نسبة الولادات إلى 27‰ سنة 2020 رغم تراجعها، وارتفاع معدل الخصوبة إلى 3.4 طفل لكل امرأة في سن الإنجاب رغم تراجعها، وتراجع نسبة الوفيات. كما تُضاف إلى ذلك عوامل اجتماعية وثقافية تتمثل في تعدّد الزواج والزواج في سنّ مبكر، وارتفاع نسبة الأمية ونسبة السكان الريفيين، وعدم اعتماد سياسة تحديد النسل إلا بصفة محتشمة ومتأخرة. وقد ترتب عن هذا الانفجار الديمغرافي تركيبة عمرية فتية (38% دون 15 سنة و3% شيوخ فقط سنة 2020)، مما يرفع من نسبة الاستثمارات الديمغرافية والاجتماعية في الصحة والتعليم على حساب استثمارات التنمية.",
+                ex5Q: "اكتب مقالاً قصيراً حول اختلاف الحركية الديمغرافية بين العالمين النامي والمتقدم، مقارناً بين حالتَي كينيا والسويد.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "قارن بين حالة كينيا (54.7 مليون ساكن سنة 2020، نمو طبيعي 2.2%، تركيبة عمرية فتية، انفجار ديمغرافي، طور الانفجار ضمن مرحلة الانتقال الديمغرافي) وحالة السويد (10.4 مليون ساكن سنة 2020، نمو طبيعي 0.2%، تركيبة عمرية متهرّمة، فتور سكاني، النظام العصري ضمن مرحلة الانتقال الديمغرافي). أبرز العوامل المفسرة للاختلاف بين الحالتين.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تحديد مفهوم الحركية الديمغرافية واختلافها بين الأقطار.",
+                ex5A_plan_li2: "تطوير: أولاً. حالة كينيا (الانفجار الديمغرافي)؛ ثانياً. حالة السويد (النضج الديمغرافي)؛ ثالثاً. العوامل المفسرة للاختلاف.",
+                ex5A_plan_li3: "خاتمة: الحركية الديمغرافية خاصية متغيّرة حسب مراحل الانتقال الديمغرافي.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "تهتمّ الحركية الديمغرافية بنمو السكان والعوامل المرتبطة به، وهي تختلف من قطر إلى آخر حسب مرحلة الانتقال الديمغرافي التي يمرّ بها. ويظهر هذا الاختلاف بوضوح في حالة كينيا (العالم النامي) والسويد (العالم المتقدم).",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_kenya: "أولاً. حالة كينيا: الانفجار الديمغرافي",
+                ex5A_production_p_kenya: "تعيش كينيا انفجاراً ديمغرافياً واضحاً، إذ تضاعف عدد سكانها أكثر من 9 مرات خلال 70 سنة ليبلغ 54.7 مليون ساكن سنة 2020، وترتفع نسبة النمو الطبيعي إلى 2.2%. ويُفسَّر ذلك بارتفاع نسبة الولادات (27‰) وارتفاع معدل الخصوبة (3.4 طفل/امرأة) وتراجع نسبة الوفيات، إضافة إلى عوامل اجتماعية وثقافية كتعدّد الزواج والزواج المبكر وارتفاع نسبة الأمية. وقد ترتب عن ذلك تركيبة عمرية فتية (38% دون 15 سنة و3% شيوخ) وارتفاع الاستثمارات الديمغرافية والاجتماعية على حساب استثمارات التنمية.",
+                ex5A_production_h4_sweden: "ثانياً. حالة السويد: النضج الديمغرافي",
+                ex5A_production_p_sweden: "تشهد السويد فتوراً سكانياً، إذ لم يتزايد عدد سكانها خلال 70 سنة إلا بـ 3.4 مليون ساكن ليبلغ 10.4 مليون ساكن سنة 2020، وانخفضت نسبة النمو الطبيعي إلى 0.2%. ويُفسَّر ذلك بتراجع نسبة الولادات إلى 11‰ وانخفاض مؤشر الخصوبة إلى 1.7 طفل/امرأة وانخفاض نسبة الوفيات إلى 9‰. وقد ترتب عن ذلك تركيبة عمرية متهرّمة (1/5 شيوخ وأقل من 18% أطفال) وارتفاع العمر المتوقع عند الميلاد إلى 82 سنة. وقد انتهجت السويد سياسة سكانية تشجّع على الإنجاب بتوفير منح العطل طويلة الأمد (450 يوم منها 360 يوم خالصة الأجر) ومنح على الأبناء.",
+                ex5A_production_h4_factors: "ثالثاً. العوامل المفسرة للاختلاف",
+                ex5A_production_p_factors: "يُفسَّر اختلاف الحركية الديمغرافية بين كينيا والسويد باختلاف مرحلة الانتقال الديمغرافي: فكينيا تقع في طور الانفجار (مرحلة الانتقال الديمغرافي)، بينما تقع السويد في النظام العصري (النضج الديمغرافي). كما يلعب مستوى التنمية الاقتصادية والاجتماعية والثقافية دوراً أساسياً في هذا الاختلاف.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا تختلف الحركية الديمغرافية بين العالم النامي والعالم المتقدم باختلاف مراحل الانتقال الديمغرافي واختلاف مستوى التنمية، وهو ما يبرز من خلال المقارنة بين كينيا والسويد.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '27', value: 27, valueFormatted: '27' },
+                { label: '5', value: 5, valueFormatted: '5' },
+                { label: '11', value: 11, valueFormatted: '11' },
+                { label: '9', value: 9, valueFormatted: '9' }
+            ],
+            maxValue: 30,
+            ySteps: [30, 24, 18, 12, 6, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – الانفجار الحضري</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60,50,40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <h1 data-i18n="exerciseTitle">تمارين – الانفجار الحضري</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: التحضر، نسبة التحضر، الانفجار الحضري، النزوح الريفي.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">التحضر:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">تزايد المدن من حيث العدد والحجم والامتداد المجالي وكيفية استخدام الأرض ونمط العيش المميز. وهو ظاهرة عالمية انطلقت منذ منتصف القرن الثامن عشر مع الثورة الصناعية في أوروبا الغربية قبل أن تشمل كامل أنحاء العالم.</dd>
+                        <dt data-i18n="ex1_def2_title">نسبة التحضر:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">نسبة سكان المدن من مجموع السكان في منطقة ما وفي تاريخ محدد. ترتفع هذه النسبة في البلدان المتقدمة (أكثر من 75%، تصل إلى 98% في بلجيكا و92% في اليابان)، بينما تبقى دون 50% في عديد البلدان النامية (الهند 35%، إفريقيا جنوب الصحراء 42%).</dd>
+                        <dt data-i18n="ex1_def3_title">الانفجار الحضري:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">تسارع كبير لعدد سكان المدن، وهو ظاهرة تمسّ خاصة البلدان النامية التي تعرف تحضراً سريعاً دون نمو اقتصادي مماثل. وقد انتقل عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار سنة 2022، أي 57% من سكان العالم.</dd>
+                        <dt data-i18n="ex1_def4_title">النزوح الريفي:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">هجرة سكان الأرياف نحو المدن، ويُعدّ من أهم عوامل الانفجار الحضري في البلدان النامية. ويفسّره تزايد البطالة ومكننة الفلاحة وتدني مستوى العيش في الأرياف، مما يدفع السكان إلى البحث عن فرص عمل وظروف عيش أفضل في المدن.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن تطور عدد سكان المدن في العالم بين 1950 و2050.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_year">السنة</th>
+                            <th data-i18n="ex2_table_urban">عدد سكان المدن (مليار نسمة)</th>
+                        </tr>
+                        <tr>
+                            <td>1950</td>
+                            <td>0.724</td>
+                        </tr>
+                        <tr>
+                            <td>2019</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>4.4</td>
+                        </tr>
+                        <tr>
+                            <td>2050</td>
+                            <td>6.7</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: معطيات الدرس حول الانفجار الحضري وتقديرات الأمم المتحدة</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Document / Map -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمل الخريطة التالية التي تمثل نسب التحضر في العالم، وبيّن مناطق التحضر المرتفع ومناطق التحضر الضعيف والعوامل المفسرة للتفاوت.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets1sec/exercises/geography/unit1/lesson4/world_urbanization_map.png"
+                         alt="خريطة التحضر في العالم"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets1sec/exercises/geography/unit1/lesson4/world_urbanization_answer.png"
+                             alt="نموذج الإجابة – التحضر في العالم"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        يتفاوت التحضر في العالم بين مناطق ذات تحضر مرتفع ومناطق ذات تحضر ضعيف. فمناطق التحضر المرتفع تشمل البلدان المتقدمة في أوروبا الغربية وأمريكا الشمالية وأستراليا واليابان حيث تتجاوز نسبة التحضر 75% (بلجيكا 98%، اليابان 92%، أستراليا 86%، الولايات المتحدة 83%)، بالإضافة إلى بلدان نامية ذات تحضر مرتفع (البرازيل 87%، الأرجنتين 92%). أما مناطق التحضر الضعيف فتشمل إفريقيا جنوب الصحراء (42%) وجنوب آسيا (40%) خاصة الهند (35%). ويُفسَّر هذا التفاوت بالعوامل الاقتصادية (النمو الاقتصادي والثورة الصناعية في العالم المتقدم) والعوامل التاريخية (قدم ظاهرة التحضر في أوروبا) والعوامل الديمغرافية والاجتماعية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل عوامل الانفجار الحضري في البلدان النامية في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        عوامل الانفجار الحضري في البلدان النامية:
+                        - ارتفاع التزايد الطبيعي لسكان المدن.
+                        - ارتفاع معدل النمو الطبيعي في الأرياف مع تزايد البطالة ومكننة الفلاحة، مما زاد في نسق النزوح الريفي.
+                        - تنامي القطاع الصناعي والخدمي في المدن مما وفّر مواطن شغل واستقطب أعداداً هامة من المهاجرين خاصة من الأرياف.
+                        - الثقل الديمغرافي للعالم النامي خاصة الصين والهند مما ساهم في تشكل مدن مليونية.
+                        - ضعف التخطيط الحضري وعدم قدرة السلطات على التحكم في النمو الحضري المتسارع.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تتعدد العوامل المفسرة للانفجار الحضري في البلدان النامية وتتداخل بين ما هو ديمغرافي واقتصادي واجتماعي. في مقدمتها يأتي ارتفاع التزايد الطبيعي لسكان المدن، إذ تعرف هذه البلدان نمواً سكانياً سريعاً يرفع من حجم سكان الحواضر. ويُضاف إلى ذلك ارتفاع معدل النمو الطبيعي في الأرياف مع تزايد البطالة ومكننة الفلاحة، مما زاد في نسق النزوح الريفي نحو المدن بحثاً عن فرص عمل أفضل. كما أن تنامي القطاع الصناعي والخدمي في المدن وفّر مواطن شغل واستقطب أعداداً هامة من المهاجرين خاصة من الأرياف. وقد ساهم الثقل الديمغرافي للعالم النامي خاصة في الصين والهند في تشكل مدن مليونية ضخمة، في ظل ضعف التخطيط الحضري وعدم قدرة السلطات على التحكم في النمو الحضري المتسارع.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول انعكاسات الانفجار الحضري في البلدان النامية، مبرزاً الانعكاسات المجالية والبيئية والاجتماعية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        تصنّف انعكاسات الانفجار الحضري في البلدان النامية إلى ثلاث مجموعات:
+                        - مجالياً: توسع المدن على حساب الأراضي الزراعية، وتوسعها على الأطراف في شكل ضواحي فوضوية البناء وقليلة التجهيزات، والمحافظة على نمط عيش أقرب إلى الريف.
+                        - بيئياً: ارتفاع معدلات التلوث في التربة والمياه بسبب تزايد النفايات، وتلوث الهواء لكثرة المصانع والسيارات، والضغط على الموارد الطبيعية.
+                        - اجتماعياً: تزايد الطلب على الحاجيات الأساسية، وتفاقم البطالة، وانتشار الأمراض الاجتماعية، وارتفاع أسعار العقارات والإيجارات.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم الانفجار الحضري كظاهرة مميزة للبلدان النامية.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. الانعكاسات المجالية؛ ثانياً. الانعكاسات البيئية؛ ثالثاً. الانعكاسات الاجتماعية.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: ضرورة سياسات التهيئة الترابية والتنمية المستدامة.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">يُعدّ الانفجار الحضري ظاهرة بنيوية في البلدان النامية، إذ انتقل عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار سنة 2022، ومن المتوقع أن يبلغ 6.7 مليار سنة 2050، مع تركز معظم النمو الحضري في البلدان النامية. وتترتب عن هذه الظاهرة انعكاسات متعددة مجاليه وبيئية واجتماعية.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_spatial">أولاً. الانعكاسات المجالية</h4>
+                        <p data-i18n="ex5A_production_p_spatial">مجالياً، أدى الانفجار الحضري في البلدان النامية إلى توسع المدن على حساب الأراضي الزراعية الخصبة، مما يطرح مشكلة الأمن الغذائي. كما توسعت المدن على الأطراف في شكل ضواحي غالباً ما تكون فوضوية البناء وقليلة التجهيزات الأساسية. ويتميز عديد هذه المدن بالمحافظة على نمط عيش أقرب إلى الريف منه إلى المدينة.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_environmental">ثانياً. الانعكاسات البيئية</h4>
+                        <p data-i18n="ex5A_production_p_environmental">بيئياً، يتسبب التوسع السريع للمدن وتزايد أعداد الحضر في ارتفاع معدلات التلوث في التربة والمياه بسبب تزايد النفايات، وتلوث الهواء لكثرة المصانع والسيارات. ويُضاف إلى ذلك الضغط على الموارد الطبيعية والانبعاثات الكربونية التي تساهم في تغير المناخ.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_social">ثالثاً. الانعكاسات الاجتماعية</h4>
+                        <p data-i18n="ex5A_production_p_social">اجتماعياً، يتزايد الطلب على الحاجيات الأساسية مثل الصحة والمواد الأساسية الغذائية والماء والكهرباء والسكن والتعليم، مما يضعف قدرة الدول على الاستجابة. كما يتفاقم البطالة بسبب عدم قدرة القطاع الصناعي والخدمي على استيعاب العدد الكبير من العاطلين، وتنتشر الأمراض الاجتماعية كالجريمة والسرقة والتسول وأطفال الشوارع، وترتفع أسعار العقارات والإيجارات مما يزيد من معاناة الفئات الاجتماعية الفقيرة.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا يطرح الانفجار الحضري في البلدان النامية تحديات كبرى مجاليه وبيئية واجتماعية، مما يستوجب وضع سياسات تهيئة ترابية وتنمية مستدامة تحدّ من آثاره السلبية وتحقق التوازن بين النمو الحضري والتنمية الاقتصادية والاجتماعية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: بلوغ عدد سكان المدن في العالم 724 مليون نسمة (1950)، تجاوز عدد سكان المدن 4 مليار نسمة (2019)، تجاوز عدد سكان المدن 4.4 مليار نسمة (2022)، التوقعات ببلوغ 6.7 مليار نسمة سنة 2050.</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1950: بلوغ عدد سكان المدن 724 مليون نسمة ... 2019: تجاوز عدد سكان المدن 4 مليار نسمة ... 2022: تجاوز عدد سكان المدن 4.4 مليار نسمة ... 2050: التوقعات ببلوغ 6.7 مليار نسمة.
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y1sec_geo_lessons_mod1_lesson4.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "1st Secondary",
+                exerciseTitle: "Exercises – Urban Explosion",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Urbanization, Urbanization rate, Urban explosion, Rural exodus.",
+                ex1_def1_title: "Urbanization:",
+                ex1_def1_subtitle: "The increase in the number, size, spatial extension, land use, and distinctive lifestyle of cities. It is a global phenomenon that began in the mid-18th century with the Industrial Revolution in Western Europe before spreading across the entire world.",
+                ex1_def2_title: "Urbanization rate:",
+                ex1_def2_subtitle: "The proportion of urban population out of the total population in a given region and at a specific date. This rate is high in developed countries (more than 75%, reaching 98% in Belgium and 92% in Japan), while it remains below 50% in many developing countries (India 35%, Sub-Saharan Africa 42%).",
+                ex1_def3_title: "Urban explosion:",
+                ex1_def3_subtitle: "A rapid acceleration of urban populations, a phenomenon affecting especially developing countries experiencing rapid urbanization without matching economic growth. World urban population rose from 724 million in 1950 to more than 4.4 billion in 2022, i.e., 57% of the world's population.",
+                ex1_def4_title: "Rural exodus:",
+                ex1_def4_subtitle: "Migration of rural populations towards cities, one of the most important factors of urban explosion in developing countries. It is explained by rising unemployment, agricultural mechanization, and low rural living standards, pushing populations to seek better jobs and living conditions in cities.",
+                ex2Q: "Convert the following table data into a bar chart showing the evolution of urban population in the world between 1950 and 2050.",
+                ex2_table_year: "Year",
+                ex2_table_urban: "Urban population (billions)",
+                ex2Q_source: "Source: Lesson data on urban explosion and UN estimates",
+                ex2A_title: "Evolution of Urban Population in the World (1950-2050)",
+                ex2A_source: "Source: Lesson data on urban explosion and UN estimates",
+                ex2A_scale: "Scale: 0–7 billion; column height proportional to value.",
+                ex2A_key_label: "Key:",
+                ex3Q: "Observe the following map showing urbanization rates in the world, and identify areas of high urbanization, areas of low urbanization, and the factors explaining the disparity.",
+                ex3DocAlt: "World urbanization map",
+                ex3AnswerImgAlt: "Answer model – World urbanization",
+                ex3A: "Urbanization in the world varies between areas of high urbanization and areas of low urbanization. Areas of high urbanization include developed countries in Western Europe, North America, Australia and Japan, where the urbanization rate exceeds 75% (Belgium 98%, Japan 92%, Australia 86%, United States 83%), in addition to developing countries with high urbanization (Brazil 87%, Argentina 92%). Areas of low urbanization include Sub-Saharan Africa (42%) and South Asia (40%), especially India (35%). This disparity is explained by economic factors (economic growth and the Industrial Revolution in the developed world), historical factors (early urbanization in Europe), and demographic and social factors.",
+                ex4Q: "Analyse the factors of urban explosion in developing countries in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Factors of urban explosion in developing countries:\n- High natural growth of urban populations.\n- High natural growth rate in rural areas with rising unemployment and agricultural mechanization, increasing the pace of rural exodus.\n- Growth of the industrial and service sectors in cities, providing jobs and attracting large numbers of migrants, especially from rural areas.\n- The demographic weight of the developing world, especially China and India, contributing to the formation of million-inhabitant cities.\n- Weak urban planning and inability of authorities to control accelerating urban growth.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The factors explaining urban explosion in developing countries are multiple and interlocking between demographic, economic, and social aspects. At the forefront is the high natural growth of urban populations, as these countries experience rapid population growth that increases the size of urban populations. Added to this is the high natural growth rate in rural areas with rising unemployment and agricultural mechanization, which increased the pace of rural exodus towards cities in search of better job opportunities. The growth of the industrial and service sectors in cities also provided jobs and attracted large numbers of migrants, especially from rural areas. The demographic weight of the developing world, especially in China and India, contributed to the formation of huge million-inhabitant cities, amid weak urban planning and inability of authorities to control accelerating urban growth.",
+                ex5Q: "Write a short article on the repercussions of urban explosion in developing countries, highlighting spatial, environmental, and social repercussions.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Repercussions of urban explosion in developing countries are classified into three groups:\n- Spatially: expansion of cities at the expense of agricultural land, expansion into outskirts as chaotic suburbs lacking facilities, and preservation of a lifestyle closer to rural than urban.\n- Environmentally: rising pollution rates in soil and water due to increasing waste, air pollution from factories and cars, and pressure on natural resources.\n- Socially: growing demand for basic needs, worsening unemployment, spread of social diseases, and rising real estate and rental prices.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Presenting urban explosion as a phenomenon characteristic of developing countries.",
+                ex5A_plan_li2: "Development: I. Spatial repercussions; II. Environmental repercussions; III. Social repercussions.",
+                ex5A_plan_li3: "Conclusion: The need for territorial planning and sustainable development policies.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Urban explosion is a structural phenomenon in developing countries, with world urban population rising from 724 million in 1950 to more than 4.4 billion in 2022, and expected to reach 6.7 billion by 2050, with most urban growth concentrated in developing countries. This phenomenon has multiple spatial, environmental, and social repercussions.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_spatial: "I. Spatial Repercussions",
+                ex5A_production_p_spatial: "Spatially, urban explosion in developing countries led to the expansion of cities at the expense of fertile agricultural land, raising the issue of food security. Cities also expanded into outskirts as suburbs often chaotically built and lacking basic facilities. Many of these cities retain a lifestyle closer to rural than to urban.",
+                ex5A_production_h4_environmental: "II. Environmental Repercussions",
+                ex5A_production_p_environmental: "Environmentally, the rapid expansion of cities and growing urban populations cause rising pollution rates in soil and water due to increasing waste, and air pollution from factories and cars. Added to this is pressure on natural resources and carbon emissions contributing to climate change.",
+                ex5A_production_h4_social: "III. Social Repercussions",
+                ex5A_production_p_social: "Socially, demand for basic needs such as health, food, water, electricity, housing, and education is growing, weakening the ability of states to respond. Unemployment worsens due to the inability of the industrial and service sectors to absorb the large number of unemployed, social diseases such as crime, theft, begging, and street children spread, and real estate and rental prices rise, worsening the suffering of poor social groups.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus urban explosion in developing countries poses major spatial, environmental, and social challenges, requiring territorial planning and sustainable development policies to limit its negative effects and achieve a balance between urban growth and economic and social development.",
+                ex6Q: "Create a timeline of the following events: World urban population reaching 724 million (1950), World urban population exceeding 4 billion (2019), World urban population exceeding 4.4 billion (2022), Projections of reaching 6.7 billion in 2050.",
+                ex6A: "Timeline: 1950: World urban population reaching 724 million ... 2019: World urban population exceeding 4 billion ... 2022: World urban population exceeding 4.4 billion ... 2050: Projections of reaching 6.7 billion.",
+                ex6_timeline_title: "Key Dates in World Urbanization",
+                ex6_event_1950_label: "Urban population: 724 million",
+                ex6_event_1950_sub: "1950",
+                ex6_event_2019_label: "Urban population: 4 billion",
+                ex6_event_2019_sub: "2019",
+                ex6_event_2022_label: "Urban population: 4.4 billion",
+                ex6_event_2022_sub: "2022",
+                ex6_event_2050_label: "Urban population: 6.7 billion",
+                ex6_event_2050_sub: "2050",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                exerciseTitle: "Exercices – L'explosion urbaine",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Urbanisation, Taux d'urbanisation, Explosion urbaine, Exode rural.",
+                ex1_def1_title: "Urbanisation :",
+                ex1_def1_subtitle: "L'augmentation du nombre, de la taille, de l'extension spatiale, de l'utilisation du sol et du mode de vie distinctif des villes. C'est un phénomène mondial qui a débuté au milieu du XVIIIe siècle avec la Révolution industrielle en Europe occidentale avant de s'étendre au monde entier.",
+                ex1_def2_title: "Taux d'urbanisation :",
+                ex1_def2_subtitle: "La proportion de la population urbaine par rapport à la population totale dans une région donnée et à une date précise. Ce taux est élevé dans les pays développés (plus de 75 %, atteignant 98 % en Belgique et 92 % au Japon), tandis qu'il reste inférieur à 50 % dans de nombreux pays en développement (Inde 35 %, Afrique subsaharienne 42 %).",
+                ex1_def3_title: "Explosion urbaine :",
+                ex1_def3_subtitle: "Une accélération rapide des populations urbaines, un phénomène touchant particulièrement les pays en développement connaissant une urbanisation rapide sans croissance économique correspondante. La population urbaine mondiale est passée de 724 millions en 1950 à plus de 4,4 milliards en 2022, soit 57 % de la population mondiale.",
+                ex1_def4_title: "Exode rural :",
+                ex1_def4_subtitle: "Migration des populations rurales vers les villes, l'un des facteurs les plus importants de l'explosion urbaine dans les pays en développement. Il est expliqué par la montée du chômage, la mécanisation agricole et le faible niveau de vie rural, poussant les populations à chercher de meilleurs emplois et conditions de vie dans les villes.",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant l'évolution de la population urbaine dans le monde entre 1950 et 2050.",
+                ex2_table_year: "Année",
+                ex2_table_urban: "Population urbaine (milliards)",
+                ex2Q_source: "Source : données de la leçon sur l'explosion urbaine et estimations de l'ONU",
+                ex2A_title: "Évolution de la population urbaine dans le monde (1950-2050)",
+                ex2A_source: "Source : données de la leçon sur l'explosion urbaine et estimations de l'ONU",
+                ex2A_scale: "Échelle : 0–7 milliards ; hauteur des colonnes proportionnelle à la valeur.",
+                ex2A_key_label: "Légende :",
+                ex3Q: "Observez la carte suivante représentant les taux d'urbanisation dans le monde, et identifiez les zones de forte urbanisation, les zones de faible urbanisation et les facteurs expliquant la disparité.",
+                ex3DocAlt: "Carte de l'urbanisation mondiale",
+                ex3AnswerImgAlt: "Modèle de réponse – Urbanisation mondiale",
+                ex3A: "L'urbanisation dans le monde varie entre zones de forte urbanisation et zones de faible urbanisation. Les zones de forte urbanisation comprennent les pays développés d'Europe occidentale, d'Amérique du Nord, d'Australie et du Japon, où le taux d'urbanisation dépasse 75 % (Belgique 98 %, Japon 92 %, Australie 86 %, États-Unis 83 %), en plus des pays en développement à forte urbanisation (Brésil 87 %, Argentine 92 %). Les zones de faible urbanisation comprennent l'Afrique subsaharienne (42 %) et l'Asie du Sud (40 %), notamment l'Inde (35 %). Cette disparité s'explique par des facteurs économiques (croissance économique et Révolution industrielle dans le monde développé), des facteurs historiques (ancienneté de l'urbanisation en Europe) et des facteurs démographiques et sociaux.",
+                ex4Q: "Analysez les facteurs de l'explosion urbaine dans les pays en développement en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Facteurs de l'explosion urbaine dans les pays en développement :\n- Forte croissance naturelle des populations urbaines.\n- Taux de croissance naturelle élevé dans les zones rurales avec la montée du chômage et la mécanisation agricole, accroissant le rythme de l'exode rural.\n- Croissance des secteurs industriel et des services dans les villes, offrant des emplois et attirant de grands nombres de migrants, notamment des zones rurales.\n- Le poids démographique du monde en développement, notamment la Chine et l'Inde, contribuant à la formation de villes millionnaires.\n- Faible planification urbaine et incapacité des autorités à contrôler la croissance urbaine accélérée.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Les facteurs expliquant l'explosion urbaine dans les pays en développement sont multiples et imbriqués entre aspects démographiques, économiques et sociaux. Au premier plan figure la forte croissance naturelle des populations urbaines, ces pays connaissant une croissance démographique rapide qui augmente la taille des populations urbaines. S'y ajoute le taux de croissance naturelle élevé dans les zones rurales avec la montée du chômage et la mécanisation agricole, ce qui a accru le rythme de l'exode rural vers les villes à la recherche de meilleures opportunités d'emploi. La croissance des secteurs industriel et des services dans les villes a également fourni des emplois et attiré de grands nombres de migrants, notamment des zones rurales. Le poids démographique du monde en développement, notamment en Chine et en Inde, a contribué à la formation d'énormes villes millionnaires, dans un contexte de faible planification urbaine et d'incapacité des autorités à contrôler la croissance urbaine accélérée.",
+                ex5Q: "Rédigez un court article sur les répercussions de l'explosion urbaine dans les pays en développement, en soulignant les répercussions spatiales, environnementales et sociales.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Les répercussions de l'explosion urbaine dans les pays en développement se classent en trois groupes :\n- Spatialement : expansion des villes au détriment des terres agricoles, expansion vers les périphéries sous forme de banlieues chaotiques manquant d'équipements, et préservation d'un mode de vie plus proche du rural que de l'urbain.\n- Environnementalement : augmentation des taux de pollution des sols et de l'eau en raison de l'augmentation des déchets, pollution de l'air due aux usines et aux voitures, et pression sur les ressources naturelles.\n- Socialement : demande croissante de besoins de base, aggravation du chômage, propagation de maladies sociales, et hausse des prix de l'immobilier et des loyers.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter l'explosion urbaine comme un phénomène caractéristique des pays en développement.",
+                ex5A_plan_li2: "Développement : I. Répercussions spatiales ; II. Répercussions environnementales ; III. Répercussions sociales.",
+                ex5A_plan_li3: "Conclusion : La nécessité de politiques d'aménagement du territoire et de développement durable.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "L'explosion urbaine est un phénomène structurel dans les pays en développement, la population urbaine mondiale étant passée de 724 millions en 1950 à plus de 4,4 milliards en 2022, et devant atteindre 6,7 milliards d'ici 2050, avec la majeure partie de la croissance urbaine concentrée dans les pays en développement. Ce phénomène a de multiples répercussions spatiales, environnementales et sociales.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_spatial: "I. Répercussions spatiales",
+                ex5A_production_p_spatial: "Spatialement, l'explosion urbaine dans les pays en développement a conduit à l'expansion des villes au détriment des terres agricoles fertiles, soulevant la question de la sécurité alimentaire. Les villes se sont également étendues vers les périphéries sous forme de banlieues souvent construites de manière chaotique et manquant d'équipements de base. Beaucoup de ces villes conservent un mode de vie plus proche du rural que de l'urbain.",
+                ex5A_production_h4_environmental: "II. Répercussions environnementales",
+                ex5A_production_p_environmental: "Environnementalement, l'expansion rapide des villes et la croissance des populations urbaines entraînent une augmentation des taux de pollution des sols et de l'eau en raison de l'augmentation des déchets, et de la pollution de l'air due aux usines et aux voitures. S'y ajoute la pression sur les ressources naturelles et les émissions de carbone contribuant au changement climatique.",
+                ex5A_production_h4_social: "III. Répercussions sociales",
+                ex5A_production_p_social: "Socialement, la demande de besoins de base tels que la santé, l'alimentation, l'eau, l'électricité, le logement et l'éducation augmente, affaiblissant la capacité des États à répondre. Le chômage s'aggrave en raison de l'incapacité des secteurs industriel et des services à absorber le grand nombre de chômeurs, les maladies sociales telles que la criminalité, le vol, la mendicité et les enfants des rues se propagent, et les prix de l'immobilier et des loyers augmentent, aggravant la souffrance des groupes sociaux pauvres.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi l'explosion urbaine dans les pays en développement pose des défis majeurs spatialement, environnementalement et socialement, nécessitant des politiques d'aménagement du territoire et de développement durable pour limiter ses effets négatifs et réaliser un équilibre entre la croissance urbaine et le développement économique et social.",
+                ex6Q: "Créez une chronologie des événements suivants : Population urbaine mondiale atteignant 724 millions (1950), Population urbaine mondiale dépassant 4 milliards (2019), Population urbaine mondiale dépassant 4,4 milliards (2022), Projections d'atteindre 6,7 milliards en 2050.",
+                ex6A: "Chronologie : 1950 : Population urbaine mondiale atteignant 724 millions ... 2019 : Population urbaine mondiale dépassant 4 milliards ... 2022 : Population urbaine mondiale dépassant 4,4 milliards ... 2050 : Projections d'atteindre 6,7 milliards.",
+                ex6_timeline_title: "Dates clés de l'urbanisation mondiale",
+                ex6_event_1950_label: "Population urbaine : 724 millions",
+                ex6_event_1950_sub: "1950",
+                ex6_event_2019_label: "Population urbaine : 4 milliards",
+                ex6_event_2019_sub: "2019",
+                ex6_event_2022_label: "Population urbaine : 4,4 milliards",
+                ex6_event_2022_sub: "2022",
+                ex6_event_2050_label: "Population urbaine : 6,7 milliards",
+                ex6_event_2050_sub: "2050",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                exerciseTitle: "تمارين – الانفجار الحضري",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: التحضر، نسبة التحضر، الانفجار الحضري، النزوح الريفي.",
+                ex1_def1_title: "التحضر:",
+                ex1_def1_subtitle: "تزايد المدن من حيث العدد والحجم والامتداد المجالي وكيفية استخدام الأرض ونمط العيش المميز. وهو ظاهرة عالمية انطلقت منذ منتصف القرن الثامن عشر مع الثورة الصناعية في أوروبا الغربية قبل أن تشمل كامل أنحاء العالم.",
+                ex1_def2_title: "نسبة التحضر:",
+                ex1_def2_subtitle: "نسبة سكان المدن من مجموع السكان في منطقة ما وفي تاريخ محدد. ترتفع هذه النسبة في البلدان المتقدمة (أكثر من 75%، تصل إلى 98% في بلجيكا و92% في اليابان)، بينما تبقى دون 50% في عديد البلدان النامية (الهند 35%، إفريقيا جنوب الصحراء 42%).",
+                ex1_def3_title: "الانفجار الحضري:",
+                ex1_def3_subtitle: "تسارع كبير لعدد سكان المدن، وهو ظاهرة تمسّ خاصة البلدان النامية التي تعرف تحضراً سريعاً دون نمو اقتصادي مماثل. وقد انتقل عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار سنة 2022، أي 57% من سكان العالم.",
+                ex1_def4_title: "النزوح الريفي:",
+                ex1_def4_subtitle: "هجرة سكان الأرياف نحو المدن، ويُعدّ من أهم عوامل الانفجار الحضري في البلدان النامية. ويفسّره تزايد البطالة ومكننة الفلاحة وتدني مستوى العيش في الأرياف، مما يدفع السكان إلى البحث عن فرص عمل وظروف عيش أفضل في المدن.",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن تطور عدد سكان المدن في العالم بين 1950 و2050.",
+                ex2_table_year: "السنة",
+                ex2_table_urban: "عدد سكان المدن (مليار نسمة)",
+                ex2Q_source: "المصدر: معطيات الدرس حول الانفجار الحضري وتقديرات الأمم المتحدة",
+                ex2A_title: "تطور عدد سكان المدن في العالم (1950-2050)",
+                ex2A_source: "المصدر: معطيات الدرس حول الانفجار الحضري وتقديرات الأمم المتحدة",
+                ex2A_scale: "المقياس: 0–7 مليار؛ ارتفاع الأعمدة يتناسب مع القيمة.",
+                ex2A_key_label: "المفتاح:",
+                ex3Q: "تأمل الخريطة التالية التي تمثل نسب التحضر في العالم، وبيّن مناطق التحضر المرتفع ومناطق التحضر الضعيف والعوامل المفسرة للتفاوت.",
+                ex3DocAlt: "خريطة التحضر في العالم",
+                ex3AnswerImgAlt: "نموذج الإجابة – التحضر في العالم",
+                ex3A: "يتفاوت التحضر في العالم بين مناطق ذات تحضر مرتفع ومناطق ذات تحضر ضعيف. فمناطق التحضر المرتفع تشمل البلدان المتقدمة في أوروبا الغربية وأمريكا الشمالية وأستراليا واليابان حيث تتجاوز نسبة التحضر 75% (بلجيكا 98%، اليابان 92%، أستراليا 86%، الولايات المتحدة 83%)، بالإضافة إلى بلدان نامية ذات تحضر مرتفع (البرازيل 87%، الأرجنتين 92%). أما مناطق التحضر الضعيف فتشمل إفريقيا جنوب الصحراء (42%) وجنوب آسيا (40%) خاصة الهند (35%). ويُفسَّر هذا التفاوت بالعوامل الاقتصادية (النمو الاقتصادي والثورة الصناعية في العالم المتقدم) والعوامل التاريخية (قدم ظاهرة التحضر في أوروبا) والعوامل الديمغرافية والاجتماعية.",
+                ex4Q: "حلّل عوامل الانفجار الحضري في البلدان النامية في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "عوامل الانفجار الحضري في البلدان النامية:\n- ارتفاع التزايد الطبيعي لسكان المدن.\n- ارتفاع معدل النمو الطبيعي في الأرياف مع تزايد البطالة ومكننة الفلاحة، مما زاد في نسق النزوح الريفي.\n- تنامي القطاع الصناعي والخدمي في المدن مما وفّر مواطن شغل واستقطب أعداداً هامة من المهاجرين خاصة من الأرياف.\n- الثقل الديمغرافي للعالم النامي خاصة الصين والهند مما ساهم في تشكل مدن مليونية.\n- ضعف التخطيط الحضري وعدم قدرة السلطات على التحكم في النمو الحضري المتسارع.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تتعدد العوامل المفسرة للانفجار الحضري في البلدان النامية وتتداخل بين ما هو ديمغرافي واقتصادي واجتماعي. في مقدمتها يأتي ارتفاع التزايد الطبيعي لسكان المدن، إذ تعرف هذه البلدان نمواً سكانياً سريعاً يرفع من حجم سكان الحواضر. ويُضاف إلى ذلك ارتفاع معدل النمو الطبيعي في الأرياف مع تزايد البطالة ومكننة الفلاحة، مما زاد في نسق النزوح الريفي نحو المدن بحثاً عن فرص عمل أفضل. كما أن تنامي القطاع الصناعي والخدمي في المدن وفّر مواطن شغل واستقطب أعداداً هامة من المهاجرين خاصة من الأرياف. وقد ساهم الثقل الديمغرافي للعالم النامي خاصة في الصين والهند في تشكل مدن مليونية ضخمة، في ظل ضعف التخطيط الحضري وعدم قدرة السلطات على التحكم في النمو الحضري المتسارع.",
+                ex5Q: "اكتب مقالاً قصيراً حول انعكاسات الانفجار الحضري في البلدان النامية، مبرزاً الانعكاسات المجالية والبيئية والاجتماعية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "تصنّف انعكاسات الانفجار الحضري في البلدان النامية إلى ثلاث مجموعات:\n- مجالياً: توسع المدن على حساب الأراضي الزراعية، وتوسعها على الأطراف في شكل ضواحي فوضوية البناء وقليلة التجهيزات، والمحافظة على نمط عيش أقرب إلى الريف.\n- بيئياً: ارتفاع معدلات التلوث في التربة والمياه بسبب تزايد النفايات، وتلوث الهواء لكثرة المصانع والسيارات، والضغط على الموارد الطبيعية.\n- اجتماعياً: تزايد الطلب على الحاجيات الأساسية، وتفاقم البطالة، وانتشار الأمراض الاجتماعية، وارتفاع أسعار العقارات والإيجارات.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم الانفجار الحضري كظاهرة مميزة للبلدان النامية.",
+                ex5A_plan_li2: "تطوير: أولاً. الانعكاسات المجالية؛ ثانياً. الانعكاسات البيئية؛ ثالثاً. الانعكاسات الاجتماعية.",
+                ex5A_plan_li3: "خاتمة: ضرورة سياسات التهيئة الترابية والتنمية المستدامة.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "يُعدّ الانفجار الحضري ظاهرة بنيوية في البلدان النامية، إذ انتقل عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار سنة 2022، ومن المتوقع أن يبلغ 6.7 مليار سنة 2050، مع تركز معظم النمو الحضري في البلدان النامية. وتترتب عن هذه الظاهرة انعكاسات متعددة مجاليه وبيئية واجتماعية.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_spatial: "أولاً. الانعكاسات المجالية",
+                ex5A_production_p_spatial: "مجالياً، أدى الانفجار الحضري في البلدان النامية إلى توسع المدن على حساب الأراضي الزراعية الخصبة، مما يطرح مشكلة الأمن الغذائي. كما توسعت المدن على الأطراف في شكل ضواحي غالباً ما تكون فوضوية البناء وقليلة التجهيزات الأساسية. ويتميز عديد هذه المدن بالمحافظة على نمط عيش أقرب إلى الريف منه إلى المدينة.",
+                ex5A_production_h4_environmental: "ثانياً. الانعكاسات البيئية",
+                ex5A_production_p_environmental: "بيئياً، يتسبب التوسع السريع للمدن وتزايد أعداد الحضر في ارتفاع معدلات التلوث في التربة والمياه بسبب تزايد النفايات، وتلوث الهواء لكثرة المصانع والسيارات. ويُضاف إلى ذلك الضغط على الموارد الطبيعية والانبعاثات الكربونية التي تساهم في تغير المناخ.",
+                ex5A_production_h4_social: "ثالثاً. الانعكاسات الاجتماعية",
+                ex5A_production_p_social: "اجتماعياً، يتزايد الطلب على الحاجيات الأساسية مثل الصحة والمواد الأساسية الغذائية والماء والكهرباء والسكن والتعليم، مما يضعف قدرة الدول على الاستجابة. كما يتفاقم البطالة بسبب عدم قدرة القطاع الصناعي والخدمي على استيعاب العدد الكبير من العاطلين، وتنتشر الأمراض الاجتماعية كالجريمة والسرقة والتسول وأطفال الشوارع، وترتفع أسعار العقارات والإيجارات مما يزيد من معاناة الفئات الاجتماعية الفقيرة.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا يطرح الانفجار الحضري في البلدان النامية تحديات كبرى مجاليه وبيئية واجتماعية، مما يستوجب وضع سياسات تهيئة ترابية وتنمية مستدامة تحدّ من آثاره السلبية وتحقق التوازن بين النمو الحضري والتنمية الاقتصادية والاجتماعية.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: بلوغ عدد سكان المدن في العالم 724 مليون نسمة (1950)، تجاوز عدد سكان المدن 4 مليار نسمة (2019)، تجاوز عدد سكان المدن 4.4 مليار نسمة (2022)، التوقعات ببلوغ 6.7 مليار نسمة سنة 2050.",
+                ex6A: "الخط الزمني: 1950: بلوغ عدد سكان المدن 724 مليون نسمة ... 2019: تجاوز عدد سكان المدن 4 مليار نسمة ... 2022: تجاوز عدد سكان المدن 4.4 مليار نسمة ... 2050: التوقعات ببلوغ 6.7 مليار نسمة.",
+                ex6_timeline_title: "محطات أساسية في التحضر العالمي",
+                ex6_event_1950_label: "سكان المدن: 724 مليون",
+                ex6_event_1950_sub: "1950",
+                ex6_event_2019_label: "سكان المدن: 4 مليار",
+                ex6_event_2019_sub: "2019",
+                ex6_event_2022_label: "سكان المدن: 4.4 مليار",
+                ex6_event_2022_sub: "2022",
+                ex6_event_2050_label: "سكان المدن: 6.7 مليار",
+                ex6_event_2050_sub: "2050",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '0.724', value: 0.724, valueFormatted: '0.724' },
+                { label: '4', value: 4, valueFormatted: '4' },
+                { label: '4.4', value: 4.4, valueFormatted: '4.4' },
+                { label: '6.7', value: 6.7, valueFormatted: '6.7' }
+            ],
+            maxValue: 7,
+            ySteps: [7, 6, 5, 4, 3, 2, 1, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1950, labelKey: 'ex6_event_1950_label', subKey: 'ex6_event_1950_sub' },
+                { year: 2019, labelKey: 'ex6_event_2019_label', subKey: 'ex6_event_2019_sub' },
+                { year: 2022, labelKey: 'ex6_event_2022_label', subKey: 'ex6_event_2022_sub' },
+                { year: 2050, labelKey: 'ex6_event_2050_label', subKey: 'ex6_event_2050_sub' }
+            ],
+            startYear: 1950,
+            endYear: 2050,
+            scaleYears: [1950, 1983, 2016, 2050]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

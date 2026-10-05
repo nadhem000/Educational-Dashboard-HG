@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">قرطاج: موسوعة ماغون الفلاحية</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">تُعدّ موسوعة ماغون، أو «كتاب الفلاحة» لماغون العالم الفلاحي القرطاجي، أحد أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة. ولم تكن هذه الموسوعة مجرد دليل فلاحي محلي، بل تحوّلت إلى مرجع علمي وعملي تجاوز حدود قرطاج المجالية والزمنية، وامتدّ صداها إلى العالم الروماني والإغريقي، وأسهمت في إشعاع قرطاج البونيّة في المتوسّط حتى بعد سقوطها سنة 146 ق.م.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي مضامين موسوعة ماغون وخصائصها العلمية؟ وما هو دورها في إشعاع قرطاج البونية وتطوّر النشاط الفلاحي والاقتصادي في المتوسط؟</p>
+            </div>
+
+            <!-- Part I : Content and characteristics -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">مضامين الموسوعة وخصائصها العلمية</span>
+                </h2>
+
+                <!-- 1. Definition and nature -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="magonDefTitle">التعريف بالموسوعة وطابعها العلمي والعملي</span>
+                </h3>
+                <p data-i18n="magonDefText">موسوعة ماغون هي كتاب في الفلاحة وضعه ماغون العالم الفلاحي القرطاجي، وتُعدّ من أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة. وقد جمعت هذه الموسوعة بين الطابع العلمي والطابع العملي، إذ لم تكتفِ بالتنظير بل قدّمت حلولاً وتطبيقات ميدانية مباشرة للفلاحين. وقد أسهمت بمحتواها وطابعها العلمي والعملي في إشعاع قرطاج البونيّة في المتوسّط حتى بعد سقوط قرطاج سنة 146 ق.م.</p>
+
+                <!-- 2. Fields covered -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="magonFieldsTitle">مضامين الموسوعة وميادينها</span>
+                </h3>
+                <p data-i18n="magonFieldsIntro">مثّلت موسوعة ماغون مصدراً ثميناً للمعلومات اعتباراً للإضافات التي احتواها في عديد الميادين، ومنها:</p>
+                <ul>
+                    <li data-i18n="field1"><strong>تقتنيات الإنتاج الفلاحي:</strong> أي الأساليب والتقنيات المتعلقة بكيفية تحسين الإنتاج الزراعي والرفع من مردوديته.</li>
+                    <li data-i18n="field2"><strong>درجة التكثيف الزراعي:</strong> وقد اهتمّت الموسوعة بمسألة كثافة الاستغلال الزراعي للأرض وكيفية تحقيق أفضل استغلال للمساحات المزروعة.</li>
+                    <li data-i18n="field3"><strong>الروزنامة الفلاحية:</strong> حيث ضبطت الموسوعة مواسم الزرع والحصاد والأشغال الفلاحية المختلفة وفق تقويم دقيق.</li>
+                    <li data-i18n="field4"><strong>خصائص المجال الزراعي القرطاجي:</strong> إذ وصفت الموسوعة الخصائص الطبيعية والبشرية للمجال الزراعي القرطاجي وأساليب استغلاله.</li>
+                    <li data-i18n="field5"><strong>نصائح حول استعمال اليد العاملة:</strong> قدّمت الموسوعة إرشادات عملية حول تنظيم العمل الفلاحي وتوزيع المهام على اليد العاملة.</li>
+                    <li data-i18n="field6"><strong>ارتباط القرطاجيين بالأرض:</strong> فقد عكست الموسوعة مدى تعلّق القرطاجيين بأرضهم واهتمامهم بها كأساس للثروة والقوة.</li>
+                </ul>
+                <p data-i18n="magonFieldsConclusion">وبذلك كان كتاب الفلاحة بحقّ موسوعة أسهمت في تطوّر النشاط الفلاحي بقرطاج البونيّة، كما ساعدت على ازدهار النشاط الحرفي وخاصة التجاري.</p>
+            </div>
+
+            <!-- Part II : Influence and impact -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">إشعاع الموسوعة وأثرها</span>
+                </h2>
+
+                <!-- 1. Scope exceeding boundaries -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="magonInfluenceTitle">صدى الموسوعة خارج حدود قرطاج</span>
+                </h3>
+                <p data-i18n="magonInfluenceText">تجاوز صدى الموسوعة الحدود المجاليّة والزمنيّة لقرطاج البونيّة، فقد اعتبرها الرومان أهمّ غنائم الحرب البونيّة الثالثة، فعملوا على تبنّي محتواها وقاموا بترجمتها. كما نجد مقتطفات منها مترجمة إلى الإغريقيّة واللاتينيّة في عديد الكتب التي اهتمّت بالفلاحة في الفترة القديمة والوسيطة.</p>
+
+                <!-- 2. Role in radiating Carthage -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="magonRadianceTitle">دور الموسوعة في إشعاع قرطاج البونية</span>
+                </h3>
+                <p data-i18n="magonRadianceText">أسهمت موسوعة ماغون بمحتواها وطابعها العلمي والعملي في إشعاع قرطاج البونيّة في المتوسّط حتى بعد سقوط قرطاج سنة 146 ق.م. وقد مكّن كل ذلك من دعم الحضور القرطاجي في المتوسّط، ليس عسكرياً فقط، بل حضارياً وعلمياً واقتصادياً أيضاً. ويُعد هذا الإشعاع العلمي دليلاً على أن قرطاج لم تكن مجرّد قوة تجارية وعسكرية، بل كانت أيضاً مركزاً للإنتاج الفكري والعلمي في العالم القديم.</p>
+
+                <!-- 3. Economic impact -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="magonEconomicTitle">أثر الموسوعة على النشاط الفلاحي والحرفي والتجاري</span>
+                </h3>
+                <p data-i18n="magonEconomicText">كان لكتاب الفلاحة أثر عميق في الاقتصاد القرطاجي، إذ أسهم في تطوّر النشاط الفلاحي بقرطاج البونيّة من خلال تحسين تقنيات الإنتاج ورفع مردوديته. كما ساعدت هذه الموسوعة على ازدهار النشاط الحرفي، إذ ارتبط تطوّر الفلاحة بتطوّر الصناعات الحرفية المرتبطة بها كصناعة الأدوات الفلاحية والزجاج والفخار. وقد مكّن كل ذلك من دعم الحضور القرطاجي في المتوسّط وتعزيز مكانته الاقتصادية والتجارية.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">تُعدّ موسوعة ماغون نموذجاً بارزاً على الإشعاع الحضاري والعلمي لقرطاج البونيّة، إذ تجاوز صداها الحدود المجالية والزمنية، وتحوّلت إلى مرجع أساسي في علم الزراعة عند الرومان والإغريق. وقد أسهمت بمحتواها العلمي والعملي في تطوّر النشاط الفلاحي والحرفي والتجاري، مما دعم حضور قرطاج في المتوسّط حتى بعد سقوطها سنة 146 ق.م.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defMagon">ماغون</strong>: <span data-i18n="defMagonDesc">عالم فلاحي قرطاجي، صاحب موسوعة الفلاحة المعروفة بـ«موسوعة ماغون» أو «كتاب الفلاحة»، وهي من أهم المراجع الأساسية لعلم الزراعة في الفترة القديمة، جمعت بين الطابع العلمي والعملي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج البونية</strong>: <span data-i18n="defCarthageDesc">المركز الحضاري الذي أنتج موسوعة ماغون، وأسهمت هذه الموسوعة في إشعاعه بالمتوسط حتى بعد سقوط قرطاج سنة 146 ق.م.</span></li>
+                        <li><strong class="key-location" data-i18n="defRome">روما</strong>: <span data-i18n="defRomeDesc">القوة التي اعتبرت موسوعة ماغون أهمّ غنائم الحرب البونية الثالثة، فعملت على تبنّي محتواها وترجمتها.</span></li>
+                        <li><strong class="key-location" data-i18n="defGreece">بلاد الإغريق</strong>: <span data-i18n="defGreeceDesc">المنطقة التي وصلتها مقتطفات موسوعة ماغون مترجمة إلى الإغريقية، إلى جانب الترجمات اللاتينية.</span></li>
+                        <li><strong class="key-location" data-i18n="defMediterranean">البحر المتوسط</strong>: <span data-i18n="defMediterraneanDesc">المجال الجغرافي الذي امتدّ إليه إشعاع موسوعة ماغون، وعزّزت من خلاله قرطاج حضورها الحضاري والعلمي والاقتصادي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defThirdPunicWar">الحرب البونية الثالثة</strong>: <span data-i18n="defThirdPunicWarDesc">الحرب التي اعتبر الرومان خلالها موسوعة ماغون أهمّ غنائمها، فعملوا على تبنّي محتواها وترجمتها.</span></li>
+                        <li><strong class="key-event" data-i18n="defFallCarthage">سقوط قرطاج (146 ق.م)</strong>: <span data-i18n="defFallCarthageDesc">التاريخ الذي سقطت فيه قرطاج، لكن إشعاع موسوعة ماغون استمرّ بعده في العالم الروماني والإغريقي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defMagonEncyclopedia">موسوعة ماغون</strong>: <span data-i18n="defMagonEncyclopediaDesc">كتاب الفلاحة لماغون العالم الفلاحي القرطاجي، ويُعدّ من أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة، جمع بين الطابع العلمي والعملي، واحتوى إضافات في تقنيات الإنتاج الفلاحي ودرجة التكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي ونصائح حول استعمال اليد العاملة وارتباط القرطاجيين بالأرض.</span></li>
+                        <li><strong class="key-other" data-i18n="defAgriculturalCalendar">الروزنامة الفلاحية</strong>: <span data-i18n="defAgriculturalCalendarDesc">تقويم دقيق لمواسم الزرع والحصاد والأشغال الفلاحية المختلفة، ضبطته موسوعة ماغون لتنظيم النشاط الزراعي القرطاجي.</span></li>
+                        <li><strong class="key-other" data-i18n="defAgriculturalIntensification">التكثيف الزراعي</strong>: <span data-i18n="defAgriculturalIntensificationDesc">كثافة الاستغلال الزراعي للأرض وكيفية تحقيق أفضل استغلال للمساحات المزروعة، وقد اهتمّت به موسوعة ماغون.</span></li>
+                        <li><strong class="key-other" data-i18n="defAgriculturalProduction">تقتنيات الإنتاج الفلاحي</strong>: <span data-i18n="defAgriculturalProductionDesc">الأساليب والتقنيات المتعلقة بكيفية تحسين الإنتاج الزراعي والرفع من مردوديته، وقد احتوتها موسوعة ماغون ضمن مضامينها.</span></li>
+                        <li><strong class="key-other" data-i18n="defLaborUse">استعمال اليد العاملة</strong>: <span data-i18n="defLaborUseDesc">تنظيم العمل الفلاحي وتوزيع المهام على اليد العاملة، وقد قدّمت موسوعة ماغون نصائح عملية حول ذلك.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: تُعدّ موسوعة ماغون أو «كتاب الفلاحة» من أهمّ المراجع الأساسية لعلم الزراعة في الفترة القديمة. جمعت بين الطابع العلمي والعملي، واحتوت إضافات في تقنيات الإنتاج الفلاحي والتكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي واستعمال اليد العاملة. تجاوز صدى الموسوعة الحدود المجالية والزمنية لقرطاج البونية، إذ اعتبرها الرومان أهمّ غنائم الحرب البونية الثالثة وترجموها. وأسهمت في إشعاع قرطاج بالمتوسط حتى بعد سقوطها سنة 146 ق.م، وفي تطوّر النشاط الفلاحي والحرفي والتجاري.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/magon_encyclopedia.jpg" alt="موسوعة ماغون الفلاحية" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">موسوعة ماغون الفلاحية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/carthaginian_agriculture.jpg" alt="الفلاحة القرطاجية" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">الفلاحة القرطاجية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/roman_agriculture_treaty.jpg" alt="الرسالة الفلاحية الرومانية" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">الرسالة الفلاحية الرومانية المتبنية لموسوعة ماغون</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/agricultural_calendar.jpg" alt="الروزنامة الفلاحية" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">الروزنامة الفلاحية القرطاجية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/carthaginian_fields.jpg" alt="الحقول الزراعية القرطاجية" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">الحقول الزراعية القرطاجية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/agricultural_tools.jpg" alt="الأدوات الفلاحية القرطاجية" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">الأدوات الفلاحية القرطاجية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_his_exercisess_mod1_lesson1_part4.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "History / Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)",
+                lessonTitleSample: "Carthage: The Encyclopedia of Mago",
+                sectionIntro: "Introduction",
+                introText: "The Encyclopedia of Mago, or the 'Book of Agriculture' by the Carthaginian agronomist Mago, is one of the most important fundamental references for agricultural science in antiquity. This encyclopedia was not merely a local agricultural guide; it became a scientific and practical reference that surpassed the spatial and temporal boundaries of Carthage, its influence extended to the Roman and Greek worlds, and it contributed to the radiance of Punic Carthage in the Mediterranean even after its fall in 146 BC.",
+                problematiqueText: "What are the contents and scientific characteristics of the Encyclopedia of Mago? And what is its role in the radiance of Punic Carthage and the development of agricultural and economic activity in the Mediterranean?",
+                sectionPart1: "Contents of the Encyclopedia and Its Scientific Characteristics",
+                magonDefTitle: "Definition of the Encyclopedia and Its Scientific and Practical Nature",
+                magonDefText: "The Encyclopedia of Mago is a book on agriculture written by Mago, the Carthaginian agronomist. It is one of the most important fundamental references for agricultural science in antiquity. This encyclopedia combined a scientific nature with a practical one, as it did not limit itself to theory but provided direct solutions and field applications for farmers. Through its content and its scientific and practical nature, it contributed to the radiance of Punic Carthage in the Mediterranean even after the fall of Carthage in 146 BC.",
+                magonFieldsTitle: "Contents and Fields of the Encyclopedia",
+                magonFieldsIntro: "The Encyclopedia of Mago represented a valuable source of information given the additions it contained in many fields, including:",
+                field1: "<strong>Agricultural production techniques:</strong> The methods and techniques related to improving agricultural production and increasing its yield.",
+                field2: "<strong>Degree of agricultural intensification:</strong> The encyclopedia addressed the issue of the intensity of agricultural exploitation of land and how to achieve the best use of cultivated areas.",
+                field3: "<strong>The agricultural calendar:</strong> The encyclopedia set precise seasons for sowing, harvesting, and various agricultural works according to a precise calendar.",
+                field4: "<strong>Characteristics of the Carthaginian agricultural field:</strong> The encyclopedia described the natural and human characteristics of the Carthaginian agricultural field and methods of exploiting it.",
+                field5: "<strong>Advice on the use of labor:</strong> The encyclopedia provided practical guidance on organizing agricultural work and distributing tasks among laborers.",
+                field6: "<strong>The attachment of the Carthaginians to the land:</strong> The encyclopedia reflected the extent of the Carthaginians' attachment to their land and their interest in it as a foundation of wealth and power.",
+                magonFieldsConclusion: "Thus the Book of Agriculture was truly an encyclopedia that contributed to the development of agricultural activity in Punic Carthage, and also helped the prosperity of craft activity and especially commercial activity.",
+                sectionPart2: "The Radiance of the Encyclopedia and Its Impact",
+                magonInfluenceTitle: "The Echo of the Encyclopedia beyond the Borders of Carthage",
+                magonInfluenceText: "The echo of the encyclopedia surpassed the spatial and temporal boundaries of Punic Carthage. The Romans considered it the most important spoil of the Third Punic War, so they adopted its content and translated it. We also find excerpts of it translated into Greek and Latin in many books concerned with agriculture in ancient and medieval periods.",
+                magonRadianceTitle: "The Role of the Encyclopedia in the Radiance of Punic Carthage",
+                magonRadianceText: "The Encyclopedia of Mago, through its content and its scientific and practical nature, contributed to the radiance of Punic Carthage in the Mediterranean even after the fall of Carthage in 146 BC. All of this enabled the support of the Carthaginian presence in the Mediterranean, not only militarily, but also culturally, scientifically, and economically. This scientific radiance is evidence that Carthage was not merely a commercial and military power, but was also a center of intellectual and scientific production in the ancient world.",
+                magonEconomicTitle: "The Impact of the Encyclopedia on Agricultural, Craft, and Commercial Activity",
+                magonEconomicText: "The Book of Agriculture had a profound impact on the Carthaginian economy, as it contributed to the development of agricultural activity in Punic Carthage by improving production techniques and increasing their yield. This encyclopedia also helped the prosperity of craft activity, as the development of agriculture was linked to the development of related craft industries such as the manufacture of agricultural tools, glass, and pottery. All of this enabled the support of the Carthaginian presence in the Mediterranean and the strengthening of its economic and commercial standing.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Encyclopedia of Mago is a prominent example of the civilizational and scientific radiance of Punic Carthage. Its echo surpassed spatial and temporal boundaries, and it became a fundamental reference in agricultural science for the Romans and Greeks. Through its scientific and practical content, it contributed to the development of agricultural, craft, and commercial activity, supporting Carthage's presence in the Mediterranean even after its fall in 146 BC.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryCap1: "The Encyclopedia of Mago on agriculture",
+                galleryCap2: "Carthaginian agriculture",
+                galleryCap3: "Roman agricultural treatise adopting the Encyclopedia of Mago",
+                galleryCap4: "The Carthaginian agricultural calendar",
+                galleryCap5: "Carthaginian agricultural fields",
+                galleryCap6: "Carthaginian agricultural tools",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defOthers: "📌 Other",
+                defMagon: "Mago",
+                defMagonDesc: "A Carthaginian agronomist, author of the agricultural encyclopedia known as the 'Encyclopedia of Mago' or the 'Book of Agriculture', one of the most important fundamental references for agricultural science in antiquity, combining a scientific and practical nature.",
+                defCarthage: "Punic Carthage",
+                defCarthageDesc: "The civilizational center that produced the Encyclopedia of Mago. This encyclopedia contributed to its radiance in the Mediterranean even after the fall of Carthage in 146 BC.",
+                defRome: "Rome",
+                defRomeDesc: "The power that considered the Encyclopedia of Mago the most important spoil of the Third Punic War, adopting its content and translating it.",
+                defGreece: "Greece",
+                defGreeceDesc: "The region reached by excerpts of the Encyclopedia of Mago translated into Greek, alongside Latin translations.",
+                defMediterranean: "Mediterranean Sea",
+                defMediterraneanDesc: "The geographical space to which the radiance of the Encyclopedia of Mago extended, through which Carthage strengthened its civilizational, scientific, and economic presence.",
+                defThirdPunicWar: "The Third Punic War",
+                defThirdPunicWarDesc: "The war during which the Romans considered the Encyclopedia of Mago their most important spoil, adopting its content and translating it.",
+                defFallCarthage: "Fall of Carthage (146 BC)",
+                defFallCarthageDesc: "The date on which Carthage fell, but the radiance of the Encyclopedia of Mago continued after it in the Roman and Greek worlds.",
+                defMagonEncyclopedia: "The Encyclopedia of Mago",
+                defMagonEncyclopediaDesc: "The Book of Agriculture by Mago the Carthaginian agronomist, one of the most important fundamental references for agricultural science in antiquity. It combined a scientific and practical nature and contained additions in agricultural production techniques, the degree of agricultural intensification, the agricultural calendar, characteristics of the Carthaginian agricultural field, advice on the use of labor, and the attachment of the Carthaginians to the land.",
+                defAgriculturalCalendar: "The Agricultural Calendar",
+                defAgriculturalCalendarDesc: "A precise calendar of sowing and harvesting seasons and various agricultural works, set by the Encyclopedia of Mago to organize Carthaginian agricultural activity.",
+                defAgriculturalIntensification: "Agricultural Intensification",
+                defAgriculturalIntensificationDesc: "The intensity of agricultural exploitation of land and how to achieve the best use of cultivated areas; the Encyclopedia of Mago paid attention to it.",
+                defAgriculturalProduction: "Agricultural Production Techniques",
+                defAgriculturalProductionDesc: "The methods and techniques related to improving agricultural production and increasing its yield; the Encyclopedia of Mago included them in its contents.",
+                defLaborUse: "Use of Labor",
+                defLaborUseDesc: "Organizing agricultural work and distributing tasks among laborers; the Encyclopedia of Mago provided practical advice on this.",
+                summaryText: "Key takeaway: The Encyclopedia of Mago, or the 'Book of Agriculture', is one of the most important fundamental references for agricultural science in antiquity. It combined a scientific and practical nature and contained additions in agricultural production techniques, agricultural intensification, the agricultural calendar, characteristics of the Carthaginian agricultural field, and the use of labor. The echo of the encyclopedia surpassed the spatial and temporal boundaries of Punic Carthage, as the Romans considered it the most important spoil of the Third Punic War and translated it. It contributed to Carthage's radiance in the Mediterranean even after its fall in 146 BC, and to the development of agricultural, craft, and commercial activity.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "The Encyclopedia of Mago on agriculture",
+                galleryAlt2: "Carthaginian agriculture",
+                galleryAlt3: "Roman agricultural treatise",
+                galleryAlt4: "The agricultural calendar",
+                galleryAlt5: "Carthaginian agricultural fields",
+                galleryAlt6: "Carthaginian agricultural tools"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Histoire / Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)",
+                lessonTitleSample: "Carthage : L'Encyclopédie de Magon",
+                sectionIntro: "Introduction",
+                introText: "L'Encyclopédie de Magon, ou le « Livre d'agriculture » de Magon l'agronome carthaginois, est l'une des références fondamentales les plus importantes de la science agricole dans l'Antiquité. Cette encyclopédie n'était pas un simple guide agricole local ; elle est devenue une référence scientifique et pratique qui a dépassé les frontières spatiales et temporelles de Carthage, son influence s'est étendue au monde romain et grec, et elle a contribué au rayonnement de la Carthage punique en Méditerranée même après sa chute en 146 av. J.-C.",
+                problematiqueText: "Quels sont les contenus et les caractéristiques scientifiques de l'Encyclopédie de Magon ? Et quel est son rôle dans le rayonnement de la Carthage punique et le développement de l'activité agricole et économique en Méditerranée ?",
+                sectionPart1: "Contenus de l'Encyclopédie et ses caractéristiques scientifiques",
+                magonDefTitle: "Définition de l'Encyclopédie et sa nature scientifique et pratique",
+                magonDefText: "L'Encyclopédie de Magon est un livre d'agriculture rédigé par Magon, l'agronome carthaginois. C'est l'une des références fondamentales les plus importantes de la science agricole dans l'Antiquité. Cette encyclopédie combinait une nature scientifique et une nature pratique, car elle ne se limitait pas à la théorie mais fournissait des solutions directes et des applications de terrain aux agriculteurs. Par son contenu et sa nature scientifique et pratique, elle a contribué au rayonnement de la Carthage punique en Méditerranée même après la chute de Carthage en 146 av. J.-C.",
+                magonFieldsTitle: "Contenus et domaines de l'Encyclopédie",
+                magonFieldsIntro: "L'Encyclopédie de Magon représentait une source précieuse d'informations compte tenu des ajouts qu'elle contenait dans de nombreux domaines, notamment :",
+                field1: "<strong>Les techniques de production agricole :</strong> les méthodes et techniques liées à l'amélioration de la production agricole et à l'augmentation de son rendement.",
+                field2: "<strong>Le degré d'intensification agricole :</strong> l'encyclopédie a abordé la question de l'intensité de l'exploitation agricole des terres et comment réaliser la meilleure utilisation des surfaces cultivées.",
+                field3: "<strong>Le calendrier agricole :</strong> l'encyclopédie a fixé avec précision les saisons des semailles, des récoltes et des différents travaux agricoles selon un calendrier précis.",
+                field4: "<strong>Les caractéristiques du domaine agricole carthaginois :</strong> l'encyclopédie a décrit les caractéristiques naturelles et humaines du domaine agricole carthaginois et les méthodes de son exploitation.",
+                field5: "<strong>Des conseils sur l'utilisation de la main-d'œuvre :</strong> l'encyclopédie a fourni des conseils pratiques sur l'organisation du travail agricole et la répartition des tâches entre les ouvriers.",
+                field6: "<strong>L'attachement des Carthaginois à la terre :</strong> l'encyclopédie a reflété l'ampleur de l'attachement des Carthaginois à leur terre et leur intérêt pour elle comme fondement de la richesse et de la puissance.",
+                magonFieldsConclusion: "Ainsi le Livre d'agriculture était véritablement une encyclopédie qui a contribué au développement de l'activité agricole dans la Carthage punique, et a également favorisé la prospérité de l'activité artisanale et surtout commerciale.",
+                sectionPart2: "Le rayonnement de l'Encyclopédie et son impact",
+                magonInfluenceTitle: "L'écho de l'Encyclopédie au-delà des frontières de Carthage",
+                magonInfluenceText: "L'écho de l'encyclopédie a dépassé les frontières spatiales et temporelles de la Carthage punique. Les Romains l'ont considérée comme le plus important butin de la Troisième Guerre punique, ils ont donc adopté son contenu et l'ont traduite. Nous trouvons également des extraits traduits en grec et en latin dans de nombreux livres consacrés à l'agriculture dans les périodes antique et médiévale.",
+                magonRadianceTitle: "Le rôle de l'Encyclopédie dans le rayonnement de la Carthage punique",
+                magonRadianceText: "L'Encyclopédie de Magon, par son contenu et sa nature scientifique et pratique, a contribué au rayonnement de la Carthage punique en Méditerranée même après la chute de Carthage en 146 av. J.-C. Tout cela a permis de soutenir la présence carthaginoise en Méditerranée, non seulement militairement, mais aussi culturellement, scientifiquement et économiquement. Ce rayonnement scientifique est la preuve que Carthage n'était pas seulement une puissance commerciale et militaire, mais aussi un centre de production intellectuelle et scientifique dans le monde antique.",
+                magonEconomicTitle: "L'impact de l'Encyclopédie sur l'activité agricole, artisanale et commerciale",
+                magonEconomicText: "Le Livre d'agriculture a eu un impact profond sur l'économie carthaginoise, car il a contribué au développement de l'activité agricole dans la Carthage punique en améliorant les techniques de production et en augmentant leur rendement. Cette encyclopédie a également favorisé la prospérité de l'activité artisanale, car le développement de l'agriculture était lié au développement des industries artisanales associées telles que la fabrication d'outils agricoles, du verre et de la poterie. Tout cela a permis de soutenir la présence carthaginoise en Méditerranée et de renforcer sa position économique et commerciale.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "L'Encyclopédie de Magon est un exemple remarquable du rayonnement civilisationnel et scientifique de la Carthage punique. Son écho a dépassé les frontières spatiales et temporelles, et elle est devenue une référence fondamentale en science agricole pour les Romains et les Grecs. Par son contenu scientifique et pratique, elle a contribué au développement de l'activité agricole, artisanale et commerciale, soutenant la présence de Carthage en Méditerranée même après sa chute en 146 av. J.-C.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryCap1: "L'Encyclopédie de Magon sur l'agriculture",
+                galleryCap2: "L'agriculture carthaginoise",
+                galleryCap3: "Traité agricole romain adoptant l'Encyclopédie de Magon",
+                galleryCap4: "Le calendrier agricole carthaginois",
+                galleryCap5: "Les champs agricoles carthaginois",
+                galleryCap6: "Les outils agricoles carthaginois",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays & régions",
+                defEvents: "⚔️ Événements clés",
+                defOthers: "📌 Autres",
+                defMagon: "Magon",
+                defMagonDesc: "Un agronome carthaginois, auteur de l'encyclopédie agricole connue sous le nom d'« Encyclopédie de Magon » ou « Livre d'agriculture », l'une des références fondamentales les plus importantes de la science agricole dans l'Antiquité, combinant une nature scientifique et pratique.",
+                defCarthage: "Carthage punique",
+                defCarthageDesc: "Le centre civilisationnel qui a produit l'Encyclopédie de Magon. Cette encyclopédie a contribué à son rayonnement en Méditerranée même après la chute de Carthage en 146 av. J.-C.",
+                defRome: "Rome",
+                defRomeDesc: "La puissance qui a considéré l'Encyclopédie de Magon comme le plus important butin de la Troisième Guerre punique, adoptant son contenu et la traduisant.",
+                defGreece: "Grèce",
+                defGreeceDesc: "La région atteinte par les extraits de l'Encyclopédie de Magon traduits en grec, aux côtés des traductions latines.",
+                defMediterranean: "Mer Méditerranée",
+                defMediterraneanDesc: "L'espace géographique vers lequel s'est étendu le rayonnement de l'Encyclopédie de Magon, à travers lequel Carthage a renforcé sa présence civilisationnelle, scientifique et économique.",
+                defThirdPunicWar: "La Troisième Guerre punique",
+                defThirdPunicWarDesc: "La guerre durant laquelle les Romains ont considéré l'Encyclopédie de Magon comme leur plus important butin, adoptant son contenu et la traduisant.",
+                defFallCarthage: "Chute de Carthage (146 av. J.-C.)",
+                defFallCarthageDesc: "La date à laquelle Carthage est tombée, mais le rayonnement de l'Encyclopédie de Magon s'est poursuivi après elle dans les mondes romain et grec.",
+                defMagonEncyclopedia: "L'Encyclopédie de Magon",
+                defMagonEncyclopediaDesc: "Le Livre d'agriculture de Magon l'agronome carthaginois, l'une des références fondamentales les plus importantes de la science agricole dans l'Antiquité. Elle combinait une nature scientifique et pratique et contenait des ajouts dans les techniques de production agricole, le degré d'intensification agricole, le calendrier agricole, les caractéristiques du domaine agricole carthaginois, des conseils sur l'utilisation de la main-d'œuvre, et l'attachement des Carthaginois à la terre.",
+                defAgriculturalCalendar: "Le calendrier agricole",
+                defAgriculturalCalendarDesc: "Un calendrier précis des saisons de semailles et de récoltes et des différents travaux agricoles, fixé par l'Encyclopédie de Magon pour organiser l'activité agricole carthaginoise.",
+                defAgriculturalIntensification: "L'intensification agricole",
+                defAgriculturalIntensificationDesc: "L'intensité de l'exploitation agricole des terres et comment réaliser la meilleure utilisation des surfaces cultivées ; l'Encyclopédie de Magon y a accordé son attention.",
+                defAgriculturalProduction: "Les techniques de production agricole",
+                defAgriculturalProductionDesc: "Les méthodes et techniques liées à l'amélioration de la production agricole et à l'augmentation de son rendement ; l'Encyclopédie de Magon les a incluses dans ses contenus.",
+                defLaborUse: "L'utilisation de la main-d'œuvre",
+                defLaborUseDesc: "L'organisation du travail agricole et la répartition des tâches entre les ouvriers ; l'Encyclopédie de Magon a fourni des conseils pratiques à ce sujet.",
+                summaryText: "À retenir : L'Encyclopédie de Magon, ou le « Livre d'agriculture », est l'une des références fondamentales les plus importantes de la science agricole dans l'Antiquité. Elle combinait une nature scientifique et pratique et contenait des ajouts dans les techniques de production agricole, l'intensification agricole, le calendrier agricole, les caractéristiques du domaine agricole carthaginois et l'utilisation de la main-d'œuvre. L'écho de l'encyclopédie a dépassé les frontières spatiales et temporelles de la Carthage punique, car les Romains l'ont considérée comme le plus important butin de la Troisième Guerre punique et l'ont traduite. Elle a contribué au rayonnement de Carthage en Méditerranée même après sa chute en 146 av. J.-C., et au développement de l'activité agricole, artisanale et commerciale.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "L'Encyclopédie de Magon sur l'agriculture",
+                galleryAlt2: "L'agriculture carthaginoise",
+                galleryAlt3: "Traité agricole romain",
+                galleryAlt4: "Le calendrier agricole",
+                galleryAlt5: "Les champs agricoles carthaginois",
+                galleryAlt6: "Les outils agricoles carthaginois"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)",
+                lessonTitleSample: "قرطاج: موسوعة ماغون الفلاحية",
+                sectionIntro: "مقدمة",
+                introText: "تُعدّ موسوعة ماغون، أو «كتاب الفلاحة» لماغون العالم الفلاحي القرطاجي، أحد أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة. ولم تكن هذه الموسوعة مجرد دليل فلاحي محلي، بل تحوّلت إلى مرجع علمي وعملي تجاوز حدود قرطاج المجالية والزمنية، وامتدّ صداها إلى العالم الروماني والإغريقي، وأسهمت في إشعاع قرطاج البونيّة في المتوسّط حتى بعد سقوطها سنة 146 ق.م.",
+                problematiqueText: "ما هي مضامين موسوعة ماغون وخصائصها العلمية؟ وما هو دورها في إشعاع قرطاج البونية وتطوّر النشاط الفلاحي والاقتصادي في المتوسط؟",
+                sectionPart1: "مضامين الموسوعة وخصائصها العلمية",
+                magonDefTitle: "التعريف بالموسوعة وطابعها العلمي والعملي",
+                magonDefText: "موسوعة ماغون هي كتاب في الفلاحة وضعه ماغون العالم الفلاحي القرطاجي، وتُعدّ من أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة. وقد جمعت هذه الموسوعة بين الطابع العلمي والطابع العملي، إذ لم تكتفِ بالتنظير بل قدّمت حلولاً وتطبيقات ميدانية مباشرة للفلاحين. وقد أسهمت بمحتواها وطابعها العلمي والعملي في إشعاع قرطاج البونيّة في المتوسّط حتى بعد سقوط قرطاج سنة 146 ق.م.",
+                magonFieldsTitle: "مضامين الموسوعة وميادينها",
+                magonFieldsIntro: "مثّلت موسوعة ماغون مصدراً ثميناً للمعلومات اعتباراً للإضافات التي احتواها في عديد الميادين، ومنها:",
+                field1: "<strong>تقتنيات الإنتاج الفلاحي:</strong> أي الأساليب والتقنيات المتعلقة بكيفية تحسين الإنتاج الزراعي والرفع من مردوديته.",
+                field2: "<strong>درجة التكثيف الزراعي:</strong> وقد اهتمّت الموسوعة بمسألة كثافة الاستغلال الزراعي للأرض وكيفية تحقيق أفضل استغلال للمساحات المزروعة.",
+                field3: "<strong>الروزنامة الفلاحية:</strong> حيث ضبطت الموسوعة مواسم الزرع والحصاد والأشغال الفلاحية المختلفة وفق تقويم دقيق.",
+                field4: "<strong>خصائص المجال الزراعي القرطاجي:</strong> إذ وصفت الموسوعة الخصائص الطبيعية والبشرية للمجال الزراعي القرطاجي وأساليب استغلاله.",
+                field5: "<strong>نصائح حول استعمال اليد العاملة:</strong> قدّمت الموسوعة إرشادات عملية حول تنظيم العمل الفلاحي وتوزيع المهام على اليد العاملة.",
+                field6: "<strong>ارتباط القرطاجيين بالأرض:</strong> فقد عكست الموسوعة مدى تعلّق القرطاجيين بأرضهم واهتمامهم بها كأساس للثروة والقوة.",
+                magonFieldsConclusion: "وبذلك كان كتاب الفلاحة بحقّ موسوعة أسهمت في تطوّر النشاط الفلاحي بقرطاج البونيّة، كما ساعدت على ازدهار النشاط الحرفي وخاصة التجاري.",
+                sectionPart2: "إشعاع الموسوعة وأثرها",
+                magonInfluenceTitle: "صدى الموسوعة خارج حدود قرطاج",
+                magonInfluenceText: "تجاوز صدى الموسوعة الحدود المجاليّة والزمنيّة لقرطاج البونيّة، فقد اعتبرها الرومان أهمّ غنائم الحرب البونيّة الثالثة، فعملوا على تبنّي محتواها وقاموا بترجمتها. كما نجد مقتطفات منها مترجمة إلى الإغريقيّة واللاتينيّة في عديد الكتب التي اهتمّت بالفلاحة في الفترة القديمة والوسيطة.",
+                magonRadianceTitle: "دور الموسوعة في إشعاع قرطاج البونية",
+                magonRadianceText: "أسهمت موسوعة ماغون بمحتواها وطابعها العلمي والعملي في إشعاع قرطاج البونيّة في المتوسّط حتى بعد سقوط قرطاج سنة 146 ق.م. وقد مكّن كل ذلك من دعم الحضور القرطاجي في المتوسّط، ليس عسكرياً فقط، بل حضارياً وعلمياً واقتصادياً أيضاً. ويُعد هذا الإشعاع العلمي دليلاً على أن قرطاج لم تكن مجرّد قوة تجارية وعسكرية، بل كانت أيضاً مركزاً للإنتاج الفكري والعلمي في العالم القديم.",
+                magonEconomicTitle: "أثر الموسوعة على النشاط الفلاحي والحرفي والتجاري",
+                magonEconomicText: "كان لكتاب الفلاحة أثر عميق في الاقتصاد القرطاجي، إذ أسهم في تطوّر النشاط الفلاحي بقرطاج البونيّة من خلال تحسين تقنيات الإنتاج ورفع مردوديته. كما ساعدت هذه الموسوعة على ازدهار النشاط الحرفي، إذ ارتبط تطوّر الفلاحة بتطوّر الصناعات الحرفية المرتبطة بها كصناعة الأدوات الفلاحية والزجاج والفخار. وقد مكّن كل ذلك من دعم الحضور القرطاجي في المتوسّط وتعزيز مكانته الاقتصادية والتجارية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "تُعدّ موسوعة ماغون نموذجاً بارزاً على الإشعاع الحضاري والعلمي لقرطاج البونيّة، إذ تجاوز صداها الحدود المجالية والزمنية، وتحوّلت إلى مرجع أساسي في علم الزراعة عند الرومان والإغريق. وقد أسهمت بمحتواها العلمي والعملي في تطوّر النشاط الفلاحي والحرفي والتجاري، مما دعم حضور قرطاج في المتوسّط حتى بعد سقوطها سنة 146 ق.م.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryCap1: "موسوعة ماغون الفلاحية",
+                galleryCap2: "الفلاحة القرطاجية",
+                galleryCap3: "الرسالة الفلاحية الرومانية المتبنية لموسوعة ماغون",
+                galleryCap4: "الروزنامة الفلاحية القرطاجية",
+                galleryCap5: "الحقول الزراعية القرطاجية",
+                galleryCap6: "الأدوات الفلاحية القرطاجية",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defOthers: "📌 أخرى",
+                defMagon: "ماغون",
+                defMagonDesc: "عالم فلاحي قرطاجي، صاحب موسوعة الفلاحة المعروفة بـ«موسوعة ماغون» أو «كتاب الفلاحة»، وهي من أهم المراجع الأساسية لعلم الزراعة في الفترة القديمة، جمعت بين الطابع العلمي والعملي.",
+                defCarthage: "قرطاج البونية",
+                defCarthageDesc: "المركز الحضاري الذي أنتج موسوعة ماغون، وأسهمت هذه الموسوعة في إشعاعه بالمتوسط حتى بعد سقوط قرطاج سنة 146 ق.م.",
+                defRome: "روما",
+                defRomeDesc: "القوة التي اعتبرت موسوعة ماغون أهمّ غنائم الحرب البونية الثالثة، فعملت على تبنّي محتواها وترجمتها.",
+                defGreece: "بلاد الإغريق",
+                defGreeceDesc: "المنطقة التي وصلتها مقتطفات موسوعة ماغون مترجمة إلى الإغريقية، إلى جانب الترجمات اللاتينية.",
+                defMediterranean: "البحر المتوسط",
+                defMediterraneanDesc: "المجال الجغرافي الذي امتدّ إليه إشعاع موسوعة ماغون، وعزّزت من خلاله قرطاج حضورها الحضاري والعلمي والاقتصادي.",
+                defThirdPunicWar: "الحرب البونية الثالثة",
+                defThirdPunicWarDesc: "الحرب التي اعتبر الرومان خلالها موسوعة ماغون أهمّ غنائمها، فعملوا على تبنّي محتواها وترجمتها.",
+                defFallCarthage: "سقوط قرطاج (146 ق.م)",
+                defFallCarthageDesc: "التاريخ الذي سقطت فيه قرطاج، لكن إشعاع موسوعة ماغون استمرّ بعده في العالم الروماني والإغريقي.",
+                defMagonEncyclopedia: "موسوعة ماغون",
+                defMagonEncyclopediaDesc: "كتاب الفلاحة لماغون العالم الفلاحي القرطاجي، ويُعدّ من أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة، جمع بين الطابع العلمي والعملي، واحتوى إضافات في تقنيات الإنتاج الفلاحي ودرجة التكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي ونصائح حول استعمال اليد العاملة وارتباط القرطاجيين بالأرض.",
+                defAgriculturalCalendar: "الروزنامة الفلاحية",
+                defAgriculturalCalendarDesc: "تقويم دقيق لمواسم الزرع والحصاد والأشغال الفلاحية المختلفة، ضبطته موسوعة ماغون لتنظيم النشاط الزراعي القرطاجي.",
+                defAgriculturalIntensification: "التكثيف الزراعي",
+                defAgriculturalIntensificationDesc: "كثافة الاستغلال الزراعي للأرض وكيفية تحقيق أفضل استغلال للمساحات المزروعة، وقد اهتمّت به موسوعة ماغون.",
+                defAgriculturalProduction: "تقتنيات الإنتاج الفلاحي",
+                defAgriculturalProductionDesc: "الأساليب والتقنيات المتعلقة بكيفية تحسين الإنتاج الزراعي والرفع من مردوديته، وقد احتوتها موسوعة ماغون ضمن مضامينها.",
+                defLaborUse: "استعمال اليد العاملة",
+                defLaborUseDesc: "تنظيم العمل الفلاحي وتوزيع المهام على اليد العاملة، وقد قدّمت موسوعة ماغون نصائح عملية حول ذلك.",
+                summaryText: "خلاصة: تُعدّ موسوعة ماغون أو «كتاب الفلاحة» من أهمّ المراجع الأساسية لعلم الزراعة في الفترة القديمة. جمعت بين الطابع العلمي والعملي، واحتوت إضافات في تقنيات الإنتاج الفلاحي والتكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي واستعمال اليد العاملة. تجاوز صدى الموسوعة الحدود المجالية والزمنية لقرطاج البونية، إذ اعتبرها الرومان أهمّ غنائم الحرب البونية الثالثة وترجموها. وأسهمت في إشعاع قرطاج بالمتوسط حتى بعد سقوطها سنة 146 ق.م، وفي تطوّر النشاط الفلاحي والحرفي والتجاري.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "موسوعة ماغون الفلاحية",
+                galleryAlt2: "الفلاحة القرطاجية",
+                galleryAlt3: "الرسالة الفلاحية الرومانية",
+                galleryAlt4: "الروزنامة الفلاحية",
+                galleryAlt5: "الحقول الزراعية القرطاجية",
+                galleryAlt6: "الأدوات الفلاحية القرطاجية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Mago", class: "key-person", i18n: "defMagon" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Greece", class: "key-location", i18n: "defGreece" },
+                { text: "Mediterranean", class: "key-location", i18n: "defMediterranean" },
+                { text: "Third Punic War", class: "key-event", i18n: "defThirdPunicWar" },
+                { text: "146 BC", class: "key-event", i18n: "defFallCarthage" },
+                { text: "Encyclopedia of Mago", class: "key-other", i18n: "defMagonEncyclopedia" },
+                { text: "agricultural calendar", class: "key-other", i18n: "defAgriculturalCalendar" },
+                { text: "agricultural intensification", class: "key-other", i18n: "defAgriculturalIntensification" },
+                { text: "agricultural production", class: "key-other", i18n: "defAgriculturalProduction" },
+                { text: "use of labor", class: "key-other", i18n: "defLaborUse" }
+            ],
+            fr: [
+                { text: "Magon", class: "key-person", i18n: "defMagon" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Grèce", class: "key-location", i18n: "defGreece" },
+                { text: "Méditerranée", class: "key-location", i18n: "defMediterranean" },
+                { text: "Troisième Guerre punique", class: "key-event", i18n: "defThirdPunicWar" },
+                { text: "146 av", class: "key-event", i18n: "defFallCarthage" },
+                { text: "Encyclopédie de Magon", class: "key-other", i18n: "defMagonEncyclopedia" },
+                { text: "calendrier agricole", class: "key-other", i18n: "defAgriculturalCalendar" },
+                { text: "intensification agricole", class: "key-other", i18n: "defAgriculturalIntensification" },
+                { text: "production agricole", class: "key-other", i18n: "defAgriculturalProduction" },
+                { text: "main-d'œuvre", class: "key-other", i18n: "defLaborUse" }
+            ],
+            ar: [
+                { text: "ماغون", class: "key-person", i18n: "defMagon" },
+                { text: "قرطاج البونية", class: "key-location", i18n: "defCarthage" },
+                { text: "روما", class: "key-location", i18n: "defRome" },
+                { text: "بلاد الإغريق", class: "key-location", i18n: "defGreece" },
+                { text: "البحر المتوسط", class: "key-location", i18n: "defMediterranean" },
+                { text: "الحرب البونية الثالثة", class: "key-event", i18n: "defThirdPunicWar" },
+                { text: "146 ق.م", class: "key-event", i18n: "defFallCarthage" },
+                { text: "موسوعة ماغون", class: "key-other", i18n: "defMagonEncyclopedia" },
+                { text: "الروزنامة الفلاحية", class: "key-other", i18n: "defAgriculturalCalendar" },
+                { text: "التكثيف الزراعي", class: "key-other", i18n: "defAgriculturalIntensification" },
+                { text: "تقتنيات الإنتاج الفلاحي", class: "key-other", i18n: "defAgriculturalProduction" },
+                { text: "استعمال اليد العاملة", class: "key-other", i18n: "defLaborUse" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

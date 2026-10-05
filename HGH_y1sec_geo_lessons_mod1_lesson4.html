@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">الجغرافيا / الوحدة الأولى: الإنسان يعمر الأرض</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">الانفجار الحضري</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">لئن ظهرت المدن منذ آلاف السنين فإن ظاهرة التحضر تعد حديثة، حيث انطلقت منذ منتصف القرن الثامن عشر خاصة مع الثورة الصناعية لتشمل كامل أنحاء العالم. وقد ارتفع عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار نسمة سنة 2022، أي ما يعادل 57% من مجموع سكان العالم، ومن المتوقع أن يصل إلى 6.7 مليار نسمة سنة 2050 (أي 68% من سكان العالم). ويُقصد بالانفجار الحضري التسارع الكبير في عدد سكان المدن وامتدادها المجالي، وهو ظاهرة تمسّ خاصة البلدان النامية.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فما هو مفهوم الظاهرة الحضرية؟ وما هي مظاهر وعوامل التحضر وأهم انعكاساته؟</p>
+            </div>
+
+            <!-- Part I : Concept of Urban Phenomenon -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">مفهوم الظاهرة الحضرية</span>
+                </h2>
+
+                <!-- 1. Urbanization and rate -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="urbanizationDefTitle">التحضر ونسبة التحضر</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="urbanizationTitle">التحضر</span>
+                </h4>
+                <p data-i18n="urbanizationText">التحضر هو تزايد المدن من حيث العدد والحجم والامتداد المجالي وكيفية استخدام الأرض ونمط العيش المميز، وهو ظاهرة عالمية انطلقت منذ منتصف القرن الثامن عشر مع الثورة الصناعية في أوروبا الغربية قبل أن تشمل كامل أنحاء العالم.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="urbanizationRateTitle">نسبة التحضر</span>
+                </h4>
+                <p data-i18n="urbanizationRateText">هي نسبة سكان المدن من مجموع السكان في منطقة ما وفي تاريخ محدد. وترتفع هذه النسبة في البلدان المتقدمة (أكثر من 75%) لتبلغ في بعضها أكثر من 90% كما هو الحال في بلجيكا واليابان، بينما تبقى دون 50% في عديد البلدان النامية خاصة في إفريقيا وآسيا الجنوبية.</p>
+
+                <!-- 2. Measures of urbanization -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="urbanizationMeasuresTitle">مقاييس التحضر</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="cityDefTitle">تعريف المدينة</span>
+                </h4>
+                <p data-i18n="cityDefText">المدينة هي كل تجمع سكني يبلغ حجماً معيناً من السكان يختلف من بلد إلى آخر تهيمن فيه أنشطة غير فلاحية.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="quantitativeMeasureTitle">المقياس الكمي</span>
+                </h4>
+                <p data-i18n="quantitativeMeasureText">يعتمد على العدد الأدنى للسكان المجتمعين، والذي يختلف من بلد إلى آخر. فتجمع 200 ساكن في الدنمارك يشكل مدينة، بينما يجب أن يكون العدد 50 ألف ساكن في اليابان. أما في تونس فيُعتمد المقياس الإداري، فكل مركز بلدية يعتبر مدينة دون اعتبار لعدد السكان.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="landscapeMeasureTitle">المقياس المشهدي</span>
+                </h4>
+                <p data-i18n="landscapeMeasureText">يقوم على وجود نواة (مركز) تنتظم حولها مباني كثيفة ومتلاصقة تستخدم في أنشطة مختلفة، وتربط شبكات نقل بين أطراف المدينة ومركزها.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>.
+                    <span data-i18n="functionalMeasureTitle">المقاييس الوظيفية والنوعية</span>
+                </h4>
+                <p data-i18n="functionalMeasureText">تقوم المدينة على أنشطة غير فلاحية مثل الصناعة والخدمات، كما تتميز بثقافة ونمط عيش مميز يختلف عن نمط عيش الريف.</p>
+            </div>
+
+            <!-- Part II : Manifestations of Urbanization -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">مظاهر التحضر</span>
+                </h2>
+
+                <!-- 1. Urban explosion in developing world -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="urbanExplosionTitle">الانفجار الحضري في العالم النامي</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="urbanExplosionDefTitle">تعريف الانفجار الحضري</span>
+                </h4>
+                <p data-i18n="urbanExplosionDefText">الانفجار الحضري هو تسارع كبير لعدد سكان المدن، وهو ظاهرة تمسّ خاصة البلدان النامية.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="urbanExplosionFiguresTitle">الأرقام الأساسية للانفجار الحضري</span>
+                </h4>
+                <p data-i18n="urbanExplosionFiguresText">تزايد عدد السكان الحضر في العالم بنسق سريع ليقفز من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار نسمة سنة 2022، أي بنسبة 57% من مجموع السكان في العالم. ويعود ذلك إلى ظاهرة الانفجار الحضري في البلدان النامية، حيث ارتفع نصيب العالم النامي من السكان الحضر في العالم ليبلغ 76% أي ما يعادل حوالي 3.5 مليار نسمة سنة 2019. ونتيجة لذلك أصبح العالم النامي يحتوي 8 حواضر (مدن كبرى) من بين العشرة مدن الأولى في العالم، بينما كانت 3 حواضر فقط سنة 1950.</p>
+
+                <p data-i18n="urbanExplosionCitiesText">ومن أكبر المدن الكبرى في العالم سنة 2023: طوكيو (37 مليون نسمة)، دلهي (32 مليون)، شنغهاي (28 مليون)، دكا (23 مليون)، ساو باولو (22 مليون)، والقاهرة (22 مليون)، ومكسيكو سيتي (22 مليون)، وبكين (21 مليون)، ومومباي (21 مليون)، وأوساكا (19 مليون).</p>
+
+                <!-- 2. Disparity in urbanization rates -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="disparityTitle">تفاوت درجات التحضر بين بلدان العالم</span>
+                </h3>
+                <p data-i18n="disparityText">تتفاوت درجات التحضر بين بلدان العالم تفاوتاً كبيراً: ففي البلدان المتقدمة بلغت نسبة التحضر أكثر من 75% (بلجيكا 98%، اليابان 92%، أستراليا 86%، الولايات المتحدة 83%)، بينما تبقى في البلدان النامية دون 50% في عديدها (الهند 35%، إفريقيا جنوب الصحراء 42%، جنوب آسيا 40%)، مع وجود تفاوت كبير بين البلدان النامية نفسها (البرازيل 87%، الأرجنتين 92%، الصين 65%). ويمكن تمييز ثلاثة مستويات كبرى: بلدان ذات تحضر مرتفع، وبلدان ذات تحضر متوسط، وبلدان ذات تحضر ضعيف.</p>
+            </div>
+
+            <!-- Part III : Factors and Repercussions -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span>
+                    <span data-i18n="sectionPart3">عوامل التحضر وانعكاساته</span>
+                </h2>
+
+                <!-- 1. Factors -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="urbanFactorsTitle">عوامل التحضر</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="developedFactorsTitle">في العالم المتقدم</span>
+                </h4>
+                <p data-i18n="developedFactorsText">يُفسَّر ارتفاع التحضر في العالم المتقدم بالنمو الاقتصادي وبقدم ظاهرة التحضر التي تعود إلى الثورة الصناعية في القرن الثامن عشر، إذ أدى تطور الصناعة والمعامل إلى استقطاب أعداد هامة من السكان نحو المدن، ثم عزّز قطاع الخدمات المتطور هذه الجاذبية.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="developingFactorsTitle">في العالم النامي</span>
+                </h4>
+                <p data-i18n="developingFactorsIntro">يمكن أن نفسر ارتفاع التحضر في العالم النامي بالعوامل التالية:</p>
+                <ul>
+                    <li data-i18n="devFactor1">ارتفاع التزايد الطبيعي لسكان المدن.</li>
+                    <li data-i18n="devFactor2">ارتفاع معدل النمو الطبيعي في الأرياف مع تزايد البطالة ومكننة الفلاحة، الأمر الذي زاد في نسق النزوح الريفي.</li>
+                    <li data-i18n="devFactor3">تنامي القطاع الصناعي والخدمي في المدن مما وفّر مواطن شغل واستقطب أعداداً هامة من المهاجرين خاصة من الأرياف.</li>
+                    <li data-i18n="devFactor4">الثقل الديمغرافي للعالم النامي خاصة الصين والهند مما ساهم في تشكل مدن مليونية.</li>
+                </ul>
+
+                <!-- 2. Repercussions -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="urbanRepercussionsTitle">انعكاسات التحضر (الانفجار الحضري) في البلدان النامية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="spatialRepercussionsTitle">مجالياً</span>
+                </h4>
+                <ul>
+                    <li data-i18n="spatialRepercussion1">توسع المدن على حساب الأراضي الزراعية.</li>
+                    <li data-i18n="spatialRepercussion2">توسع المدن على الأطراف في شكل ضواحي غالباً ما تكون فوضوية البناء وقليلة التجهيزات الأساسية.</li>
+                    <li data-i18n="spatialRepercussion3">يتميز عديد هذه المدن بالمحافظة على نمط عيش أقرب إلى الريف منه إلى المدينة.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="environmentalRepercussionsTitle">بيئياً</span>
+                </h4>
+                <p data-i18n="environmentalRepercussionsText">يتسبب التوسع السريع للمدن وتزايد أعداد الحضر في ارتفاع معدلات التلوث في التربة والمياه بسبب تزايد النفايات، وتلوث الهواء لكثرة المصانع والسيارات، إضافة إلى الضغط على الموارد الطبيعية والانبعاثات الكربونية التي تساهم في تغير المناخ.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="socialRepercussionsTitle">اجتماعياً</span>
+                </h4>
+                <ul>
+                    <li data-i18n="socialRepercussion1">تزايد الطلب على الحاجيات الأساسية مثل الصحة والمواد الأساسية الغذائية والماء والكهرباء والسكن والتعليم.</li>
+                    <li data-i18n="socialRepercussion2">تفاقم البطالة بسبب عدم قدرة القطاع الصناعي والخدمي على استيعاب العدد الكبير من العاطلين.</li>
+                    <li data-i18n="socialRepercussion3">انتشار الأمراض الاجتماعية كالجريمة والسرقة والتسول وأطفال الشوارع.</li>
+                    <li data-i18n="socialRepercussion4">ارتفاع أسعار العقارات والإيجارات، مما يزيد من معاناة الفئات الاجتماعية الفقيرة.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">يُعدّ الانفجار الحضري ظاهرة بنيوية في العالم المعاصر، إذ يعيش أكثر من نصف سكان العالم في المدن، ومن المتوقع أن ترتفع هذه النسبة إلى 68% سنة 2050. وتترتب عن هذه الظاهرة انعكاسات متعددة مجالياً وبيئياً واجتماعياً، خاصة في البلدان النامية التي تعرف تحضراً متسارعاً دون أن يرافقه نمو اقتصادي واجتماعي مماثل، مما يطرح تحديات كبرى أمام سياسات التهيئة الترابية والتنمية المستدامة.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defTokyo">طوكيو</strong>: <span data-i18n="defTokyoDesc">العاصمة اليابانية وأكبر تجمع حضري في العالم، إذ يبلغ عدد سكان تجمعها الحضري حوالي 37 مليون نسمة سنة 2023.</span></li>
+                        <li><strong class="key-location" data-i18n="defDelhi">دلهي</strong>: <span data-i18n="defDelhiDesc">العاصمة الهندية وثاني أكبر تجمع حضري في العالم بحوالي 32 مليون نسمة سنة 2023، وهي مثال على الانفجار الحضري في البلدان النامية.</span></li>
+                        <li><strong class="key-location" data-i18n="defShanghai">شنغهاي</strong>: <span data-i18n="defShanghaiDesc">كبرى مدن الصين الاقتصادية وثالث أكبر تجمع حضري في العالم بحوالي 28 مليون نسمة سنة 2023.</span></li>
+                        <li><strong class="key-location" data-i18n="defCairo">القاهرة</strong>: <span data-i18n="defCairoDesc">عاصمة مصر وكبرى مدن إفريقيا والعالم العربي بحوالي 22 مليون نسمة سنة 2023، وهي مثال على المدن المليونية في البلدان النامية.</span></li>
+                        <li><strong class="key-location" data-i18n="defSaoPaulo">ساو باولو</strong>: <span data-i18n="defSaoPauloDesc">أكبر مدينة في البرازيل وإحدى أكبر مدن العالم بحوالي 22 مليون نسمة سنة 2023، وتُعد العاصمة الاقتصادية للبرازيل.</span></li>
+                        <li><strong class="key-location" data-i18n="defBelgium">بلجيكا</strong>: <span data-i18n="defBelgiumDesc">بلد أوروبي متقدم يبلغ فيه معدل التحضر 98%، وهو من أعلى المعدلات في العالم.</span></li>
+                        <li><strong class="key-location" data-i18n="defJapan">اليابان</strong>: <span data-i18n="defJapanDesc">بلد متقدم في شرق آسيا يبلغ فيه معدل التحضر 92%، ويعتمد على تعريف صارم للمدينة (50 ألف ساكن على الأقل).</span></li>
+                        <li><strong class="key-location" data-i18n="defDenmark">الدنمارك</strong>: <span data-i18n="defDenmarkDesc">بلد أوروبي متقدم يُعتمد فيه المقياس الكمي المنخفض، إذ يكفي تجمع 200 ساكن لاعتباره مدينة.</span></li>
+                        <li><strong class="key-location" data-i18n="defIndia">الهند</strong>: <span data-i18n="defIndiaDesc">من أكبر بلدان العالم سكانياً، يبلغ معدل التحضر فيها 35% فقط، وتشهد مدنها الكبرى (دلهي، مومباي) انفجاراً حضرياً كبيراً.</span></li>
+                        <li><strong class="key-location" data-i18n="defChina">الصين</strong>: <span data-i18n="defChinaDesc">من أكبر بلدان العالم سكانياً، بلغ معدل التحضر فيها 65%، وتضم عديد المدن المليونية (شنغهاي، بكين).</span></li>
+                        <li><strong class="key-location" data-i18n="defSubSaharanAfrica">إفريقيا جنوب الصحراء</strong>: <span data-i18n="defSubSaharanAfricaDesc">من أقل مناطق العالم تحضراً (42%)، لكنها تعرف انفجاراً حضرياً سريعاً دون نمو اقتصادي مماثل.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defUrbanization">التحضر</strong>: <span data-i18n="defUrbanizationDesc">تزايد المدن من حيث العدد والحجم والامتداد المجالي وكيفية استخدام الأرض ونمط العيش المميز، وهو ظاهرة عالمية انطلقت منذ منتصف القرن الثامن عشر مع الثورة الصناعية.</span></li>
+                        <li><strong class="key-other" data-i18n="defUrbanizationRate">نسبة التحضر</strong>: <span data-i18n="defUrbanizationRateDesc">نسبة سكان المدن من مجموع السكان في منطقة ما وفي تاريخ محدد. ترتفع في البلدان المتقدمة (أكثر من 75%) وتنخفض في عديد البلدان النامية (دون 50%).</span></li>
+                        <li><strong class="key-other" data-i18n="defCity">المدينة</strong>: <span data-i18n="defCityDesc">كل تجمع سكني يبلغ حجماً معيناً من السكان يختلف من بلد إلى آخر، تهيمن فيه أنشطة غير فلاحية كالصناعة والخدمات، ويتميز بنمط عيش حضري مميز.</span></li>
+                        <li><strong class="key-other" data-i18n="defUrbanExplosion">الانفجار الحضري</strong>: <span data-i18n="defUrbanExplosionDesc">تسارع كبير لعدد سكان المدن، ويُعدّ ظاهرة مميزة للبلدان النامية التي تعرف تحضراً سريعاً دون نمو اقتصادي مماثل. انتقل عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار سنة 2022.</span></li>
+                        <li><strong class="key-other" data-i18n="defQuantitativeMeasure">المقياس الكمي</strong>: <span data-i18n="defQuantitativeMeasureDesc">مقياس لتعريف المدينة يعتمد على العدد الأدنى للسكان المجتمعين، ويختلف من بلد إلى آخر (200 ساكن في الدنمارك، 50 ألف في اليابان، مقياس إداري في تونس).</span></li>
+                        <li><strong class="key-other" data-i18n="defLandscapeMeasure">المقياس المشهدي</strong>: <span data-i18n="defLandscapeMeasureDesc">مقياس لتعريف المدينة يقوم على وجود نواة (مركز) تنتظم حولها مباني كثيفة ومتلاصقة تستخدم في أنشطة مختلفة، وتربط شبكات نقل بين أطراف المدينة ومركزها.</span></li>
+                        <li><strong class="key-other" data-i18n="defFunctionalMeasure">المقياس الوظيفي</strong>: <span data-i18n="defFunctionalMeasureDesc">مقياس لتعريف المدينة يقوم على هيمنة الأنشطة غير الفلاحية (الصناعة والخدمات) وعلى نمط عيش حضري مميز يختلف عن نمط عيش الريف.</span></li>
+                        <li><strong class="key-other" data-i18n="defRuralExodus">النزوح الريفي</strong>: <span data-i18n="defRuralExodusDesc">هجرة سكان الأرياف نحو المدن، ويُعدّ من أهم عوامل الانفجار الحضري في البلدان النامية، ويفسّره تزايد البطالة ومكننة الفلاحة وتدني مستوى العيش في الأرياف.</span></li>
+                        <li><strong class="key-other" data-i18n="defMillionCity">المدينة المليونية</strong>: <span data-i18n="defMillionCityDesc">المدينة التي يتجاوز عدد سكانها المليون نسمة، وقد تزايد عددها بشكل كبير في البلدان النامية بفعل الانفجار الحضري.</span></li>
+                        <li><strong class="key-other" data-i18n="defShantytowns">الضواحي</strong>: <span data-i18n="defShantytownsDesc">مناطق حضرية على أطراف المدن، غالباً ما تكون فوضوية البناء وقليلة التجهيزات الأساسية، وتشهد اكتظاظاً سكانياً كبيراً في البلدان النامية.</span></li>
+                        <li><strong class="key-other" data-i18n="defTerritorialPlanning">التهيئة الترابية</strong>: <span data-i18n="defTerritorialPlanningDesc">مجموع الإجراءات والخطط التي تضعها الدولة لتنظيم المجال الترابي وتوزيع الأنشطة والسكان بشكل متوازن، وهي من أهم الوسائل لمواجهة انعكاسات الانفجار الحضري.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">القرن 18</strong>: <span data-i18n="defYear18Desc">انطلاق ظاهرة التحضر مع الثورة الصناعية في أوروبا الغربية.</span></li>
+                        <li><strong class="key-year">1950</strong>: <span data-i18n="defYear1950Desc">بلغ عدد سكان المدن في العالم 724 مليون نسمة، وكان العالم النامي يحتوي 3 حواضر فقط من بين العشرة مدن الأولى في العالم.</span></li>
+                        <li><strong class="key-year">2019</strong>: <span data-i18n="defYear2019Desc">بلغ عدد سكان المدن في العالم أكثر من 4 مليار نسمة (55.7% من سكان العالم)، وبلغ نصيب العالم النامي 76% (حوالي 3.5 مليار نسمة)، وأصبح يحتوي 8 حواضر من بين العشرة مدن الأولى في العالم.</span></li>
+                        <li><strong class="key-year">2022</strong>: <span data-i18n="defYear2022Desc">بلغ عدد سكان المدن في العالم أكثر من 4.4 مليار نسمة، أي ما يعادل 57% من مجموع سكان العالم.</span></li>
+                        <li><strong class="key-year">2023</strong>: <span data-i18n="defYear2023Desc">تصدّرت طوكيو (37 مليون نسمة) قائمة أكبر المدن في العالم، تليها دلهي (32 مليون)، ثم شنغهاي (28 مليون).</span></li>
+                        <li><strong class="key-year">2050</strong>: <span data-i18n="defYear2050Desc">من المتوقع أن يبلغ عدد سكان المدن في العالم 6.7 مليار نسمة، أي 68% من سكان العالم، وأن يتركز معظم النمو الحضري في البلدان النامية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: يُعدّ التحضر ظاهرة عالمية حديثة انطلقت مع الثورة الصناعية، وانتقل عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار سنة 2022 (57%)، ومن المتوقع أن يبلغ 6.7 مليار سنة 2050 (68%). ويتميز الانفجار الحضري في البلدان النامية بسرعة كبيرة مع انعكاسات مجاليه وبيئية واجتماعية متعددة، مما يستوجب سياسات تهيئة ترابية وتنمية مستدامة.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson4/urban_population_growth.jpg" alt="تطور سكان المدن في العالم" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">تطور سكان المدن في العالم (1950-2050)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson4/world_urbanization_map.jpg" alt="خريطة التحضر في العالم" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">خريطة التحضر في العالم</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson4/largest_cities_world.jpg" alt="أكبر المدن في العالم" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">أكبر المدن في العالم سنة 2023</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson4/megacity_shanghai.jpg" alt="مدينة شنغهاي" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">مدينة شنغهاي – مثال على المدن المليونية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson4/slum_area.jpg" alt="منطقة عشوائية" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">منطقة عشوائية على أطراف مدينة نامية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson4/urban_pollution.jpg" alt="التلوث الحضري" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">التلوث الحضري وضغط المدن على البيئة</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_geo_exercisess_mod1_lesson4.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الدول والمناطق والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "Geography / Unit 1: Humans Inhabit the Earth",
+                lessonTitleSample: "Urban Explosion",
+                sectionIntro: "Introduction",
+                introText: "Although cities appeared thousands of years ago, urbanization is a recent phenomenon that began in the mid-18th century, especially with the Industrial Revolution, before spreading across the entire world. The urban population of the world rose from 724 million in 1950 to more than 4.4 billion in 2022, equivalent to 57% of the world's total population, and is expected to reach 6.7 billion by 2050 (68% of the world's population). Urban explosion refers to the rapid acceleration of urban populations and their spatial expansion, a phenomenon affecting especially developing countries.",
+                problematiqueText: "What is the concept of the urban phenomenon? What are the manifestations and factors of urbanization, and what are its most important repercussions?",
+                sectionPart1: "The Concept of the Urban Phenomenon",
+                urbanizationDefTitle: "Urbanization and the Urbanization Rate",
+                urbanizationTitle: "Urbanization",
+                urbanizationText: "Urbanization is the increase in the number, size, spatial extension, land use, and distinctive lifestyle of cities. It is a global phenomenon that began in the mid-18th century with the Industrial Revolution in Western Europe before spreading across the entire world.",
+                urbanizationRateTitle: "Urbanization Rate",
+                urbanizationRateText: "It is the proportion of urban population out of the total population in a given region and at a specific date. This rate is high in developed countries (more than 75%), reaching over 90% in some, as in Belgium and Japan, while it remains below 50% in many developing countries, especially in Africa and South Asia.",
+                urbanizationMeasuresTitle: "Measures of Urbanization",
+                cityDefTitle: "Definition of a City",
+                cityDefText: "A city is any settlement that reaches a certain size of population, varying from one country to another, in which non-agricultural activities dominate.",
+                quantitativeMeasureTitle: "The Quantitative Measure",
+                quantitativeMeasureText: "It relies on the minimum number of inhabitants gathered, which varies from one country to another. A settlement of 200 inhabitants in Denmark constitutes a city, while the number must be 50,000 in Japan. In Tunisia, the administrative measure is adopted, so every municipal center is considered a city regardless of population size.",
+                landscapeMeasureTitle: "The Landscape Measure",
+                landscapeMeasureText: "It is based on the existence of a core (center) around which dense and contiguous buildings used for various activities are organized, and transport networks link the city's outskirts to its center.",
+                functionalMeasureTitle: "Functional and Qualitative Measures",
+                functionalMeasureText: "A city is based on non-agricultural activities such as industry and services, and is also characterized by a distinctive culture and lifestyle.",
+                sectionPart2: "Manifestations of Urbanization",
+                urbanExplosionTitle: "Urban Explosion in the Developing World",
+                urbanExplosionDefTitle: "Definition of Urban Explosion",
+                urbanExplosionDefText: "Urban explosion is a rapid acceleration of urban populations, a phenomenon affecting especially developing countries.",
+                urbanExplosionFiguresTitle: "Key Figures of Urban Explosion",
+                urbanExplosionFiguresText: "The urban population of the world grew rapidly, jumping from 724 million in 1950 to more than 4.4 billion in 2022, i.e., 57% of the world's total population. This is due to the urban explosion in developing countries, where the developing world's share of the global urban population rose to 76%, equivalent to about 3.5 billion in 2019. As a result, the developing world now contains 8 megacities among the world's top ten cities, whereas in 1950 there were only 3.",
+                urbanExplosionCitiesText: "The largest cities in the world in 2023 include: Tokyo (37 million), Delhi (32 million), Shanghai (28 million), Dhaka (23 million), São Paulo (22 million), Cairo (22 million), Mexico City (22 million), Beijing (21 million), Mumbai (21 million), and Osaka (19 million).",
+                disparityTitle: "Disparity in Urbanization Rates between Countries",
+                disparityText: "Urbanization rates vary greatly between countries: in developed countries, the urbanization rate exceeds 75% (Belgium 98%, Japan 92%, Australia 86%, United States 83%), while it remains below 50% in many developing countries (India 35%, Sub-Saharan Africa 42%, South Asia 40%), with wide disparities among developing countries themselves (Brazil 87%, Argentina 92%, China 65%). Three major levels can be distinguished: countries with high urbanization, countries with medium urbanization, and countries with low urbanization.",
+                sectionPart3: "Factors and Repercussions of Urbanization",
+                urbanFactorsTitle: "Factors of Urbanization",
+                developedFactorsTitle: "In the Developed World",
+                developedFactorsText: "The high urbanization in the developed world is explained by economic growth and the early onset of urbanization dating back to the Industrial Revolution in the 18th century, when the development of industry and factories attracted large numbers of people to cities, later reinforced by the advanced service sector.",
+                developingFactorsTitle: "In the Developing World",
+                developingFactorsIntro: "The high urbanization in the developing world can be explained by the following factors:",
+                devFactor1: "High natural growth of urban populations.",
+                devFactor2: "High natural growth rate in rural areas with rising unemployment and agricultural mechanization, which increased the pace of rural exodus.",
+                devFactor3: "Growth of the industrial and service sectors in cities, providing jobs and attracting large numbers of migrants, especially from rural areas.",
+                devFactor4: "The demographic weight of the developing world, especially China and India, contributing to the formation of million-inhabitant cities.",
+                urbanRepercussionsTitle: "Repercussions of Urbanization (Urban Explosion) in Developing Countries",
+                spatialRepercussionsTitle: "Spatially",
+                spatialRepercussion1: "Expansion of cities at the expense of agricultural land.",
+                spatialRepercussion2: "Expansion of cities into outskirts in the form of suburbs often chaotically built and lacking basic facilities.",
+                spatialRepercussion3: "Many of these cities retain a lifestyle closer to rural than to urban.",
+                environmentalRepercussionsTitle: "Environmentally",
+                environmentalRepercussionsText: "The rapid expansion of cities and growing urban populations cause rising pollution rates in soil and water due to increasing waste, and air pollution from factories and cars, in addition to pressure on natural resources and carbon emissions contributing to climate change.",
+                socialRepercussionsTitle: "Socially",
+                socialRepercussion1: "Growing demand for basic needs such as health, food, water, electricity, housing, and education.",
+                socialRepercussion2: "Worsening unemployment due to the inability of the industrial and service sectors to absorb the large number of unemployed.",
+                socialRepercussion3: "Spread of social diseases such as crime, theft, begging, and street children.",
+                socialRepercussion4: "Rising real estate and rental prices, worsening the suffering of poor social groups.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Urban explosion is a structural phenomenon in the contemporary world, with more than half of the world's population living in cities, and this proportion is expected to rise to 68% by 2050. This phenomenon has multiple spatial, environmental, and social repercussions, especially in developing countries experiencing rapid urbanization without matching economic and social growth, posing major challenges for territorial planning and sustainable development policies.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryCap1: "Evolution of urban population in the world (1950-2050)",
+                galleryCap2: "World urbanization map",
+                galleryCap3: "Largest cities in the world in 2023",
+                galleryCap4: "Shanghai – example of a million-inhabitant city",
+                galleryCap5: "Shantytown on the outskirts of a developing city",
+                galleryCap6: "Urban pollution and cities' pressure on the environment",
+                defLocations: "🌍 Countries & Regions",
+                defTokyo: "Tokyo",
+                defTokyoDesc: "The Japanese capital and the largest urban agglomeration in the world, with an urban population of about 37 million in 2023.",
+                defDelhi: "Delhi",
+                defDelhiDesc: "The Indian capital and the second largest urban agglomeration in the world with about 32 million in 2023, an example of urban explosion in developing countries.",
+                defShanghai: "Shanghai",
+                defShanghaiDesc: "China's largest economic city and the third largest urban agglomeration in the world with about 28 million in 2023.",
+                defCairo: "Cairo",
+                defCairoDesc: "The capital of Egypt and the largest city in Africa and the Arab world with about 22 million in 2023, an example of million-inhabitant cities in developing countries.",
+                defSaoPaulo: "São Paulo",
+                defSaoPauloDesc: "The largest city in Brazil and one of the largest in the world with about 22 million in 2023, considered Brazil's economic capital.",
+                defBelgium: "Belgium",
+                defBelgiumDesc: "A developed European country with an urbanization rate of 98%, one of the highest in the world.",
+                defJapan: "Japan",
+                defJapanDesc: "A developed country in East Asia with an urbanization rate of 92%, adopting a strict definition of a city (at least 50,000 inhabitants).",
+                defDenmark: "Denmark",
+                defDenmarkDesc: "A developed European country adopting a low quantitative measure, where a settlement of 200 inhabitants suffices to be considered a city.",
+                defIndia: "India",
+                defIndiaDesc: "One of the world's most populous countries, with an urbanization rate of only 35%, and its major cities (Delhi, Mumbai) experience major urban explosion.",
+                defChina: "China",
+                defChinaDesc: "One of the world's most populous countries, with an urbanization rate of 65%, containing several million-inhabitant cities (Shanghai, Beijing).",
+                defSubSaharanAfrica: "Sub-Saharan Africa",
+                defSubSaharanAfricaDesc: "One of the least urbanized regions in the world (42%), but experiencing rapid urban explosion without matching economic growth.",
+                defOthers: "📌 Other Terms",
+                defUrbanization: "Urbanization",
+                defUrbanizationDesc: "The increase in the number, size, spatial extension, land use, and distinctive lifestyle of cities. A global phenomenon that began in the mid-18th century with the Industrial Revolution.",
+                defUrbanizationRate: "Urbanization Rate",
+                defUrbanizationRateDesc: "The proportion of urban population out of the total population in a given region and at a specific date. It is high in developed countries (more than 75%) and low in many developing countries (below 50%).",
+                defCity: "City",
+                defCityDesc: "Any settlement that reaches a certain size of population, varying from one country to another, in which non-agricultural activities such as industry and services dominate, and which is characterized by a distinctive urban lifestyle.",
+                defUrbanExplosion: "Urban Explosion",
+                defUrbanExplosionDesc: "A rapid acceleration of urban populations, a phenomenon characteristic of developing countries experiencing rapid urbanization without matching economic growth. World urban population rose from 724 million in 1950 to more than 4.4 billion in 2022.",
+                defQuantitativeMeasure: "Quantitative Measure",
+                defQuantitativeMeasureDesc: "A measure for defining a city based on the minimum number of inhabitants, varying from one country to another (200 inhabitants in Denmark, 50,000 in Japan, administrative measure in Tunisia).",
+                defLandscapeMeasure: "Landscape Measure",
+                defLandscapeMeasureDesc: "A measure for defining a city based on the existence of a core (center) around which dense and contiguous buildings used for various activities are organized, and transport networks link the city's outskirts to its center.",
+                defFunctionalMeasure: "Functional Measure",
+                defFunctionalMeasureDesc: "A measure for defining a city based on the dominance of non-agricultural activities (industry and services) and a distinctive urban lifestyle different from rural lifestyle.",
+                defRuralExodus: "Rural Exodus",
+                defRuralExodusDesc: "Migration of rural populations towards cities, one of the most important factors of urban explosion in developing countries, explained by rising unemployment, agricultural mechanization, and low rural living standards.",
+                defMillionCity: "Million-Inhabitant City",
+                defMillionCityDesc: "A city whose population exceeds one million, and whose number has greatly increased in developing countries due to urban explosion.",
+                defShantytowns: "Shantytowns",
+                defShantytownsDesc: "Urban areas on the outskirts of cities, often chaotically built and lacking basic facilities, experiencing significant overcrowding in developing countries.",
+                defTerritorialPlanning: "Territorial Planning",
+                defTerritorialPlanningDesc: "The set of measures and plans adopted by the state to organize the national territory and distribute activities and populations in a balanced way, one of the most important means to address the repercussions of urban explosion.",
+                defYears: "📅 Years & Periods",
+                defYear18Desc: "Onset of urbanization with the Industrial Revolution in Western Europe.",
+                defYear1950Desc: "World urban population reached 724 million, and the developing world contained only 3 megacities among the world's top ten cities.",
+                defYear2019Desc: "World urban population exceeded 4 billion (55.7% of world population), the developing world's share reached 76% (about 3.5 billion), and it contained 8 megacities among the world's top ten cities.",
+                defYear2022Desc: "World urban population exceeded 4.4 billion, equivalent to 57% of the world's total population.",
+                defYear2023Desc: "Tokyo (37 million) topped the list of the world's largest cities, followed by Delhi (32 million), then Shanghai (28 million).",
+                defYear2050Desc: "World urban population is expected to reach 6.7 billion, i.e., 68% of world population, with most urban growth concentrated in developing countries.",
+                summaryText: "Key takeaway: Urbanization is a modern global phenomenon that began with the Industrial Revolution. World urban population rose from 724 million in 1950 to more than 4.4 billion in 2022 (57%), and is expected to reach 6.7 billion by 2050 (68%). Urban explosion in developing countries is characterized by great speed with multiple spatial, environmental, and social repercussions, requiring territorial planning and sustainable development policies.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Evolution of urban population in the world",
+                galleryAlt2: "World urbanization map",
+                galleryAlt3: "Largest cities in the world",
+                galleryAlt4: "Shanghai city",
+                galleryAlt5: "Shantytown",
+                galleryAlt6: "Urban pollution"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Géographie / Unité 1 : L'homme habite la Terre",
+                lessonTitleSample: "L'explosion urbaine",
+                sectionIntro: "Introduction",
+                introText: "Bien que les villes soient apparues il y a des milliers d'années, l'urbanisation est un phénomène récent qui a débuté au milieu du XVIIIe siècle, notamment avec la Révolution industrielle, avant de s'étendre au monde entier. La population urbaine mondiale est passée de 724 millions en 1950 à plus de 4,4 milliards en 2022, soit 57 % de la population mondiale, et devrait atteindre 6,7 milliards en 2050 (68 % de la population mondiale). L'explosion urbaine désigne l'accélération rapide des populations urbaines et leur expansion spatiale, un phénomène touchant particulièrement les pays en développement.",
+                problematiqueText: "Quel est le concept du phénomène urbain ? Quelles sont les manifestations et les facteurs de l'urbanisation, et quelles sont ses répercussions les plus importantes ?",
+                sectionPart1: "Le concept du phénomène urbain",
+                urbanizationDefTitle: "L'urbanisation et le taux d'urbanisation",
+                urbanizationTitle: "L'urbanisation",
+                urbanizationText: "L'urbanisation est l'augmentation du nombre, de la taille, de l'extension spatiale, de l'utilisation du sol et du mode de vie distinctif des villes. C'est un phénomène mondial qui a débuté au milieu du XVIIIe siècle avec la Révolution industrielle en Europe occidentale avant de s'étendre au monde entier.",
+                urbanizationRateTitle: "Le taux d'urbanisation",
+                urbanizationRateText: "C'est la proportion de la population urbaine par rapport à la population totale dans une région donnée et à une date précise. Ce taux est élevé dans les pays développés (plus de 75 %), atteignant plus de 90 % dans certains, comme en Belgique et au Japon, tandis qu'il reste inférieur à 50 % dans de nombreux pays en développement, notamment en Afrique et en Asie du Sud.",
+                urbanizationMeasuresTitle: "Les mesures de l'urbanisation",
+                cityDefTitle: "Définition de la ville",
+                cityDefText: "Une ville est tout établissement qui atteint une certaine taille de population, variant d'un pays à l'autre, dans lequel les activités non agricoles dominent.",
+                quantitativeMeasureTitle: "La mesure quantitative",
+                quantitativeMeasureText: "Elle repose sur le nombre minimum d'habitants rassemblés, qui varie d'un pays à l'autre. Un établissement de 200 habitants au Danemark constitue une ville, tandis que le nombre doit être de 50 000 au Japon. En Tunisie, la mesure administrative est adoptée : tout centre municipal est considéré comme une ville indépendamment de la taille de la population.",
+                landscapeMeasureTitle: "La mesure paysagère",
+                landscapeMeasureText: "Elle repose sur l'existence d'un noyau (centre) autour duquel s'organisent des bâtiments denses et contigus utilisés pour diverses activités, et des réseaux de transport relient les périphéries de la ville à son centre.",
+                functionalMeasureTitle: "Les mesures fonctionnelles et qualitatives",
+                functionalMeasureText: "Une ville repose sur des activités non agricoles telles que l'industrie et les services, et se caractérise également par une culture et un mode de vie distinctifs.",
+                sectionPart2: "Les manifestations de l'urbanisation",
+                urbanExplosionTitle: "L'explosion urbaine dans le monde en développement",
+                urbanExplosionDefTitle: "Définition de l'explosion urbaine",
+                urbanExplosionDefText: "L'explosion urbaine est une accélération rapide des populations urbaines, un phénomène touchant particulièrement les pays en développement.",
+                urbanExplosionFiguresTitle: "Chiffres clés de l'explosion urbaine",
+                urbanExplosionFiguresText: "La population urbaine mondiale a connu une croissance rapide, passant de 724 millions en 1950 à plus de 4,4 milliards en 2022, soit 57 % de la population mondiale totale. Cela est dû à l'explosion urbaine dans les pays en développement, où la part du monde en développement dans la population urbaine mondiale est passée à 76 %, soit environ 3,5 milliards en 2019. En conséquence, le monde en développement contient désormais 8 mégapoles parmi les dix premières villes mondiales, alors qu'en 1950 il n'y en avait que 3.",
+                urbanExplosionCitiesText: "Les plus grandes villes du monde en 2023 comprennent : Tokyo (37 millions), Delhi (32 millions), Shanghai (28 millions), Dhaka (23 millions), São Paulo (22 millions), Le Caire (22 millions), Mexico (22 millions), Pékin (21 millions), Mumbai (21 millions) et Osaka (19 millions).",
+                disparityTitle: "Disparité des taux d'urbanisation entre les pays",
+                disparityText: "Les taux d'urbanisation varient considérablement d'un pays à l'autre : dans les pays développés, le taux d'urbanisation dépasse 75 % (Belgique 98 %, Japon 92 %, Australie 86 %, États-Unis 83 %), tandis qu'il reste inférieur à 50 % dans de nombreux pays en développement (Inde 35 %, Afrique subsaharienne 42 %, Asie du Sud 40 %), avec de grandes disparités entre les pays en développement eux-mêmes (Brésil 87 %, Argentine 92 %, Chine 65 %). Trois niveaux majeurs peuvent être distingués : les pays à urbanisation élevée, les pays à urbanisation moyenne et les pays à urbanisation faible.",
+                sectionPart3: "Facteurs et répercussions de l'urbanisation",
+                urbanFactorsTitle: "Les facteurs de l'urbanisation",
+                developedFactorsTitle: "Dans le monde développé",
+                developedFactorsText: "La forte urbanisation dans le monde développé s'explique par la croissance économique et l'ancienneté de l'urbanisation remontant à la Révolution industrielle du XVIIIe siècle, lorsque le développement de l'industrie et des usines a attiré de grands nombres de personnes vers les villes, renforcé plus tard par le secteur avancé des services.",
+                developingFactorsTitle: "Dans le monde en développement",
+                developingFactorsIntro: "La forte urbanisation dans le monde en développement peut s'expliquer par les facteurs suivants :",
+                devFactor1: "Forte croissance naturelle des populations urbaines.",
+                devFactor2: "Taux de croissance naturelle élevé dans les zones rurales avec la montée du chômage et la mécanisation agricole, ce qui a accru le rythme de l'exode rural.",
+                devFactor3: "Croissance des secteurs industriel et des services dans les villes, offrant des emplois et attirant de grands nombres de migrants, notamment des zones rurales.",
+                devFactor4: "Le poids démographique du monde en développement, notamment la Chine et l'Inde, contribuant à la formation de villes millionnaires.",
+                urbanRepercussionsTitle: "Répercussions de l'urbanisation (explosion urbaine) dans les pays en développement",
+                spatialRepercussionsTitle: "Spatialement",
+                spatialRepercussion1: "Expansion des villes au détriment des terres agricoles.",
+                spatialRepercussion2: "Expansion des villes vers les périphéries sous forme de banlieues souvent construites de manière chaotique et manquant d'équipements de base.",
+                spatialRepercussion3: "Beaucoup de ces villes conservent un mode de vie plus proche du rural que de l'urbain.",
+                environmentalRepercussionsTitle: "Environnementalement",
+                environmentalRepercussionsText: "L'expansion rapide des villes et la croissance des populations urbaines entraînent une augmentation des taux de pollution des sols et de l'eau en raison de l'augmentation des déchets, et de la pollution de l'air due aux usines et aux voitures, en plus de la pression sur les ressources naturelles et des émissions de carbone contribuant au changement climatique.",
+                socialRepercussionsTitle: "Socialement",
+                socialRepercussion1: "Demande croissante de besoins de base tels que la santé, l'alimentation, l'eau, l'électricité, le logement et l'éducation.",
+                socialRepercussion2: "Aggravation du chômage en raison de l'incapacité des secteurs industriel et des services à absorber le grand nombre de chômeurs.",
+                socialRepercussion3: "Propagation de maladies sociales telles que la criminalité, le vol, la mendicité et les enfants des rues.",
+                socialRepercussion4: "Hausse des prix de l'immobilier et des loyers, aggravant la souffrance des groupes sociaux pauvres.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "L'explosion urbaine est un phénomène structurel du monde contemporain, plus de la moitié de la population mondiale vivant dans les villes, et cette proportion devrait atteindre 68 % d'ici 2050. Ce phénomène a de multiples répercussions spatiales, environnementales et sociales, en particulier dans les pays en développement connaissant une urbanisation rapide sans croissance économique et sociale correspondante, posant des défis majeurs pour les politiques d'aménagement du territoire et de développement durable.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryCap1: "Évolution de la population urbaine dans le monde (1950-2050)",
+                galleryCap2: "Carte de l'urbanisation mondiale",
+                galleryCap3: "Les plus grandes villes du monde en 2023",
+                galleryCap4: "Shanghai – exemple de ville millionnaire",
+                galleryCap5: "Bidonville à la périphérie d'une ville en développement",
+                galleryCap6: "Pollution urbaine et pression des villes sur l'environnement",
+                defLocations: "🌍 Pays et régions",
+                defTokyo: "Tokyo",
+                defTokyoDesc: "La capitale japonaise et la plus grande agglomération urbaine du monde, avec une population urbaine d'environ 37 millions en 2023.",
+                defDelhi: "Delhi",
+                defDelhiDesc: "La capitale indienne et la deuxième plus grande agglomération urbaine du monde avec environ 32 millions en 2023, un exemple d'explosion urbaine dans les pays en développement.",
+                defShanghai: "Shanghai",
+                defShanghaiDesc: "La plus grande ville économique de Chine et la troisième plus grande agglomération urbaine du monde avec environ 28 millions en 2023.",
+                defCairo: "Le Caire",
+                defCairoDesc: "La capitale de l'Égypte et la plus grande ville d'Afrique et du monde arabe avec environ 22 millions en 2023, un exemple de villes millionnaires dans les pays en développement.",
+                defSaoPaulo: "São Paulo",
+                defSaoPauloDesc: "La plus grande ville du Brésil et l'une des plus grandes au monde avec environ 22 millions en 2023, considérée comme la capitale économique du Brésil.",
+                defBelgium: "Belgique",
+                defBelgiumDesc: "Un pays européen développé avec un taux d'urbanisation de 98 %, l'un des plus élevés au monde.",
+                defJapan: "Japon",
+                defJapanDesc: "Un pays développé d'Asie de l'Est avec un taux d'urbanisation de 92 %, adoptant une définition stricte de la ville (au moins 50 000 habitants).",
+                defDenmark: "Danemark",
+                defDenmarkDesc: "Un pays européen développé adoptant une mesure quantitative basse, où un établissement de 200 habitants suffit pour être considéré comme une ville.",
+                defIndia: "Inde",
+                defIndiaDesc: "L'un des pays les plus peuplés du monde, avec un taux d'urbanisation de seulement 35 %, et ses grandes villes (Delhi, Mumbai) connaissent une explosion urbaine majeure.",
+                defChina: "Chine",
+                defChinaDesc: "L'un des pays les plus peuplés du monde, avec un taux d'urbanisation de 65 %, contenant plusieurs villes millionnaires (Shanghai, Pékin).",
+                defSubSaharanAfrica: "Afrique subsaharienne",
+                defSubSaharanAfricaDesc: "L'une des régions les moins urbanisées du monde (42 %), mais connaissant une explosion urbaine rapide sans croissance économique correspondante.",
+                defOthers: "📌 Autres termes",
+                defUrbanization: "Urbanisation",
+                defUrbanizationDesc: "L'augmentation du nombre, de la taille, de l'extension spatiale, de l'utilisation du sol et du mode de vie distinctif des villes. Un phénomène mondial qui a débuté au milieu du XVIIIe siècle avec la Révolution industrielle.",
+                defUrbanizationRate: "Taux d'urbanisation",
+                defUrbanizationRateDesc: "La proportion de la population urbaine par rapport à la population totale dans une région donnée et à une date précise. Il est élevé dans les pays développés (plus de 75 %) et faible dans de nombreux pays en développement (moins de 50 %).",
+                defCity: "Ville",
+                defCityDesc: "Tout établissement qui atteint une certaine taille de population, variant d'un pays à l'autre, dans lequel les activités non agricoles telles que l'industrie et les services dominent, et qui se caractérise par un mode de vie urbain distinctif.",
+                defUrbanExplosion: "Explosion urbaine",
+                defUrbanExplosionDesc: "Une accélération rapide des populations urbaines, un phénomène caractéristique des pays en développement connaissant une urbanisation rapide sans croissance économique correspondante. La population urbaine mondiale est passée de 724 millions en 1950 à plus de 4,4 milliards en 2022.",
+                defQuantitativeMeasure: "Mesure quantitative",
+                defQuantitativeMeasureDesc: "Une mesure pour définir une ville basée sur le nombre minimum d'habitants, variant d'un pays à l'autre (200 habitants au Danemark, 50 000 au Japon, mesure administrative en Tunisie).",
+                defLandscapeMeasure: "Mesure paysagère",
+                defLandscapeMeasureDesc: "Une mesure pour définir une ville basée sur l'existence d'un noyau (centre) autour duquel s'organisent des bâtiments denses et contigus utilisés pour diverses activités, et des réseaux de transport relient les périphéries de la ville à son centre.",
+                defFunctionalMeasure: "Mesure fonctionnelle",
+                defFunctionalMeasureDesc: "Une mesure pour définir une ville basée sur la dominance des activités non agricoles (industrie et services) et un mode de vie urbain distinctif différent du mode de vie rural.",
+                defRuralExodus: "Exode rural",
+                defRuralExodusDesc: "Migration des populations rurales vers les villes, l'un des facteurs les plus importants de l'explosion urbaine dans les pays en développement, expliqué par la montée du chômage, la mécanisation agricole et le faible niveau de vie rural.",
+                defMillionCity: "Ville millionnaire",
+                defMillionCityDesc: "Une ville dont la population dépasse un million d'habitants, et dont le nombre a considérablement augmenté dans les pays en développement en raison de l'explosion urbaine.",
+                defShantytowns: "Bidonvilles",
+                defShantytownsDesc: "Zones urbaines situées à la périphérie des villes, souvent construites de manière chaotique et manquant d'équipements de base, connaissant un surpeuplement important dans les pays en développement.",
+                defTerritorialPlanning: "Aménagement du territoire",
+                defTerritorialPlanningDesc: "L'ensemble des mesures et des plans adoptés par l'État pour organiser le territoire national et répartir les activités et les populations de manière équilibrée, l'un des moyens les plus importants pour faire face aux répercussions de l'explosion urbaine.",
+                defYears: "📅 Années et périodes",
+                defYear18Desc: "Début de l'urbanisation avec la Révolution industrielle en Europe occidentale.",
+                defYear1950Desc: "La population urbaine mondiale a atteint 724 millions, et le monde en développement ne contenait que 3 mégapoles parmi les dix premières villes mondiales.",
+                defYear2019Desc: "La population urbaine mondiale a dépassé 4 milliards (55,7 % de la population mondiale), la part du monde en développement a atteint 76 % (environ 3,5 milliards), et il contenait 8 mégapoles parmi les dix premières villes mondiales.",
+                defYear2022Desc: "La population urbaine mondiale a dépassé 4,4 milliards, soit 57 % de la population mondiale totale.",
+                defYear2023Desc: "Tokyo (37 millions) a dominé la liste des plus grandes villes du monde, suivie de Delhi (32 millions), puis Shanghai (28 millions).",
+                defYear2050Desc: "La population urbaine mondiale devrait atteindre 6,7 milliards, soit 68 % de la population mondiale, la majeure partie de la croissance urbaine étant concentrée dans les pays en développement.",
+                summaryText: "À retenir : L'urbanisation est un phénomène mondial moderne qui a débuté avec la Révolution industrielle. La population urbaine mondiale est passée de 724 millions en 1950 à plus de 4,4 milliards en 2022 (57 %), et devrait atteindre 6,7 milliards en 2050 (68 %). L'explosion urbaine dans les pays en développement se caractérise par une grande rapidité avec de multiples répercussions spatiales, environnementales et sociales, nécessitant des politiques d'aménagement du territoire et de développement durable.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Évolution de la population urbaine dans le monde",
+                galleryAlt2: "Carte de l'urbanisation mondiale",
+                galleryAlt3: "Plus grandes villes du monde",
+                galleryAlt4: "Ville de Shanghai",
+                galleryAlt5: "Bidonville",
+                galleryAlt6: "Pollution urbaine"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "الجغرافيا / الوحدة الأولى: الإنسان يعمر الأرض",
+                lessonTitleSample: "الانفجار الحضري",
+                sectionIntro: "مقدمة",
+                introText: "لئن ظهرت المدن منذ آلاف السنين فإن ظاهرة التحضر تعد حديثة، حيث انطلقت منذ منتصف القرن الثامن عشر خاصة مع الثورة الصناعية لتشمل كامل أنحاء العالم. وقد ارتفع عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار نسمة سنة 2022، أي ما يعادل 57% من مجموع سكان العالم، ومن المتوقع أن يصل إلى 6.7 مليار نسمة سنة 2050 (أي 68% من سكان العالم). ويُقصد بالانفجار الحضري التسارع الكبير في عدد سكان المدن وامتدادها المجالي، وهو ظاهرة تمسّ خاصة البلدان النامية.",
+                problematiqueText: "فما هو مفهوم الظاهرة الحضرية؟ وما هي مظاهر وعوامل التحضر وأهم انعكاساته؟",
+                sectionPart1: "مفهوم الظاهرة الحضرية",
+                urbanizationDefTitle: "التحضر ونسبة التحضر",
+                urbanizationTitle: "التحضر",
+                urbanizationText: "التحضر هو تزايد المدن من حيث العدد والحجم والامتداد المجالي وكيفية استخدام الأرض ونمط العيش المميز، وهو ظاهرة عالمية انطلقت منذ منتصف القرن الثامن عشر مع الثورة الصناعية في أوروبا الغربية قبل أن تشمل كامل أنحاء العالم.",
+                urbanizationRateTitle: "نسبة التحضر",
+                urbanizationRateText: "هي نسبة سكان المدن من مجموع السكان في منطقة ما وفي تاريخ محدد. وترتفع هذه النسبة في البلدان المتقدمة (أكثر من 75%) لتبلغ في بعضها أكثر من 90% كما هو الحال في بلجيكا واليابان، بينما تبقى دون 50% في عديد البلدان النامية خاصة في إفريقيا وآسيا الجنوبية.",
+                urbanizationMeasuresTitle: "مقاييس التحضر",
+                cityDefTitle: "تعريف المدينة",
+                cityDefText: "المدينة هي كل تجمع سكني يبلغ حجماً معيناً من السكان يختلف من بلد إلى آخر تهيمن فيه أنشطة غير فلاحية.",
+                quantitativeMeasureTitle: "المقياس الكمي",
+                quantitativeMeasureText: "يعتمد على العدد الأدنى للسكان المجتمعين، والذي يختلف من بلد إلى آخر. فتجمع 200 ساكن في الدنمارك يشكل مدينة، بينما يجب أن يكون العدد 50 ألف ساكن في اليابان. أما في تونس فيُعتمد المقياس الإداري، فكل مركز بلدية يعتبر مدينة دون اعتبار لعدد السكان.",
+                landscapeMeasureTitle: "المقياس المشهدي",
+                landscapeMeasureText: "يقوم على وجود نواة (مركز) تنتظم حولها مباني كثيفة ومتلاصقة تستخدم في أنشطة مختلفة، وتربط شبكات نقل بين أطراف المدينة ومركزها.",
+                functionalMeasureTitle: "المقاييس الوظيفية والنوعية",
+                functionalMeasureText: "تقوم المدينة على أنشطة غير فلاحية مثل الصناعة والخدمات، كما تتميز بثقافة ونمط عيش مميز يختلف عن نمط عيش الريف.",
+                sectionPart2: "مظاهر التحضر",
+                urbanExplosionTitle: "الانفجار الحضري في العالم النامي",
+                urbanExplosionDefTitle: "تعريف الانفجار الحضري",
+                urbanExplosionDefText: "الانفجار الحضري هو تسارع كبير لعدد سكان المدن، وهو ظاهرة تمسّ خاصة البلدان النامية.",
+                urbanExplosionFiguresTitle: "الأرقام الأساسية للانفجار الحضري",
+                urbanExplosionFiguresText: "تزايد عدد السكان الحضر في العالم بنسق سريع ليقفز من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار نسمة سنة 2022، أي بنسبة 57% من مجموع السكان في العالم. ويعود ذلك إلى ظاهرة الانفجار الحضري في البلدان النامية، حيث ارتفع نصيب العالم النامي من السكان الحضر في العالم ليبلغ 76% أي ما يعادل حوالي 3.5 مليار نسمة سنة 2019. ونتيجة لذلك أصبح العالم النامي يحتوي 8 حواضر (مدن كبرى) من بين العشرة مدن الأولى في العالم، بينما كانت 3 حواضر فقط سنة 1950.",
+                urbanExplosionCitiesText: "ومن أكبر المدن الكبرى في العالم سنة 2023: طوكيو (37 مليون نسمة)، دلهي (32 مليون)، شنغهاي (28 مليون)، دكا (23 مليون)، ساو باولو (22 مليون)، والقاهرة (22 مليون)، ومكسيكو سيتي (22 مليون)، وبكين (21 مليون)، ومومباي (21 مليون)، وأوساكا (19 مليون).",
+                disparityTitle: "تفاوت درجات التحضر بين بلدان العالم",
+                disparityText: "تتفاوت درجات التحضر بين بلدان العالم تفاوتاً كبيراً: ففي البلدان المتقدمة بلغت نسبة التحضر أكثر من 75% (بلجيكا 98%، اليابان 92%، أستراليا 86%، الولايات المتحدة 83%)، بينما تبقى في البلدان النامية دون 50% في عديدها (الهند 35%، إفريقيا جنوب الصحراء 42%، جنوب آسيا 40%)، مع وجود تفاوت كبير بين البلدان النامية نفسها (البرازيل 87%، الأرجنتين 92%، الصين 65%). ويمكن تمييز ثلاثة مستويات كبرى: بلدان ذات تحضر مرتفع، وبلدان ذات تحضر متوسط، وبلدان ذات تحضر ضعيف.",
+                sectionPart3: "عوامل التحضر وانعكاساته",
+                urbanFactorsTitle: "عوامل التحضر",
+                developedFactorsTitle: "في العالم المتقدم",
+                developedFactorsText: "يُفسَّر ارتفاع التحضر في العالم المتقدم بالنمو الاقتصادي وبقدم ظاهرة التحضر التي تعود إلى الثورة الصناعية في القرن الثامن عشر، إذ أدى تطور الصناعة والمعامل إلى استقطاب أعداد هامة من السكان نحو المدن، ثم عزّز قطاع الخدمات المتطور هذه الجاذبية.",
+                developingFactorsTitle: "في العالم النامي",
+                developingFactorsIntro: "يمكن أن نفسر ارتفاع التحضر في العالم النامي بالعوامل التالية:",
+                devFactor1: "ارتفاع التزايد الطبيعي لسكان المدن.",
+                devFactor2: "ارتفاع معدل النمو الطبيعي في الأرياف مع تزايد البطالة ومكننة الفلاحة، الأمر الذي زاد في نسق النزوح الريفي.",
+                devFactor3: "تنامي القطاع الصناعي والخدمي في المدن مما وفّر مواطن شغل واستقطب أعداداً هامة من المهاجرين خاصة من الأرياف.",
+                devFactor4: "الثقل الديمغرافي للعالم النامي خاصة الصين والهند مما ساهم في تشكل مدن مليونية.",
+                urbanRepercussionsTitle: "انعكاسات التحضر (الانفجار الحضري) في البلدان النامية",
+                spatialRepercussionsTitle: "مجالياً",
+                spatialRepercussion1: "توسع المدن على حساب الأراضي الزراعية.",
+                spatialRepercussion2: "توسع المدن على الأطراف في شكل ضواحي غالباً ما تكون فوضوية البناء وقليلة التجهيزات الأساسية.",
+                spatialRepercussion3: "يتميز عديد هذه المدن بالمحافظة على نمط عيش أقرب إلى الريف منه إلى المدينة.",
+                environmentalRepercussionsTitle: "بيئياً",
+                environmentalRepercussionsText: "يتسبب التوسع السريع للمدن وتزايد أعداد الحضر في ارتفاع معدلات التلوث في التربة والمياه بسبب تزايد النفايات، وتلوث الهواء لكثرة المصانع والسيارات، إضافة إلى الضغط على الموارد الطبيعية والانبعاثات الكربونية التي تساهم في تغير المناخ.",
+                socialRepercussionsTitle: "اجتماعياً",
+                socialRepercussion1: "تزايد الطلب على الحاجيات الأساسية مثل الصحة والمواد الأساسية الغذائية والماء والكهرباء والسكن والتعليم.",
+                socialRepercussion2: "تفاقم البطالة بسبب عدم قدرة القطاع الصناعي والخدمي على استيعاب العدد الكبير من العاطلين.",
+                socialRepercussion3: "انتشار الأمراض الاجتماعية كالجريمة والسرقة والتسول وأطفال الشوارع.",
+                socialRepercussion4: "ارتفاع أسعار العقارات والإيجارات، مما يزيد من معاناة الفئات الاجتماعية الفقيرة.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "يُعدّ الانفجار الحضري ظاهرة بنيوية في العالم المعاصر، إذ يعيش أكثر من نصف سكان العالم في المدن، ومن المتوقع أن ترتفع هذه النسبة إلى 68% سنة 2050. وتترتب عن هذه الظاهرة انعكاسات متعددة مجالياً وبيئياً واجتماعياً، خاصة في البلدان النامية التي تعرف تحضراً متسارعاً دون أن يرافقه نمو اقتصادي واجتماعي مماثل، مما يطرح تحديات كبرى أمام سياسات التهيئة الترابية والتنمية المستدامة.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryCap1: "تطور سكان المدن في العالم (1950-2050)",
+                galleryCap2: "خريطة التحضر في العالم",
+                galleryCap3: "أكبر المدن في العالم سنة 2023",
+                galleryCap4: "مدينة شنغهاي – مثال على المدن المليونية",
+                galleryCap5: "منطقة عشوائية على أطراف مدينة نامية",
+                galleryCap6: "التلوث الحضري وضغط المدن على البيئة",
+                defLocations: "🌍 دول ومناطق",
+                defTokyo: "طوكيو",
+                defTokyoDesc: "العاصمة اليابانية وأكبر تجمع حضري في العالم، إذ يبلغ عدد سكان تجمعها الحضري حوالي 37 مليون نسمة سنة 2023.",
+                defDelhi: "دلهي",
+                defDelhiDesc: "العاصمة الهندية وثاني أكبر تجمع حضري في العالم بحوالي 32 مليون نسمة سنة 2023، وهي مثال على الانفجار الحضري في البلدان النامية.",
+                defShanghai: "شنغهاي",
+                defShanghaiDesc: "كبرى مدن الصين الاقتصادية وثالث أكبر تجمع حضري في العالم بحوالي 28 مليون نسمة سنة 2023.",
+                defCairo: "القاهرة",
+                defCairoDesc: "عاصمة مصر وكبرى مدن إفريقيا والعالم العربي بحوالي 22 مليون نسمة سنة 2023، وهي مثال على المدن المليونية في البلدان النامية.",
+                defSaoPaulo: "ساو باولو",
+                defSaoPauloDesc: "أكبر مدينة في البرازيل وإحدى أكبر مدن العالم بحوالي 22 مليون نسمة سنة 2023، وتُعد العاصمة الاقتصادية للبرازيل.",
+                defBelgium: "بلجيكا",
+                defBelgiumDesc: "بلد أوروبي متقدم يبلغ فيه معدل التحضر 98%، وهو من أعلى المعدلات في العالم.",
+                defJapan: "اليابان",
+                defJapanDesc: "بلد متقدم في شرق آسيا يبلغ فيه معدل التحضر 92%، ويعتمد على تعريف صارم للمدينة (50 ألف ساكن على الأقل).",
+                defDenmark: "الدنمارك",
+                defDenmarkDesc: "بلد أوروبي متقدم يُعتمد فيه المقياس الكمي المنخفض، إذ يكفي تجمع 200 ساكن لاعتباره مدينة.",
+                defIndia: "الهند",
+                defIndiaDesc: "من أكبر بلدان العالم سكانياً، يبلغ معدل التحضر فيها 35% فقط، وتشهد مدنها الكبرى (دلهي، مومباي) انفجاراً حضرياً كبيراً.",
+                defChina: "الصين",
+                defChinaDesc: "من أكبر بلدان العالم سكانياً، بلغ معدل التحضر فيها 65%، وتضم عديد المدن المليونية (شنغهاي، بكين).",
+                defSubSaharanAfrica: "إفريقيا جنوب الصحراء",
+                defSubSaharanAfricaDesc: "من أقل مناطق العالم تحضراً (42%)، لكنها تعرف انفجاراً حضرياً سريعاً دون نمو اقتصادي مماثل.",
+                defOthers: "📌 أخرى",
+                defUrbanization: "التحضر",
+                defUrbanizationDesc: "تزايد المدن من حيث العدد والحجم والامتداد المجالي وكيفية استخدام الأرض ونمط العيش المميز، وهو ظاهرة عالمية انطلقت منذ منتصف القرن الثامن عشر مع الثورة الصناعية.",
+                defUrbanizationRate: "نسبة التحضر",
+                defUrbanizationRateDesc: "نسبة سكان المدن من مجموع السكان في منطقة ما وفي تاريخ محدد. ترتفع في البلدان المتقدمة (أكثر من 75%) وتنخفض في عديد البلدان النامية (دون 50%).",
+                defCity: "المدينة",
+                defCityDesc: "كل تجمع سكني يبلغ حجماً معيناً من السكان يختلف من بلد إلى آخر، تهيمن فيه أنشطة غير فلاحية كالصناعة والخدمات، ويتميز بنمط عيش حضري مميز.",
+                defUrbanExplosion: "الانفجار الحضري",
+                defUrbanExplosionDesc: "تسارع كبير لعدد سكان المدن، ويُعدّ ظاهرة مميزة للبلدان النامية التي تعرف تحضراً سريعاً دون نمو اقتصادي مماثل. انتقل عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار سنة 2022.",
+                defQuantitativeMeasure: "المقياس الكمي",
+                defQuantitativeMeasureDesc: "مقياس لتعريف المدينة يعتمد على العدد الأدنى للسكان المجتمعين، ويختلف من بلد إلى آخر (200 ساكن في الدنمارك، 50 ألف في اليابان، مقياس إداري في تونس).",
+                defLandscapeMeasure: "المقياس المشهدي",
+                defLandscapeMeasureDesc: "مقياس لتعريف المدينة يقوم على وجود نواة (مركز) تنتظم حولها مباني كثيفة ومتلاصقة تستخدم في أنشطة مختلفة، وتربط شبكات نقل بين أطراف المدينة ومركزها.",
+                defFunctionalMeasure: "المقياس الوظيفي",
+                defFunctionalMeasureDesc: "مقياس لتعريف المدينة يقوم على هيمنة الأنشطة غير الفلاحية (الصناعة والخدمات) وعلى نمط عيش حضري مميز يختلف عن نمط عيش الريف.",
+                defRuralExodus: "النزوح الريفي",
+                defRuralExodusDesc: "هجرة سكان الأرياف نحو المدن، ويُعدّ من أهم عوامل الانفجار الحضري في البلدان النامية، ويفسّره تزايد البطالة ومكننة الفلاحة وتدني مستوى العيش في الأرياف.",
+                defMillionCity: "المدينة المليونية",
+                defMillionCityDesc: "المدينة التي يتجاوز عدد سكانها المليون نسمة، وقد تزايد عددها بشكل كبير في البلدان النامية بفعل الانفجار الحضري.",
+                defShantytowns: "الضواحي",
+                defShantytownsDesc: "مناطق حضرية على أطراف المدن، غالباً ما تكون فوضوية البناء وقليلة التجهيزات الأساسية، وتشهد اكتظاظاً سكانياً كبيراً في البلدان النامية.",
+                defTerritorialPlanning: "التهيئة الترابية",
+                defTerritorialPlanningDesc: "مجموع الإجراءات والخطط التي تضعها الدولة لتنظيم المجال الترابي وتوزيع الأنشطة والسكان بشكل متوازن، وهي من أهم الوسائل لمواجهة انعكاسات الانفجار الحضري.",
+                defYears: "📅 سنوات وفترات",
+                defYear18Desc: "انطلاق ظاهرة التحضر مع الثورة الصناعية في أوروبا الغربية.",
+                defYear1950Desc: "بلغ عدد سكان المدن في العالم 724 مليون نسمة، وكان العالم النامي يحتوي 3 حواضر فقط من بين العشرة مدن الأولى في العالم.",
+                defYear2019Desc: "بلغ عدد سكان المدن في العالم أكثر من 4 مليار نسمة (55.7% من سكان العالم)، وبلغ نصيب العالم النامي 76% (حوالي 3.5 مليار نسمة)، وأصبح يحتوي 8 حواضر من بين العشرة مدن الأولى في العالم.",
+                defYear2022Desc: "بلغ عدد سكان المدن في العالم أكثر من 4.4 مليار نسمة، أي ما يعادل 57% من مجموع سكان العالم.",
+                defYear2023Desc: "تصدّرت طوكيو (37 مليون نسمة) قائمة أكبر المدن في العالم، تليها دلهي (32 مليون)، ثم شنغهاي (28 مليون).",
+                defYear2050Desc: "من المتوقع أن يبلغ عدد سكان المدن في العالم 6.7 مليار نسمة، أي 68% من سكان العالم، وأن يتركز معظم النمو الحضري في البلدان النامية.",
+                summaryText: "خلاصة: يُعدّ التحضر ظاهرة عالمية حديثة انطلقت مع الثورة الصناعية، وانتقل عدد سكان المدن في العالم من 724 مليون نسمة سنة 1950 إلى أكثر من 4.4 مليار سنة 2022 (57%)، ومن المتوقع أن يبلغ 6.7 مليار سنة 2050 (68%). ويتميز الانفجار الحضري في البلدان النامية بسرعة كبيرة مع انعكاسات مجاليه وبيئية واجتماعية متعددة، مما يستوجب سياسات تهيئة ترابية وتنمية مستدامة.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "تطور سكان المدن في العالم",
+                galleryAlt2: "خريطة التحضر في العالم",
+                galleryAlt3: "أكبر المدن في العالم",
+                galleryAlt4: "مدينة شنغهاي",
+                galleryAlt5: "منطقة عشوائية",
+                galleryAlt6: "التلوث الحضري"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Tokyo", class: "key-location", i18n: "defTokyo" },
+                { text: "Delhi", class: "key-location", i18n: "defDelhi" },
+                { text: "Shanghai", class: "key-location", i18n: "defShanghai" },
+                { text: "Cairo", class: "key-location", i18n: "defCairo" },
+                { text: "São Paulo", class: "key-location", i18n: "defSaoPaulo" },
+                { text: "Belgium", class: "key-location", i18n: "defBelgium" },
+                { text: "Japan", class: "key-location", i18n: "defJapan" },
+                { text: "Denmark", class: "key-location", i18n: "defDenmark" },
+                { text: "India", class: "key-location", i18n: "defIndia" },
+                { text: "China", class: "key-location", i18n: "defChina" },
+                { text: "Sub-Saharan Africa", class: "key-location", i18n: "defSubSaharanAfrica" },
+                { text: "Urbanization", class: "key-other", i18n: "defUrbanization" },
+                { text: "Urbanization Rate", class: "key-other", i18n: "defUrbanizationRate" },
+                { text: "City", class: "key-other", i18n: "defCity" },
+                { text: "Urban Explosion", class: "key-other", i18n: "defUrbanExplosion" },
+                { text: "Quantitative Measure", class: "key-other", i18n: "defQuantitativeMeasure" },
+                { text: "Landscape Measure", class: "key-other", i18n: "defLandscapeMeasure" },
+                { text: "Functional Measure", class: "key-other", i18n: "defFunctionalMeasure" },
+                { text: "Rural Exodus", class: "key-other", i18n: "defRuralExodus" },
+                { text: "Million-Inhabitant City", class: "key-other", i18n: "defMillionCity" },
+                { text: "Shantytowns", class: "key-other", i18n: "defShantytowns" },
+                { text: "Territorial Planning", class: "key-other", i18n: "defTerritorialPlanning" },
+                { text: "1950", class: "key-year", i18n: null },
+                { text: "2019", class: "key-year", i18n: null },
+                { text: "2022", class: "key-year", i18n: null },
+                { text: "2023", class: "key-year", i18n: null },
+                { text: "2050", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Tokyo", class: "key-location", i18n: "defTokyo" },
+                { text: "Delhi", class: "key-location", i18n: "defDelhi" },
+                { text: "Shanghai", class: "key-location", i18n: "defShanghai" },
+                { text: "Le Caire", class: "key-location", i18n: "defCairo" },
+                { text: "São Paulo", class: "key-location", i18n: "defSaoPaulo" },
+                { text: "Belgique", class: "key-location", i18n: "defBelgium" },
+                { text: "Japon", class: "key-location", i18n: "defJapan" },
+                { text: "Danemark", class: "key-location", i18n: "defDenmark" },
+                { text: "Inde", class: "key-location", i18n: "defIndia" },
+                { text: "Chine", class: "key-location", i18n: "defChina" },
+                { text: "Afrique subsaharienne", class: "key-location", i18n: "defSubSaharanAfrica" },
+                { text: "Urbanisation", class: "key-other", i18n: "defUrbanization" },
+                { text: "Taux d'urbanisation", class: "key-other", i18n: "defUrbanizationRate" },
+                { text: "Ville", class: "key-other", i18n: "defCity" },
+                { text: "Explosion urbaine", class: "key-other", i18n: "defUrbanExplosion" },
+                { text: "Mesure quantitative", class: "key-other", i18n: "defQuantitativeMeasure" },
+                { text: "Mesure paysagère", class: "key-other", i18n: "defLandscapeMeasure" },
+                { text: "Mesure fonctionnelle", class: "key-other", i18n: "defFunctionalMeasure" },
+                { text: "Exode rural", class: "key-other", i18n: "defRuralExodus" },
+                { text: "Ville millionnaire", class: "key-other", i18n: "defMillionCity" },
+                { text: "Bidonvilles", class: "key-other", i18n: "defShantytowns" },
+                { text: "Aménagement du territoire", class: "key-other", i18n: "defTerritorialPlanning" },
+                { text: "1950", class: "key-year", i18n: null },
+                { text: "2019", class: "key-year", i18n: null },
+                { text: "2022", class: "key-year", i18n: null },
+                { text: "2023", class: "key-year", i18n: null },
+                { text: "2050", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "طوكيو", class: "key-location", i18n: "defTokyo" },
+                { text: "دلهي", class: "key-location", i18n: "defDelhi" },
+                { text: "شنغهاي", class: "key-location", i18n: "defShanghai" },
+                { text: "القاهرة", class: "key-location", i18n: "defCairo" },
+                { text: "ساو باولو", class: "key-location", i18n: "defSaoPaulo" },
+                { text: "بلجيكا", class: "key-location", i18n: "defBelgium" },
+                { text: "اليابان", class: "key-location", i18n: "defJapan" },
+                { text: "الدنمارك", class: "key-location", i18n: "defDenmark" },
+                { text: "الهند", class: "key-location", i18n: "defIndia" },
+                { text: "الصين", class: "key-location", i18n: "defChina" },
+                { text: "إفريقيا جنوب الصحراء", class: "key-location", i18n: "defSubSaharanAfrica" },
+                { text: "التحضر", class: "key-other", i18n: "defUrbanization" },
+                { text: "نسبة التحضر", class: "key-other", i18n: "defUrbanizationRate" },
+                { text: "المدينة", class: "key-other", i18n: "defCity" },
+                { text: "الانفجار الحضري", class: "key-other", i18n: "defUrbanExplosion" },
+                { text: "المقياس الكمي", class: "key-other", i18n: "defQuantitativeMeasure" },
+                { text: "المقياس المشهدي", class: "key-other", i18n: "defLandscapeMeasure" },
+                { text: "المقياس الوظيفي", class: "key-other", i18n: "defFunctionalMeasure" },
+                { text: "النزوح الريفي", class: "key-other", i18n: "defRuralExodus" },
+                { text: "المدينة المليونية", class: "key-other", i18n: "defMillionCity" },
+                { text: "الضواحي", class: "key-other", i18n: "defShantytowns" },
+                { text: "التهيئة الترابية", class: "key-other", i18n: "defTerritorialPlanning" },
+                { text: "1950", class: "key-year", i18n: null },
+                { text: "2019", class: "key-year", i18n: null },
+                { text: "2022", class: "key-year", i18n: null },
+                { text: "2023", class: "key-year", i18n: null },
+                { text: "2050", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

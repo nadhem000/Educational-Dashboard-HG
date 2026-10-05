@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">الجغرافيا / الوحدة الأولى: الإنسان يعمر الأرض</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">الحركية الديمغرافية للسكان</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">تهتمّ الحركية الديمغرافية بنمو السكان والعوامل المرتبطة به، وبتحرّكية السكان في المجال. ويُقصد بالحركية الديمغرافية مجموع التغيّرات التي تطرأ على عدد السكان وتركيبتهم بفعل الولادات والوفيات والهجرات، وهي تختلف من قطر إلى آخر حسب مرحلة الانتقال الديمغرافي التي يمرّ بها.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فما هي خصائص الحركية الديمغرافية بالعالمين النامي والمتقدم؟ وما هي أهمّ تيارات الهجرة العمالية وأسبابها وانعكاساتها؟</p>
+            </div>
+
+            <!-- Part I : Characteristics -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">خصائص الحركية الديمغرافية في العالم النامي والعالم المتقدم</span>
+                </h2>
+
+                <!-- 1. Kenya -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="kenyaTitle">كينيا مثال الأقطار النامية التي تعيش الانفجار الديمغرافي</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="kenyaExplosionTitle">الانفجار السكاني وعوامله</span>
+                </h4>
+                <p data-i18n="kenyaExplosionText">يشهد عدد السكان في كينيا ارتفاعاً سريعاً، حيث تضاعف أكثر من 9 مرات خلال 70 سنة، إذ بلغ 54.7 مليون ساكن سنة 2020. وترتفع نسبة النمو الطبيعي إلى 2.2% سنة 2020.</p>
+                <p><strong data-i18n="kenyaFactorsTitle">عوامل الانفجار السكاني:</strong></p>
+                <ul>
+                    <li data-i18n="kenyaFactor1">ارتفاع نسبة الولادات إلى 27‰ سنة 2020 رغم تراجعها.</li>
+                    <li data-i18n="kenyaFactor2">ارتفاع معدل الخصوبة إلى أكثر من 3 أطفال/امرأة (3.4 طفل لكل امرأة في سن الإنجاب سنة 2020) رغم تراجعها.</li>
+                    <li data-i18n="kenyaFactor3">تراجع نسبة الوفيات.</li>
+                    <li data-i18n="kenyaFactor4">تعدّد الزواج والزواج في سنّ مبكر، وارتفاع نسبة الأمية ونسبة السكان الريفيين، وعدم اعتماد سياسة تحديد النسل إلا بصفة محتشمة ومتأخرة.</li>
+                </ul>
+                <p><strong data-i18n="kenyaRepercussionsTitle">انعكاسات الانفجار الديمغرافي:</strong></p>
+                <ul>
+                    <li data-i18n="kenyaRepercussion1">تركيبة عمرية فتية (أو شابة) حيث تمثّل نسبة الأطفال دون 15 سنة 38% سنة 2020 وهو ما يفسّر القاعدة العريضة لهرم الأعمار، بينما لا تتجاوز نسبة الشيوخ 3% في نفس السنة وهو ما يفسّر القمة الحادة لهرم الأعمار.</li>
+                    <li data-i18n="kenyaRepercussion2">الرفع من نسبة الاستثمارات الديمغرافية والاجتماعية من صحة وتعليم… على حساب استثمارات التنمية.</li>
+                </ul>
+                <p data-i18n="kenyaConclusion">وتتشارك في الخصائص الديمغرافية لكينيا تقريباً كلّ دول العالم النامي.</p>
+
+                <!-- 2. Sweden -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="swedenTitle">السويد مثال الأقطار المتقدمة التي تعيش النضج الديمغرافي</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="swedenSlowdownTitle">الفتور السكاني وعوامله</span>
+                </h4>
+                <p data-i18n="swedenSlowdownText">يشهد عدد السكان بالسويد نمواً بطيئاً ككلّ الدول المتقدمة، فلم يتزايد عدد سكان السويد خلال 70 سنة إلا بـ 3.4 مليون ساكن، وقد قدّر سنة 2020 بـ 10.4 مليون ساكن.</p>
+                <p><strong data-i18n="swedenFactorsTitle">عوامل الفتور السكاني:</strong></p>
+                <ul>
+                    <li data-i18n="swedenFactor1">تراجع نسبة الولادات إلى 11‰ سنة 2020 بعد أن كانت قرابة 15‰ سنة 1950.</li>
+                    <li data-i18n="swedenFactor2">انخفاض مؤشر الخصوبة حيث قدّر بـ 1.7 طفل لكل امرأة في سن الإنجاب سنة 2020.</li>
+                    <li data-i18n="swedenFactor3">انخفاض نسبة الوفيات إلى 9‰ سنة 2020.</li>
+                    <li data-i18n="swedenFactor4">انخفاض نسبة النمو الطبيعي إلى 0.2% سنة 2020.</li>
+                </ul>
+                <p><strong data-i18n="swedenRepercussionsTitle">انعكاسات النمو الديمغرافي البطيء:</strong></p>
+                <ul>
+                    <li data-i18n="swedenRepercussion1">ارتفاع العمر المتوقع عند الميلاد إلى 82 سنة في 2020.</li>
+                    <li data-i18n="swedenRepercussion2">تركيبة عمرية متهرّمة، إذ نلاحظ ارتفاع نسبة الشيوخ إلى حوالي 1/5 السكان سنة 2020، وانخفاض نسبة الأطفال إلى أقل من 18% في نفس السنة.</li>
+                </ul>
+                <p data-i18n="swedenConclusion">والمجتمع المتهرّم هي خاصية كل الدول المتقدمة التي يتّسم هرم أعمارها بتقلّص القاعدة وانتفاخ الوسط وتسطّح القمة.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="swedenPolicyTitle">السياسة السكانية في العالم المتقدم</span>
+                </h4>
+                <p data-i18n="swedenPolicyText">انتهج العالم المتقدم سياسة سكانية تحثّ وتشجع على الإنجاب، فمثلاً بالسويد صاغت الدولة عدة قرارات كتوفير منح العطل طويلة الأمد (450 يوم منها 360 يوم خالصة الأجر) عند كل ولادة، وتقديم منح على الأبناء.</p>
+            </div>
+
+            <!-- Part II : Demographic Transition -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">نظرية الانتقال الديمغرافي</span>
+                </h2>
+
+                <!-- 1. Definition -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="transitionDefTitle">تعريفها</span>
+                </h3>
+                <p data-i18n="transitionDefText">نظرية ظهرت منذ 1934 في دراسة للعالم الفرنسي أدولف لندري حول التطور الديمغرافي، اعتماداً على المسيرة الديمغرافية لأوروبا الغربية، والتي يمكن تطبيقها على بقية أقطار العالم.</p>
+
+                <!-- 2. Stages -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="transitionStagesTitle">مراحل الانتقال الديمغرافي</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="traditionalStageTitle">النظام التقليدي</span>
+                </h4>
+                <p data-i18n="traditionalStageText">يتميّز بولادات مرتفعة (45‰) ووفيات مرتفعة (40‰)، مما يجعل النمو الطبيعي منخفضاً دون 1%.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="transitionStageTitle">مرحلة الانتقال الديمغرافي</span>
+                </h4>
+                <p data-i18n="transitionStageIntro">أي المرور من النظام التقليدي إلى النظام العصري. وتتموقع معظم الدول النامية ضمن هذه المرحلة. ونميّز فيها بين طورين:</p>
+                <ul>
+                    <li data-i18n="explosionPhase"><strong>طور الانفجار:</strong> ويتميّز بتواصل ارتفاع الولادات مع تراجع هامّ للوفيات (21‰)، ويكون بالتالي النمو الطبيعي مرتفعاً (يفوق 2%). وتقع كينيا في هذا الطور.</li>
+                    <li data-i18n="transitionPhase"><strong>طور الانتقال الديمغرافي:</strong> يتواصل فيه انخفاض الوفيات إلى حدود 10 و15‰، ولكن الولادات تسجّل تراجعاً هامّاً (إلى مستوى 20‰)، وبقاء النمو الطبيعي مرتفعاً (بين 1 و2%) رغم تراجعه. وتقع تونس في هذا الطور.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="modernStageTitle">مرحلة النظام العصري (النضج الديمغرافي)</span>
+                </h4>
+                <p data-i18n="modernStageText">أو الطور النهائي، ويتميّز بتراجع نسبة الولادات (13‰) ونسبة الوفيات (9‰)، وبالتالي النمو الطبيعي ضعيف (دون 1%). وتتموقع كل الدول المتقدمة في هذا الطور.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">تختلف الحركية الديمغرافية من قطر إلى آخر نتيجة لاختلاف مراحل الانتقال الديمغرافي واختلاف الحركية المجالية للسكان.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defLandry">أدولف لندري</strong>: <span data-i18n="defLandryDesc">عالم فرنسي صاحب دراسة سنة 1934 حول التطور الديمغرافي، اعتماداً على المسيرة الديمغرافية لأوروبا الغربية، وهي الدراسة التي أسّست لنظرية الانتقال الديمغرافي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defKenya">كينيا</strong>: <span data-i18n="defKenyaDesc">بلد نامٍ في شرق إفريقيا، يُعدّ مثالاً للأقطار النامية التي تعيش الانفجار الديمغرافي، إذ بلغ عدد سكانه 54.7 مليون ساكن سنة 2020، وتضاعف أكثر من 9 مرات خلال 70 سنة، وتقع في طور الانفجار ضمن مرحلة الانتقال الديمغرافي.</span></li>
+                        <li><strong class="key-location" data-i18n="defSweden">السويد</strong>: <span data-i18n="defSwedenDesc">بلد متقدّم في شمال أوروبا، يُعدّ مثالاً للأقطار المتقدمة التي تعيش النضج الديمغرافي، إذ بلغ عدد سكانه 10.4 مليون ساكن سنة 2020، ولم يتزايد خلال 70 سنة إلا بـ 3.4 مليون ساكن، ويتميّز بتركيبة عمرية متهرّمة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defDemographicDynamics">الحركية الديمغرافية</strong>: <span data-i18n="defDemographicDynamicsDesc">مجموع التغيّرات التي تطرأ على عدد السكان وتركيبتهم بفعل الولادات والوفيات والهجرات، وتختلف من قطر إلى آخر حسب مرحلة الانتقال الديمغرافي.</span></li>
+                        <li><strong class="key-other" data-i18n="defDemographicExplosion">الانفجار الديمغرافي</strong>: <span data-i18n="defDemographicExplosionDesc">ارتفاع سريع في عدد السكان ناتج عن ارتفاع نسبة الولادات وتراجع نسبة الوفيات، مما يجعل النمو الطبيعي مرتفعاً (يفوق 2%). تعيشه معظم الدول النامية ومنها كينيا.</span></li>
+                        <li><strong class="key-other" data-i18n="defDemographicSlowdown">الفتور السكاني</strong>: <span data-i18n="defDemographicSlowdownDesc">نمو سكاني بطيء ناتج عن تراجع نسبة الولادات وانخفاض نسبة الوفيات، مما يجعل النمو الطبيعي ضعيفاً (0.2%). تعيشه الدول المتقدمة ومنها السويد.</span></li>
+                        <li><strong class="key-other" data-i18n="defNaturalGrowth">النمو الطبيعي</strong>: <span data-i18n="defNaturalGrowthDesc">الفرق بين نسبة الولادات ونسبة الوفيات في بلد ما خلال سنة، ويُعبّر عنه بالنسبة المائوية، ويكون مرتفعاً في الدول النامية وضعيفاً في الدول المتقدمة.</span></li>
+                        <li><strong class="key-other" data-i18n="defBirthRate">نسبة الولادات</strong>: <span data-i18n="defBirthRateDesc">عدد المواليد لكل ألف ساكن خلال سنة. تبلغ 27‰ في كينيا و11‰ في السويد سنة 2020.</span></li>
+                        <li><strong class="key-other" data-i18n="defDeathRate">نسبة الوفيات</strong>: <span data-i18n="defDeathRateDesc">عدد الوفيات لكل ألف ساكن خلال سنة. تتراجع في كل من كينيا والسويد، إذ بلغت في السويد 9‰ سنة 2020.</span></li>
+                        <li><strong class="key-other" data-i18n="defFertilityRate">معدّل الخصوبة</strong>: <span data-i18n="defFertilityRateDesc">عدد الأطفال لكل امرأة في سنّ الإنجاب. يبلغ 3.4 طفل/امرأة في كينيا و1.7 طفل/امرأة في السويد سنة 2020.</span></li>
+                        <li><strong class="key-other" data-i18n="defDemographicTransition">الانتقال الديمغرافي</strong>: <span data-i18n="defDemographicTransitionDesc">نظرية ظهرت منذ 1934 في دراسة للعالم الفرنسي أدولف لندري، تُفسّر الانتقال من نظام ديمغرافي تقليدي (ولادات ووفيات مرتفعة) إلى نظام عصري (ولادات ووفيات منخفضة)، وتمرّ بثلاث مراحل: النظام التقليدي، مرحلة الانتقال، والنظام العصري.</span></li>
+                        <li><strong class="key-other" data-i18n="defAgePyramid">هرم الأعمار</strong>: <span data-i18n="defAgePyramidDesc">تمثيل بياني لتركيبة السكان حسب السنّ والجنس. يتميّز في الدول النامية بقاعدة عريضة وقمة حادة، وفي الدول المتقدمة بتقلّص القاعدة وانتفاخ الوسط وتسطّح القمة.</span></li>
+                        <li><strong class="key-other" data-i18n="defAgeingSociety">المجتمع المتهرّم</strong>: <span data-i18n="defAgeingSocietyDesc">مجتمع ترتفع فيه نسبة الشيوخ وتنخفض فيه نسبة الأطفال، وهي خاصية كل الدول المتقدمة التي يتّسم هرم أعمارها بتقلّص القاعدة وانتفاخ الوسط وتسطّح القمة، ومنها السويد حيث تبلغ نسبة الشيوخ حوالي 1/5 السكان.</span></li>
+                        <li><strong class="key-other" data-i18n="defDemographicInvestments">الاستثمارات الديمغرافية</strong>: <span data-i18n="defDemographicInvestmentsDesc">الاستثمارات التي توجّهها الدولة في مجالات الصحة والتعليم وخدمات الطفولة، وترتفع في الدول التي تعيش انفجاراً ديمغرافياً على حساب استثمارات التنمية.</span></li>
+                        <li><strong class="key-other" data-i18n="defPopulationPolicy">السياسة السكانية</strong>: <span data-i18n="defPopulationPolicyDesc">مجموع الإجراءات التي تتخذها الدولة للتأثير في نموّ سكانها. في الدول المتقدمة ومنها السويد، تُشجّع على الإنجاب بتوفير منح العطل طويلة الأمد (450 يوم منها 360 يوم خالصة الأجر) ومنح على الأبناء.</span></li>
+                        <li><strong class="key-other" data-i18n="defLifeExpectancy">العمر المتوقع عند الميلاد</strong>: <span data-i18n="defLifeExpectancyDesc">عدد السنوات التي يُتوقّع أن يعيشها المولود في ظروف الوفيات السائدة. يرتفع في الدول المتقدمة (82 سنة في السويد سنة 2020) وينخفض في الدول النامية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: تختلف الحركية الديمغرافية من قطر إلى آخر حسب مرحلة الانتقال الديمغرافي. فالدول النامية ومنها كينيا تعيش الانفجار الديمغرافي بتركيبة عمرية فتية، بينما تعيش الدول المتقدمة ومنها السويد النضج الديمغرافي بتركيبة عمرية متهرّمة وسياسة سكانية مشجّعة على الإنجاب.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson2/kenya_population_pyramid.jpg" alt="هرم أعمار كينيا" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">هرم أعمار كينيا</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson2/sweden_population_pyramid.jpg" alt="هرم أعمار السويد" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">هرم أعمار السويد</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson2/demographic_transition_model.jpg" alt="نموذج الانتقال الديمغرافي" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">نموذج الانتقال الديمغرافي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson2/kenya_population_growth.jpg" alt="تطور عدد سكان كينيا" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">تطور عدد سكان كينيا</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson2/sweden_population_growth.jpg" alt="تطور عدد سكان السويد" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">تطور عدد سكان السويد</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/geography/unit1/lesson2/birth_death_rates_comparison.jpg" alt="مقارنة نسب الولادات والوفيات" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">مقارنة نسب الولادات والوفيات بين كينيا والسويد</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_geo_exercisess_mod1_lesson2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "Geography / Unit 1: Humans Inhabit the Earth",
+                lessonTitleSample: "Demographic Dynamics of the Population",
+                sectionIntro: "Introduction",
+                introText: "Demographic dynamics is concerned with population growth and the factors associated with it, and with population mobility in space. Demographic dynamics refers to all the changes that occur in the number and composition of the population due to births, deaths, and migrations, and it differs from one country to another according to the stage of demographic transition it is going through.",
+                problematiqueText: "What are the characteristics of demographic dynamics in the developing and developed worlds? And what are the most important labor migration flows, their causes, and their repercussions?",
+                sectionPart1: "Characteristics of Demographic Dynamics in the Developing and Developed Worlds",
+                kenyaTitle: "Kenya, an Example of Developing Countries Experiencing Demographic Explosion",
+                kenyaExplosionTitle: "The Population Explosion and Its Factors",
+                kenyaExplosionText: "Kenya's population is experiencing rapid growth, having multiplied more than 9 times over 70 years, reaching 54.7 million inhabitants in 2020. The natural growth rate rose to 2.2% in 2020.",
+                kenyaFactorsTitle: "Factors of the population explosion:",
+                kenyaFactor1: "High birth rate of 27‰ in 2020 despite its decline.",
+                kenyaFactor2: "High fertility rate of more than 3 children per woman (3.4 children per woman of childbearing age in 2020) despite its decline.",
+                kenyaFactor3: "Decline in the death rate.",
+                kenyaFactor4: "Polygamy and early marriage, high illiteracy rate and rural population rate, and the adoption of a birth control policy only modestly and late.",
+                kenyaRepercussionsTitle: "Repercussions of the demographic explosion:",
+                kenyaRepercussion1: "A young age structure, with the proportion of children under 15 reaching 38% in 2020, which explains the broad base of the age pyramid, while the proportion of the elderly does not exceed 3% in the same year, which explains the sharp peak of the age pyramid.",
+                kenyaRepercussion2: "Raising the proportion of demographic and social investments in health, education, etc., at the expense of development investments.",
+                kenyaConclusion: "Kenya's demographic characteristics are shared by almost all developing countries.",
+                swedenTitle: "Sweden, an Example of Developed Countries Experiencing Demographic Maturity",
+                swedenSlowdownTitle: "Population Slowdown and Its Factors",
+                swedenSlowdownText: "Sweden's population is experiencing slow growth like all developed countries; Sweden's population increased by only 3.4 million over 70 years, estimated at 10.4 million in 2020.",
+                swedenFactorsTitle: "Factors of population slowdown:",
+                swedenFactor1: "Decline in the birth rate to 11‰ in 2020, after being around 15‰ in 1950.",
+                swedenFactor2: "Low fertility rate estimated at 1.7 children per woman of childbearing age in 2020.",
+                swedenFactor3: "Decline in the death rate to 9‰ in 2020.",
+                swedenFactor4: "Decline in the natural growth rate to 0.2% in 2020.",
+                swedenRepercussionsTitle: "Repercussions of slow demographic growth:",
+                swedenRepercussion1: "Rise in life expectancy at birth to 82 years in 2020.",
+                swedenRepercussion2: "An ageing age structure, with the proportion of the elderly rising to about 1/5 of the population in 2020, and the proportion of children falling below 18% in the same year.",
+                swedenConclusion: "The ageing society is a characteristic of all developed countries, whose age pyramid is characterized by a shrinking base, a bulging middle, and a flattened top.",
+                swedenPolicyTitle: "Population Policy in the Developed World",
+                swedenPolicyText: "The developed world has adopted a population policy that encourages and promotes childbirth. In Sweden, for example, the state has formulated several decisions such as providing long-term leave grants (450 days, of which 360 days are fully paid) for each birth, and providing child allowances.",
+                sectionPart2: "The Theory of Demographic Transition",
+                transitionDefTitle: "Definition",
+                transitionDefText: "A theory that appeared in 1934 in a study by the French scholar Adolphe Landry on demographic evolution, based on the demographic trajectory of Western Europe, which can be applied to the rest of the world's countries.",
+                transitionStagesTitle: "Stages of Demographic Transition",
+                traditionalStageTitle: "The Traditional System",
+                traditionalStageText: "Characterized by high birth rates (45‰) and high death rates (40‰), making natural growth low, below 1%.",
+                transitionStageTitle: "The Demographic Transition Stage",
+                transitionStageIntro: "That is, the passage from the traditional system to the modern system. Most developing countries are located within this stage. We distinguish within it two phases:",
+                explosionPhase: "<strong>The Explosion Phase:</strong> Characterized by continued high birth rates with a significant decline in death rates (21‰), and thus a high natural growth rate (exceeding 2%). Kenya is located in this phase.",
+                transitionPhase: "<strong>The Demographic Transition Phase:</strong> Death rates continue to decline to around 10-15‰, but birth rates record a significant decline (to the level of 20‰), and natural growth remains high (between 1 and 2%) despite its decline. Tunisia is located in this phase.",
+                modernStageTitle: "The Modern System Stage (Demographic Maturity)",
+                modernStageText: "Or the final phase, characterized by a decline in the birth rate (13‰) and death rate (9‰), and thus weak natural growth (below 1%). All developed countries are located in this phase.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Demographic dynamics differ from one country to another as a result of the difference in stages of demographic transition and the difference in the spatial mobility of populations.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defOthers: "📌 Other",
+                defLandry: "Adolphe Landry",
+                defLandryDesc: "A French scholar who authored a 1934 study on demographic evolution, based on the demographic trajectory of Western Europe, which founded the theory of demographic transition.",
+                defKenya: "Kenya",
+                defKenyaDesc: "A developing country in East Africa, an example of developing countries experiencing demographic explosion. Its population reached 54.7 million in 2020, having multiplied more than 9 times over 70 years. It is located in the explosion phase of the demographic transition stage.",
+                defSweden: "Sweden",
+                defSwedenDesc: "A developed country in northern Europe, an example of developed countries experiencing demographic maturity. Its population reached 10.4 million in 2020, having increased by only 3.4 million over 70 years. It is characterized by an ageing age structure.",
+                defDemographicDynamics: "Demographic Dynamics",
+                defDemographicDynamicsDesc: "All the changes that occur in the number and composition of the population due to births, deaths, and migrations, and it differs from one country to another according to the stage of demographic transition.",
+                defDemographicExplosion: "Demographic Explosion",
+                defDemographicExplosionDesc: "A rapid increase in population resulting from high birth rates and declining death rates, making natural growth high (exceeding 2%). Experienced by most developing countries, including Kenya.",
+                defDemographicSlowdown: "Population Slowdown",
+                defDemographicSlowdownDesc: "Slow population growth resulting from declining birth rates and low death rates, making natural growth weak (0.2%). Experienced by developed countries, including Sweden.",
+                defNaturalGrowth: "Natural Growth",
+                defNaturalGrowthDesc: "The difference between the birth rate and the death rate in a country during a year, expressed as a percentage. It is high in developing countries and weak in developed countries.",
+                defBirthRate: "Birth Rate",
+                defBirthRateDesc: "The number of births per thousand inhabitants during a year. It is 27‰ in Kenya and 11‰ in Sweden in 2020.",
+                defDeathRate: "Death Rate",
+                defDeathRateDesc: "The number of deaths per thousand inhabitants during a year. It is declining in both Kenya and Sweden; it reached 9‰ in Sweden in 2020.",
+                defFertilityRate: "Fertility Rate",
+                defFertilityRateDesc: "The number of children per woman of childbearing age. It is 3.4 children per woman in Kenya and 1.7 children per woman in Sweden in 2020.",
+                defDemographicTransition: "Demographic Transition",
+                defDemographicTransitionDesc: "A theory that appeared in 1934 in a study by the French scholar Adolphe Landry, explaining the transition from a traditional demographic system (high births and deaths) to a modern system (low births and deaths). It passes through three stages: the traditional system, the transition stage, and the modern system.",
+                defAgePyramid: "Age Pyramid",
+                defAgePyramidDesc: "A graphical representation of the population composition by age and sex. In developing countries, it is characterized by a broad base and sharp peak; in developed countries, by a shrinking base, bulging middle, and flattened top.",
+                defAgeingSociety: "Ageing Society",
+                defAgeingSocietyDesc: "A society with a high proportion of the elderly and a low proportion of children, a characteristic of all developed countries whose age pyramid is characterized by a shrinking base, bulging middle, and flattened top, including Sweden where the elderly make up about 1/5 of the population.",
+                defDemographicInvestments: "Demographic Investments",
+                defDemographicInvestmentsDesc: "Investments directed by the state in health, education, and childhood services. They rise in countries experiencing demographic explosion at the expense of development investments.",
+                defPopulationPolicy: "Population Policy",
+                defPopulationPolicyDesc: "The set of measures taken by the state to influence its population growth. In developed countries, including Sweden, it encourages childbirth by providing long-term leave grants (450 days, of which 360 days are fully paid) and child allowances.",
+                defLifeExpectancy: "Life Expectancy at Birth",
+                defLifeExpectancyDesc: "The number of years a newborn is expected to live under prevailing mortality conditions. It is high in developed countries (82 years in Sweden in 2020) and low in developing countries.",
+                summaryText: "Key takeaway: Demographic dynamics differ from one country to another according to the stage of demographic transition. Developing countries, including Kenya, experience demographic explosion with a young age structure, while developed countries, including Sweden, experience demographic maturity with an ageing age structure and a population policy encouraging childbirth.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Kenya population pyramid",
+                galleryAlt2: "Sweden population pyramid",
+                galleryAlt3: "Demographic transition model",
+                galleryAlt4: "Evolution of Kenya's population",
+                galleryAlt5: "Evolution of Sweden's population",
+                galleryAlt6: "Comparison of birth and death rates between Kenya and Sweden",
+                galleryCap1: "Kenya population pyramid",
+                galleryCap2: "Sweden population pyramid",
+                galleryCap3: "Demographic transition model",
+                galleryCap4: "Evolution of Kenya's population",
+                galleryCap5: "Evolution of Sweden's population",
+                galleryCap6: "Comparison of birth and death rates between Kenya and Sweden"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Géographie / Unité 1 : L'homme habite la Terre",
+                lessonTitleSample: "La dynamique démographique de la population",
+                sectionIntro: "Introduction",
+                introText: "La dynamique démographique s'intéresse à la croissance de la population et aux facteurs qui y sont liés, ainsi qu'à la mobilité des populations dans l'espace. La dynamique démographique désigne l'ensemble des changements qui affectent le nombre et la composition de la population sous l'effet des naissances, des décès et des migrations ; elle diffère d'un pays à l'autre selon le stade de la transition démographique qu'il traverse.",
+                problematiqueText: "Quelles sont les caractéristiques de la dynamique démographique dans les mondes en développement et développé ? Et quels sont les principaux flux de migration de travail, leurs causes et leurs répercussions ?",
+                sectionPart1: "Caractéristiques de la dynamique démographique dans le monde en développement et le monde développé",
+                kenyaTitle: "Le Kenya, exemple de pays en développement vivant l'explosion démographique",
+                kenyaExplosionTitle: "L'explosion démographique et ses facteurs",
+                kenyaExplosionText: "La population du Kenya connaît une croissance rapide, ayant été multipliée par plus de 9 en 70 ans, atteignant 54,7 millions d'habitants en 2020. Le taux de croissance naturelle s'élève à 2,2 % en 2020.",
+                kenyaFactorsTitle: "Facteurs de l'explosion démographique :",
+                kenyaFactor1: "Taux de natalité élevé de 27‰ en 2020 malgré sa baisse.",
+                kenyaFactor2: "Taux de fécondité élevé de plus de 3 enfants par femme (3,4 enfants par femme en âge de procréer en 2020) malgré sa baisse.",
+                kenyaFactor3: "Baisse du taux de mortalité.",
+                kenyaFactor4: "Polygamie et mariage précoce, taux d'analphabétisme et de population rurale élevés, et adoption d'une politique de contrôle des naissances de manière modeste et tardive.",
+                kenyaRepercussionsTitle: "Répercussions de l'explosion démographique :",
+                kenyaRepercussion1: "Une structure par âge jeune, la proportion d'enfants de moins de 15 ans atteignant 38 % en 2020, ce qui explique la base large de la pyramide des âges, tandis que la proportion de personnes âgées ne dépasse pas 3 % la même année, ce qui explique le sommet pointu de la pyramide des âges.",
+                kenyaRepercussion2: "L'augmentation de la part des investissements démographiques et sociaux dans la santé, l'éducation, etc., au détriment des investissements de développement.",
+                kenyaConclusion: "Les caractéristiques démographiques du Kenya sont partagées par presque tous les pays en développement.",
+                swedenTitle: "La Suède, exemple de pays développés vivant la maturité démographique",
+                swedenSlowdownTitle: "Le ralentissement démographique et ses facteurs",
+                swedenSlowdownText: "La population de la Suède connaît une croissance lente comme tous les pays développés ; la population suédoise n'a augmenté que de 3,4 millions en 70 ans, estimée à 10,4 millions en 2020.",
+                swedenFactorsTitle: "Facteurs du ralentissement démographique :",
+                swedenFactor1: "Baisse du taux de natalité à 11‰ en 2020, après avoir été d'environ 15‰ en 1950.",
+                swedenFactor2: "Faible taux de fécondité estimé à 1,7 enfant par femme en âge de procréer en 2020.",
+                swedenFactor3: "Baisse du taux de mortalité à 9‰ en 2020.",
+                swedenFactor4: "Baisse du taux de croissance naturelle à 0,2 % en 2020.",
+                swedenRepercussionsTitle: "Répercussions de la croissance démographique lente :",
+                swedenRepercussion1: "Hausse de l'espérance de vie à la naissance à 82 ans en 2020.",
+                swedenRepercussion2: "Une structure par âge vieillissante, la proportion de personnes âgées atteignant environ 1/5 de la population en 2020, et la proportion d'enfants tombant en dessous de 18 % la même année.",
+                swedenConclusion: "La société vieillissante est une caractéristique de tous les pays développés, dont la pyramide des âges se caractérise par une base rétrécie, un milieu bombé et un sommet aplati.",
+                swedenPolicyTitle: "La politique démographique dans le monde développé",
+                swedenPolicyText: "Le monde développé a adopté une politique démographique qui encourage et promeut la natalité. En Suède, par exemple, l'État a formulé plusieurs décisions telles que l'octroi de congés de longue durée (450 jours, dont 360 jours entièrement payés) à chaque naissance, et l'octroi d'allocations familiales.",
+                sectionPart2: "La théorie de la transition démographique",
+                transitionDefTitle: "Définition",
+                transitionDefText: "Une théorie apparue en 1934 dans une étude du savant français Adolphe Landry sur l'évolution démographique, basée sur la trajectoire démographique de l'Europe occidentale, qui peut être appliquée au reste des pays du monde.",
+                transitionStagesTitle: "Les étapes de la transition démographique",
+                traditionalStageTitle: "Le régime traditionnel",
+                traditionalStageText: "Caractérisé par des taux de natalité élevés (45‰) et des taux de mortalité élevés (40‰), ce qui rend la croissance naturelle faible, inférieure à 1 %.",
+                transitionStageTitle: "L'étape de la transition démographique",
+                transitionStageIntro: "C'est-à-dire le passage du régime traditionnel au régime moderne. La plupart des pays en développement se situent dans cette étape. On y distingue deux phases :",
+                explosionPhase: "<strong>La phase d'explosion :</strong> Caractérisée par la poursuite de taux de natalité élevés avec une baisse significative des taux de mortalité (21‰), et donc une croissance naturelle élevée (supérieure à 2 %). Le Kenya se situe dans cette phase.",
+                transitionPhase: "<strong>La phase de transition démographique :</strong> Les taux de mortalité continuent de baisser jusqu'à environ 10-15‰, mais les taux de natalité enregistrent une baisse significative (au niveau de 20‰), et la croissance naturelle reste élevée (entre 1 et 2 %) malgré sa baisse. La Tunisie se situe dans cette phase.",
+                modernStageTitle: "L'étape du régime moderne (maturité démographique)",
+                modernStageText: "Ou la phase finale, caractérisée par une baisse du taux de natalité (13‰) et du taux de mortalité (9‰), et donc une croissance naturelle faible (inférieure à 1 %). Tous les pays développés se situent dans cette phase.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La dynamique démographique diffère d'un pays à l'autre en raison de la différence des étapes de la transition démographique et de la différence de la mobilité spatiale des populations.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays & régions",
+                defOthers: "📌 Autres",
+                defLandry: "Adolphe Landry",
+                defLandryDesc: "Un savant français, auteur d'une étude de 1934 sur l'évolution démographique, basée sur la trajectoire démographique de l'Europe occidentale, qui a fondé la théorie de la transition démographique.",
+                defKenya: "Kenya",
+                defKenyaDesc: "Un pays en développement d'Afrique de l'Est, exemple de pays en développement vivant l'explosion démographique. Sa population a atteint 54,7 millions en 2020, ayant été multipliée par plus de 9 en 70 ans. Il se situe dans la phase d'explosion de l'étape de transition démographique.",
+                defSweden: "Suède",
+                defSwedenDesc: "Un pays développé du nord de l'Europe, exemple de pays développés vivant la maturité démographique. Sa population a atteint 10,4 millions en 2020, n'ayant augmenté que de 3,4 millions en 70 ans. Elle se caractérise par une structure par âge vieillissante.",
+                defDemographicDynamics: "Dynamique démographique",
+                defDemographicDynamicsDesc: "L'ensemble des changements qui affectent le nombre et la composition de la population sous l'effet des naissances, des décès et des migrations ; elle diffère d'un pays à l'autre selon le stade de la transition démographique.",
+                defDemographicExplosion: "Explosion démographique",
+                defDemographicExplosionDesc: "Une augmentation rapide de la population résultant de taux de natalité élevés et de taux de mortalité en baisse, rendant la croissance naturelle élevée (supérieure à 2 %). Vécue par la plupart des pays en développement, dont le Kenya.",
+                defDemographicSlowdown: "Ralentissement démographique",
+                defDemographicSlowdownDesc: "Une croissance démographique lente résultant de la baisse des taux de natalité et de faibles taux de mortalité, rendant la croissance naturelle faible (0,2 %). Vécue par les pays développés, dont la Suède.",
+                defNaturalGrowth: "Croissance naturelle",
+                defNaturalGrowthDesc: "La différence entre le taux de natalité et le taux de mortalité dans un pays pendant une année, exprimée en pourcentage. Elle est élevée dans les pays en développement et faible dans les pays développés.",
+                defBirthRate: "Taux de natalité",
+                defBirthRateDesc: "Le nombre de naissances pour mille habitants pendant une année. Il est de 27‰ au Kenya et de 11‰ en Suède en 2020.",
+                defDeathRate: "Taux de mortalité",
+                defDeathRateDesc: "Le nombre de décès pour mille habitants pendant une année. Il diminue au Kenya comme en Suède ; il a atteint 9‰ en Suède en 2020.",
+                defFertilityRate: "Taux de fécondité",
+                defFertilityRateDesc: "Le nombre d'enfants par femme en âge de procréer. Il est de 3,4 enfants par femme au Kenya et de 1,7 enfant par femme en Suède en 2020.",
+                defDemographicTransition: "Transition démographique",
+                defDemographicTransitionDesc: "Une théorie apparue en 1934 dans une étude du savant français Adolphe Landry, expliquant le passage d'un régime démographique traditionnel (naissances et décès élevés) à un régime moderne (naissances et décès faibles). Elle passe par trois étapes : le régime traditionnel, l'étape de transition et le régime moderne.",
+                defAgePyramid: "Pyramide des âges",
+                defAgePyramidDesc: "Une représentation graphique de la composition de la population par âge et par sexe. Dans les pays en développement, elle se caractérise par une base large et un sommet pointu ; dans les pays développés, par une base rétrécie, un milieu bombé et un sommet aplati.",
+                defAgeingSociety: "Société vieillissante",
+                defAgeingSocietyDesc: "Une société avec une proportion élevée de personnes âgées et une faible proportion d'enfants, caractéristique de tous les pays développés dont la pyramide des âges se caractérise par une base rétrécie, un milieu bombé et un sommet aplati, y compris la Suède où les personnes âgées représentent environ 1/5 de la population.",
+                defDemographicInvestments: "Investissements démographiques",
+                defDemographicInvestmentsDesc: "Les investissements dirigés par l'État dans la santé, l'éducation et les services à l'enfance. Ils augmentent dans les pays vivant une explosion démographique au détriment des investissements de développement.",
+                defPopulationPolicy: "Politique démographique",
+                defPopulationPolicyDesc: "L'ensemble des mesures prises par l'État pour influencer sa croissance démographique. Dans les pays développés, dont la Suède, elle encourage la natalité en offrant des congés de longue durée (450 jours, dont 360 jours entièrement payés) et des allocations familiales.",
+                defLifeExpectancy: "Espérance de vie à la naissance",
+                defLifeExpectancyDesc: "Le nombre d'années qu'un nouveau-né est censé vivre dans les conditions de mortalité existantes. Elle est élevée dans les pays développés (82 ans en Suède en 2020) et faible dans les pays en développement.",
+                summaryText: "À retenir : La dynamique démographique diffère d'un pays à l'autre selon le stade de la transition démographique. Les pays en développement, dont le Kenya, vivent l'explosion démographique avec une structure par âge jeune, tandis que les pays développés, dont la Suède, vivent la maturité démographique avec une structure par âge vieillissante et une politique démographique encourageant la natalité.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Pyramide des âges du Kenya",
+                galleryAlt2: "Pyramide des âges de la Suède",
+                galleryAlt3: "Modèle de transition démographique",
+                galleryAlt4: "Évolution de la population du Kenya",
+                galleryAlt5: "Évolution de la population de la Suède",
+                galleryAlt6: "Comparaison des taux de natalité et de mortalité entre le Kenya et la Suède",
+                galleryCap1: "Pyramide des âges du Kenya",
+                galleryCap2: "Pyramide des âges de la Suède",
+                galleryCap3: "Modèle de transition démographique",
+                galleryCap4: "Évolution de la population du Kenya",
+                galleryCap5: "Évolution de la population de la Suède",
+                galleryCap6: "Comparaison des taux de natalité et de mortalité entre le Kenya et la Suède"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "الجغرافيا / الوحدة الأولى: الإنسان يعمر الأرض",
+                lessonTitleSample: "الحركية الديمغرافية للسكان",
+                sectionIntro: "مقدمة",
+                introText: "تهتمّ الحركية الديمغرافية بنمو السكان والعوامل المرتبطة به، وبتحرّكية السكان في المجال. ويُقصد بالحركية الديمغرافية مجموع التغيّرات التي تطرأ على عدد السكان وتركيبتهم بفعل الولادات والوفيات والهجرات، وهي تختلف من قطر إلى آخر حسب مرحلة الانتقال الديمغرافي التي يمرّ بها.",
+                problematiqueText: "فما هي خصائص الحركية الديمغرافية بالعالمين النامي والمتقدم؟ وما هي أهمّ تيارات الهجرة العمالية وأسبابها وانعكاساتها؟",
+                sectionPart1: "خصائص الحركية الديمغرافية في العالم النامي والعالم المتقدم",
+                kenyaTitle: "كينيا مثال الأقطار النامية التي تعيش الانفجار الديمغرافي",
+                kenyaExplosionTitle: "الانفجار السكاني وعوامله",
+                kenyaExplosionText: "يشهد عدد السكان في كينيا ارتفاعاً سريعاً، حيث تضاعف أكثر من 9 مرات خلال 70 سنة، إذ بلغ 54.7 مليون ساكن سنة 2020. وترتفع نسبة النمو الطبيعي إلى 2.2% سنة 2020.",
+                kenyaFactorsTitle: "عوامل الانفجار السكاني:",
+                kenyaFactor1: "ارتفاع نسبة الولادات إلى 27‰ سنة 2020 رغم تراجعها.",
+                kenyaFactor2: "ارتفاع معدل الخصوبة إلى أكثر من 3 أطفال/امرأة (3.4 طفل لكل امرأة في سن الإنجاب سنة 2020) رغم تراجعها.",
+                kenyaFactor3: "تراجع نسبة الوفيات.",
+                kenyaFactor4: "تعدّد الزواج والزواج في سنّ مبكر، وارتفاع نسبة الأمية ونسبة السكان الريفيين، وعدم اعتماد سياسة تحديد النسل إلا بصفة محتشمة ومتأخرة.",
+                kenyaRepercussionsTitle: "انعكاسات الانفجار الديمغرافي:",
+                kenyaRepercussion1: "تركيبة عمرية فتية (أو شابة) حيث تمثّل نسبة الأطفال دون 15 سنة 38% سنة 2020 وهو ما يفسّر القاعدة العريضة لهرم الأعمار، بينما لا تتجاوز نسبة الشيوخ 3% في نفس السنة وهو ما يفسّر القمة الحادة لهرم الأعمار.",
+                kenyaRepercussion2: "الرفع من نسبة الاستثمارات الديمغرافية والاجتماعية من صحة وتعليم… على حساب استثمارات التنمية.",
+                kenyaConclusion: "وتتشارك في الخصائص الديمغرافية لكينيا تقريباً كلّ دول العالم النامي.",
+                swedenTitle: "السويد مثال الأقطار المتقدمة التي تعيش النضج الديمغرافي",
+                swedenSlowdownTitle: "الفتور السكاني وعوامله",
+                swedenSlowdownText: "يشهد عدد السكان بالسويد نمواً بطيئاً ككلّ الدول المتقدمة، فلم يتزايد عدد سكان السويد خلال 70 سنة إلا بـ 3.4 مليون ساكن، وقد قدّر سنة 2020 بـ 10.4 مليون ساكن.",
+                swedenFactorsTitle: "عوامل الفتور السكاني:",
+                swedenFactor1: "تراجع نسبة الولادات إلى 11‰ سنة 2020 بعد أن كانت قرابة 15‰ سنة 1950.",
+                swedenFactor2: "انخفاض مؤشر الخصوبة حيث قدّر بـ 1.7 طفل لكل امرأة في سن الإنجاب سنة 2020.",
+                swedenFactor3: "انخفاض نسبة الوفيات إلى 9‰ سنة 2020.",
+                swedenFactor4: "انخفاض نسبة النمو الطبيعي إلى 0.2% سنة 2020.",
+                swedenRepercussionsTitle: "انعكاسات النمو الديمغرافي البطيء:",
+                swedenRepercussion1: "ارتفاع العمر المتوقع عند الميلاد إلى 82 سنة في 2020.",
+                swedenRepercussion2: "تركيبة عمرية متهرّمة، إذ نلاحظ ارتفاع نسبة الشيوخ إلى حوالي 1/5 السكان سنة 2020، وانخفاض نسبة الأطفال إلى أقل من 18% في نفس السنة.",
+                swedenConclusion: "والمجتمع المتهرّم هي خاصية كل الدول المتقدمة التي يتّسم هرم أعمارها بتقلّص القاعدة وانتفاخ الوسط وتسطّح القمة.",
+                swedenPolicyTitle: "السياسة السكانية في العالم المتقدم",
+                swedenPolicyText: "انتهج العالم المتقدم سياسة سكانية تحثّ وتشجع على الإنجاب، فمثلاً بالسويد صاغت الدولة عدة قرارات كتوفير منح العطل طويلة الأمد (450 يوم منها 360 يوم خالصة الأجر) عند كل ولادة، وتقديم منح على الأبناء.",
+                sectionPart2: "نظرية الانتقال الديمغرافي",
+                transitionDefTitle: "تعريفها",
+                transitionDefText: "نظرية ظهرت منذ 1934 في دراسة للعالم الفرنسي أدولف لندري حول التطور الديمغرافي، اعتماداً على المسيرة الديمغرافية لأوروبا الغربية، والتي يمكن تطبيقها على بقية أقطار العالم.",
+                transitionStagesTitle: "مراحل الانتقال الديمغرافي",
+                traditionalStageTitle: "النظام التقليدي",
+                traditionalStageText: "يتميّز بولادات مرتفعة (45‰) ووفيات مرتفعة (40‰)، مما يجعل النمو الطبيعي منخفضاً دون 1%.",
+                transitionStageTitle: "مرحلة الانتقال الديمغرافي",
+                transitionStageIntro: "أي المرور من النظام التقليدي إلى النظام العصري. وتتموقع معظم الدول النامية ضمن هذه المرحلة. ونميّز فيها بين طورين:",
+                explosionPhase: "<strong>طور الانفجار:</strong> ويتميّز بتواصل ارتفاع الولادات مع تراجع هامّ للوفيات (21‰)، ويكون بالتالي النمو الطبيعي مرتفعاً (يفوق 2%). وتقع كينيا في هذا الطور.",
+                transitionPhase: "<strong>طور الانتقال الديمغرافي:</strong> يتواصل فيه انخفاض الوفيات إلى حدود 10 و15‰، ولكن الولادات تسجّل تراجعاً هامّاً (إلى مستوى 20‰)، وبقاء النمو الطبيعي مرتفعاً (بين 1 و2%) رغم تراجعه. وتقع تونس في هذا الطور.",
+                modernStageTitle: "مرحلة النظام العصري (النضج الديمغرافي)",
+                modernStageText: "أو الطور النهائي، ويتميّز بتراجع نسبة الولادات (13‰) ونسبة الوفيات (9‰)، وبالتالي النمو الطبيعي ضعيف (دون 1%). وتتموقع كل الدول المتقدمة في هذا الطور.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "تختلف الحركية الديمغرافية من قطر إلى آخر نتيجة لاختلاف مراحل الانتقال الديمغرافي واختلاف الحركية المجالية للسكان.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defOthers: "📌 أخرى",
+                defLandry: "أدولف لندري",
+                defLandryDesc: "عالم فرنسي صاحب دراسة سنة 1934 حول التطور الديمغرافي، اعتماداً على المسيرة الديمغرافية لأوروبا الغربية، وهي الدراسة التي أسّست لنظرية الانتقال الديمغرافي.",
+                defKenya: "كينيا",
+                defKenyaDesc: "بلد نامٍ في شرق إفريقيا، يُعدّ مثالاً للأقطار النامية التي تعيش الانفجار الديمغرافي، إذ بلغ عدد سكانه 54.7 مليون ساكن سنة 2020، وتضاعف أكثر من 9 مرات خلال 70 سنة، وتقع في طور الانفجار ضمن مرحلة الانتقال الديمغرافي.",
+                defSweden: "السويد",
+                defSwedenDesc: "بلد متقدّم في شمال أوروبا، يُعدّ مثالاً للأقطار المتقدمة التي تعيش النضج الديمغرافي، إذ بلغ عدد سكانه 10.4 مليون ساكن سنة 2020، ولم يتزايد خلال 70 سنة إلا بـ 3.4 مليون ساكن، ويتميّز بتركيبة عمرية متهرّمة.",
+                defDemographicDynamics: "الحركية الديمغرافية",
+                defDemographicDynamicsDesc: "مجموع التغيّرات التي تطرأ على عدد السكان وتركيبتهم بفعل الولادات والوفيات والهجرات، وتختلف من قطر إلى آخر حسب مرحلة الانتقال الديمغرافي.",
+                defDemographicExplosion: "الانفجار الديمغرافي",
+                defDemographicExplosionDesc: "ارتفاع سريع في عدد السكان ناتج عن ارتفاع نسبة الولادات وتراجع نسبة الوفيات، مما يجعل النمو الطبيعي مرتفعاً (يفوق 2%). تعيشه معظم الدول النامية ومنها كينيا.",
+                defDemographicSlowdown: "الفتور السكاني",
+                defDemographicSlowdownDesc: "نمو سكاني بطيء ناتج عن تراجع نسبة الولادات وانخفاض نسبة الوفيات، مما يجعل النمو الطبيعي ضعيفاً (0.2%). تعيشه الدول المتقدمة ومنها السويد.",
+                defNaturalGrowth: "النمو الطبيعي",
+                defNaturalGrowthDesc: "الفرق بين نسبة الولادات ونسبة الوفيات في بلد ما خلال سنة، ويُعبّر عنه بالنسبة المائوية، ويكون مرتفعاً في الدول النامية وضعيفاً في الدول المتقدمة.",
+                defBirthRate: "نسبة الولادات",
+                defBirthRateDesc: "عدد المواليد لكل ألف ساكن خلال سنة. تبلغ 27‰ في كينيا و11‰ في السويد سنة 2020.",
+                defDeathRate: "نسبة الوفيات",
+                defDeathRateDesc: "عدد الوفيات لكل ألف ساكن خلال سنة. تتراجع في كل من كينيا والسويد، إذ بلغت في السويد 9‰ سنة 2020.",
+                defFertilityRate: "معدّل الخصوبة",
+                defFertilityRateDesc: "عدد الأطفال لكل امرأة في سنّ الإنجاب. يبلغ 3.4 طفل/امرأة في كينيا و1.7 طفل/امرأة في السويد سنة 2020.",
+                defDemographicTransition: "الانتقال الديمغرافي",
+                defDemographicTransitionDesc: "نظرية ظهرت منذ 1934 في دراسة للعالم الفرنسي أدولف لندري، تُفسّر الانتقال من نظام ديمغرافي تقليدي (ولادات ووفيات مرتفعة) إلى نظام عصري (ولادات ووفيات منخفضة)، وتمرّ بثلاث مراحل: النظام التقليدي، مرحلة الانتقال، والنظام العصري.",
+                defAgePyramid: "هرم الأعمار",
+                defAgePyramidDesc: "تمثيل بياني لتركيبة السكان حسب السنّ والجنس. يتميّز في الدول النامية بقاعدة عريضة وقمة حادة، وفي الدول المتقدمة بتقلّص القاعدة وانتفاخ الوسط وتسطّح القمة.",
+                defAgeingSociety: "المجتمع المتهرّم",
+                defAgeingSocietyDesc: "مجتمع ترتفع فيه نسبة الشيوخ وتنخفض فيه نسبة الأطفال، وهي خاصية كل الدول المتقدمة التي يتّسم هرم أعمارها بتقلّص القاعدة وانتفاخ الوسط وتسطّح القمة، ومنها السويد حيث تبلغ نسبة الشيوخ حوالي 1/5 السكان.",
+                defDemographicInvestments: "الاستثمارات الديمغرافية",
+                defDemographicInvestmentsDesc: "الاستثمارات التي توجّهها الدولة في مجالات الصحة والتعليم وخدمات الطفولة، وترتفع في الدول التي تعيش انفجاراً ديمغرافياً على حساب استثمارات التنمية.",
+                defPopulationPolicy: "السياسة السكانية",
+                defPopulationPolicyDesc: "مجموع الإجراءات التي تتخذها الدولة للتأثير في نموّ سكانها. في الدول المتقدمة ومنها السويد، تُشجّع على الإنجاب بتوفير منح العطل طويلة الأمد (450 يوم منها 360 يوم خالصة الأجر) ومنح على الأبناء.",
+                defLifeExpectancy: "العمر المتوقع عند الميلاد",
+                defLifeExpectancyDesc: "عدد السنوات التي يُتوقّع أن يعيشها المولود في ظروف الوفيات السائدة. يرتفع في الدول المتقدمة (82 سنة في السويد سنة 2020) وينخفض في الدول النامية.",
+                summaryText: "خلاصة: تختلف الحركية الديمغرافية من قطر إلى آخر حسب مرحلة الانتقال الديمغرافي. فالدول النامية ومنها كينيا تعيش الانفجار الديمغرافي بتركيبة عمرية فتية، بينما تعيش الدول المتقدمة ومنها السويد النضج الديمغرافي بتركيبة عمرية متهرّمة وسياسة سكانية مشجّعة على الإنجاب.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "هرم أعمار كينيا",
+                galleryAlt2: "هرم أعمار السويد",
+                galleryAlt3: "نموذج الانتقال الديمغرافي",
+                galleryAlt4: "تطور عدد سكان كينيا",
+                galleryAlt5: "تطور عدد سكان السويد",
+                galleryAlt6: "مقارنة نسب الولادات والوفيات بين كينيا والسويد",
+                galleryCap1: "هرم أعمار كينيا",
+                galleryCap2: "هرم أعمار السويد",
+                galleryCap3: "نموذج الانتقال الديمغرافي",
+                galleryCap4: "تطور عدد سكان كينيا",
+                galleryCap5: "تطور عدد سكان السويد",
+                galleryCap6: "مقارنة نسب الولادات والوفيات بين كينيا والسويد"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Kenya", class: "key-location", i18n: "defKenya" },
+                { text: "Sweden", class: "key-location", i18n: "defSweden" },
+                { text: "Adolphe Landry", class: "key-person", i18n: "defLandry" },
+                { text: "Demographic Dynamics", class: "key-other", i18n: "defDemographicDynamics" },
+                { text: "Demographic Explosion", class: "key-other", i18n: "defDemographicExplosion" },
+                { text: "Population Slowdown", class: "key-other", i18n: "defDemographicSlowdown" },
+                { text: "Natural Growth", class: "key-other", i18n: "defNaturalGrowth" },
+                { text: "Birth Rate", class: "key-other", i18n: "defBirthRate" },
+                { text: "Death Rate", class: "key-other", i18n: "defDeathRate" },
+                { text: "Fertility Rate", class: "key-other", i18n: "defFertilityRate" },
+                { text: "Demographic Transition", class: "key-other", i18n: "defDemographicTransition" },
+                { text: "Age Pyramid", class: "key-other", i18n: "defAgePyramid" },
+                { text: "Ageing Society", class: "key-other", i18n: "defAgeingSociety" },
+                { text: "Demographic Investments", class: "key-other", i18n: "defDemographicInvestments" },
+                { text: "Population Policy", class: "key-other", i18n: "defPopulationPolicy" },
+                { text: "Life Expectancy", class: "key-other", i18n: "defLifeExpectancy" },
+                { text: "1934", class: "key-year", i18n: null },
+                { text: "2020", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Kenya", class: "key-location", i18n: "defKenya" },
+                { text: "Suède", class: "key-location", i18n: "defSweden" },
+                { text: "Adolphe Landry", class: "key-person", i18n: "defLandry" },
+                { text: "Dynamique démographique", class: "key-other", i18n: "defDemographicDynamics" },
+                { text: "Explosion démographique", class: "key-other", i18n: "defDemographicExplosion" },
+                { text: "Ralentissement démographique", class: "key-other", i18n: "defDemographicSlowdown" },
+                { text: "Croissance naturelle", class: "key-other", i18n: "defNaturalGrowth" },
+                { text: "Taux de natalité", class: "key-other", i18n: "defBirthRate" },
+                { text: "Taux de mortalité", class: "key-other", i18n: "defDeathRate" },
+                { text: "Taux de fécondité", class: "key-other", i18n: "defFertilityRate" },
+                { text: "Transition démographique", class: "key-other", i18n: "defDemographicTransition" },
+                { text: "Pyramide des âges", class: "key-other", i18n: "defAgePyramid" },
+                { text: "Société vieillissante", class: "key-other", i18n: "defAgeingSociety" },
+                { text: "Investissements démographiques", class: "key-other", i18n: "defDemographicInvestments" },
+                { text: "Politique démographique", class: "key-other", i18n: "defPopulationPolicy" },
+                { text: "Espérance de vie", class: "key-other", i18n: "defLifeExpectancy" },
+                { text: "1934", class: "key-year", i18n: null },
+                { text: "2020", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "كينيا", class: "key-location", i18n: "defKenya" },
+                { text: "السويد", class: "key-location", i18n: "defSweden" },
+                { text: "أدولف لندري", class: "key-person", i18n: "defLandry" },
+                { text: "الحركية الديمغرافية", class: "key-other", i18n: "defDemographicDynamics" },
+                { text: "الانفجار الديمغرافي", class: "key-other", i18n: "defDemographicExplosion" },
+                { text: "الفتور السكاني", class: "key-other", i18n: "defDemographicSlowdown" },
+                { text: "النمو الطبيعي", class: "key-other", i18n: "defNaturalGrowth" },
+                { text: "نسبة الولادات", class: "key-other", i18n: "defBirthRate" },
+                { text: "نسبة الوفيات", class: "key-other", i18n: "defDeathRate" },
+                { text: "معدل الخصوبة", class: "key-other", i18n: "defFertilityRate" },
+                { text: "الانتقال الديمغرافي", class: "key-other", i18n: "defDemographicTransition" },
+                { text: "هرم الأعمار", class: "key-other", i18n: "defAgePyramid" },
+                { text: "المجتمع المتهرّم", class: "key-other", i18n: "defAgeingSociety" },
+                { text: "الاستثمارات الديمغرافية", class: "key-other", i18n: "defDemographicInvestments" },
+                { text: "السياسة السكانية", class: "key-other", i18n: "defPopulationPolicy" },
+                { text: "العمر المتوقع عند الميلاد", class: "key-other", i18n: "defLifeExpectancy" },
+                { text: "1934", class: "key-year", i18n: null },
+                { text: "2020", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

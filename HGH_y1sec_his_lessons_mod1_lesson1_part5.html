@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">قرطاج: عبقرية حنبعل</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">مع انتصاف القرن الثالث ق.م دخلت قرطاج في سلسلة من الحروب ضد روما تُسمّى الحروب البونية. انطلقت سنة 264 ق.م وانتهت سنة 146 ق.م بسقوط قرطاج. خاضت قرطاج خلال هذه الفترة ثلاث حروب، تُعتبر الحرب الثانية التي قادها حنبعل أهمّها، إذ تمكن بفضل عبقريته أن يهدّد روما في عقر دارها.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">من هو حنبعل؟ وما هي مكوّنات شخصيته وخصاله؟ وكيف ترجمت عبقريته خلال الحرب البونية الثانية؟</p>
+            </div>
+
+            <!-- Part I : Hannibal -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">حنبعل: نشأته، تكوينه وخصاله</span>
+                </h2>
+
+                <!-- 1. Uphringing and formation -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="formationTitle">نشأته وتكوينه</span>
+                </h3>
+                <ul>
+                    <li data-i18n="formation1">ولد حنبعل بقرطاج سنة 247 ق.م، وهو الابن الأكبر لعبد ملقرت من العائلة البرقية.</li>
+                    <li data-i18n="formation2">اصطحبه والده وهو في سنّ العاشرة إلى بلاد الإيبيريا لما كان يتولّى قيادة الجيوش القرطاجية في الحرب البونية الأولى.</li>
+                    <li data-i18n="formation3">تلقّى تربية عسكرية مكثّفة أهلته لقيادة الجيوش وخوض المعارك ببراعة.</li>
+                    <li data-i18n="formation4">حظي بثقافة واسعة على الطريقة الهلنسية، إذ كان يتقن عدّة لغات، وكان له اطّلاع على التيارات الفكرية السائدة في عصره وعلى الآداب والفلسفة الإغريقية. كان شديد الإعجاب بالإسكندر الأكبر حتى اعتبره البعض «إسكندر عصره».</li>
+                    <li data-i18n="formation5">مكّنه تكوينه من دراية كبيرة ودقيقة للوضع السياسي والمحيط الجغرافي والبشري لبلدان حوض البحر المتوسط.</li>
+                    <li data-i18n="formation6">عايش هزيمة قرطاج خلال الحرب البونية الأولى، مما ولّد في نفسه نقمة على التواجد الروماني في قرطاج.</li>
+                    <li data-i18n="formation7">تولّى أمر بلاد الإيبيريا وهو في سنّ السابعة والعشرين.</li>
+                </ul>
+
+                <!-- 2. Qualities -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="qualitiesTitle">خصال حنبعل</span>
+                </h3>
+                <ul>
+                    <li data-i18n="quality1">كان قائداً عسكرياً بارعاً بقدر ما هو أيضاً رجل سياسة ودبلوماسي محنّك، فكأنما جمع بين مهارات والده العسكرية ودهاء صهره أزربعل.</li>
+                    <li data-i18n="quality2">كان شجاعاً ذكياً ملكاً بمختلف قواته، يتواجد دائماً في الصفوف الأمامية عند الحروب، مما أكسبه ثقة جنده وحبّهم له.</li>
+                    <li data-i18n="quality3">تميّز بدهائه وتفنّنه في إعداد الخطط العسكرية، وساعده ذلك على تحقيق عدة انتصارات على أعدائه.</li>
+                </ul>
+            </div>
+
+            <!-- Part II : Genius in Second Punic War -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">عبقرية حنبعل تترجمها الحرب البونية الثانية</span>
+                </h2>
+                <p data-i18n="secondPunicIntro">أدى التنافس في البحر المتوسط بين روما وقرطاج إلى تصادم القوتين منذ منتصف القرن الثالث قبل الميلاد في ثلاث حروب. وقد برزت عبقرية حنبعل خلال الحرب الثانية حين قرّر سنة 218 ق.م مهاجمة روما في عقر دارها.</p>
+
+                <!-- 1. Course of war -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="warCourseTitle">مسار حنبعل خلال الحرب البونية الثانية</span>
+                </h3>
+                <ul>
+                    <li data-i18n="war1">هاجم حنبعل مدينة ساغنتم (Saguntum) فأعلنت روما الحرب على قرطاج لخرقها معاهدة 241 ق.م.</li>
+                    <li data-i18n="war2">انطلقت الجيوش القرطاجية بقيادة حنبعل من مقاطعة إيبريا في ربيع 218 ق.م متجهة إلى روما.</li>
+                    <li data-i18n="war3">اجتاز حنبعل بقواته (التي تألفت حسب بعض المصادر من جندي وعدد من الفيلة) جبال «البيريني» وجبال «الألب»، وتمكّن في طريقه من استمالة عدد كبير من قبائل بلاد الغال في فرنسا.</li>
+                    <li data-i18n="war4">دخل حنبعل الأراضي الرومانية بعد أن فقد عدداً كبيراً من جنده، لكنه في المقابل استطاع عزل الرومان بعد أن تمكّن من عقد صفقات مع حلفائها وتحييدهم.</li>
+                    <li data-i18n="war5">اتبع حنبعل مسلكاً برياً طويلاً وصعباً، لأنه كان يدرك ألّا أمل له في مواجهة الأسطول البحري الروماني الذي يفوق قدرات قرطاج البحرية، وهو ما يؤكد دراية حنبعل بعدوّه.</li>
+                    <li data-i18n="war6">خاض حنبعل ضد روما عدة معارك في المجال الإيطالي وانتصر فيها.</li>
+                    <li data-i18n="war7">أحسّت روما بالخطر فهاجم أسطولها قرطاج التي استنجدت بحنبعل، الذي غادر إيطاليا وارسي بما تبقّى من جند في ليتيس (لمطة)، والتقى بالجيش الروماني في معركة زاما سنة 202 ق.م والتي انتهت بانتصار روما.</li>
+                </ul>
+
+                <!-- 2. Battle of Trasimene -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="trasimeneTitle">معركة تراسيمانوس</span>
+                </h3>
+                <ul>
+                    <li data-i18n="trasimene1">برزت عبقرية حنبعل بشكل واضح خلال هذه المعركة في استغلال المعطيات الطبوغرافية والمناخية لصالحه.</li>
+                    <li data-i18n="trasimene2">قامت خطة تراسيمانوس على تطويع المعطيات الطبوغرافية (البحيرة، المرتفعات، المضيق) لخدمة المعركة، حيث تمت مهاجمة الجيش الروماني بشكل مفاجئ مستغلاً الظروف المناخية (الضباب) من كل الاتجاهات، فتمكّن في ظرف وجيز من تحقيق انتصار باهر أذهل الرومان رغم قلة عدد جنده مقارنة بالرومان.</li>
+                </ul>
+
+                <!-- 3. Battle of Cannae -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="cannaeTitle">معركة قانّة</span>
+                </h3>
+                <ul>
+                    <li data-i18n="cannae1">تُعتبر من أشهر المعارك التي خاضتها قرطاج ضد روما، وقد أبدع خلالها حنبعل وبرهن على ذكائه ودهائه وحذقه لفنون القتال.</li>
+                    <li data-i18n="cannae2">قامت خطته على المراحل التالية:
+                        <ul>
+                            <li data-i18n="cannaeStage1">نظّم جيشه في شكل قوس محدّد في اتجاه الجيش الروماني الذي كان أكثر عدداً للإيهامهم بضعف النقطة الأمامية حتى يركّزوا عليها هجومهم.</li>
+                            <li data-i18n="cannaeStage2">بتقدّم الرومان يتراجع القوس ليصبح شيئاً فشيئاً منفرجاً ليتم تطويق الجيش الروماني بشكل كلّي من كل الاتجاهات ومباغتته بشكل مفاجئ.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="cannae3">تمكّن حنبعل خلال هذه المعركة من تحقيق انتصار سريع وألحق بالجيش الروماني هزيمة مذلّة حطّمت كبرياءه.</li>
+                    <li data-i18n="cannae4">تمكّن حنبعل بفضل هذه الإستراتيجية من تحقيق انتصارات هامة ومفاجئة حطّمت أسطورة الجيش الروماني الذي لا يُقهر.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">حقّق حنبعل خلال الحرب البونية الثانية عدّة انتصارات برهنت على عبقريته، لكن رغم الانتصارات التي حقّقها فإن هزيمة قرطاج في معركة زامة سنة 202 ق.م (أو 201 ق.م) ستمهّد الطريق أمام روما لتهيمن على المنطقة تدريجياً.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defHannibal">حنبعل</strong>: <span data-i18n="defHannibalDesc">قائد عسكري قرطاجي وُلد سنة 247 ق.م، وهو الابن الأكبر لعبد ملقرت من العائلة البرقية. تلقّى تربية عسكرية مكثّفة وثقافة واسعة على الطريقة الهلنسية. تولّى أمر بلاد الإيبيريا في سنّ السابعة والعشرين، وقاد الجيوش القرطاجية في الحرب البونية الثانية، وتميّز بدهائه وتفنّنه في إعداد الخطط العسكرية، حتى اعتبره البعض «إسكندر عصره».</span></li>
+                        <li><strong class="key-person" data-i18n="defHamilcar">عبد ملقرت (أميلقار برقة)</strong>: <span data-i18n="defHamilcarDesc">والد حنبعل، قائد الجيوش القرطاجية في الحرب البونية الأولى ببلاد الإيبيريا، اصطحب حنبعل معه وهو في سنّ العاشرة، وكان له تأثير كبير في تكوينه العسكري.</span></li>
+                        <li><strong class="key-person" data-i18n="defHasdrubal">أزربعل</strong>: <span data-i18n="defHasdrubalDesc">صهر حنبعل، وقد جمع حنبعل بين مهارات والده العسكرية ودهاء صهره أزربعل.</span></li>
+                        <li><strong class="key-person" data-i18n="defAlexander">الإسكندر الأكبر</strong>: <span data-i18n="defAlexanderDesc">قائد مقدوني عظيم، كان حنبعل شديد الإعجاب به حتى اعتبره البعض «إسكندر عصره».</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">مسقط رأس حنبعل، والقوة البحرية والتجارية التي خاضت الحروب البونية ضد روما.</span></li>
+                        <li><strong class="key-location" data-i18n="defRome">روما</strong>: <span data-i18n="defRomeDesc">القوة المنافسة لقرطاج في البحر المتوسط، والتي انتهت الحروب البونية بانتصارها وسقوط قرطاج سنة 146 ق.م.</span></li>
+                        <li><strong class="key-location" data-i18n="defIberia">بلاد الإيبيريا</strong>: <span data-i18n="defIberiaDesc">مقاطعة في شبه الجزيرة الإيبيرية، تولّى حنبعل أمرها في سنّ السابعة والعشرين، وانطلقت منها جيوشه في الحرب البونية الثانية.</span></li>
+                        <li><strong class="key-location" data-i18n="defSaguntum">ساغنتم (Saguntum)</strong>: <span data-i18n="defSaguntumDesc">مدينة هاجمها حنبعل، فأعلنت روما الحرب على قرطاج لخرقها معاهدة 241 ق.م.</span></li>
+                        <li><strong class="key-location" data-i18n="defPyrenees">جبال البيريني</strong>: <span data-i18n="defPyreneesDesc">جبال اجتازها حنبعل بقواته في طريقه من إيبيريا نحو إيطاليا.</span></li>
+                        <li><strong class="key-location" data-i18n="defAlps">جبال الألب</strong>: <span data-i18n="defAlpsDesc">جبال اجتازها حنبعل بقواته وفيلته في طريقه نحو إيطاليا، في واحدة من أعظم الإنجازات العسكرية في التاريخ.</span></li>
+                        <li><strong class="key-location" data-i18n="defGaul">بلاد الغال (فرنسا)</strong>: <span data-i18n="defGaulDesc">منطقة تمكّن حنبعل في طريقه من استمالة عدد كبير من قبائلها إلى جانبه.</span></li>
+                        <li><strong class="key-location" data-i18n="defItaly">إيطاليا</strong>: <span data-i18n="defItalyDesc">المجال الذي خاض فيه حنبعل عدة معارك ضد روما وانتصر فيها.</span></li>
+                        <li><strong class="key-location" data-i18n="defTrasimene">بحيرة تراسيمانوس</strong>: <span data-i18n="defTrasimeneDesc">موقع معركة تراسيمانوس، حيث استغل حنبعل المعطيات الطبوغرافية (البحيرة، المرتفعات، المضيق) والظروف المناخية (الضباب) لتحقيق انتصار باهر.</span></li>
+                        <li><strong class="key-location" data-i18n="defCannae">قانّة</strong>: <span data-i18n="defCannaeDesc">موقع معركة قانّة الشهيرة، التي أبدع فيها حنبعل باستراتيجية القوس والتطويق، وحقّق فيها انتصاراً سريعاً حطّم أسطورة الجيش الروماني.</span></li>
+                        <li><strong class="key-location" data-i18n="defLeptis">ليتيس (لمطة)</strong>: <span data-i18n="defLeptisDesc">المكان الذي ارسى فيه حنبعل بما تبقّى من جنده بعد مغادرته إيطاليا، قبل معركة زاما.</span></li>
+                        <li><strong class="key-location" data-i18n="defZama">زاما</strong>: <span data-i18n="defZamaDesc">موقع المعركة التي انتهت بهزيمة قرطاج سنة 202 ق.م (أو 201 ق.م)، ومهّدت الطريق أمام روما للهيمنة على المنطقة.</span></li>
+                        <li><strong class="key-location" data-i18n="defMediterranean">حوض البحر المتوسط</strong>: <span data-i18n="defMediterraneanDesc">المجال الجغرافي والبشري الذي كانت لحنبعل دراية كبيرة ودقيقة به، بفضل تكوينه الواسع.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defPunicWars">الحروب البونية</strong>: <span data-i18n="defPunicWarsDesc">سلسلة من ثلاث حروب بين قرطاج وروما، انطلقت سنة 264 ق.م وانتهت سنة 146 ق.م بسقوط قرطاج، وتُعتبر الحرب الثانية التي قادها حنبعل أهمّها.</span></li>
+                        <li><strong class="key-event" data-i18n="defFirstPunicWar">الحرب البونية الأولى</strong>: <span data-i18n="defFirstPunicWarDesc">الحرب التي قاد فيها عبد ملقرت، والد حنبعل، الجيوش القرطاجية ببلاد الإيبيريا، وعايش خلالها حنبعل هزيمة قرطاج التي ولّدت في نفسه نقمة على التواجد الروماني.</span></li>
+                        <li><strong class="key-event" data-i18n="defTreaty241">معاهدة 241 ق.م</strong>: <span data-i18n="defTreaty241Desc">المعاهدة التي خرقها حنبعل بمهاجمته مدينة ساغنتم، فأعلنت روما الحرب على قرطاج.</span></li>
+                        <li><strong class="key-event" data-i18n="defSecondPunicWar">الحرب البونية الثانية</strong>: <span data-i18n="defSecondPunicWarDesc">الحرب التي قادها حنبعل منذ 218 ق.م، وهاجم فيها روما في عقر دارها، وخاض فيها معارك تراسيمانوس وقانّة، وانتهت بهزيمة قرطاج في معركة زاما.</span></li>
+                        <li><strong class="key-event" data-i18n="defBattleTrasimene">معركة تراسيمانوس</strong>: <span data-i18n="defBattleTrasimeneDesc">معركة استغل فيها حنبعل المعطيات الطبوغرافية والمناخية (البحيرة، المرتفعات، المضيق، الضباب) لتحقيق انتصار باهر رغم قلة عدد جنده.</span></li>
+                        <li><strong class="key-event" data-i18n="defBattleCannae">معركة قانّة</strong>: <span data-i18n="defBattleCannaeDesc">من أشهر المعارك التي خاضتها قرطاج ضد روما، اعتمد فيها حنبعل استراتيجية القوس والتطويق، وحقّق فيها انتصاراً سريعاً حطّم أسطورة الجيش الروماني.</span></li>
+                        <li><strong class="key-event" data-i18n="defBattleZama">معركة زاما</strong>: <span data-i18n="defBattleZamaDesc">المعركة التي وقعت سنة 202 ق.م (أو 201 ق.م) بين حنبعل والجيش الروماني، وانتهت بانتصار روما، ومهّدت الطريق أمامها للهيمنة على المنطقة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">264 ق.م</strong>: <span data-i18n="defYear264BC">انطلاق الحروب البونية بين قرطاج وروما.</span></li>
+                        <li><strong class="key-year">247 ق.م</strong>: <span data-i18n="defYear247BC">ولادة حنبعل بقرطاج.</span></li>
+                        <li><strong class="key-year">241 ق.م</strong>: <span data-i18n="defYear241BC">المعاهدة التي خرقها حنبعل بمهاجمته ساغنتم، وكانت سبباً في إعلان روما الحرب على قرطاج.</span></li>
+                        <li><strong class="key-year">218 ق.م</strong>: <span data-i18n="defYear218BC">انطلاق الجيوش القرطاجية بقيادة حنبعل من مقاطعة إيبريا نحو روما في ربيع هذا العام.</span></li>
+                        <li><strong class="key-year">202 ق.م</strong>: <span data-i18n="defYear202BC">معركة زاما التي انتهت بانتصار روما على قرطاج.</span></li>
+                        <li><strong class="key-year">146 ق.م</strong>: <span data-i18n="defYear146BC">سقوط قرطاج ونهاية الحروب البونية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defHellenisticCulture">الثقافة الهلنسية</strong>: <span data-i18n="defHellenisticCultureDesc">الثقافة التي حظي بها حنبعل في تكوينه، إذ كان يتقن عدّة لغات، وله اطّلاع على التيارات الفكرية السائدة في عصره وعلى الآداب والفلسفة الإغريقية.</span></li>
+                        <li><strong class="key-other" data-i18n="defMilitaryStrategy">الإستراتيجية العسكرية</strong>: <span data-i18n="defMilitaryStrategyDesc">فنّ إعداد الخطط العسكرية وتنظيم الجيوش واستغلال المعطيات الطبوغرافية والمناخية لتحقيق الانتصار، وقد تميّز فيه حنبعل بشكل بارز.</span></li>
+                        <li><strong class="key-other" data-i18n="defCannaeStrategy">استراتيجية القوس والتطويق</strong>: <span data-i18n="defCannaeStrategyDesc">الخطة التي اعتمدها حنبعل في معركة قانّة، وتقوم على تنظيم الجيش في شكل قوس للإيهام بضعف النقطة الأمامية، ثم التراجع التدريجي لتطويق الجيش الروماني من كل الاتجاهات.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: يُعدّ حنبعل من أعظم القادة العسكريين في التاريخ القديم، إذ جمع بين المهارة العسكرية والدهاء السياسي والدبلوماسي. تكوّن في كنف والده عبد ملقرت وتلقّى ثقافة هلنسية واسعة. وقد ترجمت عبقريته خلال الحرب البونية الثانية (218–202 ق.م) في اجتيازه جبال الألب، وفي انتصاراته في معركتي تراسيمانوس وقانّة بفضل استغلاله الذكي للمعطيات الطبوغرافية والمناخية. لكن هزيمة قرطاج في معركة زاما سنة 202 ق.م مهّدت الطريق أمام روما للهيمنة على المنطقة.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/hannibal_portrait.jpg" alt="حنبعل" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">حنبعل</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/hannibal_alps_crossing.jpg" alt="اجتياز حنبعل لجبال الألب" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">اجتياز حنبعل لجبال الألب بالفيلة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/battle_trasimene_map.jpg" alt="معركة تراسيمانوس" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">مخطط معركة تراسيمانوس</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/battle_cannae_map.jpg" alt="معركة قانة" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">مخطط معركة قانّة واستراتيجية القوس</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/second_punic_war_map.jpg" alt="مسار الحرب البونية الثانية" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">مسار الحرب البونية الثانية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets1sec/lessons/history/unit1/lesson1/battle_zama.jpg" alt="معركة زاما" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">معركة زاما (202 ق.م)</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_his_exercisess_mod1_lesson1_part5.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "History / Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)",
+                lessonTitleSample: "Carthage: The Genius of Hannibal",
+                sectionIntro: "Introduction",
+                introText: "In the mid-3rd century BC, Carthage entered a series of wars against Rome known as the Punic Wars. They began in 264 BC and ended in 146 BC with the fall of Carthage. Carthage fought three wars during this period, and the Second, led by Hannibal, is considered the most important, as he was able, thanks to his genius, to threaten Rome in its own home.",
+                problematiqueText: "Who is Hannibal? What are the components of his personality and his qualities? And how was his genius demonstrated during the Second Punic War?",
+                sectionPart1: "Hannibal: His Upbringing, Formation, and Qualities",
+                formationTitle: "His Upbringing and Formation",
+                formation1: "Hannibal was born in Carthage in 247 BC, the eldest son of Hamilcar Barca of the Barcid family.",
+                formation2: "His father took him at the age of ten to Iberia, when he was commanding the Carthaginian armies in the First Punic War.",
+                formation3: "He received intensive military training that qualified him to lead armies and wage battles skillfully.",
+                formation4: "He enjoyed a broad culture in the Hellenistic manner, mastering several languages and being familiar with the intellectual currents of his time and with Greek literature and philosophy. He deeply admired Alexander the Great, to the point that some considered him 'the Alexander of his age'.",
+                formation5: "His formation gave him great and precise knowledge of the political situation and the geographical and human environment of the countries of the Mediterranean basin.",
+                formation6: "He lived through Carthage's defeat in the First Punic War, which generated in him resentment against the Roman presence in Carthage.",
+                formation7: "He took command of Iberia at the age of twenty-seven.",
+                qualitiesTitle: "Hannibal's Qualities",
+                quality1: "He was a brilliant military commander as much as a skilled politician and diplomat, as if he combined his father's military skills with the cunning of his brother-in-law Hasdrubal.",
+                quality2: "He was brave, intelligent, and master of his various forces, always present in the front ranks in battles, which earned him the trust and love of his soldiers.",
+                quality3: "He was distinguished by his cunning and his mastery in preparing military plans, which helped him achieve several victories over his enemies.",
+                sectionPart2: "Hannibal's Genius Demonstrated by the Second Punic War",
+                secondPunicIntro: "Competition in the Mediterranean between Rome and Carthage led the two powers to clash from the mid-3rd century BC in three wars. Hannibal's genius emerged during the Second War when he decided in 218 BC to attack Rome in its own home.",
+                warCourseTitle: "Hannibal's Course during the Second Punic War",
+                war1: "Hannibal attacked the city of Saguntum, so Rome declared war on Carthage for violating the treaty of 241 BC.",
+                war2: "The Carthaginian armies led by Hannibal set out from the province of Iberia in the spring of 218 BC heading towards Rome.",
+                war3: "Hannibal crossed with his forces (which according to some sources consisted of soldiers and a number of elephants) the Pyrenees and the Alps, and on his way he managed to win over a large number of the tribes of Gaul in France.",
+                war4: "Hannibal entered Roman territory after losing a large number of his soldiers, but in return he was able to isolate the Romans after managing to conclude deals with their allies and neutralize them.",
+                war5: "Hannibal followed a long and difficult land route because he realized he had no hope of confronting the Roman naval fleet that surpassed Carthage's naval capabilities, which confirms Hannibal's knowledge of his enemy.",
+                war6: "Hannibal fought several battles against Rome in the Italian territory and won them.",
+                war7: "Rome sensed the danger, so its fleet attacked Carthage, which appealed to Hannibal, who left Italy and anchored with what remained of his soldiers at Leptis, and met the Roman army at the Battle of Zama in 202 BC, which ended with Rome's victory.",
+                trasimeneTitle: "The Battle of Lake Trasimene",
+                trasimene1: "Hannibal's genius emerged clearly during this battle in exploiting topographical and climatic data to his advantage.",
+                trasimene2: "The Trasimene plan was based on adapting the topographical data (the lake, the heights, the narrow pass) to serve the battle, where the Roman army was attacked suddenly, exploiting the climatic conditions (the fog) from all directions, and he was able in a short time to achieve a brilliant victory that astonished the Romans despite the small number of his soldiers compared to the Romans.",
+                cannaeTitle: "The Battle of Cannae",
+                cannae1: "It is considered one of the most famous battles fought by Carthage against Rome, in which Hannibal excelled and demonstrated his intelligence, cunning, and mastery of the arts of combat.",
+                cannae2: "His plan was based on the following stages:",
+                cannaeStage1: "He organized his army in the shape of an arc oriented towards the Roman army, which was more numerous, to give the impression of weakness at the front point so that they would focus their attack on it.",
+                cannaeStage2: "As the Romans advanced, the arc retreated to become gradually more open, so that the Roman army was completely encircled from all directions and suddenly surprised.",
+                cannae3: "During this battle, Hannibal was able to achieve a rapid victory and inflicted on the Roman army a humiliating defeat that shattered its pride.",
+                cannae4: "Thanks to this strategy, Hannibal was able to achieve important and surprising victories that shattered the myth of the invincible Roman army.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Hannibal achieved during the Second Punic War several victories that demonstrated his genius, but despite the victories he achieved, Carthage's defeat at the Battle of Zama in 202 BC (or 201 BC) would pave the way for Rome to gradually dominate the region.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                galleryCap1: "Hannibal",
+                galleryCap2: "Hannibal crossing the Alps with elephants",
+                galleryCap3: "Plan of the Battle of Trasimene",
+                galleryCap4: "Plan of the Battle of Cannae and the arc strategy",
+                galleryCap5: "Course of the Second Punic War",
+                galleryCap6: "The Battle of Zama (202 BC)",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defHannibal: "Hannibal",
+                defHannibalDesc: "A Carthaginian military commander born in 247 BC, the eldest son of Hamilcar Barca of the Barcid family. He received intensive military training and a broad Hellenistic culture. He took command of Iberia at the age of twenty-seven and led the Carthaginian armies in the Second Punic War. He was distinguished by his cunning and mastery in preparing military plans, to the point that some considered him 'the Alexander of his age'.",
+                defHamilcar: "Hamilcar Barca",
+                defHamilcarDesc: "Hannibal's father, commander of the Carthaginian armies in the First Punic War in Iberia. He took Hannibal with him at the age of ten, and had a great influence on his military formation.",
+                defHasdrubal: "Hasdrubal",
+                defHasdrubalDesc: "Hannibal's brother-in-law; Hannibal combined his father's military skills with the cunning of his brother-in-law Hasdrubal.",
+                defAlexander: "Alexander the Great",
+                defAlexanderDesc: "A great Macedonian commander whom Hannibal deeply admired, to the point that some considered him 'the Alexander of his age'.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "Hannibal's birthplace and the naval and commercial power that fought the Punic Wars against Rome.",
+                defRome: "Rome",
+                defRomeDesc: "Carthage's rival power in the Mediterranean, which ended the Punic Wars with its victory and the fall of Carthage in 146 BC.",
+                defIberia: "Iberia",
+                defIberiaDesc: "A province in the Iberian Peninsula; Hannibal took command of it at the age of twenty-seven, and from it his armies set out in the Second Punic War.",
+                defSaguntum: "Saguntum",
+                defSaguntumDesc: "A city attacked by Hannibal, prompting Rome to declare war on Carthage for violating the treaty of 241 BC.",
+                defPyrenees: "The Pyrenees",
+                defPyreneesDesc: "Mountains crossed by Hannibal and his forces on their way from Iberia towards Italy.",
+                defAlps: "The Alps",
+                defAlpsDesc: "Mountains crossed by Hannibal with his forces and elephants on his way to Italy, in one of the greatest military achievements in history.",
+                defGaul: "Gaul (France)",
+                defGaulDesc: "A region where Hannibal, on his way, managed to win over a large number of its tribes to his side.",
+                defItaly: "Italy",
+                defItalyDesc: "The territory where Hannibal fought several battles against Rome and won them.",
+                defTrasimene: "Lake Trasimene",
+                defTrasimeneDesc: "The site of the Battle of Trasimene, where Hannibal exploited topographical data (the lake, the heights, the narrow pass) and climatic conditions (the fog) to achieve a brilliant victory.",
+                defCannae: "Cannae",
+                defCannaeDesc: "The site of the famous Battle of Cannae, in which Hannibal excelled with the arc and encirclement strategy and achieved a rapid victory that shattered the myth of the Roman army.",
+                defLeptis: "Leptis",
+                defLeptisDesc: "The place where Hannibal anchored with what remained of his soldiers after leaving Italy, before the Battle of Zama.",
+                defZama: "Zama",
+                defZamaDesc: "The site of the battle that ended with Carthage's defeat in 202 BC (or 201 BC), paving the way for Rome to dominate the region.",
+                defMediterranean: "Mediterranean Basin",
+                defMediterraneanDesc: "The geographical and human environment of which Hannibal had great and precise knowledge, thanks to his broad formation.",
+                defPunicWars: "The Punic Wars",
+                defPunicWarsDesc: "A series of three wars between Carthage and Rome, beginning in 264 BC and ending in 146 BC with the fall of Carthage. The Second, led by Hannibal, is considered the most important.",
+                defFirstPunicWar: "The First Punic War",
+                defFirstPunicWarDesc: "The war in which Hamilcar, Hannibal's father, led the Carthaginian armies in Iberia, and during which Hannibal lived through Carthage's defeat, which generated in him resentment against the Roman presence.",
+                defTreaty241: "The Treaty of 241 BC",
+                defTreaty241Desc: "The treaty that Hannibal violated by attacking the city of Saguntum, prompting Rome to declare war on Carthage.",
+                defSecondPunicWar: "The Second Punic War",
+                defSecondPunicWarDesc: "The war led by Hannibal from 218 BC, in which he attacked Rome in its own home, fought the battles of Trasimene and Cannae, and ended with Carthage's defeat at the Battle of Zama.",
+                defBattleTrasimene: "The Battle of Trasimene",
+                defBattleTrasimeneDesc: "A battle in which Hannibal exploited topographical and climatic data (the lake, the heights, the narrow pass, the fog) to achieve a brilliant victory despite the small number of his soldiers.",
+                defBattleCannae: "The Battle of Cannae",
+                defBattleCannaeDesc: "One of the most famous battles fought by Carthage against Rome, in which Hannibal adopted the arc and encirclement strategy and achieved a rapid victory that shattered the myth of the Roman army.",
+                defBattleZama: "The Battle of Zama",
+                defBattleZamaDesc: "The battle that took place in 202 BC (or 201 BC) between Hannibal and the Roman army, ending with Rome's victory and paving the way for its domination of the region.",
+                defYear264BC: "Beginning of the Punic Wars between Carthage and Rome.",
+                defYear247BC: "Birth of Hannibal in Carthage.",
+                defYear241BC: "The treaty that Hannibal violated by attacking Saguntum, which caused Rome to declare war on Carthage.",
+                defYear218BC: "The Carthaginian armies led by Hannibal set out from the province of Iberia towards Rome in the spring of this year.",
+                defYear202BC: "The Battle of Zama, which ended with Rome's victory over Carthage.",
+                defYear146BC: "The fall of Carthage and the end of the Punic Wars.",
+                defHellenisticCulture: "Hellenistic Culture",
+                defHellenisticCultureDesc: "The culture that Hannibal enjoyed in his formation; he mastered several languages and was familiar with the intellectual currents of his time and with Greek literature and philosophy.",
+                defMilitaryStrategy: "Military Strategy",
+                defMilitaryStrategyDesc: "The art of preparing military plans, organizing armies, and exploiting topographical and climatic data to achieve victory; Hannibal was prominently distinguished in it.",
+                defCannaeStrategy: "The Arc and Encirclement Strategy",
+                defCannaeStrategyDesc: "The plan adopted by Hannibal at the Battle of Cannae, based on organizing the army in the shape of an arc to give the impression of weakness at the front point, then gradually retreating to encircle the Roman army from all directions.",
+                summaryText: "Key takeaway: Hannibal is considered one of the greatest military commanders in ancient history, combining military skill with political and diplomatic cunning. He was formed under the wing of his father Hamilcar and received a broad Hellenistic culture. His genius was demonstrated during the Second Punic War (218–202 BC) in his crossing of the Alps and in his victories at the battles of Trasimene and Cannae thanks to his intelligent exploitation of topographical and climatic data. However, Carthage's defeat at the Battle of Zama in 202 BC paved the way for Rome to dominate the region.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Hannibal",
+                galleryAlt2: "Hannibal crossing the Alps",
+                galleryAlt3: "Battle of Trasimene",
+                galleryAlt4: "Battle of Cannae",
+                galleryAlt5: "Course of the Second Punic War",
+                galleryAlt6: "The Battle of Zama"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Histoire / Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)",
+                lessonTitleSample: "Carthage : Le génie d'Hannibal",
+                sectionIntro: "Introduction",
+                introText: "Au milieu du IIIe siècle av. J.-C., Carthage est entrée dans une série de guerres contre Rome appelées les Guerres puniques. Elles ont commencé en 264 av. J.-C. et se sont terminées en 146 av. J.-C. par la chute de Carthage. Carthage a mené trois guerres durant cette période, et la Deuxième, conduite par Hannibal, est considérée comme la plus importante, car il a pu, grâce à son génie, menacer Rome dans ses propres murs.",
+                problematiqueText: "Qui est Hannibal ? Quelles sont les composantes de sa personnalité et ses qualités ? Et comment son génie s'est-il manifesté durant la Deuxième Guerre punique ?",
+                sectionPart1: "Hannibal : sa formation, son éducation et ses qualités",
+                formationTitle: "Sa formation et son éducation",
+                formation1: "Hannibal est né à Carthage en 247 av. J.-C., fils aîné d'Hamilcar Barca de la famille Barcide.",
+                formation2: "Son père l'a emmené à l'âge de dix ans en Ibérie, alors qu'il commandait les armées carthaginoises dans la Première Guerre punique.",
+                formation3: "Il a reçu une formation militaire intensive qui l'a qualifié pour diriger les armées et mener les batailles avec habileté.",
+                formation4: "Il a bénéficié d'une vaste culture à la manière hellénistique, maîtrisant plusieurs langues et connaissant les courants intellectuels de son époque ainsi que la littérature et la philosophie grecques. Il admirait profondément Alexandre le Grand, au point que certains le considéraient comme « l'Alexandre de son époque ».",
+                formation5: "Sa formation lui a donné une connaissance vaste et précise de la situation politique et de l'environnement géographique et humain des pays du bassin méditerranéen.",
+                formation6: "Il a vécu la défaite de Carthage lors de la Première Guerre punique, ce qui a engendré en lui du ressentiment envers la présence romaine à Carthage.",
+                formation7: "Il a pris le commandement de l'Ibérie à l'âge de vingt-sept ans.",
+                qualitiesTitle: "Les qualités d'Hannibal",
+                quality1: "Il était un brillant commandant militaire autant qu'un habile homme politique et diplomate, comme s'il combinait les compétences militaires de son père avec la ruse de son beau-frère Hasdrubal.",
+                quality2: "Il était courageux, intelligent, maître de ses diverses forces, toujours présent dans les rangs avancés lors des batailles, ce qui lui a valu la confiance et l'amour de ses soldats.",
+                quality3: "Il se distinguait par sa ruse et sa maîtrise dans la préparation des plans militaires, ce qui l'a aidé à remporter plusieurs victoires sur ses ennemis.",
+                sectionPart2: "Le génie d'Hannibal démontré par la Deuxième Guerre punique",
+                secondPunicIntro: "La concurrence en Méditerranée entre Rome et Carthage a conduit les deux puissances à s'affronter à partir du milieu du IIIe siècle av. J.-C. dans trois guerres. Le génie d'Hannibal s'est manifesté durant la Deuxième Guerre lorsqu'il a décidé en 218 av. J.-C. d'attaquer Rome dans ses propres murs.",
+                warCourseTitle: "Le parcours d'Hannibal durant la Deuxième Guerre punique",
+                war1: "Hannibal a attaqué la ville de Sagonte, ce qui a conduit Rome à déclarer la guerre à Carthage pour avoir violé le traité de 241 av. J.-C.",
+                war2: "Les armées carthaginoises dirigées par Hannibal sont parties de la province d'Ibérie au printemps 218 av. J.-C. en direction de Rome.",
+                war3: "Hannibal a traversé avec ses forces (qui selon certaines sources comprenaient des soldats et un certain nombre d'éléphants) les Pyrénées et les Alpes, et sur son chemin il a réussi à gagner à sa cause un grand nombre de tribus de la Gaule en France.",
+                war4: "Hannibal est entré en territoire romain après avoir perdu un grand nombre de ses soldats, mais en retour il a pu isoler les Romains après avoir réussi à conclure des accords avec leurs alliés et à les neutraliser.",
+                war5: "Hannibal a suivi une longue et difficile route terrestre car il savait qu'il n'avait aucun espoir d'affronter la flotte navale romaine qui surpassait les capacités navales de Carthage, ce qui confirme la connaissance qu'avait Hannibal de son ennemi.",
+                war6: "Hannibal a livré plusieurs batailles contre Rome sur le territoire italien et les a remportées.",
+                war7: "Rome a senti le danger, sa flotte a donc attaqué Carthage qui a appelé Hannibal à l'aide ; celui-ci a quitté l'Italie et a mouillé avec ce qui restait de ses soldats à Leptis, et a rencontré l'armée romaine à la bataille de Zama en 202 av. J.-C., qui s'est terminée par la victoire de Rome.",
+                trasimeneTitle: "La bataille du lac Trasimène",
+                trasimene1: "Le génie d'Hannibal s'est clairement manifesté durant cette bataille en exploitant les données topographiques et climatiques à son avantage.",
+                trasimene2: "Le plan de Trasimène reposait sur l'adaptation des données topographiques (le lac, les hauteurs, le passage étroit) au service de la bataille, où l'armée romaine a été attaquée par surprise, en exploitant les conditions climatiques (le brouillard) de toutes les directions, et il a pu en peu de temps réaliser une victoire éclatante qui a stupéfié les Romains malgré le petit nombre de ses soldats par rapport aux Romains.",
+                cannaeTitle: "La bataille de Cannes",
+                cannae1: "Elle est considérée comme l'une des plus célèbres batailles livrées par Carthage contre Rome, durant laquelle Hannibal a excellé et a démontré son intelligence, sa ruse et sa maîtrise des arts du combat.",
+                cannae2: "Son plan reposait sur les étapes suivantes :",
+                cannaeStage1: "Il a organisé son armée en forme d'arc orienté vers l'armée romaine, qui était plus nombreuse, pour donner l'impression de faiblesse au point frontal afin qu'ils y concentrent leur attaque.",
+                cannaeStage2: "À mesure que les Romains avançaient, l'arc reculait pour s'ouvrir progressivement, de sorte que l'armée romaine était complètement encerclée de toutes les directions et surprise soudainement.",
+                cannae3: "Durant cette bataille, Hannibal a pu réaliser une victoire rapide et a infligé à l'armée romaine une défaite humiliante qui a brisé son orgueil.",
+                cannae4: "Grâce à cette stratégie, Hannibal a pu réaliser des victoires importantes et surprenantes qui ont brisé le mythe de l'armée romaine invincible.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Hannibal a remporté durant la Deuxième Guerre punique plusieurs victoires qui ont démontré son génie, mais malgré les victoires qu'il a remportées, la défaite de Carthage à la bataille de Zama en 202 av. J.-C. (ou 201 av. J.-C.) ouvrira la voie à Rome pour dominer progressivement la région.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                galleryCap1: "Hannibal",
+                galleryCap2: "Hannibal traversant les Alpes avec des éléphants",
+                galleryCap3: "Plan de la bataille de Trasimène",
+                galleryCap4: "Plan de la bataille de Cannes et la stratégie de l'arc",
+                galleryCap5: "Parcours de la Deuxième Guerre punique",
+                galleryCap6: "La bataille de Zama (202 av. J.-C.)",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays & régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defHannibal: "Hannibal",
+                defHannibalDesc: "Un commandant militaire carthaginois né en 247 av. J.-C., fils aîné d'Hamilcar Barca de la famille Barcide. Il a reçu une formation militaire intensive et une vaste culture hellénistique. Il a pris le commandement de l'Ibérie à l'âge de vingt-sept ans et a dirigé les armées carthaginoises dans la Deuxième Guerre punique. Il se distinguait par sa ruse et sa maîtrise dans la préparation des plans militaires, au point que certains le considéraient comme « l'Alexandre de son époque ».",
+                defHamilcar: "Hamilcar Barca",
+                defHamilcarDesc: "Le père d'Hannibal, commandant des armées carthaginoises dans la Première Guerre punique en Ibérie. Il a emmené Hannibal avec lui à l'âge de dix ans, et a eu une grande influence sur sa formation militaire.",
+                defHasdrubal: "Hasdrubal",
+                defHasdrubalDesc: "Le beau-frère d'Hannibal ; Hannibal combinait les compétences militaires de son père avec la ruse de son beau-frère Hasdrubal.",
+                defAlexander: "Alexandre le Grand",
+                defAlexanderDesc: "Un grand commandant macédonien qu'Hannibal admirait profondément, au point que certains le considéraient comme « l'Alexandre de son époque ».",
+                defCarthage: "Carthage",
+                defCarthageDesc: "Le lieu de naissance d'Hannibal, et la puissance navale et commerciale qui a mené les Guerres puniques contre Rome.",
+                defRome: "Rome",
+                defRomeDesc: "La puissance rivale de Carthage en Méditerranée, qui a mis fin aux Guerres puniques par sa victoire et la chute de Carthage en 146 av. J.-C.",
+                defIberia: "Ibérie",
+                defIberiaDesc: "Une province de la péninsule Ibérique ; Hannibal en a pris le commandement à l'âge de vingt-sept ans, et c'est de là que ses armées sont parties lors de la Deuxième Guerre punique.",
+                defSaguntum: "Sagonte",
+                defSaguntumDesc: "Une ville attaquée par Hannibal, ce qui a conduit Rome à déclarer la guerre à Carthage pour avoir violé le traité de 241 av. J.-C.",
+                defPyrenees: "Les Pyrénées",
+                defPyreneesDesc: "Montagnes traversées par Hannibal et ses forces sur leur chemin de l'Ibérie vers l'Italie.",
+                defAlps: "Les Alpes",
+                defAlpsDesc: "Montagnes traversées par Hannibal avec ses forces et ses éléphants sur son chemin vers l'Italie, dans l'un des plus grands exploits militaires de l'histoire.",
+                defGaul: "La Gaule (France)",
+                defGaulDesc: "Une région où Hannibal, sur son chemin, a réussi à gagner à sa cause un grand nombre de ses tribus.",
+                defItaly: "Italie",
+                defItalyDesc: "Le territoire où Hannibal a livré plusieurs batailles contre Rome et les a remportées.",
+                defTrasimene: "Lac Trasimène",
+                defTrasimeneDesc: "Le site de la bataille de Trasimène, où Hannibal a exploité les données topographiques (le lac, les hauteurs, le passage étroit) et les conditions climatiques (le brouillard) pour remporter une victoire éclatante.",
+                defCannae: "Cannes",
+                defCannaeDesc: "Le site de la célèbre bataille de Cannes, où Hannibal a excellé avec la stratégie de l'arc et de l'encerclement et a remporté une victoire rapide qui a brisé le mythe de l'armée romaine.",
+                defLeptis: "Leptis",
+                defLeptisDesc: "Le lieu où Hannibal a mouillé avec ce qui restait de ses soldats après avoir quitté l'Italie, avant la bataille de Zama.",
+                defZama: "Zama",
+                defZamaDesc: "Le site de la bataille qui s'est terminée par la défaite de Carthage en 202 av. J.-C. (ou 201 av. J.-C.), ouvrant la voie à Rome pour dominer la région.",
+                defMediterranean: "Bassin méditerranéen",
+                defMediterraneanDesc: "L'environnement géographique et humain dont Hannibal avait une connaissance vaste et précise, grâce à sa vaste formation.",
+                defPunicWars: "Les Guerres puniques",
+                defPunicWarsDesc: "Une série de trois guerres entre Carthage et Rome, commençant en 264 av. J.-C. et se terminant en 146 av. J.-C. par la chute de Carthage. La Deuxième, conduite par Hannibal, est considérée comme la plus importante.",
+                defFirstPunicWar: "La Première Guerre punique",
+                defFirstPunicWarDesc: "La guerre durant laquelle Hamilcar, le père d'Hannibal, a dirigé les armées carthaginoises en Ibérie, et durant laquelle Hannibal a vécu la défaite de Carthage, ce qui a engendré en lui du ressentiment envers la présence romaine.",
+                defTreaty241: "Le traité de 241 av. J.-C.",
+                defTreaty241Desc: "Le traité qu'Hannibal a violé en attaquant la ville de Sagonte, ce qui a conduit Rome à déclarer la guerre à Carthage.",
+                defSecondPunicWar: "La Deuxième Guerre punique",
+                defSecondPunicWarDesc: "La guerre conduite par Hannibal à partir de 218 av. J.-C., durant laquelle il a attaqué Rome dans ses propres murs, a livré les batailles de Trasimène et de Cannes, et s'est terminée par la défaite de Carthage à la bataille de Zama.",
+                defBattleTrasimene: "La bataille de Trasimène",
+                defBattleTrasimeneDesc: "Une bataille durant laquelle Hannibal a exploité les données topographiques et climatiques (le lac, les hauteurs, le passage étroit, le brouillard) pour remporter une victoire éclatante malgré le petit nombre de ses soldats.",
+                defBattleCannae: "La bataille de Cannes",
+                defBattleCannaeDesc: "L'une des plus célèbres batailles livrées par Carthage contre Rome, durant laquelle Hannibal a adopté la stratégie de l'arc et de l'encerclement et a remporté une victoire rapide qui a brisé le mythe de l'armée romaine.",
+                defBattleZama: "La bataille de Zama",
+                defBattleZamaDesc: "La bataille qui a eu lieu en 202 av. J.-C. (ou 201 av. J.-C.) entre Hannibal et l'armée romaine, se terminant par la victoire de Rome et ouvrant la voie à sa domination de la région.",
+                defYear264BC: "Début des Guerres puniques entre Carthage et Rome.",
+                defYear247BC: "Naissance d'Hannibal à Carthage.",
+                defYear241BC: "Le traité qu'Hannibal a violé en attaquant Sagonte, ce qui a conduit Rome à déclarer la guerre à Carthage.",
+                defYear218BC: "Les armées carthaginoises dirigées par Hannibal sont parties de la province d'Ibérie vers Rome au printemps de cette année.",
+                defYear202BC: "La bataille de Zama, qui s'est terminée par la victoire de Rome sur Carthage.",
+                defYear146BC: "La chute de Carthage et la fin des Guerres puniques.",
+                defHellenisticCulture: "Culture hellénistique",
+                defHellenisticCultureDesc: "La culture dont Hannibal a bénéficié dans sa formation ; il maîtrisait plusieurs langues et connaissait les courants intellectuels de son époque ainsi que la littérature et la philosophie grecques.",
+                defMilitaryStrategy: "Stratégie militaire",
+                defMilitaryStrategyDesc: "L'art de préparer des plans militaires, d'organiser des armées et d'exploiter les données topographiques et climatiques pour remporter la victoire ; Hannibal s'y distinguait de manière remarquable.",
+                defCannaeStrategy: "La stratégie de l'arc et de l'encerclement",
+                defCannaeStrategyDesc: "Le plan adopté par Hannibal à la bataille de Cannes, reposant sur l'organisation de l'armée en forme d'arc pour donner l'impression de faiblesse au point frontal, puis un recul progressif pour encercler l'armée romaine de toutes les directions.",
+                summaryText: "À retenir : Hannibal est considéré comme l'un des plus grands commandants militaires de l'histoire ancienne, combinant compétence militaire et ruse politique et diplomatique. Il a été formé sous l'aile de son père Hamilcar et a reçu une vaste culture hellénistique. Son génie s'est manifesté durant la Deuxième Guerre punique (218–202 av. J.-C.) par sa traversée des Alpes et ses victoires aux batailles de Trasimène et de Cannes grâce à son exploitation intelligente des données topographiques et climatiques. Cependant, la défaite de Carthage à la bataille de Zama en 202 av. J.-C. a ouvert la voie à Rome pour dominer la région.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Hannibal",
+                galleryAlt2: "Hannibal traversant les Alpes",
+                galleryAlt3: "Bataille de Trasimène",
+                galleryAlt4: "Bataille de Cannes",
+                galleryAlt5: "Parcours de la Deuxième Guerre punique",
+                galleryAlt6: "La bataille de Zama"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)",
+                lessonTitleSample: "قرطاج: عبقرية حنبعل",
+                sectionIntro: "مقدمة",
+                introText: "مع انتصاف القرن الثالث ق.م دخلت قرطاج في سلسلة من الحروب ضد روما تُسمّى الحروب البونية. انطلقت سنة 264 ق.م وانتهت سنة 146 ق.م بسقوط قرطاج. خاضت قرطاج خلال هذه الفترة ثلاث حروب، تُعتبر الحرب الثانية التي قادها حنبعل أهمّها، إذ تمكن بفضل عبقريته أن يهدّد روما في عقر دارها.",
+                problematiqueText: "من هو حنبعل؟ وما هي مكوّنات شخصيته وخصاله؟ وكيف ترجمت عبقريته خلال الحرب البونية الثانية؟",
+                sectionPart1: "حنبعل: نشأته، تكوينه وخصاله",
+                formationTitle: "نشأته وتكوينه",
+                formation1: "ولد حنبعل بقرطاج سنة 247 ق.م، وهو الابن الأكبر لعبد ملقرت من العائلة البرقية.",
+                formation2: "اصطحبه والده وهو في سنّ العاشرة إلى بلاد الإيبيريا لما كان يتولّى قيادة الجيوش القرطاجية في الحرب البونية الأولى.",
+                formation3: "تلقّى تربية عسكرية مكثّفة أهلته لقيادة الجيوش وخوض المعارك ببراعة.",
+                formation4: "حظي بثقافة واسعة على الطريقة الهلنسية، إذ كان يتقن عدّة لغات، وكان له اطّلاع على التيارات الفكرية السائدة في عصره وعلى الآداب والفلسفة الإغريقية. كان شديد الإعجاب بالإسكندر الأكبر حتى اعتبره البعض «إسكندر عصره».",
+                formation5: "مكّنه تكوينه من دراية كبيرة ودقيقة للوضع السياسي والمحيط الجغرافي والبشري لبلدان حوض البحر المتوسط.",
+                formation6: "عايش هزيمة قرطاج خلال الحرب البونية الأولى، مما ولّد في نفسه نقمة على التواجد الروماني في قرطاج.",
+                formation7: "تولّى أمر بلاد الإيبيريا وهو في سنّ السابعة والعشرين.",
+                qualitiesTitle: "خصال حنبعل",
+                quality1: "كان قائداً عسكرياً بارعاً بقدر ما هو أيضاً رجل سياسة ودبلوماسي محنّك، فكأنما جمع بين مهارات والده العسكرية ودهاء صهره أزربعل.",
+                quality2: "كان شجاعاً ذكياً ملكاً بمختلف قواته، يتواجد دائماً في الصفوف الأمامية عند الحروب، مما أكسبه ثقة جنده وحبّهم له.",
+                quality3: "تميّز بدهائه وتفنّنه في إعداد الخطط العسكرية، وساعده ذلك على تحقيق عدة انتصارات على أعدائه.",
+                sectionPart2: "عبقرية حنبعل تترجمها الحرب البونية الثانية",
+                secondPunicIntro: "أدى التنافس في البحر المتوسط بين روما وقرطاج إلى تصادم القوتين منذ منتصف القرن الثالث قبل الميلاد في ثلاث حروب. وقد برزت عبقرية حنبعل خلال الحرب الثانية حين قرّر سنة 218 ق.م مهاجمة روما في عقر دارها.",
+                warCourseTitle: "مسار حنبعل خلال الحرب البونية الثانية",
+                war1: "هاجم حنبعل مدينة ساغنتم (Saguntum) فأعلنت روما الحرب على قرطاج لخرقها معاهدة 241 ق.م.",
+                war2: "انطلقت الجيوش القرطاجية بقيادة حنبعل من مقاطعة إيبريا في ربيع 218 ق.م متجهة إلى روما.",
+                war3: "اجتاز حنبعل بقواته (التي تألفت حسب بعض المصادر من جندي وعدد من الفيلة) جبال «البيريني» وجبال «الألب»، وتمكّن في طريقه من استمالة عدد كبير من قبائل بلاد الغال في فرنسا.",
+                war4: "دخل حنبعل الأراضي الرومانية بعد أن فقد عدداً كبيراً من جنده، لكنه في المقابل استطاع عزل الرومان بعد أن تمكّن من عقد صفقات مع حلفائها وتحييدهم.",
+                war5: "اتبع حنبعل مسلكاً برياً طويلاً وصعباً، لأنه كان يدرك ألّا أمل له في مواجهة الأسطول البحري الروماني الذي يفوق قدرات قرطاج البحرية، وهو ما يؤكد دراية حنبعل بعدوّه.",
+                war6: "خاض حنبعل ضد روما عدة معارك في المجال الإيطالي وانتصر فيها.",
+                war7: "أحسّت روما بالخطر فهاجم أسطولها قرطاج التي استنجدت بحنبعل، الذي غادر إيطاليا وارسي بما تبقّى من جند في ليتيس (لمطة)، والتقى بالجيش الروماني في معركة زاما سنة 202 ق.م والتي انتهت بانتصار روما.",
+                trasimeneTitle: "معركة تراسيمانوس",
+                trasimene1: "برزت عبقرية حنبعل بشكل واضح خلال هذه المعركة في استغلال المعطيات الطبوغرافية والمناخية لصالحه.",
+                trasimene2: "قامت خطة تراسيمانوس على تطويع المعطيات الطبوغرافية (البحيرة، المرتفعات، المضيق) لخدمة المعركة، حيث تمت مهاجمة الجيش الروماني بشكل مفاجئ مستغلاً الظروف المناخية (الضباب) من كل الاتجاهات، فتمكّن في ظرف وجيز من تحقيق انتصار باهر أذهل الرومان رغم قلة عدد جنده مقارنة بالرومان.",
+                cannaeTitle: "معركة قانّة",
+                cannae1: "تُعتبر من أشهر المعارك التي خاضتها قرطاج ضد روما، وقد أبدع خلالها حنبعل وبرهن على ذكائه ودهائه وحذقه لفنون القتال.",
+                cannae2: "قامت خطته على المراحل التالية:",
+                cannaeStage1: "نظّم جيشه في شكل قوس محدّد في اتجاه الجيش الروماني الذي كان أكثر عدداً للإيهامهم بضعف النقطة الأمامية حتى يركّزوا عليها هجومهم.",
+                cannaeStage2: "بتقدّم الرومان يتراجع القوس ليصبح شيئاً فشيئاً منفرجاً ليتم تطويق الجيش الروماني بشكل كلّي من كل الاتجاهات ومباغتته بشكل مفاجئ.",
+                cannae3: "تمكّن حنبعل خلال هذه المعركة من تحقيق انتصار سريع وألحق بالجيش الروماني هزيمة مذلّة حطّمت كبرياءه.",
+                cannae4: "تمكّن حنبعل بفضل هذه الإستراتيجية من تحقيق انتصارات هامة ومفاجئة حطّمت أسطورة الجيش الروماني الذي لا يُقهر.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "حقّق حنبعل خلال الحرب البونية الثانية عدّة انتصارات برهنت على عبقريته، لكن رغم الانتصارات التي حقّقها فإن هزيمة قرطاج في معركة زامة سنة 202 ق.م (أو 201 ق.م) ستمهّد الطريق أمام روما لتهيمن على المنطقة تدريجياً.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                galleryCap1: "حنبعل",
+                galleryCap2: "اجتياز حنبعل لجبال الألب بالفيلة",
+                galleryCap3: "مخطط معركة تراسيمانوس",
+                galleryCap4: "مخطط معركة قانّة واستراتيجية القوس",
+                galleryCap5: "مسار الحرب البونية الثانية",
+                galleryCap6: "معركة زاما (202 ق.م)",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defHannibal: "حنبعل",
+                defHannibalDesc: "قائد عسكري قرطاجي وُلد سنة 247 ق.م، وهو الابن الأكبر لعبد ملقرت من العائلة البرقية. تلقّى تربية عسكرية مكثّفة وثقافة واسعة على الطريقة الهلنسية. تولّى أمر بلاد الإيبيريا في سنّ السابعة والعشرين، وقاد الجيوش القرطاجية في الحرب البونية الثانية، وتميّز بدهائه وتفنّنه في إعداد الخطط العسكرية، حتى اعتبره البعض «إسكندر عصره».",
+                defHamilcar: "عبد ملقرت (أميلقار برقة)",
+                defHamilcarDesc: "والد حنبعل، قائد الجيوش القرطاجية في الحرب البونية الأولى ببلاد الإيبيريا، اصطحب حنبعل معه وهو في سنّ العاشرة، وكان له تأثير كبير في تكوينه العسكري.",
+                defHasdrubal: "أزربعل",
+                defHasdrubalDesc: "صهر حنبعل، وقد جمع حنبعل بين مهارات والده العسكرية ودهاء صهره أزربعل.",
+                defAlexander: "الإسكندر الأكبر",
+                defAlexanderDesc: "قائد مقدوني عظيم، كان حنبعل شديد الإعجاب به حتى اعتبره البعض «إسكندر عصره».",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "مسقط رأس حنبعل، والقوة البحرية والتجارية التي خاضت الحروب البونية ضد روما.",
+                defRome: "روما",
+                defRomeDesc: "القوة المنافسة لقرطاج في البحر المتوسط، والتي انتهت الحروب البونية بانتصارها وسقوط قرطاج سنة 146 ق.م.",
+                defIberia: "بلاد الإيبيريا",
+                defIberiaDesc: "مقاطعة في شبه الجزيرة الإيبيرية، تولّى حنبعل أمرها في سنّ السابعة والعشرين، وانطلقت منها جيوشه في الحرب البونية الثانية.",
+                defSaguntum: "ساغنتم (Saguntum)",
+                defSaguntumDesc: "مدينة هاجمها حنبعل، فأعلنت روما الحرب على قرطاج لخرقها معاهدة 241 ق.م.",
+                defPyrenees: "جبال البيريني",
+                defPyreneesDesc: "جبال اجتازها حنبعل بقواته في طريقه من إيبيريا نحو إيطاليا.",
+                defAlps: "جبال الألب",
+                defAlpsDesc: "جبال اجتازها حنبعل بقواته وفيلته في طريقه نحو إيطاليا، في واحدة من أعظم الإنجازات العسكرية في التاريخ.",
+                defGaul: "بلاد الغال (فرنسا)",
+                defGaulDesc: "منطقة تمكّن حنبعل في طريقه من استمالة عدد كبير من قبائلها إلى جانبه.",
+                defItaly: "إيطاليا",
+                defItalyDesc: "المجال الذي خاض فيه حنبعل عدة معارك ضد روما وانتصر فيها.",
+                defTrasimene: "بحيرة تراسيمانوس",
+                defTrasimeneDesc: "موقع معركة تراسيمانوس، حيث استغل حنبعل المعطيات الطبوغرافية (البحيرة، المرتفعات، المضيق) والظروف المناخية (الضباب) لتحقيق انتصار باهر.",
+                defCannae: "قانّة",
+                defCannaeDesc: "موقع معركة قانّة الشهيرة، التي أبدع فيها حنبعل باستراتيجية القوس والتطويق، وحقّق فيها انتصاراً سريعاً حطّم أسطورة الجيش الروماني.",
+                defLeptis: "ليتيس (لمطة)",
+                defLeptisDesc: "المكان الذي ارسى فيه حنبعل بما تبقّى من جنده بعد مغادرته إيطاليا، قبل معركة زاما.",
+                defZama: "زاما",
+                defZamaDesc: "موقع المعركة التي انتهت بهزيمة قرطاج سنة 202 ق.م (أو 201 ق.م)، ومهّدت الطريق أمام روما للهيمنة على المنطقة.",
+                defMediterranean: "حوض البحر المتوسط",
+                defMediterraneanDesc: "المجال الجغرافي والبشري الذي كانت لحنبعل دراية كبيرة ودقيقة به، بفضل تكوينه الواسع.",
+                defPunicWars: "الحروب البونية",
+                defPunicWarsDesc: "سلسلة من ثلاث حروب بين قرطاج وروما، انطلقت سنة 264 ق.م وانتهت سنة 146 ق.م بسقوط قرطاج، وتُعتبر الحرب الثانية التي قادها حنبعل أهمّها.",
+                defFirstPunicWar: "الحرب البونية الأولى",
+                defFirstPunicWarDesc: "الحرب التي قاد فيها عبد ملقرت، والد حنبعل، الجيوش القرطاجية ببلاد الإيبيريا، وعايش خلالها حنبعل هزيمة قرطاج التي ولّدت في نفسه نقمة على التواجد الروماني.",
+                defTreaty241: "معاهدة 241 ق.م",
+                defTreaty241Desc: "المعاهدة التي خرقها حنبعل بمهاجمته مدينة ساغنتم، فأعلنت روما الحرب على قرطاج.",
+                defSecondPunicWar: "الحرب البونية الثانية",
+                defSecondPunicWarDesc: "الحرب التي قادها حنبعل منذ 218 ق.م، وهاجم فيها روما في عقر دارها، وخاض فيها معارك تراسيمانوس وقانّة، وانتهت بهزيمة قرطاج في معركة زاما.",
+                defBattleTrasimene: "معركة تراسيمانوس",
+                defBattleTrasimeneDesc: "معركة استغل فيها حنبعل المعطيات الطبوغرافية والمناخية (البحيرة، المرتفعات، المضيق، الضباب) لتحقيق انتصار باهر رغم قلة عدد جنده.",
+                defBattleCannae: "معركة قانّة",
+                defBattleCannaeDesc: "من أشهر المعارك التي خاضتها قرطاج ضد روما، اعتمد فيها حنبعل استراتيجية القوس والتطويق، وحقّق فيها انتصاراً سريعاً حطّم أسطورة الجيش الروماني.",
+                defBattleZama: "معركة زاما",
+                defBattleZamaDesc: "المعركة التي وقعت سنة 202 ق.م (أو 201 ق.م) بين حنبعل والجيش الروماني، وانتهت بانتصار روما، ومهّدت الطريق أمامها للهيمنة على المنطقة.",
+                defYear264BC: "انطلاق الحروب البونية بين قرطاج وروما.",
+                defYear247BC: "ولادة حنبعل بقرطاج.",
+                defYear241BC: "المعاهدة التي خرقها حنبعل بمهاجمته ساغنتم، وكانت سبباً في إعلان روما الحرب على قرطاج.",
+                defYear218BC: "انطلاق الجيوش القرطاجية بقيادة حنبعل من مقاطعة إيبريا نحو روما في ربيع هذا العام.",
+                defYear202BC: "معركة زاما التي انتهت بانتصار روما على قرطاج.",
+                defYear146BC: "سقوط قرطاج ونهاية الحروب البونية.",
+                defHellenisticCulture: "الثقافة الهلنسية",
+                defHellenisticCultureDesc: "الثقافة التي حظي بها حنبعل في تكوينه، إذ كان يتقن عدّة لغات، وله اطّلاع على التيارات الفكرية السائدة في عصره وعلى الآداب والفلسفة الإغريقية.",
+                defMilitaryStrategy: "الإستراتيجية العسكرية",
+                defMilitaryStrategyDesc: "فنّ إعداد الخطط العسكرية وتنظيم الجيوش واستغلال المعطيات الطبوغرافية والمناخية لتحقيق الانتصار، وقد تميّز فيه حنبعل بشكل بارز.",
+                defCannaeStrategy: "استراتيجية القوس والتطويق",
+                defCannaeStrategyDesc: "الخطة التي اعتمدها حنبعل في معركة قانّة، وتقوم على تنظيم الجيش في شكل قوس للإيهام بضعف النقطة الأمامية، ثم التراجع التدريجي لتطويق الجيش الروماني من كل الاتجاهات.",
+                summaryText: "خلاصة: يُعدّ حنبعل من أعظم القادة العسكريين في التاريخ القديم، إذ جمع بين المهارة العسكرية والدهاء السياسي والدبلوماسي. تكوّن في كنف والده عبد ملقرت وتلقّى ثقافة هلنسية واسعة. وقد ترجمت عبقريته خلال الحرب البونية الثانية (218–202 ق.م) في اجتيازه جبال الألب، وفي انتصاراته في معركتي تراسيمانوس وقانّة بفضل استغلاله الذكي للمعطيات الطبوغرافية والمناخية. لكن هزيمة قرطاج في معركة زاما سنة 202 ق.م مهّدت الطريق أمام روما للهيمنة على المنطقة.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "حنبعل",
+                galleryAlt2: "اجتياز حنبعل لجبال الألب",
+                galleryAlt3: "معركة تراسيمانوس",
+                galleryAlt4: "معركة قانّة",
+                galleryAlt5: "مسار الحرب البونية الثانية",
+                galleryAlt6: "معركة زاما"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Hannibal", class: "key-person", i18n: "defHannibal" },
+                { text: "Hamilcar", class: "key-person", i18n: "defHamilcar" },
+                { text: "Hasdrubal", class: "key-person", i18n: "defHasdrubal" },
+                { text: "Alexander the Great", class: "key-person", i18n: "defAlexander" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Iberia", class: "key-location", i18n: "defIberia" },
+                { text: "Saguntum", class: "key-location", i18n: "defSaguntum" },
+                { text: "Pyrenees", class: "key-location", i18n: "defPyrenees" },
+                { text: "Alps", class: "key-location", i18n: "defAlps" },
+                { text: "Gaul", class: "key-location", i18n: "defGaul" },
+                { text: "Italy", class: "key-location", i18n: "defItaly" },
+                { text: "Trasimene", class: "key-location", i18n: "defTrasimene" },
+                { text: "Cannae", class: "key-location", i18n: "defCannae" },
+                { text: "Leptis", class: "key-location", i18n: "defLeptis" },
+                { text: "Zama", class: "key-location", i18n: "defZama" },
+                { text: "Mediterranean", class: "key-location", i18n: "defMediterranean" },
+                { text: "Punic Wars", class: "key-event", i18n: "defPunicWars" },
+                { text: "First Punic War", class: "key-event", i18n: "defFirstPunicWar" },
+                { text: "Treaty of 241 BC", class: "key-event", i18n: "defTreaty241" },
+                { text: "Second Punic War", class: "key-event", i18n: "defSecondPunicWar" },
+                { text: "Battle of Trasimene", class: "key-event", i18n: "defBattleTrasimene" },
+                { text: "Battle of Cannae", class: "key-event", i18n: "defBattleCannae" },
+                { text: "Battle of Zama", class: "key-event", i18n: "defBattleZama" },
+                { text: "264 BC", class: "key-year", i18n: null },
+                { text: "247 BC", class: "key-year", i18n: null },
+                { text: "241 BC", class: "key-year", i18n: null },
+                { text: "218 BC", class: "key-year", i18n: null },
+                { text: "202 BC", class: "key-year", i18n: null },
+                { text: "146 BC", class: "key-year", i18n: null },
+                { text: "Hellenistic culture", class: "key-other", i18n: "defHellenisticCulture" },
+                { text: "military strategy", class: "key-other", i18n: "defMilitaryStrategy" },
+                { text: "arc strategy", class: "key-other", i18n: "defCannaeStrategy" }
+            ],
+            fr: [
+                { text: "Hannibal", class: "key-person", i18n: "defHannibal" },
+                { text: "Hamilcar", class: "key-person", i18n: "defHamilcar" },
+                { text: "Hasdrubal", class: "key-person", i18n: "defHasdrubal" },
+                { text: "Alexandre le Grand", class: "key-person", i18n: "defAlexander" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Ibérie", class: "key-location", i18n: "defIberia" },
+                { text: "Sagonte", class: "key-location", i18n: "defSaguntum" },
+                { text: "Pyrénées", class: "key-location", i18n: "defPyrenees" },
+                { text: "Alpes", class: "key-location", i18n: "defAlps" },
+                { text: "Gaule", class: "key-location", i18n: "defGaul" },
+                { text: "Italie", class: "key-location", i18n: "defItaly" },
+                { text: "Trasimène", class: "key-location", i18n: "defTrasimene" },
+                { text: "Cannes", class: "key-location", i18n: "defCannae" },
+                { text: "Leptis", class: "key-location", i18n: "defLeptis" },
+                { text: "Zama", class: "key-location", i18n: "defZama" },
+                { text: "Méditerranée", class: "key-location", i18n: "defMediterranean" },
+                { text: "Guerres puniques", class: "key-event", i18n: "defPunicWars" },
+                { text: "Première Guerre punique", class: "key-event", i18n: "defFirstPunicWar" },
+                { text: "traité de 241", class: "key-event", i18n: "defTreaty241" },
+                { text: "Deuxième Guerre punique", class: "key-event", i18n: "defSecondPunicWar" },
+                { text: "bataille de Trasimène", class: "key-event", i18n: "defBattleTrasimene" },
+                { text: "bataille de Cannes", class: "key-event", i18n: "defBattleCannae" },
+                { text: "bataille de Zama", class: "key-event", i18n: "defBattleZama" },
+                { text: "264 av", class: "key-year", i18n: null },
+                { text: "247 av", class: "key-year", i18n: null },
+                { text: "241 av", class: "key-year", i18n: null },
+                { text: "218 av", class: "key-year", i18n: null },
+                { text: "202 av", class: "key-year", i18n: null },
+                { text: "146 av", class: "key-year", i18n: null },
+                { text: "culture hellénistique", class: "key-other", i18n: "defHellenisticCulture" },
+                { text: "stratégie militaire", class: "key-other", i18n: "defMilitaryStrategy" },
+                { text: "stratégie de l'arc", class: "key-other", i18n: "defCannaeStrategy" }
+            ],
+            ar: [
+                { text: "حنبعل", class: "key-person", i18n: "defHannibal" },
+                { text: "عبد ملقرت", class: "key-person", i18n: "defHamilcar" },
+                { text: "أزربعل", class: "key-person", i18n: "defHasdrubal" },
+                { text: "الإسكندر الأكبر", class: "key-person", i18n: "defAlexander" },
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "روما", class: "key-location", i18n: "defRome" },
+                { text: "بلاد الإيبيريا", class: "key-location", i18n: "defIberia" },
+                { text: "ساغنتم", class: "key-location", i18n: "defSaguntum" },
+                { text: "جبال البيريني", class: "key-location", i18n: "defPyrenees" },
+                { text: "جبال الألب", class: "key-location", i18n: "defAlps" },
+                { text: "بلاد الغال", class: "key-location", i18n: "defGaul" },
+                { text: "إيطاليا", class: "key-location", i18n: "defItaly" },
+                { text: "تراسيمانوس", class: "key-location", i18n: "defTrasimene" },
+                { text: "قانّة", class: "key-location", i18n: "defCannae" },
+                { text: "ليتيس", class: "key-location", i18n: "defLeptis" },
+                { text: "زاما", class: "key-location", i18n: "defZama" },
+                { text: "حوض البحر المتوسط", class: "key-location", i18n: "defMediterranean" },
+                { text: "الحروب البونية", class: "key-event", i18n: "defPunicWars" },
+                { text: "الحرب البونية الأولى", class: "key-event", i18n: "defFirstPunicWar" },
+                { text: "معاهدة 241", class: "key-event", i18n: "defTreaty241" },
+                { text: "الحرب البونية الثانية", class: "key-event", i18n: "defSecondPunicWar" },
+                { text: "معركة تراسيمانوس", class: "key-event", i18n: "defBattleTrasimene" },
+                { text: "معركة قانّة", class: "key-event", i18n: "defBattleCannae" },
+                { text: "معركة زاما", class: "key-event", i18n: "defBattleZama" },
+                { text: "264 ق.م", class: "key-year", i18n: null },
+                { text: "247 ق.م", class: "key-year", i18n: null },
+                { text: "241 ق.م", class: "key-year", i18n: null },
+                { text: "218 ق.م", class: "key-year", i18n: null },
+                { text: "202 ق.م", class: "key-year", i18n: null },
+                { text: "146 ق.م", class: "key-year", i18n: null },
+                { text: "الثقافة الهلنسية", class: "key-other", i18n: "defHellenisticCulture" },
+                { text: "الإستراتيجية العسكرية", class: "key-other", i18n: "defMilitaryStrategy" },
+                { text: "استراتيجية القوس", class: "key-other", i18n: "defCannaeStrategy" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

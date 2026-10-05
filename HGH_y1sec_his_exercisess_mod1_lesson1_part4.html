@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – قرطاج: موسوعة ماغون</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <h1 data-i18n="exerciseTitle">تمارين – قرطاج: موسوعة ماغون</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: موسوعة ماغون، الروزنامة الفلاحية، التكثيف الزراعي، استعمال اليد العاملة.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">موسوعة ماغون:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">كتاب الفلاحة لماغون العالم الفلاحي القرطاجي، ويُعدّ من أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة، جمع بين الطابع العلمي والعملي، واحتوى إضافات في تقنيات الإنتاج الفلاحي ودرجة التكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي ونصائح حول استعمال اليد العاملة وارتباط القرطاجيين بالأرض. تجاوز صدى الموسوعة الحدود المجالية والزمنية لقرطاج البونية، إذ اعتبرها الرومان أهمّ غنائم الحرب البونية الثالثة وترجموها.</dd>
+                        <dt data-i18n="ex1_def2_title">الروزنامة الفلاحية:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">تقويم دقيق لمواسم الزرع والحصاد والأشغال الفلاحية المختلفة، ضبطته موسوعة ماغون لتنظيم النشاط الزراعي القرطاجي وفق تقويم محدد يساعد الفلاحين على حسن تدبير أعمالهم الزراعية.</dd>
+                        <dt data-i18n="ex1_def3_title">التكثيف الزراعي:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">كثافة الاستغلال الزراعي للأرض وكيفية تحقيق أفضل استغلال للمساحات المزروعة، وقد اهتمّت به موسوعة ماغون ضمن مضامينها التي تعنى بتقنيات الإنتاج الفلاحي والرفع من مردوديته.</dd>
+                        <dt data-i18n="ex1_def4_title">استعمال اليد العاملة:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">تنظيم العمل الفلاحي وتوزيع المهام على اليد العاملة، وقد قدّمت موسوعة ماغون نصائح عملية حول ذلك، مما يعكس اهتمام القرطاجيين بحسن تنظيم النشاط الزراعي وضمان نجاعته.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 2: Document / Diagram -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل الصورة التالية التي تمثل الفلاحة القرطاجية، وبيّن مظاهر ارتباط القرطاجيين بالأرض وأهمية هذا الارتباط في بناء قوتهم الاقتصادية.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets1sec/exercises/history/unit1/lesson1/carthaginian_agriculture.png"
+                         alt="الفلاحة القرطاجية"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets1sec/exercises/history/unit1/lesson1/carthaginian_agriculture_answer.png"
+                             alt="نموذج الإجابة – الفلاحة القرطاجية"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        عكس ارتباط القرطاجيين بالأرض اهتمامهم الكبير بالنشاط الفلاحي، وهو ما تجسّد في تأليف ماغون لموسوعته الفلاحية. وقد شملت مضامين هذه الموسوعة تقنيات الإنتاج الفلاحي ودرجة التكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي ونصائح حول استعمال اليد العاملة. ولم يكن هذا الارتباط بالأرض مجرد نشاط اقتصادي فحسب، بل كان ركيزة أساسية لبناء القوة القرطاجية، إذ أسهم في تطوّر النشاط الفلاحي، وفي ازدهار النشاط الحرفي المرتبط بالصناعات الفلاحية، وخاصة النشاط التجاري، مما مكّن من دعم الحضور القرطاجي في المتوسّط وترسيخ إشعاعه الحضاري.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن الميادين التي شملتها مضامين موسوعة ماغون.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_field">الميدان</th>
+                            <th data-i18n="ex3Q_table_covered">مغطّى في الموسوعة</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_field1">تقتنيات الإنتاج الفلاحي</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_field2">درجة التكثيف الزراعي</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_field3">الروزنامة الفلاحية</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_field4">خصائص المجال الزراعي</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_field5">استعمال اليد العاملة</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_field6">ارتباط القرطاجيين بالأرض</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: مضامين موسوعة ماغون كما وردت في المصادر التاريخية القديمة والوسيطة</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل دور موسوعة ماغون في إشعاع قرطاج البونية في المتوسط في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        دور موسوعة ماغون في إشعاع قرطاج البونية:
+                        - تجاوز صدى الموسوعة الحدود المجالية والزمنية لقرطاج البونية.
+                        - اعتبرها الرومان أهمّ غنائم الحرب البونية الثالثة، فتبنّوا محتواها وترجموها.
+                        - وُجدت مقتطفات منها مترجمة إلى الإغريقية واللاتينية في عديد الكتب الفلاحية.
+                        - أسهمت بمحتواها وطابعها العلمي والعملي في إشعاع قرطاج بالمتوسط حتى بعد سقوطها 146 ق.م.
+                        - دعمت الحضور القرطاجي في المتوسط ليس عسكرياً فقط، بل حضارياً وعلمياً واقتصادياً.
+                        - دلّت على أن قرطاج لم تكن مجرّد قوة تجارية وعسكرية، بل كانت أيضاً مركزاً للإنتاج الفكري والعلمي.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        أسهمت موسوعة ماغون في إشعاع قرطاج البونية في المتوسط بشكل بارز، إذ تجاوز صداها الحدود المجالية والزمنية لقرطاج. فقد اعتبرها الرومان أهمّ غنائم الحرب البونية الثالثة، فعملوا على تبنّي محتواها وترجمتها، كما نجد مقتطفات منها مترجمة إلى الإغريقية واللاتينية في عديد الكتب التي اهتمّت بالفلاحة في الفترة القديمة والوسيطة. وقد أسهمت الموسوعة بمحتواها وطابعها العلمي والعملي في إشعاع قرطاج بالمتوسط حتى بعد سقوطها سنة 146 ق.م، مما دلّ على أن قرطاج لم تكن مجرّد قوة تجارية وعسكرية، بل كانت أيضاً مركزاً للإنتاج الفكري والعلمي في العالم القديم.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول أثر موسوعة ماغون على النشاط الفلاحي والحرفي والتجاري في قرطاج البونية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        كان لكتاب الفلاحة أثر عميق في الاقتصاد القرطاجي، إذ أسهم في تطوّر النشاط الفلاحي بقرطاج البونية من خلال تحسين تقنيات الإنتاج ورفع مردوديته. كما ساعدت هذه الموسوعة على ازدهار النشاط الحرفي، إذ ارتبط تطوّر الفلاحة بتطوّر الصناعات الحرفية المرتبطة بها. وقد مكّن كل ذلك من دعم الحضور القرطاجي في المتوسّط. حلّل مظاهر هذا الأثر على القطاعات الثلاثة.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم موسوعة ماغون كمرجع فلاحي أساسي في العالم القديم.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. أثرها على النشاط الفلاحي؛ ثانياً. أثرها على النشاط الحرفي والتجاري.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: حصيلة الأثر ودورها في دعم الحضور القرطاجي بالمتوسط.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">تُعدّ موسوعة ماغون أو «كتاب الفلاحة» من أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة، وقد جمعت بين الطابع العلمي والعملي، وكانت لها آثار عميقة على مختلف القطاعات الاقتصادية في قرطاج البونية.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_agriculture">أولاً. الأثر على النشاط الفلاحي</h4>
+                        <p data-i18n="ex5A_production_p_agriculture">أسهمت موسوعة ماغون في تطوّر النشاط الفلاحي بقرطاج البونية من خلال تحسين تقنيات الإنتاج الفلاحي والرفع من مردوديته. فقد احتوت إضافات في مجال تقنيات الإنتاج ودرجة التكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي، مما ساعد الفلاحين على حسن استغلال أراضيهم وتنظيم أعمالهم الزراعية وفق تقويم دقيق.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_craft">ثانياً. الأثر على النشاط الحرفي والتجاري</h4>
+                        <p data-i18n="ex5A_production_p_craft">لم يقتصر أثر الموسوعة على القطاع الفلاحي فحسب، بل امتدّ إلى القطاع الحرفي، إذ ارتبط تطوّر الفلاحة بتطوّر الصناعات الحرفية المرتبطة بها كصناعة الأدوات الفلاحية والزجاج والفخار. كما أسهمت الموسوعة في ازدهار النشاط التجاري، إذ وفّرت فائضاً في الإنتاج الفلاحي قابلاً للتسويق والتصدير، مما عزّز مكانة قرطاج التجارية في المتوسط ومكّنها من دعم حضورها الاقتصادي والحضاري.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا كان لموسوعة ماغون أثر عميق في الاقتصاد القرطاجي، إذ أسهمت في تطوّر النشاط الفلاحي والحرفي والتجاري، ومكّنت من دعم الحضور القرطاجي في المتوسط حتى بعد سقوط قرطاج سنة 146 ق.م.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: تأليف موسوعة ماغون (القرن 3 ق.م)، الحرب البونية الثالثة (149 ق.م)، سقوط قرطاج (146 ق.م).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: القرن 3 ق.م: تأليف موسوعة ماغون ... 149 ق.م: اندلاع الحرب البونية الثالثة ... 146 ق.م: سقوط قرطاج واعتبار الرومان الموسوعة غنيمة.
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y1sec_his_lessons_mod1_lesson1_part4.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "1st Secondary",
+                exerciseTitle: "Exercises – Carthage: The Encyclopedia of Mago",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: The Encyclopedia of Mago, The Agricultural Calendar, Agricultural Intensification, Use of Labor.",
+                ex1_def1_title: "The Encyclopedia of Mago:",
+                ex1_def1_subtitle: "The Book of Agriculture by Mago the Carthaginian agronomist, one of the most important fundamental references for agricultural science in antiquity. It combined a scientific and practical nature and contained additions in agricultural production techniques, the degree of agricultural intensification, the agricultural calendar, characteristics of the Carthaginian agricultural field, advice on the use of labor, and the attachment of the Carthaginians to the land. Its echo surpassed the spatial and temporal boundaries of Punic Carthage, as the Romans considered it the most important spoil of the Third Punic War and translated it.",
+                ex1_def2_title: "The Agricultural Calendar:",
+                ex1_def2_subtitle: "A precise calendar of sowing and harvesting seasons and various agricultural works, set by the Encyclopedia of Mago to organize Carthaginian agricultural activity according to a specific calendar that helps farmers manage their agricultural work well.",
+                ex1_def3_title: "Agricultural Intensification:",
+                ex1_def3_subtitle: "The intensity of agricultural exploitation of land and how to achieve the best use of cultivated areas; the Encyclopedia of Mago paid attention to it in its contents dealing with agricultural production techniques and increasing their yield.",
+                ex1_def4_title: "Use of Labor:",
+                ex1_def4_subtitle: "Organizing agricultural work and distributing tasks among laborers; the Encyclopedia of Mago provided practical advice on this, reflecting the Carthaginians' interest in well-organizing agricultural activity and ensuring its efficiency.",
+                ex2Q: "Observe the following image representing Carthaginian agriculture, and explain the manifestations of the Carthaginians' attachment to the land and the importance of this attachment in building their economic power.",
+                ex2DocAlt: "Carthaginian agriculture",
+                ex2AnswerImgAlt: "Answer model – Carthaginian agriculture",
+                ex2A: "The Carthaginians' attachment to the land reflected their great interest in agricultural activity, which was embodied in Mago's writing of his agricultural encyclopedia. The contents of this encyclopedia included agricultural production techniques, the degree of agricultural intensification, the agricultural calendar, characteristics of the Carthaginian agricultural field, and advice on the use of labor. This attachment to the land was not merely an economic activity, but a fundamental pillar for building Carthaginian power, as it contributed to the development of agricultural activity, the prosperity of craft activity related to agricultural industries, and especially commercial activity, which enabled the support of the Carthaginian presence in the Mediterranean and the consolidation of its civilizational radiance.",
+                ex3Q: "Convert the following table data into a bar chart showing the fields covered by the contents of the Encyclopedia of Mago.",
+                ex3Q_table_field: "Field",
+                ex3Q_table_covered: "Covered in the encyclopedia",
+                ex3Q_table_field1: "Agricultural production techniques",
+                ex3Q_table_field2: "Degree of agricultural intensification",
+                ex3Q_table_field3: "Agricultural calendar",
+                ex3Q_table_field4: "Characteristics of the agricultural field",
+                ex3Q_table_field5: "Use of labor",
+                ex3Q_table_field6: "Carthaginians' attachment to the land",
+                ex3Q_source: "Source: Contents of the Encyclopedia of Mago as reported in ancient and medieval historical sources",
+                ex3A_title: "Fields Covered by the Contents of the Encyclopedia of Mago",
+                ex3A_source: "Source: Contents of the Encyclopedia of Mago as reported in ancient and medieval historical sources",
+                ex3A_scale: "Scale: 0–2; column height indicates coverage (1 = covered).",
+                ex3A_key_label: "Key:",
+                ex4Q: "Analyse the role of the Encyclopedia of Mago in the radiance of Punic Carthage in the Mediterranean in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Role of the Encyclopedia of Mago in the radiance of Punic Carthage:\n- The echo of the encyclopedia surpassed the spatial and temporal boundaries of Punic Carthage.\n- The Romans considered it the most important spoil of the Third Punic War, adopting its content and translating it.\n- Excerpts of it translated into Greek and Latin were found in many agricultural books.\n- Through its content and its scientific and practical nature, it contributed to Carthage's radiance in the Mediterranean even after its fall in 146 BC.\n- It supported the Carthaginian presence in the Mediterranean not only militarily, but also culturally, scientifically, and economically.\n- It demonstrated that Carthage was not merely a commercial and military power, but was also a center of intellectual and scientific production.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The Encyclopedia of Mago contributed prominently to the radiance of Punic Carthage in the Mediterranean, as its echo surpassed the spatial and temporal boundaries of Carthage. The Romans considered it the most important spoil of the Third Punic War, adopting its content and translating it, and we find excerpts of it translated into Greek and Latin in many books concerned with agriculture in ancient and medieval periods. The encyclopedia, through its content and its scientific and practical nature, contributed to Carthage's radiance in the Mediterranean even after its fall in 146 BC, demonstrating that Carthage was not merely a commercial and military power, but was also a center of intellectual and scientific production in the ancient world.",
+                ex5Q: "Write a short article on the impact of the Encyclopedia of Mago on agricultural, craft, and commercial activity in Punic Carthage.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "The Book of Agriculture had a profound impact on the Carthaginian economy, as it contributed to the development of agricultural activity in Punic Carthage by improving production techniques and increasing their yield. This encyclopedia also helped the prosperity of craft activity, as the development of agriculture was linked to the development of related craft industries. All of this enabled the support of the Carthaginian presence in the Mediterranean. Analyse the manifestations of this impact on the three sectors.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Present the Encyclopedia of Mago as a fundamental agricultural reference in the ancient world.",
+                ex5A_plan_li2: "Development: I. Its impact on agricultural activity; II. Its impact on craft and commercial activity.",
+                ex5A_plan_li3: "Conclusion: Assessment of the impact and its role in supporting the Carthaginian presence in the Mediterranean.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The Encyclopedia of Mago, or the 'Book of Agriculture', is one of the most important fundamental references for agricultural science in antiquity. It combined a scientific and practical nature and had profound impacts on various economic sectors in Punic Carthage.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_agriculture: "I. Impact on Agricultural Activity",
+                ex5A_production_p_agriculture: "The Encyclopedia of Mago contributed to the development of agricultural activity in Punic Carthage by improving agricultural production techniques and increasing their yield. It contained additions in the field of production techniques, the degree of agricultural intensification, the agricultural calendar, and characteristics of the Carthaginian agricultural field, helping farmers to make good use of their land and organize their agricultural work according to a precise calendar.",
+                ex5A_production_h4_craft: "II. Impact on Craft and Commercial Activity",
+                ex5A_production_p_craft: "The impact of the encyclopedia was not limited to the agricultural sector, but extended to the craft sector, as the development of agriculture was linked to the development of related craft industries such as the manufacture of agricultural tools, glass, and pottery. The encyclopedia also contributed to the prosperity of commercial activity, as it provided a surplus in agricultural production that could be marketed and exported, strengthening Carthage's commercial standing in the Mediterranean and enabling it to support its economic and civilizational presence.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus the Encyclopedia of Mago had a profound impact on the Carthaginian economy, contributing to the development of agricultural, craft, and commercial activity, and enabling the support of the Carthaginian presence in the Mediterranean even after the fall of Carthage in 146 BC.",
+                ex6Q: "Create a timeline of the following events: Writing of the Encyclopedia of Mago (3rd century BC), Third Punic War (149 BC), Fall of Carthage (146 BC).",
+                ex6A: "Timeline: 3rd century BC: Writing of the Encyclopedia of Mago ... 149 BC: Outbreak of the Third Punic War ... 146 BC: Fall of Carthage and the Romans considering the encyclopedia a spoil.",
+                ex6_timeline_title: "Key Dates in the History of the Encyclopedia of Mago",
+                ex6_event_250_label: "Writing of the Encyclopedia of Mago",
+                ex6_event_250_sub: "3rd c. BC",
+                ex6_event_149_label: "Third Punic War",
+                ex6_event_149_sub: "149 BC",
+                ex6_event_146_label: "Fall of Carthage",
+                ex6_event_146_sub: "146 BC",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                exerciseTitle: "Exercices – Carthage : L'Encyclopédie de Magon",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : L'Encyclopédie de Magon, Le calendrier agricole, L'intensification agricole, L'utilisation de la main-d'œuvre.",
+                ex1_def1_title: "L'Encyclopédie de Magon :",
+                ex1_def1_subtitle: "Le Livre d'agriculture de Magon l'agronome carthaginois, l'une des références fondamentales les plus importantes de la science agricole dans l'Antiquité. Elle combinait une nature scientifique et pratique et contenait des ajouts dans les techniques de production agricole, le degré d'intensification agricole, le calendrier agricole, les caractéristiques du domaine agricole carthaginois, des conseils sur l'utilisation de la main-d'œuvre, et l'attachement des Carthaginois à la terre. Son écho a dépassé les frontières spatiales et temporelles de la Carthage punique, car les Romains l'ont considérée comme le plus important butin de la Troisième Guerre punique et l'ont traduite.",
+                ex1_def2_title: "Le calendrier agricole :",
+                ex1_def2_subtitle: "Un calendrier précis des saisons de semailles et de récoltes et des différents travaux agricoles, fixé par l'Encyclopédie de Magon pour organiser l'activité agricole carthaginoise selon un calendrier spécifique qui aide les agriculteurs à bien gérer leurs travaux agricoles.",
+                ex1_def3_title: "L'intensification agricole :",
+                ex1_def3_subtitle: "L'intensité de l'exploitation agricole des terres et comment réaliser la meilleure utilisation des surfaces cultivées ; l'Encyclopédie de Magon y a accordé son attention dans ses contenus traitant des techniques de production agricole et de l'augmentation de leur rendement.",
+                ex1_def4_title: "L'utilisation de la main-d'œuvre :",
+                ex1_def4_subtitle: "L'organisation du travail agricole et la répartition des tâches entre les ouvriers ; l'Encyclopédie de Magon a fourni des conseils pratiques à ce sujet, reflétant l'intérêt des Carthaginois pour la bonne organisation de l'activité agricole et la garantie de son efficacité.",
+                ex2Q: "Observez l'image suivante représentant l'agriculture carthaginoise, et expliquez les manifestations de l'attachement des Carthaginois à la terre et l'importance de cet attachement dans la construction de leur puissance économique.",
+                ex2DocAlt: "L'agriculture carthaginoise",
+                ex2AnswerImgAlt: "Modèle de réponse – L'agriculture carthaginoise",
+                ex2A: "L'attachement des Carthaginois à la terre reflétait leur grand intérêt pour l'activité agricole, ce qui s'est incarné dans la rédaction par Magon de son encyclopédie agricole. Les contenus de cette encyclopédie comprenaient les techniques de production agricole, le degré d'intensification agricole, le calendrier agricole, les caractéristiques du domaine agricole carthaginois et des conseils sur l'utilisation de la main-d'œuvre. Cet attachement à la terre n'était pas seulement une activité économique, mais un pilier fondamental pour la construction de la puissance carthaginoise, car il a contribué au développement de l'activité agricole, à la prospérité de l'activité artisanale liée aux industries agricoles, et surtout à l'activité commerciale, ce qui a permis de soutenir la présence carthaginoise en Méditerranée et de consolider son rayonnement civilisationnel.",
+                ex3Q: "Convertissez les données du tableau suivant en diagramme à barres montrant les domaines couverts par les contenus de l'Encyclopédie de Magon.",
+                ex3Q_table_field: "Domaine",
+                ex3Q_table_covered: "Couvert dans l'encyclopédie",
+                ex3Q_table_field1: "Techniques de production agricole",
+                ex3Q_table_field2: "Degré d'intensification agricole",
+                ex3Q_table_field3: "Calendrier agricole",
+                ex3Q_table_field4: "Caractéristiques du domaine agricole",
+                ex3Q_table_field5: "Utilisation de la main-d'œuvre",
+                ex3Q_table_field6: "Attachement des Carthaginois à la terre",
+                ex3Q_source: "Source : Contenus de l'Encyclopédie de Magon tels que rapportés dans les sources historiques anciennes et médiévales",
+                ex3A_title: "Domaines couverts par les contenus de l'Encyclopédie de Magon",
+                ex3A_source: "Source : Contenus de l'Encyclopédie de Magon tels que rapportés dans les sources historiques anciennes et médiévales",
+                ex3A_scale: "Échelle : 0–2 ; hauteur des colonnes indique la couverture (1 = couvert).",
+                ex3A_key_label: "Légende :",
+                ex4Q: "Analysez le rôle de l'Encyclopédie de Magon dans le rayonnement de la Carthage punique en Méditerranée en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Rôle de l'Encyclopédie de Magon dans le rayonnement de la Carthage punique :\n- L'écho de l'encyclopédie a dépassé les frontières spatiales et temporelles de la Carthage punique.\n- Les Romains l'ont considérée comme le plus important butin de la Troisième Guerre punique, adoptant son contenu et la traduisant.\n- Des extraits traduits en grec et en latin ont été trouvés dans de nombreux livres agricoles.\n- Par son contenu et sa nature scientifique et pratique, elle a contribué au rayonnement de Carthage en Méditerranée même après sa chute en 146 av. J.-C.\n- Elle a soutenu la présence carthaginoise en Méditerranée non seulement militairement, mais aussi culturellement, scientifiquement et économiquement.\n- Elle a démontré que Carthage n'était pas seulement une puissance commerciale et militaire, mais aussi un centre de production intellectuelle et scientifique.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "L'Encyclopédie de Magon a contribué de manière remarquable au rayonnement de la Carthage punique en Méditerranée, car son écho a dépassé les frontières spatiales et temporelles de Carthage. Les Romains l'ont considérée comme le plus important butin de la Troisième Guerre punique, adoptant son contenu et la traduisant, et nous trouvons des extraits traduits en grec et en latin dans de nombreux livres consacrés à l'agriculture dans les périodes antique et médiévale. L'encyclopédie, par son contenu et sa nature scientifique et pratique, a contribué au rayonnement de Carthage en Méditerranée même après sa chute en 146 av. J.-C., démontrant que Carthage n'était pas seulement une puissance commerciale et militaire, mais aussi un centre de production intellectuelle et scientifique dans le monde antique.",
+                ex5Q: "Rédigez un court article sur l'impact de l'Encyclopédie de Magon sur l'activité agricole, artisanale et commerciale dans la Carthage punique.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Le Livre d'agriculture a eu un impact profond sur l'économie carthaginoise, car il a contribué au développement de l'activité agricole dans la Carthage punique en améliorant les techniques de production et en augmentant leur rendement. Cette encyclopédie a également favorisé la prospérité de l'activité artisanale, car le développement de l'agriculture était lié au développement des industries artisanales associées. Tout cela a permis de soutenir la présence carthaginoise en Méditerranée. Analysez les manifestations de cet impact sur les trois secteurs.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter l'Encyclopédie de Magon comme une référence agricole fondamentale dans le monde antique.",
+                ex5A_plan_li2: "Développement : I. Son impact sur l'activité agricole ; II. Son impact sur l'activité artisanale et commerciale.",
+                ex5A_plan_li3: "Conclusion : Bilan de l'impact et son rôle dans le soutien de la présence carthaginoise en Méditerranée.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "L'Encyclopédie de Magon, ou le « Livre d'agriculture », est l'une des références fondamentales les plus importantes de la science agricole dans l'Antiquité. Elle combinait une nature scientifique et pratique et a eu des impacts profonds sur divers secteurs économiques de la Carthage punique.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_agriculture: "I. Impact sur l'activité agricole",
+                ex5A_production_p_agriculture: "L'Encyclopédie de Magon a contribué au développement de l'activité agricole dans la Carthage punique en améliorant les techniques de production agricole et en augmentant leur rendement. Elle contenait des ajouts dans le domaine des techniques de production, du degré d'intensification agricole, du calendrier agricole et des caractéristiques du domaine agricole carthaginois, aidant les agriculteurs à bien utiliser leurs terres et à organiser leurs travaux agricoles selon un calendrier précis.",
+                ex5A_production_h4_craft: "II. Impact sur l'activité artisanale et commerciale",
+                ex5A_production_p_craft: "L'impact de l'encyclopédie ne s'est pas limité au secteur agricole, mais s'est étendu au secteur artisanal, car le développement de l'agriculture était lié au développement des industries artisanales associées telles que la fabrication d'outils agricoles, du verre et de la poterie. L'encyclopédie a également contribué à la prospérité de l'activité commerciale, car elle a fourni un surplus de production agricole commercialisable et exportable, renforçant la position commerciale de Carthage en Méditerranée et lui permettant de soutenir sa présence économique et civilisationnelle.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi l'Encyclopédie de Magon a eu un impact profond sur l'économie carthaginoise, contribuant au développement de l'activité agricole, artisanale et commerciale, et permettant de soutenir la présence carthaginoise en Méditerranée même après la chute de Carthage en 146 av. J.-C.",
+                ex6Q: "Créez une chronologie des événements suivants : Rédaction de l'Encyclopédie de Magon (IIIe siècle av. J.-C.), Troisième Guerre punique (149 av. J.-C.), Chute de Carthage (146 av. J.-C.).",
+                ex6A: "Chronologie : IIIe siècle av. J.-C. : Rédaction de l'Encyclopédie de Magon ... 149 av. J.-C. : Déclenchement de la Troisième Guerre punique ... 146 av. J.-C. : Chute de Carthage et les Romains considérant l'encyclopédie comme un butin.",
+                ex6_timeline_title: "Dates clés de l'histoire de l'Encyclopédie de Magon",
+                ex6_event_250_label: "Rédaction de l'Encyclopédie de Magon",
+                ex6_event_250_sub: "IIIe s. av. J.-C.",
+                ex6_event_149_label: "Troisième Guerre punique",
+                ex6_event_149_sub: "149 av. J.-C.",
+                ex6_event_146_label: "Chute de Carthage",
+                ex6_event_146_sub: "146 av. J.-C.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                exerciseTitle: "تمارين – قرطاج: موسوعة ماغون",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: موسوعة ماغون، الروزنامة الفلاحية، التكثيف الزراعي، استعمال اليد العاملة.",
+                ex1_def1_title: "موسوعة ماغون:",
+                ex1_def1_subtitle: "كتاب الفلاحة لماغون العالم الفلاحي القرطاجي، ويُعدّ من أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة، جمع بين الطابع العلمي والعملي، واحتوى إضافات في تقنيات الإنتاج الفلاحي ودرجة التكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي ونصائح حول استعمال اليد العاملة وارتباط القرطاجيين بالأرض. تجاوز صدى الموسوعة الحدود المجالية والزمنية لقرطاج البونية، إذ اعتبرها الرومان أهمّ غنائم الحرب البونية الثالثة وترجموها.",
+                ex1_def2_title: "الروزنامة الفلاحية:",
+                ex1_def2_subtitle: "تقويم دقيق لمواسم الزرع والحصاد والأشغال الفلاحية المختلفة، ضبطته موسوعة ماغون لتنظيم النشاط الزراعي القرطاجي وفق تقويم محدد يساعد الفلاحين على حسن تدبير أعمالهم الزراعية.",
+                ex1_def3_title: "التكثيف الزراعي:",
+                ex1_def3_subtitle: "كثافة الاستغلال الزراعي للأرض وكيفية تحقيق أفضل استغلال للمساحات المزروعة، وقد اهتمّت به موسوعة ماغون ضمن مضامينها التي تعنى بتقنيات الإنتاج الفلاحي والرفع من مردوديته.",
+                ex1_def4_title: "استعمال اليد العاملة:",
+                ex1_def4_subtitle: "تنظيم العمل الفلاحي وتوزيع المهام على اليد العاملة، وقد قدّمت موسوعة ماغون نصائح عملية حول ذلك، مما يعكس اهتمام القرطاجيين بحسن تنظيم النشاط الزراعي وضمان نجاعته.",
+                ex2Q: "تأمل الصورة التالية التي تمثل الفلاحة القرطاجية، وبيّن مظاهر ارتباط القرطاجيين بالأرض وأهمية هذا الارتباط في بناء قوتهم الاقتصادية.",
+                ex2DocAlt: "الفلاحة القرطاجية",
+                ex2AnswerImgAlt: "نموذج الإجابة – الفلاحة القرطاجية",
+                ex2A: "عكس ارتباط القرطاجيين بالأرض اهتمامهم الكبير بالنشاط الفلاحي، وهو ما تجسّد في تأليف ماغون لموسوعته الفلاحية. وقد شملت مضامين هذه الموسوعة تقنيات الإنتاج الفلاحي ودرجة التكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي ونصائح حول استعمال اليد العاملة. ولم يكن هذا الارتباط بالأرض مجرد نشاط اقتصادي فحسب، بل كان ركيزة أساسية لبناء القوة القرطاجية، إذ أسهم في تطوّر النشاط الفلاحي، وفي ازدهار النشاط الحرفي المرتبط بالصناعات الفلاحية، وخاصة النشاط التجاري، مما مكّن من دعم الحضور القرطاجي في المتوسّط وترسيخ إشعاعه الحضاري.",
+                ex3Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن الميادين التي شملتها مضامين موسوعة ماغون.",
+                ex3Q_table_field: "الميدان",
+                ex3Q_table_covered: "مغطّى في الموسوعة",
+                ex3Q_table_field1: "تقتنيات الإنتاج الفلاحي",
+                ex3Q_table_field2: "درجة التكثيف الزراعي",
+                ex3Q_table_field3: "الروزنامة الفلاحية",
+                ex3Q_table_field4: "خصائص المجال الزراعي",
+                ex3Q_table_field5: "استعمال اليد العاملة",
+                ex3Q_table_field6: "ارتباط القرطاجيين بالأرض",
+                ex3Q_source: "المصدر: مضامين موسوعة ماغون كما وردت في المصادر التاريخية القديمة والوسيطة",
+                ex3A_title: "الميادين التي شملتها مضامين موسوعة ماغون",
+                ex3A_source: "المصدر: مضامين موسوعة ماغون كما وردت في المصادر التاريخية القديمة والوسيطة",
+                ex3A_scale: "المقياس: 0–2؛ ارتفاع الأعمدة يدل على التغطية (1 = مغطّى).",
+                ex3A_key_label: "المفتاح:",
+                ex4Q: "حلّل دور موسوعة ماغون في إشعاع قرطاج البونية في المتوسط في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "دور موسوعة ماغون في إشعاع قرطاج البونية:\n- تجاوز صدى الموسوعة الحدود المجالية والزمنية لقرطاج البونية.\n- اعتبرها الرومان أهمّ غنائم الحرب البونية الثالثة، فتبنّوا محتواها وترجموها.\n- وُجدت مقتطفات منها مترجمة إلى الإغريقية واللاتينية في عديد الكتب الفلاحية.\n- أسهمت بمحتواها وطابعها العلمي والعملي في إشعاع قرطاج بالمتوسط حتى بعد سقوطها 146 ق.م.\n- دعمت الحضور القرطاجي في المتوسط ليس عسكرياً فقط، بل حضارياً وعلمياً واقتصادياً.\n- دلّت على أن قرطاج لم تكن مجرّد قوة تجارية وعسكرية، بل كانت أيضاً مركزاً للإنتاج الفكري والعلمي.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "أسهمت موسوعة ماغون في إشعاع قرطاج البونية في المتوسط بشكل بارز، إذ تجاوز صداها الحدود المجالية والزمنية لقرطاج. فقد اعتبرها الرومان أهمّ غنائم الحرب البونية الثالثة، فعملوا على تبنّي محتواها وترجمتها، كما نجد مقتطفات منها مترجمة إلى الإغريقية واللاتينية في عديد الكتب التي اهتمّت بالفلاحة في الفترة القديمة والوسيطة. وقد أسهمت الموسوعة بمحتواها وطابعها العلمي والعملي في إشعاع قرطاج بالمتوسط حتى بعد سقوطها سنة 146 ق.م، مما دلّ على أن قرطاج لم تكن مجرّد قوة تجارية وعسكرية، بل كانت أيضاً مركزاً للإنتاج الفكري والعلمي في العالم القديم.",
+                ex5Q: "اكتب مقالاً قصيراً حول أثر موسوعة ماغون على النشاط الفلاحي والحرفي والتجاري في قرطاج البونية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "كان لكتاب الفلاحة أثر عميق في الاقتصاد القرطاجي، إذ أسهم في تطوّر النشاط الفلاحي بقرطاج البونية من خلال تحسين تقنيات الإنتاج ورفع مردوديته. كما ساعدت هذه الموسوعة على ازدهار النشاط الحرفي، إذ ارتبط تطوّر الفلاحة بتطوّر الصناعات الحرفية المرتبطة بها. وقد مكّن كل ذلك من دعم الحضور القرطاجي في المتوسّط. حلّل مظاهر هذا الأثر على القطاعات الثلاثة.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم موسوعة ماغون كمرجع فلاحي أساسي في العالم القديم.",
+                ex5A_plan_li2: "تطوير: أولاً. أثرها على النشاط الفلاحي؛ ثانياً. أثرها على النشاط الحرفي والتجاري.",
+                ex5A_plan_li3: "خاتمة: حصيلة الأثر ودورها في دعم الحضور القرطاجي بالمتوسط.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "تُعدّ موسوعة ماغون أو «كتاب الفلاحة» من أهمّ المراجع الأساسيّة لعلم الزراعة في الفترة القديمة، وقد جمعت بين الطابع العلمي والعملي، وكانت لها آثار عميقة على مختلف القطاعات الاقتصادية في قرطاج البونية.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_agriculture: "أولاً. الأثر على النشاط الفلاحي",
+                ex5A_production_p_agriculture: "أسهمت موسوعة ماغون في تطوّر النشاط الفلاحي بقرطاج البونية من خلال تحسين تقنيات الإنتاج الفلاحي والرفع من مردوديته. فقد احتوت إضافات في مجال تقنيات الإنتاج ودرجة التكثيف الزراعي والروزنامة الفلاحية وخصائص المجال الزراعي القرطاجي، مما ساعد الفلاحين على حسن استغلال أراضيهم وتنظيم أعمالهم الزراعية وفق تقويم دقيق.",
+                ex5A_production_h4_craft: "ثانياً. الأثر على النشاط الحرفي والتجاري",
+                ex5A_production_p_craft: "لم يقتصر أثر الموسوعة على القطاع الفلاحي فحسب، بل امتدّ إلى القطاع الحرفي، إذ ارتبط تطوّر الفلاحة بتطوّر الصناعات الحرفية المرتبطة بها كصناعة الأدوات الفلاحية والزجاج والفخار. كما أسهمت الموسوعة في ازدهار النشاط التجاري، إذ وفّرت فائضاً في الإنتاج الفلاحي قابلاً للتسويق والتصدير، مما عزّز مكانة قرطاج التجارية في المتوسط ومكّنها من دعم حضورها الاقتصادي والحضاري.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا كان لموسوعة ماغون أثر عميق في الاقتصاد القرطاجي، إذ أسهمت في تطوّر النشاط الفلاحي والحرفي والتجاري، ومكّنت من دعم الحضور القرطاجي في المتوسط حتى بعد سقوط قرطاج سنة 146 ق.م.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: تأليف موسوعة ماغون (القرن 3 ق.م)، الحرب البونية الثالثة (149 ق.م)، سقوط قرطاج (146 ق.م).",
+                ex6A: "الخط الزمني: القرن 3 ق.م: تأليف موسوعة ماغون ... 149 ق.م: اندلاع الحرب البونية الثالثة ... 146 ق.م: سقوط قرطاج واعتبار الرومان الموسوعة غنيمة.",
+                ex6_timeline_title: "محطات أساسية في تاريخ موسوعة ماغون",
+                ex6_event_250_label: "تأليف موسوعة ماغون",
+                ex6_event_250_sub: "القرن 3 ق.م",
+                ex6_event_149_label: "الحرب البونية الثالثة",
+                ex6_event_149_sub: "149 ق.م",
+                ex6_event_146_label: "سقوط قرطاج",
+                ex6_event_146_sub: "146 ق.م",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: '1', value: 1, valueFormatted: '1' },
+                { label: '1', value: 1, valueFormatted: '1' },
+                { label: '1', value: 1, valueFormatted: '1' },
+                { label: '1', value: 1, valueFormatted: '1' },
+                { label: '1', value: 1, valueFormatted: '1' },
+                { label: '1', value: 1, valueFormatted: '1' }
+            ],
+            maxValue: 2,
+            ySteps: [2, 1, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 250, labelKey: 'ex6_event_250_label', subKey: 'ex6_event_250_sub' },
+                { year: 149, labelKey: 'ex6_event_149_label', subKey: 'ex6_event_149_sub' },
+                { year: 146, labelKey: 'ex6_event_146_label', subKey: 'ex6_event_146_sub' }
+            ],
+            startYear: 250,
+            endYear: 146,
+            scaleYears: [250, 210, 170, 146]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>
