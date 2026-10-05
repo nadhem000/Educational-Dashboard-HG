@@ -1,5 +1,5 @@
 // HGH Service Worker – cache & push
-const CACHE_NAME = 'hgh-cache-v51';
+const CACHE_NAME = 'hgh-cache-v52';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
