@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – الأدفاق المالية: المظاهر</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        /* ══════ PRINT MODAL STYLES ══════ */
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        /* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة اقتصاد وتصرف
+            </div>
+            <h1 data-i18n="exerciseTitle">تمارين – الأدفاق المالية: المظاهر</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الاستثمار الأجنبي المباشر، الاستثمارات غير المباشرة، الأسهم، السندات.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الاستثمار الأجنبي المباشر:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">استثمار طويل المدى توظفه شركة عبر قطرية خارج بلدها الأصلي لشراء مؤسسة اقتصادية أو حصة لا تقل عن 10% من رأسمالها أو لبعث فروع ووحدات إنتاج جديدة تابعة لها.</dd>
+                        <dt data-i18n="ex1_def2_title">الاستثمارات غير المباشرة:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">استثمارات تقوم بها المؤسسات المالية على مدى قصير بهدف المضاربة، وتتمثل في شراء الأوراق المالية كالأسهم والسندات.</dd>
+                        <dt data-i18n="ex1_def3_title">الأسهم:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">صكوك ملكية حصة من رأسمال شركة تعطي لحاملها حق التصويت في الجلسات العامة للشركات.</dd>
+                        <dt data-i18n="ex1_def4_title">السندات:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">صكوك تصدرها الدول أو الشركات المقترضة في إطار قروض رقاعية، مقابل ضمان نسبة فائدة قارة واسترجاع قيمة السند في نهاية المدة.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن تطور أدفاق الاستثمار الأجنبي المباشر الصادر في العالم بين 1990 و2021.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_year">السنة</th>
+                            <th>1990</th>
+                            <th>2000</th>
+                            <th>2010</th>
+                            <th>2015</th>
+                            <th>2020</th>
+                            <th>2021</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_fdi">أدفاق الاستثمار الأجنبي المباشر الصادر (تريليون دولار)</td>
+                            <td>0.24</td>
+                            <td>1.4</td>
+                            <td>1.5</td>
+                            <td>1.7</td>
+                            <td>0.7</td>
+                            <td>1.7</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: تقارير الأونكتاد حول الاستثمار العالمي</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Map / Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمل الوثيقة التالية التي تمثل أصناف الأدفاق المالية، وبيّن خصائص كل صنف من حيث المدة والهدف.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets4eco/exercises/geography/unit1/lesson2/types_financial_flows_exercise.jpg"
+                         alt="أصناف الأدفاق المالية"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets4eco/exercises/geography/unit1/lesson2/types_financial_flows_answer.jpg"
+                             alt="نموذج الإجابة – أصناف الأدفاق المالية"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        تتعدد أصناف الأدفاق المالية: فالاستثمار الأجنبي المباشر استثمار طويل المدى يهدف إلى التحكم في الإنتاج، بينما الاستثمارات غير المباشرة قصيرة المدى وتهدف إلى المضاربة في البورصات. أما القروض فهي أموال تُمنح مقابل فوائد، في حين تتكون المساعدة العمومية من الهبات والقروض الميسرة. وأخيراً تُعد تحويلات المهاجرين أدفاقاً مالية موجهة إلى الأسر وتُعتبر أكثر استقراراً من بقية الأدفاق الخاصة.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل خصائص تطور الأدفاق المالية العالمية.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        خصائص تطور الأدفاق المالية العالمية:
+                        - تضاعفت أدفاق الاستثمار الأجنبي المباشر الصادر حوالي 7 مرات بين 1990 و2015 لتصل إلى 1.7 تريليون دولار.
+                        - تراجعت الأدفاق إلى أكثر من النصف (0.7 تريليون دولار) سنة 2020 بسبب جائحة كوفيد-19 قبل استعادتها لمستواها سنة 2021.
+                        - بلغ رصيد الاستثمار الأجنبي المباشر الصادر حوالي 40 تريليون دولار أي أكثر من ثلث الناتج الداخلي الخام العالمي (39.8%).
+                        - تضاعفت رسملة البورصات العالمية أكثر من 11 مرة منذ 1990 لتبلغ 98.9 تريليون دولار.
+                        - تنامت مديونية البلدان النامية 5 مرات منذ 2000 لتتجاوز 11 تريليون دولار.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تتميز الأدفاق المالية العالمية بتنوع أصنافها ونموها السريع منذ نهاية القرن العشرين، حيث تضاعفت أدفاق الاستثمار الأجنبي المباشر الصادر حوالي 7 مرات بين 1990 و2015 لتصل إلى 1.7 تريليون دولار، قبل أن تتقلص إلى النصف بسبب جائحة كوفيد-19 سنة 2020 ثم تستعيد مستواها سنة 2021. كما تضاعفت رسملة البورصات العالمية أكثر من 11 مرة، وتضاعفت مديونية الدول النامية 5 مرات منذ سنة 2000. غير أن هذا النمو يتسم بالتذبذب ويخضع لتأثيرات الأزمات المالية العالمية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول أهمية تحويلات المهاجرين بالنسبة لبلدان الجنوب.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        تشكل تحويلات المهاجرين أحد أهم أصناف الأدفاق المالية الواردة إلى بلدان الجنوب، إذ بلغت قيمتها حوالي 831 مليار دولار سنة 2022 واستقطبت البلدان النامية أكثر من 77.85% منها. حلّل أهمية هذه التحويلات ودورها في دعم اقتصادات بلدان الجنوب.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تنامي ظاهرة الهجرة وتحويلات المهاجرين.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. ضخامة قيمة التحويلات ووجهتها؛ ثانياً. دورها في دعم الاقتصادات المحلية والأسر؛ ثالثاً. استقرارها مقارنة ببقية الأدفاق.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: التحويلات مصدر مالي حيوي لبلدان الجنوب.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">تعد تحويلات المهاجرين إحدى أبرز الأدفاق المالية الواردة إلى بلدان الجنوب، حيث بلغت قيمتها حوالي 831 مليار دولار سنة 2022.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_value">أولاً. ضخامة القيمة ووجهة التحويلات</h4>
+                        <p data-i18n="ex5A_production_p_value">استقطبت البلدان النامية أكثر من 77.85% من التحويلات (647 مليار دولار)، خاصة بلدان جنوب وشرق آسيا (مثل الهند والصين والفلبين) وأمريكا اللاتينية (المكسيك).</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_role">ثانياً. الدور الاقتصادي والاجتماعي</h4>
+                        <p data-i18n="ex5A_production_p_role">تشكل هذه التحويلات ثلاثة أضعاف قيمة المساعدات العمومية للتنمية، وتساهم في دعم ميزانيات الأسر وتمويل المشاريع الصغرى ورفع القدرة الشرائية.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_stability">ثالثاً. الاستقرار النسبي للتحويلات</h4>
+                        <p data-i18n="ex5A_production_p_stability">تُعد تحويلات المهاجرين أكثر استقراراً من غيرها من الأدفاق المالية الخاصة، وقد ظلت صامدة حتى في ظل جائحة كوفيد-19.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا تمثل تحويلات المهاجرين مصدراً مالياً حيوياً لبلدان الجنوب ودعامة أساسية لاقتصاداتها المحلية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: تأسيس صندوق النقد الدولي والبنك العالمي في بريتون وودز (1944)، بداية النمو السريع للأدفاق المالية (1990)، تراجع الأدفاق المالية بسبب كوفيد-19 (2020)، استعادة الأدفاق لمستويات مرتفعة (2022).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1944: بريتون وودز ...
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y4sec_secEco_geo_lessons_mod1_lesson2_part1.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT MODAL -->
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "4th Secondary, Economy and Management Section",
+                exerciseTitle: "Exercises – Global Financial Flows: Manifestations",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Foreign Direct Investment, Indirect Investments, Stocks, Bonds.",
+                ex1_def1_title: "Foreign Direct Investment:",
+                ex1_def1_subtitle: "Long-term investment by a transnational corporation outside its home country to acquire a company or a stake of at least 10% of its capital, or to establish new subsidiaries and production units.",
+                ex1_def2_title: "Indirect Investments:",
+                ex1_def2_subtitle: "Short-term investments by financial institutions for speculation purposes, consisting of purchasing financial securities such as stocks and bonds.",
+                ex1_def3_title: "Stocks (Shares):",
+                ex1_def3_subtitle: "Ownership certificates of a share of a company's capital, giving the holder voting rights in company meetings.",
+                ex1_def4_title: "Bonds:",
+                ex1_def4_subtitle: "Certificates issued by borrowing states or companies as part of bond loans, guaranteeing a fixed interest rate and repayment at maturity.",
+                ex2Q: "Convert the following table data into a bar chart showing the evolution of outward foreign direct investment flows worldwide between 1990 and 2021.",
+                ex2_table_year: "Year",
+                ex2_table_fdi: "Outward FDI flows (trillion USD)",
+                ex2Q_source: "Source: UNCTAD World Investment Reports",
+                ex2A_title: "Evolution of Outward FDI Flows (1990–2021, trillion USD)",
+                ex2A_source: "Source: UNCTAD World Investment Reports",
+                ex2A_scale: "Scale: 0–2 trillion USD; column height proportional to value.",
+                ex2A_key_label: "Key:",
+                ex3DocAlt: "Types of financial flows",
+                ex3AnswerImgAlt: "Answer model – Types of financial flows",
+                ex3Q: "Observe the following document representing the types of financial flows, and identify the characteristics of each type in terms of duration and purpose.",
+                ex3A: "Financial flows are diverse: FDI is a long-term investment aimed at controlling production, while indirect investments are short-term and aimed at speculation on stock exchanges. Loans are funds granted in exchange for interest, while official assistance consists of grants and concessional loans. Finally, migrant remittances are financial flows directed to households and are considered more stable than other private flows.",
+                ex4Q: "Analyse the characteristics of the evolution of global financial flows.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Characteristics of the evolution of global financial flows:\n- Outward FDI flows multiplied about 7 times between 1990 and 2015 to reach $1.7 trillion.\n- Flows fell to more than half ($0.7 trillion) in 2020 due to the COVID-19 pandemic before recovering in 2021.\n- The outward FDI stock reached about $40 trillion, more than a third of global GDP (39.8%).\n- Global stock market capitalization multiplied more than 11 times since 1990 to reach $98.9 trillion.\n- Developing country debt grew 5 times since 2000 to exceed $11 trillion.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "Global financial flows are characterized by their diversity and rapid growth since the end of the 20th century, with outward FDI flows multiplying about 7 times between 1990 and 2015 to reach $1.7 trillion, before shrinking by half due to the COVID-19 pandemic in 2020 and then recovering in 2021. Global stock market capitalization also multiplied more than 11 times, and developing country debt multiplied 5 times since 2000. However, this growth is volatile and subject to global financial crises.",
+                ex5Q: "Write a short article (150 words) on the importance of migrant remittances for the Global South.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Migrant remittances are one of the most important financial flows to the Global South, reaching about $831 billion in 2022, with developing countries receiving over 77.85% of them. Analyse the importance of these remittances and their role in supporting Southern economies.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Growing migration and migrant remittances.",
+                ex5A_plan_li2: "Development: I. The magnitude of remittances and their destination; II. Their role in supporting local economies and households; III. Their relative stability compared to other flows.",
+                ex5A_plan_li3: "Conclusion: Remittances are a vital financial source for the Global South.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Migrant remittances are one of the most important financial flows to the Global South, reaching about $831 billion in 2022.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_value: "I. Magnitude and Destination of Remittances",
+                ex5A_production_p_value: "Developing countries received over 77.85% of remittances ($647 billion), especially South and East Asia (India, China, Philippines) and Latin America (Mexico).",
+                ex5A_production_h4_role: "II. Economic and Social Role",
+                ex5A_production_p_role: "These remittances represent three times the value of official development assistance, contributing to household budgets, micro-project financing, and purchasing power.",
+                ex5A_production_h4_stability: "III. Relative Stability of Remittances",
+                ex5A_production_p_stability: "Migrant remittances are more stable than other private financial flows, remaining resilient even during the COVID-19 pandemic.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus, migrant remittances represent a vital financial source for the Global South and a fundamental pillar of their local economies.",
+                ex6Q: "Create a timeline of the following events: Founding of the IMF and World Bank at Bretton Woods (1944), Beginning of rapid growth of financial flows (1990), Decline in financial flows due to COVID-19 (2020), Recovery of flows to high levels (2022).",
+                ex6A: "Timeline: 1944: Bretton Woods...",
+                ex6_timeline_title: "Key Dates in Global Financial Flows",
+                ex6_event_1944_label: "Bretton Woods (IMF & World Bank)",
+                ex6_event_1944_sub: "1944",
+                ex6_event_1990_label: "Rapid Growth of Financial Flows",
+                ex6_event_1990_sub: "1990",
+                ex6_event_2020_label: "COVID-19 Decline",
+                ex6_event_2020_sub: "2020",
+                ex6_event_2022_label: "Recovery of Financial Flows",
+                ex6_event_2022_sub: "2022",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – Les flux financiers mondiaux : manifestations",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Investissement direct étranger, Investissements indirects, Actions, Obligations.",
+                ex1_def1_title: "Investissement direct étranger :",
+                ex1_def1_subtitle: "Investissement à long terme d'une firme transnationale hors de son pays d'origine pour acquérir une entreprise ou une participation d'au moins 10% de son capital, ou pour créer de nouvelles filiales.",
+                ex1_def2_title: "Investissements indirects :",
+                ex1_def2_subtitle: "Investissements à court terme des institutions financières à des fins de spéculation, consistant à acheter des titres financiers tels que des actions et des obligations.",
+                ex1_def3_title: "Actions :",
+                ex1_def3_subtitle: "Titres de propriété d'une part du capital d'une société donnant droit de vote.",
+                ex1_def4_title: "Obligations :",
+                ex1_def4_subtitle: "Titres émis par les États ou les sociétés emprunteurs dans le cadre de prêts obligataires, garantissant un taux d'intérêt fixe et le remboursement à l'échéance.",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant l'évolution des flux d'IDE sortants dans le monde entre 1990 et 2021.",
+                ex2_table_year: "Année",
+                ex2_table_fdi: "Flux d'IDE sortants (billion USD)",
+                ex2Q_source: "Source : Rapports de la CNUCED sur l'investissement mondial",
+                ex2A_title: "Évolution des flux d'IDE sortants (1990–2021, billions USD)",
+                ex2A_source: "Source : Rapports de la CNUCED sur l'investissement mondial",
+                ex2A_scale: "Échelle : 0–2 billions USD ; hauteur des colonnes proportionnelle à la valeur.",
+                ex2A_key_label: "Légende :",
+                ex3DocAlt: "Types de flux financiers",
+                ex3AnswerImgAlt: "Modèle de réponse – Types de flux financiers",
+                ex3Q: "Observez le document suivant représentant les types de flux financiers, et identifiez les caractéristiques de chaque type en termes de durée et d'objectif.",
+                ex3A: "Les flux financiers sont diversifiés : l'IDE est un investissement à long terme visant à contrôler la production, tandis que les investissements indirects sont à court terme et visent la spéculation en bourse. Les prêts sont des fonds accordés en échange d'intérêts, tandis que l'aide publique se compose de dons et de prêts concessionnels. Enfin, les transferts des migrants sont des flux financiers destinés aux ménages et sont considérés comme plus stables que les autres flux privés.",
+                ex4Q: "Analysez les caractéristiques de l'évolution des flux financiers mondiaux.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Caractéristiques de l'évolution des flux financiers mondiaux :\n- Les flux d'IDE sortants ont été multipliés par environ 7 entre 1990 et 2015 pour atteindre 1,7 billion de dollars.\n- Les flux ont chuté à plus de la moitié (0,7 billion de dollars) en 2020 en raison de la pandémie de COVID-19 avant de se rétablir en 2021.\n- Le stock d'IDE sortant a atteint environ 40 billions de dollars, soit plus d'un tiers du PIB mondial (39,8%).\n- La capitalisation boursière mondiale a été multipliée par plus de 11 depuis 1990 pour atteindre 98,9 billions de dollars.\n- La dette des pays en développement a été multipliée par 5 depuis 2000 pour dépasser 11 billions de dollars.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Les flux financiers mondiaux se caractérisent par leur diversité et leur croissance rapide depuis la fin du XXe siècle, les flux d'IDE sortants ayant été multipliés par environ 7 entre 1990 et 2015 pour atteindre 1,7 billion de dollars, avant de se réduire de moitié en raison de la pandémie de COVID-19 en 2020, puis de se rétablir en 2021. La capitalisation boursière mondiale a également été multipliée par plus de 11, et la dette des pays en développement par 5 depuis 2000. Cependant, cette croissance reste volatile et soumise aux crises financières mondiales.",
+                ex5Q: "Rédigez un court article (150 mots) sur l'importance des transferts des migrants pour les pays du Sud.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Les transferts des migrants constituent l'un des flux financiers les plus importants vers les pays du Sud, atteignant environ 831 milliards de dollars en 2022, les pays en développement en recevant plus de 77,85%. Analysez l'importance de ces transferts et leur rôle dans le soutien des économies du Sud.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Croissance de la migration et des transferts des migrants.",
+                ex5A_plan_li2: "Développement : I. L'ampleur des transferts et leur destination ; II. Leur rôle dans le soutien des économies locales et des ménages ; III. Leur stabilité relative par rapport aux autres flux.",
+                ex5A_plan_li3: "Conclusion : Les transferts sont une source financière vitale pour les pays du Sud.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Les transferts des migrants constituent l'un des flux financiers les plus importants vers les pays du Sud, atteignant environ 831 milliards de dollars en 2022.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_value: "I. Ampleur et destination des transferts",
+                ex5A_production_p_value: "Les pays en développement ont reçu plus de 77,85% des transferts (647 milliards de dollars), notamment en Asie du Sud et de l'Est (Inde, Chine, Philippines) et en Amérique latine (Mexique).",
+                ex5A_production_h4_role: "II. Rôle économique et social",
+                ex5A_production_p_role: "Ces transferts représentent trois fois la valeur de l'aide publique au développement, contribuant aux budgets des ménages, au financement de micro-projets et au pouvoir d'achat.",
+                ex5A_production_h4_stability: "III. Stabilité relative des transferts",
+                ex5A_production_p_stability: "Les transferts des migrants sont plus stables que les autres flux financiers privés, résistant même à la pandémie de COVID-19.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi, les transferts des migrants représentent une source financière vitale pour les pays du Sud et un pilier fondamental de leurs économies locales.",
+                ex6Q: "Créez une chronologie des événements suivants : Fondation du FMI et de la Banque mondiale à Bretton Woods (1944), Début de la croissance rapide des flux financiers (1990), Recul des flux financiers dû au COVID-19 (2020), Reprise des flux à des niveaux élevés (2022).",
+                ex6A: "Chronologie : 1944 : Bretton Woods...",
+                ex6_timeline_title: "Dates clés des flux financiers mondiaux",
+                ex6_event_1944_label: "Bretton Woods (FMI & Banque mondiale)",
+                ex6_event_1944_sub: "1944",
+                ex6_event_1990_label: "Croissance rapide des flux financiers",
+                ex6_event_1990_sub: "1990",
+                ex6_event_2020_label: "Recul dû au COVID-19",
+                ex6_event_2020_sub: "2020",
+                ex6_event_2022_label: "Reprise des flux financiers",
+                ex6_event_2022_sub: "2022",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – الأدفاق المالية: المظاهر",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الاستثمار الأجنبي المباشر، الاستثمارات غير المباشرة، الأسهم، السندات.",
+                ex1_def1_title: "الاستثمار الأجنبي المباشر:",
+                ex1_def1_subtitle: "استثمار طويل المدى توظفه شركة عبر قطرية خارج بلدها الأصلي لشراء مؤسسة اقتصادية أو حصة لا تقل عن 10% من رأسمالها أو لبعث فروع ووحدات إنتاج جديدة تابعة لها.",
+                ex1_def2_title: "الاستثمارات غير المباشرة:",
+                ex1_def2_subtitle: "استثمارات تقوم بها المؤسسات المالية على مدى قصير بهدف المضاربة، وتتمثل في شراء الأوراق المالية كالأسهم والسندات.",
+                ex1_def3_title: "الأسهم:",
+                ex1_def3_subtitle: "صكوك ملكية حصة من رأسمال شركة تعطي لحاملها حق التصويت في الجلسات العامة للشركات.",
+                ex1_def4_title: "السندات:",
+                ex1_def4_subtitle: "صكوك تصدرها الدول أو الشركات المقترضة في إطار قروض رقاعية، مقابل ضمان نسبة فائدة قارة واسترجاع قيمة السند في نهاية المدة.",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن تطور أدفاق الاستثمار الأجنبي المباشر الصادر في العالم بين 1990 و2021.",
+                ex2_table_year: "السنة",
+                ex2_table_fdi: "أدفاق الاستثمار الأجنبي المباشر الصادر (تريليون دولار)",
+                ex2Q_source: "المصدر: تقارير الأونكتاد حول الاستثمار العالمي",
+                ex2A_title: "تطور أدفاق الاستثمار الأجنبي المباشر الصادر (1990–2021، تريليون دولار)",
+                ex2A_source: "المصدر: تقارير الأونكتاد حول الاستثمار العالمي",
+                ex2A_scale: "المقياس: 0–2 تريليون دولار؛ ارتفاع الأعمدة يتناسب مع القيمة.",
+                ex2A_key_label: "المفتاح:",
+                ex3DocAlt: "أصناف الأدفاق المالية",
+                ex3AnswerImgAlt: "نموذج الإجابة – أصناف الأدفاق المالية",
+                ex3Q: "تأمل الوثيقة التالية التي تمثل أصناف الأدفاق المالية، وبيّن خصائص كل صنف من حيث المدة والهدف.",
+                ex3A: "تتعدد أصناف الأدفاق المالية: فالاستثمار الأجنبي المباشر استثمار طويل المدى يهدف إلى التحكم في الإنتاج، بينما الاستثمارات غير المباشرة قصيرة المدى وتهدف إلى المضاربة في البورصات. أما القروض فهي أموال تُمنح مقابل فوائد، في حين تتكون المساعدة العمومية من الهبات والقروض الميسرة. وأخيراً تُعد تحويلات المهاجرين أدفاقاً مالية موجهة إلى الأسر وتُعتبر أكثر استقراراً من بقية الأدفاق الخاصة.",
+                ex4Q: "حلّل خصائص تطور الأدفاق المالية العالمية.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "خصائص تطور الأدفاق المالية العالمية:\n- تضاعفت أدفاق الاستثمار الأجنبي المباشر الصادر حوالي 7 مرات بين 1990 و2015 لتصل إلى 1.7 تريليون دولار.\n- تراجعت الأدفاق إلى أكثر من النصف (0.7 تريليون دولار) سنة 2020 بسبب جائحة كوفيد-19 قبل استعادتها لمستواها سنة 2021.\n- بلغ رصيد الاستثمار الأجنبي المباشر الصادر حوالي 40 تريليون دولار أي أكثر من ثلث الناتج الداخلي الخام العالمي (39.8%).\n- تضاعفت رسملة البورصات العالمية أكثر من 11 مرة منذ 1990 لتبلغ 98.9 تريليون دولار.\n- تنامت مديونية البلدان النامية 5 مرات منذ 2000 لتتجاوز 11 تريليون دولار.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تتميز الأدفاق المالية العالمية بتنوع أصنافها ونموها السريع منذ نهاية القرن العشرين، حيث تضاعفت أدفاق الاستثمار الأجنبي المباشر الصادر حوالي 7 مرات بين 1990 و2015 لتصل إلى 1.7 تريليون دولار، قبل أن تتقلص إلى النصف بسبب جائحة كوفيد-19 سنة 2020 ثم تستعيد مستواها سنة 2021. كما تضاعفت رسملة البورصات العالمية أكثر من 11 مرة، وتضاعفت مديونية الدول النامية 5 مرات منذ سنة 2000. غير أن هذا النمو يتسم بالتذبذب ويخضع لتأثيرات الأزمات المالية العالمية.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول أهمية تحويلات المهاجرين بالنسبة لبلدان الجنوب.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "تشكل تحويلات المهاجرين أحد أهم أصناف الأدفاق المالية الواردة إلى بلدان الجنوب، إذ بلغت قيمتها حوالي 831 مليار دولار سنة 2022 واستقطبت البلدان النامية أكثر من 77.85% منها. حلّل أهمية هذه التحويلات ودورها في دعم اقتصادات بلدان الجنوب.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تنامي ظاهرة الهجرة وتحويلات المهاجرين.",
+                ex5A_plan_li2: "تطوير: أولاً. ضخامة قيمة التحويلات ووجهتها؛ ثانياً. دورها في دعم الاقتصادات المحلية والأسر؛ ثالثاً. استقرارها مقارنة ببقية الأدفاق.",
+                ex5A_plan_li3: "خاتمة: التحويلات مصدر مالي حيوي لبلدان الجنوب.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "تعد تحويلات المهاجرين إحدى أبرز الأدفاق المالية الواردة إلى بلدان الجنوب، حيث بلغت قيمتها حوالي 831 مليار دولار سنة 2022.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_value: "أولاً. ضخامة القيمة ووجهة التحويلات",
+                ex5A_production_p_value: "استقطبت البلدان النامية أكثر من 77.85% من التحويلات (647 مليار دولار)، خاصة بلدان جنوب وشرق آسيا (مثل الهند والصين والفلبين) وأمريكا اللاتينية (المكسيك).",
+                ex5A_production_h4_role: "ثانياً. الدور الاقتصادي والاجتماعي",
+                ex5A_production_p_role: "تشكل هذه التحويلات ثلاثة أضعاف قيمة المساعدات العمومية للتنمية، وتساهم في دعم ميزانيات الأسر وتمويل المشاريع الصغرى ورفع القدرة الشرائية.",
+                ex5A_production_h4_stability: "ثالثاً. الاستقرار النسبي للتحويلات",
+                ex5A_production_p_stability: "تُعد تحويلات المهاجرين أكثر استقراراً من غيرها من الأدفاق المالية الخاصة، وقد ظلت صامدة حتى في ظل جائحة كوفيد-19.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا تمثل تحويلات المهاجرين مصدراً مالياً حيوياً لبلدان الجنوب ودعامة أساسية لاقتصاداتها المحلية.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: تأسيس صندوق النقد الدولي والبنك العالمي في بريتون وودز (1944)، بداية النمو السريع للأدفاق المالية (1990)، تراجع الأدفاق المالية بسبب كوفيد-19 (2020)، استعادة الأدفاق لمستويات مرتفعة (2022).",
+                ex6A: "الخط الزمني: 1944: بريتون وودز ...",
+                ex6_timeline_title: "محطات أساسية في تطور الأدفاق المالية العالمية",
+                ex6_event_1944_label: "بريتون وودز (صندوق النقد والبنك العالمي)",
+                ex6_event_1944_sub: "1944",
+                ex6_event_1990_label: "بداية النمو السريع للأدفاق",
+                ex6_event_1990_sub: "1990",
+                ex6_event_2020_label: "تراجع الأدفاق بسبب كوفيد-19",
+                ex6_event_2020_sub: "2020",
+                ex6_event_2022_label: "استعادة الأدفاق لمستويات مرتفعة",
+                ex6_event_2022_sub: "2022",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '1990', value: 0.24, valueFormatted: '0.24' },
+                { label: '2000', value: 1.4, valueFormatted: '1.4' },
+                { label: '2010', value: 1.5, valueFormatted: '1.5' },
+                { label: '2015', value: 1.7, valueFormatted: '1.7' },
+                { label: '2020', value: 0.7, valueFormatted: '0.7' },
+                { label: '2021', value: 1.7, valueFormatted: '1.7' }
+            ],
+            maxValue: 2,
+            ySteps: [2, 1.6, 1.2, 0.8, 0.4, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1944, labelKey: 'ex6_event_1944_label', subKey: 'ex6_event_1944_sub' },
+                { year: 1990, labelKey: 'ex6_event_1990_label', subKey: 'ex6_event_1990_sub' },
+                { year: 2020, labelKey: 'ex6_event_2020_label', subKey: 'ex6_event_2020_sub' },
+                { year: 2022, labelKey: 'ex6_event_2022_label', subKey: 'ex6_event_2022_sub' }
+            ],
+            startYear: 1944,
+            endYear: 2022,
+            scaleYears: [1944, 1964, 1984, 2004, 2022]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>
