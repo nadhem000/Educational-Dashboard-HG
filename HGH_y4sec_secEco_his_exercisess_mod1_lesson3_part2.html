@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – تونس في الثلاثينيات</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        /* ══════ PRINT MODAL STYLES ══════ */
+        .print-modal-overlay { position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index:99999; display:flex; align-items:center; justify-content:center; animation: pmFadeIn 0.25s ease-out; padding:1rem; }
+        @keyframes pmFadeIn { from { opacity:0; } to { opacity:1; } }
+        .print-modal-content { background: var(--ED-General-color-surface); border-radius:20px; padding:2rem 2.2rem; max-width:480px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); border:1px solid var(--ED-General-color-border); animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+        .print-modal-title { margin:0 0 0.3rem 0; font-size:1.4rem; font-weight:750; }
+        .print-modal-subtitle { margin:0 0 1.5rem 0; font-size:0.9rem; color:var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.8rem; }
+        .print-option { display:flex; align-items:center; gap:0.75rem; padding:0.9rem 1.1rem; border-radius:14px; cursor:pointer; border:2px solid var(--ED-General-color-border); background:var(--ED-General-color-bg-secondary); transition:all 0.2s ease; user-select:none; }
+        .print-option.disabled-option { opacity:0.5; pointer-events:none; background:var(--ED-General-color-bg-secondary); border-color:var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); box-shadow:0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance:none; -webkit-appearance:none; width:22px; height:22px; border:2px solid var(--ED-General-color-border-hover); border-radius:50%; flex-shrink:0; cursor:pointer; background:var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background:var(--ED-General-color-accent-default); border-color:var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content:''; position:absolute; left:6px; top:6px; width:6px; height:6px; background:#fff; border-radius:50%; }
+        .print-option-label { font-weight:700; font-size:1rem; }
+        .print-option-desc { font-size:0.82rem; color:var(--ED-General-color-text-tertiary); margin-left:auto; }
+        [dir="rtl"] .print-option-desc { margin-left:0; margin-right:auto; }
+        .print-modal-actions { display:flex; gap:0.8rem; justify-content:flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding:0.7rem 1.6rem; border-radius:25px; font-weight:650; font-size:0.95rem; cursor:pointer; }
+        .print-modal-cancel { background:transparent; border:2px solid var(--ED-General-color-border); color:var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background:linear-gradient(135deg, #4a7fd9, #3b6dc5); color:#fff; border:none; box-shadow:0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        /* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+        .print-header-content, .print-footer-content { display:none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0, 0, 0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة اقتصاد وتصرف
+            </div>
+            <h1 data-i18n="exerciseTitle">تمارين – تونس في الثلاثينيات</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الحزب الحر الدستوري الجديد، جامعة عموم العملة التونسية، سياسة المكياج، انتفاضة الوطن القبلي.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الحزب الحر الدستوري الجديد:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">حزب سياسي تونسي تأسس في مؤتمر قصر هلال (2 مارس 1934) بقيادة محمود الماطري (رئيسًا) والحبيب بورقيبة (كاتبًا عامًا)، بعد انقسام الحزب الحر الدستوري التونسي. طالب بالحريات العامة والمساواة بين التونسيين والفرنسيين وإحداث مجلس تشريعي تونسي وإصلاح الإدارة وتحسين الأجور وظروف العمل، وأصبح قوة سياسية كبرى في البلاد.</dd>
+                        <dt data-i18n="ex1_def2_title">جامعة عموم العملة التونسية:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">منظمة نقابية تونسية تأسست سنة 1936 لتعيد إحياء الحركة النقابية المستقلة بعد حل الجامعة العامة للشغل سنة 1925. طالبت بتحسين الأجور وظروف العمل والضمان الاجتماعي والمساواة في الأجور، ولعبت دورًا هامًا في تأطير الطبقة العاملة التونسية ودعم النضال الوطني.</dd>
+                        <dt data-i18n="ex1_def3_title">سياسة المكياج:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">سياسة اتبعتها سلطات الحماية الفرنسية لمعالجة أزمة الثلاثينيات الاقتصادية، انشغلت بمساندة المعمرين وأهملت مصالح التونسيين بما في ذلك المستفيدين من النظام الاستعماري، مما زاد من الاستياء والاحتجاجات.</dd>
+                        <dt data-i18n="ex1_def4_title">انتفاضة الوطن القبلي:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">انتفاضة قام بها الفلاحون في الوطن القبلي سنة 1934 ضد الاستغلال الاستعماري ومصادرة الأراضي، واجهتها السلطات الاستعمارية بالقمع الشديد والاعتقالات، وتُعد من أبرز مظاهر المقاومة المسلحة في الثلاثينيات.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 2: Map / Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل الصورة التالية التي تمثل قيادات الحزب الحر الدستوري الجديد ومؤتمر قصر هلال، وبيّن أبرز الشخصيات والظروف التي أدت إلى تأسيس الحزب.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets4eco/exercises/history/unit1/lesson3/neoDestourFounders.png"
+                         alt="قيادات الحزب الحر الدستوري الجديد ومؤتمر قصر هلال"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets4eco/exercises/history/unit1/lesson3/neoDestourFounders2.png"
+                             alt="نموذج الإجابة – قيادات الحزب الحر الدستوري الجديد"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        تبرز من بين الشخصيات: الحبيب بورقيبة (الكاتب العام) ومحمود الماطري (الرئيس) اللذان قادا تأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934). وقد جاء تأسيس الحزب نتيجة الخلاف الحاد بين القيادة التاريخية (الثعالبي) والقيادة الشابة، بعد مؤتمر مكنين (ماي 1933) الذي انتخب هيئة إدارية جديدة ضمت عناصر شابة من الجيل الجديد. وقد أسفر مؤتمر قصر هلال عن تأسيس الحزب الجديد وانتخاب هيئة إدارية جديدة برئاسته، مع برنامج يطالب بالحريات العامة والمساواة وإحداث مجلس تشريعي تونسي.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل البيانات التالية إلى مخطط بالأعمدة: تطور سعر الهكتولتر من المنتجات الفلاحية في تونس بين 1930 و1935 (بالفرنك): 1930: 200، 1931: 180، 1932: 150، 1933: 130، 1934: 110، 1935: 100.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_year">السنة</th>
+                            <th data-i18n="ex3Q_table_price">السعر (فرنك)</th>
+                        </tr>
+                        <tr><td>1930</td><td>200</td></tr>
+                        <tr><td>1931</td><td>180</td></tr>
+                        <tr><td>1932</td><td>150</td></tr>
+                        <tr><td>1933</td><td>130</td></tr>
+                        <tr><td>1934</td><td>110</td></tr>
+                        <tr><td>1935</td><td>100</td></tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: بيانات تاريخية عن أزمة الثلاثينيات الاقتصادية بتونس</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل مظاهر تطور الحركة الوطنية التونسية في الثلاثينيات في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        مظاهر تطور الحركة الوطنية التونسية في الثلاثينيات:
+                        - المظهر السياسي: تأسيس الحزب الحر الدستوري الجديد (مؤتمر قصر هلال، 2 مارس 1934) بقيادة محمود الماطري والحبيب بورقيبة، مع برنامج يطالب بالحريات العامة والمساواة وإحداث مجلس تشريعي تونسي.
+                        - المظهر النقابي: تأسيس جامعة عموم العملة التونسية (1936) لتعيد إحياء الحركة النقابية المستقلة بعد حل الجامعة العامة للشغل (1925).
+                        - المظهر الثقافي: إصدار صحف وطنية (العمل التونسي، 1932) وتأسيس جمعيات ثقافية (الشبان المسلمين، 1933).
+                        - المقاومة المسلحة: انتفاضات شعبية (الوطن القبلي 1934، عمال الحضائر 1936، صفاقس 1937).
+                        - النتيجة: أصبح الحزب الحر الدستوري الجديد قوة سياسية كبرى، وتعددت أشكال النضال الوطني.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        شهدت الحركة الوطنية التونسية في الثلاثينيات تطورًا ملحوظًا وتعددت مظاهر نضالها. فعلى المستوى السياسي، تأسس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934) بقيادة محمود الماطري رئيسًا والحبيب بورقيبة كاتبًا عامًا، بعد انقسام الحزب الحر الدستوري التونسي بين قيادة تاريخية برئاسة الثعالبي وقيادة شابة. وقد طالب الحزب الجديد بالحريات العامة والمساواة بين التونسيين والفرنسيين وإحداث مجلس تشريعي تونسي. وعلى المستوى النقابي، تأسست جامعة عموم العملة التونسية سنة 1936 لتعيد إحياء الحركة النقابية المستقلة بعد حل الجامعة العامة للشغل سنة 1925، مطالبة بتحسين الأجور وظروف العمل والضمان الاجتماعي. كما تنوعت المظاهر الثقافية بإصدار صحف وطنية مثل "العمل التونسي" (1932) وتأسيس جمعيات ثقافية مثل "الشبان المسلمين" (1933)، إلى جانب المقاومة المسلحة والانتفاضات الشعبية (الوطن القبلي 1934، عمال الحضائر 1936، صفاقس 1937). وقد أسفرت هذه التطورات عن بروز الحزب الحر الدستوري الجديد كقوة سياسية كبرى في البلاد.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول أثر أزمة الثلاثينيات الاقتصادية والاجتماعية على تطور الحركة الوطنية التونسية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        أدت أزمة الثلاثينيات الاقتصادية والاجتماعية بتونس إلى تدهور أوضاع مختلف فئات المجتمع، مما أدى إلى تزايد الاستياء والاحتجاجات. حلّل كيف ساهمت هذه الأزمة في انتعاش العمل الوطني وتأسيس الحزب الحر الدستوري الجديد، وبيّن العلاقة بين تدهور الأوضاع الاقتصادية والاجتماعية وتطور الحركة الوطنية.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم أزمة الثلاثينيات كعامل حاسم في تطور الحركة الوطنية.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. مظاهر الأزمة الاقتصادية والاجتماعية؛ ثانياً. انعكاسات الأزمة على العمل الوطني؛ ثالثاً. تأسيس الحزب الحر الدستوري الجديد كتعبير عن المرحلة الجديدة.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: الأزمة كفرصة لانتعاش النضال الوطني وتنظيمه.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">شكلت أزمة الثلاثينيات الاقتصادية والاجتماعية بتونس عاملًا حاسمًا في انتعاش العمل الوطني وتطور الحركة الوطنية نحو مرحلة جديدة من النضال المنظم.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_crisis">أولاً. مظاهر الأزمة الاقتصادية والاجتماعية</h4>
+                        <p data-i18n="ex5A_production_p_crisis">تمثلت الأزمة في تدهور الإنتاج الفلاحي بسبب الجفاف (1930-1931) وانتشار الجراد (1932)، وانهيار أسعار المنتجات الفلاحية (من 200 فرنك سنة 1930 إلى 100 فرنك سنة 1935)، وتفاقم البطالة وانخفاض الأجور وتدهور القدرة الشرائية وانتشار الفقر والجوع. وقد عادلت سلطات الحماية هذه الأزمة بسياسة المكياج التي انشغلت بمساندة المعمرين وأهملت مصالح التونسيين.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_impact">ثانياً. انعكاسات الأزمة على العمل الوطني</h4>
+                        <p data-i18n="ex5A_production_p_impact">أدت الأزمة إلى تزايد الاستياء والاحتجاجات في المدن (الإضرابات) وفي الجهات (التمردات والانتفاضات)، مما دفع الحركة الوطنية إلى تجديد خطابها ومطالبها والانتقال من المطالب الإصلاحية إلى المطالبة بتحرير الشعب التونسي وإقامة برلمان منتخب.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_founding">ثالثاً. تأسيس الحزب الحر الدستوري الجديد</h4>
+                        <p data-i18n="ex5A_production_p_founding">توج هذا الانتعاش بتأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934) بقيادة محمود الماطري والحبيب بورقيبة، وهو ما عكس صعود الجيل الجديد وتجديد أساليب النضال الوطني، وأصبح الحزب قوة سياسية كبرى في البلاد.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا شكلت أزمة الثلاثينيات فرصة لانتعاش النضال الوطني وتنظيمه، وأدت إلى تأسيس الحزب الحر الدستوري الجديد الذي قاد الحركة الوطنية نحو مرحلة جديدة من النضال المنظم.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: المؤتمر الاستعماري بباريس (ماي 1930)، خمسينية الاستعمار (ماي 1931)، صدور صحيفة "العمل التونسي" (نوفمبر 1932)، مؤتمر مكنين (ماي 1933)، مؤتمر قصر هلال وتأسيس الحزب الحر الدستوري الجديد (2 مارس 1934)، تأسيس جامعة عموم العملة التونسية (1936)، انتفاضة صفاقس (1937).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1930: المؤتمر الاستعماري بباريس ... 1937: انتفاضة صفاقس.
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y4sec_secEco_his_lessons_mod1_lesson3_part2.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT MODAL -->
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "4th Secondary, Economy and Management Section",
+                exerciseTitle: "Exercises – Tunisia in the 1930s",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Neo-Destour Party, General Union of Tunisian Workers, Cosmetic Policy, Cap Bon Uprising.",
+                ex1_def1_title: "Neo-Destour Party:",
+                ex1_def1_subtitle: "A Tunisian political party founded at the Ksar Hellal Congress (2 March 1934) led by Mahmoud El Materi (president) and Habib Bourguiba (secretary-general), after the split of the Tunisian Destour Party. It demanded public freedoms, equality between Tunisians and French, a Tunisian legislative council, administrative reform, and improved wages and working conditions. It became a major political force in the country.",
+                ex1_def2_title: "General Union of Tunisian Workers:",
+                ex1_def2_subtitle: "A Tunisian trade union organization founded in 1936 to revive the independent trade union movement after the dissolution of the General Union in 1925. It demanded improved wages and working conditions, social security, and wage equality, and played an important role in organizing the Tunisian working class and supporting the national struggle.",
+                ex1_def3_title: "Cosmetic Policy:",
+                ex1_def3_subtitle: "A policy followed by the French protectorate authorities to address the economic crisis of the 1930s, focusing on supporting settlers and neglecting the interests of Tunisians, including those benefiting from the colonial system, which increased discontent and protests.",
+                ex1_def4_title: "Cap Bon Uprising:",
+                ex1_def4_subtitle: "An uprising by farmers in Cap Bon in 1934 against colonial exploitation and land confiscation, met with harsh repression and arrests by the colonial authorities. It is one of the most prominent manifestations of armed resistance in the 1930s.",
+                ex2Q: "Observe the following image representing the leaders of the Neo-Destour Party and the Ksar Hellal Congress, and identify the main figures and the circumstances that led to the founding of the party.",
+                ex2DocAlt: "Leaders of the Neo-Destour Party and the Ksar Hellal Congress",
+                ex2AnswerImgAlt: "Answer model – Leaders of the Neo-Destour Party",
+                ex2A: "The figures include Habib Bourguiba (secretary-general) and Mahmoud El Materi (president) who led the founding of the Neo-Destour Party at the Ksar Hellal Congress (2 March 1934). The party's founding came as a result of the sharp dispute between the historic leadership (Thaalbi) and the young leadership, after the Menzel Bourguiba Congress (May 1933) which elected a new administrative committee including young elements of the new generation. The Ksar Hellal Congress resulted in the founding of the new party and the election of a new administrative committee, with a program demanding public freedoms, equality, and a Tunisian legislative council.",
+                ex3Q: "Convert the following data into a bar chart: Evolution of the hectolitre price of agricultural products in Tunisia between 1930 and 1935 (in francs): 1930: 200, 1931: 180, 1932: 150, 1933: 130, 1934: 110, 1935: 100.",
+                ex3Q_table_year: "Year",
+                ex3Q_table_price: "Price (francs)",
+                ex3Q_source: "Source: Historical data on the 1930s economic crisis in Tunisia",
+                ex3A_title: "Evolution of the Hectolitre Price of Agricultural Products in Tunisia (1930–1935)",
+                ex3A_source: "Source: Historical archives",
+                ex3A_scale: "Scale: 0–200 francs; column height proportional to price.",
+                ex3A_key_label: "Key:",
+                ex4Q: "Analyse the manifestations of the development of the Tunisian national movement in the 1930s in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Manifestations of the development of the Tunisian national movement in the 1930s:\n- Political manifestation: Founding of the Neo-Destour Party (Ksar Hellal Congress, 2 March 1934) led by Mahmoud El Materi and Habib Bourguiba, with a program demanding public freedoms, equality, and a Tunisian legislative council.\n- Trade union manifestation: Founding of the General Union of Tunisian Workers (1936) to revive the independent trade union movement after the dissolution of the General Union (1925).\n- Cultural manifestation: Publication of national newspapers (L'Action Tunisienne, 1932) and founding of cultural associations (Young Muslims, 1933).\n- Armed resistance: Popular uprisings (Cap Bon 1934, construction workers 1936, Sfax 1937).\n- Result: The Neo-Destour Party became a major political force, and forms of national struggle diversified.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The Tunisian national movement witnessed remarkable development in the 1930s, with diverse manifestations of struggle. Politically, the Neo-Destour Party was founded at the Ksar Hellal Congress (2 March 1934) led by Mahmoud El Materi as president and Habib Bourguiba as secretary-general, after the split of the Tunisian Destour Party between a historic leadership led by Thaalbi and a young leadership. The new party demanded public freedoms, equality between Tunisians and French, and a Tunisian legislative council. On the trade union level, the General Union of Tunisian Workers was founded in 1936 to revive the independent trade union movement after the dissolution of the General Union in 1925, demanding improved wages, working conditions, and social security. Cultural manifestations also diversified with the publication of national newspapers such as 'L'Action Tunisienne' (1932) and the founding of cultural associations such as 'Young Muslims' (1933), alongside armed resistance and popular uprisings (Cap Bon 1934, construction workers 1936, Sfax 1937). These developments resulted in the emergence of the Neo-Destour Party as a major political force in the country.",
+                ex5Q: "Write a short article (150 words) on the impact of the economic and social crisis of the 1930s on the development of the Tunisian national movement.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "The economic and social crisis of the 1930s in Tunisia led to the deterioration of the conditions of various segments of society, resulting in growing discontent and protests. Analyse how this crisis contributed to the revival of national action and the founding of the Neo-Destour Party, and show the relationship between the deterioration of economic and social conditions and the development of the national movement.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Presenting the 1930s crisis as a decisive factor in the development of the national movement.",
+                ex5A_plan_li2: "Development: I. Manifestations of the economic and social crisis; II. Repercussions of the crisis on national action; III. Founding of the Neo-Destour Party as an expression of the new phase.",
+                ex5A_plan_li3: "Conclusion: The crisis as an opportunity for the revival and organization of national struggle.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The economic and social crisis of the 1930s in Tunisia was a decisive factor in the revival of national action and the development of the national movement towards a new phase of organized struggle.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_crisis: "I. Manifestations of the Economic and Social Crisis",
+                ex5A_production_p_crisis: "The crisis manifested in the deterioration of agricultural production due to drought (1930-1931) and locust spread (1932), the collapse of agricultural prices (from 200 francs in 1930 to 100 francs in 1935), worsening unemployment, falling wages, deteriorating purchasing power, and the spread of poverty and hunger. The protectorate authorities addressed this crisis with a cosmetic policy that focused on supporting settlers and neglected the interests of Tunisians.",
+                ex5A_production_h4_impact: "II. Repercussions of the Crisis on National Action",
+                ex5A_production_p_impact: "The crisis led to growing discontent and protests in cities (strikes) and in regions (rebellions and uprisings), pushing the national movement to renew its discourse and demands and to move from reformist demands to demanding the liberation of the Tunisian people and the establishment of an elected parliament.",
+                ex5A_production_h4_founding: "III. Founding of the Neo-Destour Party",
+                ex5A_production_p_founding: "This revival culminated in the founding of the Neo-Destour Party at the Ksar Hellal Congress (2 March 1934) led by Mahmoud El Materi and Habib Bourguiba, reflecting the rise of the new generation and the renewal of national struggle methods. The party became a major political force in the country.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus, the 1930s crisis was an opportunity for the revival and organization of national struggle, leading to the founding of the Neo-Destour Party, which steered the national movement towards a new phase of organized struggle.",
+                ex6Q: "Create a timeline of the following events: Colonial Congress in Paris (May 1930), Fiftieth Anniversary of colonialism (May 1931), Publication of 'L'Action Tunisienne' (November 1932), Menzel Bourguiba Congress (May 1933), Ksar Hellal Congress and founding of the Neo-Destour Party (2 March 1934), Founding of the General Union of Tunisian Workers (1936), Sfax Uprising (1937).",
+                ex6A: "Timeline: 1930: Colonial Congress in Paris ... 1937: Sfax Uprising.",
+                ex6_timeline_title: "Key Events of the Tunisian National Movement (1930–1937)",
+                ex6_event_1930_colonial_label: "Colonial Congress in Paris",
+                ex6_event_1930_colonial_sub: "May 1930",
+                ex6_event_1931_fiftieth_label: "Fiftieth Anniversary of Colonialism",
+                ex6_event_1931_fiftieth_sub: "May 1931",
+                ex6_event_1932_newspaper_label: "Publication of 'L'Action Tunisienne'",
+                ex6_event_1932_newspaper_sub: "Nov 1932",
+                ex6_event_1933_menzel_label: "Menzel Bourguiba Congress",
+                ex6_event_1933_menzel_sub: "May 1933",
+                ex6_event_1934_ksar_label: "Ksar Hellal Congress & Neo-Destour",
+                ex6_event_1934_ksar_sub: "2 Mar 1934",
+                ex6_event_1936_union_label: "Founding of the General Union",
+                ex6_event_1936_union_sub: "1936",
+                ex6_event_1937_sfax_label: "Sfax Uprising",
+                ex6_event_1937_sfax_sub: "1937",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – La Tunisie dans les années 1930",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Néo-Destour, Union Générale des Travailleurs Tunisiens, politique de maquillage, soulèvement du Cap Bon.",
+                ex1_def1_title: "Néo-Destour :",
+                ex1_def1_subtitle: "Parti politique tunisien fondé au congrès de Ksar Hellal (2 mars 1934) dirigé par Mahmoud El Materi (président) et Habib Bourguiba (secrétaire général), après la scission du Parti Destour tunisien. Il a exigé les libertés publiques, l'égalité entre Tunisiens et Français, un conseil législatif tunisien, la réforme administrative et l'amélioration des salaires et des conditions de travail. Il est devenu une force politique majeure dans le pays.",
+                ex1_def2_title: "Union Générale des Travailleurs Tunisiens :",
+                ex1_def2_subtitle: "Organisation syndicale tunisienne fondée en 1936 pour relancer le mouvement syndical indépendant après la dissolution de l'Union Générale en 1925. Elle a exigé l'amélioration des salaires et des conditions de travail, la sécurité sociale et l'égalité des salaires, et a joué un rôle important dans l'organisation de la classe ouvrière tunisienne et le soutien à la lutte nationale.",
+                ex1_def3_title: "Politique de maquillage :",
+                ex1_def3_subtitle: "Politique suivie par les autorités du protectorat français pour faire face à la crise économique des années 1930, se concentrant sur le soutien aux colons et négligeant les intérêts des Tunisiens, y compris ceux qui bénéficiaient du système colonial, ce qui a accru le mécontentement et les protestations.",
+                ex1_def4_title: "Soulèvement du Cap Bon :",
+                ex1_def4_subtitle: "Soulèvement des agriculteurs du Cap Bon en 1934 contre l'exploitation coloniale et la confiscation des terres, réprimé sévèrement par les autorités coloniales avec des arrestations. C'est l'une des manifestations les plus marquantes de la résistance armée dans les années 1930.",
+                ex2Q: "Observez l'image suivante représentant les dirigeants du Néo-Destour et le congrès de Ksar Hellal, et identifiez les principales figures et les circonstances qui ont conduit à la fondation du parti.",
+                ex2DocAlt: "Dirigeants du Néo-Destour et congrès de Ksar Hellal",
+                ex2AnswerImgAlt: "Modèle de réponse – Dirigeants du Néo-Destour",
+                ex2A: "Les figures incluent Habib Bourguiba (secrétaire général) et Mahmoud El Materi (président) qui ont dirigé la fondation du Néo-Destour au congrès de Ksar Hellal (2 mars 1934). La fondation du parti est le résultat du vif différend entre la direction historique (Thaalbi) et la jeune direction, après le congrès de Menzel Bourguiba (mai 1933) qui a élu un nouveau comité administratif comprenant de jeunes éléments de la nouvelle génération. Le congrès de Ksar Hellal a abouti à la fondation du nouveau parti et à l'élection d'un nouveau comité administratif, avec un programme exigeant les libertés publiques, l'égalité et un conseil législatif tunisien.",
+                ex3Q: "Convertissez les données suivantes en diagramme à barres : Évolution du prix de l'hectolitre des produits agricoles en Tunisie entre 1930 et 1935 (en francs) : 1930 : 200, 1931 : 180, 1932 : 150, 1933 : 130, 1934 : 110, 1935 : 100.",
+                ex3Q_table_year: "Année",
+                ex3Q_table_price: "Prix (francs)",
+                ex3Q_source: "Source : Données historiques sur la crise économique des années 1930 en Tunisie",
+                ex3A_title: "Évolution du prix de l'hectolitre des produits agricoles en Tunisie (1930–1935)",
+                ex3A_source: "Source : Archives historiques",
+                ex3A_scale: "Échelle : 0–200 francs ; hauteur des colonnes proportionnelle au prix.",
+                ex3A_key_label: "Légende :",
+                ex4Q: "Analysez les manifestations du développement du mouvement national tunisien dans les années 1930 en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Manifestations du développement du mouvement national tunisien dans les années 1930 :\n- Manifestation politique : fondation du Néo-Destour (congrès de Ksar Hellal, 2 mars 1934) dirigé par Mahmoud El Materi et Habib Bourguiba, avec un programme exigeant les libertés publiques, l'égalité et un conseil législatif tunisien.\n- Manifestation syndicale : fondation de l'Union Générale des Travailleurs Tunisiens (1936) pour relancer le mouvement syndical indépendant après la dissolution de l'Union Générale (1925).\n- Manifestation culturelle : publication de journaux nationaux (L'Action Tunisienne, 1932) et fondation d'associations culturelles (Jeunes Musulmans, 1933).\n- Résistance armée : soulèvements populaires (Cap Bon 1934, ouvriers du bâtiment 1936, Sfax 1937).\n- Résultat : Le Néo-Destour est devenu une force politique majeure, et les formes de lutte nationale se sont diversifiées.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Le mouvement national tunisien a connu un développement remarquable dans les années 1930, avec des manifestations de lutte diverses. Sur le plan politique, le Néo-Destour a été fondé au congrès de Ksar Hellal (2 mars 1934) dirigé par Mahmoud El Materi comme président et Habib Bourguiba comme secrétaire général, après la scission du Parti Destour tunisien entre une direction historique dirigée par Thaalbi et une jeune direction. Le nouveau parti a exigé les libertés publiques, l'égalité entre Tunisiens et Français et un conseil législatif tunisien. Sur le plan syndical, l'Union Générale des Travailleurs Tunisiens a été fondée en 1936 pour relancer le mouvement syndical indépendant après la dissolution de l'Union Générale en 1925, exigeant l'amélioration des salaires, des conditions de travail et la sécurité sociale. Les manifestations culturelles se sont également diversifiées avec la publication de journaux nationaux tels que « L'Action Tunisienne » (1932) et la fondation d'associations culturelles telles que « Les Jeunes Musulmans » (1933), aux côtés de la résistance armée et des soulèvements populaires (Cap Bon 1934, ouvriers du bâtiment 1936, Sfax 1937). Ces développements ont abouti à l'émergence du Néo-Destour comme force politique majeure dans le pays.",
+                ex5Q: "Rédigez un court article (150 mots) sur l'impact de la crise économique et sociale des années 1930 sur le développement du mouvement national tunisien.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "La crise économique et sociale des années 1930 en Tunisie a entraîné la détérioration des conditions de diverses couches de la société, ce qui a conduit à un mécontentement croissant et à des protestations. Analysez comment cette crise a contribué à la relance de l'action nationale et à la fondation du Néo-Destour, et montrez la relation entre la détérioration des conditions économiques et sociales et le développement du mouvement national.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter la crise des années 1930 comme un facteur décisif dans le développement du mouvement national.",
+                ex5A_plan_li2: "Développement : I. Manifestations de la crise économique et sociale ; II. Répercussions de la crise sur l'action nationale ; III. Fondation du Néo-Destour comme expression de la nouvelle phase.",
+                ex5A_plan_li3: "Conclusion : La crise comme opportunité pour la relance et l'organisation de la lutte nationale.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "La crise économique et sociale des années 1930 en Tunisie a été un facteur décisif dans la relance de l'action nationale et le développement du mouvement national vers une nouvelle phase de lutte organisée.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_crisis: "I. Manifestations de la crise économique et sociale",
+                ex5A_production_p_crisis: "La crise s'est manifestée par la détérioration de la production agricole due à la sécheresse (1930-1931) et à la prolifération des criquets (1932), l'effondrement des prix agricoles (de 200 francs en 1930 à 100 francs en 1935), l'aggravation du chômage, la baisse des salaires, la détérioration du pouvoir d'achat et la propagation de la pauvreté et de la faim. Les autorités du protectorat ont traité cette crise par une politique de maquillage qui se concentrait sur le soutien aux colons et négligeait les intérêts des Tunisiens.",
+                ex5A_production_h4_impact: "II. Répercussions de la crise sur l'action nationale",
+                ex5A_production_p_impact: "La crise a conduit à un mécontentement croissant et à des protestations dans les villes (grèves) et dans les régions (rébellions et soulèvements), poussant le mouvement national à renouveler son discours et ses revendications et à passer des revendications réformistes à la revendication de la libération du peuple tunisien et de l'établissement d'un parlement élu.",
+                ex5A_production_h4_founding: "III. Fondation du Néo-Destour",
+                ex5A_production_p_founding: "Cette relance a culminé avec la fondation du Néo-Destour au congrès de Ksar Hellal (2 mars 1934) dirigé par Mahmoud El Materi et Habib Bourguiba, reflétant l'ascension de la nouvelle génération et le renouvellement des méthodes de lutte nationale. Le parti est devenu une force politique majeure dans le pays.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi, la crise des années 1930 a été une opportunité pour la relance et l'organisation de la lutte nationale, aboutissant à la fondation du Néo-Destour, qui a orienté le mouvement national vers une nouvelle phase de lutte organisée.",
+                ex6Q: "Créez une chronologie des événements suivants : Congrès colonial à Paris (mai 1930), Cinquantenaire du colonialisme (mai 1931), Publication de « L'Action Tunisienne » (novembre 1932), Congrès de Menzel Bourguiba (mai 1933), Congrès de Ksar Hellal et fondation du Néo-Destour (2 mars 1934), Fondation de l'Union Générale des Travailleurs Tunisiens (1936), Soulèvement de Sfax (1937).",
+                ex6A: "Chronologie : 1930 : Congrès colonial à Paris ... 1937 : Soulèvement de Sfax.",
+                ex6_timeline_title: "Événements clés du mouvement national tunisien (1930–1937)",
+                ex6_event_1930_colonial_label: "Congrès colonial à Paris",
+                ex6_event_1930_colonial_sub: "Mai 1930",
+                ex6_event_1931_fiftieth_label: "Cinquantenaire du colonialisme",
+                ex6_event_1931_fiftieth_sub: "Mai 1931",
+                ex6_event_1932_newspaper_label: "Publication de « L'Action Tunisienne »",
+                ex6_event_1932_newspaper_sub: "Nov 1932",
+                ex6_event_1933_menzel_label: "Congrès de Menzel Bourguiba",
+                ex6_event_1933_menzel_sub: "Mai 1933",
+                ex6_event_1934_ksar_label: "Congrès de Ksar Hellal et Néo-Destour",
+                ex6_event_1934_ksar_sub: "2 Mars 1934",
+                ex6_event_1936_union_label: "Fondation de l'Union Générale",
+                ex6_event_1936_union_sub: "1936",
+                ex6_event_1937_sfax_label: "Soulèvement de Sfax",
+                ex6_event_1937_sfax_sub: "1937",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – تونس في الثلاثينيات",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الحزب الحر الدستوري الجديد، جامعة عموم العملة التونسية، سياسة المكياج، انتفاضة الوطن القبلي.",
+                ex1_def1_title: "الحزب الحر الدستوري الجديد:",
+                ex1_def1_subtitle: "حزب سياسي تونسي تأسس في مؤتمر قصر هلال (2 مارس 1934) بقيادة محمود الماطري (رئيسًا) والحبيب بورقيبة (كاتبًا عامًا)، بعد انقسام الحزب الحر الدستوري التونسي. طالب بالحريات العامة والمساواة بين التونسيين والفرنسيين وإحداث مجلس تشريعي تونسي وإصلاح الإدارة وتحسين الأجور وظروف العمل، وأصبح قوة سياسية كبرى في البلاد.",
+                ex1_def2_title: "جامعة عموم العملة التونسية:",
+                ex1_def2_subtitle: "منظمة نقابية تونسية تأسست سنة 1936 لتعيد إحياء الحركة النقابية المستقلة بعد حل الجامعة العامة للشغل سنة 1925. طالبت بتحسين الأجور وظروف العمل والضمان الاجتماعي والمساواة في الأجور، ولعبت دورًا هامًا في تأطير الطبقة العاملة التونسية ودعم النضال الوطني.",
+                ex1_def3_title: "سياسة المكياج:",
+                ex1_def3_subtitle: "سياسة اتبعتها سلطات الحماية الفرنسية لمعالجة أزمة الثلاثينيات الاقتصادية، انشغلت بمساندة المعمرين وأهملت مصالح التونسيين بما في ذلك المستفيدين من النظام الاستعماري، مما زاد من الاستياء والاحتجاجات.",
+                ex1_def4_title: "انتفاضة الوطن القبلي:",
+                ex1_def4_subtitle: "انتفاضة قام بها الفلاحون في الوطن القبلي سنة 1934 ضد الاستغلال الاستعماري ومصادرة الأراضي، واجهتها السلطات الاستعمارية بالقمع الشديد والاعتقالات، وتُعد من أبرز مظاهر المقاومة المسلحة في الثلاثينيات.",
+                ex2Q: "تأمل الصورة التالية التي تمثل قيادات الحزب الحر الدستوري الجديد ومؤتمر قصر هلال، وبيّن أبرز الشخصيات والظروف التي أدت إلى تأسيس الحزب.",
+                ex2DocAlt: "قيادات الحزب الحر الدستوري الجديد ومؤتمر قصر هلال",
+                ex2AnswerImgAlt: "نموذج الإجابة – قيادات الحزب الحر الدستوري الجديد",
+                ex2A: "تبرز من بين الشخصيات: الحبيب بورقيبة (الكاتب العام) ومحمود الماطري (الرئيس) اللذان قادا تأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934). وقد جاء تأسيس الحزب نتيجة الخلاف الحاد بين القيادة التاريخية (الثعالبي) والقيادة الشابة، بعد مؤتمر مكنين (ماي 1933) الذي انتخب هيئة إدارية جديدة ضمت عناصر شابة من الجيل الجديد. وقد أسفر مؤتمر قصر هلال عن تأسيس الحزب الجديد وانتخاب هيئة إدارية جديدة برئاسته، مع برنامج يطالب بالحريات العامة والمساواة وإحداث مجلس تشريعي تونسي.",
+                ex3Q: "حوّل البيانات التالية إلى مخطط بالأعمدة: تطور سعر الهكتولتر من المنتجات الفلاحية في تونس بين 1930 و1935 (بالفرنك): 1930: 200، 1931: 180، 1932: 150، 1933: 130، 1934: 110، 1935: 100.",
+                ex3Q_table_year: "السنة",
+                ex3Q_table_price: "السعر (فرنك)",
+                ex3Q_source: "المصدر: بيانات تاريخية عن أزمة الثلاثينيات الاقتصادية بتونس",
+                ex3A_title: "تطور سعر الهكتولتر من المنتجات الفلاحية في تونس (1930–1935)",
+                ex3A_source: "المصدر: أرشيف تاريخي",
+                ex3A_scale: "المقياس: 0–200 فرنك؛ ارتفاع الأعمدة يتناسب مع السعر.",
+                ex3A_key_label: "المفتاح:",
+                ex4Q: "حلّل مظاهر تطور الحركة الوطنية التونسية في الثلاثينيات في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "مظاهر تطور الحركة الوطنية التونسية في الثلاثينيات:\n- المظهر السياسي: تأسيس الحزب الحر الدستوري الجديد (مؤتمر قصر هلال، 2 مارس 1934) بقيادة محمود الماطري والحبيب بورقيبة، مع برنامج يطالب بالحريات العامة والمساواة وإحداث مجلس تشريعي تونسي.\n- المظهر النقابي: تأسيس جامعة عموم العملة التونسية (1936) لتعيد إحياء الحركة النقابية المستقلة بعد حل الجامعة العامة للشغل (1925).\n- المظهر الثقافي: إصدار صحف وطنية (العمل التونسي، 1932) وتأسيس جمعيات ثقافية (الشبان المسلمين، 1933).\n- المقاومة المسلحة: انتفاضات شعبية (الوطن القبلي 1934، عمال الحضائر 1936، صفاقس 1937).\n- النتيجة: أصبح الحزب الحر الدستوري الجديد قوة سياسية كبرى، وتعددت أشكال النضال الوطني.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "شهدت الحركة الوطنية التونسية في الثلاثينيات تطورًا ملحوظًا وتعددت مظاهر نضالها. فعلى المستوى السياسي، تأسس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934) بقيادة محمود الماطري رئيسًا والحبيب بورقيبة كاتبًا عامًا، بعد انقسام الحزب الحر الدستوري التونسي بين قيادة تاريخية برئاسة الثعالبي وقيادة شابة. وقد طالب الحزب الجديد بالحريات العامة والمساواة بين التونسيين والفرنسيين وإحداث مجلس تشريعي تونسي. وعلى المستوى النقابي، تأسست جامعة عموم العملة التونسية سنة 1936 لتعيد إحياء الحركة النقابية المستقلة بعد حل الجامعة العامة للشغل سنة 1925، مطالبة بتحسين الأجور وظروف العمل والضمان الاجتماعي. كما تنوعت المظاهر الثقافية بإصدار صحف وطنية مثل \"العمل التونسي\" (1932) وتأسيس جمعيات ثقافية مثل \"الشبان المسلمين\" (1933)، إلى جانب المقاومة المسلحة والانتفاضات الشعبية (الوطن القبلي 1934، عمال الحضائر 1936، صفاقس 1937). وقد أسفرت هذه التطورات عن بروز الحزب الحر الدستوري الجديد كقوة سياسية كبرى في البلاد.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول أثر أزمة الثلاثينيات الاقتصادية والاجتماعية على تطور الحركة الوطنية التونسية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "أدت أزمة الثلاثينيات الاقتصادية والاجتماعية بتونس إلى تدهور أوضاع مختلف فئات المجتمع، مما أدى إلى تزايد الاستياء والاحتجاجات. حلّل كيف ساهمت هذه الأزمة في انتعاش العمل الوطني وتأسيس الحزب الحر الدستوري الجديد، وبيّن العلاقة بين تدهور الأوضاع الاقتصادية والاجتماعية وتطور الحركة الوطنية.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم أزمة الثلاثينيات كعامل حاسم في تطور الحركة الوطنية.",
+                ex5A_plan_li2: "تطوير: أولاً. مظاهر الأزمة الاقتصادية والاجتماعية؛ ثانياً. انعكاسات الأزمة على العمل الوطني؛ ثالثاً. تأسيس الحزب الحر الدستوري الجديد كتعبير عن المرحلة الجديدة.",
+                ex5A_plan_li3: "خاتمة: الأزمة كفرصة لانتعاش النضال الوطني وتنظيمه.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "شكلت أزمة الثلاثينيات الاقتصادية والاجتماعية بتونس عاملًا حاسمًا في انتعاش العمل الوطني وتطور الحركة الوطنية نحو مرحلة جديدة من النضال المنظم.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_crisis: "أولاً. مظاهر الأزمة الاقتصادية والاجتماعية",
+                ex5A_production_p_crisis: "تمثلت الأزمة في تدهور الإنتاج الفلاحي بسبب الجفاف (1930-1931) وانتشار الجراد (1932)، وانهيار أسعار المنتجات الفلاحية (من 200 فرنك سنة 1930 إلى 100 فرنك سنة 1935)، وتفاقم البطالة وانخفاض الأجور وتدهور القدرة الشرائية وانتشار الفقر والجوع. وقد عادلت سلطات الحماية هذه الأزمة بسياسة المكياج التي انشغلت بمساندة المعمرين وأهملت مصالح التونسيين.",
+                ex5A_production_h4_impact: "ثانياً. انعكاسات الأزمة على العمل الوطني",
+                ex5A_production_p_impact: "أدت الأزمة إلى تزايد الاستياء والاحتجاجات في المدن (الإضرابات) وفي الجهات (التمردات والانتفاضات)، مما دفع الحركة الوطنية إلى تجديد خطابها ومطالبها والانتقال من المطالب الإصلاحية إلى المطالبة بتحرير الشعب التونسي وإقامة برلمان منتخب.",
+                ex5A_production_h4_founding: "ثالثاً. تأسيس الحزب الحر الدستوري الجديد",
+                ex5A_production_p_founding: "توج هذا الانتعاش بتأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934) بقيادة محمود الماطري والحبيب بورقيبة، وهو ما عكس صعود الجيل الجديد وتجديد أساليب النضال الوطني، وأصبح الحزب قوة سياسية كبرى في البلاد.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا شكلت أزمة الثلاثينيات فرصة لانتعاش النضال الوطني وتنظيمه، وأدت إلى تأسيس الحزب الحر الدستوري الجديد الذي قاد الحركة الوطنية نحو مرحلة جديدة من النضال المنظم.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: المؤتمر الاستعماري بباريس (ماي 1930)، خمسينية الاستعمار (ماي 1931)، صدور صحيفة \"العمل التونسي\" (نوفمبر 1932)، مؤتمر مكنين (ماي 1933)، مؤتمر قصر هلال وتأسيس الحزب الحر الدستوري الجديد (2 مارس 1934)، تأسيس جامعة عموم العملة التونسية (1936)، انتفاضة صفاقس (1937).",
+                ex6A: "الخط الزمني: 1930: المؤتمر الاستعماري بباريس ... 1937: انتفاضة صفاقس.",
+                ex6_timeline_title: "الأحداث الرئيسية للحركة الوطنية التونسية (1930–1937)",
+                ex6_event_1930_colonial_label: "المؤتمر الاستعماري بباريس",
+                ex6_event_1930_colonial_sub: "ماي 1930",
+                ex6_event_1931_fiftieth_label: "خمسينية الاستعمار",
+                ex6_event_1931_fiftieth_sub: "ماي 1931",
+                ex6_event_1932_newspaper_label: "صدور صحيفة «العمل التونسي»",
+                ex6_event_1932_newspaper_sub: "نوفمبر 1932",
+                ex6_event_1933_menzel_label: "مؤتمر مكنين",
+                ex6_event_1933_menzel_sub: "ماي 1933",
+                ex6_event_1934_ksar_label: "مؤتمر قصر هلال والحزب الحر الدستوري الجديد",
+                ex6_event_1934_ksar_sub: "2 مارس 1934",
+                ex6_event_1936_union_label: "تأسيس جامعة عموم العملة التونسية",
+                ex6_event_1936_union_sub: "1936",
+                ex6_event_1937_sfax_label: "انتفاضة صفاقس",
+                ex6_event_1937_sfax_sub: "1937",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: '1930', value: 200, valueFormatted: '200' },
+                { label: '1931', value: 180, valueFormatted: '180' },
+                { label: '1932', value: 150, valueFormatted: '150' },
+                { label: '1933', value: 130, valueFormatted: '130' },
+                { label: '1934', value: 110, valueFormatted: '110' },
+                { label: '1935', value: 100, valueFormatted: '100' }
+            ],
+            maxValue: 200,
+            ySteps: [200, 160, 120, 80, 40, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1930, labelKey: 'ex6_event_1930_colonial_label', subKey: 'ex6_event_1930_colonial_sub' },
+                { year: 1931, labelKey: 'ex6_event_1931_fiftieth_label', subKey: 'ex6_event_1931_fiftieth_sub' },
+                { year: 1932, labelKey: 'ex6_event_1932_newspaper_label', subKey: 'ex6_event_1932_newspaper_sub' },
+                { year: 1933, labelKey: 'ex6_event_1933_menzel_label', subKey: 'ex6_event_1933_menzel_sub' },
+                { year: 1934, labelKey: 'ex6_event_1934_ksar_label', subKey: 'ex6_event_1934_ksar_sub' },
+                { year: 1936, labelKey: 'ex6_event_1936_union_label', subKey: 'ex6_event_1936_union_sub' },
+                { year: 1937, labelKey: 'ex6_event_1937_sfax_label', subKey: 'ex6_event_1937_sfax_sub' }
+            ],
+            startYear: 1930,
+            endYear: 1937,
+            scaleYears: [1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

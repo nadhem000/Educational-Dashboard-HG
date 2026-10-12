@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – تونس في العشرينات</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        /* ══════ PRINT MODAL STYLES ══════ */
+        .print-modal-overlay { position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index:99999; display:flex; align-items:center; justify-content:center; animation: pmFadeIn 0.25s ease-out; padding:1rem; }
+        @keyframes pmFadeIn { from { opacity:0; } to { opacity:1; } }
+        .print-modal-content { background: var(--ED-General-color-surface); border-radius:20px; padding:2rem 2.2rem; max-width:480px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); border:1px solid var(--ED-General-color-border); animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+        .print-modal-title { margin:0 0 0.3rem 0; font-size:1.4rem; font-weight:750; }
+        .print-modal-subtitle { margin:0 0 1.5rem 0; font-size:0.9rem; color:var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.8rem; }
+        .print-option { display:flex; align-items:center; gap:0.75rem; padding:0.9rem 1.1rem; border-radius:14px; cursor:pointer; border:2px solid var(--ED-General-color-border); background:var(--ED-General-color-bg-secondary); transition:all 0.2s ease; user-select:none; }
+        .print-option.disabled-option { opacity:0.5; pointer-events:none; background:var(--ED-General-color-bg-secondary); border-color:var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color:var(--ED-General-color-accent-default); background:var(--ED-General-color-accent-soft); box-shadow:0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance:none; -webkit-appearance:none; width:22px; height:22px; border:2px solid var(--ED-General-color-border-hover); border-radius:50%; flex-shrink:0; cursor:pointer; background:var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background:var(--ED-General-color-accent-default); border-color:var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content:''; position:absolute; left:6px; top:6px; width:6px; height:6px; background:#fff; border-radius:50%; }
+        .print-option-label { font-weight:700; font-size:1rem; }
+        .print-option-desc { font-size:0.82rem; color:var(--ED-General-color-text-tertiary); margin-left:auto; }
+        [dir="rtl"] .print-option-desc { margin-left:0; margin-right:auto; }
+        .print-modal-actions { display:flex; gap:0.8rem; justify-content:flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding:0.7rem 1.6rem; border-radius:25px; font-weight:650; font-size:0.95rem; cursor:pointer; }
+        .print-modal-cancel { background:transparent; border:2px solid var(--ED-General-color-border); color:var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background:linear-gradient(135deg, #4a7fd9, #3b6dc5); color:#fff; border:none; box-shadow:0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        /* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+        .print-header-content, .print-footer-content { display:none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0, 0, 0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة اقتصاد وتصرف
+            </div>
+            <h1 data-i18n="exerciseTitle">تمارين – تونس في العشرينات</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: الحزب الحر الدستوري التونسي، الجامعة العامة للشغل، سياسة الانتقاد، تونس الشهيدة.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">الحزب الحر الدستوري التونسي:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">أول حزب سياسي تونسي، تأسس رسميًا في مؤتمر بالنهج المنجي سليم بتونس في جانفي 1920 بقيادة عبد العزيز الثعالبي، وجاء امتدادًا لحركة الشباب التونسي. طالب بإقرار حرية التعليم وإحداث مجلس تشريعي تونسي وفصل السلط والمساواة في الوظائف والأجور بين التونسيين والفرنسيين، واعتمد النضال السلمي.</dd>
+                        <dt data-i18n="ex1_def2_title">الجامعة العامة للشغل (جامعة عموم العملة التونسية):</dt>
+                        <dd data-i18n="ex1_def2_subtitle">أول منظمة نقابية تونسية مستقلة، تأسست في 3 ديسمبر 1924 على يد محمد علي الحامي، واتخذت مقرًا لها بالنهج المنجي سليم بتونس. طالبت بتحسين الأجور والظروف المهنية والمساواة في الأجور بين التونسيين والفرنسيين والضمان الاجتماعي، قبل أن تحلّها السلطات الفرنسية سنة 1925 وتعتقل قادتها.</dd>
+                        <dt data-i18n="ex1_def3_title">سياسة الانتقاد:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">سياسة اتبعها زعماء حركة الشباب التونسي خلال الحرب العالمية الأولى، اعتمدت على التوعية والنقد وكشف ممارسات الاستعمار الفرنسي، ومهدت لتنظيم الحركة الوطنية بعد الحرب وتأسيس الحزب الحر الدستوري التونسي.</dd>
+                        <dt data-i18n="ex1_def4_title">تونس الشهيدة:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">كتاب أصدره عبد العزيز الثعالبي بباريس في بداية 1920، يفضح ممارسات الاستعمار الفرنسي وانتهاكاته في تونس، ويُعد من أبرز الوثائق التأسيسية للحركة الوطنية التونسية.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 2: Map / Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل الصورة التالية التي تمثل مؤسسي الحركة الوطنية التونسية في العشرينات، وبيّن أبرز الشخصيات والهياكل التي أسسوها.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets4eco/exercises/history/unit1/lesson3/nationalMovementFounders.png"
+                         alt="مؤسسو الحركة الوطنية التونسية في العشرينات"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets4eco/exercises/history/unit1/lesson3/nationalMovementFounders2.png"
+                             alt="نموذج الإجابة – مؤسسو الحركة الوطنية"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        تبرز من بين الشخصيات: عبد العزيز الثعالبي مؤسس وأول رئيس للحزب الحر الدستوري التونسي (1920)، ومحمد علي الحامي مؤسس الجامعة العامة للشغل (1924). وتتمثل أبرز الهياكل في الحزب الحر الدستوري التونسي كأول حزب سياسي، والجامعة العامة للشغل كأول منظمة نقابية مستقلة، وقد مثّلا معًا الإطار التنظيمي للحركة الوطنية التونسية في العشرينات.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل البيانات التالية إلى مخطط بالأعمدة: حصيلة مشاركة التونسيين في الحرب العالمية الأولى (بالألف): المجندون 80، المهجرون 30، القتلى 15، الجرحى 8.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_category">الفئة</th>
+                            <th data-i18n="ex3Q_table_count">العدد (بالألف)</th>
+                        </tr>
+                        <tr><td data-i18n="ex3Q_recruited">المجندون</td><td>80</td></tr>
+                        <tr><td data-i18n="ex3Q_displaced">المهجرون</td><td>30</td></tr>
+                        <tr><td data-i18n="ex3Q_dead">القتلى</td><td>15</td></tr>
+                        <tr><td data-i18n="ex3Q_wounded">الجرحى</td><td>8</td></tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: بيانات تاريخية عن مشاركة التونسيين في الحرب العالمية الأولى</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل ظروف تطور الحركة الوطنية التونسية غداة الحرب العالمية الأولى في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        ظروف تطور الحركة الوطنية التونسية غداة الحرب العالمية الأولى:
+                        - الظروف الداخلية: استنزاف الطاقة البشرية (80 ألف مجند، 15 ألف قتيل، 30 ألف مهجر)، ومصادرة أراضي العروش والأحباس، وتدهور الأوضاع الاقتصادية والاجتماعية.
+                        - الظروف الخارجية: تأثير مبادئ ولسون الـ14 (حق تقرير المصير)، والثورة البلشفية (1917) المناهضة للاستعمار.
+                        - صدى نجاح الحركات الوطنية: في تركيا (مصطفى كمال) ومصر (سعد زغلول).
+                        - النتيجة: تنامي الوعي الوطني وتأسيس أولى هياكل الحركة الوطنية.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تظافرت عدة عوامل داخلية وخارجية لتشكل أرضية خصبة لتطور الحركة الوطنية التونسية غداة الحرب العالمية الأولى. فعلى المستوى الداخلي، خلفت الحرب خسائر بشرية فادحة (80 ألف مجند، 15 ألف قتيل، 30 ألف مهجر)، وصادرت فرنسا أراضي العروش والأحباس لصالح المعمرين، مما عمّق الأزمة الاقتصادية والاجتماعية ودفع الفلاحين إلى المطالبة بتأطير سياسي يدافع عن مصالحهم. أما على المستوى الخارجي، فقد أثرت مبادئ ولسون الـ14 التي أقرت حق الشعوب في تقرير مصيرها، وموقف الثورة البلشفية المناهض للاستعمار، كما كان لنجاح الحركتين التركية والمصرية صدى واسع في تونس. وقد أسفرت هذه الظروف عن تنامي الوعي الوطني وتأسيس أولى هياكل الحركة الوطنية، ممثلة في الحزب الحر الدستوري والجامعة العامة للشغل.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول دور الحزب الحر الدستوري التونسي في النضال الوطني خلال العشرينات.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        تأسس الحزب الحر الدستوري التونسي سنة 1920 ليكون أول إطار سياسي منظم للنضال الوطني. حلّل ظروف نشأته، وبرنامجه الإصلاحي، وأشكال نضاله السلمي (الوفود، العرائض، الصحافة)، ثم بيّن دوره في تعبئة الرأي العام وتأطير المطالب الوطنية.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم الحزب كأول حزب سياسي تونسي.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. ظروف النشأة والبرنامج؛ ثانياً. أشكال النضال السلمي؛ ثالثاً. دوره في تأطير الحركة الوطنية.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: تقييم إسهام الحزب رغم محدودية نتائجه المباشرة.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">شكّل تأسيس الحزب الحر الدستوري التونسي سنة 1920 منعطفًا حاسمًا في تاريخ الحركة الوطنية التونسية، إذ كان أول إطار سياسي منظم يتبنى المطالب الوطنية ويدافع عنها.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_founding">أولاً. ظروف النشأة والبرنامج الإصلاحي</h4>
+                        <p data-i18n="ex5A_production_p_founding">انبثق الحزب عن حركة الشباب التونسي التي اعتمدت سياسة الانتقاد خلال الحرب، وتأسس رسميًا في جانفي 1920 بقيادة عبد العزيز الثعالبي. طالب ببرنامج إصلاحي معتدل يشمل حرية التعليم، ومجلسًا تشريعيًا تونسيًا، وفصل السلط، والمساواة في الوظائف والأجور.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_struggle">ثانياً. أشكال النضال السلمي</h4>
+                        <p data-i18n="ex5A_production_p_struggle">اعتمد الحزب أساليب نضالية سلمية متنوعة: بعث الوفود الرسمية (4 وفود)، وإرسال العرائض، وإصدار صحيفة «الإرادة»، وعقد الاجتماعات والجولات في مختلف جهات البلاد، وتأسيس النقابات، والاتصال بالرأي العام الدولي.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_role">ثالثاً. دوره في تأطير الحركة الوطنية</h4>
+                        <p data-i18n="ex5A_production_p_role">ساهم الحزب في تعبئة مختلف فئات المجتمع التونسي، وأطّر المطالب الوطنية في برنامج واضح، ودعم الحركة النقابية الناشئة ممثلة في الجامعة العامة للشغل سنة 1924.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">رغم محدودية النتائج المباشرة لنشاطه بسبب رفض السلطات الفرنسية لمطالبه، فقد أرسى الحزب الحر الدستوري التونسي أسس العمل السياسي المنظم ومهد لمراحل لاحقة من النضال الوطني.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: إرسال برقية اللجنة التونسية الجزائرية (جوان 1919)، نشأة الحزب الحر الدستوري (ربيع 1919)، مؤتمر تأسيس الحزب (جانفي 1920)، تأسيس الجامعة العامة للشغل (ديسمبر 1924)، حلّ الجامعة (1925).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1919: برقية اللجنة التونسية الجزائرية ... 1925: حل الجامعة العامة للشغل.
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y4sec_secEco_his_lessons_mod1_lesson3_part1.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT MODAL -->
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "4th Secondary, Economy and Management Section",
+                exerciseTitle: "Exercises – Tunisia in the 1920s",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Tunisian Destour Party, General Union of Tunisian Workers, Politics of Criticism, Tunisia the Martyr.",
+                ex1_def1_title: "Tunisian Destour Party:",
+                ex1_def1_subtitle: "The first Tunisian political party, officially founded at a congress in Rue Mongi Slim in Tunis in January 1920, led by Abdelaziz Thaalbi. It was an extension of the Young Tunisians movement. It demanded freedom of education, a Tunisian legislative council, separation of powers, and equality in positions and wages between Tunisians and French. It adopted peaceful struggle.",
+                ex1_def2_title: "General Union of Tunisian Workers:",
+                ex1_def2_subtitle: "The first independent Tunisian trade union, founded on 3 December 1924 by Mohamed Ali El Hammi, with headquarters in Rue Mongi Slim in Tunis. It demanded improved wages and professional conditions, wage equality between Tunisians and French, and social security, before being dissolved by the French authorities in 1925 and its leaders arrested.",
+                ex1_def3_title: "Politics of Criticism:",
+                ex1_def3_subtitle: "A policy followed by the leaders of the Young Tunisians movement during World War I, based on awareness, criticism, and exposing French colonial practices, paving the way for organizing the national movement after the war and founding the Tunisian Destour Party.",
+                ex1_def4_title: "Tunisia the Martyr:",
+                ex1_def4_subtitle: "A book published by Abdelaziz Thaalbi in Paris in early 1920, exposing French colonial practices and violations in Tunisia. It is one of the founding documents of the Tunisian national movement.",
+                ex2Q: "Observe the following image representing the founders of the Tunisian national movement in the 1920s, and identify the main figures and the structures they founded.",
+                ex2DocAlt: "Founders of the Tunisian national movement in the 1920s",
+                ex2AnswerImgAlt: "Answer model – Founders of the national movement",
+                ex2A: "The figures include Abdelaziz Thaalbi, founder and first president of the Tunisian Destour Party (1920), and Mohamed Ali El Hammi, founder of the General Union of Tunisian Workers (1924). The main structures are the Tunisian Destour Party as the first political party, and the General Union of Tunisian Workers as the first independent trade union, together forming the organizational framework of the Tunisian national movement in the 1920s.",
+                ex3Q: "Convert the following data into a bar chart: Outcome of Tunisian participation in World War I (in thousands): recruited 80, displaced 30, dead 15, wounded 8.",
+                ex3Q_table_category: "Category",
+                ex3Q_table_count: "Number (thousands)",
+                ex3Q_recruited: "Recruited",
+                ex3Q_displaced: "Displaced",
+                ex3Q_dead: "Dead",
+                ex3Q_wounded: "Wounded",
+                ex3Q_source: "Source: Historical data on Tunisian participation in World War I",
+                ex3A_title: "Outcome of Tunisian Participation in World War I (in thousands)",
+                ex3A_source: "Source: Historical archives",
+                ex3A_scale: "Scale: 0–80 thousand; column height proportional to number.",
+                ex3A_key_label: "Key:",
+                ex3A_key_recruited: "Recruited",
+                ex3A_key_displaced: "Displaced",
+                ex3A_key_dead: "Dead",
+                ex3A_key_wounded: "Wounded",
+                ex4Q: "Analyse the conditions of the development of the Tunisian national movement after World War I in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Conditions of the development of the Tunisian national movement after World War I:\n- Internal conditions: depletion of human resources (80,000 recruited, 15,000 dead, 30,000 displaced), confiscation of tribal and habous lands, deterioration of economic and social conditions.\n- External conditions: impact of Wilson's 14 points (right to self-determination), Bolshevik Revolution (1917) against colonialism.\n- Echo of national movements' success: in Turkey (Mustafa Kemal) and Egypt (Saad Zaghloul).\n- Result: growth of national awareness and founding of the first structures of the national movement.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "Several internal and external factors combined to form fertile ground for the development of the Tunisian national movement after World War I. Internally, the war left heavy human losses (80,000 recruited, 15,000 dead, 30,000 displaced), and France confiscated tribal and habous lands for the benefit of settlers, deepening the economic and social crisis and pushing farmers to demand political representation to defend their interests. Externally, Wilson's 14 points affirming the right of peoples to self-determination and the Bolshevik Revolution's anti-colonial stance had a strong influence, while the success of the Turkish and Egyptian national movements resonated widely in Tunisia. These conditions resulted in the growth of national awareness and the founding of the first structures of the national movement, represented by the Destour Party and the General Union of Tunisian Workers.",
+                ex5Q: "Write a short article (150 words) on the role of the Tunisian Destour Party in the national struggle during the 1920s.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "The Tunisian Destour Party was founded in 1920 as the first organized political framework for the national struggle. Analyse its conditions of emergence, its reformist program, and its peaceful forms of struggle (delegations, petitions, press), then show its role in mobilizing public opinion and framing national demands.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Present the party as the first Tunisian political party.",
+                ex5A_plan_li2: "Development: I. Conditions of emergence and program; II. Peaceful forms of struggle; III. Its role in framing the national movement.",
+                ex5A_plan_li3: "Conclusion: Assessing the party's contribution despite the limited immediate results.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "The founding of the Tunisian Destour Party in 1920 marked a decisive turning point in the history of the Tunisian national movement, as it was the first organized political framework to adopt and defend national demands.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_founding: "I. Conditions of Emergence and Reformist Program",
+                ex5A_production_p_founding: "The party emerged from the Young Tunisians movement that adopted the politics of criticism during the war, and was officially founded in January 1920 under the leadership of Abdelaziz Thaalbi. It demanded a moderate reformist program including freedom of education, a Tunisian legislative council, separation of powers, and equality in positions and wages.",
+                ex5A_production_h4_struggle: "II. Peaceful Forms of Struggle",
+                ex5A_production_p_struggle: "The party adopted various peaceful methods: sending official delegations (4 delegations), submitting petitions, publishing 'Al-Irada' newspaper, holding meetings and tours across the country, founding unions, and contacting international public opinion.",
+                ex5A_production_h4_role: "III. Its Role in Framing the National Movement",
+                ex5A_production_p_role: "The party contributed to mobilizing various segments of Tunisian society, framed national demands in a clear program, and supported the emerging trade union movement represented by the General Union of Tunisian Workers in 1924.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Despite the limited immediate results of its activity due to the French authorities' rejection of its demands, the Tunisian Destour Party laid the foundations of organized political action and paved the way for later stages of the national struggle.",
+                ex6Q: "Create a timeline of the following events: Sending the telegram of the Tunisian-Algerian Committee (June 1919), Emergence of the Destour Party (Spring 1919), Founding Congress of the Party (January 1920), Founding of the General Union of Tunisian Workers (December 1924), Dissolution of the Union (1925).",
+                ex6A: "Timeline: 1919: Telegram of the Tunisian-Algerian Committee ... 1925: Dissolution of the General Union.",
+                ex6_timeline_title: "Key Events of the Tunisian National Movement (1919–1925)",
+                ex6_event_1919_telegraph_label: "Telegram of the Tunisian-Algerian Committee",
+                ex6_event_1919_telegraph_sub: "June 1919",
+                ex6_event_1919_emergence_label: "Emergence of the Destour Party",
+                ex6_event_1919_emergence_sub: "Spring 1919",
+                ex6_event_1920_congress_label: "Founding Congress of the Destour Party",
+                ex6_event_1920_congress_sub: "January 1920",
+                ex6_event_1924_union_label: "Founding of the General Union",
+                ex6_event_1924_union_sub: "Dec 1924",
+                ex6_event_1925_dissolution_label: "Dissolution of the Union",
+                ex6_event_1925_dissolution_sub: "1925",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – La Tunisie dans les années 1920",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Parti Destour tunisien, Union Générale des Travailleurs Tunisiens, politique de critique, La Tunisie martyre.",
+                ex1_def1_title: "Parti Destour tunisien :",
+                ex1_def1_subtitle: "Le premier parti politique tunisien, officiellement fondé lors d'un congrès rue Mongi Slim à Tunis en janvier 1920, dirigé par Abdelaziz Thaalbi. Il est le prolongement du mouvement des Jeunes Tunisiens. Il a exigé la liberté d'enseignement, un conseil législatif tunisien, la séparation des pouvoirs et l'égalité dans les fonctions et les salaires entre Tunisiens et Français. Il a adopté la lutte pacifique.",
+                ex1_def2_title: "Union Générale des Travailleurs Tunisiens :",
+                ex1_def2_subtitle: "Le premier syndicat tunisien indépendant, fondé le 3 décembre 1924 par Mohamed Ali El Hammi, avec siège rue Mongi Slim à Tunis. Il a exigé l'amélioration des salaires et des conditions professionnelles, l'égalité des salaires entre Tunisiens et Français et la sécurité sociale, avant d'être dissous par les autorités françaises en 1925 et ses dirigeants arrêtés.",
+                ex1_def3_title: "Politique de critique :",
+                ex1_def3_subtitle: "Une politique suivie par les dirigeants du mouvement des Jeunes Tunisiens pendant la Première Guerre mondiale, basée sur la sensibilisation, la critique et la dénonciation des pratiques coloniales françaises, ouvrant la voie à l'organisation du mouvement national après la guerre et à la fondation du Parti Destour tunisien.",
+                ex1_def4_title: "La Tunisie martyre :",
+                ex1_def4_subtitle: "Un livre publié par Abdelaziz Thaalbi à Paris au début de 1920, dénonçant les pratiques coloniales françaises et les violations en Tunisie. C'est l'un des documents fondateurs du mouvement national tunisien.",
+                ex2Q: "Observez l'image suivante représentant les fondateurs du mouvement national tunisien dans les années 1920, et identifiez les principales figures et les structures qu'ils ont fondées.",
+                ex2DocAlt: "Fondateurs du mouvement national tunisien dans les années 1920",
+                ex2AnswerImgAlt: "Modèle de réponse – Fondateurs du mouvement national",
+                ex2A: "Les figures incluent Abdelaziz Thaalbi, fondateur et premier président du Parti Destour tunisien (1920), et Mohamed Ali El Hammi, fondateur de l'Union Générale des Travailleurs Tunisiens (1924). Les principales structures sont le Parti Destour tunisien comme premier parti politique, et l'Union Générale des Travailleurs Tunisiens comme premier syndicat indépendant, formant ensemble le cadre organisationnel du mouvement national tunisien dans les années 1920.",
+                ex3Q: "Convertissez les données suivantes en diagramme à barres : Bilan de la participation tunisienne à la Première Guerre mondiale (en milliers) : recrutés 80, déplacés 30, morts 15, blessés 8.",
+                ex3Q_table_category: "Catégorie",
+                ex3Q_table_count: "Nombre (milliers)",
+                ex3Q_recruited: "Recrutés",
+                ex3Q_displaced: "Déplacés",
+                ex3Q_dead: "Morts",
+                ex3Q_wounded: "Blessés",
+                ex3Q_source: "Source : Données historiques sur la participation tunisienne à la Première Guerre mondiale",
+                ex3A_title: "Bilan de la participation tunisienne à la Première Guerre mondiale (en milliers)",
+                ex3A_source: "Source : Archives historiques",
+                ex3A_scale: "Échelle : 0–80 milliers ; hauteur des colonnes proportionnelle au nombre.",
+                ex3A_key_label: "Légende :",
+                ex3A_key_recruited: "Recrutés",
+                ex3A_key_displaced: "Déplacés",
+                ex3A_key_dead: "Morts",
+                ex3A_key_wounded: "Blessés",
+                ex4Q: "Analysez les conditions du développement du mouvement national tunisien après la Première Guerre mondiale en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Conditions du développement du mouvement national tunisien après la Première Guerre mondiale :\n- Conditions internes : épuisement des ressources humaines (80 000 recrutés, 15 000 morts, 30 000 déplacés), confiscation des terres tribales et habous, détérioration des conditions économiques et sociales.\n- Conditions externes : impact des 14 points de Wilson (droit à l'autodétermination), Révolution bolchevique (1917) anticoloniale.\n- Écho du succès des mouvements nationaux : en Turquie (Mustafa Kemal) et en Égypte (Saad Zaghloul).\n- Résultat : croissance de la conscience nationale et fondation des premières structures du mouvement national.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Plusieurs facteurs internes et externes se sont combinés pour former un terrain fertile au développement du mouvement national tunisien après la Première Guerre mondiale. Sur le plan interne, la guerre a laissé de lourdes pertes humaines (80 000 recrutés, 15 000 morts, 30 000 déplacés), et la France a confisqué les terres tribales et habous au profit des colons, approfondissant la crise économique et sociale et poussant les agriculteurs à exiger une représentation politique pour défendre leurs intérêts. Sur le plan externe, les 14 points de Wilson affirmant le droit des peuples à disposer d'eux-mêmes et la position anticoloniale de la Révolution bolchevique ont eu une forte influence, tandis que le succès des mouvements nationaux turc et égyptien a largement résonné en Tunisie. Ces conditions ont abouti à la croissance de la conscience nationale et à la fondation des premières structures du mouvement national, représentées par le Parti Destour et l'Union Générale des Travailleurs Tunisiens.",
+                ex5Q: "Rédigez un court article (150 mots) sur le rôle du Parti Destour tunisien dans la lutte nationale dans les années 1920.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Le Parti Destour tunisien a été fondé en 1920 comme premier cadre politique organisé de la lutte nationale. Analysez ses conditions d'émergence, son programme réformiste et ses formes de lutte pacifique (délégations, pétitions, presse), puis montrez son rôle dans la mobilisation de l'opinion publique et le cadrage des revendications nationales.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter le parti comme le premier parti politique tunisien.",
+                ex5A_plan_li2: "Développement : I. Conditions d'émergence et programme ; II. Formes de lutte pacifique ; III. Son rôle dans le cadrage du mouvement national.",
+                ex5A_plan_li3: "Conclusion : Évaluation de la contribution du parti malgré les résultats immédiats limités.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "La fondation du Parti Destour tunisien en 1920 a marqué un tournant décisif dans l'histoire du mouvement national tunisien, car il a été le premier cadre politique organisé à adopter et défendre les revendications nationales.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_founding: "I. Conditions d'émergence et programme réformiste",
+                ex5A_production_p_founding: "Le parti est issu du mouvement des Jeunes Tunisiens qui a adopté la politique de critique pendant la guerre, et a été officiellement fondé en janvier 1920 sous la direction d'Abdelaziz Thaalbi. Il a exigé un programme réformiste modéré comprenant la liberté d'enseignement, un conseil législatif tunisien, la séparation des pouvoirs et l'égalité dans les fonctions et les salaires.",
+                ex5A_production_h4_struggle: "II. Formes de lutte pacifique",
+                ex5A_production_p_struggle: "Le parti a adopté diverses méthodes pacifiques : envoi de délégations officielles (4 délégations), soumission de pétitions, publication du journal « Al-Irada », tenue de réunions et de tournées à travers le pays, fondation de syndicats et contact avec l'opinion publique internationale.",
+                ex5A_production_h4_role: "III. Son rôle dans le cadrage du mouvement national",
+                ex5A_production_p_role: "Le parti a contribué à mobiliser divers segments de la société tunisienne, a cadré les revendications nationales dans un programme clair et a soutenu le mouvement syndical naissant représenté par l'Union Générale des Travailleurs Tunisiens en 1924.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Malgré les résultats immédiats limités de son activité en raison du rejet par les autorités françaises de ses revendications, le Parti Destour tunisien a jeté les bases de l'action politique organisée et a ouvert la voie aux étapes ultérieures de la lutte nationale.",
+                ex6Q: "Créez une chronologie des événements suivants : Envoi du télégramme du Comité tuniso-algérien (juin 1919), Émergence du Parti Destour (printemps 1919), Congrès fondateur du Parti (janvier 1920), Fondation de l'Union Générale des Travailleurs Tunisiens (décembre 1924), Dissolution de l'Union (1925).",
+                ex6A: "Chronologie : 1919 : Télégramme du Comité tuniso-algérien ... 1925 : Dissolution de l'Union Générale.",
+                ex6_timeline_title: "Événements clés du mouvement national tunisien (1919–1925)",
+                ex6_event_1919_telegraph_label: "Télégramme du Comité tuniso-algérien",
+                ex6_event_1919_telegraph_sub: "Juin 1919",
+                ex6_event_1919_emergence_label: "Émergence du Parti Destour",
+                ex6_event_1919_emergence_sub: "Printemps 1919",
+                ex6_event_1920_congress_label: "Congrès fondateur du Parti Destour",
+                ex6_event_1920_congress_sub: "Janvier 1920",
+                ex6_event_1924_union_label: "Fondation de l'Union Générale",
+                ex6_event_1924_union_sub: "Déc 1924",
+                ex6_event_1925_dissolution_label: "Dissolution de l'Union",
+                ex6_event_1925_dissolution_sub: "1925",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – تونس في العشرينات",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: الحزب الحر الدستوري التونسي، الجامعة العامة للشغل، سياسة الانتقاد، تونس الشهيدة.",
+                ex1_def1_title: "الحزب الحر الدستوري التونسي:",
+                ex1_def1_subtitle: "أول حزب سياسي تونسي، تأسس رسميًا في مؤتمر بالنهج المنجي سليم بتونس في جانفي 1920 بقيادة عبد العزيز الثعالبي، وجاء امتدادًا لحركة الشباب التونسي. طالب بإقرار حرية التعليم وإحداث مجلس تشريعي تونسي وفصل السلط والمساواة في الوظائف والأجور بين التونسيين والفرنسيين، واعتمد النضال السلمي.",
+                ex1_def2_title: "الجامعة العامة للشغل (جامعة عموم العملة التونسية):",
+                ex1_def2_subtitle: "أول منظمة نقابية تونسية مستقلة، تأسست في 3 ديسمبر 1924 على يد محمد علي الحامي، واتخذت مقرًا لها بالنهج المنجي سليم بتونس. طالبت بتحسين الأجور والظروف المهنية والمساواة في الأجور بين التونسيين والفرنسيين والضمان الاجتماعي، قبل أن تحلّها السلطات الفرنسية سنة 1925 وتعتقل قادتها.",
+                ex1_def3_title: "سياسة الانتقاد:",
+                ex1_def3_subtitle: "سياسة اتبعها زعماء حركة الشباب التونسي خلال الحرب العالمية الأولى، اعتمدت على التوعية والنقد وكشف ممارسات الاستعمار الفرنسي، ومهدت لتنظيم الحركة الوطنية بعد الحرب وتأسيس الحزب الحر الدستوري التونسي.",
+                ex1_def4_title: "تونس الشهيدة:",
+                ex1_def4_subtitle: "كتاب أصدره عبد العزيز الثعالبي بباريس في بداية 1920، يفضح ممارسات الاستعمار الفرنسي وانتهاكاته في تونس، ويُعد من أبرز الوثائق التأسيسية للحركة الوطنية التونسية.",
+                ex2Q: "تأمل الصورة التالية التي تمثل مؤسسي الحركة الوطنية التونسية في العشرينات، وبيّن أبرز الشخصيات والهياكل التي أسسوها.",
+                ex2DocAlt: "مؤسسو الحركة الوطنية التونسية في العشرينات",
+                ex2AnswerImgAlt: "نموذج الإجابة – مؤسسو الحركة الوطنية",
+                ex2A: "تبرز من بين الشخصيات: عبد العزيز الثعالبي مؤسس وأول رئيس للحزب الحر الدستوري التونسي (1920)، ومحمد علي الحامي مؤسس الجامعة العامة للشغل (1924). وتتمثل أبرز الهياكل في الحزب الحر الدستوري التونسي كأول حزب سياسي، والجامعة العامة للشغل كأول منظمة نقابية مستقلة، وقد مثّلا معًا الإطار التنظيمي للحركة الوطنية التونسية في العشرينات.",
+                ex3Q: "حوّل البيانات التالية إلى مخطط بالأعمدة: حصيلة مشاركة التونسيين في الحرب العالمية الأولى (بالألف): المجندون 80، المهجرون 30، القتلى 15، الجرحى 8.",
+                ex3Q_table_category: "الفئة",
+                ex3Q_table_count: "العدد (بالألف)",
+                ex3Q_recruited: "المجندون",
+                ex3Q_displaced: "المهجرون",
+                ex3Q_dead: "القتلى",
+                ex3Q_wounded: "الجرحى",
+                ex3Q_source: "المصدر: بيانات تاريخية عن مشاركة التونسيين في الحرب العالمية الأولى",
+                ex3A_title: "حصيلة مشاركة التونسيين في الحرب العالمية الأولى (بالألف)",
+                ex3A_source: "المصدر: أرشيف تاريخي",
+                ex3A_scale: "المقياس: 0–80 ألف؛ ارتفاع الأعمدة يتناسب مع العدد.",
+                ex3A_key_label: "المفتاح:",
+                ex3A_key_recruited: "المجندون",
+                ex3A_key_displaced: "المهجرون",
+                ex3A_key_dead: "القتلى",
+                ex3A_key_wounded: "الجرحى",
+                ex4Q: "حلّل ظروف تطور الحركة الوطنية التونسية غداة الحرب العالمية الأولى في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "ظروف تطور الحركة الوطنية التونسية غداة الحرب العالمية الأولى:\n- الظروف الداخلية: استنزاف الطاقة البشرية (80 ألف مجند، 15 ألف قتيل، 30 ألف مهجر)، ومصادرة أراضي العروش والأحباس، وتدهور الأوضاع الاقتصادية والاجتماعية.\n- الظروف الخارجية: تأثير مبادئ ولسون الـ14 (حق تقرير المصير)، والثورة البلشفية (1917) المناهضة للاستعمار.\n- صدى نجاح الحركات الوطنية: في تركيا (مصطفى كمال) ومصر (سعد زغلول).\n- النتيجة: تنامي الوعي الوطني وتأسيس أولى هياكل الحركة الوطنية.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تظافرت عدة عوامل داخلية وخارجية لتشكل أرضية خصبة لتطور الحركة الوطنية التونسية غداة الحرب العالمية الأولى. فعلى المستوى الداخلي، خلفت الحرب خسائر بشرية فادحة (80 ألف مجند، 15 ألف قتيل، 30 ألف مهجر)، وصادرت فرنسا أراضي العروش والأحباس لصالح المعمرين، مما عمّق الأزمة الاقتصادية والاجتماعية ودفع الفلاحين إلى المطالبة بتأطير سياسي يدافع عن مصالحهم. أما على المستوى الخارجي، فقد أثرت مبادئ ولسون الـ14 التي أقرت حق الشعوب في تقرير مصيرها، وموقف الثورة البلشفية المناهض للاستعمار، كما كان لنجاح الحركتين التركية والمصرية صدى واسع في تونس. وقد أسفرت هذه الظروف عن تنامي الوعي الوطني وتأسيس أولى هياكل الحركة الوطنية، ممثلة في الحزب الحر الدستوري والجامعة العامة للشغل.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول دور الحزب الحر الدستوري التونسي في النضال الوطني خلال العشرينات.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "تأسس الحزب الحر الدستوري التونسي سنة 1920 ليكون أول إطار سياسي منظم للنضال الوطني. حلّل ظروف نشأته، وبرنامجه الإصلاحي، وأشكال نضاله السلمي (الوفود، العرائض، الصحافة)، ثم بيّن دوره في تعبئة الرأي العام وتأطير المطالب الوطنية.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم الحزب كأول حزب سياسي تونسي.",
+                ex5A_plan_li2: "تطوير: أولاً. ظروف النشأة والبرنامج؛ ثانياً. أشكال النضال السلمي؛ ثالثاً. دوره في تأطير الحركة الوطنية.",
+                ex5A_plan_li3: "خاتمة: تقييم إسهام الحزب رغم محدودية نتائجه المباشرة.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "شكّل تأسيس الحزب الحر الدستوري التونسي سنة 1920 منعطفًا حاسمًا في تاريخ الحركة الوطنية التونسية، إذ كان أول إطار سياسي منظم يتبنى المطالب الوطنية ويدافع عنها.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_founding: "أولاً. ظروف النشأة والبرنامج الإصلاحي",
+                ex5A_production_p_founding: "انبثق الحزب عن حركة الشباب التونسي التي اعتمدت سياسة الانتقاد خلال الحرب، وتأسس رسميًا في جانفي 1920 بقيادة عبد العزيز الثعالبي. طالب ببرنامج إصلاحي معتدل يشمل حرية التعليم، ومجلسًا تشريعيًا تونسيًا، وفصل السلط، والمساواة في الوظائف والأجور.",
+                ex5A_production_h4_struggle: "ثانياً. أشكال النضال السلمي",
+                ex5A_production_p_struggle: "اعتمد الحزب أساليب نضالية سلمية متنوعة: بعث الوفود الرسمية (4 وفود)، وإرسال العرائض، وإصدار صحيفة «الإرادة»، وعقد الاجتماعات والجولات في مختلف جهات البلاد، وتأسيس النقابات، والاتصال بالرأي العام الدولي.",
+                ex5A_production_h4_role: "ثالثاً. دوره في تأطير الحركة الوطنية",
+                ex5A_production_p_role: "ساهم الحزب في تعبئة مختلف فئات المجتمع التونسي، وأطّر المطالب الوطنية في برنامج واضح، ودعم الحركة النقابية الناشئة ممثلة في الجامعة العامة للشغل سنة 1924.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "رغم محدودية النتائج المباشرة لنشاطه بسبب رفض السلطات الفرنسية لمطالبه، فقد أرسى الحزب الحر الدستوري التونسي أسس العمل السياسي المنظم ومهد لمراحل لاحقة من النضال الوطني.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: إرسال برقية اللجنة التونسية الجزائرية (جوان 1919)، نشأة الحزب الحر الدستوري (ربيع 1919)، مؤتمر تأسيس الحزب (جانفي 1920)، تأسيس الجامعة العامة للشغل (ديسمبر 1924)، حلّ الجامعة (1925).",
+                ex6A: "الخط الزمني: 1919: برقية اللجنة التونسية الجزائرية ... 1925: حل الجامعة العامة للشغل.",
+                ex6_timeline_title: "الأحداث الرئيسية للحركة الوطنية التونسية (1919–1925)",
+                ex6_event_1919_telegraph_label: "برقية اللجنة التونسية الجزائرية",
+                ex6_event_1919_telegraph_sub: "جوان 1919",
+                ex6_event_1919_emergence_label: "نشأة الحزب الحر الدستوري",
+                ex6_event_1919_emergence_sub: "ربيع 1919",
+                ex6_event_1920_congress_label: "مؤتمر تأسيس الحزب الحر الدستوري",
+                ex6_event_1920_congress_sub: "جانفي 1920",
+                ex6_event_1924_union_label: "تأسيس الجامعة العامة للشغل",
+                ex6_event_1924_union_sub: "ديسمبر 1924",
+                ex6_event_1925_dissolution_label: "حلّ الجامعة",
+                ex6_event_1925_dissolution_sub: "1925",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: 'Recruited', value: 80, labelKey: 'ex3A_key_recruited', valueFormatted: '80' },
+                { label: 'Displaced', value: 30, labelKey: 'ex3A_key_displaced', valueFormatted: '30' },
+                { label: 'Dead', value: 15, labelKey: 'ex3A_key_dead', valueFormatted: '15' },
+                { label: 'Wounded', value: 8, labelKey: 'ex3A_key_wounded', valueFormatted: '8' }
+            ],
+            maxValue: 80,
+            ySteps: [80, 60, 40, 20, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1919, labelKey: 'ex6_event_1919_telegraph_label', subKey: 'ex6_event_1919_telegraph_sub' },
+                { year: 1919, labelKey: 'ex6_event_1919_emergence_label', subKey: 'ex6_event_1919_emergence_sub' },
+                { year: 1920, labelKey: 'ex6_event_1920_congress_label', subKey: 'ex6_event_1920_congress_sub' },
+                { year: 1924, labelKey: 'ex6_event_1924_union_label', subKey: 'ex6_event_1924_union_sub' },
+                { year: 1925, labelKey: 'ex6_event_1925_dissolution_label', subKey: 'ex6_event_1925_dissolution_sub' }
+            ],
+            startYear: 1919,
+            endYear: 1925,
+            scaleYears: [1919, 1920, 1921, 1922, 1923, 1924, 1925]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

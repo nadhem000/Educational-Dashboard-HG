@@ -3891,122 +3891,90 @@ window.HGH_YEAR_PROGRAMS = {
 					},
 					modules: [
 						{
-							name: {
-								ar: '1. العالم المعاصر من 1914 إلى 1945',
-								en: '1. The Contemporary World from 1914 to 1945',
-								fr: '1. Le monde contemporain de 1914 à 1945'
-							},
-							lessons: [
-								{
-									title: {
-										ar: 'الدرس 1: الحرب العالمية الأولى',
-										en: 'Lesson 1: World War I',
-										fr: 'Leçon 1 : La Première Guerre mondiale'
-									},
-									parts: [
-										{
-											title: {
-												ar: 'الأسباب',
-												en: 'Causes',
-												fr: 'Causes'
-											}
-										},
-										{
-											title: {
-												ar: 'النتائج',
-												en: 'Consequences',
-												fr: 'Conséquences'
-											}
-										}
-									]
-								},
-								{
-									title: {
-										ar: 'الدرس 2: الحرب العالمية الثانية',
-										en: 'Lesson 2: World War II',
-										fr: 'Leçon 2 : La Seconde Guerre mondiale'
-									},
-									parts: [
-										{
-											title: {
-												ar: 'الأسباب',
-												en: 'Causes',
-												fr: 'Causes'
-											}
-										},
-										{
-											title: {
-												ar: 'النتائج',
-												en: 'Consequences',
-												fr: 'Conséquences'
-											}
-										}
-									]
-								},
-								{
-									title: {
-										ar: 'الدرس 3: تونس في العشرينات',
-										en: 'Lesson 3: Tunisia in the 1920s',
-										fr: 'Leçon 3 : La Tunisie dans les années 1920'
-									},
-									parts: [
-										{
-											title: {
-												ar: 'الظرفية الداخلية والخارجية',
-												en: 'Domestic and International Context',
-												fr: 'Contexte intérieur et extérieur'
-											}
-										},
-										{
-											title: {
-												ar: 'تطور الحركة الوطنية',
-												en: 'Evolution of the National Movement',
-												fr: 'Évolution du mouvement national'
-											}
-										}
-									]
-								},
-								{
-									title: {
-										ar: 'الدرس 4: تونس في الثلاثينات',
-										en: 'Lesson 4: Tunisia in the 1930s',
-										fr: 'Leçon 4 : La Tunisie dans les années 1930'
-									},
-									parts: [
-										{
-											title: {
-												ar: 'الظرفية الداخلية والخارجية',
-												en: 'Domestic and International Context',
-												fr: 'Contexte intérieur et extérieur'
-											}
-										},
-										{
-											title: {
-												ar: 'الحركة الوطنية وانتعاش العمل الوطني',
-												en: 'National Movement and Revival of National Action',
-												fr: "Mouvement national et regain de l'action nationale"
-											}
-										}
-									]
-								},
-								{
-									title: {
-										ar: 'الدرس 5: تونس أثناء الحرب العالمية الثانية',
-										en: 'Lesson 5: Tunisia during World War II',
-										fr: 'Leçon 5 : La Tunisie pendant la Seconde Guerre mondiale'
-									},
-									parts: [
-										{
-											title: {
-												ar: 'الظرفية الداخلية والخارجية',
-												en: 'Domestic and International Context',
-												fr: 'Contexte intérieur et extérieur'
-											}
-										}
-									]
-								}
-							]
-						},
+    name: {
+        ar: '1. العالم المعاصر من 1914 إلى 1945',
+        en: '1. The Contemporary World from 1914 to 1945',
+        fr: '1. Le monde contemporain de 1914 à 1945'
+    },
+    lessons: [
+        {
+            title: {
+                ar: 'الدرس 1: الحرب العالمية الأولى',
+                en: 'Lesson 1: World War I',
+                fr: 'Leçon 1 : La Première Guerre mondiale'
+            },
+            parts: [
+                {
+                    title: {
+                        ar: 'الأسباب',
+                        en: 'Causes',
+                        fr: 'Causes'
+                    }
+                },
+                {
+                    title: {
+                        ar: 'النتائج',
+                        en: 'Consequences',
+                        fr: 'Conséquences'
+                    }
+                }
+            ]
+        },
+        {
+            title: {
+                ar: 'الدرس 2: الحرب العالمية الثانية',
+                en: 'Lesson 2: World War II',
+                fr: 'Leçon 2 : La Seconde Guerre mondiale'
+            },
+            parts: [
+                {
+                    title: {
+                        ar: 'الأسباب',
+                        en: 'Causes',
+                        fr: 'Causes'
+                    }
+                },
+                {
+                    title: {
+                        ar: 'النتائج',
+                        en: 'Consequences',
+                        fr: 'Conséquences'
+                    }
+                }
+            ]
+        },
+        {
+            title: {
+                ar: 'الدرس 3: تونس من نهاية الحرب العالمية الأولى إلى نهاية الحرب العالمية الثانية',
+                en: 'Lesson 3: Tunisia from the End of WWI to the End of WWII',
+                fr: 'Leçon 3 : La Tunisie de la fin de la Première à la fin de la Seconde Guerre mondiale'
+            },
+            parts: [
+                {
+                    title: {
+                        ar: 'تونس في العشرينات',
+                        en: 'Tunisia in the 1920s',
+                        fr: 'La Tunisie dans les années 1920'
+                    }
+                },
+                {
+                    title: {
+                        ar: 'تونس في الثلاثينات',
+                        en: 'Tunisia in the 1930s',
+                        fr: 'La Tunisie dans les années 1930'
+                    }
+                },
+                {
+                    title: {
+                        ar: 'تونس أثناء الحرب العالمية الثانية',
+                        en: 'Tunisia during World War II',
+                        fr: 'La Tunisie pendant la Seconde Guerre mondiale'
+                    }
+                }
+            ]
+        }
+    ]
+},
 						{
 							name: {
 								ar: '2. العالم المعاصر بعد 1945',

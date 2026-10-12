@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <!-- PRINT HEADER -->
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة اقتصاد وتصرف
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                تونس من نهاية الحرب العالمية الأولى إلى نهاية الحرب العالمية الثانية
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    شهدت البلاد التونسية في الثلاثينيات أزمة اقتصادية واجتماعية مركبة، فاقمتها سياسات السلطات الاستعمارية، مما أدى إلى انتعاش العمل الوطني وبروز قيادات شابة قادت الحركة الوطنية نحو مرحلة جديدة. وقد تمخض عن ذلك تأسيس الحزب الحر الدستوري الجديد الذي أصبح قوة سياسية كبرى. فما هي أبرز مظاهر تطور الحركة الوطنية في الثلاثينيات؟
+                </p>
+            </div>
+
+            <!-- II. تونس في الثلاثينيات -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">تونس في الثلاثينيات</span>
+                </h2>
+
+                <!-- 1. ظروف تطور الحركة الوطنية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="part2Title1">ظروف تطور الحركة الوطنية في الثلاثينيات</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="part2A">أزمة الثلاثينيات الاقتصادية وأثرها في المجتمع التونسي</span>
+                </h4>
+                <p data-i18n="part2AText">شهدت تونس أزمة مركبة:</p>
+                <ul>
+                    <li data-i18n="part2Li1"><strong>أزمة نقدية:</strong> تمثلت في تدهور الإنتاج الفلاحي وارتفاع الأسعار بسبب الجفاف (1930-1931) وانتشار الجراد (1932).</li>
+                    <li data-i18n="part2Li2"><strong>أزمة تجارية:</strong> تمثلت في تراجع المبادلات التجارية العالمية (بداية من 1932) حيث قلّصت فرنسا أسواقها أمام المنتجات التونسية.</li>
+                    <li data-i18n="part2Li3"><strong>انهيار أسعار المنتجات الفلاحية واللحوم:</strong> تراجع سعر الهكتولتر من 200 فرنك سنة 1930 إلى 100 فرنك سنة 1935، مما أدى إلى إفلاس صغار الفلاحين.</li>
+                    <li data-i18n="part2Li4"><strong>طالت الأزمة مختلف مكونات المجتمع التونسي:</strong> انخفاض عدد من صغار الفلاحين والحرفيين والتجار، تفاقم البطالة، انخفاض الأجور، تدهور القدرة الشرائية، انتشار الفقر والجوع.</li>
+                    <li data-i18n="part2Li5"><strong>النتيجة:</strong> تدهور الأوضاع الاجتماعية والاقتصادية أدى إلى تزايد الاستياء والاحتجاجات. وقد ازدادت حدة الاحتجاجات في المدن (الإضرابات والاحتجاجات) وفي الجهات (التمردات والانتفاضات).</li>
+                    <li data-i18n="part2Li6"><strong>سياسة المكياج:</strong> عادلت سلطات الحماية هذه الأزمة بسياسة المكياج، إذ انشغلت بمساندة المعمرين وأهملت مصالح التونسيين بما في ذلك المستفيدين من النظام الاستعماري (كبار الفلاحين وأرباب الصناعة والتجارة).</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="part2B">تحديات السياسة الاستعمارية للضغط على الوطنيين</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part2Li7"><strong>تنظيم المؤتمر الاستعماري بباريس (ماي 1930):</strong> اعتبرته الحركة الوطنية تحديًا لشعار أغلبية الأهالي المسلمين ودعوتها إلى مقاومته.</li>
+                    <li data-i18n="part2Li8"><strong>الاحتفال بمرور خمسينية الاستعمار الفرنسي بتونس (ماي 1931):</strong> كان بمثابة استعراض للقوة، وقد تمّت الدعوة إلى مقاطعته.</li>
+                    <li><strong data-i18n="part2Li9Title">النتيجة:</strong> <span data-i18n="part2Li9Text">فشل سياسة الحماية في استمالة التونسيين.</span></li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="part2C">السياسة الثقافية والتعليمية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part2Li10"><strong>تحدي الوطنيين للقرارات الاستعمارية (1926):</strong> أصدروا صحفًا جديدة ناطقة بالفرنسية أبرزها: "العمل التونسي" (نوفمبر 1932) التي جمعت حولها نخبة من الشباب الوطنيين.</li>
+                    <li data-i18n="part2Li11"><strong>تأسيس جمعيات ثقافية:</strong> مثل جمعية "الشبان المسلمين" (1933) التي لعبت دورًا هامًا في نشر الثقافة العربية والإسلامية.</li>
+                    <li><strong data-i18n="part2Li12Title">النتيجة:</strong> <span data-i18n="part2Li12Text">بروز حركة فكرية وثقافية وطنية.</span></li>
+                </ul>
+
+                <!-- 2. مظاهر تطور الحركة الوطنية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="part2Title2">مظاهر تطور الحركة الوطنية في الثلاثينيات</span>
+                </h3>
+
+                <!-- 2-أ) المظهر السياسي -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="part2Title2A">المظهر السياسي: تأسيس الحزب الحر الدستوري الجديد</span>
+                </h4>
+
+                <h5 class="sub-sub-title" data-i18n="part2Sub1">انتعاش العمل الوطني وطفرة الجماهير:</h5>
+                <ul>
+                    <li data-i18n="part2Li13">عقد الحزب الحر الدستوري التونسي مؤتمره الثاني بمكنين في 12 و13 ماي 1933. وقد دعت أشغاله إلى:
+                        <ul>
+                            <li data-i18n="part2Li13a">المطالبة بحرية الصحافة وتكوين جمعيات ثقافية ورياضية.</li>
+                            <li data-i18n="part2Li13b">المطالبة بجميع الحريات العامة.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="part2Li14"><strong>النتيجة:</strong> انتخاب هيئة إدارية جديدة ضمت إلى جانب مؤسس الحزب (الثعالبي) عناصر شابة من الجيل الجديد.</li>
+                    <li data-i18n="part2Li15"><strong>على المستوى السياسي:</strong> انتقل إلى المطالبة بالعمل على "تحرير الشعب التونسي" من خلال سنّ دستور وإقامة برلمان منتخب.</li>
+                    <li data-i18n="part2Li16"><strong>على المستوى الاجتماعي:</strong> بروز مطالب اجتماعية واقتصادية جديدة.</li>
+                </ul>
+
+                <h5 class="sub-sub-title" data-i18n="part2Sub2">مؤتمر قصر هلال وتأسيس الحزب الحر الدستوري الجديد:</h5>
+                <ul>
+                    <li data-i18n="part2Li17">بعد انتخاب هيئة إدارية جديدة للحزب الحر الدستوري التونسي، دبّ خلاف حاد بين القيادة التاريخية (الثعالبي) والقيادة الشابة (الحبيب بورقيبة ومحمود الماطري).</li>
+                    <li data-i18n="part2Li18"><strong>النتيجة:</strong> انقسم الحزب إلى: حزب قديم بقيادة الثعالبي، وحزب جديد بقيادة الحبيب بورقيبة.</li>
+                    <li data-i18n="part2Li19">انعقد مؤتمر قصر هلال بمدينة قصر هلال (2 مارس 1934) بحضور ممثلين عن مختلف جهات البلاد. وأسفر عن:
+                        <ul>
+                            <li data-i18n="part2Li19a">تأسيس الحزب الحر الدستوري الجديد.</li>
+                            <li data-i18n="part2Li19b">انتخاب هيئة إدارية جديدة برئاسة محمود الماطري (رئيسًا) والحبيب بورقيبة (كاتبًا عامًا).</li>
+                            <li data-i18n="part2Li19c">برنامج الحزب: المطالبة بالحريات العامة، المساواة بين التونسيين والفرنسيين، إحداث مجلس تشريعي تونسي، إصلاح الإدارة، القضاء على الاستغلال، تحسين الأجور وظروف العمل.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="part2Li20"><strong>نشاط الحزب الجديد:</strong> انكب على نشر أفكاره بين الجماهير عبر الاجتماعات والخطب والصحف (صحيفة "العمل التونسي"). وقد لعب دورًا هامًا في تأطير الجماهير.</li>
+                    <li><strong data-i18n="part2Li21Title">النتيجة:</strong> <span data-i18n="part2Li21Text">أصبح الحزب الحر الدستوري الجديد قوة سياسية كبرى في البلاد.</span></li>
+                </ul>
+
+                <!-- 2-ب) المظهر النقابي -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="part2Title2B">المظهر النقابي: انتعاش الحركة النقابية وجامعة عموم العملة التونسية</span>
+                </h4>
+
+                <h5 class="sub-sub-title" data-i18n="part2Sub3">ظروف انتعاش الحركة النقابية:</h5>
+                <ul>
+                    <li data-i18n="part2Li24"><strong>تدهور الأوضاع الاجتماعية للعمال:</strong> أدت أزمة الثلاثينيات إلى تفاقم البطالة وانخفاض الأجور وتدهور القدرة الشرائية، مما زاد من معاناة الطبقة العاملة التونسية.</li>
+                    <li data-i18n="part2Li25"><strong>تأثير الحركة النقابية العالمية:</strong> استفاد العمال التونسيون من انخراطهم في اتحاد النقابات الفرنسية باكتساب تجربة نقابية ساعدتهم على بلورة مشروع نقابة تونسية مستقلة.</li>
+                    <li data-i18n="part2Li26"><strong>دعم الحزب الحر الدستوري الجديد:</strong> عمل زعماء الحزب الجديد على دعم الحركة النقابية وتأطير العمال التونسيين.</li>
+                </ul>
+
+                <h5 class="sub-sub-title" data-i18n="part2Sub4">تأسيس جامعة عموم العملة التونسية ونشاطها:</h5>
+                <ul>
+                    <li data-i18n="part2Li27"><strong>التأسيس:</strong> تأسست جامعة عموم العملة التونسية سنة 1936 لتعيد إحياء الحركة النقابية التونسية المستقلة بعد حل الجامعة العامة للشغل سنة 1925.</li>
+                    <li data-i18n="part2Li28"><strong>برنامجها:</strong> المطالبة بتحسين الأجور وظروف العمل، تقليص ساعات العمل، الضمان الاجتماعي، حق التنظيم النقابي، والمساواة في الأجور بين التونسيين والفرنسيين.</li>
+                    <li data-i18n="part2Li29"><strong>نشاطها:</strong> نظمت الجامعة الإضرابات والاحتجاجات للدفاع عن حقوق العمال، ولعبت دورًا هامًا في تأطير الطبقة العاملة التونسية.</li>
+                    <li data-i18n="part2Li30"><strong>العلاقة مع الحزب:</strong> ارتبطت الجامعة بالحزب الحر الدستوري الجديد الذي قدم لها الدعم المادي والمعنوي، واعتبرتها رافدًا من روافد النضال الوطني.</li>
+                    <li><strong data-i18n="part2Li31Title">النتيجة:</strong> <span data-i18n="part2Li31Text">شكلت الجامعة رافدًا هامًا للحركة الوطنية التونسية وأسهمت في تعبئة الطبقة العاملة ضد الاستعمار والاستغلال.</span></li>
+                </ul>
+
+                <!-- 2-ج) المظاهر الأخرى -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="part2Title2C">المظاهر الأخرى: الثقافية والمقاومة المسلحة</span>
+                </h4>
+
+                <h5 class="sub-sub-title" data-i18n="part2Sub5">المظاهر الثقافية:</h5>
+                <ul>
+                    <li data-i18n="part2Li32"><strong>الصحافة الوطنية:</strong> إصدار صحف وطنية ناطقة بالعربية والفرنسية، أبرزها صحيفة "العمل التونسي" (نوفمبر 1932) التي أصبحت لسان حال الحزب الحر الدستوري الجديد.</li>
+                    <li data-i18n="part2Li33"><strong>الجمعيات الثقافية:</strong> تأسيس جمعيات ثقافية مثل جمعية "الشبان المسلمين" (1933) التي لعبت دورًا هامًا في نشر الثقافة العربية والإسلامية.</li>
+                    <li data-i18n="part2Li34"><strong>الأندية الرياضية:</strong> تكوين جمعيات رياضية ساهمت في تعبئة الشباب وتأطيرهم.</li>
+                    <li><strong data-i18n="part2Li35Title">النتيجة:</strong> <span data-i18n="part2Li35Text">بروز حركة فكرية وثقافية وطنية أسهمت في تعميق الوعي الوطني ونشر الأفكار الوطنية بين مختلف فئات المجتمع.</span></li>
+                </ul>
+
+                <h5 class="sub-sub-title" data-i18n="part2Sub6">المقاومة المسلحة والانتفاضات الشعبية:</h5>
+                <ul>
+                    <li data-i18n="part2Li36">شهدت البلاد في الثلاثينيات موجة من الاحتجاجات والانتفاضات الشعبية. أبرزها:
+                        <ul>
+                            <li data-i18n="part2Li36a"><strong>انتفاضة الفلاحين في الوطن القبلي (1934):</strong> ضد الاستغلال الاستعماري ومصادرة الأراضي.</li>
+                            <li data-i18n="part2Li36b"><strong>انتفاضة عمال الحضائر (1936):</strong> احتجاجًا على تدهور ظروف العمل والأجور.</li>
+                            <li data-i18n="part2Li36c"><strong>انتفاضة مدينة صفاقس (1937):</strong> ضمن موجة الاحتجاجات الشعبية في البلاد.</li>
+                        </ul>
+                    </li>
+                    <li><strong data-i18n="part2Li37Title">النتيجة:</strong> <span data-i18n="part2Li37Text">لجأت السلطات الاستعمارية إلى القمع الشديد والاعتقالات والنفي، لكن هذه الانتفاضات أكدت تنامي الوعي الوطني ورفض الاستعمار.</span></li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    أدت أزمة الثلاثينيات الاقتصادية والاجتماعية، إلى جانب السياسات الاستعمارية القمعية، إلى انتعاش العمل الوطني وتأسيس الحزب الحر الدستوري الجديد الذي قاد الحركة الوطنية نحو مرحلة جديدة من النضال المنظم، مستندًا إلى الجماهير وقوى الجيل الجديد، ومستفيدًا من انتعاش الحركة النقابية وتعدد المظاهر الثقافية والمقاومة الشعبية.
+                </p>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">
+                خلاصة: شكلت الثلاثينيات منعطفًا حاسمًا في مسار الحركة الوطنية التونسية، إذ تعددت مظاهر النضال (سياسية، نقابية، ثقافية ومسلحة)، وانتقلت المطالب من الإصلاح إلى المطالبة بتحرير الشعب التونسي وإقامة برلمان منتخب، وتأسس الحزب الحر الدستوري الجديد الذي أصبح قوة سياسية كبرى.
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defBourguiba">الحبيب بورقيبة</strong>: <span data-i18n="defBourguibaDesc">زعيم سياسي تونسي ومؤسس الدولة التونسية الحديثة، وُلد في 3 أوت 1903 بالمنستير وتوفي في 6 أفريل 2000 بالمنستير. من قيادات الجيل الشاب في الحزب الحر الدستوري التونسي، قاد مع محمود الماطري تأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934)، وشغل منصب الكاتب العام للحزب. أصبح أول رئيس للجمهورية التونسية (1957–1987) وقاد البلاد نحو الاستقلال سنة 1956.</span></li>
+                        <li><strong class="key-person" data-i18n="defMateri">محمود الماطري</strong>: <span data-i18n="defMateriDesc">زعيم سياسي وطبيب تونسي، وُلد في 5 جانفي 1902 بتونس وتوفي في 24 ديسمبر 1972 بتونس. من أبرز قيادات الجيل الشاب في الحزب الحر الدستوري التونسي، شارك في تأسيس الحزب الحر الدستوري الجديد سنة 1934 وانتُخب رئيسًا له في مؤتمر قصر هلال. مناضل من أجل الحريات العامة والمساواة والاستقلال، وقد ساهم في بلورة المطالب الوطنية في الثلاثينيات.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defNeoDestour">الحزب الحر الدستوري الجديد</strong>: <span data-i18n="defNeoDestourDesc">حزب سياسي تونسي تأسس في مؤتمر قصر هلال (2 مارس 1934) بقيادة محمود الماطري (رئيسًا) والحبيب بورقيبة (كاتبًا عامًا)، بعد انقسام الحزب الحر الدستوري التونسي بين قيادة تاريخية برئاسة الثعالبي وقيادة شابة. طالب بالحريات العامة، والمساواة بين التونسيين والفرنسيين، وإحداث مجلس تشريعي تونسي، وإصلاح الإدارة، والقضاء على الاستغلال، وتحسين الأجور وظروف العمل. أصبح قوة سياسية كبرى في البلاد.</span></li>
+                        <li><strong class="key-organization" data-i18n="defActionTunisienne">صحيفة "العمل التونسي"</strong>: <span data-i18n="defActionTunisienneDesc">صحيفة ناطقة بالفرنسية صدرت في نوفمبر 1932، جمعت حولها نخبة من الشباب الوطنيين وأصبحت لسان حال الحزب الحر الدستوري الجديد. لعبت دورًا هامًا في نشر الأفكار الوطنية وتأطير الجماهير.</span></li>
+                        <li><strong class="key-organization" data-i18n="defUnionOuvriere">جامعة عموم العملة التونسية</strong>: <span data-i18n="defUnionOuvriereDesc">منظمة نقابية تونسية تأسست سنة 1936 لتعيد إحياء الحركة النقابية المستقلة بعد حل الجامعة العامة للشغل سنة 1925. طالبت بتحسين الأجور وظروف العمل والضمان الاجتماعي والمساواة في الأجور، ولعبت دورًا هامًا في تأطير الطبقة العاملة التونسية ودعم النضال الوطني.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defMenzelBourguiba">مؤتمر مكنين (12–13 ماي 1933)</strong>: <span data-i18n="defMenzelBourguibaDesc">المؤتمر الثاني للحزب الحر الدستوري التونسي، عقد بمكنين، ودعا إلى المطالبة بحرية الصحافة وتكوين جمعيات ثقافية ورياضية والمطالبة بجميع الحريات العامة، وأسفر عن انتخاب هيئة إدارية جديدة ضمت عناصر شابة من الجيل الجديد إلى جانب الثعالبي.</span></li>
+                        <li><strong class="key-event" data-i18n="defKsarHellal">مؤتمر قصر هلال (2 مارس 1934)</strong>: <span data-i18n="defKsarHellalDesc">مؤتمر عقد بمدينة قصر هلال بحضور ممثلين عن مختلف جهات البلاد، أسفر عن تأسيس الحزب الحر الدستوري الجديد وانتخاب هيئة إدارية جديدة برئاسة محمود الماطري والحبيب بورقيبة ككاتب عام.</span></li>
+                        <li><strong class="key-event" data-i18n="defColonialCongress">المؤتمر الاستعماري بباريس (ماي 1930)</strong>: <span data-i18n="defColonialCongressDesc">مؤتمر نظمته السلطات الاستعمارية بباريس في ماي 1930، اعتبرته الحركة الوطنية تحديًا لشعار أغلبية الأهالي المسلمين، ودعت إلى مقاومته.</span></li>
+                        <li><strong class="key-event" data-i18n="defFiftiethAnniversary">خمسينية الاستعمار الفرنسي بتونس (ماي 1931)</strong>: <span data-i18n="defFiftiethAnniversaryDesc">احتفال نظمته السلطات الاستعمارية بمناسبة مرور خمسين سنة على انتصاب الحماية الفرنسية بتونس، اعتبرته الحركة الوطنية استعراضًا للقوة ودعت إلى مقاطعته.</span></li>
+                        <li><strong class="key-event" data-i18n="defCapBonUprising">انتفاضة الوطن القبلي (1934)</strong>: <span data-i18n="defCapBonUprisingDesc">انتفاضة قام بها الفلاحون في الوطن القبلي سنة 1934 ضد الاستغلال الاستعماري، واجهتها السلطات الاستعمارية بالقمع الشديد والاعتقالات.</span></li>
+                        <li><strong class="key-event" data-i18n="defSfaxUprising">انتفاضة صفاقس (1937)</strong>: <span data-i18n="defSfaxUprisingDesc">انتفاضة شعبية شهدتها مدينة صفاقس سنة 1937، ضمن موجة الاحتجاجات والانتفاضات الشعبية التي شهدتها البلاد في الثلاثينيات، وقمعتها السلطات الاستعمارية بقوة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1930</strong>: <span data-i18n="defYear1930Desc">أزمة الجفاف وانهيار أسعار المنتجات الفلاحية، وتنظيم المؤتمر الاستعماري بباريس.</span></li>
+                        <li><strong class="key-year">1931</strong>: <span data-i18n="defYear1931Desc">الاحتفال بخمسينية الاستعمار الفرنسي بتونس، ودعوة الحركة الوطنية إلى مقاطعته.</span></li>
+                        <li><strong class="key-year">1932</strong>: <span data-i18n="defYear1932Desc">صدور صحيفة "العمل التونسي" (نوفمبر 1932)، وانتشار الجراد.</span></li>
+                        <li><strong class="key-year">1933</strong>: <span data-i18n="defYear1933Desc">مؤتمر مكنين (ماي 1933)، وتأسيس جمعية "الشبان المسلمين".</span></li>
+                        <li><strong class="key-year">1934</strong>: <span data-i18n="defYear1934Desc">تأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934)، وانتفاضة الفلاحين في الوطن القبلي.</span></li>
+                        <li><strong class="key-year">1936</strong>: <span data-i18n="defYear1936Desc">تأسيس جامعة عموم العملة التونسية، وانتفاضة عمال الحضائر.</span></li>
+                        <li><strong class="key-year">1937</strong>: <span data-i18n="defYear1937Desc">انتفاضة مدينة صفاقس.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defCosmeticPolicy">سياسة المكياج</strong>: <span data-i18n="defCosmeticPolicyDesc">سياسة اتبعتها سلطات الحماية لمعالجة أزمة الثلاثينيات، انشغلت بمساندة المعمرين وأهملت مصالح التونسيين بما في ذلك المستفيدين من النظام الاستعماري، مما زاد من الاستياء والاحتجاجات.</span></li>
+                        <li><strong class="key-other" data-i18n="defYoungMuslims">جمعية "الشبان المسلمين"</strong>: <span data-i18n="defYoungMuslimsDesc">جمعية ثقافية تأسست سنة 1933، لعبت دورًا هامًا في نشر الثقافة العربية والإسلامية، وكانت جزءًا من الحركة الفكرية والثقافية الوطنية في الثلاثينيات.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/bourguiba.jpg"
+                             alt="الحبيب بورقيبة"
+                             data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">الحبيب بورقيبة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/materi.jpg"
+                             alt="محمود الماطري"
+                             data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">محمود الماطري</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/ksar_hellal_congress.jpg"
+                             alt="مؤتمر قصر هلال 1934"
+                             data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">مؤتمر قصر هلال 1934</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/action_tunisienne.jpg"
+                             alt="صحيفة العمل التونسي"
+                             data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">صحيفة العمل التونسي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/cap_bon_uprising.jpg"
+                             alt="انتفاضة الوطن القبلي 1934"
+                             data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">انتفاضة الوطن القبلي 1934</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y4sec_secEco_his_exercisess_mod1_lesson3_part2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON‑SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "4th Secondary, Economy and Management Section",
+                moduleName: "History / Module 1: The Contemporary World from 1914 to World War II",
+                lessonTitleSample: "Tunisia from the End of World War I to the End of World War II",
+                sectionIntro: "Introduction",
+                introText: "In the 1930s, Tunisia experienced a compound economic and social crisis, exacerbated by the policies of the colonial authorities, which led to the revival of national action and the emergence of young leaders who steered the national movement towards a new phase. This resulted in the founding of the Neo-Destour Party, which became a major political force. What were the main manifestations of the national movement's development in the 1930s?",
+                sectionPart2: "Tunisia in the 1930s",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The economic and social crisis of the 1930s, along with repressive colonial policies, led to the revival of national action and the founding of the Neo-Destour Party, which steered the national movement towards a new phase of organized struggle, relying on the masses and the forces of the new generation, benefiting from the revival of the trade union movement and the diversity of cultural manifestations and popular resistance.",
+                summaryText: "Key takeaway: The 1930s marked a decisive turning point in the Tunisian national movement, with diverse forms of struggle (political, trade union, cultural and armed), demands shifting from reform to the liberation of the Tunisian people and the establishment of an elected parliament, and the founding of the Neo-Destour Party, which became a major political force.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                part2Title1: "Conditions of the National Movement's Development in the 1930s",
+                part2A: "The Economic Crisis of the 1930s and Its Impact on Tunisian Society",
+                part2AText: "Tunisia experienced a compound crisis:",
+                part2Li1: "Monetary crisis: deterioration of agricultural production and rising prices due to drought (1930-1931) and locust spread (1932).",
+                part2Li2: "Commercial crisis: decline in global trade (from 1932) as France reduced its markets to Tunisian products.",
+                part2Li3: "Collapse of agricultural and meat prices: the price per hectolitre fell from 200 francs in 1930 to 100 francs in 1935, leading to the bankruptcy of small farmers.",
+                part2Li4: "The crisis affected various components of Tunisian society: decline in the number of small farmers, craftsmen and traders, worsening unemployment, falling wages, deteriorating purchasing power, spread of poverty and hunger.",
+                part2Li5: "Result: The deterioration of social and economic conditions led to growing discontent and protests. Protests intensified in cities (strikes and protests) and in regions (rebellions and uprisings).",
+                part2Li6: "Cosmetic policy: The protectorate authorities addressed this crisis with a cosmetic policy, focusing on supporting settlers and neglecting the interests of Tunisians, including those benefiting from the colonial system (large farmers and industrialists and traders).",
+                part2B: "Challenges of Colonial Policy to Pressure the Nationalists",
+                part2Li7: "Organization of the Colonial Congress in Paris (May 1930): The national movement considered it a challenge to the slogan of the majority of Muslim natives and called for resistance.",
+                part2Li8: "Celebration of the fiftieth anniversary of French colonialism in Tunisia (May 1931): It was a show of force, and the national movement called for a boycott.",
+                part2Li9Title: "Result:",
+                part2Li9Text: "The protectorate policy failed to win over the Tunisians.",
+                part2C: "Cultural and Educational Policy",
+                part2Li10: "Nationalists challenging colonial decisions (1926): They published new French-language newspapers, notably 'L'Action Tunisienne' (November 1932), which gathered around it an elite of young nationalists.",
+                part2Li11: "Founding cultural associations: such as the 'Young Muslims' association (1933), which played an important role in spreading Arab and Islamic culture.",
+                part2Li12Title: "Result:",
+                part2Li12Text: "The emergence of a national intellectual and cultural movement.",
+                part2Title2: "Manifestations of the National Movement's Development in the 1930s",
+                part2Title2A: "Political Manifestation: Founding of the Neo-Destour Party",
+                part2Sub1: "Revival of national action and the surge of the masses:",
+                part2Li13: "The Tunisian Destour Party held its second congress in Menzel Bourguiba on 12-13 May 1933. Its proceedings called for:",
+                part2Li13a: "Demanding freedom of the press and the formation of cultural and sports associations.",
+                part2Li13b: "Demanding all public freedoms.",
+                part2Li14: "Result: Election of a new administrative committee that included, alongside the party's founder (Thaalbi), young elements of the new generation.",
+                part2Li15: "On the political level: It moved to demanding action for the 'liberation of the Tunisian people' through the enactment of a constitution and the establishment of an elected parliament.",
+                part2Li16: "On the social level: The emergence of new social and economic demands.",
+                part2Sub2: "Ksar Hellal Congress and the Founding of the Neo-Destour Party:",
+                part2Li17: "After the election of a new administrative committee for the Tunisian Destour Party, a sharp dispute arose between the historic leadership (Thaalbi) and the young leadership (Habib Bourguiba and Mahmoud El Materi).",
+                part2Li18: "Result: The party split into: an old party led by Thaalbi, and a new party led by Habib Bourguiba.",
+                part2Li19: "The Ksar Hellal Congress was held in the city of Ksar Hellal (2 March 1934) with representatives from various regions of the country. It resulted in:",
+                part2Li19a: "Founding of the Neo-Destour Party.",
+                part2Li19b: "Election of a new administrative committee chaired by Mahmoud El Materi (president) and Habib Bourguiba (secretary-general).",
+                part2Li19c: "Party program: Demanding public freedoms, equality between Tunisians and French, establishing a Tunisian legislative council, reforming the administration, eliminating exploitation, improving wages and working conditions.",
+                part2Li20: "Activity of the new party: It focused on spreading its ideas among the masses through meetings, speeches, and newspapers ('L'Action Tunisienne'). It played an important role in organizing the masses.",
+                part2Li21Title: "Result:",
+                part2Li21Text: "The Neo-Destour Party became a major political force in the country.",
+                part2Title2B: "Trade Union Manifestation: Revival of the Trade Union Movement and the General Union of Tunisian Workers",
+                part2Sub3: "Conditions of the revival of the trade union movement:",
+                part2Li24: "Deterioration of workers' social conditions: The crisis of the 1930s worsened unemployment, lowered wages, and deteriorated purchasing power, increasing the suffering of the Tunisian working class.",
+                part2Li25: "Impact of the global trade union movement: Tunisian workers benefited from joining the French trade union federation, gaining union experience that helped them formulate a project for an independent Tunisian union.",
+                part2Li26: "Support of the Neo-Destour Party: The leaders of the new party supported the trade union movement and organized Tunisian workers.",
+                part2Sub4: "Founding of the General Union of Tunisian Workers and its activity:",
+                part2Li27: "Founding: The General Union of Tunisian Workers was founded in 1936 to revive the independent Tunisian trade union movement after the dissolution of the General Union in 1925.",
+                part2Li28: "Its program: Demanding improved wages and working conditions, reduced working hours, social security, the right to union organization, and wage equality between Tunisians and French.",
+                part2Li29: "Its activity: The Union organized strikes and protests to defend workers' rights, and played an important role in organizing the Tunisian working class.",
+                part2Li30: "Relationship with the Party: The Union was linked to the Neo-Destour Party, which provided it with material and moral support and considered it a tributary of the national struggle.",
+                part2Li31Title: "Result:",
+                part2Li31Text: "The Union constituted an important tributary of the Tunisian national movement and contributed to mobilizing the working class against colonialism and exploitation.",
+                part2Title2C: "Other Manifestations: Cultural and Armed Resistance",
+                part2Sub5: "Cultural manifestations:",
+                part2Li32: "National press: Publication of national newspapers in Arabic and French, notably 'L'Action Tunisienne' (November 1932), which became the mouthpiece of the Neo-Destour Party.",
+                part2Li33: "Cultural associations: Founding of cultural associations such as the 'Young Muslims' association (1933), which played an important role in spreading Arab and Islamic culture.",
+                part2Li34: "Sports clubs: Formation of sports associations that contributed to mobilizing and organizing youth.",
+                part2Li35Title: "Result:",
+                part2Li35Text: "The emergence of a national intellectual and cultural movement that contributed to deepening national awareness and spreading national ideas among various segments of society.",
+                part2Sub6: "Armed resistance and popular uprisings:",
+                part2Li36: "In the 1930s, the country witnessed a wave of protests and popular uprisings. The most notable were:",
+                part2Li36a: "The farmers' uprising in Cap Bon (1934): Against colonial exploitation and land confiscation.",
+                part2Li36b: "The uprising of construction workers (1936): Protesting the deterioration of working conditions and wages.",
+                part2Li36c: "The uprising of the city of Sfax (1937): Part of the wave of popular protests in the country.",
+                part2Li37Title: "Result:",
+                part2Li37Text: "The colonial authorities resorted to harsh repression, arrests and exile, but these uprisings confirmed the growth of national awareness and the rejection of colonialism.",
+                defPersons: "👤 Persons",
+                defOrganizations: "🏛️ Organizations and Institutions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defBourguiba: "Habib Bourguiba",
+                defBourguibaDesc: "Tunisian political leader and founder of modern Tunisia, born on 3 August 1903 in Monastir and died on 6 April 2000 in Monastir. One of the leaders of the young generation in the Tunisian Destour Party, he led with Mahmoud El Materi the founding of the Neo-Destour Party at the Ksar Hellal Congress (2 March 1934), and served as the party's secretary-general. He became the first president of the Tunisian Republic (1957–1987) and led the country to independence in 1956.",
+                defMateri: "Mahmoud El Materi",
+                defMateriDesc: "Tunisian political leader and physician, born on 5 January 1902 in Tunis and died on 24 December 1972 in Tunis. One of the most prominent leaders of the young generation in the Tunisian Destour Party, he participated in founding the Neo-Destour Party in 1934 and was elected its president at the Ksar Hellal Congress. A fighter for public freedoms, equality, and independence, he contributed to shaping national demands in the 1930s.",
+                defNeoDestour: "Neo-Destour Party",
+                defNeoDestourDesc: "A Tunisian political party founded at the Ksar Hellal Congress (2 March 1934) led by Mahmoud El Materi (president) and Habib Bourguiba (secretary-general), after the split of the Tunisian Destour Party between a historic leadership led by Thaalbi and a young leadership. It demanded public freedoms, equality between Tunisians and French, a Tunisian legislative council, administrative reform, eliminating exploitation, and improving wages and working conditions. It became a major political force in the country.",
+                defActionTunisienne: "'L'Action Tunisienne' newspaper",
+                defActionTunisienneDesc: "A French-language newspaper published in November 1932, gathering around it an elite of young nationalists, and becoming the mouthpiece of the Neo-Destour Party. It played an important role in spreading national ideas and organizing the masses.",
+                defUnionOuvriere: "General Union of Tunisian Workers",
+                defUnionOuvriereDesc: "A Tunisian trade union organization founded in 1936 to revive the independent trade union movement after the dissolution of the General Union in 1925. It demanded improved wages and working conditions, social security, and wage equality, and played an important role in organizing the Tunisian working class and supporting the national struggle.",
+                defMenzelBourguiba: "Menzel Bourguiba Congress (12-13 May 1933)",
+                defMenzelBourguibaDesc: "The second congress of the Tunisian Destour Party, held in Menzel Bourguiba. It called for freedom of the press, the formation of cultural and sports associations, and all public freedoms. It resulted in the election of a new administrative committee that included young elements of the new generation alongside Thaalbi.",
+                defKsarHellal: "Ksar Hellal Congress (2 March 1934)",
+                defKsarHellalDesc: "A congress held in the city of Ksar Hellal with representatives from various regions of the country. It resulted in the founding of the Neo-Destour Party and the election of a new administrative committee chaired by Mahmoud El Materi with Habib Bourguiba as secretary-general.",
+                defColonialCongress: "Colonial Congress in Paris (May 1930)",
+                defColonialCongressDesc: "A congress organized by the colonial authorities in Paris in May 1930. The national movement considered it a challenge to the slogan of the majority of Muslim natives and called for resistance.",
+                defFiftiethAnniversary: "Fiftieth Anniversary of French Colonialism in Tunisia (May 1931)",
+                defFiftiethAnniversaryDesc: "A celebration organized by the colonial authorities marking fifty years since the establishment of the French protectorate in Tunisia. The national movement considered it a show of force and called for a boycott.",
+                defCapBonUprising: "Cap Bon Uprising (1934)",
+                defCapBonUprisingDesc: "An uprising by farmers in Cap Bon in 1934 against colonial exploitation, met with harsh repression and arrests by the colonial authorities.",
+                defSfaxUprising: "Sfax Uprising (1937)",
+                defSfaxUprisingDesc: "A popular uprising in the city of Sfax in 1937, part of the wave of protests and popular uprisings in the 1930s, suppressed forcefully by the colonial authorities.",
+                defYear1930Desc: "Drought crisis and collapse of agricultural prices, and organization of the Colonial Congress in Paris.",
+                defYear1931Desc: "Celebration of the fiftieth anniversary of French colonialism in Tunisia, and the national movement's call for a boycott.",
+                defYear1932Desc: "Publication of 'L'Action Tunisienne' (November 1932), and locust spread.",
+                defYear1933Desc: "Menzel Bourguiba Congress (May 1933), and founding of the 'Young Muslims' association.",
+                defYear1934Desc: "Founding of the Neo-Destour Party at the Ksar Hellal Congress (2 March 1934), and the farmers' uprising in Cap Bon.",
+                defYear1936Desc: "Founding of the General Union of Tunisian Workers, and uprising of construction workers.",
+                defYear1937Desc: "Uprising of the city of Sfax.",
+                defCosmeticPolicy: "Cosmetic Policy",
+                defCosmeticPolicyDesc: "A policy followed by the protectorate authorities to address the crisis of the 1930s, focusing on supporting settlers and neglecting the interests of Tunisians, including those benefiting from the colonial system, which increased discontent and protests.",
+                defYoungMuslims: "'Young Muslims' Association",
+                defYoungMuslimsDesc: "A cultural association founded in 1933, which played an important role in spreading Arab and Islamic culture, and was part of the national intellectual and cultural movement in the 1930s.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Habib Bourguiba",
+                galleryCap1: "Habib Bourguiba",
+                galleryAlt2: "Mahmoud El Materi",
+                galleryCap2: "Mahmoud El Materi",
+                galleryAlt3: "Ksar Hellal Congress 1934",
+                galleryCap3: "Ksar Hellal Congress 1934",
+                galleryAlt4: "'L'Action Tunisienne' newspaper",
+                galleryCap4: "'L'Action Tunisienne' newspaper",
+                galleryAlt5: "Cap Bon Uprising 1934",
+                galleryCap5: "Cap Bon Uprising 1934"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section économie et gestion",
+                moduleName: "Histoire / Module 1 : Le monde contemporain de 1914 à la Seconde Guerre mondiale",
+                lessonTitleSample: "La Tunisie de la fin de la Première Guerre mondiale à la fin de la Seconde Guerre mondiale",
+                sectionIntro: "Introduction",
+                introText: "Dans les années 1930, la Tunisie a connu une crise économique et sociale complexe, aggravée par les politiques des autorités coloniales, ce qui a conduit à la relance de l'action nationale et à l'émergence de jeunes leaders qui ont orienté le mouvement national vers une nouvelle phase. Cela a abouti à la fondation du Néo-Destour, qui est devenu une force politique majeure. Quelles ont été les principales manifestations du développement du mouvement national dans les années 1930 ?",
+                sectionPart2: "La Tunisie dans les années 1930",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La crise économique et sociale des années 1930, ainsi que les politiques coloniales répressives, ont conduit à la relance de l'action nationale et à la fondation du Néo-Destour, qui a orienté le mouvement national vers une nouvelle phase de lutte organisée, s'appuyant sur les masses et les forces de la nouvelle génération, bénéficiant de la relance du mouvement syndical et de la diversité des manifestations culturelles et de la résistance populaire.",
+                summaryText: "À retenir : les années 1930 ont marqué un tournant décisif dans le mouvement national tunisien, avec des formes de lutte diverses (politique, syndicale, culturelle et armée), les revendications passant de la réforme à la libération du peuple tunisien et à l'établissement d'un parlement élu, et la fondation du Néo-Destour, devenu une force politique majeure.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                part2Title1: "Conditions du développement du mouvement national dans les années 1930",
+                part2A: "La crise économique des années 1930 et son impact sur la société tunisienne",
+                part2AText: "La Tunisie a connu une crise complexe :",
+                part2Li1: "Crise monétaire : détérioration de la production agricole et hausse des prix due à la sécheresse (1930-1931) et à la prolifération des criquets (1932).",
+                part2Li2: "Crise commerciale : recul des échanges mondiaux (à partir de 1932), la France réduisant ses marchés aux produits tunisiens.",
+                part2Li3: "Effondrement des prix des produits agricoles et de la viande : le prix de l'hectolitre est passé de 200 francs en 1930 à 100 francs en 1935, entraînant la faillite des petits agriculteurs.",
+                part2Li4: "La crise a touché diverses composantes de la société tunisienne : baisse du nombre de petits agriculteurs, artisans et commerçants, aggravation du chômage, baisse des salaires, détérioration du pouvoir d'achat, propagation de la pauvreté et de la faim.",
+                part2Li5: "Résultat : La détérioration des conditions sociales et économiques a conduit à un mécontentement croissant et à des protestations. Les protestations se sont intensifiées dans les villes (grèves et protestations) et dans les régions (rébellions et soulèvements).",
+                part2Li6: "Politique de maquillage : Les autorités du protectorat ont traité cette crise par une politique de maquillage, se concentrant sur le soutien aux colons et négligeant les intérêts des Tunisiens, y compris ceux qui bénéficiaient du système colonial (grands agriculteurs, industriels et commerçants).",
+                part2B: "Défis de la politique coloniale pour faire pression sur les nationalistes",
+                part2Li7: "Organisation du Congrès colonial à Paris (mai 1930) : Le mouvement national l'a considéré comme un défi au slogan de la majorité des indigènes musulmans et a appelé à la résistance.",
+                part2Li8: "Célébration du cinquantenaire du colonialisme français en Tunisie (mai 1931) : Ce fut une démonstration de force, et le mouvement national a appelé au boycott.",
+                part2Li9Title: "Résultat :",
+                part2Li9Text: "La politique du protectorat n'a pas réussi à gagner les Tunisiens.",
+                part2C: "Politique culturelle et éducative",
+                part2Li10: "Les nationalistes défient les décisions coloniales (1926) : Ils ont publié de nouveaux journaux en langue française, notamment « L'Action Tunisienne » (novembre 1932), qui a rassemblé autour d'elle une élite de jeunes nationalistes.",
+                part2Li11: "Fondation d'associations culturelles : comme l'association « Les Jeunes Musulmans » (1933), qui a joué un rôle important dans la diffusion de la culture arabe et islamique.",
+                part2Li12Title: "Résultat :",
+                part2Li12Text: "L'émergence d'un mouvement intellectuel et culturel national.",
+                part2Title2: "Manifestations du développement du mouvement national dans les années 1930",
+                part2Title2A: "Manifestation politique : fondation du Néo-Destour",
+                part2Sub1: "Relance de l'action nationale et essor des masses :",
+                part2Li13: "Le Parti Destour tunisien a tenu son deuxième congrès à Menzel Bourguiba les 12 et 13 mai 1933. Ses travaux ont appelé à :",
+                part2Li13a: "Exiger la liberté de la presse et la formation d'associations culturelles et sportives.",
+                part2Li13b: "Exiger toutes les libertés publiques.",
+                part2Li14: "Résultat : Élection d'un nouveau comité administratif comprenant, aux côtés du fondateur du parti (Thaalbi), de jeunes éléments de la nouvelle génération.",
+                part2Li15: "Sur le plan politique : Il est passé à la revendication de l'action pour la « libération du peuple tunisien » par l'adoption d'une constitution et l'établissement d'un parlement élu.",
+                part2Li16: "Sur le plan social : L'émergence de nouvelles revendications sociales et économiques.",
+                part2Sub2: "Congrès de Ksar Hellal et fondation du Néo-Destour :",
+                part2Li17: "Après l'élection d'un nouveau comité administratif du Parti Destour tunisien, un vif différend est apparu entre la direction historique (Thaalbi) et la jeune direction (Habib Bourguiba et Mahmoud El Materi).",
+                part2Li18: "Résultat : Le parti s'est scindé en : un ancien parti dirigé par Thaalbi, et un nouveau parti dirigé par Habib Bourguiba.",
+                part2Li19: "Le congrès de Ksar Hellal s'est tenu dans la ville de Ksar Hellal (2 mars 1934) avec des représentants de diverses régions du pays. Il a abouti à :",
+                part2Li19a: "Fondation du Néo-Destour.",
+                part2Li19b: "Élection d'un nouveau comité administratif présidé par Mahmoud El Materi (président) et Habib Bourguiba (secrétaire général).",
+                part2Li19c: "Programme du parti : Exiger les libertés publiques, l'égalité entre Tunisiens et Français, l'établissement d'un conseil législatif tunisien, la réforme de l'administration, l'élimination de l'exploitation, l'amélioration des salaires et des conditions de travail.",
+                part2Li20: "Activité du nouveau parti : Il s'est concentré sur la diffusion de ses idées parmi les masses par des réunions, des discours et des journaux (« L'Action Tunisienne »). Il a joué un rôle important dans l'organisation des masses.",
+                part2Li21Title: "Résultat :",
+                part2Li21Text: "Le Néo-Destour est devenu une force politique majeure dans le pays.",
+                part2Title2B: "Manifestation syndicale : relance du mouvement syndical et Union Générale des Travailleurs Tunisiens",
+                part2Sub3: "Conditions de la relance du mouvement syndical :",
+                part2Li24: "Détérioration des conditions sociales des travailleurs : La crise des années 1930 a aggravé le chômage, fait baisser les salaires et détérioré le pouvoir d'achat, augmentant la souffrance de la classe ouvrière tunisienne.",
+                part2Li25: "Impact du mouvement syndical mondial : Les travailleurs tunisiens ont bénéficié de leur adhésion à la fédération syndicale française, acquérant une expérience syndicale qui les a aidés à formuler un projet de syndicat tunisien indépendant.",
+                part2Li26: "Soutien du Néo-Destour : Les dirigeants du nouveau parti ont soutenu le mouvement syndical et organisé les travailleurs tunisiens.",
+                part2Sub4: "Fondation de l'Union Générale des Travailleurs Tunisiens et son activité :",
+                part2Li27: "Fondation : L'Union Générale des Travailleurs Tunisiens a été fondée en 1936 pour relancer le mouvement syndical tunisien indépendant après la dissolution de l'Union Générale en 1925.",
+                part2Li28: "Son programme : Exiger l'amélioration des salaires et des conditions de travail, la réduction des heures de travail, la sécurité sociale, le droit à l'organisation syndicale et l'égalité des salaires entre Tunisiens et Français.",
+                part2Li29: "Son activité : L'Union a organisé des grèves et des protestations pour défendre les droits des travailleurs, et a joué un rôle important dans l'organisation de la classe ouvrière tunisienne.",
+                part2Li30: "Relation avec le Parti : L'Union était liée au Néo-Destour, qui lui a fourni un soutien matériel et moral et l'a considérée comme un affluent de la lutte nationale.",
+                part2Li31Title: "Résultat :",
+                part2Li31Text: "L'Union a constitué un affluent important du mouvement national tunisien et a contribué à mobiliser la classe ouvrière contre le colonialisme et l'exploitation.",
+                part2Title2C: "Autres manifestations : culturelles et résistance armée",
+                part2Sub5: "Manifestations culturelles :",
+                part2Li32: "Presse nationale : Publication de journaux nationaux en arabe et en français, notamment « L'Action Tunisienne » (novembre 1932), devenue le porte-parole du Néo-Destour.",
+                part2Li33: "Associations culturelles : Fondation d'associations culturelles comme l'association « Les Jeunes Musulmans » (1933), qui a joué un rôle important dans la diffusion de la culture arabe et islamique.",
+                part2Li34: "Clubs sportifs : Formation d'associations sportives qui ont contribué à mobiliser et organiser la jeunesse.",
+                part2Li35Title: "Résultat :",
+                part2Li35Text: "L'émergence d'un mouvement intellectuel et culturel national qui a contribué à approfondir la conscience nationale et à diffuser les idées nationales parmi les différentes couches de la société.",
+                part2Sub6: "Résistance armée et soulèvements populaires :",
+                part2Li36: "Dans les années 1930, le pays a connu une vague de protestations et de soulèvements populaires. Les plus notables étaient :",
+                part2Li36a: "Le soulèvement des agriculteurs du Cap Bon (1934) : Contre l'exploitation coloniale et la confiscation des terres.",
+                part2Li36b: "Le soulèvement des ouvriers du bâtiment (1936) : Protestation contre la détérioration des conditions de travail et des salaires.",
+                part2Li36c: "Le soulèvement de la ville de Sfax (1937) : Dans le cadre de la vague de protestations populaires dans le pays.",
+                part2Li37Title: "Résultat :",
+                part2Li37Text: "Les autorités coloniales ont eu recours à une répression sévère, à des arrestations et à l'exil, mais ces soulèvements ont confirmé la croissance de la conscience nationale et le rejet du colonialisme.",
+                defPersons: "👤 Personnes",
+                defOrganizations: "🏛️ Organisations et institutions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defBourguiba: "Habib Bourguiba",
+                defBourguibaDesc: "Dirigeant politique tunisien et fondateur de la Tunisie moderne, né le 3 août 1903 à Monastir et mort le 6 avril 2000 à Monastir. L'un des dirigeants de la jeune génération du Parti Destour tunisien, il a dirigé avec Mahmoud El Materi la fondation du Néo-Destour au congrès de Ksar Hellal (2 mars 1934), et a occupé le poste de secrétaire général du parti. Il est devenu le premier président de la République tunisienne (1957-1987) et a conduit le pays vers l'indépendance en 1956.",
+                defMateri: "Mahmoud El Materi",
+                defMateriDesc: "Dirigeant politique et médecin tunisien, né le 5 janvier 1902 à Tunis et mort le 24 décembre 1972 à Tunis. L'un des plus éminents dirigeants de la jeune génération du Parti Destour tunisien, il a participé à la fondation du Néo-Destour en 1934 et a été élu président au congrès de Ksar Hellal. Combattant pour les libertés publiques, l'égalité et l'indépendance, il a contribué à façonner les revendications nationales dans les années 1930.",
+                defNeoDestour: "Néo-Destour",
+                defNeoDestourDesc: "Parti politique tunisien fondé au congrès de Ksar Hellal (2 mars 1934) dirigé par Mahmoud El Materi (président) et Habib Bourguiba (secrétaire général), après la scission du Parti Destour tunisien entre une direction historique dirigée par Thaalbi et une jeune direction. Il a exigé les libertés publiques, l'égalité entre Tunisiens et Français, un conseil législatif tunisien, la réforme administrative, l'élimination de l'exploitation et l'amélioration des salaires et des conditions de travail. Il est devenu une force politique majeure dans le pays.",
+                defActionTunisienne: "Journal « L'Action Tunisienne »",
+                defActionTunisienneDesc: "Journal en langue française publié en novembre 1932, rassemblant autour de lui une élite de jeunes nationalistes et devenant le porte-parole du Néo-Destour. Il a joué un rôle important dans la diffusion des idées nationales et l'organisation des masses.",
+                defUnionOuvriere: "Union Générale des Travailleurs Tunisiens",
+                defUnionOuvriereDesc: "Organisation syndicale tunisienne fondée en 1936 pour relancer le mouvement syndical indépendant après la dissolution de l'Union Générale en 1925. Elle a exigé l'amélioration des salaires et des conditions de travail, la sécurité sociale et l'égalité des salaires, et a joué un rôle important dans l'organisation de la classe ouvrière tunisienne et le soutien à la lutte nationale.",
+                defMenzelBourguiba: "Congrès de Menzel Bourguiba (12-13 mai 1933)",
+                defMenzelBourguibaDesc: "Le deuxième congrès du Parti Destour tunisien, tenu à Menzel Bourguiba. Il a appelé à la liberté de la presse, à la formation d'associations culturelles et sportives et à toutes les libertés publiques. Il a abouti à l'élection d'un nouveau comité administratif comprenant de jeunes éléments de la nouvelle génération aux côtés de Thaalbi.",
+                defKsarHellal: "Congrès de Ksar Hellal (2 mars 1934)",
+                defKsarHellalDesc: "Un congrès tenu dans la ville de Ksar Hellal avec des représentants de diverses régions du pays. Il a abouti à la fondation du Néo-Destour et à l'élection d'un nouveau comité administratif présidé par Mahmoud El Materi avec Habib Bourguiba comme secrétaire général.",
+                defColonialCongress: "Congrès colonial à Paris (mai 1930)",
+                defColonialCongressDesc: "Un congrès organisé par les autorités coloniales à Paris en mai 1930. Le mouvement national l'a considéré comme un défi au slogan de la majorité des indigènes musulmans et a appelé à la résistance.",
+                defFiftiethAnniversary: "Cinquantenaire du colonialisme français en Tunisie (mai 1931)",
+                defFiftiethAnniversaryDesc: "Une célébration organisée par les autorités coloniales marquant les cinquante ans de l'établissement du protectorat français en Tunisie. Le mouvement national l'a considérée comme une démonstration de force et a appelé au boycott.",
+                defCapBonUprising: "Soulèvement du Cap Bon (1934)",
+                defCapBonUprisingDesc: "Un soulèvement des agriculteurs du Cap Bon en 1934 contre l'exploitation coloniale, réprimé sévèrement par les autorités coloniales avec des arrestations.",
+                defSfaxUprising: "Soulèvement de Sfax (1937)",
+                defSfaxUprisingDesc: "Un soulèvement populaire dans la ville de Sfax en 1937, faisant partie de la vague de protestations et de soulèvements populaires des années 1930, réprimé avec force par les autorités coloniales.",
+                defYear1930Desc: "Crise de la sécheresse et effondrement des prix agricoles, et organisation du Congrès colonial à Paris.",
+                defYear1931Desc: "Célébration du cinquantenaire du colonialisme français en Tunisie, et appel du mouvement national au boycott.",
+                defYear1932Desc: "Publication de « L'Action Tunisienne » (novembre 1932), et prolifération des criquets.",
+                defYear1933Desc: "Congrès de Menzel Bourguiba (mai 1933), et fondation de l'association « Les Jeunes Musulmans ».",
+                defYear1934Desc: "Fondation du Néo-Destour au congrès de Ksar Hellal (2 mars 1934), et soulèvement des agriculteurs du Cap Bon.",
+                defYear1936Desc: "Fondation de l'Union Générale des Travailleurs Tunisiens, et soulèvement des ouvriers du bâtiment.",
+                defYear1937Desc: "Soulèvement de la ville de Sfax.",
+                defCosmeticPolicy: "Politique de maquillage",
+                defCosmeticPolicyDesc: "Une politique suivie par les autorités du protectorat pour faire face à la crise des années 1930, se concentrant sur le soutien aux colons et négligeant les intérêts des Tunisiens, y compris ceux qui bénéficiaient du système colonial, ce qui a accru le mécontentement et les protestations.",
+                defYoungMuslims: "Association « Les Jeunes Musulmans »",
+                defYoungMuslimsDesc: "Une association culturelle fondée en 1933, qui a joué un rôle important dans la diffusion de la culture arabe et islamique, et faisait partie du mouvement intellectuel et culturel national des années 1930.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Habib Bourguiba",
+                galleryCap1: "Habib Bourguiba",
+                galleryAlt2: "Mahmoud El Materi",
+                galleryCap2: "Mahmoud El Materi",
+                galleryAlt3: "Congrès de Ksar Hellal 1934",
+                galleryCap3: "Congrès de Ksar Hellal 1934",
+                galleryAlt4: "Journal « L'Action Tunisienne »",
+                galleryCap4: "Journal « L'Action Tunisienne »",
+                galleryAlt5: "Soulèvement du Cap Bon 1934",
+                galleryCap5: "Soulèvement du Cap Bon 1934"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية",
+                lessonTitleSample: "تونس من نهاية الحرب العالمية الأولى إلى نهاية الحرب العالمية الثانية",
+                sectionIntro: "مقدمة",
+                introText: "شهدت البلاد التونسية في الثلاثينيات أزمة اقتصادية واجتماعية مركبة، فاقمتها سياسات السلطات الاستعمارية، مما أدى إلى انتعاش العمل الوطني وبروز قيادات شابة قادت الحركة الوطنية نحو مرحلة جديدة. وقد تمخض عن ذلك تأسيس الحزب الحر الدستوري الجديد الذي أصبح قوة سياسية كبرى. فما هي أبرز مظاهر تطور الحركة الوطنية في الثلاثينيات؟",
+                sectionPart2: "تونس في الثلاثينيات",
+                sectionConclusion: "خاتمة",
+                conclusionText: "أدت أزمة الثلاثينيات الاقتصادية والاجتماعية، إلى جانب السياسات الاستعمارية القمعية، إلى انتعاش العمل الوطني وتأسيس الحزب الحر الدستوري الجديد الذي قاد الحركة الوطنية نحو مرحلة جديدة من النضال المنظم، مستندًا إلى الجماهير وقوى الجيل الجديد، ومستفيدًا من انتعاش الحركة النقابية وتعدد المظاهر الثقافية والمقاومة الشعبية.",
+                summaryText: "خلاصة: شكلت الثلاثينيات منعطفًا حاسمًا في مسار الحركة الوطنية التونسية، إذ تعددت مظاهر النضال (سياسية، نقابية، ثقافية ومسلحة)، وانتقلت المطالب من الإصلاح إلى المطالبة بتحرير الشعب التونسي وإقامة برلمان منتخب، وتأسس الحزب الحر الدستوري الجديد الذي أصبح قوة سياسية كبرى.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                part2Title1: "ظروف تطور الحركة الوطنية في الثلاثينيات",
+                part2A: "أزمة الثلاثينيات الاقتصادية وأثرها في المجتمع التونسي",
+                part2AText: "شهدت تونس أزمة مركبة:",
+                part2Li1: "أزمة نقدية: تمثلت في تدهور الإنتاج الفلاحي وارتفاع الأسعار بسبب الجفاف (1930-1931) وانتشار الجراد (1932).",
+                part2Li2: "أزمة تجارية: تمثلت في تراجع المبادلات التجارية العالمية (بداية من 1932) حيث قلّصت فرنسا أسواقها أمام المنتجات التونسية.",
+                part2Li3: "انهيار أسعار المنتجات الفلاحية واللحوم: تراجع سعر الهكتولتر من 200 فرنك سنة 1930 إلى 100 فرنك سنة 1935، مما أدى إلى إفلاس صغار الفلاحين.",
+                part2Li4: "طالت الأزمة مختلف مكونات المجتمع التونسي: انخفاض عدد من صغار الفلاحين والحرفيين والتجار، تفاقم البطالة، انخفاض الأجور، تدهور القدرة الشرائية، انتشار الفقر والجوع.",
+                part2Li5: "النتيجة: تدهور الأوضاع الاجتماعية والاقتصادية أدى إلى تزايد الاستياء والاحتجاجات. وقد ازدادت حدة الاحتجاجات في المدن (الإضرابات والاحتجاجات) وفي الجهات (التمردات والانتفاضات).",
+                part2Li6: "سياسة المكياج: عادلت سلطات الحماية هذه الأزمة بسياسة المكياج، إذ انشغلت بمساندة المعمرين وأهملت مصالح التونسيين بما في ذلك المستفيدين من النظام الاستعماري (كبار الفلاحين وأرباب الصناعة والتجارة).",
+                part2B: "تحديات السياسة الاستعمارية للضغط على الوطنيين",
+                part2Li7: "تنظيم المؤتمر الاستعماري بباريس (ماي 1930): اعتبرته الحركة الوطنية تحديًا لشعار أغلبية الأهالي المسلمين ودعوتها إلى مقاومته.",
+                part2Li8: "الاحتفال بمرور خمسينية الاستعمار الفرنسي بتونس (ماي 1931): كان بمثابة استعراض للقوة، وقد تمّت الدعوة إلى مقاطعته.",
+                part2Li9Title: "النتيجة:",
+                part2Li9Text: "فشل سياسة الحماية في استمالة التونسيين.",
+                part2C: "السياسة الثقافية والتعليمية",
+                part2Li10: "تحدي الوطنيين للقرارات الاستعمارية (1926): أصدروا صحفًا جديدة ناطقة بالفرنسية أبرزها: \"العمل التونسي\" (نوفمبر 1932) التي جمعت حولها نخبة من الشباب الوطنيين.",
+                part2Li11: "تأسيس جمعيات ثقافية: مثل جمعية \"الشبان المسلمين\" (1933) التي لعبت دورًا هامًا في نشر الثقافة العربية والإسلامية.",
+                part2Li12Title: "النتيجة:",
+                part2Li12Text: "بروز حركة فكرية وثقافية وطنية.",
+                part2Title2: "مظاهر تطور الحركة الوطنية في الثلاثينيات",
+                part2Title2A: "المظهر السياسي: تأسيس الحزب الحر الدستوري الجديد",
+                part2Sub1: "انتعاش العمل الوطني وطفرة الجماهير:",
+                part2Li13: "عقد الحزب الحر الدستوري التونسي مؤتمره الثاني بمكنين في 12 و13 ماي 1933. وقد دعت أشغاله إلى:",
+                part2Li13a: "المطالبة بحرية الصحافة وتكوين جمعيات ثقافية ورياضية.",
+                part2Li13b: "المطالبة بجميع الحريات العامة.",
+                part2Li14: "النتيجة: انتخاب هيئة إدارية جديدة ضمت إلى جانب مؤسس الحزب (الثعالبي) عناصر شابة من الجيل الجديد.",
+                part2Li15: "على المستوى السياسي: انتقل إلى المطالبة بالعمل على \"تحرير الشعب التونسي\" من خلال سنّ دستور وإقامة برلمان منتخب.",
+                part2Li16: "على المستوى الاجتماعي: بروز مطالب اجتماعية واقتصادية جديدة.",
+                part2Sub2: "مؤتمر قصر هلال وتأسيس الحزب الحر الدستوري الجديد:",
+                part2Li17: "بعد انتخاب هيئة إدارية جديدة للحزب الحر الدستوري التونسي، دبّ خلاف حاد بين القيادة التاريخية (الثعالبي) والقيادة الشابة (الحبيب بورقيبة ومحمود الماطري).",
+                part2Li18: "النتيجة: انقسم الحزب إلى: حزب قديم بقيادة الثعالبي، وحزب جديد بقيادة الحبيب بورقيبة.",
+                part2Li19: "انعقد مؤتمر قصر هلال بمدينة قصر هلال (2 مارس 1934) بحضور ممثلين عن مختلف جهات البلاد. وأسفر عن:",
+                part2Li19a: "تأسيس الحزب الحر الدستوري الجديد.",
+                part2Li19b: "انتخاب هيئة إدارية جديدة برئاسة محمود الماطري (رئيسًا) والحبيب بورقيبة (كاتبًا عامًا).",
+                part2Li19c: "برنامج الحزب: المطالبة بالحريات العامة، المساواة بين التونسيين والفرنسيين، إحداث مجلس تشريعي تونسي، إصلاح الإدارة، القضاء على الاستغلال، تحسين الأجور وظروف العمل.",
+                part2Li20: "نشاط الحزب الجديد: انكب على نشر أفكاره بين الجماهير عبر الاجتماعات والخطب والصحف (صحيفة \"العمل التونسي\"). وقد لعب دورًا هامًا في تأطير الجماهير.",
+                part2Li21Title: "النتيجة:",
+                part2Li21Text: "أصبح الحزب الحر الدستوري الجديد قوة سياسية كبرى في البلاد.",
+                part2Title2B: "المظهر النقابي: انتعاش الحركة النقابية وجامعة عموم العملة التونسية",
+                part2Sub3: "ظروف انتعاش الحركة النقابية:",
+                part2Li24: "تدهور الأوضاع الاجتماعية للعمال: أدت أزمة الثلاثينيات إلى تفاقم البطالة وانخفاض الأجور وتدهور القدرة الشرائية، مما زاد من معاناة الطبقة العاملة التونسية.",
+                part2Li25: "تأثير الحركة النقابية العالمية: استفاد العمال التونسيون من انخراطهم في اتحاد النقابات الفرنسية باكتساب تجربة نقابية ساعدتهم على بلورة مشروع نقابة تونسية مستقلة.",
+                part2Li26: "دعم الحزب الحر الدستوري الجديد: عمل زعماء الحزب الجديد على دعم الحركة النقابية وتأطير العمال التونسيين.",
+                part2Sub4: "تأسيس جامعة عموم العملة التونسية ونشاطها:",
+                part2Li27: "التأسيس: تأسست جامعة عموم العملة التونسية سنة 1936 لتعيد إحياء الحركة النقابية التونسية المستقلة بعد حل الجامعة العامة للشغل سنة 1925.",
+                part2Li28: "برنامجها: المطالبة بتحسين الأجور وظروف العمل، تقليص ساعات العمل، الضمان الاجتماعي، حق التنظيم النقابي، والمساواة في الأجور بين التونسيين والفرنسيين.",
+                part2Li29: "نشاطها: نظمت الجامعة الإضرابات والاحتجاجات للدفاع عن حقوق العمال، ولعبت دورًا هامًا في تأطير الطبقة العاملة التونسية.",
+                part2Li30: "العلاقة مع الحزب: ارتبطت الجامعة بالحزب الحر الدستوري الجديد الذي قدم لها الدعم المادي والمعنوي، واعتبرتها رافدًا من روافد النضال الوطني.",
+                part2Li31Title: "النتيجة:",
+                part2Li31Text: "شكلت الجامعة رافدًا هامًا للحركة الوطنية التونسية وأسهمت في تعبئة الطبقة العاملة ضد الاستعمار والاستغلال.",
+                part2Title2C: "المظاهر الأخرى: الثقافية والمقاومة المسلحة",
+                part2Sub5: "المظاهر الثقافية:",
+                part2Li32: "الصحافة الوطنية: إصدار صحف وطنية ناطقة بالعربية والفرنسية، أبرزها صحيفة \"العمل التونسي\" (نوفمبر 1932) التي أصبحت لسان حال الحزب الحر الدستوري الجديد.",
+                part2Li33: "الجمعيات الثقافية: تأسيس جمعيات ثقافية مثل جمعية \"الشبان المسلمين\" (1933) التي لعبت دورًا هامًا في نشر الثقافة العربية والإسلامية.",
+                part2Li34: "الأندية الرياضية: تكوين جمعيات رياضية ساهمت في تعبئة الشباب وتأطيرهم.",
+                part2Li35Title: "النتيجة:",
+                part2Li35Text: "بروز حركة فكرية وثقافية وطنية أسهمت في تعميق الوعي الوطني ونشر الأفكار الوطنية بين مختلف فئات المجتمع.",
+                part2Sub6: "المقاومة المسلحة والانتفاضات الشعبية:",
+                part2Li36: "شهدت البلاد في الثلاثينيات موجة من الاحتجاجات والانتفاضات الشعبية. أبرزها:",
+                part2Li36a: "انتفاضة الفلاحين في الوطن القبلي (1934): ضد الاستغلال الاستعماري ومصادرة الأراضي.",
+                part2Li36b: "انتفاضة عمال الحضائر (1936): احتجاجًا على تدهور ظروف العمل والأجور.",
+                part2Li36c: "انتفاضة مدينة صفاقس (1937): ضمن موجة الاحتجاجات الشعبية في البلاد.",
+                part2Li37Title: "النتيجة:",
+                part2Li37Text: "لجأت السلطات الاستعمارية إلى القمع الشديد والاعتقالات والنفي، لكن هذه الانتفاضات أكدت تنامي الوعي الوطني ورفض الاستعمار.",
+                defPersons: "👤 شخصيات",
+                defOrganizations: "🏛️ منظمات ومؤسسات",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defBourguiba: "الحبيب بورقيبة",
+                defBourguibaDesc: "زعيم سياسي تونسي ومؤسس الدولة التونسية الحديثة، وُلد في 3 أوت 1903 بالمنستير وتوفي في 6 أفريل 2000 بالمنستير. من قيادات الجيل الشاب في الحزب الحر الدستوري التونسي، قاد مع محمود الماطري تأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934)، وشغل منصب الكاتب العام للحزب. أصبح أول رئيس للجمهورية التونسية (1957–1987) وقاد البلاد نحو الاستقلال سنة 1956.",
+                defMateri: "محمود الماطري",
+                defMateriDesc: "زعيم سياسي وطبيب تونسي، وُلد في 5 جانفي 1902 بتونس وتوفي في 24 ديسمبر 1972 بتونس. من أبرز قيادات الجيل الشاب في الحزب الحر الدستوري التونسي، شارك في تأسيس الحزب الحر الدستوري الجديد سنة 1934 وانتُخب رئيسًا له في مؤتمر قصر هلال. مناضل من أجل الحريات العامة والمساواة والاستقلال، وقد ساهم في بلورة المطالب الوطنية في الثلاثينيات.",
+                defNeoDestour: "الحزب الحر الدستوري الجديد",
+                defNeoDestourDesc: "حزب سياسي تونسي تأسس في مؤتمر قصر هلال (2 مارس 1934) بقيادة محمود الماطري (رئيسًا) والحبيب بورقيبة (كاتبًا عامًا)، بعد انقسام الحزب الحر الدستوري التونسي بين قيادة تاريخية برئاسة الثعالبي وقيادة شابة. طالب بالحريات العامة، والمساواة بين التونسيين والفرنسيين، وإحداث مجلس تشريعي تونسي، وإصلاح الإدارة، والقضاء على الاستغلال، وتحسين الأجور وظروف العمل. أصبح قوة سياسية كبرى في البلاد.",
+                defActionTunisienne: "صحيفة \"العمل التونسي\"",
+                defActionTunisienneDesc: "صحيفة ناطقة بالفرنسية صدرت في نوفمبر 1932، جمعت حولها نخبة من الشباب الوطنيين وأصبحت لسان حال الحزب الحر الدستوري الجديد. لعبت دورًا هامًا في نشر الأفكار الوطنية وتأطير الجماهير.",
+                defUnionOuvriere: "جامعة عموم العملة التونسية",
+                defUnionOuvriereDesc: "منظمة نقابية تونسية تأسست سنة 1936 لتعيد إحياء الحركة النقابية المستقلة بعد حل الجامعة العامة للشغل سنة 1925. طالبت بتحسين الأجور وظروف العمل والضمان الاجتماعي والمساواة في الأجور، ولعبت دورًا هامًا في تأطير الطبقة العاملة التونسية ودعم النضال الوطني.",
+                defMenzelBourguiba: "مؤتمر مكنين (12–13 ماي 1933)",
+                defMenzelBourguibaDesc: "المؤتمر الثاني للحزب الحر الدستوري التونسي، عقد بمكنين، ودعا إلى المطالبة بحرية الصحافة وتكوين جمعيات ثقافية ورياضية والمطالبة بجميع الحريات العامة، وأسفر عن انتخاب هيئة إدارية جديدة ضمت عناصر شابة من الجيل الجديد إلى جانب الثعالبي.",
+                defKsarHellal: "مؤتمر قصر هلال (2 مارس 1934)",
+                defKsarHellalDesc: "مؤتمر عقد بمدينة قصر هلال بحضور ممثلين عن مختلف جهات البلاد، أسفر عن تأسيس الحزب الحر الدستوري الجديد وانتخاب هيئة إدارية جديدة برئاسة محمود الماطري والحبيب بورقيبة ككاتب عام.",
+                defColonialCongress: "المؤتمر الاستعماري بباريس (ماي 1930)",
+                defColonialCongressDesc: "مؤتمر نظمته السلطات الاستعمارية بباريس في ماي 1930، اعتبرته الحركة الوطنية تحديًا لشعار أغلبية الأهالي المسلمين، ودعت إلى مقاومته.",
+                defFiftiethAnniversary: "خمسينية الاستعمار الفرنسي بتونس (ماي 1931)",
+                defFiftiethAnniversaryDesc: "احتفال نظمته السلطات الاستعمارية بمناسبة مرور خمسين سنة على انتصاب الحماية الفرنسية بتونس، اعتبرته الحركة الوطنية استعراضًا للقوة ودعت إلى مقاطعته.",
+                defCapBonUprising: "انتفاضة الوطن القبلي (1934)",
+                defCapBonUprisingDesc: "انتفاضة قام بها الفلاحون في الوطن القبلي سنة 1934 ضد الاستغلال الاستعماري، واجهتها السلطات الاستعمارية بالقمع الشديد والاعتقالات.",
+                defSfaxUprising: "انتفاضة صفاقس (1937)",
+                defSfaxUprisingDesc: "انتفاضة شعبية شهدتها مدينة صفاقس سنة 1937، ضمن موجة الاحتجاجات والانتفاضات الشعبية التي شهدتها البلاد في الثلاثينيات، وقمعتها السلطات الاستعمارية بقوة.",
+                defYear1930Desc: "أزمة الجفاف وانهيار أسعار المنتجات الفلاحية، وتنظيم المؤتمر الاستعماري بباريس.",
+                defYear1931Desc: "الاحتفال بخمسينية الاستعمار الفرنسي بتونس، ودعوة الحركة الوطنية إلى مقاطعته.",
+                defYear1932Desc: "صدور صحيفة \"العمل التونسي\" (نوفمبر 1932)، وانتشار الجراد.",
+                defYear1933Desc: "مؤتمر مكنين (ماي 1933)، وتأسيس جمعية \"الشبان المسلمين\".",
+                defYear1934Desc: "تأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934)، وانتفاضة الفلاحين في الوطن القبلي.",
+                defYear1936Desc: "تأسيس جامعة عموم العملة التونسية، وانتفاضة عمال الحضائر.",
+                defYear1937Desc: "انتفاضة مدينة صفاقس.",
+                defCosmeticPolicy: "سياسة المكياج",
+                defCosmeticPolicyDesc: "سياسة اتبعتها سلطات الحماية لمعالجة أزمة الثلاثينيات، انشغلت بمساندة المعمرين وأهملت مصالح التونسيين بما في ذلك المستفيدين من النظام الاستعماري، مما زاد من الاستياء والاحتجاجات.",
+                defYoungMuslims: "جمعية \"الشبان المسلمين\"",
+                defYoungMuslimsDesc: "جمعية ثقافية تأسست سنة 1933، لعبت دورًا هامًا في نشر الثقافة العربية والإسلامية، وكانت جزءًا من الحركة الفكرية والثقافية الوطنية في الثلاثينيات.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "الحبيب بورقيبة",
+                galleryCap1: "الحبيب بورقيبة",
+                galleryAlt2: "محمود الماطري",
+                galleryCap2: "محمود الماطري",
+                galleryAlt3: "مؤتمر قصر هلال 1934",
+                galleryCap3: "مؤتمر قصر هلال 1934",
+                galleryAlt4: "صحيفة العمل التونسي",
+                galleryCap4: "صحيفة العمل التونسي",
+                galleryAlt5: "انتفاضة الوطن القبلي 1934",
+                galleryCap5: "انتفاضة الوطن القبلي 1934"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO‑WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Habib Bourguiba", class: "key-person", i18n: "defBourguiba" },
+                { text: "Mahmoud El Materi", class: "key-person", i18n: "defMateri" },
+                { text: "Neo-Destour Party", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "L'Action Tunisienne", class: "key-organization", i18n: "defActionTunisienne" },
+                { text: "General Union of Tunisian Workers", class: "key-organization", i18n: "defUnionOuvriere" },
+                { text: "Menzel Bourguiba Congress", class: "key-event", i18n: "defMenzelBourguiba" },
+                { text: "Ksar Hellal Congress", class: "key-event", i18n: "defKsarHellal" },
+                { text: "Colonial Congress", class: "key-event", i18n: "defColonialCongress" },
+                { text: "Fiftieth Anniversary", class: "key-event", i18n: "defFiftiethAnniversary" },
+                { text: "Cap Bon Uprising", class: "key-event", i18n: "defCapBonUprising" },
+                { text: "Sfax Uprising", class: "key-event", i18n: "defSfaxUprising" },
+                { text: "Cosmetic Policy", class: "key-other", i18n: "defCosmeticPolicy" },
+                { text: "Young Muslims", class: "key-other", i18n: "defYoungMuslims" },
+                { text: "1930", class: "key-year", i18n: null },
+                { text: "1931", class: "key-year", i18n: null },
+                { text: "1932", class: "key-year", i18n: null },
+                { text: "1933", class: "key-year", i18n: null },
+                { text: "1934", class: "key-year", i18n: null },
+                { text: "1936", class: "key-year", i18n: null },
+                { text: "1937", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Habib Bourguiba", class: "key-person", i18n: "defBourguiba" },
+                { text: "Mahmoud El Materi", class: "key-person", i18n: "defMateri" },
+                { text: "Néo-Destour", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "L'Action Tunisienne", class: "key-organization", i18n: "defActionTunisienne" },
+                { text: "Union Générale des Travailleurs Tunisiens", class: "key-organization", i18n: "defUnionOuvriere" },
+                { text: "Congrès de Menzel Bourguiba", class: "key-event", i18n: "defMenzelBourguiba" },
+                { text: "Congrès de Ksar Hellal", class: "key-event", i18n: "defKsarHellal" },
+                { text: "Congrès colonial", class: "key-event", i18n: "defColonialCongress" },
+                { text: "Cinquantenaire", class: "key-event", i18n: "defFiftiethAnniversary" },
+                { text: "Soulèvement du Cap Bon", class: "key-event", i18n: "defCapBonUprising" },
+                { text: "Soulèvement de Sfax", class: "key-event", i18n: "defSfaxUprising" },
+                { text: "Politique de maquillage", class: "key-other", i18n: "defCosmeticPolicy" },
+                { text: "Jeunes Musulmans", class: "key-other", i18n: "defYoungMuslims" },
+                { text: "1930", class: "key-year", i18n: null },
+                { text: "1931", class: "key-year", i18n: null },
+                { text: "1932", class: "key-year", i18n: null },
+                { text: "1933", class: "key-year", i18n: null },
+                { text: "1934", class: "key-year", i18n: null },
+                { text: "1936", class: "key-year", i18n: null },
+                { text: "1937", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "الحبيب بورقيبة", class: "key-person", i18n: "defBourguiba" },
+                { text: "محمود الماطري", class: "key-person", i18n: "defMateri" },
+                { text: "الحزب الحر الدستوري الجديد", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "العمل التونسي", class: "key-organization", i18n: "defActionTunisienne" },
+                { text: "جامعة عموم العملة التونسية", class: "key-organization", i18n: "defUnionOuvriere" },
+                { text: "مؤتمر مكنين", class: "key-event", i18n: "defMenzelBourguiba" },
+                { text: "مؤتمر قصر هلال", class: "key-event", i18n: "defKsarHellal" },
+                { text: "المؤتمر الاستعماري", class: "key-event", i18n: "defColonialCongress" },
+                { text: "خمسينية الاستعمار", class: "key-event", i18n: "defFiftiethAnniversary" },
+                { text: "انتفاضة الوطن القبلي", class: "key-event", i18n: "defCapBonUprising" },
+                { text: "انتفاضة صفاقس", class: "key-event", i18n: "defSfaxUprising" },
+                { text: "سياسة المكياج", class: "key-other", i18n: "defCosmeticPolicy" },
+                { text: "الشبان المسلمين", class: "key-other", i18n: "defYoungMuslims" },
+                { text: "1930", class: "key-year", i18n: null },
+                { text: "1931", class: "key-year", i18n: null },
+                { text: "1932", class: "key-year", i18n: null },
+                { text: "1933", class: "key-year", i18n: null },
+                { text: "1934", class: "key-year", i18n: null },
+                { text: "1936", class: "key-year", i18n: null },
+                { text: "1937", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
