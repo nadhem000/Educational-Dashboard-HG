@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – قرطاج: القديس أوغسطينوس</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60,50,40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <h1 data-i18n="exerciseTitle">تمارين – قرطاج وإسهاماتها في الحضارة الرومانية: القديس أوغسطينوس</h1>
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: تاغست، هيبون، التصوف، الفكر الإنساني، مؤلف «مدينة الله».</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">تاغست (سوق هراس):</dt>
+                        <dd data-i18n="ex1_def1_subtitle">مسقط رأس القديس أوغسطينوس، وُلِد بها سنة 345م من أب وثني وأم مسيحية، وفيها تلقى تكوينه الأول.</dd>
+                        <dt data-i18n="ex1_def2_title">هيبون (عنابة):</dt>
+                        <dd data-i18n="ex1_def2_subtitle">المدينة التي شغل فيها القديس أوغسطينوس منصب أسقف هيبونا حتى وفاته سنة 430م.</dd>
+                        <dt data-i18n="ex1_def3_title">التصوف:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">اتجاه فكري وروحي اتجه إليه الفيلسوف اليوناني أفلاطون، وتأثر به القديس أوغسطينوس في تركيزه على الجانب الروحي للإيمان الذي اعتبره إلهامًا داخليًا.</dd>
+                        <dt data-i18n="ex1_def4_title">الفكر الإنساني:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">سمة مميزة لتفكير القديس أوغسطينوس، تأثر بها عديد الفلاسفة مثل ديكارت، وتتجلى في دعوته إلى التسامح والوفاق والتآخي بين الأفراد والشعوب، واعتباره العدالة ركيزة أساسية والسلم قاعدة عامة لكل المجتمعات.</dd>
+                        <dt data-i18n="ex1_def5_title">مؤلف «مدينة الله»:</dt>
+                        <dd data-i18n="ex1_def5_subtitle">من أبرز مؤلفات القديس أوغسطينوس التي هيمن عليها الفكر الديني، إلى جانب «الاعترافات» و«تعلم المسيحية» و«المعلم»، وقد ترك أوغسطينوس 252 كتابًا في 92 مجلدًا.</dd>
+                    </dl>
+                </div>
+            </div>
+            <!-- Exercise 2 – Type 2: Document / Map -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل الخريطة التالية التي تمثل محطات حياة القديس أوغسطينوس، وبيّن أهمها (مسقط الرأس، مقر التكوين، مقر الأسقفية).</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets1sec/exercises/history/unit1/lesson2/augustine_life_map.png"
+                         alt="خريطة محطات حياة القديس أوغسطينوس"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets1sec/exercises/history/unit1/lesson2/augustine_life_answer.png"
+                             alt="نموذج الإجابة – محطات حياة القديس أوغسطينوس"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        ينتمي القديس أوغسطينوس إلى أصول نوميدية. وُلد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م. وقد تلقى تكوينه الأول بتاغست، ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح، وبفلسفة أفلاطون. كما درس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، حيث اعتنق المسيحية. ثم عاد إلى إفريقيا وشغل منصب أسقف هيبونا (عنابة) حتى وفاته سنة 430م.
+                    </p>
+                </div>
+            </div>
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن توزيع مجالات فكر القديس أوغسطينوس.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_field">المجال</th>
+                            <th data-i18n="ex3Q_table_content">أبرز المضامين</th>
+                            <th data-i18n="ex3Q_table_count">عدد المضامين المذكورة</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_religious">المجال الديني</td>
+                            <td data-i18n="ex3Q_table_religious_list">محاربة الكفر والضلال، الدفاع عن وحدانية الله، التركيز على الجانب الروحي للإيمان</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_social">المجال الاجتماعي والسياسي</td>
+                            <td data-i18n="ex3Q_table_social_list">التسامح والوفاق والتآخي، العدالة ركيزة أساسية، السلم قاعدة عامة</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_educational">المجال التعليمي</td>
+                            <td data-i18n="ex3Q_table_educational_list">إصلاح الأخطاء، التواصل بين المعلم والمتعلم، الحيرة وجدية التفكير للوصول إلى الحقيقة</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: معطيات الدرس حول أهم أفكار القديس أوغسطينوس</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل العوامل المؤثرة في شخصية القديس أوغسطينوس في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        العوامل المؤثرة في شخصية القديس أوغسطينوس:
+                        - نشأته: ينتمي إلى أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م، ومات بهيبون (عنابة).
+                        - الظروف الداخلية: أفضى الصراع على السلطة إلى تقسيم الإمبراطورية إلى جزئين شرقي وغربي منذ 395م (روما عاصمة الغرب والقسطنطينية عاصمة الشرق)، وأصبحت الديانة المسيحية الديانة الرسمية منذ 380م في عهد الإمبراطور تيودروس، ولكن المسيحيين انقسموا إلى فرق متناحرة.
+                        - الظروف الخارجية: تعرضت الإمبراطورية الرومانية إلى هجومات البرابرة والقوطية والسلافية، وأسفرت عن سقوط روما سنة 410م.
+                        - تكوينه: درس بتاغست ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح وبفلسفة أفلاطون، ودرس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، واعتنق المسيحية، وشغل منصب أسقف هيبونا حتى وفاته.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تتعدد العوامل المؤثرة في شخصية القديس أوغسطينوس وتتداخل بين ما هو ذاتي وما هو مرتبط بالظروف العامة للإمبراطورية الرومانية في عصره. فهو ينتمي إلى أصول نوميدية، وُلد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م، ومات بهيبون (عنابة). وقد تأثر بالظروف الداخلية للإمبراطورية، إذ أفضى الصراع على السلطة إلى تقسيمها إلى جزئين شرقي وغربي منذ 395م، فمثلت روما عاصمة الجزء الغربي ومثلت القسطنطينية عاصمة الجزء الشرقي، وأصبحت الديانة المسيحية الديانة الرسمية منذ 380م في عهد الإمبراطور تيودروس، ولكن المسيحيين انقسموا إلى فرق متناحرة. كما تأثر بالظروف الخارجية، إذ تعرضت الإمبراطورية الرومانية إلى هجومات البرابرة والقوطية والسلافية، وأسفرت عن سقوط روما سنة 410م. وعلى المستوى الشخصي، درس أوغسطينوس بتاغست ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح وبفلسفة أفلاطون، كما درس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، واعتنق المسيحية، وشغل منصب أسقف هيبونا حتى وفاته سنة 430م.
+                    </div>
+                </div>
+            </div>
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول القديس أوغسطينوس، مبرزاً نشأته وتكوينه الفكري وأبرز مؤلفاته وأهم أفكاره في المجالات الدينية والاجتماعية والسياسية والتعليمية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        تميزت إفريقيا البروقنصلية بازدهار فكري تمثل في تعدد العلماء، من أبرزهم القديس أوغسطينوس. ينتمي أوغسطينوس إلى أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م. درس بتاغست ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح وبفلسفة أفلاطون، واعتنق المسيحية وشغل منصب أسقف هيبونا حتى وفاته سنة 430م. ترك 252 كتابًا في 92 مجلدًا من أبرزها «الاعترافات» و«تعلم المسيحية» و«المعلم» و«مدينة الله». وفي المجال الديني كان مسيحيًا كاثوليكيًا متمسكًا بأصول الدين، حارب الكفر والضلال، ودافع عن وحدانية الله، وركّز على الجانب الروحي للإيمان. وفي المجال الاجتماعي والسياسي دعا إلى التسامح والوفاق والتآخي، واعتبر العدالة ركيزة أساسية والسلم قاعدة عامة. وفي المجال التعليمي أكد على تطوير أساليب التعلم مثل إصلاح الأخطاء وضرورة التواصل بين المعلم والمتعلم.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم القديس أوغسطينوس كنموذج للازدهار الفكري بإفريقيا البروقنصلية.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. نشأته وتكوينه الفكري؛ ثانياً. مؤلفاته؛ ثالثاً. أهم أفكاره (الدينية، الاجتماعية والسياسية، التعليمية).</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: أثر القديس أوغسطينوس في الفكر المسيحي والإنساني.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">تميزت إفريقيا البروقنصلية بازدهار فكري تمثل في تعدد العلماء، من أبرزهم القديس أوغسطينوس. فمن هو القديس أوغسطينوس؟ وما هي أفكاره؟</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_formation">أولاً. نشأته وتكوينه الفكري</h4>
+                        <p data-i18n="ex5A_production_p_formation">ينتمي أوغسطينوس إلى أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م، ومات بهيبون (عنابة). درس بتاغست ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح، وبفلسفة أفلاطون. ودرس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، واعتنق المسيحية، وشغل منصب أسقف هيبونا حتى وفاته سنة 430م. وقد تأثر بالظروف العامة للإمبراطورية الرومانية في عصره، إذ قُسمت إلى جزئين شرقي وغربي منذ 395م، وأصبحت المسيحية الديانة الرسمية منذ 380م في عهد الإمبراطور تيودروس، وتعرضت الإمبراطورية لهجومات البرابرة والقوطية والسلافية التي أسفرت عن سقوط روما سنة 410م.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_works">ثانياً. أبرز مؤلفاته</h4>
+                        <p data-i18n="ex5A_production_p_works">ترك أوغسطينوس 252 كتابًا في 92 مجلدًا، وقد هيمن عليها الفكر الديني، مثل: «الاعترافات»، و«تعلم المسيحية»، و«المعلم»، و«مدينة الله».</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_ideas">ثالثاً. أهم أفكاره</h4>
+                        <p data-i18n="ex5A_production_p_ideas">في المجال الديني، كان أوغسطينوس مسيحيًا كاثوليكيًا متمسكًا بأصول الدين المسيحي، فحارب الكفر والضلال بمقاومته للوثنية والفرق المسيحية المنشقة، ودافع عن وحدانية الله، وركز على الجانب الروحي للإيمان الذي اعتبره إلهامًا داخليًا، وتأثر بالفيلسوف اليوناني أفلاطون الذي اتجه إلى التصوف. وفي المجال الاجتماعي والسياسي، دعا إلى التسامح والوفاق والتآخي بين الأفراد والشعوب، واعتبر العدالة ركيزة أساسية يقوم عليها الوفاق الاجتماعي، كما اعتبر السلم قاعدة عامة لكل المجتمعات، وقد تميز بتفكير إنساني تأثر به عديد الفلاسفة مثل ديكارت. وفي المجال التعليمي، أكد على تطوير أساليب التعلم، مثل إصلاح الأخطاء وضرورة التواصل بين المعلم والمتعلم، كما اعتبر أن الحيرة وجدية التفكير الطريقة المثلى للتعلم وللوصول إلى الحقيقة.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا مثّل القديس أوغسطينوس مثالًا للتسامح الفكري، ومرجعًا للمفكرين المسيحيين في العصور الوسطى والحديثة، إذ جمع بين الثقافة اللاتينية والفلسفة الأفلاطونية والإيمان المسيحي، وترك تراثًا فكريًا غنيًا ظلّ مؤثرًا في الفكر الإنساني عبر العصور.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: ولادة القديس أوغسطينوس (345م)، المسيحية ديانة رسمية للإمبراطورية الرومانية (380م)، تقسيم الإمبراطورية الرومانية (395م)، وفاة القديس أوغسطينوس (430م).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 345م: ولادة القديس أوغسطينوس ... 380م: المسيحية ديانة رسمية للإمبراطورية الرومانية ... 395م: تقسيم الإمبراطورية الرومانية ... 430م: وفاة القديس أوغسطينوس.
+                    </p>
+                </div>
+            </div>
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y1sec_his_lessons_mod1_lesson2_part4.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "1st Secondary",
+                exerciseTitle: "Exercises – Carthage and Its Contributions to Roman Civilization: Saint Augustine",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Thagaste, Hippo, Mysticism, Humanist Thought, The Work 'The City of God'.",
+                ex1_def1_title: "Thagaste (Souk Ahras):",
+                ex1_def1_subtitle: "The birthplace of Saint Augustine, where he was born in 345 AD to a pagan father and a Christian mother, and where he received his first formation.",
+                ex1_def2_title: "Hippo (Annaba):",
+                ex1_def2_subtitle: "The city where Saint Augustine held the position of bishop of Hippo until his death in 430 AD.",
+                ex1_def3_title: "Mysticism:",
+                ex1_def3_subtitle: "An intellectual and spiritual tendency towards which the Greek philosopher Plato leaned, and which influenced Saint Augustine in his focus on the spiritual aspect of faith, which he considered an inner inspiration.",
+                ex1_def4_title: "Humanist Thought:",
+                ex1_def4_subtitle: "A distinctive feature of Saint Augustine's thought, which influenced many philosophers such as Descartes, and is reflected in his call for tolerance, harmony, and brotherhood among individuals and peoples, and his consideration of justice as an essential pillar and peace as a general rule for all societies.",
+                ex1_def5_title: "The Work 'The City of God':",
+                ex1_def5_subtitle: "One of the most prominent works of Saint Augustine, dominated by religious thought, alongside 'The Confessions', 'On Christian Teaching', and 'The Teacher'. Augustine left 252 books in 92 volumes.",
+                ex2Q: "Observe the following map representing the milestones of Saint Augustine's life, and identify the most important of them (birthplace, place of formation, seat of his bishopric).",
+                ex2DocAlt: "Map of the milestones of Saint Augustine's life",
+                ex2AnswerImgAlt: "Answer model – Milestones of Saint Augustine's life",
+                ex2A: "Saint Augustine belonged to Numidian origins. He was born in Thagaste (Souk Ahras) to a pagan father and a Christian mother, and lived between 345 AD and 430 AD. He received his first formation in Thagaste, then at the University of Carthage, and was steeped in Latin literature such as rhetoric and theater, and in the philosophy of Plato. He also studied literature and rhetoric at the Emperor's court in Milan, where he embraced Christianity. He then returned to Africa and held the position of bishop of Hippo (Annaba) until his death in 430 AD.",
+                ex3Q: "Convert the following table data into a bar chart showing the distribution of the fields of Saint Augustine's thought.",
+                ex3Q_table_field: "Field",
+                ex3Q_table_content: "Main contents",
+                ex3Q_table_count: "Number of contents mentioned",
+                ex3Q_table_religious: "Religious field",
+                ex3Q_table_religious_list: "Fighting unbelief and error, defending the oneness of God, focusing on the spiritual aspect of faith",
+                ex3Q_table_social: "Social and political field",
+                ex3Q_table_social_list: "Tolerance, harmony, and brotherhood, justice as an essential pillar, peace as a general rule",
+                ex3Q_table_educational: "Educational field",
+                ex3Q_table_educational_list: "Correcting mistakes, communication between teacher and learner, perplexity and seriousness of thinking to reach the truth",
+                ex3Q_source: "Source: Lesson data on the main ideas of Saint Augustine",
+                ex3A_title: "Fields of Saint Augustine's Thought and Their Contents",
+                ex3A_source: "Source: Lesson data on the main ideas of Saint Augustine",
+                ex3A_scale: "Scale: 0–4; column height proportional to number of contents.",
+                ex3A_key_label: "Key:",
+                ex4Q: "Analyse the factors influencing the personality of Saint Augustine in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Factors influencing the personality of Saint Augustine:\n- His upbringing: he belonged to Numidian origins, was born in Thagaste (Souk Ahras) to a pagan father and a Christian mother, lived between 345 AD and 430 AD, and died in Hippo (Annaba).\n- Internal circumstances: the struggle for power led to the division of the Empire into two parts, eastern and western, since 395 AD (Rome capital of the West and Constantinople capital of the East), and Christianity became the official religion since 380 AD in the era of Emperor Theodosius, but Christians split into warring factions.\n- External circumstances: the Roman Empire was subjected to attacks by the barbarians, the Goths, and the Slavs, resulting in the fall of Rome in 410 AD.\n- His formation: he studied in Thagaste then at the University of Carthage, was steeped in Latin literature such as rhetoric and theater and in the philosophy of Plato, studied literature and rhetoric at the Emperor's court in Milan, embraced Christianity, and held the position of bishop of Hippo until his death.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The factors influencing the personality of Saint Augustine are multiple and interlocking between what is personal and what is linked to the general circumstances of the Roman Empire in his era. He belonged to Numidian origins, was born in Thagaste (Souk Ahras) to a pagan father and a Christian mother, lived between 345 AD and 430 AD, and died in Hippo (Annaba). He was influenced by the internal circumstances of the Empire, as the struggle for power led to its division into two parts, eastern and western, since 395 AD, with Rome as the capital of the western part and Constantinople as the capital of the eastern part, and Christianity became the official religion since 380 AD in the era of Emperor Theodosius, but Christians split into warring factions. He was also influenced by external circumstances, as the Roman Empire was subjected to attacks by the barbarians, the Goths, and the Slavs, resulting in the fall of Rome in 410 AD. On the personal level, Augustine studied in Thagaste then at the University of Carthage, was steeped in Latin literature such as rhetoric and theater and in the philosophy of Plato, studied literature and rhetoric at the Emperor's court in Milan, embraced Christianity, and held the position of bishop of Hippo until his death in 430 AD.",
+                ex5Q: "Write a short article on Saint Augustine, highlighting his upbringing, intellectual formation, most prominent works, and main ideas in the religious, social and political, and educational fields.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Africa Proconsularis was distinguished by intellectual prosperity reflected in the multiplicity of scholars, the most prominent of whom was Saint Augustine. Augustine belonged to Numidian origins, was born in Thagaste (Souk Ahras) to a pagan father and a Christian mother, and lived between 345 AD and 430 AD. He studied in Thagaste then at the University of Carthage, was steeped in Latin literature such as rhetoric and theater and in the philosophy of Plato, embraced Christianity, and held the position of bishop of Hippo until his death in 430 AD. He left 252 books in 92 volumes, most notably 'The Confessions', 'On Christian Teaching', 'The Teacher', and 'The City of God'. In the religious field, he was a Catholic Christian adhering to the foundations of the religion, fought unbelief and error, defended the oneness of God, and focused on the spiritual aspect of faith. In the social and political field, he called for tolerance, harmony, and brotherhood, and considered justice an essential pillar and peace a general rule. In the educational field, he emphasized the development of learning methods such as correcting mistakes and the necessity of communication between teacher and learner.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Presenting Saint Augustine as a model of intellectual prosperity in Africa Proconsularis.",
+                ex5A_plan_li2: "Development: I. His upbringing and intellectual formation; II. His works; III. His main ideas (religious, social and political, educational).",
+                ex5A_plan_li3: "Conclusion: The impact of Saint Augustine on Christian and human thought.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Africa Proconsularis was distinguished by intellectual prosperity reflected in the multiplicity of scholars, the most prominent of whom was Saint Augustine. Who is Saint Augustine? And what are his ideas?",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_formation: "I. His Upbringing and Intellectual Formation",
+                ex5A_production_p_formation: "Augustine belonged to Numidian origins, was born in Thagaste (Souk Ahras) to a pagan father and a Christian mother, and lived between 345 AD and 430 AD, and died in Hippo (Annaba). He studied in Thagaste then at the University of Carthage, and was steeped in Latin literature such as rhetoric and theater, and in the philosophy of Plato. He studied literature and rhetoric at the Emperor's court in Milan, embraced Christianity, and held the position of bishop of Hippo until his death in 430 AD. He was influenced by the general circumstances of the Roman Empire in his era, as it was divided into two parts, eastern and western, since 395 AD, and Christianity became the official religion since 380 AD in the era of Emperor Theodosius, and the Empire was subjected to attacks by the barbarians, the Goths, and the Slavs that resulted in the fall of Rome in 410 AD.",
+                ex5A_production_h4_works: "II. His Most Prominent Works",
+                ex5A_production_p_works: "Augustine left 252 books in 92 volumes, dominated by religious thought, such as: 'The Confessions', 'On Christian Teaching', 'The Teacher', and 'The City of God'.",
+                ex5A_production_h4_ideas: "III. His Main Ideas",
+                ex5A_production_p_ideas: "In the religious field, Augustine was a Catholic Christian adhering to the foundations of the Christian religion, fought unbelief and error by resisting paganism and the schismatic Christian sects, defended the oneness of God, and focused on the spiritual aspect of faith, which he considered an inner inspiration, and was influenced by the Greek philosopher Plato, who tended towards mysticism. In the social and political field, he called for tolerance, harmony, and brotherhood among individuals and peoples, considered justice an essential pillar upon which social harmony rests, and considered peace a general rule for all societies. He was distinguished by humanist thought, which influenced many philosophers such as Descartes. In the educational field, he emphasized the development of learning methods, such as correcting mistakes and the necessity of communication between teacher and learner, and considered that perplexity and seriousness of thinking are the optimal way to learn and to reach the truth.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus Saint Augustine represented an example of intellectual tolerance and a reference for Christian thinkers in the Middle Ages and modern times, combining Latin culture, Platonic philosophy, and Christian faith, and leaving a rich intellectual heritage that has remained influential in human thought through the ages.",
+                ex6Q: "Create a timeline of the following events: Birth of Saint Augustine (345 AD), Christianity as Official Religion of the Roman Empire (380 AD), Division of the Roman Empire (395 AD), Death of Saint Augustine (430 AD).",
+                ex6A: "Timeline: 345 AD: Birth of Saint Augustine ... 380 AD: Christianity as Official Religion of the Roman Empire ... 395 AD: Division of the Roman Empire ... 430 AD: Death of Saint Augustine.",
+                ex6_timeline_title: "Key Dates in the Life of Saint Augustine",
+                ex6_event_345_label: "Birth of Saint Augustine",
+                ex6_event_345_sub: "345 AD",
+                ex6_event_380_label: "Christianity, official religion",
+                ex6_event_380_sub: "380 AD",
+                ex6_event_395_label: "Division of the Roman Empire",
+                ex6_event_395_sub: "395 AD",
+                ex6_event_430_label: "Death of Saint Augustine",
+                ex6_event_430_sub: "430 AD",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                exerciseTitle: "Exercices – Carthage et ses apports à la civilisation romaine : Saint Augustin",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Thagaste, Hippone, Mysticisme, Pensée humaniste, L'œuvre « La Cité de Dieu ».",
+                ex1_def1_title: "Thagaste (Souk Ahras) :",
+                ex1_def1_subtitle: "Le lieu de naissance de Saint Augustin, où il est né en 345 apr. J.-C. d'un père païen et d'une mère chrétienne, et où il a reçu sa première formation.",
+                ex1_def2_title: "Hippone (Annaba) :",
+                ex1_def2_subtitle: "La ville où Saint Augustin a occupé le poste d'évêque d'Hippone jusqu'à sa mort en 430 apr. J.-C.",
+                ex1_def3_title: "Mysticisme :",
+                ex1_def3_subtitle: "Une tendance intellectuelle et spirituelle vers laquelle s'est orienté le philosophe grec Platon, et qui a influencé Saint Augustin dans sa concentration sur l'aspect spirituel de la foi, qu'il considérait comme une inspiration intérieure.",
+                ex1_def4_title: "Pensée humaniste :",
+                ex1_def4_subtitle: "Un trait distinctif de la pensée de Saint Augustin, qui a influencé de nombreux philosophes tels que Descartes, et se reflète dans son appel à la tolérance, à l'harmonie et à la fraternité entre les individus et les peuples, et dans sa considération de la justice comme un pilier essentiel et de la paix comme une règle générale pour toutes les sociétés.",
+                ex1_def5_title: "L'œuvre « La Cité de Dieu » :",
+                ex1_def5_subtitle: "L'une des œuvres les plus marquantes de Saint Augustin, dominée par la pensée religieuse, aux côtés des « Confessions », de « De la doctrine chrétienne » et du « Maître ». Augustin a laissé 252 livres en 92 volumes.",
+                ex2Q: "Observez la carte suivante représentant les étapes de la vie de Saint Augustin, et identifiez les plus importantes (lieu de naissance, lieu de formation, siège de son évêché).",
+                ex2DocAlt: "Carte des étapes de la vie de Saint Augustin",
+                ex2AnswerImgAlt: "Modèle de réponse – Étapes de la vie de Saint Augustin",
+                ex2A: "Saint Augustin appartenait à des origines numides. Il est né à Thagaste (Souk Ahras) d'un père païen et d'une mère chrétienne, et a vécu entre 345 apr. J.-C. et 430 apr. J.-C. Il a reçu sa première formation à Thagaste, puis à l'université de Carthage, et s'est imprégné de la littérature latine comme la rhétorique et le théâtre, et de la philosophie de Platon. Il a également étudié la littérature et la rhétorique à la cour de l'empereur à Milan, où il a embrassé le christianisme. Il est ensuite retourné en Afrique et a occupé le poste d'évêque d'Hippone (Annaba) jusqu'à sa mort en 430 apr. J.-C.",
+                ex3Q: "Convertissez les données du tableau suivant en diagramme à barres montrant la répartition des domaines de la pensée de Saint Augustin.",
+                ex3Q_table_field: "Domaine",
+                ex3Q_table_content: "Principaux contenus",
+                ex3Q_table_count: "Nombre de contenus mentionnés",
+                ex3Q_table_religious: "Domaine religieux",
+                ex3Q_table_religious_list: "Combattre l'incroyance et l'erreur, défendre l'unicité de Dieu, se concentrer sur l'aspect spirituel de la foi",
+                ex3Q_table_social: "Domaine social et politique",
+                ex3Q_table_social_list: "Tolérance, harmonie et fraternité, justice comme pilier essentiel, paix comme règle générale",
+                ex3Q_table_educational: "Domaine éducatif",
+                ex3Q_table_educational_list: "Correction des erreurs, communication entre l'enseignant et l'apprenant, perplexité et sérieux de la réflexion pour atteindre la vérité",
+                ex3Q_source: "Source : Données de la leçon sur les principales idées de Saint Augustin",
+                ex3A_title: "Domaines de la pensée de Saint Augustin et leurs contenus",
+                ex3A_source: "Source : Données de la leçon sur les principales idées de Saint Augustin",
+                ex3A_scale: "Échelle : 0–4 ; hauteur des colonnes proportionnelle au nombre de contenus.",
+                ex3A_key_label: "Légende :",
+                ex4Q: "Analysez les facteurs influençant la personnalité de Saint Augustin en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Facteurs influençant la personnalité de Saint Augustin :\n- Sa jeunesse : il appartenait à des origines numides, est né à Thagaste (Souk Ahras) d'un père païen et d'une mère chrétienne, a vécu entre 345 apr. J.-C. et 430 apr. J.-C., et est mort à Hippone (Annaba).\n- Circonstances intérieures : la lutte pour le pouvoir a conduit à la division de l'Empire en deux parties, orientale et occidentale, depuis 395 apr. J.-C. (Rome capitale de l'Occident et Constantinople capitale de l'Orient), et le christianisme est devenu la religion officielle depuis 380 apr. J.-C. sous l'empereur Théodose, mais les chrétiens se sont divisés en factions antagonistes.\n- Circonstances extérieures : l'Empire romain a été soumis aux attaques des barbares, des Goths et des Slaves, entraînant la chute de Rome en 410 apr. J.-C.\n- Sa formation : il a étudié à Thagaste puis à l'université de Carthage, s'est imprégné de la littérature latine comme la rhétorique et le théâtre et de la philosophie de Platon, a étudié la littérature et la rhétorique à la cour de l'empereur à Milan, a embrassé le christianisme, et a occupé le poste d'évêque d'Hippone jusqu'à sa mort.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Les facteurs influençant la personnalité de Saint Augustin sont multiples et imbriqués entre ce qui est personnel et ce qui est lié aux circonstances générales de l'Empire romain à son époque. Il appartenait à des origines numides, est né à Thagaste (Souk Ahras) d'un père païen et d'une mère chrétienne, a vécu entre 345 apr. J.-C. et 430 apr. J.-C., et est mort à Hippone (Annaba). Il a été influencé par les circonstances intérieures de l'Empire, car la lutte pour le pouvoir a conduit à sa division en deux parties, orientale et occidentale, depuis 395 apr. J.-C., avec Rome comme capitale de la partie occidentale et Constantinople comme capitale de la partie orientale, et le christianisme est devenu la religion officielle depuis 380 apr. J.-C. sous l'empereur Théodose, mais les chrétiens se sont divisés en factions antagonistes. Il a également été influencé par les circonstances extérieures, car l'Empire romain a été soumis aux attaques des barbares, des Goths et des Slaves, entraînant la chute de Rome en 410 apr. J.-C. Sur le plan personnel, Augustin a étudié à Thagaste puis à l'université de Carthage, s'est imprégné de la littérature latine comme la rhétorique et le théâtre et de la philosophie de Platon, a étudié la littérature et la rhétorique à la cour de l'empereur à Milan, a embrassé le christianisme, et a occupé le poste d'évêque d'Hippone jusqu'à sa mort en 430 apr. J.-C.",
+                ex5Q: "Rédigez un court article sur Saint Augustin, en soulignant sa jeunesse, sa formation intellectuelle, ses œuvres les plus marquantes et ses principales idées dans les domaines religieux, social et politique, et éducatif.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "L'Afrique proconsulaire se distinguait par une prospérité intellectuelle reflétée par la multiplicité des savants, dont le plus éminent était Saint Augustin. Augustin appartenait à des origines numides, est né à Thagaste (Souk Ahras) d'un père païen et d'une mère chrétienne, et a vécu entre 345 apr. J.-C. et 430 apr. J.-C. Il a étudié à Thagaste puis à l'université de Carthage, s'est imprégné de la littérature latine comme la rhétorique et le théâtre et de la philosophie de Platon, a embrassé le christianisme, et a occupé le poste d'évêque d'Hippone jusqu'à sa mort en 430 apr. J.-C. Il a laissé 252 livres en 92 volumes, notamment « Les Confessions », « De la doctrine chrétienne », « Le Maître » et « La Cité de Dieu ». Dans le domaine religieux, il était un chrétien catholique attaché aux fondements de la religion, a combattu l'incroyance et l'erreur, a défendu l'unicité de Dieu et s'est concentré sur l'aspect spirituel de la foi. Dans le domaine social et politique, il a appelé à la tolérance, à l'harmonie et à la fraternité, et a considéré la justice comme un pilier essentiel et la paix comme une règle générale. Dans le domaine éducatif, il a souligné le développement des méthodes d'apprentissage telles que la correction des erreurs et la nécessité de la communication entre l'enseignant et l'apprenant.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter Saint Augustin comme un modèle de prospérité intellectuelle en Afrique proconsulaire.",
+                ex5A_plan_li2: "Développement : I. Sa jeunesse et sa formation intellectuelle ; II. Ses œuvres ; III. Ses principales idées (religieuses, sociales et politiques, éducatives).",
+                ex5A_plan_li3: "Conclusion : L'impact de Saint Augustin sur la pensée chrétienne et humaine.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "L'Afrique proconsulaire se distinguait par une prospérité intellectuelle reflétée par la multiplicité des savants, dont le plus éminent était Saint Augustin. Qui est Saint Augustin ? Et quelles sont ses idées ?",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_formation: "I. Sa jeunesse et sa formation intellectuelle",
+                ex5A_production_p_formation: "Augustin appartenait à des origines numides, est né à Thagaste (Souk Ahras) d'un père païen et d'une mère chrétienne, et a vécu entre 345 apr. J.-C. et 430 apr. J.-C., et est mort à Hippone (Annaba). Il a étudié à Thagaste puis à l'université de Carthage, et s'est imprégné de la littérature latine comme la rhétorique et le théâtre, et de la philosophie de Platon. Il a étudié la littérature et la rhétorique à la cour de l'empereur à Milan, a embrassé le christianisme, et a occupé le poste d'évêque d'Hippone jusqu'à sa mort en 430 apr. J.-C. Il a été influencé par les circonstances générales de l'Empire romain à son époque, car il a été divisé en deux parties, orientale et occidentale, depuis 395 apr. J.-C., et le christianisme est devenu la religion officielle depuis 380 apr. J.-C. sous l'empereur Théodose, et l'Empire a été soumis aux attaques des barbares, des Goths et des Slaves qui ont entraîné la chute de Rome en 410 apr. J.-C.",
+                ex5A_production_h4_works: "II. Ses œuvres les plus marquantes",
+                ex5A_production_p_works: "Augustin a laissé 252 livres en 92 volumes, dominés par la pensée religieuse, tels que : « Les Confessions », « De la doctrine chrétienne », « Le Maître » et « La Cité de Dieu ».",
+                ex5A_production_h4_ideas: "III. Ses principales idées",
+                ex5A_production_p_ideas: "Dans le domaine religieux, Augustin était un chrétien catholique attaché aux fondements de la religion chrétienne, a combattu l'incroyance et l'erreur en résistant au paganisme et aux sectes chrétiennes schismatiques, a défendu l'unicité de Dieu, et s'est concentré sur l'aspect spirituel de la foi, qu'il considérait comme une inspiration intérieure, et a été influencé par le philosophe grec Platon, qui tendait vers le mysticisme. Dans le domaine social et politique, il a appelé à la tolérance, à l'harmonie et à la fraternité entre les individus et les peuples, a considéré la justice comme un pilier essentiel sur lequel repose l'harmonie sociale, et a considéré la paix comme une règle générale pour toutes les sociétés. Il se distinguait par une pensée humaniste, qui a influencé de nombreux philosophes tels que Descartes. Dans le domaine éducatif, il a souligné le développement des méthodes d'apprentissage, telles que la correction des erreurs et la nécessité de la communication entre l'enseignant et l'apprenant, et a considéré que la perplexité et le sérieux de la réflexion sont la meilleure façon d'apprendre et d'atteindre la vérité.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi Saint Augustin a représenté un exemple de tolérance intellectuelle et une référence pour les penseurs chrétiens au Moyen Âge et à l'époque moderne, combinant culture latine, philosophie platonicienne et foi chrétienne, et laissant un riche héritage intellectuel qui est resté influent dans la pensée humaine à travers les âges.",
+                ex6Q: "Créez une chronologie des événements suivants : Naissance de Saint Augustin (345 apr. J.-C.), Le christianisme religion officielle de l'Empire romain (380 apr. J.-C.), Division de l'Empire romain (395 apr. J.-C.), Mort de Saint Augustin (430 apr. J.-C.).",
+                ex6A: "Chronologie : 345 apr. J.-C. : Naissance de Saint Augustin ... 380 apr. J.-C. : Le christianisme religion officielle de l'Empire romain ... 395 apr. J.-C. : Division de l'Empire romain ... 430 apr. J.-C. : Mort de Saint Augustin.",
+                ex6_timeline_title: "Dates clés de la vie de Saint Augustin",
+                ex6_event_345_label: "Naissance de Saint Augustin",
+                ex6_event_345_sub: "345 apr. J.-C.",
+                ex6_event_380_label: "Christianisme, religion officielle",
+                ex6_event_380_sub: "380 apr. J.-C.",
+                ex6_event_395_label: "Division de l'Empire romain",
+                ex6_event_395_sub: "395 apr. J.-C.",
+                ex6_event_430_label: "Mort de Saint Augustin",
+                ex6_event_430_sub: "430 apr. J.-C.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                exerciseTitle: "تمارين – قرطاج وإسهاماتها في الحضارة الرومانية: القديس أوغسطينوس",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: تاغست، هيبون، التصوف، الفكر الإنساني، مؤلف «مدينة الله».",
+                ex1_def1_title: "تاغست (سوق هراس):",
+                ex1_def1_subtitle: "مسقط رأس القديس أوغسطينوس، وُلِد بها سنة 345م من أب وثني وأم مسيحية، وفيها تلقى تكوينه الأول.",
+                ex1_def2_title: "هيبون (عنابة):",
+                ex1_def2_subtitle: "المدينة التي شغل فيها القديس أوغسطينوس منصب أسقف هيبونا حتى وفاته سنة 430م.",
+                ex1_def3_title: "التصوف:",
+                ex1_def3_subtitle: "اتجاه فكري وروحي اتجه إليه الفيلسوف اليوناني أفلاطون، وتأثر به القديس أوغسطينوس في تركيزه على الجانب الروحي للإيمان الذي اعتبره إلهامًا داخليًا.",
+                ex1_def4_title: "الفكر الإنساني:",
+                ex1_def4_subtitle: "سمة مميزة لتفكير القديس أوغسطينوس، تأثر بها عديد الفلاسفة مثل ديكارت، وتتجلى في دعوته إلى التسامح والوفاق والتآخي بين الأفراد والشعوب، واعتباره العدالة ركيزة أساسية والسلم قاعدة عامة لكل المجتمعات.",
+                ex1_def5_title: "مؤلف «مدينة الله»:",
+                ex1_def5_subtitle: "من أبرز مؤلفات القديس أوغسطينوس التي هيمن عليها الفكر الديني، إلى جانب «الاعترافات» و«تعلم المسيحية» و«المعلم»، وقد ترك أوغسطينوس 252 كتابًا في 92 مجلدًا.",
+                ex2Q: "تأمل الخريطة التالية التي تمثل محطات حياة القديس أوغسطينوس، وبيّن أهمها (مسقط الرأس، مقر التكوين، مقر الأسقفية).",
+                ex2DocAlt: "خريطة محطات حياة القديس أوغسطينوس",
+                ex2AnswerImgAlt: "نموذج الإجابة – محطات حياة القديس أوغسطينوس",
+                ex2A: "ينتمي القديس أوغسطينوس إلى أصول نوميدية. وُلد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م. وقد تلقى تكوينه الأول بتاغست، ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح، وبفلسفة أفلاطون. كما درس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، حيث اعتنق المسيحية. ثم عاد إلى إفريقيا وشغل منصب أسقف هيبونا (عنابة) حتى وفاته سنة 430م.",
+                ex3Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن توزيع مجالات فكر القديس أوغسطينوس.",
+                ex3Q_table_field: "المجال",
+                ex3Q_table_content: "أبرز المضامين",
+                ex3Q_table_count: "عدد المضامين المذكورة",
+                ex3Q_table_religious: "المجال الديني",
+                ex3Q_table_religious_list: "محاربة الكفر والضلال، الدفاع عن وحدانية الله، التركيز على الجانب الروحي للإيمان",
+                ex3Q_table_social: "المجال الاجتماعي والسياسي",
+                ex3Q_table_social_list: "التسامح والوفاق والتآخي، العدالة ركيزة أساسية، السلم قاعدة عامة",
+                ex3Q_table_educational: "المجال التعليمي",
+                ex3Q_table_educational_list: "إصلاح الأخطاء، التواصل بين المعلم والمتعلم، الحيرة وجدية التفكير للوصول إلى الحقيقة",
+                ex3Q_source: "المصدر: معطيات الدرس حول أهم أفكار القديس أوغسطينوس",
+                ex3A_title: "مجالات فكر القديس أوغسطينوس ومضامينها",
+                ex3A_source: "المصدر: معطيات الدرس حول أهم أفكار القديس أوغسطينوس",
+                ex3A_scale: "المقياس: 0–4؛ ارتفاع الأعمدة يتناسب مع عدد المضامين.",
+                ex3A_key_label: "المفتاح:",
+                ex4Q: "حلّل العوامل المؤثرة في شخصية القديس أوغسطينوس في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "العوامل المؤثرة في شخصية القديس أوغسطينوس:\n- نشأته: ينتمي إلى أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م، ومات بهيبون (عنابة).\n- الظروف الداخلية: أفضى الصراع على السلطة إلى تقسيم الإمبراطورية إلى جزئين شرقي وغربي منذ 395م (روما عاصمة الغرب والقسطنطينية عاصمة الشرق)، وأصبحت الديانة المسيحية الديانة الرسمية منذ 380م في عهد الإمبراطور تيودروس، ولكن المسيحيين انقسموا إلى فرق متناحرة.\n- الظروف الخارجية: تعرضت الإمبراطورية الرومانية إلى هجومات البرابرة والقوطية والسلافية، وأسفرت عن سقوط روما سنة 410م.\n- تكوينه: درس بتاغست ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح وبفلسفة أفلاطون، ودرس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، واعتنق المسيحية، وشغل منصب أسقف هيبونا حتى وفاته.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تتعدد العوامل المؤثرة في شخصية القديس أوغسطينوس وتتداخل بين ما هو ذاتي وما هو مرتبط بالظروف العامة للإمبراطورية الرومانية في عصره. فهو ينتمي إلى أصول نوميدية، وُلد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م، ومات بهيبون (عنابة). وقد تأثر بالظروف الداخلية للإمبراطورية، إذ أفضى الصراع على السلطة إلى تقسيمها إلى جزئين شرقي وغربي منذ 395م، فمثلت روما عاصمة الجزء الغربي ومثلت القسطنطينية عاصمة الجزء الشرقي، وأصبحت الديانة المسيحية الديانة الرسمية منذ 380م في عهد الإمبراطور تيودروس، ولكن المسيحيين انقسموا إلى فرق متناحرة. كما تأثر بالظروف الخارجية، إذ تعرضت الإمبراطورية الرومانية إلى هجومات البرابرة والقوطية والسلافية، وأسفرت عن سقوط روما سنة 410م. وعلى المستوى الشخصي، درس أوغسطينوس بتاغست ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح وبفلسفة أفلاطون، كما درس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، واعتنق المسيحية، وشغل منصب أسقف هيبونا حتى وفاته سنة 430م.",
+                ex5Q: "اكتب مقالاً قصيراً حول القديس أوغسطينوس، مبرزاً نشأته وتكوينه الفكري وأبرز مؤلفاته وأهم أفكاره في المجالات الدينية والاجتماعية والسياسية والتعليمية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "تميزت إفريقيا البروقنصلية بازدهار فكري تمثل في تعدد العلماء، من أبرزهم القديس أوغسطينوس. ينتمي أوغسطينوس إلى أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م. درس بتاغست ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح وبفلسفة أفلاطون، واعتنق المسيحية وشغل منصب أسقف هيبونا حتى وفاته سنة 430م. ترك 252 كتابًا في 92 مجلدًا من أبرزها «الاعترافات» و«تعلم المسيحية» و«المعلم» و«مدينة الله». وفي المجال الديني كان مسيحيًا كاثوليكيًا متمسكًا بأصول الدين، حارب الكفر والضلال، ودافع عن وحدانية الله، وركّز على الجانب الروحي للإيمان. وفي المجال الاجتماعي والسياسي دعا إلى التسامح والوفاق والتآخي، واعتبر العدالة ركيزة أساسية والسلم قاعدة عامة. وفي المجال التعليمي أكد على تطوير أساليب التعلم مثل إصلاح الأخطاء وضرورة التواصل بين المعلم والمتعلم.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم القديس أوغسطينوس كنموذج للازدهار الفكري بإفريقيا البروقنصلية.",
+                ex5A_plan_li2: "تطوير: أولاً. نشأته وتكوينه الفكري؛ ثانياً. مؤلفاته؛ ثالثاً. أهم أفكاره (الدينية، الاجتماعية والسياسية، التعليمية).",
+                ex5A_plan_li3: "خاتمة: أثر القديس أوغسطينوس في الفكر المسيحي والإنساني.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "تميزت إفريقيا البروقنصلية بازدهار فكري تمثل في تعدد العلماء، من أبرزهم القديس أوغسطينوس. فمن هو القديس أوغسطينوس؟ وما هي أفكاره؟",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_formation: "أولاً. نشأته وتكوينه الفكري",
+                ex5A_production_p_formation: "ينتمي أوغسطينوس إلى أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م، ومات بهيبون (عنابة). درس بتاغست ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح، وبفلسفة أفلاطون. ودرس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، واعتنق المسيحية، وشغل منصب أسقف هيبونا حتى وفاته سنة 430م. وقد تأثر بالظروف العامة للإمبراطورية الرومانية في عصره، إذ قُسمت إلى جزئين شرقي وغربي منذ 395م، وأصبحت المسيحية الديانة الرسمية منذ 380م في عهد الإمبراطور تيودروس، وتعرضت الإمبراطورية لهجومات البرابرة والقوطية والسلافية التي أسفرت عن سقوط روما سنة 410م.",
+                ex5A_production_h4_works: "ثانياً. أبرز مؤلفاته",
+                ex5A_production_p_works: "ترك أوغسطينوس 252 كتابًا في 92 مجلدًا، وقد هيمن عليها الفكر الديني، مثل: «الاعترافات»، و«تعلم المسيحية»، و«المعلم»، و«مدينة الله».",
+                ex5A_production_h4_ideas: "ثالثاً. أهم أفكاره",
+                ex5A_production_p_ideas: "في المجال الديني، كان أوغسطينوس مسيحيًا كاثوليكيًا متمسكًا بأصول الدين المسيحي، فحارب الكفر والضلال بمقاومته للوثنية والفرق المسيحية المنشقة، ودافع عن وحدانية الله، وركز على الجانب الروحي للإيمان الذي اعتبره إلهامًا داخليًا، وتأثر بالفيلسوف اليوناني أفلاطون الذي اتجه إلى التصوف. وفي المجال الاجتماعي والسياسي، دعا إلى التسامح والوفاق والتآخي بين الأفراد والشعوب، واعتبر العدالة ركيزة أساسية يقوم عليها الوفاق الاجتماعي، كما اعتبر السلم قاعدة عامة لكل المجتمعات، وقد تميز بتفكير إنساني تأثر به عديد الفلاسفة مثل ديكارت. وفي المجال التعليمي، أكد على تطوير أساليب التعلم، مثل إصلاح الأخطاء وضرورة التواصل بين المعلم والمتعلم، كما اعتبر أن الحيرة وجدية التفكير الطريقة المثلى للتعلم وللوصول إلى الحقيقة.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا مثّل القديس أوغسطينوس مثالًا للتسامح الفكري، ومرجعًا للمفكرين المسيحيين في العصور الوسطى والحديثة، إذ جمع بين الثقافة اللاتينية والفلسفة الأفلاطونية والإيمان المسيحي، وترك تراثًا فكريًا غنيًا ظلّ مؤثرًا في الفكر الإنساني عبر العصور.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: ولادة القديس أوغسطينوس (345م)، المسيحية ديانة رسمية للإمبراطورية الرومانية (380م)، تقسيم الإمبراطورية الرومانية (395م)، وفاة القديس أوغسطينوس (430م).",
+                ex6A: "الخط الزمني: 345م: ولادة القديس أوغسطينوس ... 380م: المسيحية ديانة رسمية للإمبراطورية الرومانية ... 395م: تقسيم الإمبراطورية الرومانية ... 430م: وفاة القديس أوغسطينوس.",
+                ex6_timeline_title: "محطات أساسية في حياة القديس أوغسطينوس",
+                ex6_event_345_label: "ولادة القديس أوغسطينوس",
+                ex6_event_345_sub: "345م",
+                ex6_event_380_label: "المسيحية ديانة رسمية",
+                ex6_event_380_sub: "380م",
+                ex6_event_395_label: "تقسيم الإمبراطورية الرومانية",
+                ex6_event_395_sub: "395م",
+                ex6_event_430_label: "وفاة القديس أوغسطينوس",
+                ex6_event_430_sub: "430م",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: '3', value: 3, valueFormatted: '3' },
+                { label: '3', value: 3, valueFormatted: '3' },
+                { label: '3', value: 3, valueFormatted: '3' }
+            ],
+            maxValue: 4,
+            ySteps: [4, 3, 2, 1, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 345, labelKey: 'ex6_event_345_label', subKey: 'ex6_event_345_sub' },
+                { year: 380, labelKey: 'ex6_event_380_label', subKey: 'ex6_event_380_sub' },
+                { year: 395, labelKey: 'ex6_event_395_label', subKey: 'ex6_event_395_sub' },
+                { year: 430, labelKey: 'ex6_event_430_label', subKey: 'ex6_event_430_sub' }
+            ],
+            startYear: 345,
+            endYear: 430,
+            scaleYears: [345, 373, 401, 430]
+        };
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

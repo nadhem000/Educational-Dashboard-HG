@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الثالثة ثانوي، شعبة اقتصاد وتصرف</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">الجغرافيا / الوحدة الأولى: المجال والتنمية في العالم العربي</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitle">الوسط الطبيعي: المزايا والضغوطات</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">يتميز الوسط الطبيعي في العالم العربي بتباين كبير بين المجالات الصحراوية الشاسعة والمناطق الجبلية والسهول الساحلية والواحية. ويطرح هذا الوسط في الوقت نفسه مزايا هامة وضغوطات كبيرة تؤثر على توزيع السكان وعلى التنمية الاقتصادية في مختلف الأقطار العربية.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي أبرز ضغوطات الوسط الطبيعي في العالم العربي؟ وما هي المزايا التي يوفرها؟</p>
+            </div>
+
+            <!-- Part I : Constraints -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">ضغوطات طبيعية تؤثر على السكان والتنمية الاقتصادية</span>
+                </h2>
+
+                <!-- I.1 Climate -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="constraintClimateTitle">تباينات مناخية حادة</span>
+                </h3>
+                <p data-i18n="constraintClimateText">يُعدّ العالم العربي من أكثر مناطق العالم تباينًا في تساقط الأمطار، حيث لا يتجاوز معدّل التساقط 160 ملم/سنة مقابل 720 ملم/سنة على المستوى العالمي، وهو ما يجعل معظم أراضيه قاحلة أو شبه قاحلة.</p>
+
+                <!-- I.2 Land Degradation -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="constraintLandTitle">تدهور الأراضي الخصبة</span>
+                </h3>
+                <p data-i18n="constraintLandText">لا تشكّل الأراضي القابلة للزراعة سوى 5,4% من المساحة الكلية للعالم العربي، أي 1,5% فقط من المساحة الزراعية في العالم، رغم أن أراضي العالم العربي تمثل نحو 10% من مساحة اليابسة.</p>
+
+                <!-- I.3 Water Resources -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="constraintWaterTitle">تراجع الموارد المائية</span>
+                </h3>
+                <p data-i18n="constraintWaterText">لا تتعدّى حصة العالم العربي من المياه المتجدّدة 1% من الإجمالي العالمي، في حين يضمّ نحو 10% من سكان العالم، مما يجعله من أفقر مناطق العالم في الموارد المائية.</p>
+
+                <!-- I.4 Vegetation & Desertification -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">4</span>.
+                    <span data-i18n="constraintVegetationTitle">ضعف الغطاء النباتي وتنامي ظاهرة التصحر</span>
+                </h3>
+                <p data-i18n="constraintVegetationText">يتميز الغطاء النباتي في العالم العربي بضعفه الشديد، ويتراجع باستمرار بفعل التصحر والرعي الجائر.</p>
+                <ul>
+                    <li data-i18n="constraintForest1">تراجعت مساحة الغابات بعد انفصال جنوب السودان (2011) إلى 3,9% من مساحة العالم العربي، وهي لا تشكل سوى 1,3% من مساحة الغابات في العالم.</li>
+                    <li data-i18n="constraintForest2">تتركز هذه الغابات أساسًا في السودان والصومال، وتتعرض للانحسار بسبب الرعي الجائر.</li>
+                    <li data-i18n="constraintDesert1">تتنامى ظاهرة التصحر كأحد أهم المشاكل البيئية والاقتصادية في الوطن العربي.</li>
+                    <li data-i18n="constraintDesert2">يتركز نصفها في إقليم المغرب العربي.</li>
+                </ul>
+
+                <!-- I.5 Subsurface Resources -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">5</span>.
+                    <span data-i18n="constraintSubsurfaceTitle">موارد طبيعية متنوعة من المياه والمحروقات والمعادن (ضغوطات الاستغلال)</span>
+                </h3>
+                <ul>
+                    <li data-i18n="constraintRes1">ثروة مائية متجددة لا تتعدى 1% من المياه المتجددة في العالم مقابل 10% من سكان العالم.</li>
+                    <li data-i18n="constraintRes2">موارد مائية جوفية يتجاوز أكثر من نصفها (2/3) في إقليم المغرب العربي لا يزال يستغل 1% فقط.</li>
+                    <li data-i18n="constraintRes3">تركز أكثر من 1/2 الموارد النفطية في الجناح الآسيوي من العالم العربي، واستثمار السعودية يحتل المرتبة الأولى في العالم.</li>
+                    <li data-i18n="constraintRes4">عائدات صادرات المحروقات عرضة لتقلبات الأسواق العالمية.</li>
+                    <li data-i18n="constraintRes5">تركز الثروات المعدنية بالجناح الإفريقي وهي - باستثناء الفوسفاط - كميات متواضعة.</li>
+                    <li data-i18n="constraintRes6">من الحديد 1% من الاحتياطي العالمي و1,55% من الإنتاج العالمي، ومن النحاس 3,87% من الإنتاج العالمي خاصة بالسودان والإنتاج العربي، والذين لا زالا مساهمة هامة من العالم العربي لم يعد استكشافها منهجياً.</li>
+                </ul>
+            </div>
+
+            <!-- Part II : Advantages -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">وسط طبيعي لا يخلو من بعض المزايا</span>
+                </h2>
+
+                <!-- II.1 Mountains -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="advantageMountainsTitle">مناطق جبلية</span>
+                </h3>
+                <p data-i18n="advantageMountainsText">تمثل المناطق الجبلية خزانات مائية (جبال اليمن والأطلس في الجزائر) ومجالات سياحية (جبال لبنان وعمان وسوريا والسعودية)، وهي ملجأ لبعض الأقليات خاصة (الأكراد في العراق).</p>
+
+                <!-- II.2 Plains -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="advantagePlainsTitle">سهول وأحواض نهرية</span>
+                </h3>
+                <p data-i18n="advantagePlainsText">توجد في العالم العربي سهول في شكل أحواض نهرية (مثل سهول تونس والجزائر) وأخرى في شكل أشرطة سهلية على ضفاف الأنهار والوديان (مثل سهول النيل ودجلة والفرات)، تزود عرضًا في منطقة بحر الغزال (السودان).</p>
+
+                <!-- II.3 Desert Wealth -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="advantageDesertTitle">صحاري غنية بالموارد المائية والطاقية</span>
+                </h3>
+                <p data-i18n="advantageDesertText">تحتوي الصحاري العربية على أحواض نهرية عربية ضخمة تمثل نحو 30% من الاحتياطي العالمي للغاز الطبيعي في العالم.</p>
+
+                <!-- II.4 Freshwater -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">4</span>.
+                    <span data-i18n="advantageFreshwaterTitle">موارد مائية عذبة</span>
+                </h3>
+                <p data-i18n="advantageFreshwaterText">أهمها تلك الموجودة في مصر والسودان وليبيا والجزائر، والتي تعتمد عليها الزراعة الواحية.</p>
+
+                <!-- II.5 Energy -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">5</span>.
+                    <span data-i18n="advantageEnergyTitle">موارد طاقية</span>
+                </h3>
+                <p data-i18n="advantageEnergyText">تمتلك المنطقة العربية إمكانات هائلة في مجال الطاقة الشمسية وطاقة الرياح والطاقة النووية.</p>
+
+                <!-- II.6 Minerals -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">6</span>.
+                    <span data-i18n="advantageMineralsTitle">موارد معدنية</span>
+                </h3>
+                <p data-i18n="advantageMineralsText">تتميز المنطقة العربية بوجود الحديد في موريتانيا والجزائر، والفوسفاط في المغرب، والزنك والرصاص في تونس والجزائر.</p>
+
+                <!-- II.7 Deserts as Resources -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">7</span>.
+                    <span data-i18n="advantageDesertsResourcesTitle">الصحاري كمصادر للطاقة والمعادن</span>
+                </h3>
+                <p data-i18n="advantageDesertsResourcesText">تشكل الصحاري مصادر مهمة للطاقة (الطاقة الشمسية) ومواد معدنية (الفوسفاط، الحديد، النحاس، الذهب، الفضة...).</p>
+
+                <!-- Key figures box -->
+                <div class="key-figures-box" style="margin:1.5rem 0; padding:1rem 1.25rem; border-radius:12px; background:var(--ED-General-color-accent-soft); border:1px solid var(--ED-General-color-border);">
+                    <p style="margin:0 0 .6rem; font-weight:600;" data-i18n="naturalFiguresTitle">أرقام مفتاحية:</p>
+                    <ul style="margin:0; padding-inline-start:1.4rem; line-height:1.9;">
+                        <li data-i18n="naturalFigures1">160 ملم/سنة: معدل تساقط الأمطار في العالم العربي مقابل 720 ملم/سنة عالميًا.</li>
+                        <li data-i18n="naturalFigures2">5,4%: نسبة الأراضي القابلة للزراعة من المساحة الكلية، أي 1,5% من المساحة الزراعية في العالم.</li>
+                        <li data-i18n="naturalFigures3">1%: حصة العالم العربي من المياه المتجددة، مقابل 10% من سكان العالم.</li>
+                        <li data-i18n="naturalFigures4">3,9%: نسبة الغابات من مساحة العالم العربي بعد انفصال جنوب السودان (1,3% من غابات العالم).</li>
+                        <li data-i18n="naturalFigures5">30%: نسبة الاحتياطي العالمي للغاز الطبيعي الموجودة في الأحواض الصحراوية العربية.</li>
+                        <li data-i18n="naturalFigures6">2/3: نسبة الموارد المائية الجوفية الموجودة في المغرب العربي.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">يجمع الوسط الطبيعي في العالم العربي بين ضغوطات كبيرة (ندرة المياه، تدهور الأراضي، التصحر) ومزايا هامة (الموارد الطاقية والمعدنية، الأحواض النهرية، الموارد الجوفية)، وهي ثنائية تفرض على الدول العربية ضرورة التخطيط الجيد لاستثمار مواردها ومواجهة تحدياتها البيئية.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 مناطق ومصطلحات</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defArabWorld">العالم العربي</strong>: <span data-i18n="defArabWorldDesc">مجموعة الأقطار والمناطق التي تضمّ سكّانًا عربًا وتعتمد العربية ضمن لغاتها الرسمية. يمتدّ على مساحة تقارب 14 مليون كلم²، ويضمّ أزيد من 400 مليون نسمة موزّعين على 22 دولة عربية.</span></li>
+                        <li><strong class="key-location" data-i18n="defMaghreb">إقليم المغرب العربي</strong>: <span data-i18n="defMaghrebDesc">يشمل تونس والجزائر والمغرب وموريتانيا وليبيا، ويضمّ نحو ثلثي الموارد المائية الجوفية في العالم العربي، كما يتركز فيه نصف ظاهرة التصحر في الوطن العربي.</span></li>
+                        <li><strong class="key-location" data-i18n="defAsiaticWing">الجناح الآسيوي</strong>: <span data-i18n="defAsiaticWingDesc">الجزء الآسيوي من العالم العربي، ويضمّ أكثر من نصف الموارد النفطية العربية (الخليج العربي).</span></li>
+                        <li><strong class="key-location" data-i18n="defAfricanWing">الجناح الإفريقي</strong>: <span data-i18n="defAfricanWingDesc">الجزء الإفريقي من العالم العربي، وتتركز به معظم الثروات المعدنية العربية (خاصة الفوسفاط والحديد والنحاس) وهي - باستثناء الفوسفاط - كميات متواضعة.</span></li>
+                        <li><strong class="key-location" data-i18n="defNile">وادي النيل</strong>: <span data-i18n="defNileDesc">أحد أهم الأحواض النهرية في العالم العربي، ويشمل السودان ومصر، ويعتمد عليه السكان في الزراعة والاستقرار.</span></li>
+                        <li><strong class="key-location" data-i18n="defTigrisEuphrates">دجلة والفرات</strong>: <span data-i18n="defTigrisEuphratesDesc">نهران يمران بالعراق وسوريا، ويشكلان أحد أهم الأنهار العربية التي تسمح بالزراعة والاستقرار البشري.</span></li>
+                        <li><strong class="key-location" data-i18n="defBahrelGhazal">بحر الغزال</strong>: <span data-i18n="defBahrelGhazalDesc">منطقة في جنوب السودان تتميز بوجود سهول وأشرطة سهلية على ضفاف الأنهار والوديان.</span></li>
+                        <li><strong class="key-location" data-i18n="defYemenMountains">جبال اليمن</strong>: <span data-i18n="defYemenMountainsDesc">إحدى المناطق الجبلية العربية التي تمثل خزانًا مائيًا مهمًا.</span></li>
+                        <li><strong class="key-location" data-i18n="defAtlasMountains">جبال الأطلس</strong>: <span data-i18n="defAtlasMountainsDesc">سلسلة جبلية في الجزائر والمغرب العربي، تمثل خزانًا مائيًا مهمًا.</span></li>
+                        <li><strong class="key-location" data-i18n="defLebanonMountains">جبال لبنان</strong>: <span data-i18n="defLebanonMountainsDesc">إحدى المناطق الجبلية العربية التي تشكل مجالًا سياحيًا مهمًا.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">2011</strong>: <span data-i18n="defYear2011Desc">انفصال جنوب السودان، وهو الحدث الذي أدى إلى تراجع مساحة الغابات في العالم العربي إلى 3,9%.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 مصطلحات</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defDesertification">التصحر</strong>: <span data-i18n="defDesertificationDesc">ظاهرة بيئية تتمثل في تدهور الأراضي في المناطق القاحلة وشبه القاحلة، وتُعدّ من أهم المشاكل البيئية والاقتصادية في الوطن العربي، ويتركز نصفها في إقليم المغرب العربي.</span></li>
+                        <li><strong class="key-other" data-i18n="defOvergrazing">الرعي الجائر</strong>: <span data-i18n="defOvergrazingDesc">استغلال المراعي بشكل مفرط يفوق قدرتها على التجدد، مما يؤدي إلى تدهور الغطاء النباتي وتراجع مساحات الغابات خاصة في السودان والصومال.</span></li>
+                        <li><strong class="key-other" data-i18n="defOasisAgriculture">الزراعة الواحية</strong>: <span data-i18n="defOasisAgricultureDesc">نشاط فلاحي يعتمد على الموارد المائية العذبة الجوفية أو السطحية في الواحات، وخاصة في مصر والسودان وليبيا والجزائر.</span></li>
+                        <li><strong class="key-other" data-i18n="defGroundwater">الموارد المائية الجوفية</strong>: <span data-i18n="defGroundwaterDesc">المياه المخزنة في باطن الأرض، ويتجاوز أكثر من ثلثيها (2/3) في إقليم المغرب العربي، حيث لا يزال يُستغل 1% فقط منها.</span></li>
+                        <li><strong class="key-other" data-i18n="defRenewableWater">المياه المتجددة</strong>: <span data-i18n="defRenewableWaterDesc">المياه التي تتجدد طبيعيًا بفعل الدورة الهيدرولوجية (الأمطار والأنهار)، ولا تتعدى حصة العالم العربي منها 1% من الإجمالي العالمي.</span></li>
+                        <li><strong class="key-other" data-i18n="defHydrocarbons">المحروقات</strong>: <span data-i18n="defHydrocarbonsDesc">النفط والغاز الطبيعي، ويتركز أكثر من نصف الموارد النفطية العربية في الجناح الآسيوي (الخليج)، وتُعدّ عائداتها عرضة لتقلبات الأسواق العالمية.</span></li>
+                        <li><strong class="key-other" data-i18n="defPhosphate">الفوسفاط</strong>: <span data-i18n="defPhosphateDesc">معدن استراتيجي يتركز أساسًا في المغرب، وهو الاستثناء الوحيد في الثروات المعدنية للجناح الإفريقي من حيث الأهمية.</span></li>
+                        <li><strong class="key-other" data-i18n="defSolarEnergy">الطاقة الشمسية</strong>: <span data-i18n="defSolarEnergyDesc">إحدى أهم الموارد الطاقية المتجددة في الصحاري العربية، وتُعدّ بديلًا واعدًا للطاقة الأحفورية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: يجمع الوسط الطبيعي في العالم العربي بين ضغوطات كبيرة (ندرة المياه، تدهور الأراضي، التصحر) ومزايا هامة (الموارد الطاقية والمعدنية، الأحواض النهرية، الموارد الجوفية)، وهي ثنائية تفرض على الدول العربية ضرورة التخطيط الجيد لاستثمار مواردها ومواجهة تحدياتها البيئية.</div>
+
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/geography/unit1/lesson2/arab_world_climate_map.jpg" alt="خريطة المناخ في العالم العربي" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">خريطة المناخ في العالم العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/geography/unit1/lesson2/water_resources_map.jpg" alt="خريطة الموارد المائية في العالم العربي" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">خريطة الموارد المائية في العالم العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/geography/unit1/lesson2/desertification_map.jpg" alt="خريطة التصحر في العالم العربي" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">خريطة التصحر في العالم العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets3eco/lessons/geography/unit1/lesson2/energy_resources_map.jpg" alt="خريطة الموارد الطاقية والمعدنية" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">خريطة الموارد الطاقية والمعدنية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y3sec_secEco_geo_exercisess_mod1_lesson2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                moduleName: "Geography / Unit 1: Space and Development in the Arab World",
+                lessonTitle: "The Natural Environment: Advantages and Constraints",
+                sectionIntro: "Introduction",
+                introText: "The natural environment of the Arab World is characterized by great contrast between vast desert areas, mountainous regions, coastal plains and oasis zones. This environment presents both significant advantages and major constraints that affect population distribution and economic development in the various Arab countries.",
+                problematiqueText: "What are the main constraints of the natural environment in the Arab World? And what advantages does it offer?",
+                sectionPart1: "Natural Constraints Affecting Population and Economic Development",
+                constraintClimateTitle: "Sharp Climatic Variations",
+                constraintClimateText: "The Arab World is one of the regions with the greatest rainfall variability in the world, with average precipitation not exceeding 160 mm/year compared to 720 mm/year globally, making most of its lands arid or semi-arid.",
+                constraintLandTitle: "Degradation of Fertile Land",
+                constraintLandText: "Arable land represents only 5.4% of the total area of the Arab World, i.e. only 1.5% of the world's agricultural area, even though Arab lands represent about 10% of the world's landmass.",
+                constraintWaterTitle: "Decline of Water Resources",
+                constraintWaterText: "The Arab World's share of renewable water does not exceed 1% of the global total, while it contains about 10% of the world's population, making it one of the poorest regions in the world in terms of water resources.",
+                constraintVegetationTitle: "Weak Vegetation Cover and Growing Desertification",
+                constraintVegetationText: "Vegetation cover in the Arab World is characterized by its extreme weakness and is constantly declining due to desertification and overgrazing.",
+                constraintForest1: "Forest area declined after the secession of South Sudan (2011) to 3.9% of the Arab World's area, representing only 1.3% of the world's forest area.",
+                constraintForest2: "These forests are mainly concentrated in Sudan and Somalia and are subject to shrinkage due to overgrazing.",
+                constraintDesert1: "Desertification is growing as one of the most important environmental and economic problems in the Arab World.",
+                constraintDesert2: "Half of it is concentrated in the Maghreb region.",
+                constraintSubsurfaceTitle: "Diverse Natural Resources: Water, Hydrocarbons and Minerals (Exploitation Constraints)",
+                constraintRes1: "Renewable water wealth not exceeding 1% of the world's renewable water, versus 10% of the world's population.",
+                constraintRes2: "Groundwater resources, more than half of which (2/3) are in the Maghreb region, where only 1% is still exploited.",
+                constraintRes3: "More than half of oil resources are concentrated in the Asian wing of the Arab World, and Saudi investment ranks first in the world.",
+                constraintRes4: "Hydrocarbon export revenues are subject to fluctuations in global markets.",
+                constraintRes5: "Mineral wealth is concentrated in the African wing and, with the exception of phosphate, is modest in quantity.",
+                constraintRes6: "Iron: 1% of world reserves and 1.55% of world production; copper: 3.87% of world production, especially in Sudan and Arab production, which still represent a significant contribution from the Arab World and whose exploration is no longer systematic.",
+                sectionPart2: "A Natural Environment That Is Not Without Some Advantages",
+                advantageMountainsTitle: "Mountainous Areas",
+                advantageMountainsText: "Mountainous areas represent water reservoirs (Yemen mountains and the Atlas in Algeria) and tourist areas (Lebanon, Oman, Syria and Saudi Arabia mountains), and serve as a refuge for some minorities, especially the Kurds in Iraq.",
+                advantagePlainsTitle: "Plains and River Basins",
+                advantagePlainsText: "The Arab World has plains in the form of river basins (such as the plains of Tunisia and Algeria) and others in the form of fluvial strips along rivers and valleys (such as the plains of the Nile, Tigris and Euphrates), providing width in the Bahr el Ghazal region (Sudan).",
+                advantageDesertTitle: "Deserts Rich in Water and Energy Resources",
+                advantageDesertText: "Arab deserts contain huge Arab river basins representing about 30% of the world's natural gas reserves.",
+                advantageFreshwaterTitle: "Freshwater Resources",
+                advantageFreshwaterText: "The most important are those in Egypt, Sudan, Libya and Algeria, on which oasis agriculture depends.",
+                advantageEnergyTitle: "Energy Resources",
+                advantageEnergyText: "The Arab region has enormous potential in solar energy, wind energy and nuclear energy.",
+                advantageMineralsTitle: "Mineral Resources",
+                advantageMineralsText: "The Arab region is characterized by iron in Mauritania and Algeria, phosphate in Morocco, and zinc and lead in Tunisia and Algeria.",
+                advantageDesertsResourcesTitle: "Deserts as Sources of Energy and Minerals",
+                advantageDesertsResourcesText: "Deserts constitute important sources of energy (solar energy) and minerals (phosphate, iron, copper, gold, silver...).",
+                naturalFiguresTitle: "Key figures:",
+                naturalFigures1: "160 mm/year: average rainfall in the Arab World versus 720 mm/year globally.",
+                naturalFigures2: "5.4%: share of arable land in total area, i.e. 1.5% of the world's agricultural area.",
+                naturalFigures3: "1%: the Arab World's share of renewable water, versus 10% of the world's population.",
+                naturalFigures4: "3.9%: forest share of the Arab World's area after South Sudan's secession (1.3% of world forests).",
+                naturalFigures5: "30%: share of world natural gas reserves located in Arab desert basins.",
+                naturalFigures6: "2/3: share of groundwater resources located in the Maghreb.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The natural environment of the Arab World combines major constraints (water scarcity, land degradation, desertification) and significant advantages (energy and mineral resources, river basins, groundwater resources), a duality that imposes on Arab countries the need for good planning to exploit their resources and meet their environmental challenges.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defLocations: "🌍 Regions & Terms",
+                defArabWorld: "Arab World",
+                defArabWorldDesc: "The group of countries and regions that contain Arab populations and adopt Arabic among their official languages. It extends over about 14 million km² and includes more than 400 million inhabitants distributed over 22 Arab countries.",
+                defMaghreb: "The Maghreb Region",
+                defMaghrebDesc: "Includes Tunisia, Algeria, Morocco, Mauritania and Libya. It contains about two-thirds of the Arab World's groundwater resources, and half of the Arab World's desertification is concentrated there.",
+                defAsiaticWing: "The Asian Wing",
+                defAsiaticWingDesc: "The Asian part of the Arab World, containing more than half of Arab oil resources (the Arabian Gulf).",
+                defAfricanWing: "The African Wing",
+                defAfricanWingDesc: "The African part of the Arab World, where most Arab mineral wealth is concentrated (especially phosphate, iron and copper), which—except for phosphate—is modest in quantity.",
+                defNile: "Nile Valley",
+                defNileDesc: "One of the most important river basins in the Arab World, including Sudan and Egypt, on which the population depends for agriculture and settlement.",
+                defTigrisEuphrates: "Tigris and Euphrates",
+                defTigrisEuphratesDesc: "Two rivers flowing through Iraq and Syria, forming one of the most important Arab rivers that allow agriculture and human settlement.",
+                defBahrelGhazal: "Bahr el Ghazal",
+                defBahrelGhazalDesc: "A region in southern Sudan characterized by plains and fluvial strips along rivers and valleys.",
+                defYemenMountains: "Yemen Mountains",
+                defYemenMountainsDesc: "One of the Arab mountainous regions that represents an important water reservoir.",
+                defAtlasMountains: "Atlas Mountains",
+                defAtlasMountainsDesc: "A mountain range in Algeria and the Maghreb, representing an important water reservoir.",
+                defLebanonMountains: "Lebanon Mountains",
+                defLebanonMountainsDesc: "One of the Arab mountainous regions that constitutes an important tourist area.",
+                defYears: "📅 Years & Periods",
+                defYear2011Desc: "Secession of South Sudan, the event that led to the decline of forest area in the Arab World to 3.9%.",
+                defOthers: "📌 Terms",
+                defDesertification: "Desertification",
+                defDesertificationDesc: "An environmental phenomenon consisting of land degradation in arid and semi-arid areas, considered one of the most important environmental and economic problems in the Arab World, with half of it concentrated in the Maghreb region.",
+                defOvergrazing: "Overgrazing",
+                defOvergrazingDesc: "Excessive exploitation of pastures beyond their regeneration capacity, leading to the degradation of vegetation cover and the decline of forest areas, especially in Sudan and Somalia.",
+                defOasisAgriculture: "Oasis Agriculture",
+                defOasisAgricultureDesc: "An agricultural activity based on fresh groundwater or surface water resources in oases, especially in Egypt, Sudan, Libya and Algeria.",
+                defGroundwater: "Groundwater Resources",
+                defGroundwaterDesc: "Water stored underground, more than two-thirds (2/3) of which is in the Maghreb region, where only 1% is still exploited.",
+                defRenewableWater: "Renewable Water",
+                defRenewableWaterDesc: "Water that is naturally renewed by the hydrological cycle (rain and rivers), of which the Arab World's share does not exceed 1% of the global total.",
+                defHydrocarbons: "Hydrocarbons",
+                defHydrocarbonsDesc: "Oil and natural gas. More than half of Arab oil resources are concentrated in the Asian wing (the Gulf), and their revenues are subject to fluctuations in global markets.",
+                defPhosphate: "Phosphate",
+                defPhosphateDesc: "A strategic mineral mainly concentrated in Morocco, and the only exception in the mineral wealth of the African wing in terms of importance.",
+                defSolarEnergy: "Solar Energy",
+                defSolarEnergyDesc: "One of the most important renewable energy resources in the Arab deserts, considered a promising alternative to fossil fuels.",
+                summaryText: "Key takeaway: The natural environment of the Arab World combines major constraints (water scarcity, land degradation, desertification) and significant advantages (energy and mineral resources, river basins, groundwater resources), a duality that imposes on Arab countries the need for good planning to exploit their resources and meet their environmental challenges.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Climate map of the Arab World",
+                galleryAlt2: "Water resources map of the Arab World",
+                galleryAlt3: "Desertification map of the Arab World",
+                galleryAlt4: "Energy and mineral resources map",
+                galleryCap1: "Climate map of the Arab World",
+                galleryCap2: "Water resources map of the Arab World",
+                galleryCap3: "Desertification map of the Arab World",
+                galleryCap4: "Energy and mineral resources map"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                moduleName: "Géographie / Unité 1 : Espace et développement dans le monde arabe",
+                lessonTitle: "Le milieu naturel : atouts et contraintes",
+                sectionIntro: "Introduction",
+                introText: "Le milieu naturel du monde arabe se caractérise par un grand contraste entre de vastes zones désertiques, des régions montagneuses, des plaines côtières et des zones oasiennes. Cet environnement présente à la fois des atouts importants et des contraintes majeures qui affectent la répartition de la population et le développement économique dans les différents pays arabes.",
+                problematiqueText: "Quelles sont les principales contraintes du milieu naturel dans le monde arabe ? Et quels avantages offre-t-il ?",
+                sectionPart1: "Contraintes naturelles affectant la population et le développement économique",
+                constraintClimateTitle: "Fortes variations climatiques",
+                constraintClimateText: "Le monde arabe est l'une des régions du monde où la variabilité des précipitations est la plus forte, avec une moyenne ne dépassant pas 160 mm/an contre 720 mm/an à l'échelle mondiale, ce qui rend la plupart de ses terres arides ou semi-arides.",
+                constraintLandTitle: "Dégradation des terres fertiles",
+                constraintLandText: "Les terres arables ne représentent que 5,4 % de la superficie totale du monde arabe, soit seulement 1,5 % de la superficie agricole mondiale, alors que les terres arabes représentent environ 10 % des terres émergées du globe.",
+                constraintWaterTitle: "Baisse des ressources en eau",
+                constraintWaterText: "La part du monde arabe dans les eaux renouvelables ne dépasse pas 1 % du total mondial, alors qu'il abrite environ 10 % de la population mondiale, ce qui en fait l'une des régions les plus pauvres du monde en ressources en eau.",
+                constraintVegetationTitle: "Faiblesse du couvert végétal et progression de la désertification",
+                constraintVegetationText: "Le couvert végétal du monde arabe se caractérise par son extrême faiblesse et ne cesse de régresser sous l'effet de la désertification et du surpâturage.",
+                constraintForest1: "La superficie forestière a diminué après la sécession du Soudan du Sud (2011) à 3,9 % de la superficie du monde arabe, ne représentant que 1,3 % de la superficie forestière mondiale.",
+                constraintForest2: "Ces forêts sont principalement concentrées au Soudan et en Somalie et sont soumises à un recul dû au surpâturage.",
+                constraintDesert1: "La désertification s'accentue comme l'un des problèmes environnementaux et économiques les plus importants du monde arabe.",
+                constraintDesert2: "La moitié se concentre dans la région du Maghreb.",
+                constraintSubsurfaceTitle: "Ressources naturelles diverses : eau, hydrocarbures et minéraux (contraintes d'exploitation)",
+                constraintRes1: "Richesse en eau renouvelable ne dépassant pas 1 % de l'eau renouvelable mondiale, contre 10 % de la population mondiale.",
+                constraintRes2: "Ressources en eaux souterraines, dont plus de la moitié (2/3) se trouve dans la région du Maghreb, où seulement 1 % est encore exploité.",
+                constraintRes3: "Plus de la moitié des ressources pétrolières sont concentrées dans l'aile asiatique du monde arabe, et l'investissement saoudien occupe la première place mondiale.",
+                constraintRes4: "Les revenus des exportations d'hydrocarbures sont soumis aux fluctuations des marchés mondiaux.",
+                constraintRes5: "La richesse minérale est concentrée dans l'aile africaine et, à l'exception du phosphate, les quantités sont modestes.",
+                constraintRes6: "Fer : 1 % des réserves mondiales et 1,55 % de la production mondiale ; cuivre : 3,87 % de la production mondiale, notamment au Soudan et dans la production arabe, qui représentent encore une contribution importante du monde arabe et dont l'exploration n'est plus systématique.",
+                sectionPart2: "Un milieu naturel qui ne manque pas d'atouts",
+                advantageMountainsTitle: "Zones montagneuses",
+                advantageMountainsText: "Les zones montagneuses représentent des réservoirs d'eau (montagnes du Yémen et Atlas en Algérie) et des zones touristiques (montagnes du Liban, d'Oman, de Syrie et d'Arabie saoudite), et servent de refuge à certaines minorités, notamment les Kurdes en Irak.",
+                advantagePlainsTitle: "Plaines et bassins fluviaux",
+                advantagePlainsText: "Le monde arabe possède des plaines sous forme de bassins fluviaux (comme les plaines de Tunisie et d'Algérie) et d'autres sous forme de bandes fluviales le long des rivières et des vallées (comme les plaines du Nil, du Tigre et de l'Euphrate), offrant une largeur dans la région du Bahr el Ghazal (Soudan).",
+                advantageDesertTitle: "Déserts riches en ressources hydriques et énergétiques",
+                advantageDesertText: "Les déserts arabes contiennent d'immenses bassins fluviaux arabes représentant environ 30 % des réserves mondiales de gaz naturel.",
+                advantageFreshwaterTitle: "Ressources en eau douce",
+                advantageFreshwaterText: "Les plus importantes sont celles d'Égypte, du Soudan, de Libye et d'Algérie, dont dépend l'agriculture oasienne.",
+                advantageEnergyTitle: "Ressources énergétiques",
+                advantageEnergyText: "La région arabe possède un potentiel énorme en énergie solaire, en énergie éolienne et en énergie nucléaire.",
+                advantageMineralsTitle: "Ressources minérales",
+                advantageMineralsText: "La région arabe se caractérise par le fer en Mauritanie et en Algérie, le phosphate au Maroc, et le zinc et le plomb en Tunisie et en Algérie.",
+                advantageDesertsResourcesTitle: "Les déserts comme sources d'énergie et de minéraux",
+                advantageDesertsResourcesText: "Les déserts constituent d'importantes sources d'énergie (énergie solaire) et de minéraux (phosphate, fer, cuivre, or, argent...).",
+                naturalFiguresTitle: "Chiffres clés :",
+                naturalFigures1: "160 mm/an : précipitations moyennes dans le monde arabe contre 720 mm/an à l'échelle mondiale.",
+                naturalFigures2: "5,4 % : part des terres arables dans la superficie totale, soit 1,5 % de la superficie agricole mondiale.",
+                naturalFigures3: "1 % : part du monde arabe dans l'eau renouvelable, contre 10 % de la population mondiale.",
+                naturalFigures4: "3,9 % : part des forêts dans la superficie du monde arabe après la sécession du Soudan du Sud (1,3 % des forêts mondiales).",
+                naturalFigures5: "30 % : part des réserves mondiales de gaz naturel situées dans les bassins désertiques arabes.",
+                naturalFigures6: "2/3 : part des ressources en eaux souterraines situées au Maghreb.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Le milieu naturel du monde arabe combine des contraintes majeures (pénurie d'eau, dégradation des terres, désertification) et des atouts importants (ressources énergétiques et minérales, bassins fluviaux, ressources souterraines), une dualité qui impose aux pays arabes la nécessité d'une bonne planification pour exploiter leurs ressources et relever leurs défis environnementaux.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defLocations: "🌍 Régions et termes",
+                defArabWorld: "Monde arabe",
+                defArabWorldDesc: "L'ensemble des pays et régions qui abritent des populations arabes et adoptent l'arabe parmi leurs langues officielles. Il s'étend sur environ 14 millions de km² et comprend plus de 400 millions d'habitants répartis sur 22 pays arabes.",
+                defMaghreb: "Région du Maghreb",
+                defMaghrebDesc: "Comprend la Tunisie, l'Algérie, le Maroc, la Mauritanie et la Libye. Elle contient environ deux tiers des ressources en eaux souterraines du monde arabe, et la moitié de la désertification du monde arabe y est concentrée.",
+                defAsiaticWing: "L'aile asiatique",
+                defAsiaticWingDesc: "La partie asiatique du monde arabe, contenant plus de la moitié des ressources pétrolières arabes (le golfe Arabique).",
+                defAfricanWing: "L'aile africaine",
+                defAfricanWingDesc: "La partie africaine du monde arabe, où se concentre la majeure partie de la richesse minérale arabe (notamment le phosphate, le fer et le cuivre), qui—à l'exception du phosphate—est modeste en quantité.",
+                defNile: "Vallée du Nil",
+                defNileDesc: "L'un des bassins fluviaux les plus importants du monde arabe, comprenant le Soudan et l'Égypte, dont la population dépend pour l'agriculture et l'établissement.",
+                defTigrisEuphrates: "Tigre et Euphrate",
+                defTigrisEuphratesDesc: "Deux fleuves traversant l'Irak et la Syrie, formant l'un des plus importants fleuves arabes qui permettent l'agriculture et l'établissement humain.",
+                defBahrelGhazal: "Bahr el Ghazal",
+                defBahrelGhazalDesc: "Une région du sud du Soudan caractérisée par des plaines et des bandes fluviales le long des rivières et des vallées.",
+                defYemenMountains: "Montagnes du Yémen",
+                defYemenMountainsDesc: "L'une des régions montagneuses arabes qui représente un important réservoir d'eau.",
+                defAtlasMountains: "Montagnes de l'Atlas",
+                defAtlasMountainsDesc: "Une chaîne de montagnes en Algérie et au Maghreb, représentant un important réservoir d'eau.",
+                defLebanonMountains: "Montagnes du Liban",
+                defLebanonMountainsDesc: "L'une des régions montagneuses arabes qui constitue une importante zone touristique.",
+                defYears: "📅 Années et périodes",
+                defYear2011Desc: "Sécession du Soudan du Sud, événement qui a entraîné la baisse de la superficie forestière du monde arabe à 3,9 %.",
+                defOthers: "📌 Termes",
+                defDesertification: "Désertification",
+                defDesertificationDesc: "Phénomène environnemental consistant en la dégradation des terres dans les zones arides et semi-arides, considéré comme l'un des problèmes environnementaux et économiques les plus importants du monde arabe, dont la moitié est concentrée dans la région du Maghreb.",
+                defOvergrazing: "Surpâturage",
+                defOvergrazingDesc: "Exploitation excessive des pâturages au-delà de leur capacité de régénération, entraînant la dégradation du couvert végétal et le recul des zones forestières, notamment au Soudan et en Somalie.",
+                defOasisAgriculture: "Agriculture oasienne",
+                defOasisAgricultureDesc: "Activité agricole basée sur les ressources en eaux souterraines douces ou en eaux de surface dans les oasis, notamment en Égypte, au Soudan, en Libye et en Algérie.",
+                defGroundwater: "Ressources en eaux souterraines",
+                defGroundwaterDesc: "Eaux stockées sous terre, dont plus des deux tiers (2/3) se trouvent dans la région du Maghreb, où seulement 1 % est encore exploité.",
+                defRenewableWater: "Eau renouvelable",
+                defRenewableWaterDesc: "Eau renouvelée naturellement par le cycle hydrologique (pluie et rivières), dont la part du monde arabe ne dépasse pas 1 % du total mondial.",
+                defHydrocarbons: "Hydrocarbures",
+                defHydrocarbonsDesc: "Pétrole et gaz naturel. Plus de la moitié des ressources pétrolières arabes sont concentrées dans l'aile asiatique (le Golfe), et leurs revenus sont soumis aux fluctuations des marchés mondiaux.",
+                defPhosphate: "Phosphate",
+                defPhosphateDesc: "Minéral stratégique principalement concentré au Maroc, et la seule exception dans la richesse minérale de l'aile africaine en termes d'importance.",
+                defSolarEnergy: "Énergie solaire",
+                defSolarEnergyDesc: "L'une des ressources énergétiques renouvelables les plus importantes des déserts arabes, considérée comme une alternative prometteuse aux combustibles fossiles.",
+                summaryText: "À retenir : le milieu naturel du monde arabe combine des contraintes majeures (pénurie d'eau, dégradation des terres, désertification) et des atouts importants (ressources énergétiques et minérales, bassins fluviaux, ressources souterraines), une dualité qui impose aux pays arabes la nécessité d'une bonne planification pour exploiter leurs ressources et relever leurs défis environnementaux.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Carte climatique du monde arabe",
+                galleryAlt2: "Carte des ressources en eau du monde arabe",
+                galleryAlt3: "Carte de la désertification du monde arabe",
+                galleryAlt4: "Carte des ressources énergétiques et minérales",
+                galleryCap1: "Carte climatique du monde arabe",
+                galleryCap2: "Carte des ressources en eau du monde arabe",
+                galleryCap3: "Carte de la désertification du monde arabe",
+                galleryCap4: "Carte des ressources énergétiques et minérales"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "الجغرافيا / الوحدة الأولى: المجال والتنمية في العالم العربي",
+                lessonTitle: "الوسط الطبيعي: المزايا والضغوطات",
+                sectionIntro: "مقدمة",
+                introText: "يتميز الوسط الطبيعي في العالم العربي بتباين كبير بين المجالات الصحراوية الشاسعة والمناطق الجبلية والسهول الساحلية والواحية. ويطرح هذا الوسط في الوقت نفسه مزايا هامة وضغوطات كبيرة تؤثر على توزيع السكان وعلى التنمية الاقتصادية في مختلف الأقطار العربية.",
+                problematiqueText: "ما هي أبرز ضغوطات الوسط الطبيعي في العالم العربي؟ وما هي المزايا التي يوفرها؟",
+                sectionPart1: "ضغوطات طبيعية تؤثر على السكان والتنمية الاقتصادية",
+                constraintClimateTitle: "تباينات مناخية حادة",
+                constraintClimateText: "يُعدّ العالم العربي من أكثر مناطق العالم تباينًا في تساقط الأمطار، حيث لا يتجاوز معدّل التساقط 160 ملم/سنة مقابل 720 ملم/سنة على المستوى العالمي، وهو ما يجعل معظم أراضيه قاحلة أو شبه قاحلة.",
+                constraintLandTitle: "تدهور الأراضي الخصبة",
+                constraintLandText: "لا تشكّل الأراضي القابلة للزراعة سوى 5,4% من المساحة الكلية للعالم العربي، أي 1,5% فقط من المساحة الزراعية في العالم، رغم أن أراضي العالم العربي تمثل نحو 10% من مساحة اليابسة.",
+                constraintWaterTitle: "تراجع الموارد المائية",
+                constraintWaterText: "لا تتعدّى حصة العالم العربي من المياه المتجدّدة 1% من الإجمالي العالمي، في حين يضمّ نحو 10% من سكان العالم، مما يجعله من أفقر مناطق العالم في الموارد المائية.",
+                constraintVegetationTitle: "ضعف الغطاء النباتي وتنامي ظاهرة التصحر",
+                constraintVegetationText: "يتميز الغطاء النباتي في العالم العربي بضعفه الشديد، ويتراجع باستمرار بفعل التصحر والرعي الجائر.",
+                constraintForest1: "تراجعت مساحة الغابات بعد انفصال جنوب السودان (2011) إلى 3,9% من مساحة العالم العربي، وهي لا تشكل سوى 1,3% من مساحة الغابات في العالم.",
+                constraintForest2: "تتركز هذه الغابات أساسًا في السودان والصومال، وتتعرض للانحسار بسبب الرعي الجائر.",
+                constraintDesert1: "تتنامى ظاهرة التصحر كأحد أهم المشاكل البيئية والاقتصادية في الوطن العربي.",
+                constraintDesert2: "يتركز نصفها في إقليم المغرب العربي.",
+                constraintSubsurfaceTitle: "موارد طبيعية متنوعة من المياه والمحروقات والمعادن (ضغوطات الاستغلال)",
+                constraintRes1: "ثروة مائية متجددة لا تتعدى 1% من المياه المتجددة في العالم مقابل 10% من سكان العالم.",
+                constraintRes2: "موارد مائية جوفية يتجاوز أكثر من نصفها (2/3) في إقليم المغرب العربي لا يزال يستغل 1% فقط.",
+                constraintRes3: "تركز أكثر من 1/2 الموارد النفطية في الجناح الآسيوي من العالم العربي، واستثمار السعودية يحتل المرتبة الأولى في العالم.",
+                constraintRes4: "عائدات صادرات المحروقات عرضة لتقلبات الأسواق العالمية.",
+                constraintRes5: "تركز الثروات المعدنية بالجناح الإفريقي وهي - باستثناء الفوسفاط - كميات متواضعة.",
+                constraintRes6: "من الحديد 1% من الاحتياطي العالمي و1,55% من الإنتاج العالمي، ومن النحاس 3,87% من الإنتاج العالمي خاصة بالسودان والإنتاج العربي، والذين لا زالا مساهمة هامة من العالم العربي لم يعد استكشافها منهجياً.",
+                sectionPart2: "وسط طبيعي لا يخلو من بعض المزايا",
+                advantageMountainsTitle: "مناطق جبلية",
+                advantageMountainsText: "تمثل المناطق الجبلية خزانات مائية (جبال اليمن والأطلس في الجزائر) ومجالات سياحية (جبال لبنان وعمان وسوريا والسعودية)، وهي ملجأ لبعض الأقليات خاصة (الأكراد في العراق).",
+                advantagePlainsTitle: "سهول وأحواض نهرية",
+                advantagePlainsText: "توجد في العالم العربي سهول في شكل أحواض نهرية (مثل سهول تونس والجزائر) وأخرى في شكل أشرطة سهلية على ضفاف الأنهار والوديان (مثل سهول النيل ودجلة والفرات)، تزود عرضًا في منطقة بحر الغزال (السودان).",
+                advantageDesertTitle: "صحاري غنية بالموارد المائية والطاقية",
+                advantageDesertText: "تحتوي الصحاري العربية على أحواض نهرية عربية ضخمة تمثل نحو 30% من الاحتياطي العالمي للغاز الطبيعي في العالم.",
+                advantageFreshwaterTitle: "موارد مائية عذبة",
+                advantageFreshwaterText: "أهمها تلك الموجودة في مصر والسودان وليبيا والجزائر، والتي تعتمد عليها الزراعة الواحية.",
+                advantageEnergyTitle: "موارد طاقية",
+                advantageEnergyText: "تمتلك المنطقة العربية إمكانات هائلة في مجال الطاقة الشمسية وطاقة الرياح والطاقة النووية.",
+                advantageMineralsTitle: "موارد معدنية",
+                advantageMineralsText: "تتميز المنطقة العربية بوجود الحديد في موريتانيا والجزائر، والفوسفاط في المغرب، والزنك والرصاص في تونس والجزائر.",
+                advantageDesertsResourcesTitle: "الصحاري كمصادر للطاقة والمعادن",
+                advantageDesertsResourcesText: "تشكل الصحاري مصادر مهمة للطاقة (الطاقة الشمسية) ومواد معدنية (الفوسفاط، الحديد، النحاس، الذهب، الفضة...).",
+                naturalFiguresTitle: "أرقام مفتاحية:",
+                naturalFigures1: "160 ملم/سنة: معدل تساقط الأمطار في العالم العربي مقابل 720 ملم/سنة عالميًا.",
+                naturalFigures2: "5,4%: نسبة الأراضي القابلة للزراعة من المساحة الكلية، أي 1,5% من المساحة الزراعية في العالم.",
+                naturalFigures3: "1%: حصة العالم العربي من المياه المتجددة، مقابل 10% من سكان العالم.",
+                naturalFigures4: "3,9%: نسبة الغابات من مساحة العالم العربي بعد انفصال جنوب السودان (1,3% من غابات العالم).",
+                naturalFigures5: "30%: نسبة الاحتياطي العالمي للغاز الطبيعي الموجودة في الأحواض الصحراوية العربية.",
+                naturalFigures6: "2/3: نسبة الموارد المائية الجوفية الموجودة في المغرب العربي.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "يجمع الوسط الطبيعي في العالم العربي بين ضغوطات كبيرة (ندرة المياه، تدهور الأراضي، التصحر) ومزايا هامة (الموارد الطاقية والمعدنية، الأحواض النهرية، الموارد الجوفية)، وهي ثنائية تفرض على الدول العربية ضرورة التخطيط الجيد لاستثمار مواردها ومواجهة تحدياتها البيئية.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defLocations: "🌍 مناطق ومصطلحات",
+                defArabWorld: "العالم العربي",
+                defArabWorldDesc: "مجموعة الأقطار والمناطق التي تضمّ سكّانًا عربًا وتعتمد العربية ضمن لغاتها الرسمية. يمتدّ على مساحة تقارب 14 مليون كلم²، ويضمّ أزيد من 400 مليون نسمة موزّعين على 22 دولة عربية.",
+                defMaghreb: "إقليم المغرب العربي",
+                defMaghrebDesc: "يشمل تونس والجزائر والمغرب وموريتانيا وليبيا، ويضمّ نحو ثلثي الموارد المائية الجوفية في العالم العربي، كما يتركز فيه نصف ظاهرة التصحر في الوطن العربي.",
+                defAsiaticWing: "الجناح الآسيوي",
+                defAsiaticWingDesc: "الجزء الآسيوي من العالم العربي، ويضمّ أكثر من نصف الموارد النفطية العربية (الخليج العربي).",
+                defAfricanWing: "الجناح الإفريقي",
+                defAfricanWingDesc: "الجزء الإفريقي من العالم العربي، وتتركز به معظم الثروات المعدنية العربية (خاصة الفوسفاط والحديد والنحاس) وهي - باستثناء الفوسفاط - كميات متواضعة.",
+                defNile: "وادي النيل",
+                defNileDesc: "أحد أهم الأحواض النهرية في العالم العربي، ويشمل السودان ومصر، ويعتمد عليه السكان في الزراعة والاستقرار.",
+                defTigrisEuphrates: "دجلة والفرات",
+                defTigrisEuphratesDesc: "نهران يمران بالعراق وسوريا، ويشكلان أحد أهم الأنهار العربية التي تسمح بالزراعة والاستقرار البشري.",
+                defBahrelGhazal: "بحر الغزال",
+                defBahrelGhazalDesc: "منطقة في جنوب السودان تتميز بوجود سهول وأشرطة سهلية على ضفاف الأنهار والوديان.",
+                defYemenMountains: "جبال اليمن",
+                defYemenMountainsDesc: "إحدى المناطق الجبلية العربية التي تمثل خزانًا مائيًا مهمًا.",
+                defAtlasMountains: "جبال الأطلس",
+                defAtlasMountainsDesc: "سلسلة جبلية في الجزائر والمغرب العربي، تمثل خزانًا مائيًا مهمًا.",
+                defLebanonMountains: "جبال لبنان",
+                defLebanonMountainsDesc: "إحدى المناطق الجبلية العربية التي تشكل مجالًا سياحيًا مهمًا.",
+                defYears: "📅 سنوات وفترات",
+                defYear2011Desc: "انفصال جنوب السودان، وهو الحدث الذي أدى إلى تراجع مساحة الغابات في العالم العربي إلى 3,9%.",
+                defOthers: "📌 مصطلحات",
+                defDesertification: "التصحر",
+                defDesertificationDesc: "ظاهرة بيئية تتمثل في تدهور الأراضي في المناطق القاحلة وشبه القاحلة، وتُعدّ من أهم المشاكل البيئية والاقتصادية في الوطن العربي، ويتركز نصفها في إقليم المغرب العربي.",
+                defOvergrazing: "الرعي الجائر",
+                defOvergrazingDesc: "استغلال المراعي بشكل مفرط يفوق قدرتها على التجدد، مما يؤدي إلى تدهور الغطاء النباتي وتراجع مساحات الغابات خاصة في السودان والصومال.",
+                defOasisAgriculture: "الزراعة الواحية",
+                defOasisAgricultureDesc: "نشاط فلاحي يعتمد على الموارد المائية العذبة الجوفية أو السطحية في الواحات، وخاصة في مصر والسودان وليبيا والجزائر.",
+                defGroundwater: "الموارد المائية الجوفية",
+                defGroundwaterDesc: "المياه المخزنة في باطن الأرض، ويتجاوز أكثر من ثلثيها (2/3) في إقليم المغرب العربي، حيث لا يزال يُستغل 1% فقط منها.",
+                defRenewableWater: "المياه المتجددة",
+                defRenewableWaterDesc: "المياه التي تتجدد طبيعيًا بفعل الدورة الهيدرولوجية (الأمطار والأنهار)، ولا تتعدى حصة العالم العربي منها 1% من الإجمالي العالمي.",
+                defHydrocarbons: "المحروقات",
+                defHydrocarbonsDesc: "النفط والغاز الطبيعي، ويتركز أكثر من نصف الموارد النفطية العربية في الجناح الآسيوي (الخليج)، وتُعدّ عائداتها عرضة لتقلبات الأسواق العالمية.",
+                defPhosphate: "الفوسفاط",
+                defPhosphateDesc: "معدن استراتيجي يتركز أساسًا في المغرب، وهو الاستثناء الوحيد في الثروات المعدنية للجناح الإفريقي من حيث الأهمية.",
+                defSolarEnergy: "الطاقة الشمسية",
+                defSolarEnergyDesc: "إحدى أهم الموارد الطاقية المتجددة في الصحاري العربية، وتُعدّ بديلًا واعدًا للطاقة الأحفورية.",
+                summaryText: "خلاصة: يجمع الوسط الطبيعي في العالم العربي بين ضغوطات كبيرة (ندرة المياه، تدهور الأراضي، التصحر) ومزايا هامة (الموارد الطاقية والمعدنية، الأحواض النهرية، الموارد الجوفية)، وهي ثنائية تفرض على الدول العربية ضرورة التخطيط الجيد لاستثمار مواردها ومواجهة تحدياتها البيئية.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "خريطة المناخ في العالم العربي",
+                galleryAlt2: "خريطة الموارد المائية في العالم العربي",
+                galleryAlt3: "خريطة التصحر في العالم العربي",
+                galleryAlt4: "خريطة الموارد الطاقية والمعدنية",
+                galleryCap1: "خريطة المناخ في العالم العربي",
+                galleryCap2: "خريطة الموارد المائية في العالم العربي",
+                galleryCap3: "خريطة التصحر في العالم العربي",
+                galleryCap4: "خريطة الموارد الطاقية والمعدنية"
+            }
+        };
+    </script>
+
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Arab World", class: "key-location", i18n: "defArabWorld" },
+                { text: "Maghreb", class: "key-location", i18n: "defMaghreb" },
+                { text: "Asian Wing", class: "key-location", i18n: "defAsiaticWing" },
+                { text: "African Wing", class: "key-location", i18n: "defAfricanWing" },
+                { text: "Nile Valley", class: "key-location", i18n: "defNile" },
+                { text: "Tigris", class: "key-location", i18n: "defTigrisEuphrates" },
+                { text: "Euphrates", class: "key-location", i18n: "defTigrisEuphrates" },
+                { text: "Bahr el Ghazal", class: "key-location", i18n: "defBahrelGhazal" },
+                { text: "Yemen Mountains", class: "key-location", i18n: "defYemenMountains" },
+                { text: "Atlas", class: "key-location", i18n: "defAtlasMountains" },
+                { text: "Lebanon Mountains", class: "key-location", i18n: "defLebanonMountains" },
+                { text: "Desertification", class: "key-other", i18n: "defDesertification" },
+                { text: "Overgrazing", class: "key-other", i18n: "defOvergrazing" },
+                { text: "Oasis Agriculture", class: "key-other", i18n: "defOasisAgriculture" },
+                { text: "Groundwater", class: "key-other", i18n: "defGroundwater" },
+                { text: "Renewable Water", class: "key-other", i18n: "defRenewableWater" },
+                { text: "Hydrocarbons", class: "key-other", i18n: "defHydrocarbons" },
+                { text: "Phosphate", class: "key-other", i18n: "defPhosphate" },
+                { text: "Solar Energy", class: "key-other", i18n: "defSolarEnergy" },
+                { text: "2011", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "monde arabe", class: "key-location", i18n: "defArabWorld" },
+                { text: "Maghreb", class: "key-location", i18n: "defMaghreb" },
+                { text: "aile asiatique", class: "key-location", i18n: "defAsiaticWing" },
+                { text: "aile africaine", class: "key-location", i18n: "defAfricanWing" },
+                { text: "Vallée du Nil", class: "key-location", i18n: "defNile" },
+                { text: "Tigre", class: "key-location", i18n: "defTigrisEuphrates" },
+                { text: "Euphrate", class: "key-location", i18n: "defTigrisEuphrates" },
+                { text: "Bahr el Ghazal", class: "key-location", i18n: "defBahrelGhazal" },
+                { text: "Montagnes du Yémen", class: "key-location", i18n: "defYemenMountains" },
+                { text: "Atlas", class: "key-location", i18n: "defAtlasMountains" },
+                { text: "Montagnes du Liban", class: "key-location", i18n: "defLebanonMountains" },
+                { text: "Désertification", class: "key-other", i18n: "defDesertification" },
+                { text: "Surpâturage", class: "key-other", i18n: "defOvergrazing" },
+                { text: "Agriculture oasienne", class: "key-other", i18n: "defOasisAgriculture" },
+                { text: "eaux souterraines", class: "key-other", i18n: "defGroundwater" },
+                { text: "Eau renouvelable", class: "key-other", i18n: "defRenewableWater" },
+                { text: "Hydrocarbures", class: "key-other", i18n: "defHydrocarbons" },
+                { text: "Phosphate", class: "key-other", i18n: "defPhosphate" },
+                { text: "Énergie solaire", class: "key-other", i18n: "defSolarEnergy" },
+                { text: "2011", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "العالم العربي", class: "key-location", i18n: "defArabWorld" },
+                { text: "المغرب العربي", class: "key-location", i18n: "defMaghreb" },
+                { text: "الجناح الآسيوي", class: "key-location", i18n: "defAsiaticWing" },
+                { text: "الجناح الإفريقي", class: "key-location", i18n: "defAfricanWing" },
+                { text: "وادي النيل", class: "key-location", i18n: "defNile" },
+                { text: "دجلة", class: "key-location", i18n: "defTigrisEuphrates" },
+                { text: "الفرات", class: "key-location", i18n: "defTigrisEuphrates" },
+                { text: "بحر الغزال", class: "key-location", i18n: "defBahrelGhazal" },
+                { text: "جبال اليمن", class: "key-location", i18n: "defYemenMountains" },
+                { text: "جبال الأطلس", class: "key-location", i18n: "defAtlasMountains" },
+                { text: "جبال لبنان", class: "key-location", i18n: "defLebanonMountains" },
+                { text: "التصحر", class: "key-other", i18n: "defDesertification" },
+                { text: "الرعي الجائر", class: "key-other", i18n: "defOvergrazing" },
+                { text: "الزراعة الواحية", class: "key-other", i18n: "defOasisAgriculture" },
+                { text: "الموارد المائية الجوفية", class: "key-other", i18n: "defGroundwater" },
+                { text: "المياه المتجددة", class: "key-other", i18n: "defRenewableWater" },
+                { text: "المحروقات", class: "key-other", i18n: "defHydrocarbons" },
+                { text: "الفوسفاط", class: "key-other", i18n: "defPhosphate" },
+                { text: "الطاقة الشمسية", class: "key-other", i18n: "defSolarEnergy" },
+                { text: "2011", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

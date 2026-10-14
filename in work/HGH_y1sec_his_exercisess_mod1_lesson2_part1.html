@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – قرطاج: الازدهار الاقتصادي – الفلاحة</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60,50,40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <h1 data-i18n="exerciseTitle">تمارين – قرطاج وإسهاماتها في الحضارة الرومانية: الازدهار الاقتصادي – الفلاحة</h1>
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: قانون منسيانا، قانون هدريانا، سياسة الرومنة، المسح العقاري، موسوعة ماغون، أهراء روما.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">قانون منسيانا:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">قانون روماني مشجع للفلاحة، صدر بداية من القرن الأول ميلادي، وينص على إعفاء الفلاح الصغير من دفع الضرائب على أشجار الزياتين التي غرسها حديثًا ولم تبلغ طور الإنتاج.</dd>
+                        <dt data-i18n="ex1_def2_title">قانون هدريانا:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">قانون روماني مشجع للفلاحة، نسبة إلى الإمبراطور هدريانوس الذي ينتمي إلى عائلة الأنطونيين وحكم بين 171م و138م، مكّن مزارعي الزياتين والأشجار المثمرة من امتيازات جبائية هامة، وسمح باستغلال الأراضي البور، ووفّر المنشآت المائية.</dd>
+                        <dt data-i18n="ex1_def3_title">سياسة الرومنة:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">سياسة انتهجتها روما، تهدف إلى إدماج السكان الأصليين واستغلالهم لخدمة مصالح روما، ومن بين مظاهرها إصدار القوانين المشجعة للفلاحة.</dd>
+                        <dt data-i18n="ex1_def4_title">المسح العقاري:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">عملية قامت بها السلطات الرومانية لتحديد الممتلكات الفلاحية بهدف تنمية المجال الفلاحي.</dd>
+                        <dt data-i18n="ex1_def5_title">موسوعة ماغون:</dt>
+                        <dd data-i18n="ex1_def5_subtitle">موسوعة فلاحية قرطاجية وضعها ماغون (عالم الفلاحة القرطاجي)، تضمنت نصائح وتقنيات الزراعة وكيفية التعامل مع العمال وطرق صناعة الخمور وزيت الزيتون، وقد استفاد الرومان منها إثر قرار مجلس الشيوخ بترجمتها إلى اللغة اللاتينية.</dd>
+                        <dt data-i18n="ex1_def6_title">أهراء روما:</dt>
+                        <dd data-i18n="ex1_def6_subtitle">لقب أُطلق على إفريقيا البروقنصلية في القرن الثاني ميلادي بفضل طفرة إنتاج الحبوب والزيتون، إذ أصبحت المزود الرئيسي لروما، وانفردت بتوفير حاجياتها من الإنتاج الفلاحي منذ نهاية القرن الثالث ميلادي (زيوت، حبوب، خمور).</dd>
+                    </dl>
+                </div>
+            </div>
+            <!-- Exercise 2 – Type 2: Document / Map -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">تأمل الخريطة التالية التي تمثل المجال الفلاحي بإفريقيا البروقنصلية، وبيّن أهم المنتوجات الفلاحية ومناطق انتشارها.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets1sec/exercises/history/unit1/lesson2/roman_africa_agriculture_map.png"
+                         alt="خريطة المجال الفلاحي بإفريقيا البروقنصلية"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex2DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex2answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex2answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets1sec/exercises/history/unit1/lesson2/roman_africa_agriculture_answer.png"
+                             alt="نموذج الإجابة – المجال الفلاحي بإفريقيا البروقنصلية"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex2AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex2A">
+                        ازدهرت الفلاحة بولاية إفريقيا البروقنصلية، واكتسحت الكروم والزياتين مناطق الشمال والساحل الشرقي، وامتدت إلى الوسط والجنوب، بالإضافة إلى إنتاج الحبوب وتربية الماشية والصيد البحري. وقد تميز الإنتاج الفلاحي بضخامته، فارتفعت صادرات الحبوب نحو روما بتوفير ثلثي حاجياتها. وانفردت ولاية إفريقيا البروقنصلية بتوفير حاجيات روما من الإنتاج الفلاحي منذ نهاية القرن الثالث ميلادي (زيوت، حبوب، خمور).
+                    </p>
+                </div>
+            </div>
+            <!-- Exercise 3 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن أهم المنتوجات الفلاحية بإفريقيا البروقنصلية وترتيبها.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex3Q_table_product">المنتوج الفلاحي</th>
+                            <th data-i18n="ex3Q_table_order">ترتيب الأهمية</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_grain">الحبوب</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_oil">الزيتون والزيوت</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_wine">الكروم والخمور</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_livestock">تربية الماشية</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex3Q_table_fishing">الصيد البحري</td>
+                            <td>5</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex3Q_source">المصدر: معطيات الدرس حول الازدهار الفلاحي بإفريقيا البروقنصلية</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex3answer', 'ex3chartContainer', ex3ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex3answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex3chartContainer"></div>
+                </div>
+            </div>
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل عوامل الازدهار الفلاحي بإفريقيا البروقنصلية في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        عوامل الازدهار الفلاحي بإفريقيا البروقنصلية:
+                        - سياسة روما المشجعة للفلاحة: إصدار قوانين مشجعة بداية من القرن الأول ميلادي، ومنها قانون منسيانا (إعفاء الفلاح الصغير من دفع الضرائب على أشجار الزياتين الحديثة) وقانون هدريانا (امتيازات جبائية هامة لمزارعي الزياتين والأشجار المثمرة، والسماح باستغلال الأراضي البور، وتوفير المنشآت المائية).
+                        - تهدف هذه القرارات إلى إدماج السكان الأصليين واستغلالهم لخدمة مصالح روما في إطار سياسة الرومنة.
+                        - المسح العقاري: تحديد الممتلكات الفلاحية بهدف تنمية المجال الفلاحي.
+                        - أهمية الموروث القرطاجي: اهتمام القرطاجيين بغراسة الزياتين والأشجار المثمرة، ووضعهم لأساليب وتقنيات الإنتاج الفلاحي (موسوعة ماغون) التي استفاد منها الرومان بعد ترجمتها إلى اللاتينية.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        تتعدد عوامل الازدهار الفلاحي بإفريقيا البروقنصلية وتتداخل بين ما هو سياسي وما هو موروث حضاري. فقد أبدت روما اهتمامًا خاصًا بالفلاحة، إذ أصدرت بداية من القرن الأول ميلادي عدة قوانين مشجعة، منها قانون منسيانا الذي ينص على إعفاء الفلاح الصغير من دفع الضرائب على أشجار الزياتين التي غرسها حديثًا ولم تبلغ طور الإنتاج، وقانون هدريانا الذي مكّن مزارعي الزياتين والأشجار المثمرة من امتيازات جبائية هامة، وسمح باستغلال الأراضي البور، ووفّر المنشآت المائية. وتهدف هذه القرارات إلى إدماج السكان الأصليين واستغلالهم لخدمة مصالح روما في إطار ما سمي بسياسة الرومنة. كما عملت السلطات الرومانية على تحديد الممتلكات الفلاحية عبر المسح العقاري بهدف تنمية المجال الفلاحي. ولم تكن هذه العوامل وحدها كافية، بل كان للموروث القرطاجي دور هام، إذ اهتم القرطاجيون بغراسة الزياتين والأشجار المثمرة ووضعوا أساليب وتقنيات الإنتاج الفلاحي، ومنها موسوعة ماغون (عالم الفلاحة القرطاجي) التي تضمنت نصائح وتقنيات الزراعة وكيفية التعامل مع العمال وطرق صناعة الخمور وزيت الزيتون، وقد استفاد الرومان منها إثر قرار مجلس الشيوخ بترجمتها إلى اللغة اللاتينية.
+                    </div>
+                </div>
+            </div>
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً حول الازدهار الفلاحي بإفريقيا البروقنصلية، مبرزاً مظاهره ودوره في تطوير بقية الأنشطة الاقتصادية.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        مثلت قرطاج عاصمة إفريقيا البروقنصلية الرومانية، وأصبحت المزود الرئيسي لروما بالمواد الفلاحية. وقد ازدهرت الفلاحة بفضل سياسة روما المشجعة (قانونا منسيانا وهدريانا والمسح العقاري) وأهمية الموروث القرطاجي (موسوعة ماغون). وتمثلت مظاهر الازدهار في تنوع الأنشطة (الكروم، الزياتين، الحبوب، تربية الماشية، الصيد البحري) وضخامة الإنتاج (توفير ثلثي حاجيات روما من الحبوب، والانفراد بتوفير حاجياتها من الزيوت والحبوب والخمور منذ نهاية القرن الثالث ميلادي). وقد ساهم هذا الازدهار في تطوير الصناعة (معاصر الزيتون وصناعة الخزف) والتجارة الداخلية والخارجية عبر الموانئ المتوسطية.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تقديم إفريقيا البروقنصلية كمزود رئيسي لروما بالمواد الفلاحية.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. عوامل الازدهار الفلاحي (سياسة روما المشجعة والموروث القرطاجي)؛ ثانياً. مظاهر الازدهار الفلاحي (تنوع الأنشطة وضخامة الإنتاج)؛ ثالثاً. دور الازدهار الفلاحي في تطوير الصناعة والتجارة.</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: حصيلة الازدهار الفلاحي وأثره على الاقتصاد الروماني.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">مثلت قرطاج عاصمة إفريقيا البروقنصلية الرومانية، وأصبحت المزود الرئيسي لروما بالمواد الفلاحية. وقد بلغت هذه الولاية ازدهارًا فلاحيًا ملحوظًا ساهم بدوره في ازدهار بقية القطاعات الاقتصادية.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_factors">أولاً. عوامل الازدهار الفلاحي</h4>
+                        <p data-i18n="ex5A_production_p_factors">يُفسَّر الازدهار الفلاحي بعاملين أساسيين: أولاً سياسة روما المشجعة للفلاحة، إذ أصدرت بداية من القرن الأول ميلادي عدة قوانين مشجعة، منها قانون منسيانا الذي ينص على إعفاء الفلاح الصغير من دفع الضرائب على أشجار الزياتين التي غرسها حديثًا ولم تبلغ طور الإنتاج، وقانون هدريانا (نسبة إلى الإمبراطور هدريانوس) الذي مكّن مزارعي الزياتين والأشجار المثمرة من امتيازات جبائية هامة، وسمح باستغلال الأراضي البور، ووفّر المنشآت المائية. وتهدف هذه القرارات إلى إدماج السكان الأصليين واستغلالهم لخدمة مصالح روما في إطار سياسة الرومنة، وقد قامت السلطات الرومانية أيضًا بالمسح العقاري لتحديد الممتلكات الفلاحية. وثانيًا أهمية الموروث القرطاجي، إذ اهتم القرطاجيون بغراسة الزياتين والأشجار المثمرة ووضعوا أساليب وتقنيات الإنتاج الفلاحي، ومنها موسوعة ماغون التي تضمنت نصائح وتقنيات الزراعة وكيفية التعامل مع العمال وطرق صناعة الخمور وزيت الزيتون، وقد استفاد الرومان منها إثر قرار مجلس الشيوخ بترجمتها إلى اللغة اللاتينية.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_manifestations">ثانياً. مظاهر الازدهار الفلاحي</h4>
+                        <p data-i18n="ex5A_production_p_manifestations">تمثلت مظاهر الازدهار الفلاحي في تنوع الأنشطة وضخامة الإنتاج. فازدهرت الفلاحة بولاية إفريقيا البروقنصلية، واكتسحت الكروم والزياتين مناطق الشمال والساحل الشرقي، وامتدت إلى الوسط والجنوب، بالإضافة إلى إنتاج الحبوب وتربية الماشية والصيد البحري. وتميز الإنتاج الفلاحي بضخامته، فارتفعت صادرات الحبوب نحو روما بتوفير ثلثي حاجياتها، وانفردت ولاية إفريقيا البروقنصلية بتوفير حاجيات روما من الإنتاج الفلاحي منذ نهاية القرن الثالث ميلادي (زيوت، حبوب، خمور).</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_role">ثالثاً. دور الازدهار الفلاحي في تطوير بقية الأنشطة الاقتصادية</h4>
+                        <p data-i18n="ex5A_production_p_role">ساهم الازدهار الفلاحي في ازدهار الصناعة، إذ نمت الصناعات الضرورية لتحويل الإنتاج الفلاحي كمعاصر الزيتون، وازدهرت صناعة الخزف لخزن ونقل المنتوجات الفلاحية. كما ساهم في ازدهار التجارة، إذ انتعشت التجارة الخارجية وتكثفت الصادرات الفلاحية عبر الموانئ المتوسطية مع بقية بلدان المتوسط، وتكثفت التجارة الداخلية حيث تعددت الأسواق والمحلات التجارية لبيع مختلف المنتوجات (فلاحية وحرفية).</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا بلغت إفريقيا البروقنصلية ازدهارًا فلاحيًا بفضل سياسة روما المشجعة للفلاحة وأهمية الموروث القرطاجي، وهو ما ساهم بدوره في ازدهار الصناعة والتجارة الداخلية والخارجية، وجعل من هذه الولاية أحد أعمدة الاقتصاد الروماني في العهد الإمبراطوري.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: بداية إصدار روما للقوانين المشجعة للفلاحة (القرن الأول ميلادي)، حكم الإمبراطور هدريانوس (171م – 138م)، انفراد إفريقيا البروقنصلية بتوفير حاجيات روما من الإنتاج الفلاحي (نهاية القرن الثالث ميلادي)، وفاة القديس أوغسطينوس (430م).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: القرن الأول ميلادي: بداية إصدار القوانين المشجعة للفلاحة ... 171م – 138م: حكم الإمبراطور هدريانوس ... نهاية القرن الثالث ميلادي: انفراد إفريقيا البروقنصلية بتوفير حاجيات روما من الإنتاج الفلاحي ... 430م: وفاة القديس أوغسطينوس.
+                    </p>
+                </div>
+            </div>
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y1sec_his_lessons_mod1_lesson2_part2.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online", offlineStatus: "Offline",
+                installBtn: "📲 Install App", themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.", updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use", contact: "Contact",
+                    developer: "developed by: Mejri Ziad.", hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in", signUp: "Create account", signOut: "Sign out",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Password",
+                    cancel: "Cancel", continue: "Continue",
+                    switchToSignUp: "Create an account", switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?", forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile", buttonTitle: "View and edit your profile", title: "My Profile",
+                        loading: "Loading profile…", saveChanges: "Save Changes", completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username", avatarLabel: "Choose an avatar", uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove", createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental", professionLabel: "Profession",
+                        studentOption: "Student", teacherOption: "Teacher", otherOption: "Other",
+                        classLabel: "Class / Grade", birthdayLabel: "Birthday", languageLabel: "Preferred language",
+                        langEnglish: "English", langFrench: "Français", langArabic: "العربية",
+                        modeLabel: "Preferred mode", modeLight: "Light", modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend", howSocial: "Social media", howSearch: "Search engine", howOther: "Other",
+                        saveContinue: "Save & Continue", back: "Back",
+                        usernameRequired: "Please enter a username.", professionRequired: "Please select a profession.",
+                        grade7: "7th grade", grade8: "8th grade", grade9: "9th grade", grade10: "10th grade",
+                        grade11: "11th grade", grade12: "12th grade",
+                        saving: "Saving…", saveSuccess: "Profile saved successfully!", loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.", saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon", exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice", goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler", "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne", offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application", themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.", updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'", confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation", contact: "Contact",
+                    developer: "développé par : Mejri Ziad.", hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter", signUp: "Créer un compte", signOut: "Se déconnecter",
+                    emailPlaceholder: "Email", passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler", continue: "Continuer",
+                    switchToSignUp: "Créer un compte", switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?", forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil", buttonTitle: "Voir et modifier votre profil", title: "Mon Profil",
+                        loading: "Chargement du profil…", saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil", usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar", uploadAvatar: "📷 Télécharger", removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé", experimentalNote: "encore expérimental",
+                        professionLabel: "Profession", studentOption: "Élève", teacherOption: "Enseignant", otherOption: "Autre",
+                        classLabel: "Classe / Niveau", birthdayLabel: "Date de naissance", languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré", lightOption: "Clair", darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami", howSocial: "Réseaux sociaux", howSearch: "Moteur de recherche", howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer", back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème", grade8: "4ème", grade9: "3ème", grade10: "Seconde", grade11: "Première", grade12: "Terminale",
+                        saving: "Enregistrement…", saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس", exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين", goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء", "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل", offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق", themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.", updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'", confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام", contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.", hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول", signUp: "إنشاء حساب", signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني", passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء", continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب", switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟", forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي", buttonTitle: "عرض وتعديل ملفك الشخصي", title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…", saveChanges: "حفظ التغييرات", completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم", avatarLabel: "اختر صورة رمزية", uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة", createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا", professionLabel: "المهنة",
+                        studentOption: "طالب", teacherOption: "معلم", otherOption: "أخرى",
+                        classLabel: "الصف / المستوى", birthdayLabel: "تاريخ الميلاد", languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل", lightOption: "فاتح", darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق", howSocial: "وسائل التواصل الاجتماعي", howSearch: "محرك بحث", howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة", back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.", professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع", grade8: "الصف الثامن", grade9: "الصف التاسع", grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر", grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…", saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+    </script>
+    <script>
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "1st Secondary",
+                exerciseTitle: "Exercises – Carthage and Its Contributions to Roman Civilization: Economic Prosperity – Agriculture",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: The Mancian Law, The Hadrianic Law, Policy of Romanization, The Land Survey, Encyclopedia of Mago, Granary of Rome.",
+                ex1_def1_title: "The Mancian Law:",
+                ex1_def1_subtitle: "A Roman law encouraging agriculture, issued from the beginning of the 1st century AD, stipulating the exemption of the small farmer from paying taxes on newly planted olive trees that had not yet reached the production stage.",
+                ex1_def2_title: "The Hadrianic Law:",
+                ex1_def2_subtitle: "A Roman law encouraging agriculture, named after Emperor Hadrian, who belonged to the Antonine family and ruled between 171 AD and 138 AD. It granted olive and fruit tree growers important tax privileges, allowed the exploitation of fallow land, and provided water facilities.",
+                ex1_def3_title: "Policy of Romanization:",
+                ex1_def3_subtitle: "A policy adopted by Rome aimed at integrating native populations and exploiting them in the service of Rome's interests. Among its manifestations was the issuance of laws encouraging agriculture.",
+                ex1_def4_title: "The Land Survey:",
+                ex1_def4_subtitle: "An operation carried out by the Roman authorities to determine agricultural properties with the aim of developing the agricultural space.",
+                ex1_def5_title: "Encyclopedia of Mago:",
+                ex1_def5_subtitle: "A Carthaginian agricultural encyclopedia compiled by Mago (the Carthaginian agricultural scholar), including advice and techniques of agriculture, how to deal with workers, and methods of making wine and olive oil. The Romans benefited from it following the Senate's decision to translate it into Latin.",
+                ex1_def6_title: "Granary of Rome:",
+                ex1_def6_subtitle: "A title given to Africa Proconsularis in the 2nd century AD thanks to the boom in grain and olive production, as it became Rome's main supplier, and became the sole provider of its needs for agricultural production from the end of the 3rd century AD (oils, grains, wines).",
+                ex2Q: "Observe the following map representing the agricultural space in Africa Proconsularis, and identify the main agricultural products and their areas of distribution.",
+                ex2DocAlt: "Map of the agricultural space in Africa Proconsularis",
+                ex2AnswerImgAlt: "Answer model – Agricultural space in Africa Proconsularis",
+                ex2A: "Agriculture flourished in the province of Africa Proconsularis. Vineyards and olive trees spread across the northern and eastern coastal regions and extended to the center and south, in addition to grain production, livestock raising, and fishing. Agricultural production was characterized by its magnitude; grain exports to Rome rose, providing two-thirds of its needs. The province of Africa Proconsularis became the sole provider of Rome's needs for agricultural production from the end of the 3rd century AD (oils, grains, wines).",
+                ex3Q: "Convert the following table data into a bar chart showing the main agricultural products of Africa Proconsularis and their ranking.",
+                ex3Q_table_product: "Agricultural product",
+                ex3Q_table_order: "Ranking of importance",
+                ex3Q_table_grain: "Grains",
+                ex3Q_table_oil: "Olives and oils",
+                ex3Q_table_wine: "Vineyards and wines",
+                ex3Q_table_livestock: "Livestock raising",
+                ex3Q_table_fishing: "Fishing",
+                ex3Q_source: "Source: Lesson data on agricultural prosperity in Africa Proconsularis",
+                ex3A_title: "Main Agricultural Products of Africa Proconsularis and Their Ranking",
+                ex3A_source: "Source: Lesson data on agricultural prosperity in Africa Proconsularis",
+                ex3A_scale: "Scale: 0–6; column height indicates ranking of importance.",
+                ex3A_key_label: "Key:",
+                ex4Q: "Analyse the factors of agricultural prosperity in Africa Proconsularis in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Factors of agricultural prosperity in Africa Proconsularis:\n- Rome's policy encouraging agriculture: issuing encouraging laws from the beginning of the 1st century AD, including the Mancian Law (exempting the small farmer from paying taxes on newly planted olive trees) and the Hadrianic Law (important tax privileges for olive and fruit tree growers, allowing the exploitation of fallow land, and providing water facilities).\n- These decisions aimed to integrate the native populations and exploit them in the service of Rome's interests within the policy of Romanization.\n- The Land Survey: determining agricultural properties with the aim of developing the agricultural space.\n- The importance of the Punic heritage: the Carthaginians' interest in planting olive trees and fruit trees, and their establishment of methods and techniques of agricultural production (the Encyclopedia of Mago), from which the Romans benefited after its translation into Latin.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "The factors of agricultural prosperity in Africa Proconsularis are multiple and interlocking between what is political and what is a civilizational heritage. Rome showed particular interest in agriculture, issuing from the beginning of the 1st century AD several encouraging laws, including the Mancian Law, which stipulates exempting the small farmer from paying taxes on newly planted olive trees that had not yet reached the production stage, and the Hadrianic Law, which granted olive and fruit tree growers important tax privileges, allowed the exploitation of fallow land, and provided water facilities. These decisions aimed to integrate the native populations and exploit them in the service of Rome's interests within what was called the policy of Romanization. The Roman authorities also worked to determine agricultural properties through the land survey with the aim of developing the agricultural space. These factors alone were not sufficient; the Punic heritage also played an important role, as the Carthaginians were interested in planting olive trees and fruit trees and established methods and techniques of agricultural production, including the Encyclopedia of Mago (the Carthaginian agricultural scholar), which included advice and techniques of agriculture, how to deal with workers, and methods of making wine and olive oil. The Romans benefited from it following the Senate's decision to translate it into Latin.",
+                ex5Q: "Write a short article on agricultural prosperity in Africa Proconsularis, highlighting its manifestations and its role in developing the other economic sectors.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Carthage represented the capital of Roman Africa Proconsularis and became the main supplier of agricultural products to Rome. Agriculture flourished thanks to Rome's encouraging policy (the Mancian and Hadrianic laws and the land survey) and the importance of the Carthaginian heritage (the Encyclopedia of Mago). The manifestations of prosperity consisted of the diversity of activities (vineyards, olive trees, grains, livestock, fishing) and the magnitude of production (providing two-thirds of Rome's grain needs, and becoming the sole provider of its needs for oils, grains, and wines from the end of the 3rd century AD). This prosperity contributed to the development of industry (olive presses and the pottery industry) and internal and external trade through Mediterranean ports.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Presenting Africa Proconsularis as the main supplier of agricultural products to Rome.",
+                ex5A_plan_li2: "Development: I. Factors of agricultural prosperity (Rome's encouraging policy and the Carthaginian heritage); II. Manifestations of agricultural prosperity (diversity of activities and magnitude of production); III. The role of agricultural prosperity in developing industry and trade.",
+                ex5A_plan_li3: "Conclusion: The outcome of agricultural prosperity and its impact on the Roman economy.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Carthage represented the capital of Roman Africa Proconsularis and became the main supplier of agricultural products to Rome. This province achieved remarkable agricultural prosperity, which in turn contributed to the prosperity of the rest of the economic sectors.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_factors: "I. Factors of Agricultural Prosperity",
+                ex5A_production_p_factors: "Agricultural prosperity is explained by two main factors: first, Rome's policy encouraging agriculture, as it issued from the beginning of the 1st century AD several encouraging laws, including the Mancian Law, which stipulates exempting the small farmer from paying taxes on newly planted olive trees that had not yet reached the production stage, and the Hadrianic Law (named after Emperor Hadrian), which granted olive and fruit tree growers important tax privileges, allowed the exploitation of fallow land, and provided water facilities. These decisions aimed to integrate the native populations and exploit them in the service of Rome's interests within the policy of Romanization, and the Roman authorities also carried out the land survey to determine agricultural properties. Second, the importance of the Punic heritage, as the Carthaginians were interested in planting olive trees and fruit trees and established methods and techniques of agricultural production, including the Encyclopedia of Mago, which included advice and techniques of agriculture, how to deal with workers, and methods of making wine and olive oil. The Romans benefited from it following the Senate's decision to translate it into Latin.",
+                ex5A_production_h4_manifestations: "II. Manifestations of Agricultural Prosperity",
+                ex5A_production_p_manifestations: "The manifestations of agricultural prosperity consisted of the diversity of activities and the magnitude of production. Agriculture flourished in the province of Africa Proconsularis; vineyards and olive trees spread across the northern and eastern coastal regions and extended to the center and south, in addition to grain production, livestock raising, and fishing. Agricultural production was characterized by its magnitude; grain exports to Rome rose, providing two-thirds of its needs, and the province of Africa Proconsularis became the sole provider of Rome's needs for agricultural production from the end of the 3rd century AD (oils, grains, wines).",
+                ex5A_production_h4_role: "III. The Role of Agricultural Prosperity in Developing the Other Economic Sectors",
+                ex5A_production_p_role: "Agricultural prosperity contributed to the prosperity of industry, as industries necessary for processing agricultural production such as olive presses grew, and the pottery industry flourished for storing and transporting agricultural products. It also contributed to the prosperity of trade, as foreign trade revived and agricultural exports intensified through Mediterranean ports with the rest of the Mediterranean countries, and internal trade intensified with markets and commercial shops multiplying to sell various products (agricultural and artisanal).",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus Africa Proconsularis achieved agricultural prosperity thanks to Rome's policy encouraging agriculture and the importance of the Carthaginian heritage, which in turn contributed to the prosperity of industry and internal and external trade, making this province one of the pillars of the Roman economy in the imperial era.",
+                ex6Q: "Create a timeline of the following events: Beginning of Rome's issuance of laws encouraging agriculture (1st century AD), Reign of Emperor Hadrian (171 AD – 138 AD), Africa Proconsularis becoming the sole provider of Rome's needs for agricultural production (end of the 3rd century AD), Death of Saint Augustine (430 AD).",
+                ex6A: "Timeline: 1st century AD: Beginning of the issuance of laws encouraging agriculture ... 171 AD – 138 AD: Reign of Emperor Hadrian ... End of the 3rd century AD: Africa Proconsularis becoming the sole provider of Rome's needs for agricultural production ... 430 AD: Death of Saint Augustine.",
+                ex6_timeline_title: "Key Dates in the Agricultural Prosperity of Africa Proconsularis",
+                ex6_event_1st_label: "Encouraging laws for agriculture",
+                ex6_event_1st_sub: "1st c. AD",
+                ex6_event_hadrian_label: "Reign of Emperor Hadrian",
+                ex6_event_hadrian_sub: "171 – 138 AD",
+                ex6_event_3rd_label: "Africa Proconsularis, sole provider of Rome",
+                ex6_event_3rd_sub: "End of 3rd c. AD",
+                ex6_event_430_label: "Death of Saint Augustine",
+                ex6_event_430_sub: "430 AD",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                exerciseTitle: "Exercices – Carthage et ses apports à la civilisation romaine : La prospérité économique – L'agriculture",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : La loi Manciana, La loi Hadrianique, Politique de romanisation, Le cadastre, Encyclopédie de Magon, Grenier de Rome.",
+                ex1_def1_title: "La loi Manciana :",
+                ex1_def1_subtitle: "Une loi romaine encourageant l'agriculture, promulguée à partir du début du Ier siècle apr. J.-C., stipulant l'exemption du petit agriculteur du paiement des impôts sur les oliviers nouvellement plantés qui n'avaient pas encore atteint le stade de la production.",
+                ex1_def2_title: "La loi Hadrianique :",
+                ex1_def2_subtitle: "Une loi romaine encourageant l'agriculture, nommée d'après l'empereur Hadrien, qui appartenait à la famille des Antonins et régna entre 171 apr. J.-C. et 138 apr. J.-C. Elle accorda aux cultivateurs d'oliviers et d'arbres fruitiers d'importants privilèges fiscaux, permit l'exploitation des terres en friche et fournit des équipements hydrauliques.",
+                ex1_def3_title: "Politique de romanisation :",
+                ex1_def3_subtitle: "Une politique adoptée par Rome visant à intégrer les populations autochtones et à les exploiter au service des intérêts de Rome. Parmi ses manifestations figurait la promulgation de lois encourageant l'agriculture.",
+                ex1_def4_title: "Le cadastre :",
+                ex1_def4_subtitle: "Une opération menée par les autorités romaines pour délimiter les propriétés agricoles dans le but de développer l'espace agricole.",
+                ex1_def5_title: "Encyclopédie de Magon :",
+                ex1_def5_subtitle: "Une encyclopédie agricole carthaginoise compilée par Magon (le savant agricole carthaginois), comprenant des conseils et des techniques agricoles, la manière de traiter avec les ouvriers et les méthodes de fabrication du vin et de l'huile d'olive. Les Romains en ont bénéficié à la suite de la décision du Sénat de la traduire en latin.",
+                ex1_def6_title: "Grenier de Rome :",
+                ex1_def6_subtitle: "Un titre donné à l'Afrique proconsulaire au IIe siècle apr. J.-C. grâce à l'essor de la production de céréales et d'olives, puisqu'elle est devenue le principal fournisseur de Rome, et est devenue l'unique fournisseur de ses besoins en production agricole à partir de la fin du IIIe siècle apr. J.-C. (huiles, céréales, vins).",
+                ex2Q: "Observez la carte suivante représentant l'espace agricole en Afrique proconsulaire, et identifiez les principaux produits agricoles et leurs zones de répartition.",
+                ex2DocAlt: "Carte de l'espace agricole en Afrique proconsulaire",
+                ex2AnswerImgAlt: "Modèle de réponse – Espace agricole en Afrique proconsulaire",
+                ex2A: "L'agriculture a prospéré dans la province d'Afrique proconsulaire. Les vignes et les oliviers ont envahi les régions du Nord et de la côte orientale et se sont étendus au centre et au sud, en plus de la production de céréales, de l'élevage et de la pêche. La production agricole se caractérisait par son ampleur ; les exportations de céréales vers Rome ont augmenté, fournissant les deux tiers de ses besoins. La province d'Afrique proconsulaire est devenue l'unique fournisseur des besoins de Rome en production agricole à partir de la fin du IIIe siècle apr. J.-C. (huiles, céréales, vins).",
+                ex3Q: "Convertissez les données du tableau suivant en diagramme à barres montrant les principaux produits agricoles de l'Afrique proconsulaire et leur classement.",
+                ex3Q_table_product: "Produit agricole",
+                ex3Q_table_order: "Classement d'importance",
+                ex3Q_table_grain: "Céréales",
+                ex3Q_table_oil: "Oliviers et huiles",
+                ex3Q_table_wine: "Vignes et vins",
+                ex3Q_table_livestock: "Élevage",
+                ex3Q_table_fishing: "Pêche",
+                ex3Q_source: "Source : Données de la leçon sur la prospérité agricole en Afrique proconsulaire",
+                ex3A_title: "Principaux produits agricoles de l'Afrique proconsulaire et leur classement",
+                ex3A_source: "Source : Données de la leçon sur la prospérité agricole en Afrique proconsulaire",
+                ex3A_scale: "Échelle : 0–6 ; hauteur des colonnes indique le classement d'importance.",
+                ex3A_key_label: "Légende :",
+                ex4Q: "Analysez les facteurs de la prospérité agricole en Afrique proconsulaire en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Facteurs de la prospérité agricole en Afrique proconsulaire :\n- La politique de Rome encourageant l'agriculture : promulgation de lois encourageantes à partir du début du Ier siècle apr. J.-C., dont la loi Manciana (exemption du petit agriculteur du paiement des impôts sur les oliviers nouvellement plantés) et la loi Hadrianique (importants privilèges fiscaux pour les cultivateurs d'oliviers et d'arbres fruitiers, autorisation d'exploiter les terres en friche et fourniture d'équipements hydrauliques).\n- Ces décisions visaient à intégrer les populations autochtones et à les exploiter au service des intérêts de Rome dans le cadre de la politique de romanisation.\n- Le cadastre : délimitation des propriétés agricoles dans le but de développer l'espace agricole.\n- L'importance de l'héritage punique : l'intérêt des Carthaginois pour la plantation d'oliviers et d'arbres fruitiers, et l'établissement de méthodes et techniques de production agricole (l'encyclopédie de Magon), dont les Romains ont bénéficié après sa traduction en latin.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "Les facteurs de la prospérité agricole en Afrique proconsulaire sont multiples et imbriqués entre ce qui est politique et ce qui est un héritage civilisationnel. Rome a montré un intérêt particulier pour l'agriculture, promulguant dès le début du Ier siècle apr. J.-C. plusieurs lois encourageantes, dont la loi Manciana, qui stipule l'exemption du petit agriculteur du paiement des impôts sur les oliviers nouvellement plantés qui n'avaient pas encore atteint le stade de la production, et la loi Hadrianique, qui a accordé aux cultivateurs d'oliviers et d'arbres fruitiers d'importants privilèges fiscaux, a permis l'exploitation des terres en friche et a fourni des équipements hydrauliques. Ces décisions visaient à intégrer les populations autochtones et à les exploiter au service des intérêts de Rome dans le cadre de ce qu'on a appelé la politique de romanisation. Les autorités romaines ont également œuvré à délimiter les propriétés agricoles par le cadastre dans le but de développer l'espace agricole. Ces facteurs seuls n'étaient pas suffisants ; l'héritage punique a également joué un rôle important, car les Carthaginois s'intéressaient à la plantation d'oliviers et d'arbres fruitiers et ont établi des méthodes et techniques de production agricole, dont l'encyclopédie de Magon (le savant agricole carthaginois), qui comprenait des conseils et des techniques agricoles, la manière de traiter avec les ouvriers et les méthodes de fabrication du vin et de l'huile d'olive. Les Romains en ont bénéficié à la suite de la décision du Sénat de la traduire en latin.",
+                ex5Q: "Rédigez un court article sur la prospérité agricole en Afrique proconsulaire, en soulignant ses manifestations et son rôle dans le développement des autres secteurs économiques.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Carthage représentait la capitale de l'Afrique proconsulaire romaine et est devenue le principal fournisseur de produits agricoles de Rome. L'agriculture a prospéré grâce à la politique encourageante de Rome (les lois Manciana et Hadrianique et le cadastre) et à l'importance de l'héritage carthaginois (l'encyclopédie de Magon). Les manifestations de la prospérité ont consisté en la diversité des activités (vignes, oliviers, céréales, élevage, pêche) et l'ampleur de la production (fourniture des deux tiers des besoins de Rome en céréales, et unicité de la fourniture de ses besoins en huiles, céréales et vins à partir de la fin du IIIe siècle apr. J.-C.). Cette prospérité a contribué au développement de l'industrie (pressoirs à huile et industrie de la poterie) et du commerce intérieur et extérieur via les ports méditerranéens.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : Présenter l'Afrique proconsulaire comme le principal fournisseur de produits agricoles de Rome.",
+                ex5A_plan_li2: "Développement : I. Facteurs de la prospérité agricole (politique encourageante de Rome et héritage carthaginois) ; II. Manifestations de la prospérité agricole (diversité des activités et ampleur de la production) ; III. Le rôle de la prospérité agricole dans le développement de l'industrie et du commerce.",
+                ex5A_plan_li3: "Conclusion : Le bilan de la prospérité agricole et son impact sur l'économie romaine.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Carthage représentait la capitale de l'Afrique proconsulaire romaine et est devenue le principal fournisseur de produits agricoles de Rome. Cette province a atteint une prospérité agricole remarquable, qui a contribué à son tour à la prospérité du reste des secteurs économiques.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_factors: "I. Facteurs de la prospérité agricole",
+                ex5A_production_p_factors: "La prospérité agricole s'explique par deux facteurs principaux : d'abord, la politique de Rome encourageant l'agriculture, puisqu'elle a promulgué dès le début du Ier siècle apr. J.-C. plusieurs lois encourageantes, dont la loi Manciana, qui stipule l'exemption du petit agriculteur du paiement des impôts sur les oliviers nouvellement plantés qui n'avaient pas encore atteint le stade de la production, et la loi Hadrianique (nommée d'après l'empereur Hadrien), qui a accordé aux cultivateurs d'oliviers et d'arbres fruitiers d'importants privilèges fiscaux, a permis l'exploitation des terres en friche et a fourni des équipements hydrauliques. Ces décisions visaient à intégrer les populations autochtones et à les exploiter au service des intérêts de Rome dans le cadre de la politique de romanisation, et les autorités romaines ont également procédé au cadastre pour délimiter les propriétés agricoles. Ensuite, l'importance de l'héritage punique, car les Carthaginois s'intéressaient à la plantation d'oliviers et d'arbres fruitiers et ont établi des méthodes et techniques de production agricole, dont l'encyclopédie de Magon, qui comprenait des conseils et des techniques agricoles, la manière de traiter avec les ouvriers et les méthodes de fabrication du vin et de l'huile d'olive. Les Romains en ont bénéficié à la suite de la décision du Sénat de la traduire en latin.",
+                ex5A_production_h4_manifestations: "II. Manifestations de la prospérité agricole",
+                ex5A_production_p_manifestations: "Les manifestations de la prospérité agricole ont consisté en la diversité des activités et l'ampleur de la production. L'agriculture a prospéré dans la province d'Afrique proconsulaire ; les vignes et les oliviers ont envahi les régions du Nord et de la côte orientale et se sont étendus au centre et au sud, en plus de la production de céréales, de l'élevage et de la pêche. La production agricole se caractérisait par son ampleur ; les exportations de céréales vers Rome ont augmenté, fournissant les deux tiers de ses besoins, et la province d'Afrique proconsulaire est devenue l'unique fournisseur des besoins de Rome en production agricole à partir de la fin du IIIe siècle apr. J.-C. (huiles, céréales, vins).",
+                ex5A_production_h4_role: "III. Le rôle de la prospérité agricole dans le développement des autres secteurs économiques",
+                ex5A_production_p_role: "La prospérité agricole a contribué à la prospérité de l'industrie, car les industries nécessaires à la transformation de la production agricole comme les pressoirs à huile se sont développées, et l'industrie de la poterie a prospéré pour stocker et transporter les produits agricoles. Elle a également contribué à la prospérité du commerce, car le commerce extérieur a repris et les exportations agricoles se sont intensifiées via les ports méditerranéens avec le reste des pays méditerranéens, et le commerce intérieur s'est intensifié avec la multiplication des marchés et des boutiques commerciales pour vendre divers produits (agricoles et artisanaux).",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi l'Afrique proconsulaire a atteint une prospérité agricole grâce à la politique de Rome encourageant l'agriculture et à l'importance de l'héritage carthaginois, ce qui a contribué à son tour à la prospérité de l'industrie et du commerce intérieur et extérieur, faisant de cette province l'un des piliers de l'économie romaine à l'époque impériale.",
+                ex6Q: "Créez une chronologie des événements suivants : Début de la promulgation par Rome de lois encourageant l'agriculture (Ier siècle apr. J.-C.), Règne de l'empereur Hadrien (171 apr. J.-C. – 138 apr. J.-C.), L'Afrique proconsulaire devient l'unique fournisseur des besoins de Rome en production agricole (fin du IIIe siècle apr. J.-C.), Mort de Saint Augustin (430 apr. J.-C.).",
+                ex6A: "Chronologie : Ier siècle apr. J.-C. : Début de la promulgation de lois encourageant l'agriculture ... 171 apr. J.-C. – 138 apr. J.-C. : Règne de l'empereur Hadrien ... Fin du IIIe siècle apr. J.-C. : L'Afrique proconsulaire devient l'unique fournisseur des besoins de Rome en production agricole ... 430 apr. J.-C. : Mort de Saint Augustin.",
+                ex6_timeline_title: "Dates clés de la prospérité agricole de l'Afrique proconsulaire",
+                ex6_event_1st_label: "Lois encourageant l'agriculture",
+                ex6_event_1st_sub: "Ier s. apr. J.-C.",
+                ex6_event_hadrian_label: "Règne de l'empereur Hadrien",
+                ex6_event_hadrian_sub: "171 – 138 apr. J.-C.",
+                ex6_event_3rd_label: "L'Afrique proconsulaire, unique fournisseur de Rome",
+                ex6_event_3rd_sub: "Fin du IIIe s. apr. J.-C.",
+                ex6_event_430_label: "Mort de Saint Augustin",
+                ex6_event_430_sub: "430 apr. J.-C.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                exerciseTitle: "تمارين – قرطاج وإسهاماتها في الحضارة الرومانية: الازدهار الاقتصادي – الفلاحة",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: قانون منسيانا، قانون هدريانا، سياسة الرومنة، المسح العقاري، موسوعة ماغون، أهراء روما.",
+                ex1_def1_title: "قانون منسيانا:",
+                ex1_def1_subtitle: "قانون روماني مشجع للفلاحة، صدر بداية من القرن الأول ميلادي، وينص على إعفاء الفلاح الصغير من دفع الضرائب على أشجار الزياتين التي غرسها حديثًا ولم تبلغ طور الإنتاج.",
+                ex1_def2_title: "قانون هدريانا:",
+                ex1_def2_subtitle: "قانون روماني مشجع للفلاحة، نسبة إلى الإمبراطور هدريانوس الذي ينتمي إلى عائلة الأنطونيين وحكم بين 171م و138م، مكّن مزارعي الزياتين والأشجار المثمرة من امتيازات جبائية هامة، وسمح باستغلال الأراضي البور، ووفّر المنشآت المائية.",
+                ex1_def3_title: "سياسة الرومنة:",
+                ex1_def3_subtitle: "سياسة انتهجتها روما، تهدف إلى إدماج السكان الأصليين واستغلالهم لخدمة مصالح روما، ومن بين مظاهرها إصدار القوانين المشجعة للفلاحة.",
+                ex1_def4_title: "المسح العقاري:",
+                ex1_def4_subtitle: "عملية قامت بها السلطات الرومانية لتحديد الممتلكات الفلاحية بهدف تنمية المجال الفلاحي.",
+                ex1_def5_title: "موسوعة ماغون:",
+                ex1_def5_subtitle: "موسوعة فلاحية قرطاجية وضعها ماغون (عالم الفلاحة القرطاجي)، تضمنت نصائح وتقنيات الزراعة وكيفية التعامل مع العمال وطرق صناعة الخمور وزيت الزيتون، وقد استفاد الرومان منها إثر قرار مجلس الشيوخ بترجمتها إلى اللغة اللاتينية.",
+                ex1_def6_title: "أهراء روما:",
+                ex1_def6_subtitle: "لقب أُطلق على إفريقيا البروقنصلية في القرن الثاني ميلادي بفضل طفرة إنتاج الحبوب والزيتون، إذ أصبحت المزود الرئيسي لروما، وانفردت بتوفير حاجياتها من الإنتاج الفلاحي منذ نهاية القرن الثالث ميلادي (زيوت، حبوب، خمور).",
+                ex2Q: "تأمل الخريطة التالية التي تمثل المجال الفلاحي بإفريقيا البروقنصلية، وبيّن أهم المنتوجات الفلاحية ومناطق انتشارها.",
+                ex2DocAlt: "خريطة المجال الفلاحي بإفريقيا البروقنصلية",
+                ex2AnswerImgAlt: "نموذج الإجابة – المجال الفلاحي بإفريقيا البروقنصلية",
+                ex2A: "ازدهرت الفلاحة بولاية إفريقيا البروقنصلية، واكتسحت الكروم والزياتين مناطق الشمال والساحل الشرقي، وامتدت إلى الوسط والجنوب، بالإضافة إلى إنتاج الحبوب وتربية الماشية والصيد البحري. وقد تميز الإنتاج الفلاحي بضخامته، فارتفعت صادرات الحبوب نحو روما بتوفير ثلثي حاجياتها. وانفردت ولاية إفريقيا البروقنصلية بتوفير حاجيات روما من الإنتاج الفلاحي منذ نهاية القرن الثالث ميلادي (زيوت، حبوب، خمور).",
+                ex3Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن أهم المنتوجات الفلاحية بإفريقيا البروقنصلية وترتيبها.",
+                ex3Q_table_product: "المنتوج الفلاحي",
+                ex3Q_table_order: "ترتيب الأهمية",
+                ex3Q_table_grain: "الحبوب",
+                ex3Q_table_oil: "الزيتون والزيوت",
+                ex3Q_table_wine: "الكروم والخمور",
+                ex3Q_table_livestock: "تربية الماشية",
+                ex3Q_table_fishing: "الصيد البحري",
+                ex3Q_source: "المصدر: معطيات الدرس حول الازدهار الفلاحي بإفريقيا البروقنصلية",
+                ex3A_title: "أهم المنتوجات الفلاحية بإفريقيا البروقنصلية وترتيبها",
+                ex3A_source: "المصدر: معطيات الدرس حول الازدهار الفلاحي بإفريقيا البروقنصلية",
+                ex3A_scale: "المقياس: 0–6؛ ارتفاع الأعمدة يدل على ترتيب الأهمية.",
+                ex3A_key_label: "المفتاح:",
+                ex4Q: "حلّل عوامل الازدهار الفلاحي بإفريقيا البروقنصلية في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "عوامل الازدهار الفلاحي بإفريقيا البروقنصلية:\n- سياسة روما المشجعة للفلاحة: إصدار قوانين مشجعة بداية من القرن الأول ميلادي، ومنها قانون منسيانا (إعفاء الفلاح الصغير من دفع الضرائب على أشجار الزياتين الحديثة) وقانون هدريانا (امتيازات جبائية هامة لمزارعي الزياتين والأشجار المثمرة، والسماح باستغلال الأراضي البور، وتوفير المنشآت المائية).\n- تهدف هذه القرارات إلى إدماج السكان الأصليين واستغلالهم لخدمة مصالح روما في إطار سياسة الرومنة.\n- المسح العقاري: تحديد الممتلكات الفلاحية بهدف تنمية المجال الفلاحي.\n- أهمية الموروث القرطاجي: اهتمام القرطاجيين بغراسة الزياتين والأشجار المثمرة، ووضعهم لأساليب وتقنيات الإنتاج الفلاحي (موسوعة ماغون) التي استفاد منها الرومان بعد ترجمتها إلى اللاتينية.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "تتعدد عوامل الازدهار الفلاحي بإفريقيا البروقنصلية وتتداخل بين ما هو سياسي وما هو موروث حضاري. فقد أبدت روما اهتمامًا خاصًا بالفلاحة، إذ أصدرت بداية من القرن الأول ميلادي عدة قوانين مشجعة، منها قانون منسيانا الذي ينص على إعفاء الفلاح الصغير من دفع الضرائب على أشجار الزياتين التي غرسها حديثًا ولم تبلغ طور الإنتاج، وقانون هدريانا الذي مكّن مزارعي الزياتين والأشجار المثمرة من امتيازات جبائية هامة، وسمح باستغلال الأراضي البور، ووفّر المنشآت المائية. وتهدف هذه القرارات إلى إدماج السكان الأصليين واستغلالهم لخدمة مصالح روما في إطار ما سمي بسياسة الرومنة. كما عملت السلطات الرومانية على تحديد الممتلكات الفلاحية عبر المسح العقاري بهدف تنمية المجال الفلاحي. ولم تكن هذه العوامل وحدها كافية، بل كان للموروث القرطاجي دور هام، إذ اهتم القرطاجيون بغراسة الزياتين والأشجار المثمرة ووضعوا أساليب وتقنيات الإنتاج الفلاحي، ومنها موسوعة ماغون (عالم الفلاحة القرطاجي) التي تضمنت نصائح وتقنيات الزراعة وكيفية التعامل مع العمال وطرق صناعة الخمور وزيت الزيتون، وقد استفاد الرومان منها إثر قرار مجلس الشيوخ بترجمتها إلى اللغة اللاتينية.",
+                ex5Q: "اكتب مقالاً قصيراً حول الازدهار الفلاحي بإفريقيا البروقنصلية، مبرزاً مظاهره ودوره في تطوير بقية الأنشطة الاقتصادية.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "مثلت قرطاج عاصمة إفريقيا البروقنصلية الرومانية، وأصبحت المزود الرئيسي لروما بالمواد الفلاحية. وقد ازدهرت الفلاحة بفضل سياسة روما المشجعة (قانونا منسيانا وهدريانا والمسح العقاري) وأهمية الموروث القرطاجي (موسوعة ماغون). وتمثلت مظاهر الازدهار في تنوع الأنشطة (الكروم، الزياتين، الحبوب، تربية الماشية، الصيد البحري) وضخامة الإنتاج (توفير ثلثي حاجيات روما من الحبوب، والانفراد بتوفير حاجياتها من الزيوت والحبوب والخمور منذ نهاية القرن الثالث ميلادي). وقد ساهم هذا الازدهار في تطوير الصناعة (معاصر الزيتون وصناعة الخزف) والتجارة الداخلية والخارجية عبر الموانئ المتوسطية.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تقديم إفريقيا البروقنصلية كمزود رئيسي لروما بالمواد الفلاحية.",
+                ex5A_plan_li2: "تطوير: أولاً. عوامل الازدهار الفلاحي (سياسة روما المشجعة والموروث القرطاجي)؛ ثانياً. مظاهر الازدهار الفلاحي (تنوع الأنشطة وضخامة الإنتاج)؛ ثالثاً. دور الازدهار الفلاحي في تطوير الصناعة والتجارة.",
+                ex5A_plan_li3: "خاتمة: حصيلة الازدهار الفلاحي وأثره على الاقتصاد الروماني.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "مثلت قرطاج عاصمة إفريقيا البروقنصلية الرومانية، وأصبحت المزود الرئيسي لروما بالمواد الفلاحية. وقد بلغت هذه الولاية ازدهارًا فلاحيًا ملحوظًا ساهم بدوره في ازدهار بقية القطاعات الاقتصادية.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_factors: "أولاً. عوامل الازدهار الفلاحي",
+                ex5A_production_p_factors: "يُفسَّر الازدهار الفلاحي بعاملين أساسيين: أولاً سياسة روما المشجعة للفلاحة، إذ أصدرت بداية من القرن الأول ميلادي عدة قوانين مشجعة، منها قانون منسيانا الذي ينص على إعفاء الفلاح الصغير من دفع الضرائب على أشجار الزياتين التي غرسها حديثًا ولم تبلغ طور الإنتاج، وقانون هدريانا (نسبة إلى الإمبراطور هدريانوس) الذي مكّن مزارعي الزياتين والأشجار المثمرة من امتيازات جبائية هامة، وسمح باستغلال الأراضي البور، ووفّر المنشآت المائية. وتهدف هذه القرارات إلى إدماج السكان الأصليين واستغلالهم لخدمة مصالح روما في إطار سياسة الرومنة، وقد قامت السلطات الرومانية أيضًا بالمسح العقاري لتحديد الممتلكات الفلاحية. وثانيًا أهمية الموروث القرطاجي، إذ اهتم القرطاجيون بغراسة الزياتين والأشجار المثمرة ووضعوا أساليب وتقنيات الإنتاج الفلاحي، ومنها موسوعة ماغون التي تضمنت نصائح وتقنيات الزراعة وكيفية التعامل مع العمال وطرق صناعة الخمور وزيت الزيتون، وقد استفاد الرومان منها إثر قرار مجلس الشيوخ بترجمتها إلى اللغة اللاتينية.",
+                ex5A_production_h4_manifestations: "ثانياً. مظاهر الازدهار الفلاحي",
+                ex5A_production_p_manifestations: "تمثلت مظاهر الازدهار الفلاحي في تنوع الأنشطة وضخامة الإنتاج. فازدهرت الفلاحة بولاية إفريقيا البروقنصلية، واكتسحت الكروم والزياتين مناطق الشمال والساحل الشرقي، وامتدت إلى الوسط والجنوب، بالإضافة إلى إنتاج الحبوب وتربية الماشية والصيد البحري. وتميز الإنتاج الفلاحي بضخامته، فارتفعت صادرات الحبوب نحو روما بتوفير ثلثي حاجياتها، وانفردت ولاية إفريقيا البروقنصلية بتوفير حاجيات روما من الإنتاج الفلاحي منذ نهاية القرن الثالث ميلادي (زيوت، حبوب، خمور).",
+                ex5A_production_h4_role: "ثالثاً. دور الازدهار الفلاحي في تطوير بقية الأنشطة الاقتصادية",
+                ex5A_production_p_role: "ساهم الازدهار الفلاحي في ازدهار الصناعة، إذ نمت الصناعات الضرورية لتحويل الإنتاج الفلاحي كمعاصر الزيتون، وازدهرت صناعة الخزف لخزن ونقل المنتوجات الفلاحية. كما ساهم في ازدهار التجارة، إذ انتعشت التجارة الخارجية وتكثفت الصادرات الفلاحية عبر الموانئ المتوسطية مع بقية بلدان المتوسط، وتكثفت التجارة الداخلية حيث تعددت الأسواق والمحلات التجارية لبيع مختلف المنتوجات (فلاحية وحرفية).",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا بلغت إفريقيا البروقنصلية ازدهارًا فلاحيًا بفضل سياسة روما المشجعة للفلاحة وأهمية الموروث القرطاجي، وهو ما ساهم بدوره في ازدهار الصناعة والتجارة الداخلية والخارجية، وجعل من هذه الولاية أحد أعمدة الاقتصاد الروماني في العهد الإمبراطوري.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: بداية إصدار روما للقوانين المشجعة للفلاحة (القرن الأول ميلادي)، حكم الإمبراطور هدريانوس (171م – 138م)، انفراد إفريقيا البروقنصلية بتوفير حاجيات روما من الإنتاج الفلاحي (نهاية القرن الثالث ميلادي)، وفاة القديس أوغسطينوس (430م).",
+                ex6A: "الخط الزمني: القرن الأول ميلادي: بداية إصدار القوانين المشجعة للفلاحة ... 171م – 138م: حكم الإمبراطور هدريانوس ... نهاية القرن الثالث ميلادي: انفراد إفريقيا البروقنصلية بتوفير حاجيات روما من الإنتاج الفلاحي ... 430م: وفاة القديس أوغسطينوس.",
+                ex6_timeline_title: "محطات أساسية في الازدهار الفلاحي بإفريقيا البروقنصلية",
+                ex6_event_1st_label: "قوانين مشجعة للفلاحة",
+                ex6_event_1st_sub: "القرن الأول م",
+                ex6_event_hadrian_label: "حكم الإمبراطور هدريانوس",
+                ex6_event_hadrian_sub: "171 – 138م",
+                ex6_event_3rd_label: "انفراد إفريقيا البروقنصلية بتوفير حاجيات روما",
+                ex6_event_3rd_sub: "نهاية القرن 3 م",
+                ex6_event_430_label: "وفاة القديس أوغسطينوس",
+                ex6_event_430_sub: "430م",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+        const ex3ChartOptions = {
+            title: 'ex3A_title',
+            data: [
+                { label: '1', value: 1, valueFormatted: '1' },
+                { label: '2', value: 2, valueFormatted: '2' },
+                { label: '3', value: 3, valueFormatted: '3' },
+                { label: '4', value: 4, valueFormatted: '4' },
+                { label: '5', value: 5, valueFormatted: '5' }
+            ],
+            maxValue: 6,
+            ySteps: [6, 5, 4, 3, 2, 1, 0],
+            source: 'ex3A_source',
+            scale: 'ex3A_scale',
+            keyLabel: 'ex3A_key_label'
+        };
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 100, labelKey: 'ex6_event_1st_label', subKey: 'ex6_event_1st_sub' },
+                { year: 155, labelKey: 'ex6_event_hadrian_label', subKey: 'ex6_event_hadrian_sub' },
+                { year: 300, labelKey: 'ex6_event_3rd_label', subKey: 'ex6_event_3rd_sub' },
+                { year: 430, labelKey: 'ex6_event_430_label', subKey: 'ex6_event_430_sub' }
+            ],
+            startYear: 100,
+            endYear: 430,
+            scaleYears: [100, 210, 320, 430]
+        };
+        window.__hghExerciseGraphicConfigs = {
+            ex3answer: {
+                type: 'chart',
+                containerId: 'ex3chartContainer',
+                chartOptions: ex3ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>
