@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">قرطاج وإسهاماتها في الحضارة الرومانية: الازدهار العمراني</h1>
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">بعد سقوط قرطاج سنة 146 ق.م تحولت إلى ولاية رومانية وشهدت ازدهارًا عمرانيًا.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما مظاهره؟ وما عوامله؟</p>
+            </div>
+            <!-- Part I : Urban Prosperity -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">مظاهر الازدهار العمراني: خصائص المدينة ومكوناتها</span>
+                </h2>
+                <!-- 1. Characteristics -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="characteristicsTitle">خصائص مدينة قرطاج الرومانية</span>
+                </h3>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="rebuildingTitle">إعادة بناء قرطاج</span>
+                </h4>
+                <p data-i18n="rebuildingText">بعد تخريب قرطاج، عمل الرومان على إعادة بناءها بتكوين مستوطنة رومانية في عهد الإمبراطور أقيانوس سنة 29 ق.م، ثم أصبحت المستوطنة الرومانية عاصمة لولاية أفريقيا البروقنصلية (الولاية الرومانية بإفريقيا).</p>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="gridPlanTitle">خصائص المدينة الرومانية</span>
+                </h4>
+                <p data-i18n="gridPlanText">تميزت مدينة قرطاج بتخطيط شطرنجي، تمتد فيها طرقات مستقيمة ومتقاطعة لتشكل مربعات، وكانت الطرقات تمتد من الشمال إلى الجنوب ومن الشرق إلى الغرب.</p>
+                <p class="institution-power" data-i18n="gridPlanFeature">يمثل التخطيط الشطرنجي ميزة تتميز بها المدن الرومانية.</p>
+                <!-- 2. Components -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="componentsTitle">مكونات المدينة</span>
+                </h3>
+                <p data-i18n="componentsIntro">تميزت المدينة الرومانية باحتوائها على كافة العناصر العمرانية الأساسية، من أهمها:</p>
+                <!-- A. Forum -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="forumTitle">الفوروم</span>
+                </h4>
+                <p data-i18n="forumText">هي ساحة عمومية مهيأة تحتل قلب المدينة الرومانية، وتأوي اجتماعات المواطنين لانتخاب الحكام البلديين، كما تلعب دورًا ثقافيًا.</p>
+                <!-- B. Capitol -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="capitolTitle">الكابتلوم</span>
+                </h4>
+                <p data-i18n="capitolText">هو معبد الديانة الرسمية للدولة الرومانية، ويؤوي الثالوث الإلهي: يوبتير – ميناورا – يونو.</p>
+                <!-- C. Markets -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="marketsTitle">الأسواق والمحلات التجارية</span>
+                </h4>
+                <p data-i18n="marketsText">عادة تتركز قرب الفوروم، وتتركب من فناء فسيح وتوجد حوله المحلات والمتاجر.</p>
+                <!-- D. Entertainment -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>.
+                    <span data-i18n="entertainmentTitle">منشآت الترفيه</span>
+                </h4>
+                <p data-i18n="entertainmentIntro">تتمثل في المسارح والحمامات وميدان سباق الخيل.</p>
+                <ul>
+                    <li data-i18n="bathsBullet"><strong>الحمامات:</strong> توجد في كل المدن، مثال حمامات أنطونيوس بقرطاج، وتتكون من غرف باردة وأخرى دافئة وأخرى حارة، وتحتوي قاعات رياضة ومكتبة.</li>
+                    <li data-i18n="theatersBullet"><strong>المسارح:</strong> تتنوع إلى مسارح دائرية ونصف دائرية، ويتكون المسرح من 3 عناصر: مدرج نصف دائري أو دائري – فضاء على نفس الشكل – ركح للعرض.</li>
+                    <li data-i18n="circusBullet"><strong>ميدان سباق الخيل:</strong> مثل ميادين سباق الخيول الجارة للعربات، وتوجد خاصة في المدن الكبرى.</li>
+                </ul>
+                <!-- E. Water Facilities -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">هـ</span>.
+                    <span data-i18n="waterTitle">المنشآت المائية</span>
+                </h4>
+                <p data-i18n="waterText">تتكون من الصهاريج والحنايا، وهي سواقي لنقل المياه إلى المدن.</p>
+            </div>
+            <!-- Part II : Factors -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">عوامل الازدهار العمراني</span>
+                </h2>
+                <!-- 1. Emperors' Interest -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="emperorsTitle">اهتمام الأباطرة الرومان</span>
+                </h3>
+                <p data-i18n="emperorsText">أبدى الأباطرة الرومان اهتمامًا بالبناءات العمومية، حيث دعوا إلى مد الطرقات وبناء الجسور ومد القنوات، مثل الإمبراطور أقيانوس سنة 29 ق.م.</p>
+                <!-- 2. Notables' Competition -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="notablesTitle">تنافس الوجهاء</span>
+                </h3>
+                <p data-i18n="notablesText">تنافس الوجهاء في تشييد المعالم والمنشآت العمومية قصد التفاخر والتقرب من السلط الرومانية للحصول على المواطنة الرومانية.</p>
+            </div>
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">شهدت قرطاج في العهد الروماني ازدهارًا عمرانيًا بفضل اهتمام الأباطرة الرومان وأهمية الموروث البوني.</p>
+            </div>
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defAugustus">الإمبراطور أقيانوس</strong>: <span data-i18n="defAugustusDesc">إمبراطور روماني، في عهده تكوّنت المستوطنة الرومانية بقرطاج سنة 29 ق.م بعد إعادة بناء المدينة، ودعا إلى مدّ الطرقات وبناء الجسور ومدّ القنوات.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">مدينة بونية سقطت سنة 146 ق.م، تحولت بعد ذلك إلى ولاية رومانية، وأصبحت في عهد الإمبراطور أقيانوس مستوطنة رومانية ثم عاصمة لولاية أفريقيا البروقنصلية، وتميزت بازدهار عمراني كبير.</span></li>
+                        <li><strong class="key-location" data-i18n="defAfricaProconsularis">أفريقيا البروقنصلية</strong>: <span data-i18n="defAfricaProconsularisDesc">الولاية الرومانية بإفريقيا، أصبحت قرطاج عاصمة لها بعد أن تحولت إلى مستوطنة رومانية في عهد الإمبراطور أقيانوس سنة 29 ق.م.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defFallCarthage">سقوط قرطاج (146 ق.م)</strong>: <span data-i18n="defFallCarthageDesc">التاريخ الذي سقطت فيه قرطاج، وبعده تحولت إلى ولاية رومانية وشهدت ازدهارًا عمرانيًا.</span></li>
+                        <li><strong class="key-event" data-i18n="defRebuildingCarthage">إعادة بناء قرطاج (29 ق.م)</strong>: <span data-i18n="defRebuildingCarthageDesc">تكوين مستوطنة رومانية بقرطاج في عهد الإمبراطور أقيانوس سنة 29 ق.م، ثم أصبحت عاصمة لولاية أفريقيا البروقنصلية.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">146 ق.م</strong>: <span data-i18n="defYear146Desc">تاريخ سقوط قرطاج وتحولها إلى ولاية رومانية.</span></li>
+                        <li><strong class="key-year">29 ق.م</strong>: <span data-i18n="defYear29Desc">تكوين مستوطنة رومانية بقرطاج في عهد الإمبراطور أقيانوس.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defGridPlan">التخطيط الشطرنجي</strong>: <span data-i18n="defGridPlanDesc">تخطيط عمراني تتميز به المدن الرومانية، تمتد فيه طرقات مستقيمة ومتقاطعة لتشكل مربعات، وكانت الطرقات تمتد من الشمال إلى الجنوب ومن الشرق إلى الغرب.</span></li>
+                        <li><strong class="key-other" data-i18n="defForum">الفوروم</strong>: <span data-i18n="defForumDesc">ساحة عمومية مهيأة تحتل قلب المدينة الرومانية، وتأوي اجتماعات المواطنين لانتخاب الحكام البلديين، كما تلعب دورًا ثقافيًا.</span></li>
+                        <li><strong class="key-other" data-i18n="defCapitol">الكابتلوم</strong>: <span data-i18n="defCapitolDesc">معبد الديانة الرسمية للدولة الرومانية، ويؤوي الثالوث الإلهي: يوبتير – ميناورا – يونو.</span></li>
+                        <li><strong class="key-other" data-i18n="defBaths">الحمامات</strong>: <span data-i18n="defBathsDesc">منشآت ترفيهية توجد في كل المدن الرومانية، مثال حمامات أنطونيوس بقرطاج، وتتكون من غرف باردة وأخرى دافئة وأخرى حارة، وتحتوي قاعات رياضة ومكتبة.</span></li>
+                        <li><strong class="key-other" data-i18n="defTheaters">المسارح</strong>: <span data-i18n="defTheatersDesc">منشآت ترفيهية رومانية تتنوع إلى مسارح دائرية ونصف دائرية، ويتكون المسرح من 3 عناصر: مدرج نصف دائري أو دائري – فضاء على نفس الشكل – ركح للعرض.</span></li>
+                        <li><strong class="key-other" data-i18n="defCircus">ميدان سباق الخيل</strong>: <span data-i18n="defCircusDesc">منشأة ترفيهية رومانية، مثل ميادين سباق الخيول الجارة للعربات، وتوجد خاصة في المدن الكبرى.</span></li>
+                        <li><strong class="key-other" data-i18n="defCisterns">الصهاريج</strong>: <span data-i18n="defCisternsDesc">منشآت مائية رومانية لتخزين المياه.</span></li>
+                        <li><strong class="key-other" data-i18n="defAqueducts">الحنايا</strong>: <span data-i18n="defAqueductsDesc">سواقي لنقل المياه إلى المدن الرومانية، وتُعدّ من المنشآت المائية الأساسية.</span></li>
+                        <li><strong class="key-other" data-i18n="defRomanCitizenship">المواطنة الرومانية</strong>: <span data-i18n="defRomanCitizenshipDesc">صفة قانونية كان الوجهاء يتنافسون على الحصول عليها من خلال تشييد المعالم والمنشآت العمومية والتقرب من السلط الرومانية.</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: شهدت قرطاج في العهد الروماني ازدهارًا عمرانيًا بفضل اهتمام الأباطرة الرومان وأهمية الموروث البوني، وتميزت بتخطيط شطرنجي ومكونات عمرانية كالفوروم والكابتلوم والمنشآت الترفيهية والمنشآت المائية.</div>
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/carthage_roman_city_plan.jpg" alt="التخطيط الشطرنجي لمدينة قرطاج الرومانية" data-i18n-alt="galleryAlt1" loading="lazy">
+        <figcaption data-i18n="galleryCap1">التخطيط الشطرنجي لمدينة قرطاج الرومانية</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/forum_carthage.jpg" alt="الفوروم بقرطاج" data-i18n-alt="galleryAlt2" loading="lazy">
+        <figcaption data-i18n="galleryCap2">الفوروم بقرطاج</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/capitol_carthage.jpg" alt="الكابتلوم بقرطاج" data-i18n-alt="galleryAlt3" loading="lazy">
+        <figcaption data-i18n="galleryCap3">الكابتلوم بقرطاج</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/antonine_baths_carthage.jpg" alt="حمامات أنطونيوس بقرطاج" data-i18n-alt="galleryAlt4" loading="lazy">
+        <figcaption data-i18n="galleryCap4">حمامات أنطونيوس بقرطاج</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/roman_theater_carthage.jpg" alt="المسرح الروماني بقرطاج" data-i18n-alt="galleryAlt5" loading="lazy">
+        <figcaption data-i18n="galleryCap5">المسرح الروماني بقرطاج</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/roman_aqueduct_carthage.jpg" alt="القنوات المائية (الحنايا) بقرطاج" data-i18n-alt="galleryAlt6" loading="lazy">
+        <figcaption data-i18n="galleryCap6">القنوات المائية (الحنايا) بقرطاج</figcaption>
+    </figure>
+</div>
+            </div>
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_his_exercisess_mod1_lesson2_part1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "History / Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)",
+                lessonTitleSample: "Carthage and Its Contributions to Roman Civilization: Urban Prosperity",
+                sectionIntro: "Introduction",
+                introText: "After the fall of Carthage in 146 BC, it became a Roman province and witnessed urban prosperity.",
+                problematiqueText: "What are its manifestations? And what are its factors?",
+                sectionPart1: "Manifestations of Urban Prosperity: Characteristics and Components of the City",
+                characteristicsTitle: "Characteristics of the Roman City of Carthage",
+                rebuildingTitle: "Rebuilding of Carthage",
+                rebuildingText: "After the destruction of Carthage, the Romans worked to rebuild it by forming a Roman settlement in the era of Emperor Augustus in 29 BC, then the Roman settlement became the capital of the province of Africa Proconsularis (the Roman province in Africa).",
+                gridPlanTitle: "Characteristics of the Roman City",
+                gridPlanText: "The city of Carthage was distinguished by a grid plan, in which straight and intersecting streets extended to form squares, and the streets extended from north to south and from east to west.",
+                gridPlanFeature: "The grid plan is a feature characteristic of Roman cities.",
+                componentsTitle: "Components of the City",
+                componentsIntro: "The Roman city was distinguished by containing all the essential urban elements, the most important of which are:",
+                forumTitle: "The Forum",
+                forumText: "It is a public square occupying the heart of the Roman city, hosting citizens' assemblies to elect municipal magistrates, and it also plays a cultural role.",
+                capitolTitle: "The Capitol",
+                capitolText: "It is the temple of the official religion of the Roman state, housing the divine triad: Jupiter – Minerva – Juno.",
+                marketsTitle: "Markets and Commercial Shops",
+                marketsText: "Usually concentrated near the Forum, and consist of a spacious courtyard around which shops and stores are located.",
+                entertainmentTitle: "Entertainment Facilities",
+                entertainmentIntro: "These consist of theaters, baths, and the hippodrome.",
+                bathsBullet: "<strong>Baths:</strong> They exist in all cities, for example the Antonine Baths of Carthage. They consist of cold, warm, and hot rooms, and contain exercise halls and a library.",
+                theatersBullet: "<strong>Theaters:</strong> They vary into circular and semi-circular theaters. The theater consists of 3 elements: a semi-circular or circular tier – a space of the same shape – a stage for performance.",
+                circusBullet: "<strong>Hippodrome:</strong> Like chariot racing hippodromes, and they exist especially in major cities.",
+                waterTitle: "Water Facilities",
+                waterText: "They consist of cisterns and aqueducts, which are channels for conveying water to cities.",
+                sectionPart2: "Factors of Urban Prosperity",
+                emperorsTitle: "Interest of the Roman Emperors",
+                emperorsText: "The Roman emperors showed interest in public buildings, calling for the paving of roads, the building of bridges, and the laying of canals, such as Emperor Augustus in 29 BC.",
+                notablesTitle: "Competition among Notables",
+                notablesText: "Notables competed in constructing monuments and public facilities out of boasting and seeking closeness to the Roman authorities to obtain Roman citizenship.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Carthage in the Roman era witnessed urban prosperity thanks to the interest of the Roman emperors and the importance of the Punic heritage.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defAugustus: "Emperor Augustus",
+                defAugustusDesc: "A Roman emperor, in whose era the Roman settlement of Carthage was formed in 29 BC after the rebuilding of the city. He called for the paving of roads, the building of bridges, and the laying of canals.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "A Punic city that fell in 146 BC and then became a Roman province. In the era of Emperor Augustus, it became a Roman settlement and then the capital of the province of Africa Proconsularis, and was distinguished by great urban prosperity.",
+                defAfricaProconsularis: "Africa Proconsularis",
+                defAfricaProconsularisDesc: "The Roman province in Africa; Carthage became its capital after becoming a Roman settlement in the era of Emperor Augustus in 29 BC.",
+                defFallCarthage: "Fall of Carthage (146 BC)",
+                defFallCarthageDesc: "The date on which Carthage fell, after which it became a Roman province and witnessed urban prosperity.",
+                defRebuildingCarthage: "Rebuilding of Carthage (29 BC)",
+                defRebuildingCarthageDesc: "The formation of a Roman settlement in Carthage in the era of Emperor Augustus in 29 BC, which then became the capital of the province of Africa Proconsularis.",
+                defYear146Desc: "The date of the fall of Carthage and its transformation into a Roman province.",
+                defYear29Desc: "The formation of a Roman settlement in Carthage in the era of Emperor Augustus.",
+                defGridPlan: "Grid Plan",
+                defGridPlanDesc: "An urban plan characteristic of Roman cities, in which straight and intersecting streets extend to form squares, and the streets extended from north to south and from east to west.",
+                defForum: "Forum",
+                defForumDesc: "A public square occupying the heart of the Roman city, hosting citizens' assemblies to elect municipal magistrates, and playing a cultural role.",
+                defCapitol: "Capitol",
+                defCapitolDesc: "The temple of the official religion of the Roman state, housing the divine triad: Jupiter – Minerva – Juno.",
+                defBaths: "Baths",
+                defBathsDesc: "Entertainment facilities present in all Roman cities, for example the Antonine Baths of Carthage. They consist of cold, warm, and hot rooms, and contain exercise halls and a library.",
+                defTheaters: "Theaters",
+                defTheatersDesc: "Roman entertainment facilities varying into circular and semi-circular theaters. The theater consists of 3 elements: a semi-circular or circular tier – a space of the same shape – a stage for performance.",
+                defCircus: "Hippodrome",
+                defCircusDesc: "A Roman entertainment facility, like chariot racing hippodromes, and they exist especially in major cities.",
+                defCisterns: "Cisterns",
+                defCisternsDesc: "Roman water facilities for storing water.",
+                defAqueducts: "Aqueducts",
+                defAqueductsDesc: "Channels for conveying water to Roman cities, considered among the essential water facilities.",
+                defRomanCitizenship: "Roman Citizenship",
+                defRomanCitizenshipDesc: "A legal status that notables competed to obtain by constructing monuments and public facilities and seeking closeness to the Roman authorities.",
+                summaryText: "Key takeaway: Carthage in the Roman era witnessed urban prosperity thanks to the interest of the Roman emperors and the importance of the Punic heritage, and was distinguished by a grid plan and urban components such as the Forum, the Capitol, entertainment facilities, and water facilities.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Grid plan of the Roman city of Carthage",
+                galleryAlt2: "The Forum of Carthage",
+                galleryAlt3: "The Capitol of Carthage",
+                galleryAlt4: "The Antonine Baths of Carthage",
+                galleryAlt5: "The Roman theater of Carthage",
+                galleryAlt6: "The Roman aqueducts of Carthage",
+                galleryCap1: "Grid plan of the Roman city of Carthage",
+                galleryCap2: "The Forum of Carthage",
+                galleryCap3: "The Capitol of Carthage",
+                galleryCap4: "The Antonine Baths of Carthage",
+                galleryCap5: "The Roman theater of Carthage",
+                galleryCap6: "The Roman aqueducts of Carthage"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Histoire / Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)",
+                lessonTitleSample: "Carthage et ses apports à la civilisation romaine : La prospérité urbanistique",
+                sectionIntro: "Introduction",
+                introText: "Après la chute de Carthage en 146 av. J.-C., elle devint une province romaine et connut une prospérité urbanistique.",
+                problematiqueText: "Quelles en sont les manifestations ? Et quels en sont les facteurs ?",
+                sectionPart1: "Les manifestations de la prospérité urbanistique : caractéristiques et composantes de la ville",
+                characteristicsTitle: "Caractéristiques de la ville romaine de Carthage",
+                rebuildingTitle: "Reconstruction de Carthage",
+                rebuildingText: "Après la destruction de Carthage, les Romains ont œuvré à sa reconstruction en formant un établissement romain à l'époque de l'empereur Auguste en 29 av. J.-C., puis l'établissement romain devint la capitale de la province d'Afrique proconsulaire (la province romaine en Afrique).",
+                gridPlanTitle: "Caractéristiques de la ville romaine",
+                gridPlanText: "La ville de Carthage se distinguait par un plan en damier, où s'étendaient des rues droites et entrecroisées formant des carrés, et les rues s'étendaient du nord au sud et de l'est à l'ouest.",
+                gridPlanFeature: "Le plan en damier est une caractéristique des villes romaines.",
+                componentsTitle: "Composantes de la ville",
+                componentsIntro: "La ville romaine se distinguait par la présence de tous les éléments urbains essentiels, dont les plus importants sont :",
+                forumTitle: "Le Forum",
+                forumText: "C'est une place publique aménagée occupant le cœur de la ville romaine, accueillant les assemblées de citoyens pour élire les magistrats municipaux, et jouant également un rôle culturel.",
+                capitolTitle: "Le Capitole",
+                capitolText: "C'est le temple de la religion officielle de l'État romain, abritant la triade divine : Jupiter – Minerve – Junon.",
+                marketsTitle: "Marchés et boutiques commerciales",
+                marketsText: "Généralement concentrés près du Forum, composés d'une vaste cour autour de laquelle se trouvent les boutiques et les magasins.",
+                entertainmentTitle: "Équipements de loisirs",
+                entertainmentIntro: "Ils consistent en théâtres, thermes et hippodrome.",
+                bathsBullet: "<strong>Thermes :</strong> Ils existent dans toutes les villes, par exemple les thermes d'Antonin à Carthage. Ils se composent de salles froides, tièdes et chaudes, et contiennent des salles de sport et une bibliothèque.",
+                theatersBullet: "<strong>Théâtres :</strong> Ils se divisent en théâtres circulaires et semi-circulaires. Le théâtre se compose de 3 éléments : des gradins semi-circulaires ou circulaires – un espace de même forme – une scène pour la représentation.",
+                circusBullet: "<strong>Hippodrome :</strong> Comme les hippodromes de courses de chars, et ils existent surtout dans les grandes villes.",
+                waterTitle: "Équipements hydrauliques",
+                waterText: "Ils se composent de citernes et d'aqueducs, qui sont des canaux pour transporter l'eau vers les villes.",
+                sectionPart2: "Facteurs de la prospérité urbanistique",
+                emperorsTitle: "Intérêt des empereurs romains",
+                emperorsText: "Les empereurs romains ont montré de l'intérêt pour les bâtiments publics, appelant au pavage des routes, à la construction de ponts et à l'établissement de canaux, comme l'empereur Auguste en 29 av. J.-C.",
+                notablesTitle: "Compétition entre notables",
+                notablesText: "Les notables rivalisaient dans la construction de monuments et d'équipements publics par ostentation et pour se rapprocher des autorités romaines afin d'obtenir la citoyenneté romaine.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Carthage à l'époque romaine a connu une prospérité urbanistique grâce à l'intérêt des empereurs romains et à l'importance de l'héritage punique.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays & régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defAugustus: "Empereur Auguste",
+                defAugustusDesc: "Un empereur romain, sous lequel l'établissement romain de Carthage fut formé en 29 av. J.-C. après la reconstruction de la ville. Il appela au pavage des routes, à la construction de ponts et à l'établissement de canaux.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "Une ville punique tombée en 146 av. J.-C., devenue ensuite une province romaine. À l'époque de l'empereur Auguste, elle devint un établissement romain puis la capitale de la province d'Afrique proconsulaire, et se distingua par une grande prospérité urbanistique.",
+                defAfricaProconsularis: "Afrique proconsulaire",
+                defAfricaProconsularisDesc: "La province romaine en Afrique ; Carthage en devint la capitale après être devenue un établissement romain à l'époque de l'empereur Auguste en 29 av. J.-C.",
+                defFallCarthage: "Chute de Carthage (146 av. J.-C.)",
+                defFallCarthageDesc: "La date à laquelle Carthage est tombée, après quoi elle devint une province romaine et connut une prospérité urbanistique.",
+                defRebuildingCarthage: "Reconstruction de Carthage (29 av. J.-C.)",
+                defRebuildingCarthageDesc: "La formation d'un établissement romain à Carthage à l'époque de l'empereur Auguste en 29 av. J.-C., devenu ensuite la capitale de la province d'Afrique proconsulaire.",
+                defYear146Desc: "La date de la chute de Carthage et de sa transformation en province romaine.",
+                defYear29Desc: "La formation d'un établissement romain à Carthage à l'époque de l'empereur Auguste.",
+                defGridPlan: "Plan en damier",
+                defGridPlanDesc: "Un plan urbain caractéristique des villes romaines, où s'étendent des rues droites et entrecroisées formant des carrés, et les rues s'étendaient du nord au sud et de l'est à l'ouest.",
+                defForum: "Forum",
+                defForumDesc: "Une place publique aménagée occupant le cœur de la ville romaine, accueillant les assemblées de citoyens pour élire les magistrats municipaux, et jouant un rôle culturel.",
+                defCapitol: "Capitole",
+                defCapitolDesc: "Le temple de la religion officielle de l'État romain, abritant la triade divine : Jupiter – Minerve – Junon.",
+                defBaths: "Thermes",
+                defBathsDesc: "Équipements de loisirs présents dans toutes les villes romaines, par exemple les thermes d'Antonin à Carthage. Ils se composent de salles froides, tièdes et chaudes, et contiennent des salles de sport et une bibliothèque.",
+                defTheaters: "Théâtres",
+                defTheatersDesc: "Équipements de loisirs romains se divisant en théâtres circulaires et semi-circulaires. Le théâtre se compose de 3 éléments : des gradins semi-circulaires ou circulaires – un espace de même forme – une scène pour la représentation.",
+                defCircus: "Hippodrome",
+                defCircusDesc: "Un équipement de loisirs romain, comme les hippodromes de courses de chars, et ils existent surtout dans les grandes villes.",
+                defCisterns: "Citernes",
+                defCisternsDesc: "Équipements hydrauliques romains pour stocker l'eau.",
+                defAqueducts: "Aqueducs",
+                defAqueductsDesc: "Canaux pour transporter l'eau vers les villes romaines, considérés parmi les équipements hydrauliques essentiels.",
+                defRomanCitizenship: "Citoyenneté romaine",
+                defRomanCitizenshipDesc: "Un statut juridique que les notables rivalisaient pour obtenir en construisant des monuments et des équipements publics et en se rapprochant des autorités romaines.",
+                summaryText: "À retenir : Carthage à l'époque romaine a connu une prospérité urbanistique grâce à l'intérêt des empereurs romains et à l'importance de l'héritage punique, et se distinguait par un plan en damier et des composantes urbaines telles que le Forum, le Capitole, les équipements de loisirs et les équipements hydrauliques.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Plan en damier de la ville romaine de Carthage",
+                galleryAlt2: "Le Forum de Carthage",
+                galleryAlt3: "Le Capitole de Carthage",
+                galleryAlt4: "Les thermes d'Antonin à Carthage",
+                galleryAlt5: "Le théâtre romain de Carthage",
+                galleryAlt6: "Les aqueducs romains de Carthage",
+                galleryCap1: "Plan en damier de la ville romaine de Carthage",
+                galleryCap2: "Le Forum de Carthage",
+                galleryCap3: "Le Capitole de Carthage",
+                galleryCap4: "Les thermes d'Antonin à Carthage",
+                galleryCap5: "Le théâtre romain de Carthage",
+                galleryCap6: "Les aqueducs romains de Carthage"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)",
+                lessonTitleSample: "قرطاج وإسهاماتها في الحضارة الرومانية: الازدهار العمراني",
+                sectionIntro: "مقدمة",
+                introText: "بعد سقوط قرطاج سنة 146 ق.م تحولت إلى ولاية رومانية وشهدت ازدهارًا عمرانيًا.",
+                problematiqueText: "ما مظاهره؟ وما عوامله؟",
+                sectionPart1: "مظاهر الازدهار العمراني: خصائص المدينة ومكوناتها",
+                characteristicsTitle: "خصائص مدينة قرطاج الرومانية",
+                rebuildingTitle: "إعادة بناء قرطاج",
+                rebuildingText: "بعد تخريب قرطاج، عمل الرومان على إعادة بناءها بتكوين مستوطنة رومانية في عهد الإمبراطور أقيانوس سنة 29 ق.م، ثم أصبحت المستوطنة الرومانية عاصمة لولاية أفريقيا البروقنصلية (الولاية الرومانية بإفريقيا).",
+                gridPlanTitle: "خصائص المدينة الرومانية",
+                gridPlanText: "تميزت مدينة قرطاج بتخطيط شطرنجي، تمتد فيها طرقات مستقيمة ومتقاطعة لتشكل مربعات، وكانت الطرقات تمتد من الشمال إلى الجنوب ومن الشرق إلى الغرب.",
+                gridPlanFeature: "يمثل التخطيط الشطرنجي ميزة تتميز بها المدن الرومانية.",
+                componentsTitle: "مكونات المدينة",
+                componentsIntro: "تميزت المدينة الرومانية باحتوائها على كافة العناصر العمرانية الأساسية، من أهمها:",
+                forumTitle: "الفوروم",
+                forumText: "هي ساحة عمومية مهيأة تحتل قلب المدينة الرومانية، وتأوي اجتماعات المواطنين لانتخاب الحكام البلديين، كما تلعب دورًا ثقافيًا.",
+                capitolTitle: "الكابتلوم",
+                capitolText: "هو معبد الديانة الرسمية للدولة الرومانية، ويؤوي الثالوث الإلهي: يوبتير – ميناورا – يونو.",
+                marketsTitle: "الأسواق والمحلات التجارية",
+                marketsText: "عادة تتركز قرب الفوروم، وتتركب من فناء فسيح وتوجد حوله المحلات والمتاجر.",
+                entertainmentTitle: "منشآت الترفيه",
+                entertainmentIntro: "تتمثل في المسارح والحمامات وميدان سباق الخيل.",
+                bathsBullet: "<strong>الحمامات:</strong> توجد في كل المدن، مثال حمامات أنطونيوس بقرطاج، وتتكون من غرف باردة وأخرى دافئة وأخرى حارة، وتحتوي قاعات رياضة ومكتبة.",
+                theatersBullet: "<strong>المسارح:</strong> تتنوع إلى مسارح دائرية ونصف دائرية، ويتكون المسرح من 3 عناصر: مدرج نصف دائري أو دائري – فضاء على نفس الشكل – ركح للعرض.",
+                circusBullet: "<strong>ميدان سباق الخيل:</strong> مثل ميادين سباق الخيول الجارة للعربات، وتوجد خاصة في المدن الكبرى.",
+                waterTitle: "المنشآت المائية",
+                waterText: "تتكون من الصهاريج والحنايا، وهي سواقي لنقل المياه إلى المدن.",
+                sectionPart2: "عوامل الازدهار العمراني",
+                emperorsTitle: "اهتمام الأباطرة الرومان",
+                emperorsText: "أبدى الأباطرة الرومان اهتمامًا بالبناءات العمومية، حيث دعوا إلى مد الطرقات وبناء الجسور ومد القنوات، مثل الإمبراطور أقيانوس سنة 29 ق.م.",
+                notablesTitle: "تنافس الوجهاء",
+                notablesText: "تنافس الوجهاء في تشييد المعالم والمنشآت العمومية قصد التفاخر والتقرب من السلط الرومانية للحصول على المواطنة الرومانية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "شهدت قرطاج في العهد الروماني ازدهارًا عمرانيًا بفضل اهتمام الأباطرة الرومان وأهمية الموروث البوني.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defAugustus: "الإمبراطور أقيانوس",
+                defAugustusDesc: "إمبراطور روماني، في عهده تكوّنت المستوطنة الرومانية بقرطاج سنة 29 ق.م بعد إعادة بناء المدينة، ودعا إلى مدّ الطرقات وبناء الجسور ومدّ القنوات.",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "مدينة بونية سقطت سنة 146 ق.م، تحولت بعد ذلك إلى ولاية رومانية، وأصبحت في عهد الإمبراطور أقيانوس مستوطنة رومانية ثم عاصمة لولاية أفريقيا البروقنصلية، وتميزت بازدهار عمراني كبير.",
+                defAfricaProconsularis: "أفريقيا البروقنصلية",
+                defAfricaProconsularisDesc: "الولاية الرومانية بإفريقيا، أصبحت قرطاج عاصمة لها بعد أن تحولت إلى مستوطنة رومانية في عهد الإمبراطور أقيانوس سنة 29 ق.م.",
+                defFallCarthage: "سقوط قرطاج (146 ق.م)",
+                defFallCarthageDesc: "التاريخ الذي سقطت فيه قرطاج، وبعده تحولت إلى ولاية رومانية وشهدت ازدهارًا عمرانيًا.",
+                defRebuildingCarthage: "إعادة بناء قرطاج (29 ق.م)",
+                defRebuildingCarthageDesc: "تكوين مستوطنة رومانية بقرطاج في عهد الإمبراطور أقيانوس سنة 29 ق.م، ثم أصبحت عاصمة لولاية أفريقيا البروقنصلية.",
+                defYear146Desc: "تاريخ سقوط قرطاج وتحولها إلى ولاية رومانية.",
+                defYear29Desc: "تكوين مستوطنة رومانية بقرطاج في عهد الإمبراطور أقيانوس.",
+                defGridPlan: "التخطيط الشطرنجي",
+                defGridPlanDesc: "تخطيط عمراني تتميز به المدن الرومانية، تمتد فيه طرقات مستقيمة ومتقاطعة لتشكل مربعات، وكانت الطرقات تمتد من الشمال إلى الجنوب ومن الشرق إلى الغرب.",
+                defForum: "الفوروم",
+                defForumDesc: "ساحة عمومية مهيأة تحتل قلب المدينة الرومانية، وتأوي اجتماعات المواطنين لانتخاب الحكام البلديين، كما تلعب دورًا ثقافيًا.",
+                defCapitol: "الكابتلوم",
+                defCapitolDesc: "معبد الديانة الرسمية للدولة الرومانية، ويؤوي الثالوث الإلهي: يوبتير – ميناورا – يونو.",
+                defBaths: "الحمامات",
+                defBathsDesc: "منشآت ترفيهية توجد في كل المدن الرومانية، مثال حمامات أنطونيوس بقرطاج، وتتكون من غرف باردة وأخرى دافئة وأخرى حارة، وتحتوي قاعات رياضة ومكتبة.",
+                defTheaters: "المسارح",
+                defTheatersDesc: "منشآت ترفيهية رومانية تتنوع إلى مسارح دائرية ونصف دائرية، ويتكون المسرح من 3 عناصر: مدرج نصف دائري أو دائري – فضاء على نفس الشكل – ركح للعرض.",
+                defCircus: "ميدان سباق الخيل",
+                defCircusDesc: "منشأة ترفيهية رومانية، مثل ميادين سباق الخيول الجارة للعربات، وتوجد خاصة في المدن الكبرى.",
+                defCisterns: "الصهاريج",
+                defCisternsDesc: "منشآت مائية رومانية لتخزين المياه.",
+                defAqueducts: "الحنايا",
+                defAqueductsDesc: "سواقي لنقل المياه إلى المدن الرومانية، وتُعدّ من المنشآت المائية الأساسية.",
+                defRomanCitizenship: "المواطنة الرومانية",
+                defRomanCitizenshipDesc: "صفة قانونية كان الوجهاء يتنافسون على الحصول عليها من خلال تشييد المعالم والمنشآت العمومية والتقرب من السلط الرومانية.",
+                summaryText: "خلاصة: شهدت قرطاج في العهد الروماني ازدهارًا عمرانيًا بفضل اهتمام الأباطرة الرومان وأهمية الموروث البوني، وتميزت بتخطيط شطرنجي ومكونات عمرانية كالفوروم والكابتلوم والمنشآت الترفيهية والمنشآت المائية.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "التخطيط الشطرنجي لمدينة قرطاج الرومانية",
+                galleryAlt2: "الفوروم بقرطاج",
+                galleryAlt3: "الكابتلوم بقرطاج",
+                galleryAlt4: "حمامات أنطونيوس بقرطاج",
+                galleryAlt5: "المسرح الروماني بقرطاج",
+                galleryAlt6: "القنوات المائية (الحنايا) بقرطاج",
+                galleryCap1: "التخطيط الشطرنجي لمدينة قرطاج الرومانية",
+                galleryCap2: "الفوروم بقرطاج",
+                galleryCap3: "الكابتلوم بقرطاج",
+                galleryCap4: "حمامات أنطونيوس بقرطاج",
+                galleryCap5: "المسرح الروماني بقرطاج",
+                galleryCap6: "القنوات المائية (الحنايا) بقرطاج"
+            }
+        };
+    </script>
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Africa Proconsularis", class: "key-location", i18n: "defAfricaProconsularis" },
+                { text: "Augustus", class: "key-person", i18n: "defAugustus" },
+                { text: "Fall of Carthage", class: "key-event", i18n: "defFallCarthage" },
+                { text: "Rebuilding of Carthage", class: "key-event", i18n: "defRebuildingCarthage" },
+                { text: "Grid Plan", class: "key-other", i18n: "defGridPlan" },
+                { text: "Forum", class: "key-other", i18n: "defForum" },
+                { text: "Capitol", class: "key-other", i18n: "defCapitol" },
+                { text: "Baths", class: "key-other", i18n: "defBaths" },
+                { text: "Theaters", class: "key-other", i18n: "defTheaters" },
+                { text: "Hippodrome", class: "key-other", i18n: "defCircus" },
+                { text: "Cisterns", class: "key-other", i18n: "defCisterns" },
+                { text: "Aqueducts", class: "key-other", i18n: "defAqueducts" },
+                { text: "Roman Citizenship", class: "key-other", i18n: "defRomanCitizenship" },
+                { text: "146 BC", class: "key-year", i18n: null },
+                { text: "29 BC", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Afrique proconsulaire", class: "key-location", i18n: "defAfricaProconsularis" },
+                { text: "Auguste", class: "key-person", i18n: "defAugustus" },
+                { text: "Chute de Carthage", class: "key-event", i18n: "defFallCarthage" },
+                { text: "Reconstruction de Carthage", class: "key-event", i18n: "defRebuildingCarthage" },
+                { text: "Plan en damier", class: "key-other", i18n: "defGridPlan" },
+                { text: "Forum", class: "key-other", i18n: "defForum" },
+                { text: "Capitole", class: "key-other", i18n: "defCapitol" },
+                { text: "Thermes", class: "key-other", i18n: "defBaths" },
+                { text: "Théâtres", class: "key-other", i18n: "defTheaters" },
+                { text: "Hippodrome", class: "key-other", i18n: "defCircus" },
+                { text: "Citernes", class: "key-other", i18n: "defCisterns" },
+                { text: "Aqueducs", class: "key-other", i18n: "defAqueducts" },
+                { text: "Citoyenneté romaine", class: "key-other", i18n: "defRomanCitizenship" },
+                { text: "146", class: "key-year", i18n: null },
+                { text: "29", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "أفريقيا البروقنصلية", class: "key-location", i18n: "defAfricaProconsularis" },
+                { text: "أقيانوس", class: "key-person", i18n: "defAugustus" },
+                { text: "سقوط قرطاج", class: "key-event", i18n: "defFallCarthage" },
+                { text: "إعادة بناء قرطاج", class: "key-event", i18n: "defRebuildingCarthage" },
+                { text: "التخطيط الشطرنجي", class: "key-other", i18n: "defGridPlan" },
+                { text: "الفوروم", class: "key-other", i18n: "defForum" },
+                { text: "الكابتلوم", class: "key-other", i18n: "defCapitol" },
+                { text: "الحمامات", class: "key-other", i18n: "defBaths" },
+                { text: "المسارح", class: "key-other", i18n: "defTheaters" },
+                { text: "ميدان سباق الخيل", class: "key-other", i18n: "defCircus" },
+                { text: "الصهاريج", class: "key-other", i18n: "defCisterns" },
+                { text: "الحنايا", class: "key-other", i18n: "defAqueducts" },
+                { text: "المواطنة الرومانية", class: "key-other", i18n: "defRomanCitizenship" },
+                { text: "146 ق.م", class: "key-year", i18n: null },
+                { text: "29 ق.م", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
