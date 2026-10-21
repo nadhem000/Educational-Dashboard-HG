@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – أزمة الدولة الحفصية في القرن السادس عشر</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        /* ══════ PRINT MODAL STYLES ══════ */
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        /* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الثالثة ثانوي، شعبة اقتصاد وتصرف
+            </div>
+            <h1 data-i18n="exerciseTitle">تمارين – أزمة الدولة الحفصية في القرن السادس عشر</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: أزمة الدولة الحفصية، الطرق الصوفية، ابن عرفة، الطريقة الشابية.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">أزمة الدولة الحفصية:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">أزمة شاملة اقتصادية واجتماعية وسياسية عاشتها الدولة الحفصية منذ أواخر القرن 15 (1488)، تمثلت في تراجع الفلاحة والحرف والقطاع التجاري، وتفكك المجتمع، وانحلال السلطة المركزية، وأدت إلى إضعاف الدولة وتهديد كيانها.</dd>
+                        <dt data-i18n="ex1_def2_title">الطرق الصوفية:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">تنظيمات دينية إسلامية تقوم على الزهد والتصوف، انتشرت في البلاد التونسية خاصة في أواخر القرن 15 والقرن 16 في ظل انعدام الأمن وتصاعد الخطر المسيحي، حيث لجأ السكان إلى الزوايا الصوفية بحثًا عن الطمأنينة والأمان الروحي.</dd>
+                        <dt data-i18n="ex1_def3_title">ابن عرفة:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">شيخ إسلامي بارز في العهد الحفصي، أصدر فتاوى تحث على مقاتلة الأعراب، مما ساهم في تعميق التوتر الاجتماعي بين السكان المستقرين والقبائل الرحل وشبه الرحل في أواخر العهد الحفصي.</dd>
+                        <dt data-i18n="ex1_def4_title">الطريقة الشابية:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">حركة دينية وسياسية بالقيروان، مثّلت قوة انفصالية داخلية بلغ بها خطر القبائل أوجه في أواخر العهد الحفصي، مما زاد في إضعاف السلطة المركزية للدولة الحفصية.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن مظاهر الأزمة الاقتصادية في الدولة الحفصية.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_sector">القطاع</th>
+                            <th data-i18n="ex2_table_decline">درجة التراجع (%)</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_agri">النشاط الفلاحي</td>
+                            <td>70</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_craft">الإنتاج الحرفي</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_trade">القطاع التجاري</td>
+                            <td>80</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: تقديرات مبنية على مؤشرات الأزمة الاقتصادية بالعهد الحفصي</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Map / Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمل الوثيقة التالية التي تمثّل مدن الدولة الحفصية التي استقلّت عن السلطة المركزية، واستخرج مظاهر تفكك السلطة السياسية في العهد الحفصي.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets3eco/exercises/history/unit1/lesson6/hafsid_autonomous_cities_exercise.jpg"
+                         alt="مدن الدولة الحفصية المستقلة"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets3eco/exercises/history/unit1/lesson6/hafsid_autonomous_cities_answer.jpg"
+                             alt="نموذج الإجابة – مدن الدولة الحفصية المستقلة"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        تمثلت مظاهر تفكك السلطة السياسية في العهد الحفصي في: استقلال عديد المدن عن السلطة المركزية مثل عنابة وطرابلس وقسنطينة وجربة وصفاقس وسوسة، مما أدى إلى إضعاف الحكم المركزي؛ بروز قوى انفصالية داخلية بلغ خطر القبائل أوجه مع الطريقة الشابية بالقيروان؛ انحلال السلطة المركزية بسبب الصراعات بين أعضاء الأسرة الحاكمة لغياب قانون ينظم توارث الحكم؛ عجز بعض الحكام عن مواجهة الوضع الاقتصادي والاجتماعي المتفاقم؛ تفاقم الخطر الخارجي المتمثل في القوتين العثمانية والإسبانية.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل مظاهر الأزمة الاجتماعية بالدولة الحفصية وانعكاساتها على تماسك المجتمع في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        مظاهر الأزمة الاجتماعية:
+                        - تفكك المجتمع الحفصي إلى سكان مستقرين بالمدن والقرى من جهة، والبدو الرحل من جهة ثانية، وقد تميّزت العلاقة بينهما بالتوتر والنفور.
+                        - تفكك المجتمع الحضري نفسه نتيجة تباين مواقف ربضي باب سويقة وباب الجزيرة تجاه حملة خير الدين بربروس سنة 1534.
+                        - دور فتاوى العلماء (ابن عرفة) في تعميق الشقاق بين السكان المستقرين والقبائل الرحل.
+                        - عدم تجانس المجتمع الحفصي واحتداد التناقضات بفعل الأزمات المتتالية.
+                        - انتشار الطرق الصوفية كردّ فعل على انعدام الأمن وتصاعد الخطر المسيحي.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        عرفت الدولة الحفصية في أواخر عهدها أزمة اجتماعية حادة تمثلت أساسًا في تفكك المجتمع إلى سكان مستقرين بالمدن والقرى من جهة، والبدو الرحل من جهة ثانية، حيث اتسمت العلاقة بينهما بالتوتر والنفور. ولم يقتصر التفكك على الجانب الريفي-الحضري، بل امتد إلى المجتمع الحضري نفسه، إذ تباينت مواقف ربضي باب سويقة وباب الجزيرة تجاه حملة خير الدين بربروس سنة 1534، مما يعكس عدم تجانس المجتمع الحفصي. كما ساهمت فتاوى العلماء مثل ابن عرفة التي تحث على مقاتلة الأعراب في تعميق الشقاق. وفي ظل هذه الظروف من انعدام الأمن وتصاعد الخطر المسيحي، انتشرت الطرق الصوفية كملجأ روحي للسكان. وهكذا أدّت هذه الأزمة الاجتماعية إلى إضعاف النسيج الاجتماعي وتعميق التناقضات الداخلية في الدولة الحفصية.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول مظاهر الأزمة الشاملة التي عاشتها الدولة الحفصية في أواخر القرن 15 وبداية القرن 16.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        عاشت الدولة الحفصية منذ 1488 أزمة شاملة تجلت في ثلاثة مستويات: اقتصادي، واجتماعي، وسياسي. حلّل مظاهر هذه الأزمة في كل مستوى، وأبرز انعكاساتها على كيان الدولة الحفصية.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: الدولة الحفصية وأزمة القرن 16.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. الأزمة الاقتصادية (تراجع الفلاحة والحرف والتجارة)؛ ثانياً. الأزمة الاجتماعية (تفكك المجتمع وانتشار التصوف)؛ ثالثاً. الأزمة السياسية (انحلال السلطة وتفاقم الخطر الخارجي).</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: دولة مهددة في كيانها.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">شهدت الدولة الحفصية منذ أواخر القرن 15 (1488) أزمة شاملة هددت كيانها على مختلف الأصعدة الاقتصادية والاجتماعية والسياسية.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_eco">أولاً. الأزمة الاقتصادية</h4>
+                        <p data-i18n="ex5A_production_p_eco">تراجع النشاط الفلاحي بفعل تدهور الأمن، وتدهور الإنتاج الحرفي بسبب ارتفاع الضرائب والمنافسة الأوروبية، كما تضرّر القطاع التجاري مع تحوّل الطرق التجارية من المتوسط إلى المحيط الأطلسي.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_soc">ثانياً. الأزمة الاجتماعية</h4>
+                        <p data-i18n="ex5A_production_p_soc">تفكّك المجتمع إلى سكان مستقرين وبدو رحّل، وتوتّرت العلاقة بينهما، وتفكّك المجتمع الحضري نفسه، وساهمت فتاوى العلماء في تعميق الشقاق، وانتشرت الطرق الصوفية في ظل انعدام الأمن.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_pol">ثالثاً. الأزمة السياسية</h4>
+                        <p data-i18n="ex5A_production_p_pol">انحلّت السلطة المركزية بسبب صراعات الأسرة الحاكمة، واستقلّت عديد المدن، وبرزت قوى انفصالية داخلية، وتفاقم الخطر الخارجي العثماني والإسباني.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا أصبحت الدولة الحفصية في أواخر القرن 15 وبداية القرن 16 دولة مهددة في كيانها على جميع الأصعدة، مما جعلها مجالًا مفتوحًا للتدخلات الخارجية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: بداية الأزمة الشاملة في الدولة الحفصية (1488)، حملة خير الدين بربروس على تونس (1534)، حملة شارلكان على تونس (1535)، انتصاب العثمانيين نهائيًا بالبلاد التونسية (1574).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1488: بداية الأزمة الشاملة ...
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y3sec_secEco_his_lessons_mod1_lesson6.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT MODAL -->
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                exerciseTitle: "Exercises – The Crisis of the Hafsid State in the 16th Century",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: The Crisis of the Hafsid State, Sufi Orders, Ibn Arafa, Shabbiyya Order.",
+                ex1_def1_title: "The Crisis of the Hafsid State:",
+                ex1_def1_subtitle: "A comprehensive economic, social and political crisis experienced by the Hafsid state since the late 15th century (1488), manifested in the decline of agriculture, crafts and the commercial sector, social disintegration, and the dissolution of central authority, weakening the state and threatening its existence.",
+                ex1_def2_title: "Sufi Orders:",
+                ex1_def2_subtitle: "Islamic religious organizations based on asceticism and mysticism, spread in Tunisia especially in the late 15th and 16th centuries amid insecurity and the rising Christian danger, with populations turning to Sufi zawiyas in search of security and spiritual peace.",
+                ex1_def3_title: "Ibn Arafa:",
+                ex1_def3_subtitle: "A prominent Islamic scholar in the Hafsid era who issued fatwas urging the fighting of Bedouins, contributing to deepening social tension between settled populations and nomadic and semi-nomadic tribes in the late Hafsid era.",
+                ex1_def4_title: "Shabbiyya Order:",
+                ex1_def4_subtitle: "A religious and political movement in Kairouan that represented an internal separatist force, through which the danger of tribes reached its peak in the late Hafsid era, further weakening the central authority of the Hafsid state.",
+                ex2Q: "Convert the following table data into a bar chart showing the manifestations of the economic crisis in the Hafsid state.",
+                ex2_table_sector: "Sector",
+                ex2_table_decline: "Decline rate (%)",
+                ex2_agri: "Agricultural activity",
+                ex2_craft: "Craft production",
+                ex2_trade: "Commercial sector",
+                ex2Q_source: "Source: Estimates based on economic crisis indicators in the Hafsid era",
+                ex2A_title: "Manifestations of the Economic Crisis in the Hafsid State",
+                ex2A_source: "Source: Estimates based on economic crisis indicators in the Hafsid era",
+                ex2A_scale: "Scale: 0–100%; column height proportional to decline rate.",
+                ex2A_key_label: "Key:",
+                ex2A_key_agri: "Agriculture",
+                ex2A_key_craft: "Crafts",
+                ex2A_key_trade: "Trade",
+                ex3DocAlt: "Autonomous cities of the Hafsid state",
+                ex3AnswerImgAlt: "Answer model – Autonomous cities of the Hafsid state",
+                ex3Q: "Observe the following document representing the cities of the Hafsid state that became independent from central authority, and extract the manifestations of political authority disintegration in the Hafsid era.",
+                ex3A: "The manifestations of political authority disintegration in the Hafsid era included: the independence of several cities from central authority such as Annaba, Tripoli, Constantine, Djerba, Sfax and Sousse, weakening central rule; the emergence of internal separatist forces with the danger of tribes reaching its peak with the Shabbiyya order in Kairouan; the dissolution of central authority due to conflicts among members of the ruling family due to the absence of a law regulating the inheritance of power; the inability of some rulers to confront the worsening economic and social situation; and the growing external danger represented by the Ottoman and Spanish powers.",
+                ex4Q: "Analyse the manifestations of the social crisis in the Hafsid state and its repercussions on social cohesion in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Manifestations of the social crisis:\n- Disintegration of Hafsid society into settled populations in cities and villages on one hand, and nomadic Bedouins on the other, with the relationship between them marked by tension and aversion.\n- Disintegration of urban society itself due to the divergent positions of the Rabad of Bab Souika and Bab El Jazira towards Khayr al-Din Barbarossa's campaign in 1534.\n- The role of scholars' fatwas (Ibn Arafa) in deepening the rift between settled populations and nomadic tribes.\n- Lack of homogeneity of Hafsid society and intensification of contradictions due to successive crises.\n- Spread of Sufi orders as a reaction to insecurity and the rising Christian danger.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "In its late period, the Hafsid state experienced an acute social crisis manifested mainly in the disintegration of society into settled populations in cities and villages on one hand, and nomadic Bedouins on the other, with the relationship between them marked by tension and aversion. The disintegration was not limited to the rural-urban divide but extended to urban society itself, as the positions of the Rabad of Bab Souika and Bab El Jazira diverged towards Khayr al-Din Barbarossa's campaign in 1534, reflecting the lack of homogeneity of Hafsid society. The fatwas of scholars such as Ibn Arafa urging the fighting of Bedouins also contributed to deepening the rift. Amid these conditions of insecurity and rising Christian danger, Sufi orders spread as a spiritual refuge for the population. Thus, this social crisis weakened the social fabric and deepened internal contradictions in the Hafsid state.",
+                ex5Q: "Write a short article (150 words) on the manifestations of the comprehensive crisis experienced by the Hafsid state in the late 15th and early 16th centuries.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Since 1488, the Hafsid state experienced a comprehensive crisis manifested at three levels: economic, social and political. Analyse the manifestations of this crisis at each level and highlight its repercussions on the very existence of the Hafsid state.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: The Hafsid state and the crisis of the 16th century.",
+                ex5A_plan_li2: "Development: I. The economic crisis (decline of agriculture, crafts and trade); II. The social crisis (social disintegration and spread of Sufism); III. The political crisis (dissolution of authority and growing external danger).",
+                ex5A_plan_li3: "Conclusion: A state threatened in its very existence.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Since the late 15th century (1488), the Hafsid state experienced a comprehensive crisis threatening its existence at economic, social and political levels.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_eco: "I. The Economic Crisis",
+                ex5A_production_p_eco: "Agricultural activity declined due to deteriorating security, craft production deteriorated due to high taxes and European competition, and the commercial sector was harmed by the shift of trade routes from the Mediterranean to the Atlantic Ocean.",
+                ex5A_production_h4_soc: "II. The Social Crisis",
+                ex5A_production_p_soc: "Society disintegrated into settled populations and nomadic Bedouins, with tension between them; urban society itself disintegrated, scholars' fatwas deepened the rift, and Sufi orders spread amid insecurity.",
+                ex5A_production_h4_pol: "III. The Political Crisis",
+                ex5A_production_p_pol: "Central authority dissolved due to conflicts within the ruling family, several cities became independent, internal separatist forces emerged, and external Ottoman and Spanish danger grew.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus, in the late 15th and early 16th centuries, the Hafsid state became threatened in its very existence on all levels, making it an open field for external interventions.",
+                ex6Q: "Create a timeline of the following events: Beginning of the comprehensive crisis in the Hafsid state (1488), Khayr al-Din Barbarossa's campaign against Tunis (1534), Charles V's campaign against Tunis (1535), Definitive Ottoman establishment in Tunisia (1574).",
+                ex6A: "Timeline: 1488: Beginning of the comprehensive crisis...",
+                ex6_timeline_title: "Key Milestones of the Hafsid State Crisis",
+                ex6_event_1488_label: "Beginning of the comprehensive crisis",
+                ex6_event_1488_sub: "1488",
+                ex6_event_1534_label: "Khayr al-Din Barbarossa's campaign",
+                ex6_event_1534_sub: "1534",
+                ex6_event_1535_label: "Charles V's campaign",
+                ex6_event_1535_sub: "1535",
+                ex6_event_1574_label: "Definitive Ottoman establishment",
+                ex6_event_1574_sub: "1574",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – La crise de l'État hafside au XVIe siècle",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : La crise de l'État hafside, Confréries soufies, Ibn Arafa, Confrérie Shabbiyya.",
+                ex1_def1_title: "La crise de l'État hafside :",
+                ex1_def1_subtitle: "Une crise globale économique, sociale et politique vécue par l'État hafside depuis la fin du XVe siècle (1488), se manifestant par le déclin de l'agriculture, de l'artisanat et du secteur commercial, la désintégration sociale et la désagrégation du pouvoir central, affaiblissant l'État et menaçant son existence.",
+                ex1_def2_title: "Confréries soufies :",
+                ex1_def2_subtitle: "Organisations religieuses islamiques basées sur l'ascétisme et le mysticisme, répandues en Tunisie notamment à la fin du XVe et au XVIe siècle dans un contexte d'insécurité et de montée du danger chrétien, avec des populations se tournant vers les zaouïas soufies à la recherche de sécurité et de paix spirituelle.",
+                ex1_def3_title: "Ibn Arafa :",
+                ex1_def3_subtitle: "Un éminent savant islamique de l'époque hafside qui a émis des fatwas appelant à combattre les Bédouins, contribuant à approfondir la tension sociale entre les populations sédentaires et les tribus nomades et semi-nomades à la fin de l'époque hafside.",
+                ex1_def4_title: "Confrérie Shabbiyya :",
+                ex1_def4_subtitle: "Un mouvement religieux et politique à Kairouan qui a représenté une force séparatiste interne, par laquelle le danger des tribus a atteint son apogée à la fin de l'époque hafside, affaiblissant davantage l'autorité centrale de l'État hafside.",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant les manifestations de la crise économique dans l'État hafside.",
+                ex2_table_sector: "Secteur",
+                ex2_table_decline: "Taux de déclin (%)",
+                ex2_agri: "Activité agricole",
+                ex2_craft: "Production artisanale",
+                ex2_trade: "Secteur commercial",
+                ex2Q_source: "Source : Estimations basées sur les indicateurs de la crise économique à l'époque hafside",
+                ex2A_title: "Manifestations de la crise économique dans l'État hafside",
+                ex2A_source: "Source : Estimations basées sur les indicateurs de la crise économique à l'époque hafside",
+                ex2A_scale: "Échelle : 0–100 % ; hauteur des colonnes proportionnelle au taux de déclin.",
+                ex2A_key_label: "Légende :",
+                ex2A_key_agri: "Agriculture",
+                ex2A_key_craft: "Artisanat",
+                ex2A_key_trade: "Commerce",
+                ex3DocAlt: "Villes autonomes de l'État hafside",
+                ex3AnswerImgAlt: "Modèle de réponse – Villes autonomes de l'État hafside",
+                ex3Q: "Observez le document suivant représentant les villes de l'État hafside qui se sont rendues indépendantes du pouvoir central, et dégagez les manifestations de la désagrégation du pouvoir politique à l'époque hafside.",
+                ex3A: "Les manifestations de la désagrégation du pouvoir politique à l'époque hafside comprenaient : l'indépendance de plusieurs villes du pouvoir central comme Annaba, Tripoli, Constantine, Djerba, Sfax et Sousse, affaiblissant le pouvoir central ; l'émergence de forces séparatistes internes, le danger des tribus ayant atteint son apogée avec la confrérie Shabbiyya à Kairouan ; la désagrégation du pouvoir central en raison des conflits entre les membres de la famille régnante à cause de l'absence d'une loi régissant l'héritage du pouvoir ; l'incapacité de certains dirigeants à faire face à la situation économique et sociale qui s'aggravait ; et l'aggravation du danger extérieur représenté par les puissances ottomane et espagnole.",
+                ex4Q: "Analysez les manifestations de la crise sociale dans l'État hafside et ses répercussions sur la cohésion sociale en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Manifestations de la crise sociale :\n- Désintégration de la société hafside en populations sédentaires dans les villes et villages d'une part, et en Bédouins nomades d'autre part, la relation entre eux étant marquée par la tension et l'aversion.\n- Désintégration de la société urbaine elle-même en raison des positions divergentes du Rabad de Bab Souika et de Bab El Jazira face à la campagne de Khayr al-Din Barbarossa en 1534.\n- Le rôle des fatwas des oulémas (Ibn Arafa) dans l'approfondissement du fossé entre les populations sédentaires et les tribus nomades.\n- Manque d'homogénéité de la société hafside et intensification des contradictions dues aux crises successives.\n- Diffusion des confréries soufies en réaction à l'insécurité et à la montée du danger chrétien.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "À sa dernière période, l'État hafside a connu une crise sociale aiguë se manifestant principalement par la désintégration de la société en populations sédentaires dans les villes et villages d'une part, et en Bédouins nomades d'autre part, la relation entre eux étant marquée par la tension et l'aversion. La désintégration ne s'est pas limitée à la fracture rural-urbain mais a touché la société urbaine elle-même, les positions du Rabad de Bab Souika et de Bab El Jazira ayant divergé face à la campagne de Khayr al-Din Barbarossa en 1534, reflétant le manque d'homogénéité de la société hafside. Les fatwas des oulémas comme Ibn Arafa appelant à combattre les Bédouins ont également contribué à approfondir le fossé. Dans ces conditions d'insécurité et de montée du danger chrétien, les confréries soufies se sont répandues comme refuge spirituel pour la population. Ainsi, cette crise sociale a affaibli le tissu social et approfondi les contradictions internes de l'État hafside.",
+                ex5Q: "Rédigez un court article (150 mots) sur les manifestations de la crise globale vécue par l'État hafside à la fin du XVe et au début du XVIe siècle.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Depuis 1488, l'État hafside a connu une crise globale se manifestant à trois niveaux : économique, social et politique. Analysez les manifestations de cette crise à chaque niveau et mettez en évidence ses répercussions sur l'existence même de l'État hafside.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : L'État hafside et la crise du XVIe siècle.",
+                ex5A_plan_li2: "Développement : I. La crise économique (déclin de l'agriculture, de l'artisanat et du commerce) ; II. La crise sociale (désintégration sociale et diffusion du soufisme) ; III. La crise politique (désagrégation du pouvoir et aggravation du danger extérieur).",
+                ex5A_plan_li3: "Conclusion : Un État menacé dans son existence même.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Depuis la fin du XVe siècle (1488), l'État hafside a connu une crise globale menaçant son existence aux niveaux économique, social et politique.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_eco: "I. La crise économique",
+                ex5A_production_p_eco: "L'activité agricole a décliné en raison de la détérioration de la sécurité, la production artisanale s'est détériorée à cause des impôts élevés et de la concurrence européenne, et le secteur commercial a été touché par le déplacement des routes commerciales de la Méditerranée vers l'Atlantique.",
+                ex5A_production_h4_soc: "II. La crise sociale",
+                ex5A_production_p_soc: "La société s'est désintégrée en populations sédentaires et Bédouins nomades, avec tension entre eux ; la société urbaine elle-même s'est désintégrée, les fatwas des oulémas ont approfondi le fossé, et les confréries soufies se sont répandues dans l'insécurité.",
+                ex5A_production_h4_pol: "III. La crise politique",
+                ex5A_production_p_pol: "Le pouvoir central s'est désagrégé en raison des conflits au sein de la famille régnante, plusieurs villes sont devenues indépendantes, des forces séparatistes internes ont émergé, et le danger extérieur ottoman et espagnol s'est aggravé.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi, à la fin du XVe et au début du XVIe siècle, l'État hafside est devenu menacé dans son existence même à tous les niveaux, en faisant un champ ouvert aux interventions extérieures.",
+                ex6Q: "Créez une chronologie des événements suivants : Début de la crise globale dans l'État hafside (1488), Campagne de Khayr al-Din Barbarossa contre Tunis (1534), Campagne de Charles Quint contre Tunis (1535), Installation ottomane définitive en Tunisie (1574).",
+                ex6A: "Chronologie : 1488 : Début de la crise globale...",
+                ex6_timeline_title: "Jalons clés de la crise de l'État hafside",
+                ex6_event_1488_label: "Début de la crise globale",
+                ex6_event_1488_sub: "1488",
+                ex6_event_1534_label: "Campagne de Khayr al-Din Barbarossa",
+                ex6_event_1534_sub: "1534",
+                ex6_event_1535_label: "Campagne de Charles Quint",
+                ex6_event_1535_sub: "1535",
+                ex6_event_1574_label: "Installation ottomane définitive",
+                ex6_event_1574_sub: "1574",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – أزمة الدولة الحفصية في القرن السادس عشر",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: أزمة الدولة الحفصية، الطرق الصوفية، ابن عرفة، الطريقة الشابية.",
+                ex1_def1_title: "أزمة الدولة الحفصية:",
+                ex1_def1_subtitle: "أزمة شاملة اقتصادية واجتماعية وسياسية عاشتها الدولة الحفصية منذ أواخر القرن 15 (1488)، تمثلت في تراجع الفلاحة والحرف والقطاع التجاري، وتفكك المجتمع، وانحلال السلطة المركزية، وأدت إلى إضعاف الدولة وتهديد كيانها.",
+                ex1_def2_title: "الطرق الصوفية:",
+                ex1_def2_subtitle: "تنظيمات دينية إسلامية تقوم على الزهد والتصوف، انتشرت في البلاد التونسية خاصة في أواخر القرن 15 والقرن 16 في ظل انعدام الأمن وتصاعد الخطر المسيحي، حيث لجأ السكان إلى الزوايا الصوفية بحثًا عن الطمأنينة والأمان الروحي.",
+                ex1_def3_title: "ابن عرفة:",
+                ex1_def3_subtitle: "شيخ إسلامي بارز في العهد الحفصي، أصدر فتاوى تحث على مقاتلة الأعراب، مما ساهم في تعميق التوتر الاجتماعي بين السكان المستقرين والقبائل الرحل وشبه الرحل في أواخر العهد الحفصي.",
+                ex1_def4_title: "الطريقة الشابية:",
+                ex1_def4_subtitle: "حركة دينية وسياسية بالقيروان، مثّلت قوة انفصالية داخلية بلغ بها خطر القبائل أوجه في أواخر العهد الحفصي، مما زاد في إضعاف السلطة المركزية للدولة الحفصية.",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن مظاهر الأزمة الاقتصادية في الدولة الحفصية.",
+                ex2_table_sector: "القطاع",
+                ex2_table_decline: "درجة التراجع (%)",
+                ex2_agri: "النشاط الفلاحي",
+                ex2_craft: "الإنتاج الحرفي",
+                ex2_trade: "القطاع التجاري",
+                ex2Q_source: "المصدر: تقديرات مبنية على مؤشرات الأزمة الاقتصادية بالعهد الحفصي",
+                ex2A_title: "مظاهر الأزمة الاقتصادية في الدولة الحفصية",
+                ex2A_source: "المصدر: تقديرات مبنية على مؤشرات الأزمة الاقتصادية بالعهد الحفصي",
+                ex2A_scale: "المقياس: 0–100%؛ ارتفاع الأعمدة يتناسب مع درجة التراجع.",
+                ex2A_key_label: "المفتاح:",
+                ex2A_key_agri: "الفلاحة",
+                ex2A_key_craft: "الحرف",
+                ex2A_key_trade: "التجارة",
+                ex3DocAlt: "مدن الدولة الحفصية المستقلة",
+                ex3AnswerImgAlt: "نموذج الإجابة – مدن الدولة الحفصية المستقلة",
+                ex3Q: "تأمل الوثيقة التالية التي تمثّل مدن الدولة الحفصية التي استقلّت عن السلطة المركزية، واستخرج مظاهر تفكك السلطة السياسية في العهد الحفصي.",
+                ex3A: "تمثلت مظاهر تفكك السلطة السياسية في العهد الحفصي في: استقلال عديد المدن عن السلطة المركزية مثل عنابة وطرابلس وقسنطينة وجربة وصفاقس وسوسة، مما أدى إلى إضعاف الحكم المركزي؛ بروز قوى انفصالية داخلية بلغ خطر القبائل أوجه مع الطريقة الشابية بالقيروان؛ انحلال السلطة المركزية بسبب الصراعات بين أعضاء الأسرة الحاكمة لغياب قانون ينظم توارث الحكم؛ عجز بعض الحكام عن مواجهة الوضع الاقتصادي والاجتماعي المتفاقم؛ تفاقم الخطر الخارجي المتمثل في القوتين العثمانية والإسبانية.",
+                ex4Q: "حلّل مظاهر الأزمة الاجتماعية بالدولة الحفصية وانعكاساتها على تماسك المجتمع في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "مظاهر الأزمة الاجتماعية:\n- تفكك المجتمع الحفصي إلى سكان مستقرين بالمدن والقرى من جهة، والبدو الرحل من جهة ثانية، وقد تميّزت العلاقة بينهما بالتوتر والنفور.\n- تفكك المجتمع الحضري نفسه نتيجة تباين مواقف ربضي باب سويقة وباب الجزيرة تجاه حملة خير الدين بربروس سنة 1534.\n- دور فتاوى العلماء (ابن عرفة) في تعميق الشقاق بين السكان المستقرين والقبائل الرحل.\n- عدم تجانس المجتمع الحفصي واحتداد التناقضات بفعل الأزمات المتتالية.\n- انتشار الطرق الصوفية كردّ فعل على انعدام الأمن وتصاعد الخطر المسيحي.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "عرفت الدولة الحفصية في أواخر عهدها أزمة اجتماعية حادة تمثلت أساسًا في تفكك المجتمع إلى سكان مستقرين بالمدن والقرى من جهة، والبدو الرحل من جهة ثانية، حيث اتسمت العلاقة بينهما بالتوتر والنفور. ولم يقتصر التفكك على الجانب الريفي-الحضري، بل امتد إلى المجتمع الحضري نفسه، إذ تباينت مواقف ربضي باب سويقة وباب الجزيرة تجاه حملة خير الدين بربروس سنة 1534، مما يعكس عدم تجانس المجتمع الحفصي. كما ساهمت فتاوى العلماء مثل ابن عرفة التي تحث على مقاتلة الأعراب في تعميق الشقاق. وفي ظل هذه الظروف من انعدام الأمن وتصاعد الخطر المسيحي، انتشرت الطرق الصوفية كملجأ روحي للسكان. وهكذا أدّت هذه الأزمة الاجتماعية إلى إضعاف النسيج الاجتماعي وتعميق التناقضات الداخلية في الدولة الحفصية.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول مظاهر الأزمة الشاملة التي عاشتها الدولة الحفصية في أواخر القرن 15 وبداية القرن 16.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "عاشت الدولة الحفصية منذ 1488 أزمة شاملة تجلت في ثلاثة مستويات: اقتصادي، واجتماعي، وسياسي. حلّل مظاهر هذه الأزمة في كل مستوى، وأبرز انعكاساتها على كيان الدولة الحفصية.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: الدولة الحفصية وأزمة القرن 16.",
+                ex5A_plan_li2: "تطوير: أولاً. الأزمة الاقتصادية (تراجع الفلاحة والحرف والتجارة)؛ ثانياً. الأزمة الاجتماعية (تفكك المجتمع وانتشار التصوف)؛ ثالثاً. الأزمة السياسية (انحلال السلطة وتفاقم الخطر الخارجي).",
+                ex5A_plan_li3: "خاتمة: دولة مهددة في كيانها.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "شهدت الدولة الحفصية منذ أواخر القرن 15 (1488) أزمة شاملة هددت كيانها على مختلف الأصعدة الاقتصادية والاجتماعية والسياسية.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_eco: "أولاً. الأزمة الاقتصادية",
+                ex5A_production_p_eco: "تراجع النشاط الفلاحي بفعل تدهور الأمن، وتدهور الإنتاج الحرفي بسبب ارتفاع الضرائب والمنافسة الأوروبية، كما تضرّر القطاع التجاري مع تحوّل الطرق التجارية من المتوسط إلى المحيط الأطلسي.",
+                ex5A_production_h4_soc: "ثانياً. الأزمة الاجتماعية",
+                ex5A_production_p_soc: "تفكّك المجتمع إلى سكان مستقرين وبدو رحّل، وتوتّرت العلاقة بينهما، وتفكّك المجتمع الحضري نفسه، وساهمت فتاوى العلماء في تعميق الشقاق، وانتشرت الطرق الصوفية في ظل انعدام الأمن.",
+                ex5A_production_h4_pol: "ثالثاً. الأزمة السياسية",
+                ex5A_production_p_pol: "انحلّت السلطة المركزية بسبب صراعات الأسرة الحاكمة، واستقلّت عديد المدن، وبرزت قوى انفصالية داخلية، وتفاقم الخطر الخارجي العثماني والإسباني.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا أصبحت الدولة الحفصية في أواخر القرن 15 وبداية القرن 16 دولة مهددة في كيانها على جميع الأصعدة، مما جعلها مجالًا مفتوحًا للتدخلات الخارجية.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: بداية الأزمة الشاملة في الدولة الحفصية (1488)، حملة خير الدين بربروس على تونس (1534)، حملة شارلكان على تونس (1535)، انتصاب العثمانيين نهائيًا بالبلاد التونسية (1574).",
+                ex6A: "الخط الزمني: 1488: بداية الأزمة الشاملة ...",
+                ex6_timeline_title: "محطات أساسية في أزمة الدولة الحفصية",
+                ex6_event_1488_label: "بداية الأزمة الشاملة",
+                ex6_event_1488_sub: "1488",
+                ex6_event_1534_label: "حملة خير الدين بربروس",
+                ex6_event_1534_sub: "1534",
+                ex6_event_1535_label: "حملة شارلكان",
+                ex6_event_1535_sub: "1535",
+                ex6_event_1574_label: "انتصاب العثمانيين نهائيًا",
+                ex6_event_1574_sub: "1574",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: 'Agriculture', value: 70, labelKey: 'ex2A_key_agri', valueFormatted: '70%' },
+                { label: 'Crafts', value: 60, labelKey: 'ex2A_key_craft', valueFormatted: '60%' },
+                { label: 'Trade', value: 80, labelKey: 'ex2A_key_trade', valueFormatted: '80%' }
+            ],
+            maxValue: 100,
+            ySteps: [100, 80, 60, 40, 20, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1488, labelKey: 'ex6_event_1488_label', subKey: 'ex6_event_1488_sub' },
+                { year: 1534, labelKey: 'ex6_event_1534_label', subKey: 'ex6_event_1534_sub' },
+                { year: 1535, labelKey: 'ex6_event_1535_label', subKey: 'ex6_event_1535_sub' },
+                { year: 1574, labelKey: 'ex6_event_1574_label', subKey: 'ex6_event_1574_sub' }
+            ],
+            startYear: 1488,
+            endYear: 1574,
+            scaleYears: [1488, 1510, 1532, 1554, 1574]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

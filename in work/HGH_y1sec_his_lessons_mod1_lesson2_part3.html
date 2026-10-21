@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">قرطاج وإسهاماتها في الحضارة الرومانية: أبوليوس</h1>
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">شهدت إفريقيا البروقنصلية في القرن الثاني ميلادي ازدهارًا اقتصاديًا وعمرانيًا وثقافيًا، وتألّق فيها عدد من المفكرين والأدباء، ومن أبرزهم أبوليوس صاحب رواية «المسوخ» (الحمار الذهبي).</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فمن هو أبوليوس؟ وما هي مكوّنات شخصيته الموسوعية؟ وما هي أبرز إسهاماته الأدبية؟</p>
+            </div>
+            <!-- Part I : Context of the Era -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">إطار العصر: ازدهار إفريقيا البروقنصلية</span>
+                </h2>
+                <!-- 1. Economic and Urban Prosperity -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="economicProsperityTitle">الازدهار الاقتصادي والعمراني</span>
+                </h3>
+                <p data-i18n="economicProsperityText">شهد القرن الثاني ميلادي تحول مقاطعة «إفريقيا البروقنصلية» (تونس الحالية وجزء من الجزائر وليبيا) إلى «أهراء روما» بفضل طفرة إنتاج الحبوب والزيتون.</p>
+                <!-- 2. Carthage as Cultural Capital -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="carthageCulturalTitle">قرطاج العاصمة الثقافية</span>
+                </h3>
+                <p data-i18n="carthageCulturalText">أعاد الرومان بناء قرطاج لتصبح عاصمة المقاطعة، وتحولت إلى منارة علمية وثقافية كبرى في العالم اللاتيني، تنافس روما وأثينا.</p>
+            </div>
+            <!-- Part II : His Upbringing and Formation -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">نشأة أبوليوس وتكوينه الموسوعي</span>
+                </h2>
+                <!-- 1. Origin and Birth -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="originBirthTitle">الأصل والولادة</span>
+                </h3>
+                <p data-i18n="originBirthText">وُلِد لوسيوس أبوليوس حوالي سنة 124 م في مدينة مادوروس (مداوروش الحالية بسوق أهراس، الجزائر)، وكان ينتمي إلى عائلة ميسورة الحال (والده كان قاضياً).</p>
+                <!-- 2. Multidisciplinary Formation -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="multidisciplinaryTitle">التكوين العلمي المتعدد</span>
+                </h3>
+                <ul>
+                    <li data-i18n="formationBullet1">تلقى مبادئ العلوم والآداب الأولى في جامعة قرطاج.</li>
+                    <li data-i18n="formationBullet2">سافر إلى أثينا لدراسة الفلسفة الأفلاطونية، وإلى روما لتعلم البلاغة الخطابية اللاتينية.</li>
+                    <li data-i18n="formationBullet3">مكّنه هذا الترحال من اكتساب ثقافة موسوعية جمعت بين الأدب، الفلسفة، الطبيعيات، والخطابة.</li>
+                </ul>
+            </div>
+            <!-- Part III : His Influence and Literary Production -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span>
+                    <span data-i18n="sectionPart3">إشعاع أبوليوس في قرطاج وإنتاجه الأدبي</span>
+                </h2>
+                <!-- 1. The Eloquent Orator -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="oratorTitle">الخطيب البارع</span>
+                </h3>
+                <p data-i18n="oratorText">استقر أبوليوس في قرطاج وتولى فيها مناصب دينية رفيعة (كاهن أكبر للمدينة). واشتهر بإلقاء محاضراته وخطبه البليغة على مسرح قرطاج أمام جمهور غفير باللغتين اللاتينية والإغريقية.</p>
+                <!-- 2. The Golden Ass Novel -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="novelTitle">رواية المسوخ (الحمار الذهبي)</span>
+                </h3>
+                <p data-i18n="novelIntroText">تعدّ أهم إنجازاته، وهي أول رواية متكاملة في تاريخ الأدب اللاتيني تصلنا كاملة.</p>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="styleTitle">أسلوبها</span>
+                </h4>
+                <p data-i18n="styleText">جمع فيها بين الخيال الطريف والتصوير الدقيق للواقع الاجتماعي.</p>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="dimensionsTitle">أبعادها</span>
+                </h4>
+                <p data-i18n="dimensionsText">حملت نقداً لاذعاً للمجتمع الروماني وسلوكيات البشر، وعكست الثقافة الهجينة (الأفريقية-الرومانية) التي تميز بها المثقف القرطاجي.</p>
+            </div>
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">مثّل أبوليوس نموذجًا للمثقف الموسوعي في إفريقيا البروقنصلية الرومانية، إذ جمع بين الفلسفة والخطابة والأدب، وخلّد اسمه برواية «المسوخ» (الحمار الذهبي) التي تُعدّ أول رواية متكاملة في الأدب اللاتيني.</p>
+            </div>
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defApuleius">أبوليوس (لوسيوس أبوليوس)</strong>: <span data-i18n="defApuleiusDesc">مفكر وأديب وخطيب من إفريقيا البروقنصلية، وُلِد حوالي سنة 124 م في مادوروس (مداوروش الحالية بسوق أهراس، الجزائر) من عائلة ميسورة الحال. تلقى تكوينه الأول بجامعة قرطاج، ثم سافر إلى أثينا لدراسة الفلسفة الأفلاطونية وإلى روما لتعلم البلاغة اللاتينية. استقر في قرطاج وتولى مناصب دينية رفيعة (كاهن أكبر للمدينة)، واشتهر بإلقاء محاضراته وخطبه البليغة على مسرح قرطاج باللغتين اللاتينية والإغريقية. من أشهر إنجازاته رواية «المسوخ» (الحمار الذهبي) وهي أول رواية متكاملة في الأدب اللاتيني.</span></li>
+                        <li><strong class="key-person" data-i18n="defPlato">أفلاطون</strong>: <span data-i18n="defPlatoDesc">فيلسوف يوناني، درس أبوليوس فلسفته الأفلاطونية في أثينا.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defMadauros">مادوروس (مداوروش)</strong>: <span data-i18n="defMadaurosDesc">مدينة تقع في سوق أهراس الحالية بالجزائر، وهي مسقط رأس أبوليوس حوالي سنة 124 م.</span></li>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">عاصمة إفريقيا البروقنصلية الرومانية، تحولت إلى منارة علمية وثقافية كبرى في العالم اللاتيني تنافس روما وأثينا، وفي جامعتها تلقى أبوليوس تكوينه الأول، وفيها استقر وتولى مناصب دينية رفيعة واشتهر بخطبه البليغة.</span></li>
+                        <li><strong class="key-location" data-i18n="defAfricaProconsularis">أفريقيا البروقنصلية</strong>: <span data-i18n="defAfricaProconsularisDesc">مقاطعة رومانية تشمل تونس الحالية وجزءًا من الجزائر وليبيا، تحولت في القرن الثاني ميلادي إلى «أهراء روما» بفضل طفرة إنتاج الحبوب والزيتون.</span></li>
+                        <li><strong class="key-location" data-i18n="defAthens">أثينا</strong>: <span data-i18n="defAthensDesc">مدينة يونانية سافر إليها أبوليوس لدراسة الفلسفة الأفلاطونية.</span></li>
+                        <li><strong class="key-location" data-i18n="defRome">روما</strong>: <span data-i18n="defRomeDesc">سافر إليها أبوليوس لتعلم البلاغة الخطابية اللاتينية، وهي أحد أقطاب الثقافة اللاتينية التي نافستها قرطاج في تلك الفترة.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">حوالي 124م</strong>: <span data-i18n="defYear124Desc">سنة ولادة أبوليوس بمدينة مادوروس (مداوروش).</span></li>
+                        <li><strong class="key-year">القرن الثاني ميلادي</strong>: <span data-i18n="defYear2ndADDesc">القرن الذي شهد ازدهار إفريقيا البروقنصلية اقتصاديًا وعمرانيًا وثقافيًا، وفيه تألّق أبوليوس.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defGranaryOfRome">أهراء روما</strong>: <span data-i18n="defGranaryOfRomeDesc">لقب أُطلق على إفريقيا البروقنصلية في القرن الثاني ميلادي بفضل طفرة إنتاج الحبوب والزيتون، إذ أصبحت المزود الرئيسي لروما.</span></li>
+                        <li><strong class="key-other" data-i18n="defMetamorphoses">رواية المسوخ (الحمار الذهبي)</strong>: <span data-i18n="defMetamorphosesDesc">أهم إنجازات أبوليوس، وهي أول رواية متكاملة في تاريخ الأدب اللاتيني تصلنا كاملة. جمعت بين الخيال الطريف والتصوير الدقيق للواقع الاجتماعي، وحملت نقداً لاذعاً للمجتمع الروماني وسلوكيات البشر، وعكست الثقافة الهجينة (الأفريقية-الرومانية) التي تميز بها المثقف القرطاجي.</span></li>
+                        <li><strong class="key-other" data-i18n="defPlatonicPhilosophy">الفلسفة الأفلاطونية</strong>: <span data-i18n="defPlatonicPhilosophyDesc">فلسفة الفيلسوف اليوناني أفلاطون، سافر أبوليوس إلى أثينا لدراستها.</span></li>
+                        <li><strong class="key-other" data-i18n="defLatinRhetoric">البلاغة الخطابية اللاتينية</strong>: <span data-i18n="defLatinRhetoricDesc">فنّ الخطابة باللغة اللاتينية، سافر أبوليوس إلى روما لتعلمه.</span></li>
+                        <li><strong class="key-other" data-i18n="defHybridCulture">الثقافة الهجينة (الأفريقية-الرومانية)</strong>: <span data-i18n="defHybridCultureDesc">ثقافة مزيج بين الموروث الأفريقي والموروث الروماني، تميّز بها المثقف القرطاجي في العهد الروماني، وعكستها رواية «المسوخ».</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: شهدت إفريقيا البروقنصلية في القرن الثاني ميلادي ازدهارًا اقتصاديًا وعمرانيًا وثقافيًا، تحولت فيه إلى «أهراء روما» وإلى منارة ثقافية بقرطاج تنافس روما وأثينا. وفي هذا الإطار تألّق أبوليوس (حوالي 124م) بتكوينه الموسوعي الذي جمع الأدب والفلسفة والخطابة، واستقر بقرطاج كاهنًا أكبر وخطيبًا بارعًا، وخلّد اسمه برواية «المسوخ» (الحمار الذهبي) التي تُعدّ أول رواية متكاملة في الأدب اللاتيني.</div>
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/apuleius_portrait.jpg" alt="أبوليوس" data-i18n-alt="galleryAlt1" loading="lazy">
+        <figcaption data-i18n="galleryCap1">أبوليوس</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/madauros_mdaourouch.jpg" alt="مدينة مادوروس (مداوروش) مسقط رأس أبوليوس" data-i18n-alt="galleryAlt2" loading="lazy">
+        <figcaption data-i18n="galleryCap2">مدينة مادوروس (مداوروش) مسقط رأس أبوليوس</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/carthage_theater_apuleius.jpg" alt="مسرح قرطاج حيث كان أبوليوس يلقي خطبه" data-i18n-alt="galleryAlt3" loading="lazy">
+        <figcaption data-i18n="galleryCap3">مسرح قرطاج حيث كان أبوليوس يلقي خطبه</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/golden_ass_manuscript.jpg" alt="مخطوط رواية «المسوخ» (الحمار الذهبي)" data-i18n-alt="galleryAlt4" loading="lazy">
+        <figcaption data-i18n="galleryCap4">مخطوط رواية «المسوخ» (الحمار الذهبي)</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/plato_academy_athens.jpg" alt="أكاديمية أفلاطون بأثينا" data-i18n-alt="galleryAlt5" loading="lazy">
+        <figcaption data-i18n="galleryCap5">أكاديمية أفلاطون بأثينا</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/roman_africa_granary.jpg" alt="إفريقيا البروقنصلية أهراء روما" data-i18n-alt="galleryAlt6" loading="lazy">
+        <figcaption data-i18n="galleryCap6">إفريقيا البروقنصلية أهراء روما</figcaption>
+    </figure>
+</div>
+            </div>
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_his_exercisess_mod1_lesson2_part3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "History / Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)",
+                lessonTitleSample: "Carthage and Its Contributions to Roman Civilization: Apuleius",
+                sectionIntro: "Introduction",
+                introText: "In the 2nd century AD, Africa Proconsularis witnessed economic, urban, and cultural prosperity, and several thinkers and writers shone there, the most prominent of whom was Apuleius, author of the novel 'The Metamorphoses' (The Golden Ass).",
+                problematiqueText: "Who is Apuleius? What are the components of his encyclopedic personality? And what are his most prominent literary contributions?",
+                sectionPart1: "Context of the Era: The Prosperity of Africa Proconsularis",
+                economicProsperityTitle: "Economic and Urban Prosperity",
+                economicProsperityText: "The 2nd century AD witnessed the transformation of the province of 'Africa Proconsularis' (present-day Tunisia and part of Algeria and Libya) into the 'Granary of Rome' thanks to the boom in grain and olive production.",
+                carthageCulturalTitle: "Carthage, the Cultural Capital",
+                carthageCulturalText: "The Romans rebuilt Carthage to become the capital of the province, and it turned into a major scientific and cultural beacon in the Latin world, rivaling Rome and Athens.",
+                sectionPart2: "The Upbringing and Encyclopedic Formation of Apuleius",
+                originBirthTitle: "Origin and Birth",
+                originBirthText: "Lucius Apuleius was born around 124 AD in the city of Madauros (present-day M'Daourouch in Souk Ahras, Algeria), and he belonged to a wealthy family (his father was a judge).",
+                multidisciplinaryTitle: "Multidisciplinary Scientific Formation",
+                formationBullet1: "He received the first principles of science and literature at the University of Carthage.",
+                formationBullet2: "He traveled to Athens to study Platonic philosophy, and to Rome to learn Latin rhetorical eloquence.",
+                formationBullet3: "This traveling enabled him to acquire an encyclopedic culture combining literature, philosophy, natural sciences, and rhetoric.",
+                sectionPart3: "The Influence of Apuleius in Carthage and His Literary Production",
+                oratorTitle: "The Eloquent Orator",
+                oratorText: "Apuleius settled in Carthage and held high religious positions there (chief priest of the city). He became famous for delivering his lectures and eloquent speeches on the theater of Carthage before a large audience in both Latin and Greek.",
+                novelTitle: "The Novel 'The Metamorphoses' (The Golden Ass)",
+                novelIntroText: "It is considered his most important achievement, and it is the first complete novel in the history of Latin literature that has reached us complete.",
+                styleTitle: "Its Style",
+                styleText: "In it, he combined witty imagination with precise depiction of social reality.",
+                dimensionsTitle: "Its Dimensions",
+                dimensionsText: "It carried sharp criticism of Roman society and human behavior, and reflected the hybrid culture (African-Roman) that characterized the Carthaginian intellectual.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Apuleius represented a model of the encyclopedic intellectual in Roman Africa Proconsularis, combining philosophy, rhetoric, and literature, and immortalized his name with the novel 'The Metamorphoses' (The Golden Ass), considered the first complete novel in Latin literature.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defApuleius: "Apuleius (Lucius Apuleius)",
+                defApuleiusDesc: "A thinker, writer, and orator from Africa Proconsularis, born around 124 AD in Madauros (present-day M'Daourouch in Souk Ahras, Algeria) to a wealthy family. He received his first formation at the University of Carthage, then traveled to Athens to study Platonic philosophy and to Rome to learn Latin rhetoric. He settled in Carthage and held high religious positions (chief priest of the city), and became famous for delivering his lectures and eloquent speeches on the theater of Carthage in both Latin and Greek. Among his most famous achievements is the novel 'The Metamorphoses' (The Golden Ass), the first complete novel in Latin literature.",
+                defPlato: "Plato",
+                defPlatoDesc: "A Greek philosopher whose Platonic philosophy Apuleius studied in Athens.",
+                defMadauros: "Madauros (M'Daourouch)",
+                defMadaurosDesc: "A city located in present-day Souk Ahras in Algeria, the birthplace of Apuleius around 124 AD.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "The capital of Roman Africa Proconsularis, which turned into a major scientific and cultural beacon in the Latin world rivaling Rome and Athens. At its university Apuleius received his first formation, and there he settled, held high religious positions, and became famous for his eloquent speeches.",
+                defAfricaProconsularis: "Africa Proconsularis",
+                defAfricaProconsularisDesc: "A Roman province comprising present-day Tunisia and part of Algeria and Libya, which turned in the 2nd century AD into the 'Granary of Rome' thanks to the boom in grain and olive production.",
+                defAthens: "Athens",
+                defAthensDesc: "A Greek city to which Apuleius traveled to study Platonic philosophy.",
+                defRome: "Rome",
+                defRomeDesc: "Apuleius traveled to it to learn Latin rhetorical eloquence, and it was one of the poles of Latin culture that Carthage rivaled in that period.",
+                defYear124Desc: "The year of Apuleius's birth in the city of Madauros (M'Daourouch).",
+                defYear2ndADDesc: "The century that witnessed the prosperity of Africa Proconsularis economically, urbanly, and culturally, and in which Apuleius shone.",
+                defGranaryOfRome: "Granary of Rome",
+                defGranaryOfRomeDesc: "A title given to Africa Proconsularis in the 2nd century AD thanks to the boom in grain and olive production, as it became Rome's main supplier.",
+                defMetamorphoses: "The Novel 'The Metamorphoses' (The Golden Ass)",
+                defMetamorphosesDesc: "The most important achievement of Apuleius, and the first complete novel in the history of Latin literature that has reached us complete. It combined witty imagination with precise depiction of social reality, carried sharp criticism of Roman society and human behavior, and reflected the hybrid culture (African-Roman) that characterized the Carthaginian intellectual.",
+                defPlatonicPhilosophy: "Platonic Philosophy",
+                defPlatonicPhilosophyDesc: "The philosophy of the Greek philosopher Plato; Apuleius traveled to Athens to study it.",
+                defLatinRhetoric: "Latin Rhetorical Eloquence",
+                defLatinRhetoricDesc: "The art of oratory in Latin; Apuleius traveled to Rome to learn it.",
+                defHybridCulture: "Hybrid Culture (African-Roman)",
+                defHybridCultureDesc: "A culture mixing African and Roman heritage, which characterized the Carthaginian intellectual in the Roman era, and was reflected in the novel 'The Metamorphoses'.",
+                summaryText: "Key takeaway: In the 2nd century AD, Africa Proconsularis witnessed economic, urban, and cultural prosperity, turning into the 'Granary of Rome' and into a cultural beacon in Carthage rivaling Rome and Athens. In this context Apuleius (around 124 AD) shone with his encyclopedic formation combining literature, philosophy, and rhetoric, settled in Carthage as chief priest and eloquent orator, and immortalized his name with the novel 'The Metamorphoses' (The Golden Ass), considered the first complete novel in Latin literature.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Apuleius",
+                galleryAlt2: "The city of Madauros (M'Daourouch), birthplace of Apuleius",
+                galleryAlt3: "The theater of Carthage where Apuleius delivered his speeches",
+                galleryAlt4: "Manuscript of the novel 'The Metamorphoses' (The Golden Ass)",
+                galleryAlt5: "Plato's Academy in Athens",
+                galleryAlt6: "Africa Proconsularis, the Granary of Rome",
+                galleryCap1: "Apuleius",
+                galleryCap2: "The city of Madauros (M'Daourouch), birthplace of Apuleius",
+                galleryCap3: "The theater of Carthage where Apuleius delivered his speeches",
+                galleryCap4: "Manuscript of the novel 'The Metamorphoses' (The Golden Ass)",
+                galleryCap5: "Plato's Academy in Athens",
+                galleryCap6: "Africa Proconsularis, the Granary of Rome"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Histoire / Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)",
+                lessonTitleSample: "Carthage et ses apports à la civilisation romaine : Apulée",
+                sectionIntro: "Introduction",
+                introText: "Au IIe siècle apr. J.-C., l'Afrique proconsulaire a connu une prospérité économique, urbanistique et culturelle, et plusieurs penseurs et écrivains y ont brillé, dont le plus éminent était Apulée, auteur du roman « Les Métamorphoses » (L'Âne d'or).",
+                problematiqueText: "Qui est Apulée ? Quelles sont les composantes de sa personnalité encyclopédique ? Et quels sont ses apports littéraires les plus marquants ?",
+                sectionPart1: "Le contexte de l'époque : la prospérité de l'Afrique proconsulaire",
+                economicProsperityTitle: "La prospérité économique et urbanistique",
+                economicProsperityText: "Le IIe siècle apr. J.-C. a vu la transformation de la province d'« Afrique proconsulaire » (la Tunisie actuelle et une partie de l'Algérie et de la Libye) en « grenier de Rome » grâce à l'essor de la production de céréales et d'olives.",
+                carthageCulturalTitle: "Carthage, la capitale culturelle",
+                carthageCulturalText: "Les Romains ont reconstruit Carthage pour en faire la capitale de la province, et elle est devenue un grand phare scientifique et culturel dans le monde latin, rivalisant avec Rome et Athènes.",
+                sectionPart2: "La jeunesse et la formation encyclopédique d'Apulée",
+                originBirthTitle: "Origine et naissance",
+                originBirthText: "Lucius Apulée est né vers 124 apr. J.-C. dans la ville de Madauros (l'actuelle M'Daourouch à Souk Ahras, en Algérie), et il appartenait à une famille aisée (son père était juge).",
+                multidisciplinaryTitle: "Formation scientifique multidisciplinaire",
+                formationBullet1: "Il a reçu les premiers principes des sciences et des lettres à l'université de Carthage.",
+                formationBullet2: "Il a voyagé à Athènes pour étudier la philosophie platonicienne, et à Rome pour apprendre l'éloquence oratoire latine.",
+                formationBullet3: "Ces voyages lui ont permis d'acquérir une culture encyclopédique combinant littérature, philosophie, sciences naturelles et rhétorique.",
+                sectionPart3: "Le rayonnement d'Apulée à Carthage et sa production littéraire",
+                oratorTitle: "L'orateur éloquent",
+                oratorText: "Apulée s'est installé à Carthage et y a occupé de hautes fonctions religieuses (grand prêtre de la ville). Il est devenu célèbre pour ses conférences et ses discours éloquents prononcés sur le théâtre de Carthage devant un large public en latin et en grec.",
+                novelTitle: "Le roman « Les Métamorphoses » (L'Âne d'or)",
+                novelIntroText: "Il est considéré comme sa réalisation la plus importante, et c'est le premier roman complet de l'histoire de la littérature latine qui nous soit parvenu intégralement.",
+                styleTitle: "Son style",
+                styleText: "Il y a combiné une imagination spirituelle et une représentation précise de la réalité sociale.",
+                dimensionsTitle: "Ses dimensions",
+                dimensionsText: "Il a porté une critique acerbe de la société romaine et du comportement humain, et a reflété la culture hybride (africano-romaine) qui caractérisait l'intellectuel carthaginois.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Apulée a représenté un modèle de l'intellectuel encyclopédique dans l'Afrique proconsulaire romaine, combinant philosophie, rhétorique et littérature, et a immortalisé son nom avec le roman « Les Métamorphoses » (L'Âne d'or), considéré comme le premier roman complet de la littérature latine.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays & régions",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defApuleius: "Apulée (Lucius Apulée)",
+                defApuleiusDesc: "Un penseur, écrivain et orateur d'Afrique proconsulaire, né vers 124 apr. J.-C. à Madauros (l'actuelle M'Daourouch à Souk Ahras, en Algérie) dans une famille aisée. Il a reçu sa première formation à l'université de Carthage, puis a voyagé à Athènes pour étudier la philosophie platonicienne et à Rome pour apprendre la rhétorique latine. Il s'est installé à Carthage et y a occupé de hautes fonctions religieuses (grand prêtre de la ville), et est devenu célèbre pour ses conférences et ses discours éloquents au théâtre de Carthage en latin et en grec. Parmi ses réalisations les plus célèbres figure le roman « Les Métamorphoses » (L'Âne d'or), le premier roman complet de la littérature latine.",
+                defPlato: "Platon",
+                defPlatoDesc: "Un philosophe grec dont Apulée a étudié la philosophie platonicienne à Athènes.",
+                defMadauros: "Madauros (M'Daourouch)",
+                defMadaurosDesc: "Une ville située à Souk Ahras actuelle en Algérie, lieu de naissance d'Apulée vers 124 apr. J.-C.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "La capitale de l'Afrique proconsulaire romaine, devenue un grand phare scientifique et culturel dans le monde latin rivalisant avec Rome et Athènes. C'est à son université qu'Apulée a reçu sa première formation, et c'est là qu'il s'est installé, a occupé de hautes fonctions religieuses et est devenu célèbre pour ses discours éloquents.",
+                defAfricaProconsularis: "Afrique proconsulaire",
+                defAfricaProconsularisDesc: "Une province romaine comprenant la Tunisie actuelle et une partie de l'Algérie et de la Libye, devenue au IIe siècle apr. J.-C. le « grenier de Rome » grâce à l'essor de la production de céréales et d'olives.",
+                defAthens: "Athènes",
+                defAthensDesc: "Une cité grecque où Apulée s'est rendu pour étudier la philosophie platonicienne.",
+                defRome: "Rome",
+                defRomeDesc: "Apulée s'y est rendu pour apprendre l'éloquence oratoire latine, et c'était l'un des pôles de la culture latine que Carthage rivalisait à cette période.",
+                defYear124Desc: "L'année de la naissance d'Apulée dans la ville de Madauros (M'Daourouch).",
+                defYear2ndADDesc: "Le siècle qui a vu la prospérité de l'Afrique proconsulaire sur les plans économique, urbanistique et culturel, et dans lequel Apulée a brillé.",
+                defGranaryOfRome: "Grenier de Rome",
+                defGranaryOfRomeDesc: "Un titre donné à l'Afrique proconsulaire au IIe siècle apr. J.-C. grâce à l'essor de la production de céréales et d'olives, puisqu'elle est devenue le principal fournisseur de Rome.",
+                defMetamorphoses: "Le roman « Les Métamorphoses » (L'Âne d'or)",
+                defMetamorphosesDesc: "La réalisation la plus importante d'Apulée, et le premier roman complet de l'histoire de la littérature latine qui nous soit parvenu intégralement. Il a combiné une imagination spirituelle et une représentation précise de la réalité sociale, a porté une critique acerbe de la société romaine et du comportement humain, et a reflété la culture hybride (africano-romaine) qui caractérisait l'intellectuel carthaginois.",
+                defPlatonicPhilosophy: "Philosophie platonicienne",
+                defPlatonicPhilosophyDesc: "La philosophie du philosophe grec Platon ; Apulée s'est rendu à Athènes pour l'étudier.",
+                defLatinRhetoric: "Éloquence oratoire latine",
+                defLatinRhetoricDesc: "L'art de l'éloquence en latin ; Apulée s'est rendu à Rome pour l'apprendre.",
+                defHybridCulture: "Culture hybride (africano-romaine)",
+                defHybridCultureDesc: "Une culture mêlant l'héritage africain et l'héritage romain, qui caractérisait l'intellectuel carthaginois à l'époque romaine, et qui s'est reflétée dans le roman « Les Métamorphoses ».",
+                summaryText: "À retenir : Au IIe siècle apr. J.-C., l'Afrique proconsulaire a connu une prospérité économique, urbanistique et culturelle, devenant le « grenier de Rome » et un phare culturel à Carthage rivalisant avec Rome et Athènes. Dans ce contexte, Apulée (vers 124 apr. J.-C.) a brillé par sa formation encyclopédique combinant littérature, philosophie et rhétorique, s'est installé à Carthage comme grand prêtre et orateur éloquent, et a immortalisé son nom avec le roman « Les Métamorphoses » (L'Âne d'or), considéré comme le premier roman complet de la littérature latine.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Apulée",
+                galleryAlt2: "La ville de Madauros (M'Daourouch), lieu de naissance d'Apulée",
+                galleryAlt3: "Le théâtre de Carthage où Apulée prononçait ses discours",
+                galleryAlt4: "Manuscrit du roman « Les Métamorphoses » (L'Âne d'or)",
+                galleryAlt5: "L'Académie de Platon à Athènes",
+                galleryAlt6: "L'Afrique proconsulaire, grenier de Rome",
+                galleryCap1: "Apulée",
+                galleryCap2: "La ville de Madauros (M'Daourouch), lieu de naissance d'Apulée",
+                galleryCap3: "Le théâtre de Carthage où Apulée prononçait ses discours",
+                galleryCap4: "Manuscrit du roman « Les Métamorphoses » (L'Âne d'or)",
+                galleryCap5: "L'Académie de Platon à Athènes",
+                galleryCap6: "L'Afrique proconsulaire, grenier de Rome"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)",
+                lessonTitleSample: "قرطاج وإسهاماتها في الحضارة الرومانية: أبوليوس",
+                sectionIntro: "مقدمة",
+                introText: "شهدت إفريقيا البروقنصلية في القرن الثاني ميلادي ازدهارًا اقتصاديًا وعمرانيًا وثقافيًا، وتألّق فيها عدد من المفكرين والأدباء، ومن أبرزهم أبوليوس صاحب رواية «المسوخ» (الحمار الذهبي).",
+                problematiqueText: "فمن هو أبوليوس؟ وما هي مكوّنات شخصيته الموسوعية؟ وما هي أبرز إسهاماته الأدبية؟",
+                sectionPart1: "إطار العصر: ازدهار إفريقيا البروقنصلية",
+                economicProsperityTitle: "الازدهار الاقتصادي والعمراني",
+                economicProsperityText: "شهد القرن الثاني ميلادي تحول مقاطعة «إفريقيا البروقنصلية» (تونس الحالية وجزء من الجزائر وليبيا) إلى «أهراء روما» بفضل طفرة إنتاج الحبوب والزيتون.",
+                carthageCulturalTitle: "قرطاج العاصمة الثقافية",
+                carthageCulturalText: "أعاد الرومان بناء قرطاج لتصبح عاصمة المقاطعة، وتحولت إلى منارة علمية وثقافية كبرى في العالم اللاتيني، تنافس روما وأثينا.",
+                sectionPart2: "نشأة أبوليوس وتكوينه الموسوعي",
+                originBirthTitle: "الأصل والولادة",
+                originBirthText: "وُلِد لوسيوس أبوليوس حوالي سنة 124 م في مدينة مادوروس (مداوروش الحالية بسوق أهراس، الجزائر)، وكان ينتمي إلى عائلة ميسورة الحال (والده كان قاضياً).",
+                multidisciplinaryTitle: "التكوين العلمي المتعدد",
+                formationBullet1: "تلقى مبادئ العلوم والآداب الأولى في جامعة قرطاج.",
+                formationBullet2: "سافر إلى أثينا لدراسة الفلسفة الأفلاطونية، وإلى روما لتعلم البلاغة الخطابية اللاتينية.",
+                formationBullet3: "مكّنه هذا الترحال من اكتساب ثقافة موسوعية جمعت بين الأدب، الفلسفة، الطبيعيات، والخطابة.",
+                sectionPart3: "إشعاع أبوليوس في قرطاج وإنتاجه الأدبي",
+                oratorTitle: "الخطيب البارع",
+                oratorText: "استقر أبوليوس في قرطاج وتولى فيها مناصب دينية رفيعة (كاهن أكبر للمدينة). واشتهر بإلقاء محاضراته وخطبه البليغة على مسرح قرطاج أمام جمهور غفير باللغتين اللاتينية والإغريقية.",
+                novelTitle: "رواية المسوخ (الحمار الذهبي)",
+                novelIntroText: "تعدّ أهم إنجازاته، وهي أول رواية متكاملة في تاريخ الأدب اللاتيني تصلنا كاملة.",
+                styleTitle: "أسلوبها",
+                styleText: "جمع فيها بين الخيال الطريف والتصوير الدقيق للواقع الاجتماعي.",
+                dimensionsTitle: "أبعادها",
+                dimensionsText: "حملت نقداً لاذعاً للمجتمع الروماني وسلوكيات البشر، وعكست الثقافة الهجينة (الأفريقية-الرومانية) التي تميز بها المثقف القرطاجي.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "مثّل أبوليوس نموذجًا للمثقف الموسوعي في إفريقيا البروقنصلية الرومانية، إذ جمع بين الفلسفة والخطابة والأدب، وخلّد اسمه برواية «المسوخ» (الحمار الذهبي) التي تُعدّ أول رواية متكاملة في الأدب اللاتيني.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defApuleius: "أبوليوس (لوسيوس أبوليوس)",
+                defApuleiusDesc: "مفكر وأديب وخطيب من إفريقيا البروقنصلية، وُلِد حوالي سنة 124 م في مادوروس (مداوروش الحالية بسوق أهراس، الجزائر) من عائلة ميسورة الحال. تلقى تكوينه الأول بجامعة قرطاج، ثم سافر إلى أثينا لدراسة الفلسفة الأفلاطونية وإلى روما لتعلم البلاغة اللاتينية. استقر في قرطاج وتولى مناصب دينية رفيعة (كاهن أكبر للمدينة)، واشتهر بإلقاء محاضراته وخطبه البليغة على مسرح قرطاج باللغتين اللاتينية والإغريقية. من أشهر إنجازاته رواية «المسوخ» (الحمار الذهبي) وهي أول رواية متكاملة في الأدب اللاتيني.",
+                defPlato: "أفلاطون",
+                defPlatoDesc: "فيلسوف يوناني، درس أبوليوس فلسفته الأفلاطونية في أثينا.",
+                defMadauros: "مادوروس (مداوروش)",
+                defMadaurosDesc: "مدينة تقع في سوق أهراس الحالية بالجزائر، وهي مسقط رأس أبوليوس حوالي سنة 124 م.",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "عاصمة إفريقيا البروقنصلية الرومانية، تحولت إلى منارة علمية وثقافية كبرى في العالم اللاتيني تنافس روما وأثينا، وفي جامعتها تلقى أبوليوس تكوينه الأول، وفيها استقر وتولى مناصب دينية رفيعة واشتهر بخطبه البليغة.",
+                defAfricaProconsularis: "أفريقيا البروقنصلية",
+                defAfricaProconsularisDesc: "مقاطعة رومانية تشمل تونس الحالية وجزءًا من الجزائر وليبيا، تحولت في القرن الثاني ميلادي إلى «أهراء روما» بفضل طفرة إنتاج الحبوب والزيتون.",
+                defAthens: "أثينا",
+                defAthensDesc: "مدينة يونانية سافر إليها أبوليوس لدراسة الفلسفة الأفلاطونية.",
+                defRome: "روما",
+                defRomeDesc: "سافر إليها أبوليوس لتعلم البلاغة الخطابية اللاتينية، وهي أحد أقطاب الثقافة اللاتينية التي نافستها قرطاج في تلك الفترة.",
+                defYear124Desc: "سنة ولادة أبوليوس بمدينة مادوروس (مداوروش).",
+                defYear2ndADDesc: "القرن الذي شهد ازدهار إفريقيا البروقنصلية اقتصاديًا وعمرانيًا وثقافيًا، وفيه تألّق أبوليوس.",
+                defGranaryOfRome: "أهراء روما",
+                defGranaryOfRomeDesc: "لقب أُطلق على إفريقيا البروقنصلية في القرن الثاني ميلادي بفضل طفرة إنتاج الحبوب والزيتون، إذ أصبحت المزود الرئيسي لروما.",
+                defMetamorphoses: "رواية المسوخ (الحمار الذهبي)",
+                defMetamorphosesDesc: "أهم إنجازات أبوليوس، وهي أول رواية متكاملة في تاريخ الأدب اللاتيني تصلنا كاملة. جمعت بين الخيال الطريف والتصوير الدقيق للواقع الاجتماعي، وحملت نقداً لاذعاً للمجتمع الروماني وسلوكيات البشر، وعكست الثقافة الهجينة (الأفريقية-الرومانية) التي تميز بها المثقف القرطاجي.",
+                defPlatonicPhilosophy: "الفلسفة الأفلاطونية",
+                defPlatonicPhilosophyDesc: "فلسفة الفيلسوف اليوناني أفلاطون، سافر أبوليوس إلى أثينا لدراستها.",
+                defLatinRhetoric: "البلاغة الخطابية اللاتينية",
+                defLatinRhetoricDesc: "فنّ الخطابة باللغة اللاتينية، سافر أبوليوس إلى روما لتعلمه.",
+                defHybridCulture: "الثقافة الهجينة (الأفريقية-الرومانية)",
+                defHybridCultureDesc: "ثقافة مزيج بين الموروث الأفريقي والموروث الروماني، تميّز بها المثقف القرطاجي في العهد الروماني، وعكستها رواية «المسوخ».",
+                summaryText: "خلاصة: شهدت إفريقيا البروقنصلية في القرن الثاني ميلادي ازدهارًا اقتصاديًا وعمرانيًا وثقافيًا، تحولت فيه إلى «أهراء روما» وإلى منارة ثقافية بقرطاج تنافس روما وأثينا. وفي هذا الإطار تألّق أبوليوس (حوالي 124م) بتكوينه الموسوعي الذي جمع الأدب والفلسفة والخطابة، واستقر بقرطاج كاهنًا أكبر وخطيبًا بارعًا، وخلّد اسمه برواية «المسوخ» (الحمار الذهبي) التي تُعدّ أول رواية متكاملة في الأدب اللاتيني.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "أبوليوس",
+                galleryAlt2: "مدينة مادوروس (مداوروش) مسقط رأس أبوليوس",
+                galleryAlt3: "مسرح قرطاج حيث كان أبوليوس يلقي خطبه",
+                galleryAlt4: "مخطوط رواية «المسوخ» (الحمار الذهبي)",
+                galleryAlt5: "أكاديمية أفلاطون بأثينا",
+                galleryAlt6: "إفريقيا البروقنصلية أهراء روما",
+                galleryCap1: "أبوليوس",
+                galleryCap2: "مدينة مادوروس (مداوروش) مسقط رأس أبوليوس",
+                galleryCap3: "مسرح قرطاج حيث كان أبوليوس يلقي خطبه",
+                galleryCap4: "مخطوط رواية «المسوخ» (الحمار الذهبي)",
+                galleryCap5: "أكاديمية أفلاطون بأثينا",
+                galleryCap6: "إفريقيا البروقنصلية أهراء روما"
+            }
+        };
+    </script>
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Apuleius", class: "key-person", i18n: "defApuleius" },
+                { text: "Plato", class: "key-person", i18n: "defPlato" },
+                { text: "Madauros", class: "key-location", i18n: "defMadauros" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Africa Proconsularis", class: "key-location", i18n: "defAfricaProconsularis" },
+                { text: "Athens", class: "key-location", i18n: "defAthens" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Granary of Rome", class: "key-other", i18n: "defGranaryOfRome" },
+                { text: "The Metamorphoses", class: "key-other", i18n: "defMetamorphoses" },
+                { text: "The Golden Ass", class: "key-other", i18n: "defMetamorphoses" },
+                { text: "Platonic Philosophy", class: "key-other", i18n: "defPlatonicPhilosophy" },
+                { text: "Latin Rhetoric", class: "key-other", i18n: "defLatinRhetoric" },
+                { text: "Hybrid Culture", class: "key-other", i18n: "defHybridCulture" },
+                { text: "124", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Apulée", class: "key-person", i18n: "defApuleius" },
+                { text: "Platon", class: "key-person", i18n: "defPlato" },
+                { text: "Madauros", class: "key-location", i18n: "defMadauros" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Afrique proconsulaire", class: "key-location", i18n: "defAfricaProconsularis" },
+                { text: "Athènes", class: "key-location", i18n: "defAthens" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "grenier de Rome", class: "key-other", i18n: "defGranaryOfRome" },
+                { text: "Les Métamorphoses", class: "key-other", i18n: "defMetamorphoses" },
+                { text: "L'Âne d'or", class: "key-other", i18n: "defMetamorphoses" },
+                { text: "Philosophie platonicienne", class: "key-other", i18n: "defPlatonicPhilosophy" },
+                { text: "éloquence oratoire latine", class: "key-other", i18n: "defLatinRhetoric" },
+                { text: "Culture hybride", class: "key-other", i18n: "defHybridCulture" },
+                { text: "124", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "أبوليوس", class: "key-person", i18n: "defApuleius" },
+                { text: "لوسيوس أبوليوس", class: "key-person", i18n: "defApuleius" },
+                { text: "أفلاطون", class: "key-person", i18n: "defPlato" },
+                { text: "مادوروس", class: "key-location", i18n: "defMadauros" },
+                { text: "مداوروش", class: "key-location", i18n: "defMadauros" },
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "أفريقيا البروقنصلية", class: "key-location", i18n: "defAfricaProconsularis" },
+                { text: "أثينا", class: "key-location", i18n: "defAthens" },
+                { text: "روما", class: "key-location", i18n: "defRome" },
+                { text: "أهراء روما", class: "key-other", i18n: "defGranaryOfRome" },
+                { text: "المسوخ", class: "key-other", i18n: "defMetamorphoses" },
+                { text: "الحمار الذهبي", class: "key-other", i18n: "defMetamorphoses" },
+                { text: "الفلسفة الأفلاطونية", class: "key-other", i18n: "defPlatonicPhilosophy" },
+                { text: "البلاغة الخطابية اللاتينية", class: "key-other", i18n: "defLatinRhetoric" },
+                { text: "الثقافة الهجينة", class: "key-other", i18n: "defHybridCulture" },
+                { text: "124م", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

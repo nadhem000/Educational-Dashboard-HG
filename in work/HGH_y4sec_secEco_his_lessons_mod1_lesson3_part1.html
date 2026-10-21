@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <!-- PRINT HEADER -->
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة اقتصاد وتصرف
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                تونس من نهاية الحرب العالمية الأولى إلى نهاية الحرب العالمية الثانية
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    شهدت البلاد التونسية غداة الحرب العالمية الأولى تحولات عميقة على المستويين الاقتصادي والاجتماعي، إلى جانب تأثيرات خارجية ناتجة عن الثورة البلشفية ومبادئ الرئيس الأمريكي ولسون. وقد ساهمت هذه الظروف في تنامي الوعي الوطني وبروز أولى هياكل الحركة الوطنية التونسية، ممثلة في الحزب الحر الدستوري التونسي والجامعة العامة للشغل. فما هي أبرز مظاهر تطور الحركة الوطنية في العشرينات؟
+                </p>
+            </div>
+
+            <!-- I. تونس في العشرينات -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">تونس في العشرينات</span>
+                </h2>
+
+                <!-- 1. ظروف تطور الحركة الوطنية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="part1Title1">ظروف تطور الحركة الوطنية غداة الحرب العالمية الأولى</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="part1A">الظروف الداخلية: تعميق الأزمة الاقتصادية والاجتماعية وأثرها على المجتمع التونسي</span>
+                </h4>
+                <ul>
+                    <li><strong data-i18n="part1Li1Title">استنزاف الطاقة البشرية:</strong> <span data-i18n="part1Li1Text">تجنيد 80 ألف تونسي في الحرب العالمية الأولى خلف ما لا يقل عن 15 ألف قتيل وأكثر من 8 آلاف جريح، وتهجير حوالي 30 ألف عامل إلى فرنسا.</span></li>
+                    <li><strong data-i18n="part1Li2Title">العودة إلى الاستغلال:</strong> <span data-i18n="part1Li2Text">مصادرة أراضي العروش والأحباس لصالح المعمرين لتزويد فرنسا بحاجياتها الغذائية.</span></li>
+                    <li><strong data-i18n="part1Li3Title">أثر ذلك:</strong> <span data-i18n="part1Li3Text">حاجة الفلاحين وشيوخ القبائل المهددة بفقدان أراضيها إلى تأطير سياسي للدفاع عن مصالحها.</span></li>
+                    <li><strong data-i18n="part1Li4Title">ترويج فرنسا لاستعمارها المصلحي:</strong> <span data-i18n="part1Li4Text">مع تطور حركة التعاونيات في فرنسا من أكثر من 3 ملايين (1908 و1918) ونصفها من النساء.</span></li>
+                    <li><strong data-i18n="part1Li5Title">أثر ذلك:</strong> <span data-i18n="part1Li5Text">عجز أرباب الحرف والتجار التونسيين عن مواكبة التحولات الاقتصادية والاجتماعية.</span></li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="part1B">الظروف الخارجية: تأثير الثورة البلشفية ومبادئ الرئيس الأمريكي ولسون</span>
+                </h4>
+                <ul>
+                    <li><strong data-i18n="part1Li6Title">سنة 1919:</strong> <span data-i18n="part1Li6Text">اتخذ مؤتمر الصلح بفرنسا (فرساي) مبدأ حق تقرير المصير للشعوب. وقد أعلن الرئيس الأمريكي ولسون مبادئه 14 التي أقرت حق الشعوب في تقرير مصيرها ومنها تونس.</span></li>
+                    <li><strong data-i18n="part1Li7Title">تأثر التونسيين بمبادئ ولسون:</strong> <span data-i18n="part1Li7Text">طالب المثقفون التونسيون إلى جانب الوطنيين الجزائريين بتطبيق مبدأ حق الشعوب في تقرير مصيرها (برقية اللجنة التونسية الجزائرية بعثت لرئيس الولايات المتحدة ولسون في 2 جوان 1919)، والمطالبة بحضور أشغال مؤتمر السلام بباريس للدفاع عن القضية الوطنية ضد فرنسا.</span></li>
+                    <li><strong data-i18n="part1Li8Title">تأثير الثورة البلشفية (1917):</strong> <span data-i18n="part1Li8Text">تبنت موقفًا مناهضًا للاستعمار ومساندة حركات التحرر الوطني (الأممية الشيوعية الثالثة بموسكو في مارس 1919).</span></li>
+                    <li><strong data-i18n="part1Li9Title">صدى نجاح الحركات الوطنية:</strong> <span data-i18n="part1Li9Text">في تركيا (برئاسة مصطفى كمال) التي تمكنّت من طرد الحلفاء سنة 1921، وفي مصر (سعد زغلول) التي توجت بإعلان استقلال مصر في 1922.</span></li>
+                </ul>
+                <p class="note-box" data-i18n="part1Note">
+                    ملاحظة: ساهمت هذه الظروف في تعبئة أغلب فئات المجتمع التونسي ضد الاستعمار وفي تنامي الوعي الوطني وبروز هياكل الحركة الوطنية التونسية.
+                </p>
+
+                <!-- 2. مظاهر تطور الحركة الوطنية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="part1Title2">مظاهر تطور الحركة الوطنية في العشرينات: ميلاد أول حزب سياسي ونشأة أول حركة نقابية تونسية مستقلة</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="part1Title2A">الحزب الحر الدستوري التونسي: ظروف النشأة والنشاط</span>
+                </h4>
+
+                <h5 class="sub-sub-title" data-i18n="part1Sub1">ظروف النشأة:</h5>
+                <ul>
+                    <li data-i18n="part1Li10">وفّرت حركة الشباب التونسي أرضية سانحة لتطور الحركة الوطنية التونسية، فقد تحرّك زعماؤها في سياسة الانتقاد التي ميزت نشاطهم طيلة فترة الحرب وأعادوا صياغة مطالب الحركة الوطنية في ظل ظروف الحرب.</li>
+                    <li data-i18n="part1Li11">نشأة الحزب الحر الدستوري (ربيع 1919) بقيادة عبد العزيز الثعالبي وعضوية أحمد الصافي وحسن القلاتي، وتركز نشاطه بالخارج:
+                        <ul>
+                            <li data-i18n="part1Li11a">إرسال مذكرة إلى مؤتمر الصلح بباريس للمطالبة بتعديل مبادئها على البلاد التونسية، لكن فرنسا رفضت ذلك.</li>
+                            <li data-i18n="part1Li11b">إرسال المذكرة (أفريل 1919) إلى رئيس الجمهورية الأمريكية ولسون لمطالبته بمساعدتها (الاستقلال التام).</li>
+                            <li data-i18n="part1Li11c">إصدار كتاب "تونس الشهيدة" بباريس (بداية 1920) بقيادة عبد العزيز الثعالبي لفضح الاستعمار الفرنسي وانتهاكاته في تونس.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="part1Li12">الشروع في مقاومة الاستعمار بالطرق السلمية (بعث الوفود السلمية، إرسال العرائض، تأليف الجمعيات، الاتصال بالرأي العام الدولي والصحافة، عقد الاجتماعات، تأسيس النقابات، إصدار الصحف).</li>
+                    <li data-i18n="part1Li13">تأسيس الحزب: عقد مؤتمر بالنهج المنجي سليم بتونس (جانفي 1920) بحضور ممثلين عن هيئات إدارية وممثلين عن الجمعيات والمؤسسات، وأسفر عن:
+                        <ul>
+                            <li data-i18n="part1Li13a">تغيير اسم "الشباب التونسي" إلى "الحزب الحر الدستوري التونسي".</li>
+                            <li data-i18n="part1Li13b">انتخاب الثعالبي رئيسًا للحزب.</li>
+                            <li data-i18n="part1Li13c">تأليف لجنة إدارية برئاسة محمد الطاهر بن عاشور.</li>
+                            <li data-i18n="part1Li13d">تأسيس لجنة إدارية للصحافة (صحيفة "الإرادة").</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h5 class="sub-sub-title" data-i18n="part1Sub2">برنامج الحزب:</h5>
+                <p data-i18n="part1Li14">مولد الحزب الحر الدستوري التونسي (مارس 1920) وبرنامجه:</p>
+                <ul>
+                    <li data-i18n="part1Li14a">مطالب عامة كبرى تمثلت في: إقرار حرية التعليم، إحداث مجلس تشريعي تونسي، فصل السلط، المساواة في الوظائف العمومية والأجور بين التونسيين والفرنسيين.</li>
+                    <li data-i18n="part1Li14b">برنامج معتدل يهدف إلى تحقيق المساواة بين التونسيين والفرنسيين وتشريك الأهالي في إدارة شؤون بلادهم في إطار نظام الحماية.</li>
+                </ul>
+
+                <h5 class="sub-sub-title" data-i18n="part1Sub3">نشاط الحزب الحر الدستوري التونسي:</h5>
+                <ul>
+                    <li data-i18n="part1Li15">تعددت أشكال نضاله: خطب، بيانات، عرائض، مقالات صحفية. وقد توجت بعدة تحركات واحتجاجات شملت مختلف جهات البلاد (جولات الخطابي).</li>
+                    <li data-i18n="part1Li16">الوفود الرسمية:
+                        <ul>
+                            <li data-i18n="part1Li16a"><strong>الوفد الأول:</strong> برئاسة محمد الناصر باي (18 جوان 1920) لحثه على إطاعة البايات، وقد استجاب لذلك تحت تأثير ابنه المنصف باي المعروف بتأييده للدستوريين.</li>
+                            <li data-i18n="part1Li16b"><strong>الوفد الثاني:</strong> برئاسة الثعالبي (جانفي 1921) بقيادة الكاتب العام للحزب أحمد الصافي لطلب الإذن بعقد مؤتمر الحزب، لكن السلطات رفضت.</li>
+                            <li data-i18n="part1Li16c"><strong>الوفد الثالث:</strong> برئاسة الثعالبي (جانفي 1921) بقيادة الطاهر بن عمار لمطالبة رئيس الحكومة والمقيم العام بجعل التعليم مجانيًا ووجوبيًا.</li>
+                            <li data-i18n="part1Li16d"><strong>الوفد الرابع:</strong> (نوفمبر 1924) بقيادة أحمد الصافي، لكن لم ينجح في إقناع حكومة كمال فرانسوا بتعديل سياسة الحماية.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="part1Li17"><strong>الجامعة العامة للشغل:</strong> تأسست في 3 ديسمبر 1924 على يد محمد علي الحامي، وقد ساهمت في تنظيم العمال التونسيين وتنظيم الإضرابات والاحتجاجات.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="part1Title2B">جماعة عموم العملة التونسية</span>
+                </h4>
+
+                <h5 class="sub-sub-title" data-i18n="part1Sub4">ظروف النشأة:</h5>
+                <ul>
+                    <li data-i18n="part1Li18">تدهور الأوضاع الاجتماعية للعمال التونسيين:
+                        <ul>
+                            <li data-i18n="part1Li18a">عرفت البلاد أزمة اقتصادية سنة 1924 بسبب الحرب، فتراجع الإنتاج الزراعي وارتفعت الأسعار وانتشرت المجاعة وتفشى الوباء.</li>
+                            <li data-i18n="part1Li18b">زيادة وطأة ممارسة العملة الأجنبية في ظل سياسة التمييز في الأجور والضمانات الاجتماعية.</li>
+                            <li data-i18n="part1Li18c">استفاد العمال التونسيون من انخراطهم في اتحاد النقابات الفرنسية باكتساب تجربة نقابية ساعدتهم على بلورة مشروع نقابة تونسية مستقلة.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="part1Li19"><strong>الجامعة العامة للشغل (جامعة عموم العملة التونسية):</strong> تأسست على يد محمد علي الحامي في 3 ديسمبر 1924 واتخذت لها مقرًا بالنهج المنجي سليم بتونس.</li>
+                    <li data-i18n="part1Li20"><strong>برنامجها:</strong> تحسين الأجور والظروف المهنية، المساواة في الأجور بين التونسيين والفرنسيين، حق تأسيس النقابات، الحرية النقابية، الضمان الاجتماعي، تقليص ساعات العمل، منع تشغيل الأطفال والنساء في الأعمال الشاقة.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="part1Title2C">موقف الحزب الحر الدستوري التونسي من الحركة النقابية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part1Li21">رفض اتحاد النقابات الفرنسية تكوين جامعة عربية لضرب وحدة العمال أمام قوة رأسمال الملة، لكنه كان في الواقع يعارض مطالبها بالمساواة في الأجور وإلغاء الامتيازات الأوروبية.</li>
+                    <li data-i18n="part1Li22">عمل الزعماء الدستوريون على دعم الجامعة العامة للشغل وتقديم الدعم المادي والمعنوي لها، وقد ساهمت الجامعة في تأطير الطبقة العاملة التونسية.</li>
+                    <li data-i18n="part1Li23">لكن سرعان ما انقسمت الجامعة بسبب الصراعات الداخلية والخلافات بين القيادات النقابية، وقد انتهت بالتضييق عليها من قبل السلطات الفرنسية.</li>
+                    <li><strong data-i18n="part1Li24Title">النتيجة:</strong> <span data-i18n="part1Li24Text">تصدع الحركة النقابية التونسية وضعفها، وقد تمّ حلّ الجامعة العامة للشغل سنة 1925 واعتقال قادتها.</span></li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    ساهمت الظروف الداخلية والخارجية غداة الحرب العالمية الأولى في تنامي الوعي الوطني وتنظيم الحركة الوطنية التونسية، فبرز الحزب الحر الدستوري التونسي كأول حزب سياسي، والجامعة العامة للشغل كأول منظمة نقابية مستقلة، رغم ما اعترض مسيرتهما من تضييق وانقسامات.
+                </p>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">
+                خلاصة: شكلت العشرينات مرحلة تأسيسية للحركة الوطنية التونسية، إذ برزت أولى الهياكل السياسية والنقابية التي قادت النضال الوطني ضد الاستعمار الفرنسي.
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defThaalbi">عبد العزيز الثعالبي</strong>: <span data-i18n="defThaalbiDesc">زعيم سياسي تونسي، وُلد في 15 سبتمبر 1876 بتونس وتوفي في 1 أكتوبر 1944 بتونس. يُعتبر مؤسس وأول رئيس للحزب الحر الدستوري التونسي (1920)، وأحد أبرز رواد الحركة الوطنية التونسية في مرحلة العشرينات. صدر له كتاب «تونس الشهيدة» بباريس سنة 1920 لفضح ممارسات الاستعمار الفرنسي. ناضل من أجل المساواة بين التونسيين والفرنسيين وتشريك الأهالي في إدارة شؤون بلادهم.</span></li>
+                        <li><strong class="key-person" data-i18n="defHammi">محمد علي الحامي</strong>: <span data-i18n="defHammiDesc">زعيم نقابي تونسي، وُلد في 15 أكتوبر 1890 بالحامة من ولاية قابس وتوفي في 10 ماي 1928 بباريس. أسّس الجامعة العامة للشغل (جامعة عموم العملة التونسية) في 3 ديسمبر 1924، وهي أول منظمة نقابية تونسية مستقلة. ناضل من أجل تحسين ظروف العمال التونسيين والمساواة في الأجور مع العمال الفرنسيين، ويُعتبر رائد الحركة النقابية التونسية.</span></li>
+                        <li><strong class="key-person" data-i18n="defTaharBenAchour">محمد الطاهر بن عاشور</strong>: <span data-i18n="defTaharBenAchourDesc">عالم وفقيه تونسي، وُلد في سبتمبر 1879 بتونس وتوفي في 12 أوت 1973 بتونس. ترأس اللجنة الإدارية للحزب الحر الدستوري التونسي بعد تأسيسه سنة 1920، وكان من أبرز الشخصيات العلمية والدينية الداعمة للحركة الوطنية في مرحلة التأسيس.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defDestourParty">الحزب الحر الدستوري التونسي</strong>: <span data-i18n="defDestourPartyDesc">أول حزب سياسي تونسي، تأسس رسميًا في مؤتمر بالنهج المنجي سليم بتونس في جانفي 1920، بقيادة عبد العزيز الثعالبي. جاء امتدادًا لحركة الشباب التونسي. طالب بإقرار حرية التعليم، وإحداث مجلس تشريعي تونسي، وفصل السلط، والمساواة في الوظائف والأجور بين التونسيين والفرنسيين. اعتمد النضال السلمي (الوفود، العرائض، الصحافة).</span></li>
+                        <li><strong class="key-organization" data-i18n="defUnionGenerale">الجامعة العامة للشغل (جامعة عموم العملة التونسية)</strong>: <span data-i18n="defUnionGeneraleDesc">أول منظمة نقابية تونسية مستقلة، تأسست في 3 ديسمبر 1924 على يد محمد علي الحامي، واتخذت مقرًا لها بالنهج المنجي سليم بتونس. طالبت بتحسين الأجور والظروف المهنية والمساواة في الأجور بين التونسيين والفرنسيين وحق تأسيس النقابات والضمان الاجتماعي وتقليص ساعات العمل. حلّتها السلطات الفرنسية سنة 1925 واعتقلت قادتها.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defTelegraph">برقية اللجنة التونسية الجزائرية (2 جوان 1919)</strong>: <span data-i18n="defTelegraphDesc">برقية بعثتها اللجنة التونسية الجزائرية إلى رئيس الولايات المتحدة الأمريكية وودرو ولسون في 2 جوان 1919، تطالبه بتطبيق مبدأ حق الشعوب في تقرير مصيرها على تونس والجزائر، والسماح لهما بحضور أشغال مؤتمر الصلح بباريس للدفاع عن قضيتيهما الوطنية ضد فرنسا.</span></li>
+                        <li><strong class="key-event" data-i18n="defDestourCongress">مؤتمر الحزب الحر الدستوري التونسي (جانفي 1920)</strong>: <span data-i18n="defDestourCongressDesc">مؤتمر عقد بالنهج المنجي سليم بتونس في جانفي 1920 بحضور ممثلين عن هيئات إدارية وجمعيات ومؤسسات، وأسفر عن تغيير اسم «الشباب التونسي» إلى «الحزب الحر الدستوري التونسي»، وانتخاب عبد العزيز الثعالبي رئيسًا للحزب، وتأليف لجنة إدارية برئاسة محمد الطاهر بن عاشور، وتأسيس لجنة إدارية للصحافة أصدرت صحيفة «الإرادة».</span></li>
+                        <li><strong class="key-event" data-i18n="defFoundingUnion">تأسيس الجامعة العامة للشغل (3 ديسمبر 1924)</strong>: <span data-i18n="defFoundingUnionDesc">تأسيس أول منظمة نقابية تونسية مستقلة على يد محمد علي الحامي في 3 ديسمبر 1924، وقد ساهمت في تنظيم العمال التونسيين وتنظيم الإضرابات والاحتجاجات، قبل أن تحلّها السلطات الفرنسية سنة 1925 وتعتقل قادتها.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1919</strong>: <span data-i18n="defYear1919Desc">ربيع 1919: نشأة الحزب الحر الدستوري (حركة الشباب التونسي)، وإرسال مذكرة إلى مؤتمر الصلح بباريس ومذكرة إلى الرئيس ولسون.</span></li>
+                        <li><strong class="key-year">1920</strong>: <span data-i18n="defYear1920Desc">جانفي 1920: مؤتمر تأسيس الحزب الحر الدستوري التونسي، وإصدار كتاب «تونس الشهيدة» بباريس.</span></li>
+                        <li><strong class="key-year">1924</strong>: <span data-i18n="defYear1924Desc">3 ديسمبر 1924: تأسيس الجامعة العامة للشغل (جامعة عموم العملة التونسية) على يد محمد علي الحامي.</span></li>
+                        <li><strong class="key-year">1925</strong>: <span data-i18n="defYear1925Desc">حلّ الجامعة العامة للشغل واعتقال قادتها من قبل السلطات الفرنسية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defYoungTunisians">حركة الشباب التونسي</strong>: <span data-i18n="defYoungTunisiansDesc">حركة سياسية وإصلاحية تأسست في بداية القرن العشرين، نشطت خلال الحرب العالمية الأولى واعتمدت «سياسة الانتقاد»، ومهدت لتأسيس الحزب الحر الدستوري التونسي سنة 1920.</span></li>
+                        <li><strong class="key-other" data-i18n="defTunisiaMartyr">تونس الشهيدة</strong>: <span data-i18n="defTunisiaMartyrDesc">كتاب أصدره عبد العزيز الثعالبي بباريس في بداية 1920، يفضح ممارسات الاستعمار الفرنسي وانتهاكاته في تونس، ويُعد من أبرز الوثائق التأسيسية للحركة الوطنية التونسية.</span></li>
+                        <li><strong class="key-other" data-i18n="defCriticPolicy">سياسة الانتقاد</strong>: <span data-i18n="defCriticPolicyDesc">سياسة اتبعها زعماء حركة الشباب التونسي خلال الحرب العالمية الأولى، اعتمدت على التوعية والنقد وكشف ممارسات الاستعمار، ومهدت لتنظيم الحركة الوطنية بعد الحرب.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/thaalbi.jpg"
+                             alt="عبد العزيز الثعالبي"
+                             data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">عبد العزيز الثعالبي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/hammi.jpg"
+                             alt="محمد علي الحامي"
+                             data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">محمد علي الحامي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/destour_congress.jpg"
+                             alt="مؤتمر الحزب الحر الدستوري التونسي 1920"
+                             data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">مؤتمر الحزب الحر الدستوري التونسي 1920</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/tunis_1920s.jpg"
+                             alt="مشهد من مدينة تونس في العشرينات"
+                             data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">مدينة تونس في العشرينات</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/tunisia_martyr.jpg"
+                             alt="كتاب تونس الشهيدة"
+                             data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">كتاب تونس الشهيدة</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y4sec_secEco_his_exercisess_mod1_lesson3_part1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON‑SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "4th Secondary, Economy and Management Section",
+                moduleName: "History / Module 1: The Contemporary World from 1914 to World War II",
+                lessonTitleSample: "Tunisia from the End of World War I to the End of World War II",
+                sectionIntro: "Introduction",
+                introText: "Tunisia experienced profound economic and social transformations after World War I, alongside external influences from the Bolshevik Revolution and President Wilson's principles. These conditions contributed to the growth of national awareness and the emergence of the first structures of the Tunisian national movement, represented by the Destour Party and the General Union of Tunisian Workers. What were the main manifestations of the national movement's development in the 1920s?",
+                sectionPart1: "Tunisia in the 1920s",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Internal and external conditions after World War I contributed to the growth of national awareness and the organization of the Tunisian national movement. The Destour Party emerged as the first political party, and the General Union of Tunisian Workers as the first independent trade union, despite restrictions and divisions.",
+                summaryText: "Key takeaway: The 1920s were a founding period for the Tunisian national movement, as the first political and trade union structures emerged to lead the national struggle against French colonialism.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                part1Title1: "Conditions of the National Movement's Development after World War I",
+                part1A: "Internal Conditions: Deepening of the Economic and Social Crisis and Its Impact on Tunisian Society",
+                part1Li1Title: "Depletion of Human Resources:",
+                part1Li1Text: "80,000 Tunisians were recruited in World War I, leaving at least 15,000 dead and more than 8,000 wounded, with about 30,000 workers displaced to France.",
+                part1Li2Title: "Return to Exploitation:",
+                part1Li2Text: "Confiscation of tribal and habous lands for the benefit of settlers to supply France with food needs.",
+                part1Li3Title: "Impact:",
+                part1Li3Text: "Farmers and tribal chiefs threatened with losing their lands needed political representation to defend their interests.",
+                part1Li4Title: "France's Promotion of Its Utilitarian Colonialism:",
+                part1Li4Text: "With the development of the cooperative movement in France from more than 3 million (1908 and 1918), half of them women.",
+                part1Li5Title: "Impact:",
+                part1Li5Text: "Inability of Tunisian craftsmen and traders to keep up with economic and social transformations.",
+                part1B: "External Conditions: Impact of the Bolshevik Revolution and President Wilson's Principles",
+                part1Li6Title: "1919:",
+                part1Li6Text: "The Paris Peace Conference adopted the principle of peoples' right to self-determination. President Wilson announced his 14 points affirming the right of peoples to self-determination, including Tunisia.",
+                part1Li7Title: "Tunisians Influenced by Wilson's Principles:",
+                part1Li7Text: "Tunisian intellectuals, alongside Algerian nationalists, demanded the application of the principle of peoples' right to self-determination (telegram from the Tunisian-Algerian Committee to President Wilson on 2 June 1919), and demanded attendance at the Paris Peace Conference to defend the national cause against France.",
+                part1Li8Title: "Impact of the Bolshevik Revolution (1917):",
+                part1Li8Text: "It adopted an anti-colonial stance and supported national liberation movements (Third Communist International in Moscow in March 1919).",
+                part1Li9Title: "Echo of National Movements' Success:",
+                part1Li9Text: "In Turkey (led by Mustafa Kemal), which managed to expel the Allies in 1921, and in Egypt (Saad Zaghloul), which culminated in Egypt's declaration of independence in 1922.",
+                part1Note: "Note: These conditions contributed to mobilizing most segments of Tunisian society against colonialism, growing national awareness, and the emergence of structures of the Tunisian national movement.",
+                part1Title2: "Manifestations of the National Movement's Development in the 1920s: Birth of the First Political Party and the First Independent Tunisian Trade Union",
+                part1Title2A: "The Tunisian Destour Party: Conditions of Emergence and Activity",
+                part1Sub1: "Conditions of Emergence:",
+                part1Li10: "The Young Tunisians movement provided a favorable ground for the development of the Tunisian national movement. Its leaders engaged in the politics of criticism that characterized their activity throughout the war period and reformulated the demands of the national movement under wartime conditions.",
+                part1Li11: "Emergence of the Destour Party (Spring 1919) led by Abdelaziz Thaalbi with members Ahmed Safi and Hassan Guelati, focusing its activity abroad:",
+                part1Li11a: "Sending a memorandum to the Paris Peace Conference demanding the application of its principles to Tunisia, but France refused.",
+                part1Li11b: "Sending a memorandum (April 1919) to US President Wilson requesting assistance (full independence).",
+                part1Li11c: "Publishing the book 'Tunisia the Martyr' in Paris (early 1920) led by Abdelaziz Thaalbi to expose French colonialism and its violations in Tunisia.",
+                part1Li12: "Initiating resistance to colonialism through peaceful means (sending peaceful delegations, petitions, forming associations, contacting international public opinion and the press, holding meetings, founding unions, publishing newspapers).",
+                part1Li13: "Founding the Party: A congress was held in Rue Mongi Slim in Tunis (January 1920) with representatives of administrative bodies and associations, resulting in:",
+                part1Li13a: "Changing the name from 'Young Tunisians' to 'Tunisian Destour Party'.",
+                part1Li13b: "Electing Thaalbi as party president.",
+                part1Li13c: "Forming an administrative committee chaired by Mohamed Tahar Ben Achour.",
+                part1Li13d: "Establishing an administrative committee for the press (newspaper 'Al-Irada').",
+                part1Sub2: "Party Program:",
+                part1Li14: "Birth of the Tunisian Destour Party (March 1920) and its program:",
+                part1Li14a: "Major general demands: freedom of education, a Tunisian legislative council, separation of powers, equality in public positions and wages between Tunisians and French.",
+                part1Li14b: "A moderate program aiming to achieve equality between Tunisians and French and involve the population in managing their country's affairs within the protectorate system.",
+                part1Sub3: "Activity of the Tunisian Destour Party:",
+                part1Li15: "Its struggle took multiple forms: speeches, statements, petitions, newspaper articles. It culminated in several movements and protests across the country (Khattabi's tours).",
+                part1Li16: "Official Delegations:",
+                part1Li16a: "First delegation: Led by Mohamed Naceur Bey (18 June 1920) to urge him to obey the Beys. He responded under the influence of his son Moncef Bey, known for his support of the Destour.",
+                part1Li16b: "Second delegation: Led by Thaalbi (January 1921) under Secretary-General Ahmed Safi to request permission to hold the party congress. The authorities refused.",
+                part1Li16c: "Third delegation: Led by Thaalbi (January 1921) under Tahar Ben Ammar to demand free and compulsory education from the head of government and Resident-General.",
+                part1Li16d: "Fourth delegation: (November 1924) led by Ahmed Safi. It failed to convince Kamel François's government to amend the protectorate policy.",
+                part1Li17: "General Union of Tunisian Workers: Founded on 3 December 1924 by Mohamed Ali El Hammi. It contributed to organizing Tunisian workers and organizing strikes and protests.",
+                part1Title2B: "The General Union of Tunisian Workers",
+                part1Sub4: "Conditions of Emergence:",
+                part1Li18: "Deterioration of the social conditions of Tunisian workers:",
+                part1Li18a: "The country experienced an economic crisis in 1924 due to the war. Agricultural production declined, prices rose, famine spread, and epidemics proliferated.",
+                part1Li18b: "Increased burden of foreign labor practices under a policy of wage discrimination and social guarantees.",
+                part1Li18c: "Tunisian workers benefited from joining the French trade union federation, gaining union experience that helped them formulate a project for an independent Tunisian union.",
+                part1Li19: "General Union of Tunisian Workers: Founded by Mohamed Ali El Hammi on 3 December 1924, with headquarters in Rue Mongi Slim in Tunis.",
+                part1Li20: "Its Program: Improving wages and professional conditions, wage equality between Tunisians and French, the right to form unions, union freedom, social security, reducing working hours, prohibiting the employment of children and women in heavy work.",
+                part1Title2C: "Position of the Tunisian Destour Party on the Trade Union Movement",
+                part1Li21: "The French trade union federation refused to form an Arab union to undermine workers' unity against the power of colonial capital, but it actually opposed its demands for wage equality and the abolition of European privileges.",
+                part1Li22: "Destour leaders supported the General Union and provided material and moral support. The Union contributed to organizing the Tunisian working class.",
+                part1Li23: "However, the Union soon split due to internal conflicts and disagreements between union leaders, and it ended with pressure from the French authorities.",
+                part1Li24Title: "Result:",
+                part1Li24Text: "The Tunisian trade union movement was fractured and weakened. The General Union was dissolved in 1925 and its leaders arrested.",
+                defPersons: "👤 Persons",
+                defOrganizations: "🏛️ Organizations and Institutions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defThaalbi: "Abdelaziz Thaalbi",
+                defThaalbiDesc: "Tunisian political leader, born on 15 September 1876 in Tunis and died on 1 October 1944 in Tunis. He is considered the founder and first president of the Tunisian Destour Party (1920), and one of the most prominent pioneers of the Tunisian national movement in the 1920s. He published the book 'Tunisia the Martyr' in Paris in 1920 to expose French colonial practices. He struggled for equality between Tunisians and French and for involving the population in managing their country's affairs.",
+                defHammi: "Mohamed Ali El Hammi",
+                defHammiDesc: "Tunisian trade union leader, born on 15 October 1890 in El Hamma, Gabès and died on 10 May 1928 in Paris. He founded the General Union of Tunisian Workers on 3 December 1924, the first independent Tunisian trade union. He struggled to improve the conditions of Tunisian workers and achieve wage equality with French workers, and is considered the pioneer of the Tunisian trade union movement.",
+                defTaharBenAchour: "Mohamed Tahar Ben Achour",
+                defTaharBenAchourDesc: "Tunisian scholar and jurist, born in September 1879 in Tunis and died on 12 August 1973 in Tunis. He chaired the administrative committee of the Tunisian Destour Party after its founding in 1920, and was one of the most prominent scholarly and religious figures supporting the national movement during its founding phase.",
+                defDestourParty: "Tunisian Destour Party",
+                defDestourPartyDesc: "The first Tunisian political party, officially founded at a congress in Rue Mongi Slim in Tunis in January 1920, led by Abdelaziz Thaalbi. It was an extension of the Young Tunisians movement. It demanded freedom of education, a Tunisian legislative council, separation of powers, and equality in positions and wages between Tunisians and French. It adopted peaceful struggle (delegations, petitions, press).",
+                defUnionGenerale: "General Union of Tunisian Workers",
+                defUnionGeneraleDesc: "The first independent Tunisian trade union, founded on 3 December 1924 by Mohamed Ali El Hammi, with headquarters in Rue Mongi Slim in Tunis. It demanded improved wages and professional conditions, wage equality between Tunisians and French, the right to form unions, social security, and reduced working hours. The French authorities dissolved it in 1925 and arrested its leaders.",
+                defTelegraph: "Tunisian-Algerian Committee Telegram (2 June 1919)",
+                defTelegraphDesc: "A telegram sent by the Tunisian-Algerian Committee to US President Woodrow Wilson on 2 June 1919, demanding the application of the principle of peoples' right to self-determination to Tunisia and Algeria, and allowing them to attend the Paris Peace Conference to defend their national causes against France.",
+                defDestourCongress: "Tunisian Destour Party Congress (January 1920)",
+                defDestourCongressDesc: "A congress held in Rue Mongi Slim in Tunis in January 1920 with representatives of administrative bodies, associations, and institutions. It resulted in changing the name from 'Young Tunisians' to 'Tunisian Destour Party', electing Abdelaziz Thaalbi as party president, forming an administrative committee chaired by Mohamed Tahar Ben Achour, and establishing a press committee that published 'Al-Irada' newspaper.",
+                defFoundingUnion: "Founding of the General Union (3 December 1924)",
+                defFoundingUnionDesc: "Founding of the first independent Tunisian trade union by Mohamed Ali El Hammi on 3 December 1924. It contributed to organizing Tunisian workers and organizing strikes and protests, before being dissolved by the French authorities in 1925 and its leaders arrested.",
+                defYear1919Desc: "Spring 1919: Emergence of the Destour Party (Young Tunisians movement), sending a memorandum to the Paris Peace Conference and a memorandum to President Wilson.",
+                defYear1920Desc: "January 1920: Founding congress of the Tunisian Destour Party, and publication of 'Tunisia the Martyr' in Paris.",
+                defYear1924Desc: "3 December 1924: Founding of the General Union of Tunisian Workers by Mohamed Ali El Hammi.",
+                defYear1925Desc: "Dissolution of the General Union of Tunisian Workers and arrest of its leaders by the French authorities.",
+                defYoungTunisians: "Young Tunisians Movement",
+                defYoungTunisiansDesc: "A political and reformist movement founded in the early 20th century, active during World War I and adopting a 'politics of criticism', paving the way for the founding of the Tunisian Destour Party in 1920.",
+                defTunisiaMartyr: "Tunisia the Martyr",
+                defTunisiaMartyrDesc: "A book published by Abdelaziz Thaalbi in Paris in early 1920, exposing French colonial practices and violations in Tunisia. It is one of the founding documents of the Tunisian national movement.",
+                defCriticPolicy: "Politics of Criticism",
+                defCriticPolicyDesc: "A policy followed by the leaders of the Young Tunisians movement during World War I, based on awareness, criticism, and exposing colonial practices, paving the way for organizing the national movement after the war.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Abdelaziz Thaalbi",
+                galleryCap1: "Abdelaziz Thaalbi",
+                galleryAlt2: "Mohamed Ali El Hammi",
+                galleryCap2: "Mohamed Ali El Hammi",
+                galleryAlt3: "Tunisian Destour Party Congress 1920",
+                galleryCap3: "Tunisian Destour Party Congress 1920",
+                galleryAlt4: "Scene from the city of Tunis in the 1920s",
+                galleryCap4: "City of Tunis in the 1920s",
+                galleryAlt5: "Book 'Tunisia the Martyr'",
+                galleryCap5: "Book 'Tunisia the Martyr'"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section économie et gestion",
+                moduleName: "Histoire / Module 1 : Le monde contemporain de 1914 à la Seconde Guerre mondiale",
+                lessonTitleSample: "La Tunisie de la fin de la Première Guerre mondiale à la fin de la Seconde Guerre mondiale",
+                sectionIntro: "Introduction",
+                introText: "La Tunisie a connu de profondes transformations économiques et sociales après la Première Guerre mondiale, ainsi que des influences extérieures dues à la Révolution bolchevique et aux principes du président Wilson. Ces conditions ont contribué à la croissance de la conscience nationale et à l'émergence des premières structures du mouvement national tunisien, représentées par le Parti Destour et l'Union Générale des Travailleurs Tunisiens. Quelles ont été les principales manifestations du développement du mouvement national dans les années 1920 ?",
+                sectionPart1: "La Tunisie dans les années 1920",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Les conditions internes et externes après la Première Guerre mondiale ont contribué à la croissance de la conscience nationale et à l'organisation du mouvement national tunisien. Le Parti Destour a émergé comme premier parti politique, et l'Union Générale des Travailleurs Tunisiens comme premier syndicat indépendant, malgré les restrictions et les divisions.",
+                summaryText: "À retenir : les années 1920 ont été une période fondatrice pour le mouvement national tunisien, avec l'émergence des premières structures politiques et syndicales pour mener la lutte nationale contre le colonialisme français.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                part1Title1: "Conditions du développement du mouvement national après la Première Guerre mondiale",
+                part1A: "Conditions internes : approfondissement de la crise économique et sociale et son impact sur la société tunisienne",
+                part1Li1Title: "Épuisement des ressources humaines :",
+                part1Li1Text: "80 000 Tunisiens ont été recrutés dans la Première Guerre mondiale, laissant au moins 15 000 morts et plus de 8 000 blessés, avec environ 30 000 travailleurs déplacés vers la France.",
+                part1Li2Title: "Retour à l'exploitation :",
+                part1Li2Text: "Confiscation des terres tribales et habous au profit des colons pour approvisionner la France en denrées alimentaires.",
+                part1Li3Title: "Impact :",
+                part1Li3Text: "Les agriculteurs et les chefs tribaux menacés de perdre leurs terres avaient besoin d'une représentation politique pour défendre leurs intérêts.",
+                part1Li4Title: "Promotion par la France de son colonialisme utilitaire :",
+                part1Li4Text: "Avec le développement du mouvement coopératif en France de plus de 3 millions (1908 et 1918), dont la moitié de femmes.",
+                part1Li5Title: "Impact :",
+                part1Li5Text: "Incapacité des artisans et commerçants tunisiens à suivre les transformations économiques et sociales.",
+                part1B: "Conditions externes : impact de la Révolution bolchevique et des principes du président Wilson",
+                part1Li6Title: "1919 :",
+                part1Li6Text: "La Conférence de paix de Paris a adopté le principe du droit des peuples à disposer d'eux-mêmes. Le président Wilson a annoncé ses 14 points affirmant le droit des peuples à disposer d'eux-mêmes, y compris la Tunisie.",
+                part1Li7Title: "Tunisiens influencés par les principes de Wilson :",
+                part1Li7Text: "Les intellectuels tunisiens, aux côtés des nationalistes algériens, ont exigé l'application du principe du droit des peuples à disposer d'eux-mêmes (télégramme du Comité tuniso-algérien au président Wilson le 2 juin 1919), et ont demandé à assister à la Conférence de paix de Paris pour défendre la cause nationale contre la France.",
+                part1Li8Title: "Impact de la Révolution bolchevique (1917) :",
+                part1Li8Text: "Elle a adopté une position anticoloniale et soutenu les mouvements de libération nationale (IIIe Internationale communiste à Moscou en mars 1919).",
+                part1Li9Title: "Écho du succès des mouvements nationaux :",
+                part1Li9Text: "En Turquie (dirigé par Mustafa Kemal), qui a réussi à expulser les Alliés en 1921, et en Égypte (Saad Zaghloul), qui a abouti à la déclaration d'indépendance de l'Égypte en 1922.",
+                part1Note: "Note : Ces conditions ont contribué à mobiliser la plupart des segments de la société tunisienne contre le colonialisme, à la croissance de la conscience nationale et à l'émergence des structures du mouvement national tunisien.",
+                part1Title2: "Manifestations du développement du mouvement national dans les années 1920 : naissance du premier parti politique et du premier syndicat tunisien indépendant",
+                part1Title2A: "Le Parti Destour tunisien : conditions d'émergence et activité",
+                part1Sub1: "Conditions d'émergence :",
+                part1Li10: "Le mouvement des Jeunes Tunisiens a fourni un terrain favorable au développement du mouvement national tunisien. Ses dirigeants se sont engagés dans la politique de critique qui a caractérisé leur activité pendant la guerre et ont reformulé les revendications du mouvement national dans les conditions de guerre.",
+                part1Li11: "Émergence du Parti Destour (printemps 1919) dirigé par Abdelaziz Thaalbi avec les membres Ahmed Safi et Hassan Guelati, concentrant son activité à l'étranger :",
+                part1Li11a: "Envoi d'un mémorandum à la Conférence de paix de Paris demandant l'application de ses principes à la Tunisie, mais la France a refusé.",
+                part1Li11b: "Envoi d'un mémorandum (avril 1919) au président américain Wilson demandant son aide (indépendance totale).",
+                part1Li11c: "Publication du livre « La Tunisie martyre » à Paris (début 1920) dirigé par Abdelaziz Thaalbi pour dénoncer le colonialisme français et ses violations en Tunisie.",
+                part1Li12: "Début de la résistance au colonialisme par des moyens pacifiques (envoi de délégations pacifiques, pétitions, formation d'associations, contact avec l'opinion publique internationale et la presse, réunions, fondation de syndicats, publication de journaux).",
+                part1Li13: "Fondation du Parti : Un congrès s'est tenu rue Mongi Slim à Tunis (janvier 1920) avec des représentants d'organismes administratifs et d'associations, aboutissant à :",
+                part1Li13a: "Changement du nom de « Jeunes Tunisiens » en « Parti Destour tunisien ».",
+                part1Li13b: "Élection de Thaalbi comme président du parti.",
+                part1Li13c: "Formation d'un comité administratif présidé par Mohamed Tahar Ben Achour.",
+                part1Li13d: "Établissement d'un comité administratif pour la presse (journal « Al-Irada »).",
+                part1Sub2: "Programme du Parti :",
+                part1Li14: "Naissance du Parti Destour tunisien (mars 1920) et son programme :",
+                part1Li14a: "Grandes revendications générales : liberté d'enseignement, conseil législatif tunisien, séparation des pouvoirs, égalité dans les fonctions publiques et les salaires entre Tunisiens et Français.",
+                part1Li14b: "Un programme modéré visant à réaliser l'égalité entre Tunisiens et Français et à impliquer la population dans la gestion des affaires de leur pays dans le cadre du protectorat.",
+                part1Sub3: "Activité du Parti Destour tunisien :",
+                part1Li15: "Sa lutte a pris de multiples formes : discours, déclarations, pétitions, articles de presse. Elle a abouti à plusieurs mouvements et protestations à travers le pays (tournées de Khattabi).",
+                part1Li16: "Délégations officielles :",
+                part1Li16a: "Première délégation : Dirigée par Mohamed Naceur Bey (18 juin 1920) pour l'inciter à obéir aux Beys. Il a répondu sous l'influence de son fils Moncef Bey, connu pour son soutien aux Destouriens.",
+                part1Li16b: "Deuxième délégation : Dirigée par Thaalbi (janvier 1921) sous le secrétaire général Ahmed Safi pour demander la permission de tenir le congrès du parti. Les autorités ont refusé.",
+                part1Li16c: "Troisième délégation : Dirigée par Thaalbi (janvier 1921) sous Tahar Ben Ammar pour exiger l'enseignement gratuit et obligatoire du chef du gouvernement et du résident général.",
+                part1Li16d: "Quatrième délégation : (novembre 1924) dirigée par Ahmed Safi. Elle n'a pas réussi à convaincre le gouvernement de Kamel François de modifier la politique du protectorat.",
+                part1Li17: "Union Générale des Travailleurs Tunisiens : Fondée le 3 décembre 1924 par Mohamed Ali El Hammi. Elle a contribué à organiser les travailleurs tunisiens et à organiser des grèves et des protestations.",
+                part1Title2B: "L'Union Générale des Travailleurs Tunisiens",
+                part1Sub4: "Conditions d'émergence :",
+                part1Li18: "Détérioration des conditions sociales des travailleurs tunisiens :",
+                part1Li18a: "Le pays a connu une crise économique en 1924 à cause de la guerre. La production agricole a diminué, les prix ont augmenté, la famine s'est propagée et les épidémies se sont multipliées.",
+                part1Li18b: "Augmentation du fardeau des pratiques de main-d'œuvre étrangère sous une politique de discrimination salariale et de garanties sociales.",
+                part1Li18c: "Les travailleurs tunisiens ont bénéficié de leur adhésion à la fédération syndicale française, acquérant une expérience syndicale qui les a aidés à formuler un projet de syndicat tunisien indépendant.",
+                part1Li19: "Union Générale des Travailleurs Tunisiens : Fondée par Mohamed Ali El Hammi le 3 décembre 1924, avec siège rue Mongi Slim à Tunis.",
+                part1Li20: "Son programme : Amélioration des salaires et des conditions professionnelles, égalité des salaires entre Tunisiens et Français, droit de fonder des syndicats, liberté syndicale, sécurité sociale, réduction des heures de travail, interdiction de l'emploi des enfants et des femmes dans les travaux lourds.",
+                part1Title2C: "Position du Parti Destour tunisien sur le mouvement syndical",
+                part1Li21: "La fédération syndicale française a refusé de former un syndicat arabe pour saper l'unité des travailleurs face à la puissance du capital colonial, mais elle s'opposait en réalité à ses revendications d'égalité salariale et d'abolition des privilèges européens.",
+                part1Li22: "Les dirigeants destouriens ont soutenu l'Union Générale et lui ont apporté un soutien matériel et moral. L'Union a contribué à organiser la classe ouvrière tunisienne.",
+                part1Li23: "Cependant, l'Union s'est rapidement scindée en raison de conflits internes et de désaccords entre les dirigeants syndicaux, et elle a fini par subir la pression des autorités françaises.",
+                part1Li24Title: "Résultat :",
+                part1Li24Text: "Le mouvement syndical tunisien a été fracturé et affaibli. L'Union Générale a été dissoute en 1925 et ses dirigeants arrêtés.",
+                defPersons: "👤 Personnes",
+                defOrganizations: "🏛️ Organisations et institutions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defThaalbi: "Abdelaziz Thaalbi",
+                defThaalbiDesc: "Dirigeant politique tunisien, né le 15 septembre 1876 à Tunis et mort le 1er octobre 1944 à Tunis. Il est considéré comme le fondateur et premier président du Parti Destour tunisien (1920), et l'un des plus éminents pionniers du mouvement national tunisien dans les années 1920. Il a publié le livre « La Tunisie martyre » à Paris en 1920 pour dénoncer les pratiques coloniales françaises. Il a lutté pour l'égalité entre Tunisiens et Français et pour l'implication de la population dans la gestion des affaires de leur pays.",
+                defHammi: "Mohamed Ali El Hammi",
+                defHammiDesc: "Dirigeant syndical tunisien, né le 15 octobre 1890 à El Hamma (Gabès) et mort le 10 mai 1928 à Paris. Il a fondé l'Union Générale des Travailleurs Tunisiens le 3 décembre 1924, le premier syndicat tunisien indépendant. Il a lutté pour améliorer les conditions des travailleurs tunisiens et réaliser l'égalité salariale avec les travailleurs français, et est considéré comme le pionnier du mouvement syndical tunisien.",
+                defTaharBenAchour: "Mohamed Tahar Ben Achour",
+                defTaharBenAchourDesc: "Savant et juriste tunisien, né en septembre 1879 à Tunis et mort le 12 août 1973 à Tunis. Il a présidé le comité administratif du Parti Destour tunisien après sa fondation en 1920, et a été l'une des personnalités savantes et religieuses les plus éminentes soutenant le mouvement national lors de sa phase de fondation.",
+                defDestourParty: "Parti Destour tunisien",
+                defDestourPartyDesc: "Le premier parti politique tunisien, officiellement fondé lors d'un congrès rue Mongi Slim à Tunis en janvier 1920, dirigé par Abdelaziz Thaalbi. Il est le prolongement du mouvement des Jeunes Tunisiens. Il a exigé la liberté d'enseignement, un conseil législatif tunisien, la séparation des pouvoirs et l'égalité dans les fonctions et les salaires entre Tunisiens et Français. Il a adopté la lutte pacifique (délégations, pétitions, presse).",
+                defUnionGenerale: "Union Générale des Travailleurs Tunisiens",
+                defUnionGeneraleDesc: "Le premier syndicat tunisien indépendant, fondé le 3 décembre 1924 par Mohamed Ali El Hammi, avec siège rue Mongi Slim à Tunis. Il a exigé l'amélioration des salaires et des conditions professionnelles, l'égalité des salaires entre Tunisiens et Français, le droit de fonder des syndicats, la sécurité sociale et la réduction des heures de travail. Les autorités françaises l'ont dissous en 1925 et ont arrêté ses dirigeants.",
+                defTelegraph: "Télégramme du Comité tuniso-algérien (2 juin 1919)",
+                defTelegraphDesc: "Un télégramme envoyé par le Comité tuniso-algérien au président américain Woodrow Wilson le 2 juin 1919, exigeant l'application du principe du droit des peuples à disposer d'eux-mêmes à la Tunisie et à l'Algérie, et leur permettant d'assister à la Conférence de paix de Paris pour défendre leurs causes nationales contre la France.",
+                defDestourCongress: "Congrès du Parti Destour tunisien (janvier 1920)",
+                defDestourCongressDesc: "Un congrès tenu rue Mongi Slim à Tunis en janvier 1920 avec des représentants d'organismes administratifs, d'associations et d'institutions. Il a abouti au changement du nom de « Jeunes Tunisiens » en « Parti Destour tunisien », à l'élection d'Abdelaziz Thaalbi comme président du parti, à la formation d'un comité administratif présidé par Mohamed Tahar Ben Achour, et à l'établissement d'un comité de presse qui a publié le journal « Al-Irada ».",
+                defFoundingUnion: "Fondation de l'Union Générale (3 décembre 1924)",
+                defFoundingUnionDesc: "Fondation du premier syndicat tunisien indépendant par Mohamed Ali El Hammi le 3 décembre 1924. Il a contribué à organiser les travailleurs tunisiens et à organiser des grèves et des protestations, avant d'être dissous par les autorités françaises en 1925 et ses dirigeants arrêtés.",
+                defYear1919Desc: "Printemps 1919 : Émergence du Parti Destour (mouvement des Jeunes Tunisiens), envoi d'un mémorandum à la Conférence de paix de Paris et d'un mémorandum au président Wilson.",
+                defYear1920Desc: "Janvier 1920 : Congrès fondateur du Parti Destour tunisien, et publication de « La Tunisie martyre » à Paris.",
+                defYear1924Desc: "3 décembre 1924 : Fondation de l'Union Générale des Travailleurs Tunisiens par Mohamed Ali El Hammi.",
+                defYear1925Desc: "Dissolution de l'Union Générale des Travailleurs Tunisiens et arrestation de ses dirigeants par les autorités françaises.",
+                defYoungTunisians: "Mouvement des Jeunes Tunisiens",
+                defYoungTunisiansDesc: "Un mouvement politique et réformiste fondé au début du XXe siècle, actif pendant la Première Guerre mondiale et adoptant une « politique de critique », ouvrant la voie à la fondation du Parti Destour tunisien en 1920.",
+                defTunisiaMartyr: "La Tunisie martyre",
+                defTunisiaMartyrDesc: "Un livre publié par Abdelaziz Thaalbi à Paris au début de 1920, dénonçant les pratiques coloniales françaises et les violations en Tunisie. C'est l'un des documents fondateurs du mouvement national tunisien.",
+                defCriticPolicy: "Politique de critique",
+                defCriticPolicyDesc: "Une politique suivie par les dirigeants du mouvement des Jeunes Tunisiens pendant la Première Guerre mondiale, basée sur la sensibilisation, la critique et la dénonciation des pratiques coloniales, ouvrant la voie à l'organisation du mouvement national après la guerre.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Abdelaziz Thaalbi",
+                galleryCap1: "Abdelaziz Thaalbi",
+                galleryAlt2: "Mohamed Ali El Hammi",
+                galleryCap2: "Mohamed Ali El Hammi",
+                galleryAlt3: "Congrès du Parti Destour tunisien 1920",
+                galleryCap3: "Congrès du Parti Destour tunisien 1920",
+                galleryAlt4: "Scène de la ville de Tunis dans les années 1920",
+                galleryCap4: "Ville de Tunis dans les années 1920",
+                galleryAlt5: "Livre « La Tunisie martyre »",
+                galleryCap5: "Livre « La Tunisie martyre »"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية",
+                lessonTitleSample: "تونس من نهاية الحرب العالمية الأولى إلى نهاية الحرب العالمية الثانية",
+                sectionIntro: "مقدمة",
+                introText: "شهدت البلاد التونسية غداة الحرب العالمية الأولى تحولات عميقة على المستويين الاقتصادي والاجتماعي، إلى جانب تأثيرات خارجية ناتجة عن الثورة البلشفية ومبادئ الرئيس الأمريكي ولسون. وقد ساهمت هذه الظروف في تنامي الوعي الوطني وبروز أولى هياكل الحركة الوطنية التونسية، ممثلة في الحزب الحر الدستوري التونسي والجامعة العامة للشغل. فما هي أبرز مظاهر تطور الحركة الوطنية في العشرينات؟",
+                sectionPart1: "تونس في العشرينات",
+                sectionConclusion: "خاتمة",
+                conclusionText: "ساهمت الظروف الداخلية والخارجية غداة الحرب العالمية الأولى في تنامي الوعي الوطني وتنظيم الحركة الوطنية التونسية، فبرز الحزب الحر الدستوري التونسي كأول حزب سياسي، والجامعة العامة للشغل كأول منظمة نقابية مستقلة، رغم ما اعترض مسيرتهما من تضييق وانقسامات.",
+                summaryText: "خلاصة: شكلت العشرينات مرحلة تأسيسية للحركة الوطنية التونسية، إذ برزت أولى الهياكل السياسية والنقابية التي قادت النضال الوطني ضد الاستعمار الفرنسي.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                part1Title1: "ظروف تطور الحركة الوطنية غداة الحرب العالمية الأولى",
+                part1A: "الظروف الداخلية: تعميق الأزمة الاقتصادية والاجتماعية وأثرها على المجتمع التونسي",
+                part1Li1Title: "استنزاف الطاقة البشرية:",
+                part1Li1Text: "تجنيد 80 ألف تونسي في الحرب العالمية الأولى خلف ما لا يقل عن 15 ألف قتيل وأكثر من 8 آلاف جريح، وتهجير حوالي 30 ألف عامل إلى فرنسا.",
+                part1Li2Title: "العودة إلى الاستغلال:",
+                part1Li2Text: "مصادرة أراضي العروش والأحباس لصالح المعمرين لتزويد فرنسا بحاجياتها الغذائية.",
+                part1Li3Title: "أثر ذلك:",
+                part1Li3Text: "حاجة الفلاحين وشيوخ القبائل المهددة بفقدان أراضيها إلى تأطير سياسي للدفاع عن مصالحها.",
+                part1Li4Title: "ترويج فرنسا لاستعمارها المصلحي:",
+                part1Li4Text: "مع تطور حركة التعاونيات في فرنسا من أكثر من 3 ملايين (1908 و1918) ونصفها من النساء.",
+                part1Li5Title: "أثر ذلك:",
+                part1Li5Text: "عجز أرباب الحرف والتجار التونسيين عن مواكبة التحولات الاقتصادية والاجتماعية.",
+                part1B: "الظروف الخارجية: تأثير الثورة البلشفية ومبادئ الرئيس الأمريكي ولسون",
+                part1Li6Title: "سنة 1919:",
+                part1Li6Text: "اتخذ مؤتمر الصلح بفرنسا (فرساي) مبدأ حق تقرير المصير للشعوب. وقد أعلن الرئيس الأمريكي ولسون مبادئه 14 التي أقرت حق الشعوب في تقرير مصيرها ومنها تونس.",
+                part1Li7Title: "تأثر التونسيين بمبادئ ولسون:",
+                part1Li7Text: "طالب المثقفون التونسيون إلى جانب الوطنيين الجزائريين بتطبيق مبدأ حق الشعوب في تقرير مصيرها (برقية اللجنة التونسية الجزائرية بعثت لرئيس الولايات المتحدة ولسون في 2 جوان 1919)، والمطالبة بحضور أشغال مؤتمر السلام بباريس للدفاع عن القضية الوطنية ضد فرنسا.",
+                part1Li8Title: "تأثير الثورة البلشفية (1917):",
+                part1Li8Text: "تبنت موقفًا مناهضًا للاستعمار ومساندة حركات التحرر الوطني (الأممية الشيوعية الثالثة بموسكو في مارس 1919).",
+                part1Li9Title: "صدى نجاح الحركات الوطنية:",
+                part1Li9Text: "في تركيا (برئاسة مصطفى كمال) التي تمكنّت من طرد الحلفاء سنة 1921، وفي مصر (سعد زغلول) التي توجت بإعلان استقلال مصر في 1922.",
+                part1Note: "ملاحظة: ساهمت هذه الظروف في تعبئة أغلب فئات المجتمع التونسي ضد الاستعمار وفي تنامي الوعي الوطني وبروز هياكل الحركة الوطنية التونسية.",
+                part1Title2: "مظاهر تطور الحركة الوطنية في العشرينات: ميلاد أول حزب سياسي ونشأة أول حركة نقابية تونسية مستقلة",
+                part1Title2A: "الحزب الحر الدستوري التونسي: ظروف النشأة والنشاط",
+                part1Sub1: "ظروف النشأة:",
+                part1Li10: "وفّرت حركة الشباب التونسي أرضية سانحة لتطور الحركة الوطنية التونسية، فقد تحرّك زعماؤها في سياسة الانتقاد التي ميزت نشاطهم طيلة فترة الحرب وأعادوا صياغة مطالب الحركة الوطنية في ظل ظروف الحرب.",
+                part1Li11: "نشأة الحزب الحر الدستوري (ربيع 1919) بقيادة عبد العزيز الثعالبي وعضوية أحمد الصافي وحسن القلاتي، وتركز نشاطه بالخارج:",
+                part1Li11a: "إرسال مذكرة إلى مؤتمر الصلح بباريس للمطالبة بتعديل مبادئها على البلاد التونسية، لكن فرنسا رفضت ذلك.",
+                part1Li11b: "إرسال المذكرة (أفريل 1919) إلى رئيس الجمهورية الأمريكية ولسون لمطالبته بمساعدتها (الاستقلال التام).",
+                part1Li11c: "إصدار كتاب \"تونس الشهيدة\" بباريس (بداية 1920) بقيادة عبد العزيز الثعالبي لفضح الاستعمار الفرنسي وانتهاكاته في تونس.",
+                part1Li12: "الشروع في مقاومة الاستعمار بالطرق السلمية (بعث الوفود السلمية، إرسال العرائض، تأليف الجمعيات، الاتصال بالرأي العام الدولي والصحافة، عقد الاجتماعات، تأسيس النقابات، إصدار الصحف).",
+                part1Li13: "تأسيس الحزب: عقد مؤتمر بالنهج المنجي سليم بتونس (جانفي 1920) بحضور ممثلين عن هيئات إدارية وممثلين عن الجمعيات والمؤسسات، وأسفر عن:",
+                part1Li13a: "تغيير اسم \"الشباب التونسي\" إلى \"الحزب الحر الدستوري التونسي\".",
+                part1Li13b: "انتخاب الثعالبي رئيسًا للحزب.",
+                part1Li13c: "تأليف لجنة إدارية برئاسة محمد الطاهر بن عاشور.",
+                part1Li13d: "تأسيس لجنة إدارية للصحافة (صحيفة \"الإرادة\").",
+                part1Sub2: "برنامج الحزب:",
+                part1Li14: "مولد الحزب الحر الدستوري التونسي (مارس 1920) وبرنامجه:",
+                part1Li14a: "مطالب عامة كبرى تمثلت في: إقرار حرية التعليم، إحداث مجلس تشريعي تونسي، فصل السلط، المساواة في الوظائف العمومية والأجور بين التونسيين والفرنسيين.",
+                part1Li14b: "برنامج معتدل يهدف إلى تحقيق المساواة بين التونسيين والفرنسيين وتشريك الأهالي في إدارة شؤون بلادهم في إطار نظام الحماية.",
+                part1Sub3: "نشاط الحزب الحر الدستوري التونسي:",
+                part1Li15: "تعددت أشكال نضاله: خطب، بيانات، عرائض، مقالات صحفية. وقد توجت بعدة تحركات واحتجاجات شملت مختلف جهات البلاد (جولات الخطابي).",
+                part1Li16: "الوفود الرسمية:",
+                part1Li16a: "الوفد الأول: برئاسة محمد الناصر باي (18 جوان 1920) لحثه على إطاعة البايات، وقد استجاب لذلك تحت تأثير ابنه المنصف باي المعروف بتأييده للدستوريين.",
+                part1Li16b: "الوفد الثاني: برئاسة الثعالبي (جانفي 1921) بقيادة الكاتب العام للحزب أحمد الصافي لطلب الإذن بعقد مؤتمر الحزب، لكن السلطات رفضت.",
+                part1Li16c: "الوفد الثالث: برئاسة الثعالبي (جانفي 1921) بقيادة الطاهر بن عمار لمطالبة رئيس الحكومة والمقيم العام بجعل التعليم مجانيًا ووجوبيًا.",
+                part1Li16d: "الوفد الرابع: (نوفمبر 1924) بقيادة أحمد الصافي، لكن لم ينجح في إقناع حكومة كمال فرانسوا بتعديل سياسة الحماية.",
+                part1Li17: "الجامعة العامة للشغل: تأسست في 3 ديسمبر 1924 على يد محمد علي الحامي، وقد ساهمت في تنظيم العمال التونسيين وتنظيم الإضرابات والاحتجاجات.",
+                part1Title2B: "جماعة عموم العملة التونسية",
+                part1Sub4: "ظروف النشأة:",
+                part1Li18: "تدهور الأوضاع الاجتماعية للعمال التونسيين:",
+                part1Li18a: "عرفت البلاد أزمة اقتصادية سنة 1924 بسبب الحرب، فتراجع الإنتاج الزراعي وارتفعت الأسعار وانتشرت المجاعة وتفشى الوباء.",
+                part1Li18b: "زيادة وطأة ممارسة العملة الأجنبية في ظل سياسة التمييز في الأجور والضمانات الاجتماعية.",
+                part1Li18c: "استفاد العمال التونسيون من انخراطهم في اتحاد النقابات الفرنسية باكتساب تجربة نقابية ساعدتهم على بلورة مشروع نقابة تونسية مستقلة.",
+                part1Li19: "الجامعة العامة للشغل (جامعة عموم العملة التونسية): تأسست على يد محمد علي الحامي في 3 ديسمبر 1924 واتخذت لها مقرًا بالنهج المنجي سليم بتونس.",
+                part1Li20: "برنامجها: تحسين الأجور والظروف المهنية، المساواة في الأجور بين التونسيين والفرنسيين، حق تأسيس النقابات، الحرية النقابية، الضمان الاجتماعي، تقليص ساعات العمل، منع تشغيل الأطفال والنساء في الأعمال الشاقة.",
+                part1Title2C: "موقف الحزب الحر الدستوري التونسي من الحركة النقابية",
+                part1Li21: "رفض اتحاد النقابات الفرنسية تكوين جامعة عربية لضرب وحدة العمال أمام قوة رأسمال الملة، لكنه كان في الواقع يعارض مطالبها بالمساواة في الأجور وإلغاء الامتيازات الأوروبية.",
+                part1Li22: "عمل الزعماء الدستوريون على دعم الجامعة العامة للشغل وتقديم الدعم المادي والمعنوي لها، وقد ساهمت الجامعة في تأطير الطبقة العاملة التونسية.",
+                part1Li23: "لكن سرعان ما انقسمت الجامعة بسبب الصراعات الداخلية والخلافات بين القيادات النقابية، وقد انتهت بالتضييق عليها من قبل السلطات الفرنسية.",
+                part1Li24Title: "النتيجة:",
+                part1Li24Text: "تصدع الحركة النقابية التونسية وضعفها، وقد تمّ حلّ الجامعة العامة للشغل سنة 1925 واعتقال قادتها.",
+                defPersons: "👤 شخصيات",
+                defOrganizations: "🏛️ منظمات ومؤسسات",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defThaalbi: "عبد العزيز الثعالبي",
+                defThaalbiDesc: "زعيم سياسي تونسي، وُلد في 15 سبتمبر 1876 بتونس وتوفي في 1 أكتوبر 1944 بتونس. يُعتبر مؤسس وأول رئيس للحزب الحر الدستوري التونسي (1920)، وأحد أبرز رواد الحركة الوطنية التونسية في مرحلة العشرينات. صدر له كتاب «تونس الشهيدة» بباريس سنة 1920 لفضح ممارسات الاستعمار الفرنسي. ناضل من أجل المساواة بين التونسيين والفرنسيين وتشريك الأهالي في إدارة شؤون بلادهم.",
+                defHammi: "محمد علي الحامي",
+                defHammiDesc: "زعيم نقابي تونسي، وُلد في 15 أكتوبر 1890 بالحامة من ولاية قابس وتوفي في 10 ماي 1928 بباريس. أسّس الجامعة العامة للشغل (جامعة عموم العملة التونسية) في 3 ديسمبر 1924، وهي أول منظمة نقابية تونسية مستقلة. ناضل من أجل تحسين ظروف العمال التونسيين والمساواة في الأجور مع العمال الفرنسيين، ويُعتبر رائد الحركة النقابية التونسية.",
+                defTaharBenAchour: "محمد الطاهر بن عاشور",
+                defTaharBenAchourDesc: "عالم وفقيه تونسي، وُلد في سبتمبر 1879 بتونس وتوفي في 12 أوت 1973 بتونس. ترأس اللجنة الإدارية للحزب الحر الدستوري التونسي بعد تأسيسه سنة 1920، وكان من أبرز الشخصيات العلمية والدينية الداعمة للحركة الوطنية في مرحلة التأسيس.",
+                defDestourParty: "الحزب الحر الدستوري التونسي",
+                defDestourPartyDesc: "أول حزب سياسي تونسي، تأسس رسميًا في مؤتمر بالنهج المنجي سليم بتونس في جانفي 1920، بقيادة عبد العزيز الثعالبي. جاء امتدادًا لحركة الشباب التونسي. طالب بإقرار حرية التعليم، وإحداث مجلس تشريعي تونسي، وفصل السلط، والمساواة في الوظائف والأجور بين التونسيين والفرنسيين. اعتمد النضال السلمي (الوفود، العرائض، الصحافة).",
+                defUnionGenerale: "الجامعة العامة للشغل (جامعة عموم العملة التونسية)",
+                defUnionGeneraleDesc: "أول منظمة نقابية تونسية مستقلة، تأسست في 3 ديسمبر 1924 على يد محمد علي الحامي، واتخذت مقرًا لها بالنهج المنجي سليم بتونس. طالبت بتحسين الأجور والظروف المهنية والمساواة في الأجور بين التونسيين والفرنسيين وحق تأسيس النقابات والضمان الاجتماعي وتقليص ساعات العمل. حلّتها السلطات الفرنسية سنة 1925 واعتقلت قادتها.",
+                defTelegraph: "برقية اللجنة التونسية الجزائرية (2 جوان 1919)",
+                defTelegraphDesc: "برقية بعثتها اللجنة التونسية الجزائرية إلى رئيس الولايات المتحدة الأمريكية وودرو ولسون في 2 جوان 1919، تطالبه بتطبيق مبدأ حق الشعوب في تقرير مصيرها على تونس والجزائر، والسماح لهما بحضور أشغال مؤتمر الصلح بباريس للدفاع عن قضيتيهما الوطنية ضد فرنسا.",
+                defDestourCongress: "مؤتمر الحزب الحر الدستوري التونسي (جانفي 1920)",
+                defDestourCongressDesc: "مؤتمر عقد بالنهج المنجي سليم بتونس في جانفي 1920 بحضور ممثلين عن هيئات إدارية وجمعيات ومؤسسات، وأسفر عن تغيير اسم «الشباب التونسي» إلى «الحزب الحر الدستوري التونسي»، وانتخاب عبد العزيز الثعالبي رئيسًا للحزب، وتأليف لجنة إدارية برئاسة محمد الطاهر بن عاشور، وتأسيس لجنة إدارية للصحافة أصدرت صحيفة «الإرادة».",
+                defFoundingUnion: "تأسيس الجامعة العامة للشغل (3 ديسمبر 1924)",
+                defFoundingUnionDesc: "تأسيس أول منظمة نقابية تونسية مستقلة على يد محمد علي الحامي في 3 ديسمبر 1924، وقد ساهمت في تنظيم العمال التونسيين وتنظيم الإضرابات والاحتجاجات، قبل أن تحلّها السلطات الفرنسية سنة 1925 وتعتقل قادتها.",
+                defYear1919Desc: "ربيع 1919: نشأة الحزب الحر الدستوري (حركة الشباب التونسي)، وإرسال مذكرة إلى مؤتمر الصلح بباريس ومذكرة إلى الرئيس ولسون.",
+                defYear1920Desc: "جانفي 1920: مؤتمر تأسيس الحزب الحر الدستوري التونسي، وإصدار كتاب «تونس الشهيدة» بباريس.",
+                defYear1924Desc: "3 ديسمبر 1924: تأسيس الجامعة العامة للشغل (جامعة عموم العملة التونسية) على يد محمد علي الحامي.",
+                defYear1925Desc: "حلّ الجامعة العامة للشغل واعتقال قادتها من قبل السلطات الفرنسية.",
+                defYoungTunisians: "حركة الشباب التونسي",
+                defYoungTunisiansDesc: "حركة سياسية وإصلاحية تأسست في بداية القرن العشرين، نشطت خلال الحرب العالمية الأولى واعتمدت «سياسة الانتقاد»، ومهدت لتأسيس الحزب الحر الدستوري التونسي سنة 1920.",
+                defTunisiaMartyr: "تونس الشهيدة",
+                defTunisiaMartyrDesc: "كتاب أصدره عبد العزيز الثعالبي بباريس في بداية 1920، يفضح ممارسات الاستعمار الفرنسي وانتهاكاته في تونس، ويُعد من أبرز الوثائق التأسيسية للحركة الوطنية التونسية.",
+                defCriticPolicy: "سياسة الانتقاد",
+                defCriticPolicyDesc: "سياسة اتبعها زعماء حركة الشباب التونسي خلال الحرب العالمية الأولى، اعتمدت على التوعية والنقد وكشف ممارسات الاستعمار، ومهدت لتنظيم الحركة الوطنية بعد الحرب.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "عبد العزيز الثعالبي",
+                galleryCap1: "عبد العزيز الثعالبي",
+                galleryAlt2: "محمد علي الحامي",
+                galleryCap2: "محمد علي الحامي",
+                galleryAlt3: "مؤتمر الحزب الحر الدستوري التونسي 1920",
+                galleryCap3: "مؤتمر الحزب الحر الدستوري التونسي 1920",
+                galleryAlt4: "مشهد من مدينة تونس في العشرينات",
+                galleryCap4: "مدينة تونس في العشرينات",
+                galleryAlt5: "كتاب تونس الشهيدة",
+                galleryCap5: "كتاب تونس الشهيدة"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO‑WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Abdelaziz Thaalbi", class: "key-person", i18n: "defThaalbi" },
+                { text: "Mohamed Ali El Hammi", class: "key-person", i18n: "defHammi" },
+                { text: "Mohamed Tahar Ben Achour", class: "key-person", i18n: "defTaharBenAchour" },
+                { text: "Tunisian Destour Party", class: "key-organization", i18n: "defDestourParty" },
+                { text: "General Union of Tunisian Workers", class: "key-organization", i18n: "defUnionGenerale" },
+                { text: "Young Tunisians", class: "key-other", i18n: "defYoungTunisians" },
+                { text: "Tunisia the Martyr", class: "key-other", i18n: "defTunisiaMartyr" },
+                { text: "1919", class: "key-year", i18n: null },
+                { text: "1920", class: "key-year", i18n: null },
+                { text: "1924", class: "key-year", i18n: null },
+                { text: "1925", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Abdelaziz Thaalbi", class: "key-person", i18n: "defThaalbi" },
+                { text: "Mohamed Ali El Hammi", class: "key-person", i18n: "defHammi" },
+                { text: "Mohamed Tahar Ben Achour", class: "key-person", i18n: "defTaharBenAchour" },
+                { text: "Parti Destour tunisien", class: "key-organization", i18n: "defDestourParty" },
+                { text: "Union Générale des Travailleurs Tunisiens", class: "key-organization", i18n: "defUnionGenerale" },
+                { text: "Jeunes Tunisiens", class: "key-other", i18n: "defYoungTunisians" },
+                { text: "La Tunisie martyre", class: "key-other", i18n: "defTunisiaMartyr" },
+                { text: "1919", class: "key-year", i18n: null },
+                { text: "1920", class: "key-year", i18n: null },
+                { text: "1924", class: "key-year", i18n: null },
+                { text: "1925", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "عبد العزيز الثعالبي", class: "key-person", i18n: "defThaalbi" },
+                { text: "محمد علي الحامي", class: "key-person", i18n: "defHammi" },
+                { text: "محمد الطاهر بن عاشور", class: "key-person", i18n: "defTaharBenAchour" },
+                { text: "الحزب الحر الدستوري التونسي", class: "key-organization", i18n: "defDestourParty" },
+                { text: "الجامعة العامة للشغل", class: "key-organization", i18n: "defUnionGenerale" },
+                { text: "حركة الشباب التونسي", class: "key-other", i18n: "defYoungTunisians" },
+                { text: "تونس الشهيدة", class: "key-other", i18n: "defTunisiaMartyr" },
+                { text: "1919", class: "key-year", i18n: null },
+                { text: "1920", class: "key-year", i18n: null },
+                { text: "1924", class: "key-year", i18n: null },
+                { text: "1925", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

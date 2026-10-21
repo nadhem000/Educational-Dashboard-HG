@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="exercisePageTitle">تمارين – السكان والمشكلات السكانية</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-exercices.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180,160,140,0.5);
+            --ED-General-color-accent-rgb: 74,127,217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(122,143,176,0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0,0,0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160,175,200,0.4);
+            --ED-General-color-accent-rgb: 122,175,255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232,168,64,0.3);
+            --ED-General-color-icon-moon-glow: rgba(180,195,235,0.35);
+            --ED-General-color-text-on-accent: #12151c;
+        }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        body { margin:0; font-family:var(--ED-General-font-stack); background:var(--ED-General-color-bg); color:var(--ED-General-color-text-primary); }
+        .exercise-container { font-family:"Times New Roman",Times,Georgia,Merriweather,serif; max-width:900px; margin:2rem auto; padding:2rem; background:var(--ED-General-color-surface); border-radius:16px; border:1px solid var(--ED-General-color-border); }
+        .print-button { display:block; width:fit-content; margin:2rem auto 0; padding:0.6rem 1.2rem; background:var(--ED-General-color-accent-default); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; }
+        .go-link-container { text-align:center; margin-top:1.5rem; }
+        .go-link { text-decoration:none; display:inline-block; padding:0.5rem 1rem; background:var(--ED-General-color-bg-secondary); border-radius:8px; }
+        .hidden-old-print { display:none; }
+        #auth-warning { display:none; color:var(--ED-General-color-text-secondary); font-size:0.85rem; margin-bottom:1rem; }
+        #print-modal { display:none; }
+
+        /* ══════ PRINT MODAL STYLES ══════ */
+        .print-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pmFadeIn 0.25s ease-out;
+            padding: 1rem;
+        }
+        @keyframes pmFadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .print-modal-content {
+            background: var(--ED-General-color-surface);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid var(--ED-General-color-border);
+            animation: pmSlideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pmSlideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .print-modal-title { margin: 0 0 0.3rem 0; font-size: 1.4rem; font-weight: 750; }
+        .print-modal-subtitle { margin: 0 0 1.5rem 0; font-size: 0.9rem; color: var(--ED-General-color-text-tertiary); }
+        .print-modal-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.8rem; }
+        .print-option {
+            display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1.1rem;
+            border-radius: 14px; cursor: pointer; border: 2px solid var(--ED-General-color-border);
+            background: var(--ED-General-color-bg-secondary); transition: all 0.2s ease; user-select: none;
+        }
+        .print-option.disabled-option { opacity: 0.5; pointer-events: none; background: var(--ED-General-color-bg-secondary); border-color: var(--ED-General-color-border); }
+        .print-option:not(.disabled-option):hover { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); }
+        .print-option:has(input:checked) { border-color: var(--ED-General-color-accent-default); background: var(--ED-General-color-accent-soft); box-shadow: 0 0 0 4px rgba(var(--ED-General-color-accent-rgb), 0.1); }
+        .print-option input[type="radio"] { appearance: none; -webkit-appearance: none; width: 22px; height: 22px; border: 2px solid var(--ED-General-color-border-hover); border-radius: 50%; flex-shrink: 0; cursor: pointer; background: var(--ED-General-color-surface); }
+        .print-option input[type="radio"]:checked { background: var(--ED-General-color-accent-default); border-color: var(--ED-General-color-accent-default); }
+        .print-option input[type="radio"]:checked::after { content: ''; position: absolute; left: 6px; top: 6px; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .print-option-label { font-weight: 700; font-size: 1rem; }
+        .print-option-desc { font-size: 0.82rem; color: var(--ED-General-color-text-tertiary); margin-left: auto; }
+        [dir="rtl"] .print-option-desc { margin-left: 0; margin-right: auto; }
+        .print-modal-actions { display: flex; gap: 0.8rem; justify-content: flex-end; }
+        .print-modal-cancel, .print-modal-confirm { padding: 0.7rem 1.6rem; border-radius: 25px; font-weight: 650; font-size: 0.95rem; cursor: pointer; }
+        .print-modal-cancel { background: transparent; border: 2px solid var(--ED-General-color-border); color: var(--ED-General-color-text-secondary); }
+        .print-modal-confirm { background: linear-gradient(135deg, #4a7fd9, #3b6dc5); color: #fff; border: none; box-shadow: 0 4px 16px rgba(var(--ED-General-color-accent-rgb), 0.3); }
+        /* ══════ PRINT‑ONLY HEADER / FOOTER (hidden on screen) ══════ */
+        .print-header-content, .print-footer-content { display: none; }
+        @media print {
+            html, body { color-scheme: light !important; background: #ffffff !important; color: #000000 !important; }
+            :root, [data-theme="dark"] {
+                color-scheme: light !important;
+                --ED-General-color-bg: #ffffff !important;
+                --ED-General-color-bg-secondary: #f5f5f5 !important;
+                --ED-General-color-surface: #ffffff !important;
+                --ED-General-color-surface-hover: #fafafa !important;
+                --ED-General-color-text-primary: #000000 !important;
+                --ED-General-color-text-secondary: #333333 !important;
+                --ED-General-color-text-tertiary: #666666 !important;
+                --ED-General-color-border: #cccccc !important;
+                --ED-General-color-border-hover: #999999 !important;
+                --ED-General-color-accent-default: #1a1a1a !important;
+                --ED-General-color-accent-light: #e8e8e8 !important;
+                --ED-General-color-accent-soft: #f0f0f0 !important;
+                --ED-General-color-accent-rgb: 26, 26, 26 !important;
+                --ED-General-color-text-on-accent: #ffffff !important;
+                --ED-General-color-shadow-rgb: 0,0,0 !important;
+                --ED-General-color-header-gradient-start: #ffffff !important;
+                --ED-General-color-header-gradient-mid1: #fafafa !important;
+                --ED-General-color-header-gradient-mid2: #f5f5f5 !important;
+                --ED-General-color-header-gradient-end: #eeeeee !important;
+                --ED-General-color-header-accent-gradient-stop: rgba(0, 0, 0, 0.15) !important;
+                --ED-General-color-icon-sun: #e8a840 !important;
+                --ED-General-color-icon-moon: #7b8cb0 !important;
+                --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3) !important;
+                --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35) !important;
+            }
+            @page { margin-top: 80px; margin-bottom: 60px; @top-center { content: element(printHeader); } @bottom-center { content: element(printFooter); } }
+            .print-header-content { display:block !important; position: running(printHeader); text-align:left; border-bottom:2px solid #000; padding:0.6rem 1.5rem; background:#fff; font-size:1.1rem; font-weight:700; width:100%; box-sizing:border-box; }
+            .print-header-content .print-header-inner { display:flex; align-items:center; gap:0.6rem; }
+            .print-header-content img { width:28px; height:28px; }
+            .print-footer-content { display:block !important; position: running(printFooter); text-align:center; border-top:1px solid #000; padding:0.4rem 1.5rem; background:#fff; font-size:0.85rem; color:#333; width:100%; box-sizing:border-box; }
+            #print-header, #print-footer { display:none !important; }
+            body { background:#fff; color:#000; font-size:11pt; margin:0; }
+            .exercise-container { box-shadow:none; border:1px solid #ccc; margin:0; padding:1.5rem; border-radius:0; max-width:100%; background:#fff; }
+            .print-button, .go-link, .go-link-container, .hgh-exercices-type1-button, .hgh-exercices-type2-button, .hgh-exercices-type3-tabToHistogram-button, .hgh-exercices-type4-analyseParagraph-button, .hgh-exercices-type5-articleWriting-button, .hgh-exercices-type6-timeline-button, header, footer, #header-container, #footer-container, .ED-General-header, .ED-General-footer, .ED-General-offline-banner, .ED-General-update-banner, #enableNotifications, #enablePeriodicSync, #installBtn, #themeToggle, #langSelect, #welcome-bar, #connection-status, #gallery-zoom-modal, .gzm-controls, #print-modal, .print-modal-overlay, .print-modal-content, .print-modal-actions, .print-modal-cancel, .print-modal-confirm, .hidden-old-print { display:none !important; }
+            .hgh-exercices-type3-tabToHistogram-bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; border:1px solid #000; box-sizing:border-box; }
+            .hgh-exercices-type6-timeline-canvas { background:#ffffff !important; border:1px solid #ccc; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+            .hgh-exercices-type6-timeline-canvas-container { background:#ffffff; }
+            .hgh-exercices-type6-timeline-answer { background:#f5f5f5; }
+            .hgh-exercices-type1-answer.visible, .hgh-exercices-type2-answer.visible, .hgh-exercices-type3-tabToHistogram-answer.visible, .hgh-exercices-type4-analyseParagraph-answer.visible, .hgh-exercices-type5-articleWriting-answer.visible, .hgh-exercices-type6-timeline-answer.visible { display:block; }
+            .hgh-exercices-type1-answer, .hgh-exercices-type2-answer, .hgh-exercices-type3-tabToHistogram-answer, .hgh-exercices-type4-analyseParagraph-answer, .hgh-exercices-type5-articleWriting-answer, .hgh-exercices-type6-timeline-answer { display:none; }
+            a { color:#000; text-decoration:underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-header-content">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span data-i18n="printHeaderTitle">History & Geography Hub – Exercise</span>
+        </div>
+    </div>
+    <div class="print-footer-content">
+        <span data-i18n="printFooterText">© History & Geography Hub</span>
+    </div>
+    <div id="print-header" aria-hidden="true" class="hidden-old-print"></div>
+    <header id="header-container"></header>
+    <main>
+        <div class="exercise-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الثالثة ثانوي، شعبة اقتصاد وتصرف
+            </div>
+            <h1 data-i18n="exerciseTitle">تمارين – السكان والمشكلات السكانية بالعالم العربي</h1>
+
+            <!-- Exercise 1 – Type 1: Definitions -->
+            <div class="hgh-exercices-type1-section">
+                <div class="hgh-exercices-type1-question">
+                    <span class="question-number">1.</span>
+                    <span data-i18n="ex1Q">عرّف المصطلحات التالية: النمو الديمغرافي، نسبة الإعالة، الانتقال الديمغرافي، مؤشر التنمية البشرية.</span>
+                </div>
+                <button class="hgh-exercices-type1-button" onclick="hghExercicesToggleAnswer('ex1answer', this)" data-i18n="showAnswer">💡 إظهار الإجابة</button>
+                <div id="ex1answer" class="hgh-exercices-type1-answer">
+                    <dl class="hgh-exercices-type1-definitions">
+                        <dt data-i18n="ex1_def1_title">النمو الديمغرافي:</dt>
+                        <dd data-i18n="ex1_def1_subtitle">تزايد عدد السكان في مجال معيّن خلال فترة زمنية محدّدة، ويُقاس بمعدل النموّ السنوي (‰). بلغ معدل النمو الديمغرافي بالعالم العربي 2,6% بين 2000 و2017 مقابل 1,2% عالميًا.</dd>
+                        <dt data-i18n="ex1_def2_title">نسبة الإعالة:</dt>
+                        <dd data-i18n="ex1_def2_subtitle">نسبة الأفراد خارج قوة العمل (أقل من 15 سنة وأكثر من 65 سنة) الذين يعولهم كل 100 فرد من أفراد القوى العاملة. وهي مؤشر للأعباء الاقتصادية، وبلغت حوالي 60% بالعالم العربي (95,5% في اليمن مقابل 31% في الإمارات).</dd>
+                        <dt data-i18n="ex1_def3_title">الانتقال الديمغرافي:</dt>
+                        <dd data-i18n="ex1_def3_subtitle">النموذج النظري لتطور المجموعات السكانية من نظام تقليدي ذي مواليد ووفيات مرتفعة إلى نظام حديث ذي مواليد ووفيات منخفضة، ويمرّ بعدة أطوار.</dd>
+                        <dt data-i18n="ex1_def4_title">مؤشر التنمية البشرية:</dt>
+                        <dd data-i18n="ex1_def4_subtitle">مؤشر مركّب يقيس مستوى التنمية البشرية في بلد ما بالاعتماد على أمل الحياة عند الولادة ونسبة التمدرس والدخل الفردي، ويتراوح بين 0 و1.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Exercise 2 – Type 3: Table → Histogram -->
+            <div class="hgh-exercices-type3-tabToHistogram-section">
+                <div class="hgh-exercices-type3-tabToHistogram-question">
+                    <span class="question-number">2.</span>
+                    <span data-i18n="ex2Q">حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن تطور عدد سكان العالم العربي بين 1950 و2024.</span>
+                </div>
+                <div class="table-scroll-wrapper">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="ex2_table_year">السنة</th>
+                            <th>1950</th>
+                            <th>1970</th>
+                            <th>1990</th>
+                            <th>2000</th>
+                            <th>2010</th>
+                            <th>2024</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="ex2_table_pop">عدد السكان (بالمليون نسمة)</td>
+                            <td>79</td>
+                            <td>128</td>
+                            <td>218</td>
+                            <td>284</td>
+                            <td>357</td>
+                            <td>464</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="ex2Q_source">المصدر: تقارير الأمم المتحدة والبنك العالمي</p>
+                <button class="hgh-exercices-type3-tabToHistogram-button" onclick="hghExercicesType3ToggleAnswer(this, 'ex2answer', 'ex2chartContainer', ex2ChartOptions)">📊 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex2answer" class="hgh-exercices-type3-tabToHistogram-answer">
+                    <div id="ex2chartContainer"></div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 – Type 2: Map / Document -->
+            <div class="hgh-exercices-type2-section">
+                <div class="hgh-exercices-type2-question">
+                    <span class="question-number">3.</span>
+                    <span data-i18n="ex3Q">تأمل الخريطة التالية التي تمثّل الكثافة السكانية في العالم العربي، واستخرج مظاهر التفاوت في التوزع المجالي للسكان وعواملها.</span>
+                </div>
+                <div class="gallery">
+                    <img src="assets3eco/exercises/geography/unit1/lesson5/arab_population_density_exercise.jpg"
+                         alt="خريطة الكثافة السكانية في العالم العربي"
+                         class="hgh-exercices-type2-doc"
+                         data-i18n-alt="ex3DocAlt" />
+                </div>
+                <button class="hgh-exercices-type2-button" onclick="hghExercicesToggleAnswer('ex3answer', this)" data-i18n="showAnswer">🗺️ إظهار الإجابة</button>
+                <div id="ex3answer" class="hgh-exercices-type2-answer">
+                    <div class="gallery">
+                        <img src="assets3eco/exercises/geography/unit1/lesson5/arab_population_density_answer.jpg"
+                             alt="نموذج الإجابة – الكثافة السكانية في العالم العربي"
+                             class="hgh-exercices-type2-answer-img"
+                             data-i18n-alt="ex3AnswerImgAlt" />
+                    </div>
+                    <p class="hgh-exercices-type2-answer-text" data-i18n="ex3A">
+                        يتوزع سكان العالم العربي بشكل شديد التفاوت: يتركز ثلثا السكان بالجناح الشرقي، وتتباين الكثافات بين 1805 نسمة/كم² بالبحرين و4 نسمات/كم² بليبيا. ويعود هذا التفاوت إلى ثلاثة أصناف من العوامل: عوامل طبيعية (المناطق الممطرة ذات الترب الخصبة والسهول المجاورة للأودية والأنهار والسواحل والواحات)، وعوامل تاريخية وسياسية (المناطق الجبلية كجبال القبائل بالجزائر وسياسة التهجير بلبنان والأردن)، وعوامل اقتصادية (الثروات الطاقية بأقطار الخليج التي توفّر مواطن شغل).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 – Type 4: Analyse & Write Paragraph -->
+            <div class="hgh-exercices-type4-analyseParagraph-section">
+                <div class="hgh-exercices-type4-analyseParagraph-question">
+                    <span class="question-number">4.</span>
+                    <span data-i18n="ex4Q">حلّل عوامل ارتفاع النمو الديمغرافي بالعالم العربي وتبعاته الاقتصادية والاجتماعية في فقرة واحدة.</span>
+                </div>
+                <button class="hgh-exercices-type4-analyseParagraph-button" onclick="hghExercicesToggleAnswer('ex4answer', this)">📝 <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex4answer" class="hgh-exercices-type4-analyseParagraph-answer">
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_analyse">
+                        عوامل ارتفاع النمو الديمغرافي:
+                        - أهمية نسبة النمو الطبيعي في أغلب البلدان العربية (2,6% بين 2000 و2017 مقابل 1,2% عالميًا).
+                        - موقع مختلف من نظرية الانتقال الديمغرافي: بلدان في الطور الأول (تراجع الوفيات وبقاء الولادات مرتفعة) مثل العراق 2,8% والسودان 2,6% ومصر 2,3%؛ وبلدان في الطور الثاني (بداية تراجع الولادات) مثل تونس 1,4% والمغرب 1,4% ولبنان 0,9%.
+                        - الحاصل الهجري الإيجابي في البلدان النفطية (ثلاثة أرباع سكان قطر، نصف سكان البحرين، ثلثا سكان الكويت من المهاجرين).
+                        التبعات الاقتصادية والاجتماعية:
+                        - تركيبة عمرية فتية (أكثر من ثلث السكان أقل من 15 سنة بالعراق وسوريا ومصر).
+                        - ارتفاع نسبة الإعالة العامة إلى حوالي 60%.
+                        - تزايد الطلب على الخدمات الأساسية (الصحة والتعليم والسكن).
+                        - ارتفاع الطلب على الشغل وتزايد البطالة والفقر خاصة بالبلدان غير النفطية.
+                    </div>
+                    <span class="hgh-exercices-type4-analyseParagraph-label" data-i18n="ex4A_paragraph_label">فقرة:</span>
+                    <div class="hgh-exercices-type4-analyseParagraph-content" data-i18n="ex4A_paragraph">
+                        يعود ارتفاع النمو الديمغرافي بالعالم العربي إلى تضافر عوامل عديدة. فأغلب البلدان العربية لا تزال في طور أول من الانتقال الديمغرافي، حيث تتراجع نسبة الوفيات وتبقى نسب الولادات مرتفعة، مما يرفع نسبة النمو الطبيعي إلى أكثر من 2% في بلدان مثل العراق والسودان ومصر. كما تساهم الهجرة الوافدة في رفع عدد السكان بالبلدان النفطية التي تمثّل مناطق استقطاب للعمالة الأجنبية. وقد ترتّب عن هذا النمو السريع تبعات اقتصادية واجتماعية خطيرة: تركيبة عمرية فتية (أكثر من ثلث السكان أقل من 15 سنة)، وارتفاع نسبة الإعالة إلى 60%، وتزايد الطلب على الخدمات الأساسية من صحة وتعليم وسكن، فضلًا عن ارتفاع الطلب على الشغل وتفاقم ظاهرتي البطالة والفقر خاصة في البلدان العربية غير النفطية. هذا الوضع يفرض على الدول العربية ضرورة اعتماد سياسات سكانية واقتصادية قادرة على استثمار الرصيد البشري وتحقيق التنمية الشاملة.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 5 – Type 5: Write an Article -->
+            <div class="hgh-exercices-type5-articleWriting-section">
+                <div class="hgh-exercices-type5-articleWriting-question">
+                    <span class="question-number">5.</span>
+                    <span data-i18n="ex5Q">اكتب مقالاً قصيراً (150 كلمة) حول السياسة السكانية بالبلاد التونسية ونتائجها.</span>
+                </div>
+                <button class="hgh-exercices-type5-articleWriting-button" onclick="hghExercicesToggleAnswer('ex5answer', this)">✍️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex5answer" class="hgh-exercices-type5-articleWriting-answer">
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_analyse_label">تحليل:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content" data-i18n="ex5A_analyse">
+                        اعتمدت تونس منذ الاستقلال سياسة سكانية رائدة في العالم العربي، مستندة إلى مجلة الأحوال الشخصية 1956 وبرنامج التنظيم العائلي 1964. حلّل مكوّنات هذه السياسة وأبرز نتائجها الديمغرافية.
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_plan_label">خطة:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <ul>
+                            <li data-i18n="ex5A_plan_li1">مقدمة: تونس من أوائل الدول العربية في اعتماد سياسة سكانية.</li>
+                            <li data-i18n="ex5A_plan_li2">تطوير: أولاً. المحتوى التشريعي للسياسة (مجلة الأحوال الشخصية)؛ ثانياً. برنامج التنظيم العائلي والتحسن الصحي والتعليمي؛ ثالثاً. النتائج الديمغرافية (تراجع الإنجاب، النمو الطبيعي 1,4%).</li>
+                            <li data-i18n="ex5A_plan_li3">خاتمة: سياسة رائدة مكّنت تونس من التحكم في نموّها السكاني.</li>
+                        </ul>
+                    </div>
+                    <span class="hgh-exercices-type5-articleWriting-label" data-i18n="ex5A_production_label">إنتاج:</span>
+                    <div class="hgh-exercices-type5-articleWriting-content">
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_intro">مقدمة</h3>
+                        <p data-i18n="ex5A_production_p_intro">تُعدّ تونس من أوائل الدول العربية التي اعتمدت سياسة سكانية واضحة منذ الاستقلال، مبنية على تشريعات جريئة وبرامج صحية وتعليمية.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_dev">تطوير</h3>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_legal">أولاً. الإطار التشريعي</h4>
+                        <p data-i18n="ex5A_production_p_legal">أصدرت تونس مجلة الأحوال الشخصية سنة 1956 التي أقرّت منع تعدد الزوجات وتحديد سنّ الزواج للإناث بـ 15 سنة (17 سنة منذ 1964)، وأجازت الإجهاض سنة 1965، واقتصت المنح العائلية على ثلاثة أطفال فقط.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_program">ثانياً. البرامج الصحية والاجتماعية</h4>
+                        <p data-i18n="ex5A_production_p_program">اعتُمد برنامج التنظيم العائلي سنة 1964 وتزامن ذلك مع تحسين خدمات الصحة والتعليم وارتفاع نسبة التحضّر.</p>
+                        <h4 class="hgh-exercices-type5-articleWriting-subtitle" data-i18n="ex5A_production_h4_results">ثالثاً. النتائج</h4>
+                        <p data-i18n="ex5A_production_p_results">مكّنت هذه السياسة من تراجع مؤشر الإنجاب إلى أدنى مستوى في العالم العربي، ومن انخفاض نسبة النمو الطبيعي إلى 1,4% سنة 2017، وتراجع نسبة الفئة الأقل من 15 سنة إلى 26%.</p>
+                        <h3 class="hgh-exercices-type5-articleWriting-title" data-i18n="ex5A_production_h3_concl">خاتمة</h3>
+                        <p data-i18n="ex5A_production_p_concl">هكذا تُعدّ السياسة السكانية التونسية تجربة رائدة مكّنت البلاد من التحكم في نموّها السكاني وتحسين مؤشراتها الاجتماعية، وإن بقيت تحديات البطالة وضعف التأهيل قائمة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 6 – Type 6: Timeline -->
+            <div class="hgh-exercices-type6-timeline-section">
+                <div class="hgh-exercices-type6-timeline-question">
+                    <span class="question-number">6.</span>
+                    <span data-i18n="ex6Q">أنشئ خطاً زمنياً للأحداث التالية: صدور مجلة الأحوال الشخصية بتونس (1956)، اعتماد برنامج التنظيم العائلي (1964)، السماح بالإجهاض (1965)، انطلاق السياسات السكانية بدول مجلس التعاون الخليجي (1990)، تضاعف سكان العالم العربي أكثر من 5,9 مرات (2024).</span>
+                </div>
+                <button class="hgh-exercices-type6-timeline-button" onclick="hghExercicesType6ToggleAnswer(this, 'ex6answer', 'ex6timelineCanvas', ex6TimelineOptions)">🕰️ <span data-i18n="showAnswer">إظهار الإجابة</span></button>
+                <div id="ex6answer" class="hgh-exercices-type6-timeline-answer">
+                    <div class="hgh-exercices-type6-timeline-canvas-container">
+                        <canvas id="ex6timelineCanvas" class="hgh-exercices-type6-timeline-canvas" width="850" height="280" aria-hidden="true"></canvas>
+                    </div>
+                    <p class="hgh-exercices-type6-timeline-fallback" data-i18n="ex6A">
+                        الخط الزمني: 1956: مجلة الأحوال الشخصية ...
+                    </p>
+                </div>
+            </div>
+
+            <button class="print-button" onclick="hghExercicesOpenPrintModal()" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            <div class="go-link-container">
+                <a href="HGH_y3sec_secEco_geo_lessons_mod1_lesson5.html" class="go-link">📖 <span data-i18n="goToLesson">العودة إلى الدرس</span></a>
+                <a href="index.html" class="go-link return-main-link" data-i18n="returnMain">🏠 العودة إلى الرئيسية</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT MODAL -->
+    <div id="print-modal" class="print-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title" data-i18n="printModalTitle">خيارات الطباعة</h3>
+            <p class="print-modal-subtitle" data-i18n="printModalSubtitle">اختر كيفية طباعة التمرين:</p>
+            <div class="print-modal-options">
+                <label class="print-option" id="option-questions-only">
+                    <input type="radio" name="printOption" value="questions-only" checked>
+                    <span class="print-option-label" data-i18n="printOptionQuestionsOnly">📝 الأسئلة فقط</span>
+                    <span class="print-option-desc" data-i18n="printOptionQuestionsOnlyDesc">طباعة بدون إجابات</span>
+                </label>
+                <label class="print-option" id="option-with-answers">
+                    <input type="radio" name="printOption" value="with-answers">
+                    <span class="print-option-label" data-i18n="printOptionWithAnswers">✅ الأسئلة مع الإجابات</span>
+                    <span class="print-option-desc" data-i18n="printOptionWithAnswersDesc">ستظهر الإجابات (يتطلب تسجيل الدخول)</span>
+                </label>
+            </div>
+            <div id="auth-warning" data-i18n="authWarningPrint">⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.</div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel" data-i18n="printModalCancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm" data-i18n="printModalConfirm">🖨️ طباعة</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true" class="hidden-old-print"></div>
+
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script src="hgh-exercises-core.js"></script>
+
+    <script>
+        const HGH_UI_TEXT_SHARED = {
+            en: {
+                appTitle: "History & Geography Hub",
+                lessonPageTitle: "Lesson",
+                exercisePageTitle: "Exercise",
+                goToExercise: "Go to Exercise",
+                goToLesson: "Go to Lesson",
+                returnMain: "Return to Main",
+                "printModalTitle": "Print Options",
+                "printModalSubtitle": "Choose how you want to print the exercise:",
+                "printOptionQuestionsOnly": "📝 Questions Only",
+                "printOptionQuestionsOnlyDesc": "Print without answers",
+                "printOptionWithAnswers": "✅ Questions with Answers",
+                "printOptionWithAnswersDesc": "Answers will be shown (requires sign‑in)",
+                "authWarningPrint": "⚠️ You must be signed in to print with answers.",
+                "printModalCancel": "Cancel",
+                "printModalConfirm": "🖨️ Print",
+                welcomeMessage: "Welcome to History & Geography Hub",
+                onlineStatus: "Online",
+                offlineStatus: "Offline",
+                installBtn: "📲 Install App",
+                themeToggleTitle: "Dark/Light Theme",
+                offlineBanner: "You are offline. Some features may be unavailable.",
+                updateNotification: "A new version is available.",
+                updateReloadBtn: "Reload",
+                enablePeriodicSyncBtn: "Enable Background Updates",
+                disablePeriodicSyncBtn: "Disable Background Updates",
+                enableNotificationsBtn: "Enable Notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Confidentiality Politics",
+                    terms: "Terms of Use",
+                    contact: "Contact",
+                    developer: "developed by: Mejri Ziad.",
+                    hosted: "Hosted on Github and Netlify.",
+                    rateLabel: "Rate this app"
+                },
+                auth: {
+                    signIn: "Sign in",
+                    signUp: "Create account",
+                    signOut: "Sign out",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Password",
+                    cancel: "Cancel",
+                    continue: "Continue",
+                    switchToSignUp: "Create an account",
+                    switchToSignIn: "Already have an account? Sign in",
+                    forgotPassword: "Forgot password?",
+                    forgotPasswordSent: "Password reset email sent.",
+                    forgotPasswordError: "Failed to send reset email.",
+                    profile: {
+                        button: "Profile",
+                        buttonTitle: "View and edit your profile",
+                        title: "My Profile",
+                        loading: "Loading profile…",
+                        saveChanges: "Save Changes",
+                        completeTitle: "Complete your profile",
+                        usernamePlaceholder: "Username",
+                        avatarLabel: "Choose an avatar",
+                        uploadAvatar: "📷 Upload",
+                        removeAvatar: "✕ Remove",
+                        createAnimatedAvatar: "Create animated avatar",
+                        experimentalNote: "still experimental",
+                        professionLabel: "Profession",
+                        studentOption: "Student",
+                        teacherOption: "Teacher",
+                        otherOption: "Other",
+                        classLabel: "Class / Grade",
+                        birthdayLabel: "Birthday",
+                        languageLabel: "Preferred language",
+                        langEnglish: "English",
+                        langFrench: "Français",
+                        langArabic: "العربية",
+                        modeLabel: "Preferred mode",
+                        modeLight: "Light",
+                        modeDark: "Dark",
+                        howKnowLabel: "How did you get to know the site?",
+                        howFriend: "From a friend",
+                        howSocial: "Social media",
+                        howSearch: "Search engine",
+                        howOther: "Other",
+                        saveContinue: "Save & Continue",
+                        back: "Back",
+                        usernameRequired: "Please enter a username.",
+                        professionRequired: "Please select a profession.",
+                        grade7: "7th grade",
+                        grade8: "8th grade",
+                        grade9: "9th grade",
+                        grade10: "10th grade",
+                        grade11: "11th grade",
+                        grade12: "12th grade",
+                        saving: "Saving…",
+                        saveSuccess: "Profile saved successfully!",
+                        loadError: "Failed to load profile.",
+                        imageTooLarge: "Image must be smaller than 5 MB.",
+                        imageProcessError: "Failed to process image. Please try a different one.",
+                        saveError: "Failed to save profile."
+                    }
+                },
+                programs: { history: "History", geography: "Geography", modules: "modules", lessons: "lessons" }
+            },
+            fr: {
+                appTitle: "Hub d'Histoire et Géographie",
+                lessonPageTitle: "Leçon",
+                exercisePageTitle: "Exercice",
+                goToExercise: "Aller à l'exercice",
+                goToLesson: "Aller à la leçon",
+                returnMain: "Retour à l'accueil",
+                "printModalTitle": "Options d'impression",
+                "printModalSubtitle": "Choisissez comment imprimer l'exercice :",
+                "printOptionQuestionsOnly": "📝 Questions uniquement",
+                "printOptionQuestionsOnlyDesc": "Imprimer sans les réponses",
+                "printOptionWithAnswers": "✅ Questions avec réponses",
+                "printOptionWithAnswersDesc": "Les réponses seront affichées (connexion requise)",
+                "authWarningPrint": "⚠️ Vous devez être connecté pour imprimer avec les réponses.",
+                "printModalCancel": "Annuler",
+                "printModalConfirm": "🖨️ Imprimer",
+                welcomeMessage: "Bienvenue sur History & Geography Hub",
+                onlineStatus: "En ligne",
+                offlineStatus: "Hors ligne",
+                installBtn: "📲 Installer l'application",
+                themeToggleTitle: "Thème Sombre/Clair",
+                offlineBanner: "Vous êtes hors ligne. Certaines fonctionnalités peuvent être indisponibles.",
+                updateNotification: "Une nouvelle version est disponible.",
+                updateReloadBtn: "Recharger",
+                enablePeriodicSyncBtn: "Activer les mises à jour en arrière-plan",
+                disablePeriodicSyncBtn: "Désactiver les mises à jour en arrière-plan",
+                enableNotificationsBtn: "Activer les notifications",
+                footer: {
+                    version: "version '0.0.1'",
+                    confidentiality: "Politique de confidentialité",
+                    terms: "Conditions d'utilisation",
+                    contact: "Contact",
+                    developer: "développé par : Mejri Ziad.",
+                    hosted: "Hébergé sur Github et Netlify.",
+                    rateLabel: "Noter cette application"
+                },
+                auth: {
+                    signIn: "Se connecter",
+                    signUp: "Créer un compte",
+                    signOut: "Se déconnecter",
+                    emailPlaceholder: "Email",
+                    passwordPlaceholder: "Mot de passe",
+                    cancel: "Annuler",
+                    continue: "Continuer",
+                    switchToSignUp: "Créer un compte",
+                    switchToSignIn: "Vous avez déjà un compte ? Connectez-vous",
+                    forgotPassword: "Mot de passe oublié ?",
+                    forgotPasswordSent: "Email de réinitialisation envoyé.",
+                    forgotPasswordError: "Échec de l'envoi de l'email de réinitialisation.",
+                    profile: {
+                        button: "Profil",
+                        buttonTitle: "Voir et modifier votre profil",
+                        title: "Mon Profil",
+                        loading: "Chargement du profil…",
+                        saveChanges: "Enregistrer les modifications",
+                        completeTitle: "Complétez votre profil",
+                        usernamePlaceholder: "Nom d'utilisateur",
+                        avatarLabel: "Choisissez un avatar",
+                        uploadAvatar: "📷 Télécharger",
+                        removeAvatar: "✕ Supprimer",
+                        createAnimatedAvatar: "Créer un avatar animé",
+                        experimentalNote: "encore expérimental",
+                        professionLabel: "Profession",
+                        studentOption: "Élève",
+                        teacherOption: "Enseignant",
+                        otherOption: "Autre",
+                        classLabel: "Classe / Niveau",
+                        birthdayLabel: "Date de naissance",
+                        languageLabel: "Langue préférée",
+                        modeLabel: "Mode préféré",
+                        lightOption: "Clair",
+                        darkOption: "Sombre",
+                        howKnowLabel: "Comment avez-vous connu le site ?",
+                        howFriend: "Par un ami",
+                        howSocial: "Réseaux sociaux",
+                        howSearch: "Moteur de recherche",
+                        howOther: "Autre",
+                        saveContinue: "Enregistrer et continuer",
+                        back: "Retour",
+                        usernameRequired: "Veuillez entrer un nom d'utilisateur.",
+                        professionRequired: "Veuillez sélectionner une profession.",
+                        grade7: "5ème",
+                        grade8: "4ème",
+                        grade9: "3ème",
+                        grade10: "Seconde",
+                        grade11: "Première",
+                        grade12: "Terminale",
+                        saving: "Enregistrement…",
+                        saveSuccess: "Profil enregistré avec succès !",
+                        loadError: "Échec du chargement du profil.",
+                        imageTooLarge: "L'image doit faire moins de 5 Mo.",
+                        imageProcessError: "Échec du traitement de l'image. Veuillez en essayer une autre.",
+                        saveError: "Échec de l'enregistrement du profil."
+                    }
+                },
+                programs: { history: "Histoire", geography: "Géographie", modules: "modules", lessons: "leçons" }
+            },
+            ar: {
+                appTitle: "مركز التاريخ والجغرافيا",
+                lessonPageTitle: "درس",
+                exercisePageTitle: "تمرين",
+                goToExercise: "الذهاب إلى التمرين",
+                goToLesson: "الذهاب إلى الدرس",
+                returnMain: "العودة إلى الرئيسية",
+                "printModalTitle": "خيارات الطباعة",
+                "printModalSubtitle": "اختر كيفية طباعة التمرين:",
+                "printOptionQuestionsOnly": "📝 الأسئلة فقط",
+                "printOptionQuestionsOnlyDesc": "طباعة بدون إجابات",
+                "printOptionWithAnswers": "✅ الأسئلة مع الإجابات",
+                "printOptionWithAnswersDesc": "ستظهر الإجابات (يتطلب تسجيل الدخول)",
+                "authWarningPrint": "⚠️ يجب عليك تسجيل الدخول للطباعة مع الإجابات.",
+                "printModalCancel": "إلغاء",
+                "printModalConfirm": "🖨️ طباعة",
+                welcomeMessage: "مرحبًا بك في مركز التاريخ والجغرافيا",
+                onlineStatus: "متصل",
+                offlineStatus: "غير متصل",
+                installBtn: "📲 تثبيت التطبيق",
+                themeToggleTitle: "المظهر الداكن/الفاتح",
+                offlineBanner: "أنت غير متصل. قد لا تتوفر بعض الميزات.",
+                updateNotification: "نسخة جديدة متاحة.",
+                updateReloadBtn: "إعادة التحميل",
+                enablePeriodicSyncBtn: "تفعيل التحديثات في الخلفية",
+                disablePeriodicSyncBtn: "تعطيل التحديثات في الخلفية",
+                enableNotificationsBtn: "تفعيل الإشعارات",
+                footer: {
+                    version: "الإصدار '0.0.1'",
+                    confidentiality: "سياسة الخصوصية",
+                    terms: "شروط الاستخدام",
+                    contact: "اتصل بنا",
+                    developer: "طور بواسطة: ماجري زياد.",
+                    hosted: "مستضاف على Github و Netlify.",
+                    rateLabel: "قيّم هذا التطبيق"
+                },
+                auth: {
+                    signIn: "تسجيل الدخول",
+                    signUp: "إنشاء حساب",
+                    signOut: "تسجيل الخروج",
+                    emailPlaceholder: "البريد الإلكتروني",
+                    passwordPlaceholder: "كلمة المرور",
+                    cancel: "إلغاء",
+                    continue: "متابعة",
+                    switchToSignUp: "إنشاء حساب",
+                    switchToSignIn: "هل لديك حساب بالفعل؟ تسجيل الدخول",
+                    forgotPassword: "نسيت كلمة المرور؟",
+                    forgotPasswordSent: "تم إرسال بريد إعادة تعيين كلمة المرور.",
+                    forgotPasswordError: "فشل إرسال بريد إعادة التعيين.",
+                    profile: {
+                        button: "الملف الشخصي",
+                        buttonTitle: "عرض وتعديل ملفك الشخصي",
+                        title: "ملفي الشخصي",
+                        loading: "جارٍ تحميل الملف الشخصي…",
+                        saveChanges: "حفظ التغييرات",
+                        completeTitle: "أكمل ملفك الشخصي",
+                        usernamePlaceholder: "اسم المستخدم",
+                        avatarLabel: "اختر صورة رمزية",
+                        uploadAvatar: "📷 رفع",
+                        removeAvatar: "✕ إزالة",
+                        createAnimatedAvatar: "إنشاء صورة رمزية متحركة",
+                        experimentalNote: "لا يزال تجريبيًا",
+                        professionLabel: "المهنة",
+                        studentOption: "طالب",
+                        teacherOption: "معلم",
+                        otherOption: "أخرى",
+                        classLabel: "الصف / المستوى",
+                        birthdayLabel: "تاريخ الميلاد",
+                        languageLabel: "اللغة المفضلة",
+                        modeLabel: "الوضع المفضل",
+                        lightOption: "فاتح",
+                        darkOption: "داكن",
+                        howKnowLabel: "كيف تعرفت على الموقع؟",
+                        howFriend: "من صديق",
+                        howSocial: "وسائل التواصل الاجتماعي",
+                        howSearch: "محرك بحث",
+                        howOther: "أخرى",
+                        saveContinue: "حفظ ومتابعة",
+                        back: "رجوع",
+                        usernameRequired: "يرجى إدخال اسم مستخدم.",
+                        professionRequired: "يرجى اختيار مهنة.",
+                        grade7: "الصف السابع",
+                        grade8: "الصف الثامن",
+                        grade9: "الصف التاسع",
+                        grade10: "الصف العاشر",
+                        grade11: "الصف الحادي عشر",
+                        grade12: "الصف الثاني عشر",
+                        saving: "جارٍ الحفظ…",
+                        saveSuccess: "تم حفظ الملف الشخصي بنجاح!",
+                        loadError: "فشل تحميل الملف الشخصي.",
+                        imageTooLarge: "يجب أن يكون حجم الصورة أقل من 5 ميغابايت.",
+                        imageProcessError: "فشلت معالجة الصورة. يرجى تجربة صورة أخرى.",
+                        saveError: "فشل حفظ الملف الشخصي."
+                    }
+                },
+                programs: { history: "تاريخ", geography: "جغرافيا", modules: "وحدات", lessons: "دروس" }
+            }
+        };
+
+        const HGH_UI_TEXT_EXERCISE = {
+            en: {
+                yearSection: "3rd Secondary, Economy and Management Section",
+                exerciseTitle: "Exercises – Population and Population Problems in the Arab World",
+                showAnswer: "Show Answer",
+                ex1Q: "Define the following terms: Demographic Growth, Dependency Ratio, Demographic Transition, Human Development Index.",
+                ex1_def1_title: "Demographic Growth:",
+                ex1_def1_subtitle: "The increase in population in a given area over a specific period, measured by the annual growth rate (‰). The demographic growth rate in the Arab World reached 2.6% between 2000 and 2017 versus 1.2% globally.",
+                ex1_def2_title: "Dependency Ratio:",
+                ex1_def2_subtitle: "The ratio of individuals outside the labour force (under 15 and over 65) supported by every 100 individuals in the labour force. It is an indicator of economic burdens; it reached about 60% in the Arab World (95.5% in Yemen versus 31% in the UAE).",
+                ex1_def3_title: "Demographic Transition:",
+                ex1_def3_subtitle: "The theoretical model of the evolution of populations from a traditional regime with high birth and death rates to a modern regime with low birth and death rates, passing through several stages.",
+                ex1_def4_title: "Human Development Index:",
+                ex1_def4_subtitle: "A composite indicator measuring the level of human development in a country based on life expectancy at birth, school enrolment and per capita income; it ranges between 0 and 1.",
+                ex2Q: "Convert the following table data into a bar chart showing the evolution of the Arab World population between 1950 and 2024.",
+                ex2_table_year: "Year",
+                ex2_table_pop: "Population (in millions)",
+                ex2Q_source: "Source: United Nations and World Bank reports",
+                ex2A_title: "Evolution of the Arab World Population (1950–2024)",
+                ex2A_source: "Source: United Nations and World Bank reports",
+                ex2A_scale: "Scale: 0–500 million; column height proportional to number.",
+                ex2A_key_label: "Key:",
+                ex3DocAlt: "Population density map of the Arab World",
+                ex3AnswerImgAlt: "Answer model – Population density in the Arab World",
+                ex3Q: "Observe the following map representing population density in the Arab World, and extract the features of uneven spatial distribution and its factors.",
+                ex3A: "The Arab population is distributed very unevenly: two-thirds of the population is concentrated in the eastern wing, and densities vary between 1,805 inhabitants/km² in Bahrain and 4 inhabitants/km² in Libya. This disparity is due to three categories of factors: natural factors (rainy areas with fertile soil, plains adjacent to valleys and rivers, coasts and oases), historical and political factors (mountainous areas such as the Kabylie mountains in Algeria and the displacement policy in Lebanon and Jordan), and economic factors (energy wealth in the Gulf countries providing jobs).",
+                ex4Q: "Analyse the factors of high demographic growth in the Arab World and its economic and social consequences in one paragraph.",
+                ex4A_analyse_label: "Analyse:",
+                ex4A_analyse: "Factors of high demographic growth:\n- Importance of the natural growth rate in most Arab countries (2.6% between 2000 and 2017 versus 1.2% globally).\n- Different positions in the demographic transition theory: Stage 1 countries (declining mortality and persistent high birth rates) such as Iraq 2.8%, Sudan 2.6% and Egypt 2.3%; Stage 2 countries (beginning of birth rate decline) such as Tunisia 1.4%, Morocco 1.4% and Lebanon 0.9%.\n- Positive migration balance in oil countries (three-quarters of Qatar's population, half of Bahrain's and two-thirds of Kuwait's are migrants).\nEconomic and social consequences:\n- Young age structure (more than a third of the population under 15 in Iraq, Syria and Egypt).\n- Overall dependency ratio rising to about 60%.\n- Increasing demand for basic services (health, education, housing).\n- Rising demand for employment and growing unemployment and poverty, especially in non-oil countries.",
+                ex4A_paragraph_label: "Paragraph:",
+                ex4A_paragraph: "High demographic growth in the Arab World is due to the combination of several factors. Most Arab countries are still in the first stage of the demographic transition, where mortality is declining while birth rates remain high, raising the natural growth rate above 2% in countries such as Iraq, Sudan and Egypt. In addition, immigration contributes to raising the population in oil countries, which attract foreign labour. This rapid growth has resulted in serious economic and social consequences: a young age structure (more than a third of the population under 15), an overall dependency ratio of 60%, growing demand for basic services (health, education, housing), and rising demand for employment with worsening unemployment and poverty, especially in non-oil Arab countries. This situation requires Arab countries to adopt population and economic policies capable of investing the human asset and achieving comprehensive development.",
+                ex5Q: "Write a short article (150 words) on the population policy in Tunisia and its outcomes.",
+                ex5A_analyse_label: "Analyse:",
+                ex5A_analyse: "Since independence, Tunisia has adopted a pioneering population policy in the Arab World, based on the Personal Status Code of 1956 and the family planning programme of 1964. Analyse the components of this policy and its demographic outcomes.",
+                ex5A_plan_label: "Plan:",
+                ex5A_plan_li1: "Introduction: Tunisia is one of the first Arab countries to adopt a population policy.",
+                ex5A_plan_li2: "Development: I. Legislative framework (Personal Status Code); II. Family planning programme, health and education improvements; III. Demographic outcomes (fertility decline, natural growth 1.4%).",
+                ex5A_plan_li3: "Conclusion: A pioneering policy that enabled Tunisia to control its population growth.",
+                ex5A_production_label: "Production:",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "Tunisia is one of the first Arab countries to have adopted a clear population policy since independence, based on bold legislation and health and education programmes.",
+                ex5A_production_h3_dev: "Development",
+                ex5A_production_h4_legal: "I. Legislative Framework",
+                ex5A_production_p_legal: "Tunisia issued the Personal Status Code in 1956, which banned polygamy and set the marriage age for females at 15 (17 since 1964), legalized abortion in 1965, and limited family allowances to three children.",
+                ex5A_production_h4_program: "II. Health and Social Programmes",
+                ex5A_production_p_program: "The family planning programme was adopted in 1964, accompanied by improved health and education services and a higher urbanization rate.",
+                ex5A_production_h4_results: "III. Outcomes",
+                ex5A_production_p_results: "This policy enabled Tunisia to bring its fertility rate to the lowest level in the Arab World, to reduce its natural growth rate to 1.4% in 2017, and to reduce the under-15 age group to 26%.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Thus the Tunisian population policy is a pioneering experience that enabled the country to control its population growth and improve its social indicators, although challenges of unemployment and weak qualification remain.",
+                ex6Q: "Create a timeline of the following events: Personal Status Code in Tunisia (1956), Adoption of the family planning programme (1964), Legalization of abortion (1965), Start of population policies in GCC countries (1990), Arab population multiplied by more than 5.9 times (2024).",
+                ex6A: "Timeline: 1956: Personal Status Code...",
+                ex6_timeline_title: "Key Dates in Population Policies in the Arab World",
+                ex6_event_1956_label: "Personal Status Code in Tunisia",
+                ex6_event_1956_sub: "1956",
+                ex6_event_1964_label: "Family Planning Programme",
+                ex6_event_1964_sub: "1964",
+                ex6_event_1965_label: "Legalization of Abortion",
+                ex6_event_1965_sub: "1965",
+                ex6_event_1990_label: "GCC Population Policies",
+                ex6_event_1990_sub: "1990",
+                ex6_event_2024_label: "Population ×5.9 since 1950",
+                ex6_event_2024_sub: "2024",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Exercise",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "You must sign in to view answers.",
+                returnMain: "Return to Main",
+                goToLesson: "Go to Lesson"
+            },
+            fr: {
+                yearSection: "3ème secondaire, section économie et gestion",
+                exerciseTitle: "Exercices – Population et problèmes démographiques dans le monde arabe",
+                showAnswer: "Afficher la réponse",
+                ex1Q: "Définissez les termes suivants : Croissance démographique, Ratio de dépendance, Transition démographique, Indice de développement humain.",
+                ex1_def1_title: "Croissance démographique :",
+                ex1_def1_subtitle: "L'augmentation de la population dans une zone donnée sur une période spécifique, mesurée par le taux de croissance annuel (‰). Le taux de croissance démographique dans le monde arabe a atteint 2,6% entre 2000 et 2017 contre 1,2% au niveau mondial.",
+                ex1_def2_title: "Ratio de dépendance :",
+                ex1_def2_subtitle: "Le rapport entre les individus hors force de travail (moins de 15 ans et plus de 65 ans) soutenus par 100 individus de la force de travail. C'est un indicateur des charges économiques ; il a atteint environ 60% dans le monde arabe (95,5% au Yémen contre 31% aux Émirats).",
+                ex1_def3_title: "Transition démographique :",
+                ex1_def3_subtitle: "Le modèle théorique de l'évolution des populations d'un régime traditionnel à taux de natalité et de mortalité élevés vers un régime moderne à faibles taux, passant par plusieurs étapes.",
+                ex1_def4_title: "Indice de développement humain :",
+                ex1_def4_subtitle: "Un indicateur composite mesurant le niveau de développement humain d'un pays sur la base de l'espérance de vie à la naissance, de la scolarisation et du revenu par habitant ; il varie entre 0 et 1.",
+                ex2Q: "Convertissez les données du tableau suivant en diagramme à barres montrant l'évolution de la population du monde arabe entre 1950 et 2024.",
+                ex2_table_year: "Année",
+                ex2_table_pop: "Population (en millions)",
+                ex2Q_source: "Source : rapports des Nations Unies et de la Banque mondiale",
+                ex2A_title: "Évolution de la population du monde arabe (1950–2024)",
+                ex2A_source: "Source : rapports des Nations Unies et de la Banque mondiale",
+                ex2A_scale: "Échelle : 0–500 millions ; hauteur des colonnes proportionnelle au nombre.",
+                ex2A_key_label: "Légende :",
+                ex3DocAlt: "Carte de la densité de population du monde arabe",
+                ex3AnswerImgAlt: "Modèle de réponse – Densité de population dans le monde arabe",
+                ex3Q: "Observez la carte suivante représentant la densité de population dans le monde arabe, et dégagez les manifestations de l'inégale répartition spatiale et ses facteurs.",
+                ex3A: "La population arabe est répartie de manière très inégale : les deux tiers de la population sont concentrés dans l'aile orientale, et les densités varient entre 1 805 habitants/km² à Bahreïn et 4 habitants/km² en Libye. Cette disparité est due à trois catégories de facteurs : facteurs naturels (zones pluvieuses aux sols fertiles, plaines adjacentes aux vallées et fleuves, côtes et oasis), facteurs historiques et politiques (zones montagneuses comme les monts de Kabylie en Algérie et la politique de déplacement au Liban et en Jordanie), et facteurs économiques (richesses énergétiques dans les pays du Golfe offrant des emplois).",
+                ex4Q: "Analysez les facteurs de la forte croissance démographique dans le monde arabe et ses conséquences économiques et sociales en un paragraphe.",
+                ex4A_analyse_label: "Analyse :",
+                ex4A_analyse: "Facteurs de la forte croissance démographique :\n- Importance du taux d'accroissement naturel dans la plupart des pays arabes (2,6% entre 2000 et 2017 contre 1,2% au niveau mondial).\n- Positions différentes dans la théorie de la transition démographique : pays du premier stade (baisse de la mortalité et maintien de taux de natalité élevés) comme l'Irak 2,8%, le Soudan 2,6% et l'Égypte 2,3% ; pays du second stade (début de baisse de la natalité) comme la Tunisie 1,4%, le Maroc 1,4% et le Liban 0,9%.\n- Solde migratoire positif dans les pays pétroliers (trois quarts de la population du Qatar, la moitié de celle de Bahreïn et deux tiers de celle du Koweït sont des migrants).\nConséquences économiques et sociales :\n- Structure par âge jeune (plus d'un tiers de la population de moins de 15 ans en Irak, Syrie et Égypte).\n- Ratio de dépendance global atteignant environ 60%.\n- Augmentation de la demande de services de base (santé, éducation, logement).\n- Hausse de la demande d'emploi et croissance du chômage et de la pauvreté, en particulier dans les pays non pétroliers.",
+                ex4A_paragraph_label: "Paragraphe :",
+                ex4A_paragraph: "La forte croissance démographique dans le monde arabe est due à la combinaison de plusieurs facteurs. La plupart des pays arabes sont encore au premier stade de la transition démographique, où la mortalité baisse tandis que la natalité reste élevée, ce qui porte le taux d'accroissement naturel au-dessus de 2% dans des pays comme l'Irak, le Soudan et l'Égypte. En outre, l'immigration contribue à l'augmentation de la population dans les pays pétroliers, qui attirent la main-d'œuvre étrangère. Cette croissance rapide a entraîné de graves conséquences économiques et sociales : une structure par âge jeune (plus d'un tiers de la population de moins de 15 ans), un ratio de dépendance global de 60%, une demande croissante de services de base (santé, éducation, logement) et une hausse de la demande d'emploi avec l'aggravation du chômage et de la pauvreté, en particulier dans les pays arabes non pétroliers. Cette situation exige des pays arabes l'adoption de politiques démographiques et économiques capables de valoriser le capital humain et de réaliser un développement global.",
+                ex5Q: "Rédigez un court article (150 mots) sur la politique de population en Tunisie et ses résultats.",
+                ex5A_analyse_label: "Analyse :",
+                ex5A_analyse: "Depuis l'indépendance, la Tunisie a adopté une politique de population pionnière dans le monde arabe, fondée sur le Code du statut personnel de 1956 et le programme de planification familiale de 1964. Analysez les composantes de cette politique et ses résultats démographiques.",
+                ex5A_plan_label: "Plan :",
+                ex5A_plan_li1: "Introduction : la Tunisie est l'un des premiers pays arabes à adopter une politique de population.",
+                ex5A_plan_li2: "Développement : I. Cadre législatif (Code du statut personnel) ; II. Programme de planification familiale, amélioration de la santé et de l'éducation ; III. Résultats démographiques (baisse de la fécondité, accroissement naturel 1,4%).",
+                ex5A_plan_li3: "Conclusion : une politique pionnière qui a permis à la Tunisie de contrôler sa croissance démographique.",
+                ex5A_production_label: "Production :",
+                ex5A_production_h3_intro: "Introduction",
+                ex5A_production_p_intro: "La Tunisie est l'un des premiers pays arabes à avoir adopté une politique de population claire depuis l'indépendance, fondée sur une législation audacieuse et des programmes de santé et d'éducation.",
+                ex5A_production_h3_dev: "Développement",
+                ex5A_production_h4_legal: "I. Cadre législatif",
+                ex5A_production_p_legal: "La Tunisie a promulgué le Code du statut personnel en 1956, qui a interdit la polygamie et fixé l'âge du mariage des femmes à 15 ans (17 depuis 1964), a légalisé l'avortement en 1965 et a limité les allocations familiales à trois enfants.",
+                ex5A_production_h4_program: "II. Programmes sanitaires et sociaux",
+                ex5A_production_p_program: "Le programme de planification familiale a été adopté en 1964, accompagné d'une amélioration des services de santé et d'éducation et d'un taux d'urbanisation plus élevé.",
+                ex5A_production_h4_results: "III. Résultats",
+                ex5A_production_p_results: "Cette politique a permis à la Tunisie de ramener son taux de fécondité au niveau le plus bas du monde arabe, de réduire son taux d'accroissement naturel à 1,4% en 2017 et de réduire la tranche des moins de 15 ans à 26%.",
+                ex5A_production_h3_concl: "Conclusion",
+                ex5A_production_p_concl: "Ainsi la politique de population tunisienne est une expérience pionnière qui a permis au pays de contrôler sa croissance démographique et d'améliorer ses indicateurs sociaux, bien que les défis du chômage et de la faible qualification demeurent.",
+                ex6Q: "Créez une chronologie des événements suivants : Code du statut personnel en Tunisie (1956), Adoption du programme de planification familiale (1964), Légalisation de l'avortement (1965), Début des politiques de population dans les pays du CCG (1990), Population arabe multipliée par plus de 5,9 (2024).",
+                ex6A: "Chronologie : 1956 : Code du statut personnel...",
+                ex6_timeline_title: "Dates clés des politiques de population dans le monde arabe",
+                ex6_event_1956_label: "Code du statut personnel en Tunisie",
+                ex6_event_1956_sub: "1956",
+                ex6_event_1964_label: "Programme de planification familiale",
+                ex6_event_1964_sub: "1964",
+                ex6_event_1965_label: "Légalisation de l'avortement",
+                ex6_event_1965_sub: "1965",
+                ex6_event_1990_label: "Politiques de population du CCG",
+                ex6_event_1990_sub: "1990",
+                ex6_event_2024_label: "Population ×5,9 depuis 1950",
+                ex6_event_2024_sub: "2024",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Exercice",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "Vous devez vous connecter pour voir les réponses.",
+                returnMain: "Retour à l'accueil",
+                goToLesson: "Aller à la leçon"
+            },
+            ar: {
+                yearSection: "الثالثة ثانوي، شعبة اقتصاد وتصرف",
+                exerciseTitle: "تمارين – السكان والمشكلات السكانية بالعالم العربي",
+                showAnswer: "إظهار الإجابة",
+                ex1Q: "عرّف المصطلحات التالية: النمو الديمغرافي، نسبة الإعالة، الانتقال الديمغرافي، مؤشر التنمية البشرية.",
+                ex1_def1_title: "النمو الديمغرافي:",
+                ex1_def1_subtitle: "تزايد عدد السكان في مجال معيّن خلال فترة زمنية محدّدة، ويُقاس بمعدل النموّ السنوي (‰). بلغ معدل النمو الديمغرافي بالعالم العربي 2,6% بين 2000 و2017 مقابل 1,2% عالميًا.",
+                ex1_def2_title: "نسبة الإعالة:",
+                ex1_def2_subtitle: "نسبة الأفراد خارج قوة العمل (أقل من 15 سنة وأكثر من 65 سنة) الذين يعولهم كل 100 فرد من أفراد القوى العاملة. وهي مؤشر للأعباء الاقتصادية، وبلغت حوالي 60% بالعالم العربي (95,5% في اليمن مقابل 31% في الإمارات).",
+                ex1_def3_title: "الانتقال الديمغرافي:",
+                ex1_def3_subtitle: "النموذج النظري لتطور المجموعات السكانية من نظام تقليدي ذي مواليد ووفيات مرتفعة إلى نظام حديث ذي مواليد ووفيات منخفضة، ويمرّ بعدة أطوار.",
+                ex1_def4_title: "مؤشر التنمية البشرية:",
+                ex1_def4_subtitle: "مؤشر مركّب يقيس مستوى التنمية البشرية في بلد ما بالاعتماد على أمل الحياة عند الولادة ونسبة التمدرس والدخل الفردي، ويتراوح بين 0 و1.",
+                ex2Q: "حوّل بيانات الجدول التالية إلى مخطط بالأعمدة يبيّن تطور عدد سكان العالم العربي بين 1950 و2024.",
+                ex2_table_year: "السنة",
+                ex2_table_pop: "عدد السكان (بالمليون نسمة)",
+                ex2Q_source: "المصدر: تقارير الأمم المتحدة والبنك العالمي",
+                ex2A_title: "تطور عدد سكان العالم العربي (1950–2024)",
+                ex2A_source: "المصدر: تقارير الأمم المتحدة والبنك العالمي",
+                ex2A_scale: "المقياس: 0–500 مليون نسمة؛ ارتفاع الأعمدة يتناسب مع العدد.",
+                ex2A_key_label: "المفتاح:",
+                ex3DocAlt: "خريطة الكثافة السكانية في العالم العربي",
+                ex3AnswerImgAlt: "نموذج الإجابة – الكثافة السكانية في العالم العربي",
+                ex3Q: "تأمل الخريطة التالية التي تمثّل الكثافة السكانية في العالم العربي، واستخرج مظاهر التفاوت في التوزع المجالي للسكان وعواملها.",
+                ex3A: "يتوزع سكان العالم العربي بشكل شديد التفاوت: يتركز ثلثا السكان بالجناح الشرقي، وتتباين الكثافات بين 1805 نسمة/كم² بالبحرين و4 نسمات/كم² بليبيا. ويعود هذا التفاوت إلى ثلاثة أصناف من العوامل: عوامل طبيعية (المناطق الممطرة ذات الترب الخصبة والسهول المجاورة للأودية والأنهار والسواحل والواحات)، وعوامل تاريخية وسياسية (المناطق الجبلية كجبال القبائل بالجزائر وسياسة التهجير بلبنان والأردن)، وعوامل اقتصادية (الثروات الطاقية بأقطار الخليج التي توفّر مواطن شغل).",
+                ex4Q: "حلّل عوامل ارتفاع النمو الديمغرافي بالعالم العربي وتبعاته الاقتصادية والاجتماعية في فقرة واحدة.",
+                ex4A_analyse_label: "تحليل:",
+                ex4A_analyse: "عوامل ارتفاع النمو الديمغرافي:\n- أهمية نسبة النمو الطبيعي في أغلب البلدان العربية (2,6% بين 2000 و2017 مقابل 1,2% عالميًا).\n- موقع مختلف من نظرية الانتقال الديمغرافي: بلدان في الطور الأول (تراجع الوفيات وبقاء الولادات مرتفعة) مثل العراق 2,8% والسودان 2,6% ومصر 2,3%؛ وبلدان في الطور الثاني (بداية تراجع الولادات) مثل تونس 1,4% والمغرب 1,4% ولبنان 0,9%.\n- الحاصل الهجري الإيجابي في البلدان النفطية (ثلاثة أرباع سكان قطر، نصف سكان البحرين، ثلثا سكان الكويت من المهاجرين).\nالتبعات الاقتصادية والاجتماعية:\n- تركيبة عمرية فتية (أكثر من ثلث السكان أقل من 15 سنة بالعراق وسوريا ومصر).\n- ارتفاع نسبة الإعالة العامة إلى حوالي 60%.\n- تزايد الطلب على الخدمات الأساسية (الصحة والتعليم والسكن).\n- ارتفاع الطلب على الشغل وتزايد البطالة والفقر خاصة بالبلدان غير النفطية.",
+                ex4A_paragraph_label: "فقرة:",
+                ex4A_paragraph: "يعود ارتفاع النمو الديمغرافي بالعالم العربي إلى تضافر عوامل عديدة. فأغلب البلدان العربية لا تزال في طور أول من الانتقال الديمغرافي، حيث تتراجع نسبة الوفيات وتبقى نسب الولادات مرتفعة، مما يرفع نسبة النمو الطبيعي إلى أكثر من 2% في بلدان مثل العراق والسودان ومصر. كما تساهم الهجرة الوافدة في رفع عدد السكان بالبلدان النفطية التي تمثّل مناطق استقطاب للعمالة الأجنبية. وقد ترتّب عن هذا النمو السريع تبعات اقتصادية واجتماعية خطيرة: تركيبة عمرية فتية (أكثر من ثلث السكان أقل من 15 سنة)، وارتفاع نسبة الإعالة إلى 60%، وتزايد الطلب على الخدمات الأساسية من صحة وتعليم وسكن، فضلًا عن ارتفاع الطلب على الشغل وتفاقم ظاهرتي البطالة والفقر خاصة في البلدان العربية غير النفطية. هذا الوضع يفرض على الدول العربية ضرورة اعتماد سياسات سكانية واقتصادية قادرة على استثمار الرصيد البشري وتحقيق التنمية الشاملة.",
+                ex5Q: "اكتب مقالاً قصيراً (150 كلمة) حول السياسة السكانية بالبلاد التونسية ونتائجها.",
+                ex5A_analyse_label: "تحليل:",
+                ex5A_analyse: "اعتمدت تونس منذ الاستقلال سياسة سكانية رائدة في العالم العربي، مستندة إلى مجلة الأحوال الشخصية 1956 وبرنامج التنظيم العائلي 1964. حلّل مكوّنات هذه السياسة وأبرز نتائجها الديمغرافية.",
+                ex5A_plan_label: "خطة:",
+                ex5A_plan_li1: "مقدمة: تونس من أوائل الدول العربية في اعتماد سياسة سكانية.",
+                ex5A_plan_li2: "تطوير: أولاً. المحتوى التشريعي للسياسة (مجلة الأحوال الشخصية)؛ ثانياً. برنامج التنظيم العائلي والتحسن الصحي والتعليمي؛ ثالثاً. النتائج الديمغرافية (تراجع الإنجاب، النمو الطبيعي 1,4%).",
+                ex5A_plan_li3: "خاتمة: سياسة رائدة مكّنت تونس من التحكم في نموّها السكاني.",
+                ex5A_production_label: "إنتاج:",
+                ex5A_production_h3_intro: "مقدمة",
+                ex5A_production_p_intro: "تُعدّ تونس من أوائل الدول العربية التي اعتمدت سياسة سكانية واضحة منذ الاستقلال، مبنية على تشريعات جريئة وبرامج صحية وتعليمية.",
+                ex5A_production_h3_dev: "تطوير",
+                ex5A_production_h4_legal: "أولاً. الإطار التشريعي",
+                ex5A_production_p_legal: "أصدرت تونس مجلة الأحوال الشخصية سنة 1956 التي أقرّت منع تعدد الزوجات وتحديد سنّ الزواج للإناث بـ 15 سنة (17 سنة منذ 1964)، وأجازت الإجهاض سنة 1965، واقتصت المنح العائلية على ثلاثة أطفال فقط.",
+                ex5A_production_h4_program: "ثانياً. البرامج الصحية والاجتماعية",
+                ex5A_production_p_program: "اعتُمد برنامج التنظيم العائلي سنة 1964 وتزامن ذلك مع تحسين خدمات الصحة والتعليم وارتفاع نسبة التحضّر.",
+                ex5A_production_h4_results: "ثالثاً. النتائج",
+                ex5A_production_p_results: "مكّنت هذه السياسة من تراجع مؤشر الإنجاب إلى أدنى مستوى في العالم العربي، ومن انخفاض نسبة النمو الطبيعي إلى 1,4% سنة 2017، وتراجع نسبة الفئة الأقل من 15 سنة إلى 26%.",
+                ex5A_production_h3_concl: "خاتمة",
+                ex5A_production_p_concl: "هكذا تُعدّ السياسة السكانية التونسية تجربة رائدة مكّنت البلاد من التحكم في نموّها السكاني وتحسين مؤشراتها الاجتماعية، وإن بقيت تحديات البطالة وضعف التأهيل قائمة.",
+                ex6Q: "أنشئ خطاً زمنياً للأحداث التالية: صدور مجلة الأحوال الشخصية بتونس (1956)، اعتماد برنامج التنظيم العائلي (1964)، السماح بالإجهاض (1965)، انطلاق السياسات السكانية بدول مجلس التعاون الخليجي (1990)، تضاعف سكان العالم العربي أكثر من 5,9 مرات (2024).",
+                ex6A: "الخط الزمني: 1956: مجلة الأحوال الشخصية ...",
+                ex6_timeline_title: "محطات أساسية في السياسات السكانية بالعالم العربي",
+                ex6_event_1956_label: "مجلة الأحوال الشخصية بتونس",
+                ex6_event_1956_sub: "1956",
+                ex6_event_1964_label: "برنامج التنظيم العائلي",
+                ex6_event_1964_sub: "1964",
+                ex6_event_1965_label: "السماح بالإجهاض",
+                ex6_event_1965_sub: "1965",
+                ex6_event_1990_label: "السياسات السكانية بدول الخليج",
+                ex6_event_1990_sub: "1990",
+                ex6_event_2024_label: "تضاعف السكان ×5,9 منذ 1950",
+                ex6_event_2024_sub: "2024",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "History & Geography Hub – تمرين",
+                printFooterText: "© History & Geography Hub",
+                alertNotSigned: "يجب عليك تسجيل الدخول لعرض الإجابات.",
+                returnMain: "العودة إلى الرئيسية",
+                goToLesson: "العودة إلى الدرس"
+            }
+        };
+
+        window.HGH_UI_TEXT = {
+            en: Object.assign({}, HGH_UI_TEXT_SHARED.en, HGH_UI_TEXT_EXERCISE.en),
+            fr: Object.assign({}, HGH_UI_TEXT_SHARED.fr, HGH_UI_TEXT_EXERCISE.fr),
+            ar: Object.assign({}, HGH_UI_TEXT_SHARED.ar, HGH_UI_TEXT_EXERCISE.ar)
+        };
+
+        const ex2ChartOptions = {
+            title: 'ex2A_title',
+            data: [
+                { label: '1950', value: 79, valueFormatted: '79' },
+                { label: '1970', value: 128, valueFormatted: '128' },
+                { label: '1990', value: 218, valueFormatted: '218' },
+                { label: '2000', value: 284, valueFormatted: '284' },
+                { label: '2010', value: 357, valueFormatted: '357' },
+                { label: '2024', value: 464, valueFormatted: '464' }
+            ],
+            maxValue: 500,
+            ySteps: [500, 400, 300, 200, 100, 0],
+            source: 'ex2A_source',
+            scale: 'ex2A_scale',
+            keyLabel: 'ex2A_key_label'
+        };
+
+        const ex6TimelineOptions = {
+            titleKey: 'ex6_timeline_title',
+            events: [
+                { year: 1956, labelKey: 'ex6_event_1956_label', subKey: 'ex6_event_1956_sub' },
+                { year: 1964, labelKey: 'ex6_event_1964_label', subKey: 'ex6_event_1964_sub' },
+                { year: 1965, labelKey: 'ex6_event_1965_label', subKey: 'ex6_event_1965_sub' },
+                { year: 1990, labelKey: 'ex6_event_1990_label', subKey: 'ex6_event_1990_sub' },
+                { year: 2024, labelKey: 'ex6_event_2024_label', subKey: 'ex6_event_2024_sub' }
+            ],
+            startYear: 1956,
+            endYear: 2024,
+            scaleYears: [1956, 1973, 1990, 2007, 2024]
+        };
+
+        window.__hghExerciseGraphicConfigs = {
+            ex2answer: {
+                type: 'chart',
+                containerId: 'ex2chartContainer',
+                chartOptions: ex2ChartOptions
+            },
+            ex6answer: {
+                type: 'timeline',
+                containerId: 'ex6timelineCanvas',
+                timelineConfig: ex6TimelineOptions
+            }
+        };
+    </script>
+</body>
+</html>

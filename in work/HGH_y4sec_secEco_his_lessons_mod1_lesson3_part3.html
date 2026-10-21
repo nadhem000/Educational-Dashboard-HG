@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb;
+            --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff;
+            --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b;
+            --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab;
+            --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8;
+            --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9;
+            --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20;
+            --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f;
+            --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea;
+            --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494;
+            --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952;
+            --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff;
+            --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255;
+            --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0;
+            --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <!-- PRINT HEADER -->
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">
+                الرابعة ثانوي، شعبة اقتصاد وتصرف
+            </div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">
+                التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية
+            </div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">
+                تونس من نهاية الحرب العالمية الأولى إلى نهاية الحرب العالمية الثانية
+            </h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">
+                    شكلت الحرب العالمية الثانية منعطفًا حاسمًا في تاريخ البلاد التونسية، إذ تحولت أراضيها إلى مسرح للقتال بين قوات الحلفاء والمحور، مما خلف أضرارًا جسيمة على المستويين البشري والمادي. وقد رافقت هذه الظروف تحولات سياسية كبرى، أبرزها ارتقاء المنصف باي إلى العرش وتنظيم الحركة الوطنية حول مطلب الحكم الذاتي. فما هي أبرز مظاهر هذه المرحلة؟
+                </p>
+            </div>
+
+            <!-- III. تونس أثناء الحرب العالمية الثانية -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span> <span data-i18n="sectionPart3">تونس أثناء الحرب العالمية الثانية</span>
+                </h2>
+
+                <!-- 1. الظرفية الداخلية والدولية -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="part3Title1">الظرفية الداخلية والدولية أثناء الحرب العالمية الثانية</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="part3A">تأثيرات الحرب العالمية الثانية في المجتمع التونسي</span>
+                </h4>
+
+                <h5 class="sub-sub-title" data-i18n="part3Sub1">حملة تونس ومضاعفاتها على السكان:</h5>
+                <ul>
+                    <li data-i18n="part3Li1">تحولت الأراضي التونسية إلى مسرح للقتال بين قوات الحلفاء والمحور طيلة 6 أشهر بداية من إنزال قوات الحلفاء (عملية تورش) في 8 نوفمبر 1942.</li>
+                    <li data-i18n="part3Li2">انتهت المعارك باستسلام جيوش المحور في ماي 1943.</li>
+                </ul>
+
+                <p data-i18n="part3Li3">خلفت المعارك أضرارًا جسيمة بالبلاد التونسية تمثلت في:</p>
+                <ul>
+                    <li data-i18n="part3Li3a">سقوط آلاف الضحايا المدنيين (قتل وجرحى) بالمدن الساحلية خاصة، وتشريد ما لا يقل عن 120 ألف شخص.</li>
+                    <li data-i18n="part3Li3b">تدمير البنية التحتية (قدرت قيمة خسائرها بـ 45 مليار فرنك) وإتلاف الأراضي الزراعية.</li>
+                    <li data-i18n="part3Li3c">نقص التموين نتيجة تراجع الإنتاج الفلاحي والصناعي وتقلص الواردات.</li>
+                    <li data-i18n="part3Li3d">ارتفاع الأسعار وانتشار السوق السوداء واعتماد نظام الحصص والتقسيط.</li>
+                    <li data-i18n="part3Li3e">تراجع حجم المبادلات الخارجية نتيجة تدمير الموانئ وتوقف الصادرات.</li>
+                    <li data-i18n="part3Li3f">تدهور مستوى العيش بسبب تفاقم البطالة وانهيار القدرة الشرائية للسواد الأعظم من السكان رغم زيادات الأجور بداية من 1943.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="part3B">التسلط الاستعماري</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part3Li4"><strong>مع اندلاع الحرب:</strong> أقرّت سلط الحماية الأحكام العرفية وألغت الحريات العامة وضيّقت الخناق على النشاط الوطني، وشددت الرقابة على الصحف وعطّلتها. وقامت بنقل الزعماء المعتقلين إلى سجن سان نيكولا (مرسيليا)، وعمدت إلى إيقاف قيادات الدواوين السياسية السرية بين 1938 و1942.</li>
+                    <li data-i18n="part3Li5">جنّدت 46 ألف تونسي بالقوة (فقد وأصيب أكثر من ربعهم)، وسُخّرت آلاف العمال بحضائر جيوش فرنسا والمحور. وقمعت كل محاولات العصيان.</li>
+                    <li data-i18n="part3Li6"><strong>بعد طرد المحور:</strong> عمدت سلط الحماية إلى الانتقام من الأعمال المتعاونة مع الألمان، وهي نفس التهمة التي وجهتها إلى المنصف باي فعزلته عن العرش ونفته.</li>
+                    <li data-i18n="part3Li7">أثارت السياسة الاستفزازية احتجاجات واسعة وحركات تمرّد وعصيان (مثل تمرّد المرازيق بدور 1942-1944).</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="part3C">المعطيات السياسية الجديدة: انكسار فرنسا وارتقاء المنصف باي إلى العرش</span>
+                </h4>
+
+                <h5 class="sub-sub-title" data-i18n="part3Sub2">انكسار فرنسا وتراجع نفوذها الاستعماري:</h5>
+                <ul>
+                    <li data-i18n="part3Li8">أدى انهزام فرنسا أمام ألمانيا واحتلال أراضيها إلى انقسامها بين حكومتين:
+                        <ul>
+                            <li data-i18n="part3Li8a">حكومة "فيشي" برئاسة المارشال بيتان المتعاونة مع ألمانيا.</li>
+                            <li data-i18n="part3Li8b">حكومة "فرنسا الحرة" في المهجر (المدن) برئاسة الجنرال ديغول الموالية للحلفاء.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="part3Li9">تقلّص نفوذ سلطة الحماية أثناء وجود قوى المحور بتونس، فتمّ إطلاق الزعماء المعتقلين والسماح لهم باستئناف نشاطهم السياسي.</li>
+                    <li data-i18n="part3Li10">بعد طرد قوات المحور: أجبرت الو.م.أ. فرنسا على تعديل سياستها القمعية ضدّ الأهالي (إغلاق المحتشدات وإطلاق سراح بقية المعتقلين ورفع الحظر على الصحف).</li>
+                    <li data-i18n="part3Li11">فقدت فرنسا أثناء الحرب قدرًا من هيبتها الدولية ومن نفوذها داخل مستعمراتها. لكنّ أبرز الزعماء الوطنيين (بورقيبة والثعالبي) حذّروا من خطورة التعاطف مع المحور.</li>
+                </ul>
+
+                <h5 class="sub-sub-title" data-i18n="part3Sub3">المنصف باي والمصالحة بين العرش والشعب:</h5>
+                <ul>
+                    <li data-i18n="part3Li12">اتسعت العلاقة بين الأهالي والعرش بالفتور بسبب اتهام بايات تونس بالتفريط في استقلال البلاد.</li>
+                    <li data-i18n="part3Li13">تغير الوضع مع ارتقاء المنصف باي إلى العرش في 19 جوان 1942 بفضل سعيه إلى إحياء السلطة التونسية أمام الإقامة العامة الفرنسية عبر:
+                        <ul>
+                            <li data-i18n="part3Li13a">توجيه مذكرة إلى حكومة "فيشي" بفرنسا (2 أوت 1942) تضمنت جملة من المطالب الوطنية أبرزها: تكوين مجلس تشريعي استشاري، إطلاق سراح الوطنيين، إلغاء الاستحواذ الاستعماري على الأوقاف (بموجب أمر 1898)، تمكين التونسيين من جميع الوظائف وإقرار التعليم الإجباري.</li>
+                            <li data-i18n="part3Li13b">الإقدام على تشكيل حكومة وطنية برئاسة محمد شنيق تضمّ وزراء من الحزبين الدستوريين القديم (صالح فرحات) والجديد (محمود الماطري). وقد اتخذت عدة إجراءات منها: التزام الحياد تجاه القوى المتحاربة ورفض أمر حكومة "فيشي" بمعاداة الحلفاء، وأبلغ ذلك إلى الرئيس الأمريكي روزفلت والمستشار الألماني هتلر.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="part3Li14">كان المنصف باي ملكًا وطنيًا أظهر قدرًا من الاستقلالية وعمل على إثبات السلطة التونسية فحظي بشعبية واسعة مما دفع سلطة الحماية إلى عزله بالقوة في 1943 بتهمة التعاون مع المحور ونفيه إلى صحراء الجزائر ثم إلى مدينة بو الفرنسية حيث ظلّ في إقامة جبرية إلى غاية وفاته في 1 ماي 1948.</li>
+                </ul>
+
+                <!-- 2. الحركة الوطنية التونسية خلال الحرب -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="part3Title2">الحركة الوطنية التونسية خلال الحرب العالمية الثانية: تمثّل القوة الوطنية حول مطلب الحكم الذاتي</span>
+                </h3>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="part3Title2A">انتعاش العمل الوطني</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part3Li15">اتخذ النشاط الوطني منذ أفريل 1938 طابعًا سريًا (إصدار المناشير، عمليات تخريب) وتركز حول المطالبة بإطلاق سراح الوطنيين واستهداف بعض المصالح الفرنسية.</li>
+                    <li data-i18n="part3Li16">خرج العمل الوطني إلى العلن مع توثّق المنصف باي العرش ودخول جيوش المحور إلى البلاد وإطلاق سراح القيادات الدستورية المعتقلة بتونس.</li>
+                    <li data-i18n="part3Li17">تأسست العديد من الجمعيات الشبابية والكشفية (كشاف تونس، الهلال الأحمر)، وصدرت عدة صحف جديدة (افريقيا الفتاة، الشباب).</li>
+                    <li data-i18n="part3Li18">انساق العديد من التونسيين وبعض الدستوريين (مثل رشيد ادريس والحييب ثامر) وراء الدعاية الألمانية: تأسيس مكتب المغرب العربي ببرلين (جويلية 1943).</li>
+                    <li data-i18n="part3Li19">لكنّ أغلب الزعماء الوطنيّين (وخاصة بورقيبة والثعالبي) حذّروا من زيف وعود المحور وتوقعوا هزميته في الحرب فدعوا إلى مساندة الحلفاء في الكفاح ضدّ النازية حتى تكون القضية التونسية في صف المنتصرين.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="part3Title2B">تكاتف القوى الوطنية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="part3Li20">ساهم المنصف باي في توطيد دعائم الحركة الوطنية وتوحيد صفوفها. فقد التفّ الشعب حوله وساند الوطنيون من الحزبين الدستوريين جلّ مبادراته السياسية.</li>
+                    <li data-i18n="part3Li21">اهتزت مشاعر التونسيين لخلع المنصف باي وأجمع الوطنيون في إطار تمثّل للعمل الوطني (الحركة المنصفية) على المطالبة بعودته للعرش باعتباره رمزًا للشهادة.</li>
+                    <li data-i18n="part3Li22">شكّلت "الحركة المنصفية" منطلقًا لتأسيس "الجبهة الوطنية" (22 فيفري 1945) التي جمعت كل التيارات والقوى الوطنية، وبلورت برنامجًا وطنيًا تمحور حول: الحكم الذاتي (الاستقلال الداخلي) وإقامة نظام ملكي دستوري على رأسه المنصف باي.</li>
+                    <li data-i18n="part3Li23">عبّرت "الجبهة الوطنية" في مظاهرة 8 ماي 1945 (بمناسبة نهاية الحرب العالمية الثانية) عن استعداد التونسيين للانخراط في النضال من أجل تحقيق الاستقلال.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">
+                    ساهمت الحرب العالمية الثانية في توسيع دعائم الحركة الوطنية وتوحيد فصائلها وتعزيز قدراتها التنظيمية، فانتقلت من العمل السري إلى العلني، ومن المطالب الإصلاحية إلى المطالبة بالحكم الذاتي، وتأسست الجبهة الوطنية (1945) كإطار جامع لكل القوى الوطنية، مما مهد لمرحلة جديدة من النضال من أجل الاستقلال.
+                </p>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">
+                خلاصة: شكّلت الحرب العالمية الثانية منعطفًا حاسمًا في مسار الحركة الوطنية التونسية، إذ أدت إلى انكسار فرنسا وتراجع نفوذها، وارتقاء المنصف باي إلى العرش، وتكاتف القوى الوطنية حول مطلب الحكم الذاتي في إطار الجبهة الوطنية (1945).
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defMoncefBey">المنصف باي</strong>: <span data-i18n="defMoncefBeyDesc">ملك تونسي وطني، وُلد في 4 مارس 1881 بباردو وتوفي في 1 ماي 1948 بمدينة بو (Pau) الفرنسية. ارتقى إلى العرش في 19 جوان 1942، وعمل على إحياء السلطة التونسية أمام الإقامة العامة الفرنسية عبر توجيه مذكرة إلى حكومة "فيشي" (2 أوت 1942) وتشكيل حكومة وطنية برئاسة محمد شنيق. التزم بالحياد تجاه القوى المتحاربة ورفض معاداة الحلفاء. حظي بشعبية واسعة مما دفع سلطة الحماية إلى عزله بالقوة سنة 1943 ونفيه، وظل رمزًا للحركة الوطنية ومطلبًا أساسيًا للحركة المنصفية.</span></li>
+                        <li><strong class="key-person" data-i18n="defChenik">محمد شنيق</strong>: <span data-i18n="defChenikDesc">سياسي تونسي ورجل دولة، وُلد في 1889 بتونس وتوفي في 1976. ترأس الحكومة الوطنية التي شكّلها المنصف باي سنة 1942، وضمّت وزراء من الحزبين الدستوريين القديم (صالح فرحات) والجديد (محمود الماطري). قادت هذه الحكومة سياسة الحياد تجاه القوى المتحاربة ورفضت أوامر حكومة "فيشي" بمعاداة الحلفاء.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏛️ منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defNationalFront">الجبهة الوطنية</strong>: <span data-i18n="defNationalFrontDesc">إطار سياسي جامع تأسس في 22 فيفري 1945 على أساس الحركة المنصفية، وجمع كل التيارات والقوى الوطنية التونسية، وبلور برنامجًا وطنيًا تمحور حول: الحكم الذاتي (الاستقلال الداخلي) وإقامة نظام ملكي دستوري على رأسه المنصف باي. عبّرت في مظاهرة 8 ماي 1945 عن استعداد التونسيين للانخراط في النضال من أجل الاستقلال.</span></li>
+                        <li><strong class="key-organization" data-i18n="defMoncefistMovement">الحركة المنصفية</strong>: <span data-i18n="defMoncefistMovementDesc">حركة وطنية تأسست بعد خلع المنصف باي سنة 1943، وأجمعت الوطنيين على المطالبة بعودته إلى العرش باعتباره رمزًا للشهادة والوحدة الوطنية. شكلت منطلقًا لتأسيس الجبهة الوطنية سنة 1945.</span></li>
+                        <li><strong class="key-organization" data-i18n="defMaghrebOffice">مكتب المغرب العربي ببرلين</strong>: <span data-i18n="defMaghrebOfficeDesc">مكتب أسسه بعض التونسيين والدستوريين المنساقين وراء الدعاية الألمانية (مثل رشيد إدريس والحييب ثامر) في جويلية 1943، في إطار التعاون مع المحور. وقد حذّر أغلب الزعماء الوطنيين من زيف وعود المحور.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defOperationTorch">عملية تورش (8 نوفمبر 1942)</strong>: <span data-i18n="defOperationTorchDesc">إنزال قوات الحلفاء بأراضي شمال إفريقيا في 8 نوفمبر 1942، والذي جعل الأراضي التونسية مسرحًا للقتال بين الحلفاء وقوات المحور طيلة 6 أشهر، وانتهى باستسلام جيوش المحور في ماي 1943.</span></li>
+                        <li><strong class="key-event" data-i18n="defMoncefBeyAccession">ارتقاء المنصف باي إلى العرش (19 جوان 1942)</strong>: <span data-i18n="defMoncefBeyAccessionDesc">تولّي المنصف باي العرش التونسي في 19 جوان 1942، وسعيه إلى إحياء السلطة التونسية أمام الإقامة العامة الفرنسية، وتوجيهه مذكرة إلى حكومة "فيشي" (2 أوت 1942) وتشكيله حكومة وطنية برئاسة محمد شنيق.</span></li>
+                        <li><strong class="key-event" data-i18n="defMoncefBeyDeposition">خلع المنصف باي (1943)</strong>: <span data-i18n="defMoncefBeyDepositionDesc">عزل سلطة الحماية الفرنسية للمنصف باي بالقوة سنة 1943 بتهمة التعاون مع المحور، ونفيه إلى صحراء الجزائر ثم إلى مدينة بو الفرنسية حيث ظل في إقامة جبرية إلى غاية وفاته في 1 ماي 1948. وقد أثار خلعه احتجاجات واسعة وأدى إلى تأسيس الحركة المنصفية.</span></li>
+                        <li><strong class="key-event" data-i18n="defMetlaouiRebellion">تمرّد المرازيق بدور (1942-1944)</strong>: <span data-i18n="defMetlaouiRebellionDesc">حركة تمرّد وعصيان شهدتها منطقة بدور (قبلي) على يد المرازيق بين 1942 و1944 احتجاجًا على السياسة الاستفزازية لسلطات الحماية، وقد قمعتها السلطات بالقوة.</span></li>
+                        <li><strong class="key-event" data-i18n="defMay8Demonstration">مظاهرة 8 ماي 1945</strong>: <span data-i18n="defMay8DemonstrationDesc">مظاهرة وطنية نظمتها الجبهة الوطنية بمناسبة نهاية الحرب العالمية الثانية، عبّرت فيها عن استعداد التونسيين للانخراط في النضال من أجل تحقيق الاستقلال.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1942</strong>: <span data-i18n="defYear1942Desc">إنزال قوات الحلفاء (عملية تورش) في 8 نوفمبر، وارتقاء المنصف باي إلى العرش في 19 جوان، وتوجيه مذكرة إلى حكومة "فيشي" في 2 أوت.</span></li>
+                        <li><strong class="key-year">1943</strong>: <span data-i18n="defYear1943Desc">استسلام جيوش المحور في ماي، وخلع المنصف باي ونفيه، وتأسيس مكتب المغرب العربي ببرلين في جويلية.</span></li>
+                        <li><strong class="key-year">1945</strong>: <span data-i18n="defYear1945Desc">تأسيس الجبهة الوطنية في 22 فيفري، ومظاهرة 8 ماي بمناسبة نهاية الحرب العالمية الثانية.</span></li>
+                        <li><strong class="key-year">1948</strong>: <span data-i18n="defYear1948Desc">وفاة المنصف باي في 1 ماي بمدينة بو الفرنسية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defVichyRegime">حكومة "فيشي"</strong>: <span data-i18n="defVichyRegimeDesc">حكومة فرنسية برئاسة المارشال بيتان، تأسست بعد انهزام فرنسا أمام ألمانيا سنة 1940، واتخذت مقرًا لها بمدينة فيشي، وتعاونت مع ألمانيا النازية. وجّه إليها المنصف باي مذكرة بمطالب وطنية في 2 أوت 1942، ورفضت الحكومة الوطنية التونسية أوامرها بمعاداة الحلفاء.</span></li>
+                        <li><strong class="key-other" data-i18n="defFreeFrance">حكومة "فرنسا الحرة"</strong>: <span data-i18n="defFreeFranceDesc">حكومة فرنسية في المهجر برئاسة الجنرال ديغول، موالية للحلفاء، تشكلت بعد احتلال ألمانيا لفرنسا سنة 1940. أسهمت في تعديل السياسة القمعية لسلطة الحماية ضد الأهالي التونسيين بعد طرد قوات المحور.</span></li>
+                        <li><strong class="key-other" data-i18n="defHomeRule">الحكم الذاتي (الاستقلال الداخلي)</strong>: <span data-i18n="defHomeRuleDesc">مطلب وطني تونسي تمحور حوله برنامج الجبهة الوطنية سنة 1945، ويهدف إلى منح تونس حكمًا ذاتيًا في إدارة شؤونها الداخلية في إطار نظام ملكي دستوري على رأسه المنصف باي، مع الحفاظ على علاقة مع فرنسا في الشؤون الخارجية والدفاع.</span></li>
+                        <li><strong class="key-other" data-i18n="defCollectivePunishment">المحتشدات</strong>: <span data-i18n="defCollectivePunishmentDesc">مراكز اعتقال جماعي أنشأتها سلطات الحماية الفرنسية أثناء الحرب العالمية الثانية لاعتقال الوطنيين والمشتبه فيهم، وقد أُجبرت فرنسا بعد طرد قوات المحور على إغلاقها وإطلاق سراح بقية المعتقلين.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/moncef_bey.jpg"
+                             alt="المنصف باي"
+                             data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">المنصف باي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/operation_torch.jpg"
+                             alt="إنزال قوات الحلفاء بتونس – عملية تورش (نوفمبر 1942)"
+                             data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">إنزال قوات الحلفاء بتونس – عملية تورش (نوفمبر 1942)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/chenik_government.jpg"
+                             alt="الحكومة الوطنية برئاسة محمد شنيق (1942)"
+                             data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">الحكومة الوطنية برئاسة محمد شنيق (1942)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/tunis_wwii.jpg"
+                             alt="مدينة تونس أثناء الحرب العالمية الثانية"
+                             data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">مدينة تونس أثناء الحرب العالمية الثانية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets4eco/lessons/history/unit1/lesson3/national_front_1945.jpg"
+                             alt="الجبهة الوطنية ومظاهرة 8 ماي 1945"
+                             data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">الجبهة الوطنية ومظاهرة 8 ماي 1945</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y4sec_secEco_his_exercisess_mod1_lesson3_part3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON‑SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "4th Secondary, Economy and Management Section",
+                moduleName: "History / Module 1: The Contemporary World from 1914 to World War II",
+                lessonTitleSample: "Tunisia from the End of World War I to the End of World War II",
+                sectionIntro: "Introduction",
+                introText: "World War II marked a decisive turning point in the history of Tunisia, as its territory became a theater of combat between the Allied and Axis forces, causing severe human and material damage. These circumstances were accompanied by major political transformations, most notably the accession of Moncef Bey to the throne and the organization of the national movement around the demand for self-government. What were the main manifestations of this phase?",
+                sectionPart3: "Tunisia during World War II",
+                sectionConclusion: "Conclusion",
+                conclusionText: "World War II contributed to expanding the foundations of the national movement, unifying its factions, and strengthening its organizational capacities. It shifted from secret to public action, from reformist demands to the demand for self-government, and the National Front (1945) was founded as a unifying framework for all national forces, paving the way for a new phase of struggle for independence.",
+                summaryText: "Key takeaway: World War II marked a decisive turning point in the Tunisian national movement, leading to the collapse of France and the decline of its influence, the accession of Moncef Bey to the throne, and the unity of national forces around the demand for self-government within the framework of the National Front (1945).",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                part3Title1: "Internal and International Context during World War II",
+                part3A: "Impacts of World War II on Tunisian Society",
+                part3Sub1: "The Tunisian Campaign and Its Repercussions on the Population:",
+                part3Li1: "Tunisian territory became a theater of combat between the Allied and Axis forces for 6 months, starting with the Allied landing (Operation Torch) on 8 November 1942.",
+                part3Li2: "The fighting ended with the surrender of the Axis armies in May 1943.",
+                part3Li3: "The fighting left severe damage in Tunisia, including:",
+                part3Li3a: "Thousands of civilian casualties (dead and wounded), especially in coastal cities, and the displacement of at least 120,000 people.",
+                part3Li3b: "Destruction of infrastructure (estimated losses of 45 billion francs) and damage to agricultural land.",
+                part3Li3c: "Supply shortages due to declining agricultural and industrial production and reduced imports.",
+                part3Li3d: "Rising prices, the spread of the black market, and the adoption of rationing and installment systems.",
+                part3Li3e: "Decline in foreign trade due to the destruction of ports and the halt of exports.",
+                part3Li3f: "Deterioration of living standards due to worsening unemployment and the collapse of purchasing power for the vast majority of the population, despite wage increases from 1943.",
+                part3B: "Colonial Domination",
+                part3Li4: "With the outbreak of the war: The protectorate authorities imposed martial law, abolished public freedoms, tightened restrictions on national activity, and imposed strict censorship on newspapers. They transferred detained leaders to Saint-Nicolas prison (Marseille) and arrested the leaders of secret political offices between 1938 and 1942.",
+                part3Li5: "46,000 Tunisians were forcibly recruited (more than a quarter were killed or wounded), and thousands of workers were conscripted into the labor corps of the French and Axis armies. All attempts at rebellion were suppressed.",
+                part3Li6: "After the expulsion of the Axis: The protectorate authorities took revenge for acts of collaboration with the Germans, the same charge they leveled against Moncef Bey, leading to his deposition and exile.",
+                part3Li7: "The provocative policy sparked widespread protests and movements of rebellion and disobedience (such as the Metlaoui rebellion of 1942-1944).",
+                part3C: "New Political Data: The Collapse of France and the Accession of Moncef Bey to the Throne",
+                part3Sub2: "The Collapse of France and the Decline of Its Colonial Influence:",
+                part3Li8: "France's defeat by Germany and the occupation of its territory led to its division between two governments:",
+                part3Li8a: "The 'Vichy' government led by Marshal Pétain, collaborating with Germany.",
+                part3Li8b: "The 'Free France' government in exile led by General de Gaulle, loyal to the Allies.",
+                part3Li9: "The influence of the protectorate authority diminished during the presence of Axis forces in Tunisia, leading to the release of detained leaders and allowing them to resume their political activity.",
+                part3Li10: "After the expulsion of Axis forces: The USA forced France to modify its repressive policy against the natives (closing camps, releasing remaining detainees, and lifting the ban on newspapers).",
+                part3Li11: "France lost some of its international prestige and influence within its colonies during the war. However, the most prominent national leaders (Bourguiba and Thaalbi) warned against the danger of sympathizing with the Axis.",
+                part3Sub3: "Moncef Bey and the Reconciliation between the Throne and the People:",
+                part3Li12: "Relations between the population and the throne had cooled due to accusations that the Beys of Tunis had compromised the country's independence.",
+                part3Li13: "The situation changed with the accession of Moncef Bey to the throne on 19 June 1942, thanks to his efforts to revive Tunisian authority vis-à-vis the French General Residence through:",
+                part3Li13a: "Sending a memorandum to the 'Vichy' government in France (2 August 1942) containing national demands, most notably: forming an advisory legislative council, releasing nationalists, abolishing colonial appropriation of habous (by the 1898 decree), enabling Tunisians to hold all positions, and establishing compulsory education.",
+                part3Li13b: "Forming a national government headed by Mohamed Chenik, including ministers from both the Old Destour (Salah Farhat) and the Neo-Destour (Mahmoud El Materi). It took several measures, including: committing to neutrality toward the warring powers and refusing the Vichy government's order to oppose the Allies, and communicating this to US President Roosevelt and German Chancellor Hitler.",
+                part3Li14: "Moncef Bey was a patriotic king who showed a degree of independence and worked to assert Tunisian authority, gaining wide popularity, which prompted the protectorate authority to depose him by force in 1943 on charges of collaboration with the Axis and exile him to the Algerian desert, then to the French city of Pau, where he remained under house arrest until his death on 1 May 1948.",
+                part3Title2: "The Tunisian National Movement during World War II: National Forces Unite around the Demand for Self-Government",
+                part3Title2A: "Revival of National Action",
+                part3Li15: "Since April 1938, national activity took on a secret character (issuing leaflets, sabotage operations) focused on demanding the release of nationalists and targeting some French interests.",
+                part3Li16: "National action became public with the accession of Moncef Bey to the throne, the entry of Axis armies into the country, and the release of detained Destour leaders in Tunis.",
+                part3Li17: "Many youth and scout associations were founded (Tunisian Scouts, Red Crescent), and several new newspapers were published (Young Africa, Youth).",
+                part3Li18: "Many Tunisians and some Destourians (such as Rachid Idriss and Habib Thameur) followed German propaganda: establishing the Maghreb Office in Berlin (July 1943).",
+                part3Li19: "However, most nationalist leaders (especially Bourguiba and Thaalbi) warned against the false promises of the Axis and predicted its defeat in the war, calling for support of the Allies in the fight against Nazism so that the Tunisian cause would be on the side of the victors.",
+                part3Title2B: "Unity of National Forces",
+                part3Li20: "Moncef Bey contributed to consolidating the foundations of the national movement and unifying its ranks. The people rallied around him, and nationalists from both Destour parties supported most of his political initiatives.",
+                part3Li21: "Tunisians were deeply moved by Moncef Bey's deposition, and nationalists unanimously demanded his return to the throne as a symbol of sacrifice, within the framework of the Moncefist Movement.",
+                part3Li22: "The 'Moncefist Movement' was the starting point for founding the 'National Front' (22 February 1945), which brought together all currents and national forces, and formulated a national program centered on: self-government (internal independence) and establishing a constitutional monarchy headed by Moncef Bey.",
+                part3Li23: "The 'National Front' expressed in the demonstration of 8 May 1945 (marking the end of World War II) the readiness of Tunisians to engage in the struggle for independence.",
+                defPersons: "👤 Persons",
+                defOrganizations: "🏛️ Organizations and Institutions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defMoncefBey: "Moncef Bey",
+                defMoncefBeyDesc: "A patriotic Tunisian king, born on 4 March 1881 in Bardo and died on 1 May 1948 in Pau, France. He ascended to the throne on 19 June 1942, and worked to revive Tunisian authority vis-à-vis the French General Residence by sending a memorandum to the 'Vichy' government (2 August 1942) and forming a national government headed by Mohamed Chenik. He committed to neutrality toward the warring powers and refused to oppose the Allies. He gained wide popularity, which prompted the protectorate authority to depose him by force in 1943 and exile him. He remained a symbol of the national movement and a fundamental demand of the Moncefist Movement.",
+                defChenik: "Mohamed Chenik",
+                defChenikDesc: "Tunisian politician and statesman, born in 1889 in Tunis and died in 1976. He headed the national government formed by Moncef Bey in 1942, which included ministers from both the Old Destour (Salah Farhat) and the Neo-Destour (Mahmoud El Materi). This government pursued a policy of neutrality toward the warring powers and refused the Vichy government's orders to oppose the Allies.",
+                defNationalFront: "National Front",
+                defNationalFrontDesc: "A unifying political framework founded on 22 February 1945 on the basis of the Moncefist Movement. It brought together all Tunisian currents and national forces, and formulated a national program centered on: self-government (internal independence) and establishing a constitutional monarchy headed by Moncef Bey. It expressed in the demonstration of 8 May 1945 the readiness of Tunisians to engage in the struggle for independence.",
+                defMoncefistMovement: "Moncefist Movement",
+                defMoncefistMovementDesc: "A national movement founded after the deposition of Moncef Bey in 1943, unifying nationalists in demanding his return to the throne as a symbol of sacrifice and national unity. It formed the starting point for founding the National Front in 1945.",
+                defMaghrebOffice: "Maghreb Office in Berlin",
+                defMaghrebOfficeDesc: "An office established by some Tunisians and Destourians who followed German propaganda (such as Rachid Idriss and Habib Thameur) in July 1943, within the framework of collaboration with the Axis. Most nationalist leaders warned against the false promises of the Axis.",
+                defOperationTorch: "Operation Torch (8 November 1942)",
+                defOperationTorchDesc: "The Allied landing in North Africa on 8 November 1942, which made Tunisian territory a theater of combat between the Allies and Axis forces for 6 months, ending with the surrender of the Axis armies in May 1943.",
+                defMoncefBeyAccession: "Accession of Moncef Bey to the Throne (19 June 1942)",
+                defMoncefBeyAccessionDesc: "Moncef Bey's accession to the Tunisian throne on 19 June 1942, his efforts to revive Tunisian authority vis-à-vis the French General Residence, his memorandum to the 'Vichy' government (2 August 1942), and his formation of a national government headed by Mohamed Chenik.",
+                defMoncefBeyDeposition: "Deposition of Moncef Bey (1943)",
+                defMoncefBeyDepositionDesc: "The deposition of Moncef Bey by force by the French protectorate authority in 1943 on charges of collaboration with the Axis, and his exile to the Algerian desert then to the French city of Pau, where he remained under house arrest until his death on 1 May 1948. His deposition sparked widespread protests and led to the founding of the Moncefist Movement.",
+                defMetlaouiRebellion: "Metlaoui Rebellion (1942-1944)",
+                defMetlaouiRebellionDesc: "A rebellion and disobedience movement in the Metlaoui region (Kébili) by the Metlaoui tribes between 1942 and 1944, protesting the provocative policy of the protectorate authorities, which suppressed it forcefully.",
+                defMay8Demonstration: "Demonstration of 8 May 1945",
+                defMay8DemonstrationDesc: "A national demonstration organized by the National Front on the occasion of the end of World War II, expressing the readiness of Tunisians to engage in the struggle for independence.",
+                defYear1942Desc: "Allied landing (Operation Torch) on 8 November, Moncef Bey's accession to the throne on 19 June, and sending the memorandum to the 'Vichy' government on 2 August.",
+                defYear1943Desc: "Surrender of Axis armies in May, deposition and exile of Moncef Bey, and founding of the Maghreb Office in Berlin in July.",
+                defYear1945Desc: "Founding of the National Front on 22 February, and the demonstration of 8 May marking the end of World War II.",
+                defYear1948Desc: "Death of Moncef Bey on 1 May in the French city of Pau.",
+                defVichyRegime: "'Vichy' Government",
+                defVichyRegimeDesc: "A French government led by Marshal Pétain, established after France's defeat by Germany in 1940, based in the city of Vichy, and collaborating with Nazi Germany. Moncef Bey sent it a memorandum of national demands on 2 August 1942, and the Tunisian national government refused its orders to oppose the Allies.",
+                defFreeFrance: "'Free France' Government",
+                defFreeFranceDesc: "A French government in exile led by General de Gaulle, loyal to the Allies, formed after the German occupation of France in 1940. It contributed to modifying the repressive policy of the protectorate authority against Tunisian natives after the expulsion of Axis forces.",
+                defHomeRule: "Self-Government (Internal Independence)",
+                defHomeRuleDesc: "A Tunisian national demand around which the National Front's program was centered in 1945, aiming to grant Tunisia self-rule in managing its internal affairs within a constitutional monarchy headed by Moncef Bey, while maintaining a relationship with France in foreign affairs and defense.",
+                defCollectivePunishment: "Camps",
+                defCollectivePunishmentDesc: "Collective detention centers established by the French protectorate authorities during World War II to detain nationalists and suspects. France was forced after the expulsion of Axis forces to close them and release the remaining detainees.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Moncef Bey",
+                galleryCap1: "Moncef Bey",
+                galleryAlt2: "Allied landing in Tunisia – Operation Torch (November 1942)",
+                galleryCap2: "Allied landing in Tunisia – Operation Torch (November 1942)",
+                galleryAlt3: "National government headed by Mohamed Chenik (1942)",
+                galleryCap3: "National government headed by Mohamed Chenik (1942)",
+                galleryAlt4: "City of Tunis during World War II",
+                galleryCap4: "City of Tunis during World War II",
+                galleryAlt5: "National Front and demonstration of 8 May 1945",
+                galleryCap5: "National Front and demonstration of 8 May 1945"
+            },
+            fr: {
+                yearSection: "4ème secondaire, section économie et gestion",
+                moduleName: "Histoire / Module 1 : Le monde contemporain de 1914 à la Seconde Guerre mondiale",
+                lessonTitleSample: "La Tunisie de la fin de la Première Guerre mondiale à la fin de la Seconde Guerre mondiale",
+                sectionIntro: "Introduction",
+                introText: "La Seconde Guerre mondiale a marqué un tournant décisif dans l'histoire de la Tunisie, son territoire devenant un théâtre de combat entre les forces alliées et de l'Axe, causant de graves dommages humains et matériels. Ces circonstances ont été accompagnées de transformations politiques majeures, notamment l'accession de Moncef Bey au trône et l'organisation du mouvement national autour de la revendication de l'autonomie. Quelles ont été les principales manifestations de cette phase ?",
+                sectionPart3: "La Tunisie pendant la Seconde Guerre mondiale",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La Seconde Guerre mondiale a contribué à élargir les fondements du mouvement national, à unifier ses factions et à renforcer ses capacités organisationnelles. Elle est passée de l'action secrète à l'action publique, des revendications réformistes à la revendication de l'autonomie, et le Front National (1945) a été fondé comme cadre unificateur de toutes les forces nationales, ouvrant la voie à une nouvelle phase de lutte pour l'indépendance.",
+                summaryText: "À retenir : la Seconde Guerre mondiale a marqué un tournant décisif dans le mouvement national tunisien, entraînant l'effondrement de la France et le déclin de son influence, l'accession de Moncef Bey au trône, et l'unité des forces nationales autour de la revendication de l'autonomie dans le cadre du Front National (1945).",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                part3Title1: "Contexte interne et international pendant la Seconde Guerre mondiale",
+                part3A: "Impacts de la Seconde Guerre mondiale sur la société tunisienne",
+                part3Sub1: "La campagne de Tunisie et ses répercussions sur la population :",
+                part3Li1: "Le territoire tunisien est devenu un théâtre de combat entre les forces alliées et de l'Axe pendant 6 mois, à partir du débarquement allié (opération Torch) le 8 novembre 1942.",
+                part3Li2: "Les combats ont pris fin avec la capitulation des armées de l'Axe en mai 1943.",
+                part3Li3: "Les combats ont laissé de graves dommages en Tunisie, notamment :",
+                part3Li3a: "Des milliers de victimes civiles (morts et blessés), surtout dans les villes côtières, et le déplacement d'au moins 120 000 personnes.",
+                part3Li3b: "La destruction des infrastructures (pertes estimées à 45 milliards de francs) et la dégradation des terres agricoles.",
+                part3Li3c: "Des pénuries d'approvisionnement dues à la baisse de la production agricole et industrielle et à la réduction des importations.",
+                part3Li3d: "La hausse des prix, la propagation du marché noir et l'adoption du rationnement et des versements échelonnés.",
+                part3Li3e: "Le recul du commerce extérieur en raison de la destruction des ports et de l'arrêt des exportations.",
+                part3Li3f: "La détérioration du niveau de vie due à l'aggravation du chômage et à l'effondrement du pouvoir d'achat de la grande majorité de la population, malgré les augmentations de salaires à partir de 1943.",
+                part3B: "Domination coloniale",
+                part3Li4: "Avec le déclenchement de la guerre : Les autorités du protectorat ont instauré la loi martiale, aboli les libertés publiques, resserré l'étau sur l'activité nationale et imposé une censure stricte sur les journaux. Elles ont transféré les dirigeants détenus à la prison Saint-Nicolas (Marseille) et arrêté les dirigeants des bureaux politiques secrets entre 1938 et 1942.",
+                part3Li5: "46 000 Tunisiens ont été recrutés de force (plus du quart ont été tués ou blessés), et des milliers de travailleurs ont été mobilisés dans les corps de travail des armées française et de l'Axe. Toutes les tentatives de rébellion ont été réprimées.",
+                part3Li6: "Après l'expulsion de l'Axe : Les autorités du protectorat ont pris des mesures de représailles contre les actes de collaboration avec les Allemands, la même accusation portée contre Moncef Bey, ce qui a conduit à sa déposition et à son exil.",
+                part3Li7: "La politique provocatrice a suscité de vastes protestations et des mouvements de rébellion et de désobéissance (comme la rébellion de Metlaoui de 1942-1944).",
+                part3C: "Nouvelles données politiques : effondrement de la France et accession de Moncef Bey au trône",
+                part3Sub2: "L'effondrement de la France et le déclin de son influence coloniale :",
+                part3Li8: "La défaite de la France face à l'Allemagne et l'occupation de son territoire ont conduit à sa division entre deux gouvernements :",
+                part3Li8a: "Le gouvernement de 'Vichy' dirigé par le maréchal Pétain, collaborant avec l'Allemagne.",
+                part3Li8b: "Le gouvernement de la 'France libre' en exil dirigé par le général de Gaulle, loyal aux Alliés.",
+                part3Li9: "L'influence de l'autorité du protectorat a diminué pendant la présence des forces de l'Axe en Tunisie, ce qui a conduit à la libération des dirigeants détenus et à la reprise de leur activité politique.",
+                part3Li10: "Après l'expulsion des forces de l'Axe : Les États-Unis ont forcé la France à modifier sa politique répressive contre les indigènes (fermeture des camps, libération des détenus restants et levée de l'interdiction des journaux).",
+                part3Li11: "La France a perdu une partie de son prestige international et de son influence dans ses colonies pendant la guerre. Cependant, les dirigeants nationalistes les plus éminents (Bourguiba et Thaalbi) ont mis en garde contre le danger de sympathiser avec l'Axe.",
+                part3Sub3: "Moncef Bey et la réconciliation entre le trône et le peuple :",
+                part3Li12: "Les relations entre la population et le trône s'étaient refroidies en raison des accusations selon lesquelles les Beys de Tunis avaient compromis l'indépendance du pays.",
+                part3Li13: "La situation a changé avec l'accession de Moncef Bey au trône le 19 juin 1942, grâce à ses efforts pour faire revivre l'autorité tunisienne face à la Résidence générale française par :",
+                part3Li13a: "L'envoi d'un mémorandum au gouvernement de 'Vichy' en France (2 août 1942) contenant des revendications nationales, notamment : la formation d'un conseil législatif consultatif, la libération des nationalistes, l'abolition de l'appropriation coloniale des habous (par le décret de 1898), la possibilité pour les Tunisiens d'occuper tous les postes et l'instauration de l'enseignement obligatoire.",
+                part3Li13b: "La formation d'un gouvernement national présidé par Mohamed Chenik, comprenant des ministres du Vieux Destour (Salah Farhat) et du Néo-Destour (Mahmoud El Materi). Il a pris plusieurs mesures, notamment : l'engagement de neutralité envers les puissances belligérantes et le refus de l'ordre du gouvernement de 'Vichy' de s'opposer aux Alliés, et a communiqué cela au président américain Roosevelt et au chancelier allemand Hitler.",
+                part3Li14: "Moncef Bey était un roi patriote qui a fait preuve d'une certaine indépendance et a œuvré pour affirmer l'autorité tunisienne, gagnant une large popularité, ce qui a poussé l'autorité du protectorat à le déposer de force en 1943 sous l'accusation de collaboration avec l'Axe et à l'exiler dans le désert algérien, puis dans la ville française de Pau, où il est resté en résidence surveillée jusqu'à sa mort le 1er mai 1948.",
+                part3Title2: "Le mouvement national tunisien pendant la Seconde Guerre mondiale : les forces nationales s'unissent autour de la revendication de l'autonomie",
+                part3Title2A: "Relance de l'action nationale",
+                part3Li15: "Depuis avril 1938, l'activité nationale a pris un caractère secret (émission de tracts, opérations de sabotage) axé sur la demande de libération des nationalistes et le ciblage de certains intérêts français.",
+                part3Li16: "L'action nationale est devenue publique avec l'accession de Moncef Bey au trône, l'entrée des armées de l'Axe dans le pays et la libération des dirigeants destouriens détenus à Tunis.",
+                part3Li17: "De nombreuses associations de jeunesse et de scouts ont été fondées (Scouts tunisiens, Croissant-Rouge), et plusieurs nouveaux journaux ont été publiés (Afrique Jeune, La Jeunesse).",
+                part3Li18: "De nombreux Tunisiens et certains destouriens (comme Rachid Idriss et Habib Thameur) ont suivi la propagande allemande : création du Bureau du Maghreb à Berlin (juillet 1943).",
+                part3Li19: "Cependant, la plupart des dirigeants nationalistes (en particulier Bourguiba et Thaalbi) ont mis en garde contre les fausses promesses de l'Axe et ont prédit sa défaite dans la guerre, appelant à soutenir les Alliés dans la lutte contre le nazisme afin que la cause tunisienne soit du côté des vainqueurs.",
+                part3Title2B: "Unité des forces nationales",
+                part3Li20: "Moncef Bey a contribué à consolider les fondements du mouvement national et à unifier ses rangs. Le peuple s'est rallié autour de lui et les nationalistes des deux partis destouriens ont soutenu la plupart de ses initiatives politiques.",
+                part3Li21: "Les Tunisiens ont été profondément émus par la déposition de Moncef Bey et les nationalistes ont unanimement exigé son retour au trône en tant que symbole de sacrifice, dans le cadre du Mouvement moncefiste.",
+                part3Li22: "Le 'Mouvement moncefiste' a été le point de départ de la fondation du 'Front National' (22 février 1945), qui a rassemblé tous les courants et forces nationales, et a formulé un programme national centré sur : l'autonomie (indépendance interne) et l'établissement d'une monarchie constitutionnelle dirigée par Moncef Bey.",
+                part3Li23: "Le 'Front National' a exprimé dans la manifestation du 8 mai 1945 (marquant la fin de la Seconde Guerre mondiale) la volonté des Tunisiens de s'engager dans la lutte pour l'indépendance.",
+                defPersons: "👤 Personnes",
+                defOrganizations: "🏛️ Organisations et institutions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defMoncefBey: "Moncef Bey",
+                defMoncefBeyDesc: "Roi tunisien patriote, né le 4 mars 1881 à Bardo et mort le 1er mai 1948 à Pau, en France. Il est monté sur le trône le 19 juin 1942 et a œuvré pour faire revivre l'autorité tunisienne face à la Résidence générale française en envoyant un mémorandum au gouvernement de 'Vichy' (2 août 1942) et en formant un gouvernement national présidé par Mohamed Chenik. Il s'est engagé dans la neutralité envers les puissances belligérantes et a refusé de s'opposer aux Alliés. Il a gagné une large popularité, ce qui a poussé l'autorité du protectorat à le déposer de force en 1943 et à l'exiler. Il est resté un symbole du mouvement national et une revendication fondamentale du Mouvement moncefiste.",
+                defChenik: "Mohamed Chenik",
+                defChenikDesc: "Homme politique et homme d'État tunisien, né en 1889 à Tunis et mort en 1976. Il a dirigé le gouvernement national formé par Moncef Bey en 1942, qui comprenait des ministres du Vieux Destour (Salah Farhat) et du Néo-Destour (Mahmoud El Materi). Ce gouvernement a mené une politique de neutralité envers les puissances belligérantes et a refusé les ordres du gouvernement de 'Vichy' de s'opposer aux Alliés.",
+                defNationalFront: "Front National",
+                defNationalFrontDesc: "Cadre politique unificateur fondé le 22 février 1945 sur la base du Mouvement moncefiste. Il a rassemblé tous les courants et forces nationales tunisiennes et a formulé un programme national centré sur : l'autonomie (indépendance interne) et l'établissement d'une monarchie constitutionnelle dirigée par Moncef Bey. Il a exprimé dans la manifestation du 8 mai 1945 la volonté des Tunisiens de s'engager dans la lutte pour l'indépendance.",
+                defMoncefistMovement: "Mouvement moncefiste",
+                defMoncefistMovementDesc: "Un mouvement national fondé après la déposition de Moncef Bey en 1943, unifiant les nationalistes dans la revendication de son retour au trône en tant que symbole de sacrifice et d'unité nationale. Il a constitué le point de départ de la fondation du Front National en 1945.",
+                defMaghrebOffice: "Bureau du Maghreb à Berlin",
+                defMaghrebOfficeDesc: "Un bureau établi par certains Tunisiens et destouriens qui ont suivi la propagande allemande (comme Rachid Idriss et Habib Thameur) en juillet 1943, dans le cadre de la collaboration avec l'Axe. La plupart des dirigeants nationalistes ont mis en garde contre les fausses promesses de l'Axe.",
+                defOperationTorch: "Opération Torch (8 novembre 1942)",
+                defOperationTorchDesc: "Le débarquement allié en Afrique du Nord le 8 novembre 1942, qui a fait du territoire tunisien un théâtre de combat entre les Alliés et les forces de l'Axe pendant 6 mois, se terminant par la capitulation des armées de l'Axe en mai 1943.",
+                defMoncefBeyAccession: "Accession de Moncef Bey au trône (19 juin 1942)",
+                defMoncefBeyAccessionDesc: "L'accession de Moncef Bey au trône tunisien le 19 juin 1942, ses efforts pour faire revivre l'autorité tunisienne face à la Résidence générale française, son mémorandum au gouvernement de 'Vichy' (2 août 1942) et la formation d'un gouvernement national présidé par Mohamed Chenik.",
+                defMoncefBeyDeposition: "Déposition de Moncef Bey (1943)",
+                defMoncefBeyDepositionDesc: "La déposition de Moncef Bey par la force par l'autorité du protectorat français en 1943 sous l'accusation de collaboration avec l'Axe, et son exil dans le désert algérien puis dans la ville française de Pau, où il est resté en résidence surveillée jusqu'à sa mort le 1er mai 1948. Sa déposition a suscité de vastes protestations et a conduit à la fondation du Mouvement moncefiste.",
+                defMetlaouiRebellion: "Rébellion de Metlaoui (1942-1944)",
+                defMetlaouiRebellionDesc: "Un mouvement de rébellion et de désobéissance dans la région de Metlaoui (Kébili) par les tribus de Metlaoui entre 1942 et 1944, protestant contre la politique provocatrice des autorités du protectorat, qui l'ont réprimé avec force.",
+                defMay8Demonstration: "Manifestation du 8 mai 1945",
+                defMay8DemonstrationDesc: "Une manifestation nationale organisée par le Front National à l'occasion de la fin de la Seconde Guerre mondiale, exprimant la volonté des Tunisiens de s'engager dans la lutte pour l'indépendance.",
+                defYear1942Desc: "Débarquement allié (opération Torch) le 8 novembre, accession de Moncef Bey au trône le 19 juin, et envoi du mémorandum au gouvernement de 'Vichy' le 2 août.",
+                defYear1943Desc: "Capitulation des armées de l'Axe en mai, déposition et exil de Moncef Bey, et fondation du Bureau du Maghreb à Berlin en juillet.",
+                defYear1945Desc: "Fondation du Front National le 22 février, et manifestation du 8 mai marquant la fin de la Seconde Guerre mondiale.",
+                defYear1948Desc: "Décès de Moncef Bey le 1er mai dans la ville française de Pau.",
+                defVichyRegime: "Gouvernement de 'Vichy'",
+                defVichyRegimeDesc: "Un gouvernement français dirigé par le maréchal Pétain, établi après la défaite de la France face à l'Allemagne en 1940, basé dans la ville de Vichy, et collaborant avec l'Allemagne nazie. Moncef Bey lui a envoyé un mémorandum de revendications nationales le 2 août 1942, et le gouvernement national tunisien a refusé ses ordres de s'opposer aux Alliés.",
+                defFreeFrance: "Gouvernement de la 'France libre'",
+                defFreeFranceDesc: "Un gouvernement français en exil dirigé par le général de Gaulle, loyal aux Alliés, formé après l'occupation allemande de la France en 1940. Il a contribué à modifier la politique répressive de l'autorité du protectorat contre les indigènes tunisiens après l'expulsion des forces de l'Axe.",
+                defHomeRule: "Autonomie (indépendance interne)",
+                defHomeRuleDesc: "Une revendication nationale tunisienne autour de laquelle le programme du Front National était centré en 1945, visant à accorder à la Tunisie l'autonomie dans la gestion de ses affaires internes dans le cadre d'une monarchie constitutionnelle dirigée par Moncef Bey, tout en maintenant une relation avec la France dans les affaires étrangères et la défense.",
+                defCollectivePunishment: "Camps",
+                defCollectivePunishmentDesc: "Centres de détention collective établis par les autorités du protectorat français pendant la Seconde Guerre mondiale pour détenir les nationalistes et les suspects. La France a été forcée après l'expulsion des forces de l'Axe de les fermer et de libérer les détenus restants.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Moncef Bey",
+                galleryCap1: "Moncef Bey",
+                galleryAlt2: "Débarquement allié en Tunisie – opération Torch (novembre 1942)",
+                galleryCap2: "Débarquement allié en Tunisie – opération Torch (novembre 1942)",
+                galleryAlt3: "Gouvernement national présidé par Mohamed Chenik (1942)",
+                galleryCap3: "Gouvernement national présidé par Mohamed Chenik (1942)",
+                galleryAlt4: "Ville de Tunis pendant la Seconde Guerre mondiale",
+                galleryCap4: "Ville de Tunis pendant la Seconde Guerre mondiale",
+                galleryAlt5: "Front National et manifestation du 8 mai 1945",
+                galleryCap5: "Front National et manifestation du 8 mai 1945"
+            },
+            ar: {
+                yearSection: "الرابعة ثانوي، شعبة اقتصاد وتصرف",
+                moduleName: "التاريخ / الوحدة 1: العالم المعاصر من 1914 إلى الحرب العالمية الثانية",
+                lessonTitleSample: "تونس من نهاية الحرب العالمية الأولى إلى نهاية الحرب العالمية الثانية",
+                sectionIntro: "مقدمة",
+                introText: "شكلت الحرب العالمية الثانية منعطفًا حاسمًا في تاريخ البلاد التونسية، إذ تحولت أراضيها إلى مسرح للقتال بين قوات الحلفاء والمحور، مما خلف أضرارًا جسيمة على المستويين البشري والمادي. وقد رافقت هذه الظروف تحولات سياسية كبرى، أبرزها ارتقاء المنصف باي إلى العرش وتنظيم الحركة الوطنية حول مطلب الحكم الذاتي. فما هي أبرز مظاهر هذه المرحلة؟",
+                sectionPart3: "تونس أثناء الحرب العالمية الثانية",
+                sectionConclusion: "خاتمة",
+                conclusionText: "ساهمت الحرب العالمية الثانية في توسيع دعائم الحركة الوطنية وتوحيد فصائلها وتعزيز قدراتها التنظيمية، فانتقلت من العمل السري إلى العلني، ومن المطالب الإصلاحية إلى المطالبة بالحكم الذاتي، وتأسست الجبهة الوطنية (1945) كإطار جامع لكل القوى الوطنية، مما مهد لمرحلة جديدة من النضال من أجل الاستقلال.",
+                summaryText: "خلاصة: شكّلت الحرب العالمية الثانية منعطفًا حاسمًا في مسار الحركة الوطنية التونسية، إذ أدت إلى انكسار فرنسا وتراجع نفوذها، وارتقاء المنصف باي إلى العرش، وتكاتف القوى الوطنية حول مطلب الحكم الذاتي في إطار الجبهة الوطنية (1945).",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                part3Title1: "الظرفية الداخلية والدولية أثناء الحرب العالمية الثانية",
+                part3A: "تأثيرات الحرب العالمية الثانية في المجتمع التونسي",
+                part3Sub1: "حملة تونس ومضاعفاتها على السكان:",
+                part3Li1: "تحولت الأراضي التونسية إلى مسرح للقتال بين قوات الحلفاء والمحور طيلة 6 أشهر بداية من إنزال قوات الحلفاء (عملية تورش) في 8 نوفمبر 1942.",
+                part3Li2: "انتهت المعارك باستسلام جيوش المحور في ماي 1943.",
+                part3Li3: "خلفت المعارك أضرارًا جسيمة بالبلاد التونسية تمثلت في:",
+                part3Li3a: "سقوط آلاف الضحايا المدنيين (قتل وجرحى) بالمدن الساحلية خاصة، وتشريد ما لا يقل عن 120 ألف شخص.",
+                part3Li3b: "تدمير البنية التحتية (قدرت قيمة خسائرها بـ 45 مليار فرنك) وإتلاف الأراضي الزراعية.",
+                part3Li3c: "نقص التموين نتيجة تراجع الإنتاج الفلاحي والصناعي وتقلص الواردات.",
+                part3Li3d: "ارتفاع الأسعار وانتشار السوق السوداء واعتماد نظام الحصص والتقسيط.",
+                part3Li3e: "تراجع حجم المبادلات الخارجية نتيجة تدمير الموانئ وتوقف الصادرات.",
+                part3Li3f: "تدهور مستوى العيش بسبب تفاقم البطالة وانهيار القدرة الشرائية للسواد الأعظم من السكان رغم زيادات الأجور بداية من 1943.",
+                part3B: "التسلط الاستعماري",
+                part3Li4: "مع اندلاع الحرب: أقرّت سلط الحماية الأحكام العرفية وألغت الحريات العامة وضيّقت الخناق على النشاط الوطني، وشددت الرقابة على الصحف وعطّلتها. وقامت بنقل الزعماء المعتقلين إلى سجن سان نيكولا (مرسيليا)، وعمدت إلى إيقاف قيادات الدواوين السياسية السرية بين 1938 و1942.",
+                part3Li5: "جنّدت 46 ألف تونسي بالقوة (فقد وأصيب أكثر من ربعهم)، وسُخّرت آلاف العمال بحضائر جيوش فرنسا والمحور. وقمعت كل محاولات العصيان.",
+                part3Li6: "بعد طرد المحور: عمدت سلط الحماية إلى الانتقام من الأعمال المتعاونة مع الألمان، وهي نفس التهمة التي وجهتها إلى المنصف باي فعزلته عن العرش ونفته.",
+                part3Li7: "أثارت السياسة الاستفزازية احتجاجات واسعة وحركات تمرّد وعصيان (مثل تمرّد المرازيق بدور 1942-1944).",
+                part3C: "المعطيات السياسية الجديدة: انكسار فرنسا وارتقاء المنصف باي إلى العرش",
+                part3Sub2: "انكسار فرنسا وتراجع نفوذها الاستعماري:",
+                part3Li8: "أدى انهزام فرنسا أمام ألمانيا واحتلال أراضيها إلى انقسامها بين حكومتين:",
+                part3Li8a: "حكومة \"فيشي\" برئاسة المارشال بيتان المتعاونة مع ألمانيا.",
+                part3Li8b: "حكومة \"فرنسا الحرة\" في المهجر (المدن) برئاسة الجنرال ديغول الموالية للحلفاء.",
+                part3Li9: "تقلّص نفوذ سلطة الحماية أثناء وجود قوى المحور بتونس، فتمّ إطلاق الزعماء المعتقلين والسماح لهم باستئناف نشاطهم السياسي.",
+                part3Li10: "بعد طرد قوات المحور: أجبرت الو.م.أ. فرنسا على تعديل سياستها القمعية ضدّ الأهالي (إغلاق المحتشدات وإطلاق سراح بقية المعتقلين ورفع الحظر على الصحف).",
+                part3Li11: "فقدت فرنسا أثناء الحرب قدرًا من هيبتها الدولية ومن نفوذها داخل مستعمراتها. لكنّ أبرز الزعماء الوطنيين (بورقيبة والثعالبي) حذّروا من خطورة التعاطف مع المحور.",
+                part3Sub3: "المنصف باي والمصالحة بين العرش والشعب:",
+                part3Li12: "اتسعت العلاقة بين الأهالي والعرش بالفتور بسبب اتهام بايات تونس بالتفريط في استقلال البلاد.",
+                part3Li13: "تغير الوضع مع ارتقاء المنصف باي إلى العرش في 19 جوان 1942 بفضل سعيه إلى إحياء السلطة التونسية أمام الإقامة العامة الفرنسية عبر:",
+                part3Li13a: "توجيه مذكرة إلى حكومة \"فيشي\" بفرنسا (2 أوت 1942) تضمنت جملة من المطالب الوطنية أبرزها: تكوين مجلس تشريعي استشاري، إطلاق سراح الوطنيين، إلغاء الاستحواذ الاستعماري على الأوقاف (بموجب أمر 1898)، تمكين التونسيين من جميع الوظائف وإقرار التعليم الإجباري.",
+                part3Li13b: "الإقدام على تشكيل حكومة وطنية برئاسة محمد شنيق تضمّ وزراء من الحزبين الدستوريين القديم (صالح فرحات) والجديد (محمود الماطري). وقد اتخذت عدة إجراءات منها: التزام الحياد تجاه القوى المتحاربة ورفض أمر حكومة \"فيشي\" بمعاداة الحلفاء، وأبلغ ذلك إلى الرئيس الأمريكي روزفلت والمستشار الألماني هتلر.",
+                part3Li14: "كان المنصف باي ملكًا وطنيًا أظهر قدرًا من الاستقلالية وعمل على إثبات السلطة التونسية فحظي بشعبية واسعة مما دفع سلطة الحماية إلى عزله بالقوة في 1943 بتهمة التعاون مع المحور ونفيه إلى صحراء الجزائر ثم إلى مدينة بو الفرنسية حيث ظلّ في إقامة جبرية إلى غاية وفاته في 1 ماي 1948.",
+                part3Title2: "الحركة الوطنية التونسية خلال الحرب العالمية الثانية: تمثّل القوة الوطنية حول مطلب الحكم الذاتي",
+                part3Title2A: "انتعاش العمل الوطني",
+                part3Li15: "اتخذ النشاط الوطني منذ أفريل 1938 طابعًا سريًا (إصدار المناشير، عمليات تخريب) وتركز حول المطالبة بإطلاق سراح الوطنيين واستهداف بعض المصالح الفرنسية.",
+                part3Li16: "خرج العمل الوطني إلى العلن مع توثّق المنصف باي العرش ودخول جيوش المحور إلى البلاد وإطلاق سراح القيادات الدستورية المعتقلة بتونس.",
+                part3Li17: "تأسست العديد من الجمعيات الشبابية والكشفية (كشاف تونس، الهلال الأحمر)، وصدرت عدة صحف جديدة (افريقيا الفتاة، الشباب).",
+                part3Li18: "انساق العديد من التونسيين وبعض الدستوريين (مثل رشيد ادريس والحييب ثامر) وراء الدعاية الألمانية: تأسيس مكتب المغرب العربي ببرلين (جويلية 1943).",
+                part3Li19: "لكنّ أغلب الزعماء الوطنيّين (وخاصة بورقيبة والثعالبي) حذّروا من زيف وعود المحور وتوقعوا هزميته في الحرب فدعوا إلى مساندة الحلفاء في الكفاح ضدّ النازية حتى تكون القضية التونسية في صف المنتصرين.",
+                part3Title2B: "تكاتف القوى الوطنية",
+                part3Li20: "ساهم المنصف باي في توطيد دعائم الحركة الوطنية وتوحيد صفوفها. فقد التفّ الشعب حوله وساند الوطنيون من الحزبين الدستوريين جلّ مبادراته السياسية.",
+                part3Li21: "اهتزت مشاعر التونسيين لخلع المنصف باي وأجمع الوطنيون في إطار تمثّل للعمل الوطني (الحركة المنصفية) على المطالبة بعودته للعرش باعتباره رمزًا للشهادة.",
+                part3Li22: "شكّلت \"الحركة المنصفية\" منطلقًا لتأسيس \"الجبهة الوطنية\" (22 فيفري 1945) التي جمعت كل التيارات والقوى الوطنية، وبلورت برنامجًا وطنيًا تمحور حول: الحكم الذاتي (الاستقلال الداخلي) وإقامة نظام ملكي دستوري على رأسه المنصف باي.",
+                part3Li23: "عبّرت \"الجبهة الوطنية\" في مظاهرة 8 ماي 1945 (بمناسبة نهاية الحرب العالمية الثانية) عن استعداد التونسيين للانخراط في النضال من أجل تحقيق الاستقلال.",
+                defPersons: "👤 شخصيات",
+                defOrganizations: "🏛️ منظمات ومؤسسات",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defMoncefBey: "المنصف باي",
+                defMoncefBeyDesc: "ملك تونسي وطني، وُلد في 4 مارس 1881 بباردو وتوفي في 1 ماي 1948 بمدينة بو (Pau) الفرنسية. ارتقى إلى العرش في 19 جوان 1942، وعمل على إحياء السلطة التونسية أمام الإقامة العامة الفرنسية عبر توجيه مذكرة إلى حكومة \"فيشي\" (2 أوت 1942) وتشكيل حكومة وطنية برئاسة محمد شنيق. التزم بالحياد تجاه القوى المتحاربة ورفض معاداة الحلفاء. حظي بشعبية واسعة مما دفع سلطة الحماية إلى عزله بالقوة سنة 1943 ونفيه، وظل رمزًا للحركة الوطنية ومطلبًا أساسيًا للحركة المنصفية.",
+                defChenik: "محمد شنيق",
+                defChenikDesc: "سياسي تونسي ورجل دولة، وُلد في 1889 بتونس وتوفي في 1976. ترأس الحكومة الوطنية التي شكّلها المنصف باي سنة 1942، وضمّت وزراء من الحزبين الدستوريين القديم (صالح فرحات) والجديد (محمود الماطري). قادت هذه الحكومة سياسة الحياد تجاه القوى المتحاربة ورفضت أوامر حكومة \"فيشي\" بمعاداة الحلفاء.",
+                defNationalFront: "الجبهة الوطنية",
+                defNationalFrontDesc: "إطار سياسي جامع تأسس في 22 فيفري 1945 على أساس الحركة المنصفية، وجمع كل التيارات والقوى الوطنية التونسية، وبلور برنامجًا وطنيًا تمحور حول: الحكم الذاتي (الاستقلال الداخلي) وإقامة نظام ملكي دستوري على رأسه المنصف باي. عبّرت في مظاهرة 8 ماي 1945 عن استعداد التونسيين للانخراط في النضال من أجل الاستقلال.",
+                defMoncefistMovement: "الحركة المنصفية",
+                defMoncefistMovementDesc: "حركة وطنية تأسست بعد خلع المنصف باي سنة 1943، وأجمعت الوطنيين على المطالبة بعودته إلى العرش باعتباره رمزًا للشهادة والوحدة الوطنية. شكلت منطلقًا لتأسيس الجبهة الوطنية سنة 1945.",
+                defMaghrebOffice: "مكتب المغرب العربي ببرلين",
+                defMaghrebOfficeDesc: "مكتب أسسه بعض التونسيين والدستوريين المنساقين وراء الدعاية الألمانية (مثل رشيد إدريس والحييب ثامر) في جويلية 1943، في إطار التعاون مع المحور. وقد حذّر أغلب الزعماء الوطنيين من زيف وعود المحور.",
+                defOperationTorch: "عملية تورش (8 نوفمبر 1942)",
+                defOperationTorchDesc: "إنزال قوات الحلفاء بأراضي شمال إفريقيا في 8 نوفمبر 1942، والذي جعل الأراضي التونسية مسرحًا للقتال بين الحلفاء وقوات المحور طيلة 6 أشهر، وانتهى باستسلام جيوش المحور في ماي 1943.",
+                defMoncefBeyAccession: "ارتقاء المنصف باي إلى العرش (19 جوان 1942)",
+                defMoncefBeyAccessionDesc: "تولّي المنصف باي العرش التونسي في 19 جوان 1942، وسعيه إلى إحياء السلطة التونسية أمام الإقامة العامة الفرنسية، وتوجيهه مذكرة إلى حكومة \"فيشي\" (2 أوت 1942) وتشكيله حكومة وطنية برئاسة محمد شنيق.",
+                defMoncefBeyDeposition: "خلع المنصف باي (1943)",
+                defMoncefBeyDepositionDesc: "عزل سلطة الحماية الفرنسية للمنصف باي بالقوة سنة 1943 بتهمة التعاون مع المحور، ونفيه إلى صحراء الجزائر ثم إلى مدينة بو الفرنسية حيث ظل في إقامة جبرية إلى غاية وفاته في 1 ماي 1948. وقد أثار خلعه احتجاجات واسعة وأدى إلى تأسيس الحركة المنصفية.",
+                defMetlaouiRebellion: "تمرّد المرازيق بدور (1942-1944)",
+                defMetlaouiRebellionDesc: "حركة تمرّد وعصيان شهدتها منطقة بدور (قبلي) على يد المرازيق بين 1942 و1944 احتجاجًا على السياسة الاستفزازية لسلطات الحماية، وقد قمعتها السلطات بالقوة.",
+                defMay8Demonstration: "مظاهرة 8 ماي 1945",
+                defMay8DemonstrationDesc: "مظاهرة وطنية نظمتها الجبهة الوطنية بمناسبة نهاية الحرب العالمية الثانية، عبّرت فيها عن استعداد التونسيين للانخراط في النضال من أجل تحقيق الاستقلال.",
+                defYear1942Desc: "إنزال قوات الحلفاء (عملية تورش) في 8 نوفمبر، وارتقاء المنصف باي إلى العرش في 19 جوان، وتوجيه مذكرة إلى حكومة \"فيشي\" في 2 أوت.",
+                defYear1943Desc: "استسلام جيوش المحور في ماي، وخلع المنصف باي ونفيه، وتأسيس مكتب المغرب العربي ببرلين في جويلية.",
+                defYear1945Desc: "تأسيس الجبهة الوطنية في 22 فيفري، ومظاهرة 8 ماي بمناسبة نهاية الحرب العالمية الثانية.",
+                defYear1948Desc: "وفاة المنصف باي في 1 ماي بمدينة بو الفرنسية.",
+                defVichyRegime: "حكومة \"فيشي\"",
+                defVichyRegimeDesc: "حكومة فرنسية برئاسة المارشال بيتان، تأسست بعد انهزام فرنسا أمام ألمانيا سنة 1940، واتخذت مقرًا لها بمدينة فيشي، وتعاونت مع ألمانيا النازية. وجّه إليها المنصف باي مذكرة بمطالب وطنية في 2 أوت 1942، ورفضت الحكومة الوطنية التونسية أوامرها بمعاداة الحلفاء.",
+                defFreeFrance: "حكومة \"فرنسا الحرة\"",
+                defFreeFranceDesc: "حكومة فرنسية في المهجر برئاسة الجنرال ديغول، موالية للحلفاء، تشكلت بعد احتلال ألمانيا لفرنسا سنة 1940. أسهمت في تعديل السياسة القمعية لسلطة الحماية ضد الأهالي التونسيين بعد طرد قوات المحور.",
+                defHomeRule: "الحكم الذاتي (الاستقلال الداخلي)",
+                defHomeRuleDesc: "مطلب وطني تونسي تمحور حوله برنامج الجبهة الوطنية سنة 1945، ويهدف إلى منح تونس حكمًا ذاتيًا في إدارة شؤونها الداخلية في إطار نظام ملكي دستوري على رأسه المنصف باي، مع الحفاظ على علاقة مع فرنسا في الشؤون الخارجية والدفاع.",
+                defCollectivePunishment: "المحتشدات",
+                defCollectivePunishmentDesc: "مراكز اعتقال جماعي أنشأتها سلطات الحماية الفرنسية أثناء الحرب العالمية الثانية لاعتقال الوطنيين والمشتبه فيهم، وقد أُجبرت فرنسا بعد طرد قوات المحور على إغلاقها وإطلاق سراح بقية المعتقلين.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "المنصف باي",
+                galleryCap1: "المنصف باي",
+                galleryAlt2: "إنزال قوات الحلفاء بتونس – عملية تورش (نوفمبر 1942)",
+                galleryCap2: "إنزال قوات الحلفاء بتونس – عملية تورش (نوفمبر 1942)",
+                galleryAlt3: "الحكومة الوطنية برئاسة محمد شنيق (1942)",
+                galleryCap3: "الحكومة الوطنية برئاسة محمد شنيق (1942)",
+                galleryAlt4: "مدينة تونس أثناء الحرب العالمية الثانية",
+                galleryCap4: "مدينة تونس أثناء الحرب العالمية الثانية",
+                galleryAlt5: "الجبهة الوطنية ومظاهرة 8 ماي 1945",
+                galleryCap5: "الجبهة الوطنية ومظاهرة 8 ماي 1945"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO‑WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Moncef Bey", class: "key-person", i18n: "defMoncefBey" },
+                { text: "Mohamed Chenik", class: "key-person", i18n: "defChenik" },
+                { text: "National Front", class: "key-organization", i18n: "defNationalFront" },
+                { text: "Moncefist Movement", class: "key-organization", i18n: "defMoncefistMovement" },
+                { text: "Maghreb Office", class: "key-organization", i18n: "defMaghrebOffice" },
+                { text: "Operation Torch", class: "key-event", i18n: "defOperationTorch" },
+                { text: "Metlaoui Rebellion", class: "key-event", i18n: "defMetlaouiRebellion" },
+                { text: "Vichy", class: "key-other", i18n: "defVichyRegime" },
+                { text: "Free France", class: "key-other", i18n: "defFreeFrance" },
+                { text: "Self-Government", class: "key-other", i18n: "defHomeRule" },
+                { text: "Home Rule", class: "key-other", i18n: "defHomeRule" },
+                { text: "1942", class: "key-year", i18n: null },
+                { text: "1943", class: "key-year", i18n: null },
+                { text: "1945", class: "key-year", i18n: null },
+                { text: "1948", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Moncef Bey", class: "key-person", i18n: "defMoncefBey" },
+                { text: "Mohamed Chenik", class: "key-person", i18n: "defChenik" },
+                { text: "Front National", class: "key-organization", i18n: "defNationalFront" },
+                { text: "Mouvement moncefiste", class: "key-organization", i18n: "defMoncefistMovement" },
+                { text: "Bureau du Maghreb", class: "key-organization", i18n: "defMaghrebOffice" },
+                { text: "Opération Torch", class: "key-event", i18n: "defOperationTorch" },
+                { text: "Rébellion de Metlaoui", class: "key-event", i18n: "defMetlaouiRebellion" },
+                { text: "Vichy", class: "key-other", i18n: "defVichyRegime" },
+                { text: "France libre", class: "key-other", i18n: "defFreeFrance" },
+                { text: "Autonomie", class: "key-other", i18n: "defHomeRule" },
+                { text: "1942", class: "key-year", i18n: null },
+                { text: "1943", class: "key-year", i18n: null },
+                { text: "1945", class: "key-year", i18n: null },
+                { text: "1948", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "المنصف باي", class: "key-person", i18n: "defMoncefBey" },
+                { text: "محمد شنيق", class: "key-person", i18n: "defChenik" },
+                { text: "الجبهة الوطنية", class: "key-organization", i18n: "defNationalFront" },
+                { text: "الحركة المنصفية", class: "key-organization", i18n: "defMoncefistMovement" },
+                { text: "مكتب المغرب العربي", class: "key-organization", i18n: "defMaghrebOffice" },
+                { text: "عملية تورش", class: "key-event", i18n: "defOperationTorch" },
+                { text: "تمرّد المرازيق", class: "key-event", i18n: "defMetlaouiRebellion" },
+                { text: "فيشي", class: "key-other", i18n: "defVichyRegime" },
+                { text: "فرنسا الحرة", class: "key-other", i18n: "defFreeFrance" },
+                { text: "الحكم الذاتي", class: "key-other", i18n: "defHomeRule" },
+                { text: "الاستقلال الداخلي", class: "key-other", i18n: "defHomeRule" },
+                { text: "1942", class: "key-year", i18n: null },
+                { text: "1943", class: "key-year", i18n: null },
+                { text: "1945", class: "key-year", i18n: null },
+                { text: "1948", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

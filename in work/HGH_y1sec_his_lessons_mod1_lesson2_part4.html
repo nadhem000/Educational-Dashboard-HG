@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الأولى ثانوي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">قرطاج وإسهاماتها في الحضارة الرومانية: النشاط الفكري – القديس أوغسطينوس</h1>
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">تميزت إفريقيا البروقنصلية بازدهار فكري تمثل في تعدد العلماء، من أبرزهم القديس أوغسطينوس.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فمن هو القديس أوغسطينوس؟ وما هي أفكاره؟</p>
+            </div>
+            <!-- Part I : Factors Influencing His Personality -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span>
+                    <span data-i18n="sectionPart1">العوامل المؤثرة في شخصية القديس أوغسطينوس</span>
+                </h2>
+                <!-- 1. Upbringing and General Context -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="upbringingTitle">النشأة والظروف العامة</span>
+                </h3>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="upbringingSubtitle">نشأته</span>
+                </h4>
+                <p data-i18n="upbringingText">ينتمي أوغسطينوس إلى أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م، ومات بهيبون (عنابة).</p>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="contextSubtitle">الظروف المؤثرة في تكوينه</span>
+                </h4>
+                <p><strong data-i18n="internalContextTitle">على المستوى الداخلي:</strong> <span data-i18n="internalContextText">أفضى الصراع على السلطة إلى تقسيم الإمبراطورية إلى جزئين شرقي وغربي منذ 395م، ومثلت روما عاصمة الجزء الغربي، بينما مثلت القسطنطينية عاصمة الجزء الشرقي، وأصبحت الديانة المسيحية الديانة الرسمية منذ 380م في عهد الإمبراطور تيودروس، ولكن المسيحيين انقسموا إلى فرق متناحرة.</span></p>
+                <p><strong data-i18n="externalContextTitle">على المستوى الخارجي:</strong> <span data-i18n="externalContextText">تعرضت الإمبراطورية الرومانية إلى هجومات البرابرة والقوطية والسلافية، وأسفرت عن سقوط روما سنة 410م.</span></p>
+                <!-- 2. Intellectual Formation and Works -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="formationTitle">تكوينه الفكري والاجتماعي وأبرز مؤلفاته</span>
+                </h3>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="formationSubtitle">تكوينه</span>
+                </h4>
+                <p data-i18n="formationText">درس أوغسطينوس بتاغست، ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح، وبفلسفة أفلاطون. ودرس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، واعتنق المسيحية، وشغل منصب أسقف هيبونا حتى وفاته سنة 430م.</p>
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="worksSubtitle">مؤلفاته</span>
+                </h4>
+                <p data-i18n="worksText">ترك أوغسطينوس 252 كتابًا في 92 مجلدًا، وقد هيمن عليها الفكر الديني، مثل: «الاعترافات»، و«تعلم المسيحية»، و«المعلم»، و«مدينة الله».</p>
+            </div>
+            <!-- Part II : His Main Ideas -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span>
+                    <span data-i18n="sectionPart2">أهم أفكار القديس أوغسطينوس</span>
+                </h2>
+                <!-- 1. Religious Field -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">1</span>.
+                    <span data-i18n="religiousTitle">المجال الديني</span>
+                </h3>
+                <p data-i18n="religiousText">كان أوغسطينوس مسيحيًا كاثوليكيًا متمسكًا بأصول الدين المسيحي، فحارب الكفر والضلال بمقاومته للوثنية والفرق المسيحية المنشقة، ودافع عن وحدانية الله، وركز على الجانب الروحي للإيمان الذي اعتبره إلهامًا داخليًا، وتأثر بالفيلسوف اليوناني أفلاطون الذي اتجه إلى التصوف.</p>
+                <!-- 2. Social and Political Field -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">2</span>.
+                    <span data-i18n="socialPoliticalTitle">المجال الاجتماعي والسياسي</span>
+                </h3>
+                <p data-i18n="socialPoliticalText">دعا إلى التسامح والوفاق والتآخي بين الأفراد والشعوب، واعتبر العدالة ركيزة أساسية يقوم عليها الوفاق الاجتماعي، كما اعتبر السلم قاعدة عامة لكل المجتمعات.</p>
+                <p class="institution-power" data-i18n="humanistThought">تميز أوغسطينوس بتفكير إنساني، لذلك تأثر به عديد الفلاسفة مثل ديكارت.</p>
+                <!-- 3. Educational Field -->
+                <h3 class="sub-numeric-title">
+                    <span class="ordinal-number">3</span>.
+                    <span data-i18n="educationalTitle">المجال التعليمي</span>
+                </h3>
+                <p data-i18n="educationalText">أكد على تطوير أساليب التعلم، مثل: إصلاح الأخطاء، وضرورة التواصل بين المعلم والمتعلم، كما اعتبر أن الحيرة وجدية التفكير الطريقة المثلى للتعلم وللوصول إلى الحقيقة.</p>
+            </div>
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">مثل القديس أوغسطينوس مثالًا للتسامح الفكري، ومرجعًا للمفكرين المسيحيين في العصور الوسطى والحديثة.</p>
+            </div>
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defAugustine">القديس أوغسطينوس</strong>: <span data-i18n="defAugustineDesc">مفكر مسيحي من أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م ومات بهيبون (عنابة). درس بجامعة قرطاج وتشبع بالآداب اللاتينية وفلسفة أفلاطون، واعتنق المسيحية وشغل منصب أسقف هيبونا حتى وفاته. ترك 252 كتابًا في 92 مجلدًا، من أبرزها «الاعترافات» و«مدينة الله». تميز بتفكير إنساني وتسامح فكري، ويُعدّ مرجعًا للمفكرين المسيحيين في العصور الوسطى والحديثة.</span></li>
+                        <li><strong class="key-person" data-i18n="defPlato">أفلاطون</strong>: <span data-i18n="defPlatoDesc">فيلسوف يوناني اتجه إلى التصوف، تأثر به القديس أوغسطينوس في الجانب الروحي للإيمان الذي اعتبره إلهامًا داخليًا.</span></li>
+                        <li><strong class="key-person" data-i18n="defDescartes">ديكارت</strong>: <span data-i18n="defDescartesDesc">فيلسوف تأثر بالتفكير الإنساني للقديس أوغسطينوس.</span></li>
+                        <li><strong class="key-person" data-i18n="defTheodosius">الإمبراطور تيودروس</strong>: <span data-i18n="defTheodosiusDesc">إمبراطور روماني، في عهده أصبحت الديانة المسيحية الديانة الرسمية منذ 380م.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defThagaste">تاغست (سوق هراس)</strong>: <span data-i18n="defThagasteDesc">مسقط رأس القديس أوغسطينوس، وفيها تلقى تكوينه الأول.</span></li>
+                        <li><strong class="key-location" data-i18n="defHippo">هيبون (عنابة)</strong>: <span data-i18n="defHippoDesc">المدينة التي شغل فيها القديس أوغسطينوس منصب أسقف حتى وفاته سنة 430م.</span></li>
+                        <li><strong class="key-location" data-i18n="defNumidia">نوميديا</strong>: <span data-i18n="defNumidiaDesc">الأصول التي ينتمي إليها القديس أوغسطينوس.</span></li>
+                        <li><strong class="key-location" data-i18n="defRomeCity">روما</strong>: <span data-i18n="defRomeCityDesc">عاصمة الجزء الغربي من الإمبراطورية الرومانية بعد تقسيمها سنة 395م، وسقطت سنة 410م إثر هجومات البرابرة والقوطية والسلافية.</span></li>
+                        <li><strong class="key-location" data-i18n="defConstantinople">القسطنطينية</strong>: <span data-i18n="defConstantinopleDesc">عاصمة الجزء الشرقي من الإمبراطورية الرومانية بعد تقسيمها سنة 395م.</span></li>
+                        <li><strong class="key-location" data-i18n="defMilan">ميلانو</strong>: <span data-i18n="defMilanDesc">المدينة التي درس فيها أوغسطينوس الآداب والبلاغة ببلاط الإمبراطور، وفيها اعتنق المسيحية.</span></li>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">المدينة التي تابع فيها أوغسطينوس تكوينه الجامعي وتشبع بالآداب اللاتينية كالخطابة والمسرح.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defChristianityOfficial">المسيحية ديانة رسمية (380م)</strong>: <span data-i18n="defChristianityOfficialDesc">أصبحت الديانة المسيحية الديانة الرسمية للإمبراطورية الرومانية منذ 380م في عهد الإمبراطور تيودروس، ولكن المسيحيين انقسموا إلى فرق متناحرة.</span></li>
+                        <li><strong class="key-event" data-i18n="defEmpireDivision">تقسيم الإمبراطورية (395م)</strong>: <span data-i18n="defEmpireDivisionDesc">أفضى الصراع على السلطة إلى تقسيم الإمبراطورية الرومانية إلى جزئين شرقي وغربي منذ 395م، فمثلت روما عاصمة الجزء الغربي والقسطنطينية عاصمة الجزء الشرقي.</span></li>
+                        <li><strong class="key-event" data-i18n="defFallRome">سقوط روما (410م)</strong>: <span data-i18n="defFallRomeDesc">أسفرت هجومات البرابرة والقوطية والسلافية على الإمبراطورية الرومانية عن سقوط روما سنة 410م.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">345م – 430م</strong>: <span data-i18n="defYearAugustineDesc">الفترة التي عاش فيها القديس أوغسطينوس.</span></li>
+                        <li><strong class="key-year">380م</strong>: <span data-i18n="defYear380Desc">أصبحت الديانة المسيحية الديانة الرسمية للإمبراطورية الرومانية في عهد الإمبراطور تيودروس.</span></li>
+                        <li><strong class="key-year">395م</strong>: <span data-i18n="defYear395Desc">تقسيم الإمبراطورية الرومانية إلى جزئين شرقي وغربي.</span></li>
+                        <li><strong class="key-year">410م</strong>: <span data-i18n="defYear410Desc">سقوط روما إثر هجومات البرابرة والقوطية والسلافية.</span></li>
+                        <li><strong class="key-year">430م</strong>: <span data-i18n="defYear430Desc">وفاة القديس أوغسطينوس بهيبون (عنابة) وهو يشغل منصب أسقف هيبونا.</span></li>
+                    </ul>
+                </div>
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defConfessions">الاعترافات</strong>: <span data-i18n="defConfessionsDesc">من أبرز مؤلفات القديس أوغسطينوس، وقد هيمن عليها الفكر الديني.</span></li>
+                        <li><strong class="key-other" data-i18n="defCityOfGod">مدينة الله</strong>: <span data-i18n="defCityOfGodDesc">من أبرز مؤلفات القديس أوغسطينوس، وقد هيمن عليها الفكر الديني.</span></li>
+                        <li><strong class="key-other" data-i18n="defChristianTeaching">تعلم المسيحية</strong>: <span data-i18n="defChristianTeachingDesc">من أبرز مؤلفات القديس أوغسطينوس، وقد هيمن عليها الفكر الديني.</span></li>
+                        <li><strong class="key-other" data-i18n="defTheTeacher">المعلم</strong>: <span data-i18n="defTheTeacherDesc">من أبرز مؤلفات القديس أوغسطينوس، وقد هيمن عليها الفكر الديني.</span></li>
+                        <li><strong class="key-other" data-i18n="defHumanistThought">الفكر الإنساني</strong>: <span data-i18n="defHumanistThoughtDesc">سمة مميزة لتفكير القديس أوغسطينوس، تأثر بها عديد الفلاسفة مثل ديكارت، وتتجلى في دعوته إلى التسامح والوفاق والتآخي والعدالة والسلم.</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: مثّل القديس أوغسطينوس (345م – 430م) نموذجًا للازدهار الفكري في إفريقيا البروقنصلية، إذ جمع بين التكوين اللاتيني والفلسفة الأفلاطونية والإيمان المسيحي، وقد ترك 252 كتابًا في 92 مجلدًا، وركّز على الدفاع عن وحدانية الله ووحدانية الكنيسة، ودعا إلى التسامح والوفاق والسلم والعدالة، وأكّد على تطوير أساليب التعلم، فصار مثالًا للتسامح الفكري ومرجعًا للمفكرين المسيحيين في العصور الوسطى والحديثة.</div>
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط ومعطيات مصورة</h2>
+                <div class="gallery">
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/saint_augustine_portrait.jpg" alt="القديس أوغسطينوس" data-i18n-alt="galleryAlt1" loading="lazy">
+        <figcaption data-i18n="galleryCap1">القديس أوغسطينوس</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/thagaste_souk_ahras.jpg" alt="تاغست (سوق هراس) مسقط رأس أوغسطينوس" data-i18n-alt="galleryAlt2" loading="lazy">
+        <figcaption data-i18n="galleryCap2">تاغست (سوق هراس) مسقط رأس أوغسطينوس</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/hippo_regius_annaba.jpg" alt="هيبون (عنابة) مقر أسقفية أوغسطينوس" data-i18n-alt="galleryAlt3" loading="lazy">
+        <figcaption data-i18n="galleryCap3">هيبون (عنابة) مقر أسقفية أوغسطينوس</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/confessions_manuscript.jpg" alt="مخطوط «الاعترافات»" data-i18n-alt="galleryAlt4" loading="lazy">
+        <figcaption data-i18n="galleryCap4">مخطوط «الاعترافات»</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/city_of_god_manuscript.jpg" alt="مخطوط «مدينة الله»" data-i18n-alt="galleryAlt5" loading="lazy">
+        <figcaption data-i18n="galleryCap5">مخطوط «مدينة الله»</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="assets1sec/lessons/history/unit1/lesson2/augustine_and_plato.jpg" alt="تأثر أوغسطينوس بفلسفة أفلاطون" data-i18n-alt="galleryAlt6" loading="lazy">
+        <figcaption data-i18n="galleryCap6">تأثر أوغسطينوس بفلسفة أفلاطون</figcaption>
+    </figure>
+</div>
+            </div>
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y1sec_his_exercisess_mod1_lesson2_part4.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية، الشخصيات، الدول والمزيد</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط والروابط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "1st Secondary",
+                moduleName: "History / Unit 1: Carthage, a Civilizational Hub in the Mediterranean (5th c. BC – 5th c. AD)",
+                lessonTitleSample: "Carthage and Its Contributions to Roman Civilization: Intellectual Activity – Saint Augustine",
+                sectionIntro: "Introduction",
+                introText: "Africa Proconsularis was distinguished by intellectual prosperity reflected in the multiplicity of scholars, the most prominent of whom was Saint Augustine.",
+                problematiqueText: "Who is Saint Augustine? And what are his ideas?",
+                sectionPart1: "Factors Influencing the Personality of Saint Augustine",
+                upbringingTitle: "His Upbringing and the General Context",
+                upbringingSubtitle: "His Upbringing",
+                upbringingText: "Augustine belonged to Numidian origins. He was born in Thagaste (Souk Ahras) to a pagan father and a Christian mother. He lived between 345 AD and 430 AD, and died in Hippo (Annaba).",
+                contextSubtitle: "The Factors Influencing His Formation",
+                internalContextTitle: "On the internal level:",
+                internalContextText: "The struggle for power led to the division of the Empire into two parts, eastern and western, since 395 AD. Rome represented the capital of the western part, while Constantinople represented the capital of the eastern part. Christianity became the official religion since 380 AD in the era of Emperor Theodosius, but Christians split into warring factions.",
+                externalContextTitle: "On the external level:",
+                externalContextText: "The Roman Empire was subjected to attacks by the barbarians, the Goths, and the Slavs, resulting in the fall of Rome in 410 AD.",
+                formationTitle: "His Intellectual and Social Formation and His Most Prominent Works",
+                formationSubtitle: "His Formation",
+                formationText: "Augustine studied in Thagaste, then at the University of Carthage, and was steeped in Latin literature such as rhetoric and theater, and in the philosophy of Plato. He studied literature and rhetoric at the Emperor's court in Milan, embraced Christianity, and held the position of bishop of Hippo until his death in 430 AD.",
+                worksSubtitle: "His Works",
+                worksText: "Augustine left 252 books in 92 volumes, dominated by religious thought, such as: 'The Confessions', 'On Christian Teaching', 'The Teacher', and 'The City of God'.",
+                sectionPart2: "The Main Ideas of Saint Augustine",
+                religiousTitle: "The Religious Field",
+                religiousText: "Augustine was a Catholic Christian adhering to the foundations of the Christian religion. He fought unbelief and error by resisting paganism and the schismatic Christian sects, defended the oneness of God, and focused on the spiritual aspect of faith, which he considered an inner inspiration. He was influenced by the Greek philosopher Plato, who tended towards mysticism.",
+                socialPoliticalTitle: "The Social and Political Field",
+                socialPoliticalText: "He called for tolerance, harmony, and brotherhood among individuals and peoples. He considered justice an essential pillar upon which social harmony rests, and he considered peace a general rule for all societies.",
+                humanistThought: "Augustine was distinguished by humanist thought, which is why many philosophers such as Descartes were influenced by him.",
+                educationalTitle: "The Educational Field",
+                educationalText: "He emphasized the development of learning methods, such as: correcting mistakes and the necessity of communication between teacher and learner. He also considered that perplexity and seriousness of thinking are the optimal way to learn and to reach the truth.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Saint Augustine represented an example of intellectual tolerance and a reference for Christian thinkers in the Middle Ages and modern times.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Visuals",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries & Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years & Periods",
+                defOthers: "📌 Other",
+                defAugustine: "Saint Augustine",
+                defAugustineDesc: "A Christian thinker of Numidian origins, born in Thagaste (Souk Ahras) to a pagan father and a Christian mother. He lived between 345 AD and 430 AD and died in Hippo (Annaba). He studied at the University of Carthage and was steeped in Latin literature and the philosophy of Plato. He embraced Christianity and held the position of bishop of Hippo until his death. He left 252 books in 92 volumes, most notably 'The Confessions' and 'The City of God'. He was distinguished by humanist thought and intellectual tolerance, and is considered a reference for Christian thinkers in the Middle Ages and modern times.",
+                defPlato: "Plato",
+                defPlatoDesc: "A Greek philosopher who tended towards mysticism. Saint Augustine was influenced by him in the spiritual aspect of faith, which he considered an inner inspiration.",
+                defDescartes: "Descartes",
+                defDescartesDesc: "A philosopher influenced by the humanist thought of Saint Augustine.",
+                defTheodosius: "Emperor Theodosius",
+                defTheodosiusDesc: "A Roman emperor, in whose era Christianity became the official religion since 380 AD.",
+                defThagaste: "Thagaste (Souk Ahras)",
+                defThagasteDesc: "The birthplace of Saint Augustine, where he received his first formation.",
+                defHippo: "Hippo (Annaba)",
+                defHippoDesc: "The city where Saint Augustine held the position of bishop until his death in 430 AD.",
+                defNumidia: "Numidia",
+                defNumidiaDesc: "The origins to which Saint Augustine belonged.",
+                defRomeCity: "Rome",
+                defRomeCityDesc: "The capital of the western part of the Roman Empire after its division in 395 AD. It fell in 410 AD following the attacks of the barbarians, the Goths, and the Slavs.",
+                defConstantinople: "Constantinople",
+                defConstantinopleDesc: "The capital of the eastern part of the Roman Empire after its division in 395 AD.",
+                defMilan: "Milan",
+                defMilanDesc: "The city where Augustine studied literature and rhetoric at the Emperor's court, and where he embraced Christianity.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "The city where Augustine pursued his university formation and was steeped in Latin literature such as rhetoric and theater.",
+                defChristianityOfficial: "Christianity as Official Religion (380 AD)",
+                defChristianityOfficialDesc: "Christianity became the official religion of the Roman Empire since 380 AD in the era of Emperor Theodosius, but Christians split into warring factions.",
+                defEmpireDivision: "Division of the Empire (395 AD)",
+                defEmpireDivisionDesc: "The struggle for power led to the division of the Roman Empire into two parts, eastern and western, since 395 AD. Rome became the capital of the western part and Constantinople of the eastern part.",
+                defFallRome: "Fall of Rome (410 AD)",
+                defFallRomeDesc: "The attacks of the barbarians, the Goths, and the Slavs on the Roman Empire resulted in the fall of Rome in 410 AD.",
+                defYearAugustineDesc: "The period in which Saint Augustine lived.",
+                defYear380Desc: "Christianity became the official religion of the Roman Empire in the era of Emperor Theodosius.",
+                defYear395Desc: "The division of the Roman Empire into two parts, eastern and western.",
+                defYear410Desc: "The fall of Rome following the attacks of the barbarians, the Goths, and the Slavs.",
+                defYear430Desc: "The death of Saint Augustine in Hippo (Annaba) while he held the position of bishop of Hippo.",
+                defConfessions: "The Confessions",
+                defConfessionsDesc: "One of the most prominent works of Saint Augustine, dominated by religious thought.",
+                defCityOfGod: "The City of God",
+                defCityOfGodDesc: "One of the most prominent works of Saint Augustine, dominated by religious thought.",
+                defChristianTeaching: "On Christian Teaching",
+                defChristianTeachingDesc: "One of the most prominent works of Saint Augustine, dominated by religious thought.",
+                defTheTeacher: "The Teacher",
+                defTheTeacherDesc: "One of the most prominent works of Saint Augustine, dominated by religious thought.",
+                defHumanistThought: "Humanist Thought",
+                defHumanistThoughtDesc: "A distinctive feature of Saint Augustine's thought, which influenced many philosophers such as Descartes, and is reflected in his call for tolerance, harmony, brotherhood, justice, and peace.",
+                summaryText: "Key takeaway: Saint Augustine (345–430 AD) was a model of intellectual prosperity in Africa Proconsularis, combining Latin formation, Platonic philosophy, and Christian faith. He left 252 books in 92 volumes, focused on defending the oneness of God and the unity of the Church, called for tolerance, harmony, peace, and justice, and emphasized the development of learning methods, becoming an example of intellectual tolerance and a reference for Christian thinkers in the Middle Ages and modern times.",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                galleryAlt1: "Saint Augustine",
+                galleryAlt2: "Thagaste (Souk Ahras), birthplace of Augustine",
+                galleryAlt3: "Hippo (Annaba), seat of Augustine's bishopric",
+                galleryAlt4: "'The Confessions' manuscript",
+                galleryAlt5: "'The City of God' manuscript",
+                galleryAlt6: "Augustine influenced by Plato's philosophy",
+                galleryCap1: "Saint Augustine",
+                galleryCap2: "Thagaste (Souk Ahras), birthplace of Augustine",
+                galleryCap3: "Hippo (Annaba), seat of Augustine's bishopric",
+                galleryCap4: "'The Confessions' manuscript",
+                galleryCap5: "'The City of God' manuscript",
+                galleryCap6: "Augustine influenced by Plato's philosophy"
+            },
+            fr: {
+                yearSection: "1ère secondaire",
+                moduleName: "Histoire / Unité 1 : Carthage, pôle civilisationnel en Méditerranée (Ve s. av. J.-C. – Ve s. apr. J.-C.)",
+                lessonTitleSample: "Carthage et ses apports à la civilisation romaine : L'activité intellectuelle – Saint Augustin",
+                sectionIntro: "Introduction",
+                introText: "L'Afrique proconsulaire se distinguait par une prospérité intellectuelle reflétée par la multiplicité des savants, dont le plus éminent était Saint Augustin.",
+                problematiqueText: "Qui est Saint Augustin ? Et quelles sont ses idées ?",
+                sectionPart1: "Les facteurs influençant la personnalité de Saint Augustin",
+                upbringingTitle: "Sa jeunesse et le contexte général",
+                upbringingSubtitle: "Sa jeunesse",
+                upbringingText: "Augustin appartenait à des origines numides. Il est né à Thagaste (Souk Ahras) d'un père païen et d'une mère chrétienne. Il a vécu entre 345 apr. J.-C. et 430 apr. J.-C., et est mort à Hippone (Annaba).",
+                contextSubtitle: "Les facteurs influençant sa formation",
+                internalContextTitle: "Sur le plan intérieur :",
+                internalContextText: "La lutte pour le pouvoir a conduit à la division de l'Empire en deux parties, orientale et occidentale, depuis 395 apr. J.-C. Rome représentait la capitale de la partie occidentale, tandis que Constantinople représentait la capitale de la partie orientale. Le christianisme est devenu la religion officielle depuis 380 apr. J.-C. sous l'empereur Théodose, mais les chrétiens se sont divisés en factions antagonistes.",
+                externalContextTitle: "Sur le plan extérieur :",
+                externalContextText: "L'Empire romain a été soumis aux attaques des barbares, des Goths et des Slaves, entraînant la chute de Rome en 410 apr. J.-C.",
+                formationTitle: "Sa formation intellectuelle et sociale et ses œuvres les plus marquantes",
+                formationSubtitle: "Sa formation",
+                formationText: "Augustin a étudié à Thagaste, puis à l'université de Carthage, et s'est imprégné de la littérature latine comme la rhétorique et le théâtre, et de la philosophie de Platon. Il a étudié la littérature et la rhétorique à la cour de l'empereur à Milan, a embrassé le christianisme, et a occupé le poste d'évêque d'Hippone jusqu'à sa mort en 430 apr. J.-C.",
+                worksSubtitle: "Ses œuvres",
+                worksText: "Augustin a laissé 252 livres en 92 volumes, dominés par la pensée religieuse, tels que : « Les Confessions », « De la doctrine chrétienne », « Le Maître » et « La Cité de Dieu ».",
+                sectionPart2: "Les principales idées de Saint Augustin",
+                religiousTitle: "Le domaine religieux",
+                religiousText: "Augustin était un chrétien catholique attaché aux fondements de la religion chrétienne. Il a combattu l'incroyance et l'erreur en résistant au paganisme et aux sectes chrétiennes schismatiques, a défendu l'unicité de Dieu, et s'est concentré sur l'aspect spirituel de la foi, qu'il considérait comme une inspiration intérieure. Il a été influencé par le philosophe grec Platon, qui tendait vers le mysticisme.",
+                socialPoliticalTitle: "Le domaine social et politique",
+                socialPoliticalText: "Il a appelé à la tolérance, à l'harmonie et à la fraternité entre les individus et les peuples. Il considérait la justice comme un pilier essentiel sur lequel repose l'harmonie sociale, et il considérait la paix comme une règle générale pour toutes les sociétés.",
+                humanistThought: "Augustin se distinguait par une pensée humaniste, c'est pourquoi de nombreux philosophes tels que Descartes ont été influencés par lui.",
+                educationalTitle: "Le domaine éducatif",
+                educationalText: "Il a souligné le développement des méthodes d'apprentissage, telles que : la correction des erreurs et la nécessité de la communication entre l'enseignant et l'apprenant. Il a également considéré que la perplexité et le sérieux de la réflexion sont la meilleure façon d'apprendre et d'atteindre la vérité.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Saint Augustin a représenté un exemple de tolérance intellectuelle et une référence pour les penseurs chrétiens au Moyen Âge et à l'époque moderne.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et visuels",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays & régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années & Périodes",
+                defOthers: "📌 Autres",
+                defAugustine: "Saint Augustin",
+                defAugustineDesc: "Un penseur chrétien d'origine numide, né à Thagaste (Souk Ahras) d'un père païen et d'une mère chrétienne. Il a vécu entre 345 apr. J.-C. et 430 apr. J.-C. et est mort à Hippone (Annaba). Il a étudié à l'université de Carthage et s'est imprégné de la littérature latine et de la philosophie de Platon. Il a embrassé le christianisme et a occupé le poste d'évêque d'Hippone jusqu'à sa mort. Il a laissé 252 livres en 92 volumes, notamment « Les Confessions » et « La Cité de Dieu ». Il se distinguait par une pensée humaniste et une tolérance intellectuelle, et est considéré comme une référence pour les penseurs chrétiens au Moyen Âge et à l'époque moderne.",
+                defPlato: "Platon",
+                defPlatoDesc: "Un philosophe grec qui tendait vers le mysticisme. Saint Augustin a été influencé par lui dans l'aspect spirituel de la foi, qu'il considérait comme une inspiration intérieure.",
+                defDescartes: "Descartes",
+                defDescartesDesc: "Un philosophe influencé par la pensée humaniste de Saint Augustin.",
+                defTheodosius: "Empereur Théodose",
+                defTheodosiusDesc: "Un empereur romain, sous lequel le christianisme est devenu la religion officielle depuis 380 apr. J.-C.",
+                defThagaste: "Thagaste (Souk Ahras)",
+                defThagasteDesc: "Le lieu de naissance de Saint Augustin, où il a reçu sa première formation.",
+                defHippo: "Hippone (Annaba)",
+                defHippoDesc: "La ville où Saint Augustin a occupé le poste d'évêque jusqu'à sa mort en 430 apr. J.-C.",
+                defNumidia: "Numidie",
+                defNumidiaDesc: "Les origines auxquelles appartenait Saint Augustin.",
+                defRomeCity: "Rome",
+                defRomeCityDesc: "La capitale de la partie occidentale de l'Empire romain après sa division en 395 apr. J.-C. Elle est tombée en 410 apr. J.-C. à la suite des attaques des barbares, des Goths et des Slaves.",
+                defConstantinople: "Constantinople",
+                defConstantinopleDesc: "La capitale de la partie orientale de l'Empire romain après sa division en 395 apr. J.-C.",
+                defMilan: "Milan",
+                defMilanDesc: "La ville où Augustin a étudié la littérature et la rhétorique à la cour de l'empereur, et où il a embrassé le christianisme.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "La ville où Augustin a poursuivi sa formation universitaire et s'est imprégné de la littérature latine comme la rhétorique et le théâtre.",
+                defChristianityOfficial: "Le christianisme religion officielle (380 apr. J.-C.)",
+                defChristianityOfficialDesc: "Le christianisme est devenu la religion officielle de l'Empire romain depuis 380 apr. J.-C. sous l'empereur Théodose, mais les chrétiens se sont divisés en factions antagonistes.",
+                defEmpireDivision: "Division de l'Empire (395 apr. J.-C.)",
+                defEmpireDivisionDesc: "La lutte pour le pouvoir a conduit à la division de l'Empire romain en deux parties, orientale et occidentale, depuis 395 apr. J.-C. Rome est devenue la capitale de la partie occidentale et Constantinople de la partie orientale.",
+                defFallRome: "Chute de Rome (410 apr. J.-C.)",
+                defFallRomeDesc: "Les attaques des barbares, des Goths et des Slaves contre l'Empire romain ont entraîné la chute de Rome en 410 apr. J.-C.",
+                defYearAugustineDesc: "La période durant laquelle Saint Augustin a vécu.",
+                defYear380Desc: "Le christianisme est devenu la religion officielle de l'Empire romain sous l'empereur Théodose.",
+                defYear395Desc: "La division de l'Empire romain en deux parties, orientale et occidentale.",
+                defYear410Desc: "La chute de Rome à la suite des attaques des barbares, des Goths et des Slaves.",
+                defYear430Desc: "La mort de Saint Augustin à Hippone (Annaba) alors qu'il occupait le poste d'évêque d'Hippone.",
+                defConfessions: "Les Confessions",
+                defConfessionsDesc: "L'une des œuvres les plus marquantes de Saint Augustin, dominée par la pensée religieuse.",
+                defCityOfGod: "La Cité de Dieu",
+                defCityOfGodDesc: "L'une des œuvres les plus marquantes de Saint Augustin, dominée par la pensée religieuse.",
+                defChristianTeaching: "De la doctrine chrétienne",
+                defChristianTeachingDesc: "L'une des œuvres les plus marquantes de Saint Augustin, dominée par la pensée religieuse.",
+                defTheTeacher: "Le Maître",
+                defTheTeacherDesc: "L'une des œuvres les plus marquantes de Saint Augustin, dominée par la pensée religieuse.",
+                defHumanistThought: "Pensée humaniste",
+                defHumanistThoughtDesc: "Un trait distinctif de la pensée de Saint Augustin, qui a influencé de nombreux philosophes tels que Descartes, et se reflète dans son appel à la tolérance, à l'harmonie, à la fraternité, à la justice et à la paix.",
+                summaryText: "À retenir : Saint Augustin (345–430 apr. J.-C.) a été un modèle de prospérité intellectuelle en Afrique proconsulaire, combinant formation latine, philosophie platonicienne et foi chrétienne. Il a laissé 252 livres en 92 volumes, s'est concentré sur la défense de l'unicité de Dieu et de l'unité de l'Église, a appelé à la tolérance, à l'harmonie, à la paix et à la justice, et a souligné le développement des méthodes d'apprentissage, devenant un exemple de tolérance intellectuelle et une référence pour les penseurs chrétiens au Moyen Âge et à l'époque moderne.",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                galleryAlt1: "Saint Augustin",
+                galleryAlt2: "Thagaste (Souk Ahras), lieu de naissance d'Augustin",
+                galleryAlt3: "Hippone (Annaba), siège de l'évêché d'Augustin",
+                galleryAlt4: "Manuscrit des « Confessions »",
+                galleryAlt5: "Manuscrit de « La Cité de Dieu »",
+                galleryAlt6: "Augustin influencé par la philosophie de Platon",
+                galleryCap1: "Saint Augustin",
+                galleryCap2: "Thagaste (Souk Ahras), lieu de naissance d'Augustin",
+                galleryCap3: "Hippone (Annaba), siège de l'évêché d'Augustin",
+                galleryCap4: "Manuscrit des « Confessions »",
+                galleryCap5: "Manuscrit de « La Cité de Dieu »",
+                galleryCap6: "Augustin influencé par la philosophie de Platon"
+            },
+            ar: {
+                yearSection: "الأولى ثانوي",
+                moduleName: "التاريخ / الوحدة الأولى: قرطاج قطب حضاري في المتوسط (من القرن الخامس ق.م. إلى القرن الخامس الميلادي)",
+                lessonTitleSample: "قرطاج وإسهاماتها في الحضارة الرومانية: النشاط الفكري – القديس أوغسطينوس",
+                sectionIntro: "مقدمة",
+                introText: "تميزت إفريقيا البروقنصلية بازدهار فكري تمثل في تعدد العلماء، من أبرزهم القديس أوغسطينوس.",
+                problematiqueText: "فمن هو القديس أوغسطينوس؟ وما هي أفكاره؟",
+                sectionPart1: "العوامل المؤثرة في شخصية القديس أوغسطينوس",
+                upbringingTitle: "النشأة والظروف العامة",
+                upbringingSubtitle: "نشأته",
+                upbringingText: "ينتمي أوغسطينوس إلى أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م، ومات بهيبون (عنابة).",
+                contextSubtitle: "الظروف المؤثرة في تكوينه",
+                internalContextTitle: "على المستوى الداخلي:",
+                internalContextText: "أفضى الصراع على السلطة إلى تقسيم الإمبراطورية إلى جزئين شرقي وغربي منذ 395م، ومثلت روما عاصمة الجزء الغربي، بينما مثلت القسطنطينية عاصمة الجزء الشرقي، وأصبحت الديانة المسيحية الديانة الرسمية منذ 380م في عهد الإمبراطور تيودروس، ولكن المسيحيين انقسموا إلى فرق متناحرة.",
+                externalContextTitle: "على المستوى الخارجي:",
+                externalContextText: "تعرضت الإمبراطورية الرومانية إلى هجومات البرابرة والقوطية والسلافية، وأسفرت عن سقوط روما سنة 410م.",
+                formationTitle: "تكوينه الفكري والاجتماعي وأبرز مؤلفاته",
+                formationSubtitle: "تكوينه",
+                formationText: "درس أوغسطينوس بتاغست، ثم بجامعة قرطاج، وتشبع بالآداب اللاتينية كالخطابة والمسرح، وبفلسفة أفلاطون. ودرس الآداب والبلاغة ببلاط الإمبراطور في ميلانو، واعتنق المسيحية، وشغل منصب أسقف هيبونا حتى وفاته سنة 430م.",
+                worksSubtitle: "مؤلفاته",
+                worksText: "ترك أوغسطينوس 252 كتابًا في 92 مجلدًا، وقد هيمن عليها الفكر الديني، مثل: «الاعترافات»، و«تعلم المسيحية»، و«المعلم»، و«مدينة الله».",
+                sectionPart2: "أهم أفكار القديس أوغسطينوس",
+                religiousTitle: "المجال الديني",
+                religiousText: "كان أوغسطينوس مسيحيًا كاثوليكيًا متمسكًا بأصول الدين المسيحي، فحارب الكفر والضلال بمقاومته للوثنية والفرق المسيحية المنشقة، ودافع عن وحدانية الله، وركز على الجانب الروحي للإيمان الذي اعتبره إلهامًا داخليًا، وتأثر بالفيلسوف اليوناني أفلاطون الذي اتجه إلى التصوف.",
+                socialPoliticalTitle: "المجال الاجتماعي والسياسي",
+                socialPoliticalText: "دعا إلى التسامح والوفاق والتآخي بين الأفراد والشعوب، واعتبر العدالة ركيزة أساسية يقوم عليها الوفاق الاجتماعي، كما اعتبر السلم قاعدة عامة لكل المجتمعات.",
+                humanistThought: "تميز أوغسطينوس بتفكير إنساني، لذلك تأثر به عديد الفلاسفة مثل ديكارت.",
+                educationalTitle: "المجال التعليمي",
+                educationalText: "أكد على تطوير أساليب التعلم، مثل: إصلاح الأخطاء، وضرورة التواصل بين المعلم والمتعلم، كما اعتبر أن الحيرة وجدية التفكير الطريقة المثلى للتعلم وللوصول إلى الحقيقة.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "مثل القديس أوغسطينوس مثالًا للتسامح الفكري، ومرجعًا للمفكرين المسيحيين في العصور الوسطى والحديثة.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط ومعطيات مصورة",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOthers: "📌 أخرى",
+                defAugustine: "القديس أوغسطينوس",
+                defAugustineDesc: "مفكر مسيحي من أصول نوميدية، ولد في تاغست (سوق هراس) من أب وثني وأم مسيحية، وعاش بين 345م و430م ومات بهيبون (عنابة). درس بجامعة قرطاج وتشبع بالآداب اللاتينية وفلسفة أفلاطون، واعتنق المسيحية وشغل منصب أسقف هيبونا حتى وفاته. ترك 252 كتابًا في 92 مجلدًا، من أبرزها «الاعترافات» و«مدينة الله». تميز بتفكير إنساني وتسامح فكري، ويُعدّ مرجعًا للمفكرين المسيحيين في العصور الوسطى والحديثة.",
+                defPlato: "أفلاطون",
+                defPlatoDesc: "فيلسوف يوناني اتجه إلى التصوف، تأثر به القديس أوغسطينوس في الجانب الروحي للإيمان الذي اعتبره إلهامًا داخليًا.",
+                defDescartes: "ديكارت",
+                defDescartesDesc: "فيلسوف تأثر بالتفكير الإنساني للقديس أوغسطينوس.",
+                defTheodosius: "الإمبراطور تيودروس",
+                defTheodosiusDesc: "إمبراطور روماني، في عهده أصبحت الديانة المسيحية الديانة الرسمية منذ 380م.",
+                defThagaste: "تاغست (سوق هراس)",
+                defThagasteDesc: "مسقط رأس القديس أوغسطينوس، وفيها تلقى تكوينه الأول.",
+                defHippo: "هيبون (عنابة)",
+                defHippoDesc: "المدينة التي شغل فيها القديس أوغسطينوس منصب أسقف حتى وفاته سنة 430م.",
+                defNumidia: "نوميديا",
+                defNumidiaDesc: "الأصول التي ينتمي إليها القديس أوغسطينوس.",
+                defRomeCity: "روما",
+                defRomeCityDesc: "عاصمة الجزء الغربي من الإمبراطورية الرومانية بعد تقسيمها سنة 395م، وسقطت سنة 410م إثر هجومات البرابرة والقوطية والسلافية.",
+                defConstantinople: "القسطنطينية",
+                defConstantinopleDesc: "عاصمة الجزء الشرقي من الإمبراطورية الرومانية بعد تقسيمها سنة 395م.",
+                defMilan: "ميلانو",
+                defMilanDesc: "المدينة التي درس فيها أوغسطينوس الآداب والبلاغة ببلاط الإمبراطور، وفيها اعتنق المسيحية.",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "المدينة التي تابع فيها أوغسطينوس تكوينه الجامعي وتشبع بالآداب اللاتينية كالخطابة والمسرح.",
+                defChristianityOfficial: "المسيحية ديانة رسمية (380م)",
+                defChristianityOfficialDesc: "أصبحت الديانة المسيحية الديانة الرسمية للإمبراطورية الرومانية منذ 380م في عهد الإمبراطور تيودروس، ولكن المسيحيين انقسموا إلى فرق متناحرة.",
+                defEmpireDivision: "تقسيم الإمبراطورية (395م)",
+                defEmpireDivisionDesc: "أفضى الصراع على السلطة إلى تقسيم الإمبراطورية الرومانية إلى جزئين شرقي وغربي منذ 395م، فمثلت روما عاصمة الجزء الغربي والقسطنطينية عاصمة الجزء الشرقي.",
+                defFallRome: "سقوط روما (410م)",
+                defFallRomeDesc: "أسفرت هجومات البرابرة والقوطية والسلافية على الإمبراطورية الرومانية عن سقوط روما سنة 410م.",
+                defYearAugustineDesc: "الفترة التي عاش فيها القديس أوغسطينوس.",
+                defYear380Desc: "أصبحت الديانة المسيحية الديانة الرسمية للإمبراطورية الرومانية في عهد الإمبراطور تيودروس.",
+                defYear395Desc: "تقسيم الإمبراطورية الرومانية إلى جزئين شرقي وغربي.",
+                defYear410Desc: "سقوط روما إثر هجومات البرابرة والقوطية والسلافية.",
+                defYear430Desc: "وفاة القديس أوغسطينوس بهيبون (عنابة) وهو يشغل منصب أسقف هيبونا.",
+                defConfessions: "الاعترافات",
+                defConfessionsDesc: "من أبرز مؤلفات القديس أوغسطينوس، وقد هيمن عليها الفكر الديني.",
+                defCityOfGod: "مدينة الله",
+                defCityOfGodDesc: "من أبرز مؤلفات القديس أوغسطينوس، وقد هيمن عليها الفكر الديني.",
+                defChristianTeaching: "تعلم المسيحية",
+                defChristianTeachingDesc: "من أبرز مؤلفات القديس أوغسطينوس، وقد هيمن عليها الفكر الديني.",
+                defTheTeacher: "المعلم",
+                defTheTeacherDesc: "من أبرز مؤلفات القديس أوغسطينوس، وقد هيمن عليها الفكر الديني.",
+                defHumanistThought: "الفكر الإنساني",
+                defHumanistThoughtDesc: "سمة مميزة لتفكير القديس أوغسطينوس، تأثر بها عديد الفلاسفة مثل ديكارت، وتتجلى في دعوته إلى التسامح والوفاق والتآخي والعدالة والسلم.",
+                summaryText: "خلاصة: مثّل القديس أوغسطينوس (345م – 430م) نموذجًا للازدهار الفكري في إفريقيا البروقنصلية، إذ جمع بين التكوين اللاتيني والفلسفة الأفلاطونية والإيمان المسيحي، وقد ترك 252 كتابًا في 92 مجلدًا، وركّز على الدفاع عن وحدانية الله ووحدانية الكنيسة، ودعا إلى التسامح والوفاق والسلم والعدالة، وأكّد على تطوير أساليب التعلم، فصار مثالًا للتسامح الفكري ومرجعًا للمفكرين المسيحيين في العصور الوسطى والحديثة.",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                galleryAlt1: "القديس أوغسطينوس",
+                galleryAlt2: "تاغست (سوق هراس) مسقط رأس أوغسطينوس",
+                galleryAlt3: "هيبون (عنابة) مقر أسقفية أوغسطينوس",
+                galleryAlt4: "مخطوط «الاعترافات»",
+                galleryAlt5: "مخطوط «مدينة الله»",
+                galleryAlt6: "تأثر أوغسطينوس بفلسفة أفلاطون",
+                galleryCap1: "القديس أوغسطينوس",
+                galleryCap2: "تاغست (سوق هراس) مسقط رأس أوغسطينوس",
+                galleryCap3: "هيبون (عنابة) مقر أسقفية أوغسطينوس",
+                galleryCap4: "مخطوط «الاعترافات»",
+                galleryCap5: "مخطوط «مدينة الله»",
+                galleryCap6: "تأثر أوغسطينوس بفلسفة أفلاطون"
+            }
+        };
+    </script>
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Saint Augustine", class: "key-person", i18n: "defAugustine" },
+                { text: "Plato", class: "key-person", i18n: "defPlato" },
+                { text: "Descartes", class: "key-person", i18n: "defDescartes" },
+                { text: "Theodosius", class: "key-person", i18n: "defTheodosius" },
+                { text: "Thagaste", class: "key-location", i18n: "defThagaste" },
+                { text: "Hippo", class: "key-location", i18n: "defHippo" },
+                { text: "Numidia", class: "key-location", i18n: "defNumidia" },
+                { text: "Rome", class: "key-location", i18n: "defRomeCity" },
+                { text: "Constantinople", class: "key-location", i18n: "defConstantinople" },
+                { text: "Milan", class: "key-location", i18n: "defMilan" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Christianity as Official Religion", class: "key-event", i18n: "defChristianityOfficial" },
+                { text: "Division of the Empire", class: "key-event", i18n: "defEmpireDivision" },
+                { text: "Fall of Rome", class: "key-event", i18n: "defFallRome" },
+                { text: "The Confessions", class: "key-other", i18n: "defConfessions" },
+                { text: "The City of God", class: "key-other", i18n: "defCityOfGod" },
+                { text: "On Christian Teaching", class: "key-other", i18n: "defChristianTeaching" },
+                { text: "The Teacher", class: "key-other", i18n: "defTheTeacher" },
+                { text: "Humanist Thought", class: "key-other", i18n: "defHumanistThought" },
+                { text: "345", class: "key-year", i18n: null },
+                { text: "380", class: "key-year", i18n: null },
+                { text: "395", class: "key-year", i18n: null },
+                { text: "410", class: "key-year", i18n: null },
+                { text: "430", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Saint Augustin", class: "key-person", i18n: "defAugustine" },
+                { text: "Platon", class: "key-person", i18n: "defPlato" },
+                { text: "Descartes", class: "key-person", i18n: "defDescartes" },
+                { text: "Théodose", class: "key-person", i18n: "defTheodosius" },
+                { text: "Thagaste", class: "key-location", i18n: "defThagaste" },
+                { text: "Hippone", class: "key-location", i18n: "defHippo" },
+                { text: "Numidie", class: "key-location", i18n: "defNumidia" },
+                { text: "Rome", class: "key-location", i18n: "defRomeCity" },
+                { text: "Constantinople", class: "key-location", i18n: "defConstantinople" },
+                { text: "Milan", class: "key-location", i18n: "defMilan" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "christianisme religion officielle", class: "key-event", i18n: "defChristianityOfficial" },
+                { text: "Division de l'Empire", class: "key-event", i18n: "defEmpireDivision" },
+                { text: "Chute de Rome", class: "key-event", i18n: "defFallRome" },
+                { text: "Les Confessions", class: "key-other", i18n: "defConfessions" },
+                { text: "La Cité de Dieu", class: "key-other", i18n: "defCityOfGod" },
+                { text: "De la doctrine chrétienne", class: "key-other", i18n: "defChristianTeaching" },
+                { text: "Le Maître", class: "key-other", i18n: "defTheTeacher" },
+                { text: "Pensée humaniste", class: "key-other", i18n: "defHumanistThought" },
+                { text: "345", class: "key-year", i18n: null },
+                { text: "380", class: "key-year", i18n: null },
+                { text: "395", class: "key-year", i18n: null },
+                { text: "410", class: "key-year", i18n: null },
+                { text: "430", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "القديس أوغسطينوس", class: "key-person", i18n: "defAugustine" },
+                { text: "أفلاطون", class: "key-person", i18n: "defPlato" },
+                { text: "ديكارت", class: "key-person", i18n: "defDescartes" },
+                { text: "تيودروس", class: "key-person", i18n: "defTheodosius" },
+                { text: "تاغست", class: "key-location", i18n: "defThagaste" },
+                { text: "سوق هراس", class: "key-location", i18n: "defThagaste" },
+                { text: "هيبون", class: "key-location", i18n: "defHippo" },
+                { text: "عنابة", class: "key-location", i18n: "defHippo" },
+                { text: "نوميديا", class: "key-location", i18n: "defNumidia" },
+                { text: "روما", class: "key-location", i18n: "defRomeCity" },
+                { text: "القسطنطينية", class: "key-location", i18n: "defConstantinople" },
+                { text: "ميلانو", class: "key-location", i18n: "defMilan" },
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "تقسيم الإمبراطورية", class: "key-event", i18n: "defEmpireDivision" },
+                { text: "سقوط روما", class: "key-event", i18n: "defFallRome" },
+                { text: "الاعترافات", class: "key-other", i18n: "defConfessions" },
+                { text: "مدينة الله", class: "key-other", i18n: "defCityOfGod" },
+                { text: "تعلم المسيحية", class: "key-other", i18n: "defChristianTeaching" },
+                { text: "المعلم", class: "key-other", i18n: "defTheTeacher" },
+                { text: "الفكر الإنساني", class: "key-other", i18n: "defHumanistThought" },
+                { text: "345م", class: "key-year", i18n: null },
+                { text: "380م", class: "key-year", i18n: null },
+                { text: "395م", class: "key-year", i18n: null },
+                { text: "410م", class: "key-year", i18n: null },
+                { text: "430م", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
