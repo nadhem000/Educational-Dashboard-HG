@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">التاسعة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / المحور الأول: تونس والعالم من الحرب العالمية الأولى إلى الحرب العالمية الثانية</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">الحركة الوطنية التونسية في الثلاثينات</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">شهدت تونس في مطلع الثلاثينات ظروفاً متأزمة محلياً وعالمياً ساهمت في استعادة الحركة الوطنية لنشاطها وتطوير أساليب نضالها ضد المستعمر الفرنسي.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فما هي مظاهر الأزمة في البلاد التونسية في الثلاثينات؟ وما هي أبرز تجليات تطور الحركة الوطنية التونسية في هذه المرحلة؟</p>
+            </div>
+
+            <!-- Part I : Crisis -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">أوضاع متأزمة على جميع المستويات</span>
+                </h2>
+
+                <!-- 1. Economic and social crisis -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="ecoSocialTitle">أزمة اقتصادية واجتماعية خانقة</span>
+                </h4>
+
+                <h4 class="sub-alpha-title" style="margin-right:1.5rem;">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="sectorAgriTitle">القطاع الفلاحي</span>
+                </h4>
+                <p data-i18n="sectorAgriText">تضرّر القطاع الفلاحي بسبب <strong>الفلاحة البعلية</strong> ونقص الأمطار، وانهيار أسعار <strong>زيت الزيتون</strong> نتيجة الأزمة الاقتصادية العالمية سنة <strong>1929</strong>.</p>
+
+                <h4 class="sub-alpha-title" style="margin-right:1.5rem;">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="sectorIndustryTitle">القطاع الصناعي والمنجمي</span>
+                </h4>
+                <p data-i18n="sectorIndustryText">تأزّم القطاع الصناعي والمنجمي بسبب منافسة الفرنسيين والإيطاليين للحرفيين التونسيين وفشل السلط الاستعمارية في حل المشاكل.</p>
+
+                <h4 class="sub-alpha-title" style="margin-right:1.5rem;">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="socialResultsTitle">النتائج الاجتماعية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="socialResults1">إفلاس العديد من الحرفيين، وتراجع تشغيل عمال المناجم (من <strong>18,500</strong> عام 1930 إلى <strong>6,720</strong> عام 1935).</li>
+                    <li data-i18n="socialResults2">ارتفاع البطالة (وصلت إلى <strong>30 ألف عاطل</strong> بالعاصمة في أكتوبر 1935).</li>
+                    <li data-i18n="socialResults3">انتشار الفقر والبؤس والنزوح من الأرياف.</li>
+                </ul>
+
+                <!-- 2. Strengthening colonial policy -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="colonialPolicyTitle">تدعيم فرنسا لسياستها الاستعمارية</span>
+                </h4>
+                <p data-i18n="colonialPolicyText">سعت سلطات الاحتلال إلى تعزيز سيطرتها عبر:</p>
+                <ul>
+                    <li data-i18n="colonialPolicy1">إقامة <strong>المؤتمر الأفخارستي بقرطاج</strong> (1930).</li>
+                    <li data-i18n="colonialPolicy2">الاحتفال بمرور <strong>نصف قرن على الحماية</strong> (1931).</li>
+                    <li data-i18n="colonialPolicy3">تطبيق <strong>سياسة التجنيس</strong> (1932) لزيادة النفوذ الفرنسي.</li>
+                </ul>
+                <p data-i18n="colonialPolicyConclusion">وقد أثارت هذه السياسات غضب وتنديد النخب التونسية.</p>
+            </div>
+
+            <!-- Part II : Development of national movement -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">مظاهر تطور الحركة الوطنية التونسية في الثلاثينات</span>
+                </h2>
+
+                <!-- 1. New elite and Neo-Destour -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="newEliteTitle">بروز النخبة الجديدة ونشأة الحزب الحر الدستوري الجديد</span>
+                </h4>
+                <p data-i18n="newEliteText">عودة شباب مثقف بقيادة <strong>الحبيب بورقيبة</strong> و<strong>محمود الماطري</strong> وتأسيس جريدة <strong>«العمل التونسي»</strong> (1932)، ثم تأسيس <strong>الحزب الحر الدستوري الجديد</strong> في <strong>مؤتمر قصر هلال</strong> (2 مارس 1934) المعتمد على التعبئة الشعبية والاتصال المباشر بالفئات الاجتماعية.</p>
+
+                <!-- 2. Trade union revival -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="unionRevivalTitle">إحياء العمل النقابي</span>
+                </h4>
+                <p data-i18n="unionRevivalText">أتاحت حكومة <strong>الجبهة الشعبية</strong> بفرنسا مناخ انفراج سمح بتأسيس <strong>جامعة عموم العملة التونسية الثانية</strong> (27 جوان 1937)، غير أنها تعثّرت لاحقاً بسبب ضغوط النقابات الفرنسية والنزاعات السياسية، مما دفعها للاندماج مجدداً بنقابات فرنسا صيف 1938.</p>
+
+                <!-- 3. 9 April 1938 events -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="april1938Title">تجدّر الحركة الوطنية وأحداث 9 أفريل 1938</span>
+                </h4>
+                <ul>
+                    <li data-i18n="april1938_1">كثّف الحزب اتصاله بالجماهير عبر توسيع الشُعب وتصعيد النضال للمطالبة بالاستقلال وبرلمان تونسي.</li>
+                    <li data-i18n="april1938_2">أدت احتجاجات 8 و9 أفريل 1938 واعتقال القيادات إلى صدامات دامية سقط فيها قتلى وجرحى، أعقبها إعلان حالة الحصار وحل الحزب الدستوري الجديد واعتقال المناضلين.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">انتقلت الحركة الوطنية لمرحلة النضال الشعبي والارتباط المباشر بالجماهير، ومكن الوعي السياسي المتنامي من ترسيخ متغيرات حاسمة للمرحلة اللاحقة.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defBourguiba">الحبيب بورقيبة</strong>: <span data-i18n="defBourguibaDesc">زعيم الحركة الوطنية التونسية ومؤسس الحزب الحر الدستوري الجديد سنة 1934، وقائد النضال الوطني في الثلاثينات، وأصبح لاحقاً أول رئيس للجمهورية التونسية بعد الاستقلال سنة 1956.</span></li>
+                        <li><strong class="key-person" data-i18n="defMahmoudMatri">محمود الماطري</strong>: <span data-i18n="defMahmoudMatriDesc">من مؤسسي الحزب الحر الدستوري الجديد سنة 1934 مع الحبيب بورقيبة، ومن أبرز قادة الحركة الوطنية التونسية في الثلاثينات.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defTunisia">تونس</strong>: <span data-i18n="defTunisiaDesc">البلاد التونسية التي كانت مستعمرة فرنسية منذ 1881، وشهدت في الثلاثينات أزمة اقتصادية واجتماعية حادة، تزامنت مع تطور نوعي في الحركة الوطنية.</span></li>
+                        <li><strong class="key-location" data-i18n="defKsarHellal">قصر هلال</strong>: <span data-i18n="defKsarHellalDesc">مدينة تونسية احتضنت مؤتمر تأسيس الحزب الحر الدستوري الجديد يوم 2 مارس 1934، وهو حدث حاسم في تاريخ الحركة الوطنية التونسية.</span></li>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">مدينة أثرية تونسية احتضنت المؤتمر الأفخارستي سنة 1930 الذي نظّمته سلطات الاحتلال الفرنسي، وأثار غضب النخب التونسية.</span></li>
+                        <li><strong class="key-location" data-i18n="defFrance">فرنسا</strong>: <span data-i18n="defFranceDesc">القوة الاستعمارية في تونس، عرفت في الثلاثينات أزمة اقتصادية عالمية (1929)، وصعود حكومة الجبهة الشعبية سنة 1936 التي أتاحت مناخ انفراج مؤقت.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defEucharisticCongress">المؤتمر الأفخارستي بقرطاج</strong>: <span data-i18n="defEucharisticCongressDesc">مؤتمر نظّمته سلطات الاحتلال الفرنسي بقرطاج سنة 1930، واعتبرته النخب التونسية استفزازاً واستعراضاً للنفوذ الفرنسي، مما أثار غضبها وتنديدها.</span></li>
+                        <li><strong class="key-event" data-i18n="defHalfCenturyProtectorate">نصف قرن على الحماية</strong>: <span data-i18n="defHalfCenturyProtectorateDesc">احتفال نظّمته سلطات الاحتلال سنة 1931 بمناسبة مرور خمسين سنة على فرض الحماية الفرنسية على تونس، وأثار ردود فعل وطنية غاضبة.</span></li>
+                        <li><strong class="key-event" data-i18n="defKsarHellalCongress">مؤتمر قصر هلال</strong>: <span data-i18n="defKsarHellalCongressDesc">مؤتمر انعقد يوم 2 مارس 1934 بقصر هلال وأسّس الحزب الحر الدستوري الجديد، معتمداً على التعبئة الشعبية والاتصال المباشر بالفئات الاجتماعية، ويُعدّ لحظة تأسيسية في تاريخ الحركة الوطنية التونسية.</span></li>
+                        <li><strong class="key-event" data-i18n="defApril9Events">أحداث 9 أفريل 1938</strong>: <span data-i18n="defApril9EventsDesc">احتجاجات وقعت يومي 8 و9 أفريل 1938 للمطالبة بالاستقلال وبرلمان تونسي، أدت إلى صدامات دامية سقط فيها قتلى وجرحى، أعقبها إعلان حالة الحصار وحل الحزب الدستوري الجديد واعتقال المناضلين.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1929</strong>: <span data-i18n="defYear1929Desc">بداية الأزمة الاقتصادية العالمية التي أثّرت على الاقتصاد التونسي، خاصة على أسعار زيت الزيتون.</span></li>
+                        <li><strong class="key-year">1930</strong>: <span data-i18n="defYear1930Desc">انعقاد المؤتمر الأفخارستي بقرطاج، وتراجع تشغيل عمال المناجم إلى 18,500 عامل.</span></li>
+                        <li><strong class="key-year">1931</strong>: <span data-i18n="defYear1931Desc">الاحتفال بمرور نصف قرن على الحماية الفرنسية على تونس.</span></li>
+                        <li><strong class="key-year">1932</strong>: <span data-i18n="defYear1932Desc">تأسيس جريدة «العمل التونسي»، وتطبيق سياسة التجنيس من قبل سلطات الاحتلال.</span></li>
+                        <li><strong class="key-year">1934</strong>: <span data-i18n="defYear1934Desc">تأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال يوم 2 مارس.</span></li>
+                        <li><strong class="key-year">1935</strong>: <span data-i18n="defYear1935Desc">تراجع تشغيل عمال المناجم إلى 6,720 عامل، ووصول البطالة بالعاصمة إلى 30 ألف عاطل في أكتوبر.</span></li>
+                        <li><strong class="key-year">1936</strong>: <span data-i18n="defYear1936Desc">وصول حكومة الجبهة الشعبية إلى الحكم بفرنسا، مما أتاح مناخ انفراج مؤقت في تونس.</span></li>
+                        <li><strong class="key-year">1937</strong>: <span data-i18n="defYear1937Desc">تأسيس جامعة عموم العملة التونسية الثانية في 27 جوان.</span></li>
+                        <li><strong class="key-year">1938</strong>: <span data-i18n="defYear1938Desc">أحداث 9 أفريل، واندماج جامعة عموم العملة التونسية الثانية مجدداً بنقابات فرنسا صيف 1938.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏢 منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defNeoDestour">الحزب الحر الدستوري الجديد</strong>: <span data-i18n="defNeoDestourDesc">حزب سياسي وطني تأسس في مؤتمر قصر هلال يوم 2 مارس 1934 بقيادة الحبيب بورقيبة ومحمود الماطري، واعتمد على التعبئة الشعبية والاتصال المباشر بالفئات الاجتماعية، وقاد النضال من أجل الاستقلال وبرلمان تونسي، وقد تمّ حلّه بعد أحداث 9 أفريل 1938.</span></li>
+                        <li><strong class="key-organization" data-i18n="defSecondUnion">جامعة عموم العملة التونسية الثانية</strong>: <span data-i18n="defSecondUnionDesc">منظمة نقابية تونسية تأسست في 27 جوان 1937 في ظل مناخ الانفراج الذي أتاحته حكومة الجبهة الشعبية بفرنسا، غير أنها تعثرت لاحقاً بسبب ضغوط النقابات الفرنسية والنزاعات السياسية، فاندمجت مجدداً بنقابات فرنسا صيف 1938.</span></li>
+                        <li><strong class="key-organization" data-i18n="defTunisianAction">جريدة «العمل التونسي»</strong>: <span data-i18n="defTunisianActionDesc">جريدة أسّسها شباب الحركة الوطنية بقيادة الحبيب بورقيبة ومحمود الماطري سنة 1932، ومثّلت منبراً للتعبئة الشعبية والدفاع عن مطالب التونسيين.</span></li>
+                        <li><strong class="key-organization" data-i18n="defPopularFront">الجبهة الشعبية</strong>: <span data-i18n="defPopularFrontDesc">حكومة فرنسية وصلت إلى الحكم سنة 1936، وأتاحت في تونس مناخ انفراج مؤقت سمح بإحياء العمل النقابي وتأسيس جامعة عموم العملة التونسية الثانية سنة 1937.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defDryFarming">الفلاحة البعلية</strong>: <span data-i18n="defDryFarmingDesc">الفلاحة التي تعتمد على مياه الأمطار فقط دون سقي، وقد تضرّرت في الثلاثينات بسبب نقص الأمطار.</span></li>
+                        <li><strong class="key-other" data-i18n="defNaturalizationPolicy">سياسة التجنيس</strong>: <span data-i18n="defNaturalizationPolicyDesc">سياسة فرنسية طُبّقت سنة 1932، تهدف إلى منح الجنسية الفرنسية لبعض التونسيين لزيادة النفوذ الفرنسي في البلاد، وقد أثارت غضب النخب التونسية.</span></li>
+                        <li><strong class="key-other" data-i18n="defWorldEconomicCrisis">الأزمة الاقتصادية العالمية 1929</strong>: <span data-i18n="defWorldEconomicCrisisDesc">أزمة اقتصادية عالمية انطلقت سنة 1929 من الولايات المتحدة الأمريكية، وأثّرت على الاقتصاد التونسي من خلال انهيار أسعار زيت الزيتون وتراجع المبادلات التجارية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Summary box -->
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: شهدت تونس في الثلاثينات أزمة اقتصادية واجتماعية خانقة بفعل الأزمة العالمية 1929 وسياسة فرنسا الاستعمارية (المؤتمر الأفخارستي 1930، نصف قرن على الحماية 1931، سياسة التجنيس 1932). وقد قابلت الحركة الوطنية ذلك ببروز نخبة جديدة أسّست الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934)، وبإحياء العمل النقابي (جامعة عموم العملة الثانية 1937)، وبالنضال الشعبي الذي بلغ ذروته في أحداث 9 أفريل 1938، مما رسّخ انتقال الحركة الوطنية إلى مرحلة النضال الشعبي والارتباط المباشر بالجماهير.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط وصور توضيحية</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson3/habib_bourguiba_1930s.jpg" alt="الحبيب بورقيبة في الثلاثينات" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">الحبيب بورقيبة في الثلاثينات</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson3/ksar_hellal_congress_1934.jpg" alt="مؤتمر قصر هلال 1934" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">مؤتمر قصر هلال 1934</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson3/neo_destour_party_1934.jpg" alt="الحزب الحر الدستوري الجديد" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">الحزب الحر الدستوري الجديد</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson3/eucharistic_congress_1930.jpg" alt="المؤتمر الأفخارستي بقرطاج 1930" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">المؤتمر الأفخارستي بقرطاج 1930</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson3/april9_1938_events.jpg" alt="أحداث 9 أفريل 1938" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">أحداث 9 أفريل 1938</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson3/tunisian_workers_1937.jpg" alt="الحركة النقابية في الثلاثينات" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">الحركة النقابية في الثلاثينات</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y09_his_exercisess_mod1_lesson3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات، الشخصيات، الأحداث، السنوات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "9th Basic",
+                moduleName: "History / Axis 1: Tunisia and the World from World War I to World War II",
+                lessonTitleSample: "The Tunisian National Movement in the 1930s",
+                sectionIntro: "Introduction",
+                introText: "At the beginning of the 1930s, Tunisia experienced tense conditions locally and globally, which contributed to the national movement regaining its activity and developing its methods of struggle against French colonialism.",
+                problematiqueText: "What are the manifestations of the crisis in Tunisia in the 1930s? And what are the most prominent manifestations of the development of the Tunisian national movement during this period?",
+                sectionPart1: "A Tense Situation at All Levels",
+                ecoSocialTitle: "A Choking Economic and Social Crisis",
+                sectorAgriTitle: "The Agricultural Sector",
+                sectorAgriText: "The agricultural sector was harmed by <strong>dry farming</strong> and the lack of rain, and the collapse of <strong>olive oil</strong> prices as a result of the global economic crisis of <strong>1929</strong>.",
+                sectorIndustryTitle: "The Industrial and Mining Sector",
+                sectorIndustryText: "The industrial and mining sector deteriorated due to competition from the French and Italians against Tunisian artisans and the failure of the colonial authorities to solve the problems.",
+                socialResultsTitle: "Social Consequences",
+                socialResults1: "The bankruptcy of many artisans, and the decline in mining employment (from <strong>18,500</strong> in 1930 to <strong>6,720</strong> in 1935).",
+                socialResults2: "The rise of unemployment (reaching <strong>30,000 unemployed</strong> in the capital in October 1935).",
+                socialResults3: "The spread of poverty and misery and rural exodus.",
+                colonialPolicyTitle: "France's Strengthening of Its Colonial Policy",
+                colonialPolicyText: "The occupation authorities sought to strengthen their control through:",
+                colonialPolicy1: "Holding the <strong>Eucharistic Congress in Carthage</strong> (1930).",
+                colonialPolicy2: "Celebrating the <strong>half-century of the protectorate</strong> (1931).",
+                colonialPolicy3: "Applying the <strong>naturalization policy</strong> (1932) to increase French influence.",
+                colonialPolicyConclusion: "These policies aroused the anger and condemnation of Tunisian elites.",
+                sectionPart2: "Manifestations of the Development of the Tunisian National Movement in the 1930s",
+                newEliteTitle: "The Emergence of a New Elite and the Birth of the Neo-Destour Party",
+                newEliteText: "The return of educated young people led by <strong>Habib Bourguiba</strong> and <strong>Mahmoud El Materi</strong>, the founding of the newspaper <strong>'L'Action Tunisienne' (Al-Amal Al-Tounsi)</strong> (1932), then the founding of the <strong>Neo-Destour Party</strong> at the <strong>Ksar Hellal Congress</strong> (March 2, 1934), relying on popular mobilization and direct contact with social groups.",
+                unionRevivalTitle: "The Revival of Trade Union Action",
+                unionRevivalText: "The <strong>Popular Front</strong> government in France provided a climate of openness that allowed the founding of the <strong>Second General Tunisian Workers' Union</strong> (June 27, 1937). However, it later faltered due to pressure from French unions and political conflicts, which pushed it to merge again with French unions in the summer of 1938.",
+                april1938Title: "The Entrenchment of the National Movement and the Events of April 9, 1938",
+                april1938_1: "The party intensified its contact with the masses by expanding its branches and escalating the struggle to demand independence and a Tunisian parliament.",
+                april1938_2: "The protests of April 8 and 9, 1938 and the arrest of leaders led to bloody clashes in which there were dead and wounded, followed by the declaration of a state of siege, the dissolution of the Neo-Destour Party, and the arrest of militants.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The national movement moved to the stage of popular struggle and direct connection with the masses, and growing political awareness made it possible to entrench decisive changes for the next stage.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Illustrative Images",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries and Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years and Periods",
+                defOrganizations: "🏢 Organizations and Institutions",
+                defOthers: "📌 Other",
+                defBourguiba: "Habib Bourguiba",
+                defBourguibaDesc: "Leader of the Tunisian national movement and founder of the Neo-Destour Party in 1934, leader of the national struggle in the 1930s, who later became the first President of the Tunisian Republic after independence in 1956.",
+                defMahmoudMatri: "Mahmoud El Materi",
+                defMahmoudMatriDesc: "One of the founders of the Neo-Destour Party in 1934 with Habib Bourguiba, and one of the most prominent leaders of the Tunisian national movement in the 1930s.",
+                defTunisia: "Tunisia",
+                defTunisiaDesc: "The Tunisian country, a French colony since 1881, which experienced in the 1930s a severe economic and social crisis, coinciding with a qualitative development in the national movement.",
+                defKsarHellal: "Ksar Hellal",
+                defKsarHellalDesc: "A Tunisian city that hosted the founding congress of the Neo-Destour Party on March 2, 1934, a decisive event in the history of the Tunisian national movement.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "A Tunisian archaeological city that hosted the Eucharistic Congress in 1930 organized by the French occupation authorities, which aroused the anger of Tunisian elites.",
+                defFrance: "France",
+                defFranceDesc: "The colonial power in Tunisia; it experienced the global economic crisis of 1929 in the 1930s, and the rise of the Popular Front government in 1936 which provided a temporary climate of openness.",
+                defEucharisticCongress: "The Eucharistic Congress in Carthage",
+                defEucharisticCongressDesc: "A congress organized by the French occupation authorities in Carthage in 1930; Tunisian elites considered it a provocation and a display of French influence, which aroused their anger and condemnation.",
+                defHalfCenturyProtectorate: "Half a Century of the Protectorate",
+                defHalfCenturyProtectorateDesc: "A celebration organized by the occupation authorities in 1931 on the occasion of fifty years since the imposition of the French protectorate on Tunisia, which provoked angry national reactions.",
+                defKsarHellalCongress: "The Ksar Hellal Congress",
+                defKsarHellalCongressDesc: "A congress held on March 2, 1934 in Ksar Hellal that founded the Neo-Destour Party, relying on popular mobilization and direct contact with social groups, and is considered a founding moment in the history of the Tunisian national movement.",
+                defApril9Events: "The Events of April 9, 1938",
+                defApril9EventsDesc: "Protests that took place on April 8 and 9, 1938 to demand independence and a Tunisian parliament, leading to bloody clashes with dead and wounded, followed by the declaration of a state of siege, the dissolution of the Neo-Destour Party, and the arrest of militants.",
+                defYear1929Desc: "Beginning of the global economic crisis that affected the Tunisian economy, especially olive oil prices.",
+                defYear1930Desc: "Holding of the Eucharistic Congress in Carthage, and the decline of mining employment to 18,500 workers.",
+                defYear1931Desc: "Celebration of half a century of the French protectorate over Tunisia.",
+                defYear1932Desc: "Founding of 'L'Action Tunisienne' newspaper, and application of the naturalization policy by the occupation authorities.",
+                defYear1934Desc: "Founding of the Neo-Destour Party at the Ksar Hellal Congress on March 2.",
+                defYear1935Desc: "Decline of mining employment to 6,720 workers, and unemployment in the capital reaching 30,000 in October.",
+                defYear1936Desc: "The Popular Front government came to power in France, providing a temporary climate of openness in Tunisia.",
+                defYear1937Desc: "Founding of the Second General Tunisian Workers' Union on June 27.",
+                defYear1938Desc: "The events of April 9, and the merger of the Second General Tunisian Workers' Union again with French unions in the summer of 1938.",
+                defNeoDestour: "The Neo-Destour Party",
+                defNeoDestourDesc: "A national political party founded at the Ksar Hellal Congress on March 2, 1934, led by Habib Bourguiba and Mahmoud El Materi, relying on popular mobilization and direct contact with social groups, leading the struggle for independence and a Tunisian parliament; it was dissolved after the events of April 9, 1938.",
+                defSecondUnion: "The Second General Tunisian Workers' Union",
+                defSecondUnionDesc: "A Tunisian trade union organization founded on June 27, 1937 in the climate of openness provided by the Popular Front government in France; it later faltered due to pressure from French unions and political conflicts, so it merged again with French unions in the summer of 1938.",
+                defTunisianAction: "'L'Action Tunisienne' (Al-Amal Al-Tounsi) newspaper",
+                defTunisianActionDesc: "A newspaper founded by young national movement activists led by Habib Bourguiba and Mahmoud El Materi in 1932, which served as a platform for popular mobilization and defense of Tunisian demands.",
+                defPopularFront: "The Popular Front",
+                defPopularFrontDesc: "A French government that came to power in 1936 and provided a temporary climate of openness in Tunisia that allowed the revival of trade union action and the founding of the Second General Tunisian Workers' Union in 1937.",
+                defDryFarming: "Dry Farming",
+                defDryFarmingDesc: "Farming that relies only on rainwater without irrigation; it was harmed in the 1930s due to lack of rain.",
+                defNaturalizationPolicy: "The Naturalization Policy",
+                defNaturalizationPolicyDesc: "A French policy applied in 1932 aiming to grant French nationality to some Tunisians to increase French influence in the country, which aroused the anger of Tunisian elites.",
+                defWorldEconomicCrisis: "The Global Economic Crisis of 1929",
+                defWorldEconomicCrisisDesc: "A global economic crisis that began in 1929 in the United States of America and affected the Tunisian economy through the collapse of olive oil prices and the decline of trade.",
+                summaryText: "Key takeaway: In the 1930s, Tunisia experienced a severe economic and social crisis due to the global crisis of 1929 and France's colonial policy (the Eucharistic Congress 1930, half a century of the protectorate 1931, the naturalization policy 1932). The national movement responded with the emergence of a new elite that founded the Neo-Destour Party at the Ksar Hellal Congress (March 2, 1934), with the revival of trade union action (the Second General Tunisian Workers' Union 1937), and with popular struggle that peaked in the events of April 9, 1938, entrenching the national movement's transition to the stage of popular struggle and direct connection with the masses.",
+                galleryAlt1: "Habib Bourguiba in the 1930s",
+                galleryAlt2: "The Ksar Hellal Congress 1934",
+                galleryAlt3: "The Neo-Destour Party",
+                galleryAlt4: "The Eucharistic Congress in Carthage 1930",
+                galleryAlt5: "The Events of April 9, 1938",
+                galleryAlt6: "The Trade Union Movement in the 1930s",
+                galleryCap1: "Habib Bourguiba in the 1930s",
+                galleryCap2: "The Ksar Hellal Congress 1934",
+                galleryCap3: "The Neo-Destour Party",
+                galleryCap4: "The Eucharistic Congress in Carthage 1930",
+                galleryCap5: "The Events of April 9, 1938",
+                galleryCap6: "The Trade Union Movement in the 1930s",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, conclusion and summary",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, persons, events, years and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                yearSection: "9ème de base",
+                moduleName: "Histoire / Axe 1 : La Tunisie et le monde de la Première à la Seconde Guerre mondiale",
+                lessonTitleSample: "Le mouvement national tunisien dans les années 1930",
+                sectionIntro: "Introduction",
+                introText: "Au début des années 1930, la Tunisie a connu des conditions tendues sur les plans local et mondial, qui ont contribué à ce que le mouvement national retrouve son activité et développe ses méthodes de lutte contre le colonialisme français.",
+                problematiqueText: "Quelles sont les manifestations de la crise en Tunisie dans les années 1930 ? Et quelles sont les manifestations les plus marquantes du développement du mouvement national tunisien durant cette période ?",
+                sectionPart1: "Une situation tendue à tous les niveaux",
+                ecoSocialTitle: "Une crise économique et sociale étouffante",
+                sectorAgriTitle: "Le secteur agricole",
+                sectorAgriText: "Le secteur agricole a été touché par <strong>l'agriculture pluviale</strong> et le manque de pluie, ainsi que par l'effondrement des prix de <strong>l'huile d'olive</strong> à la suite de la crise économique mondiale de <strong>1929</strong>.",
+                sectorIndustryTitle: "Le secteur industriel et minier",
+                sectorIndustryText: "Le secteur industriel et minier s'est détérioré en raison de la concurrence des Français et des Italiens contre les artisans tunisiens et de l'échec des autorités coloniales à résoudre les problèmes.",
+                socialResultsTitle: "Conséquences sociales",
+                socialResults1: "La faillite de nombreux artisans, et le recul de l'emploi dans les mines (de <strong>18 500</strong> en 1930 à <strong>6 720</strong> en 1935).",
+                socialResults2: "La montée du chômage (atteignant <strong>30 000 chômeurs</strong> dans la capitale en octobre 1935).",
+                socialResults3: "La propagation de la pauvreté et de la misère et l'exode rural.",
+                colonialPolicyTitle: "Le renforcement par la France de sa politique coloniale",
+                colonialPolicyText: "Les autorités d'occupation ont cherché à renforcer leur contrôle par :",
+                colonialPolicy1: "La tenue du <strong>Congrès eucharistique à Carthage</strong> (1930).",
+                colonialPolicy2: "La célébration du <strong>demi-siècle du protectorat</strong> (1931).",
+                colonialPolicy3: "L'application de la <strong>politique de naturalisation</strong> (1932) pour accroître l'influence française.",
+                colonialPolicyConclusion: "Ces politiques ont suscité la colère et la condamnation des élites tunisiennes.",
+                sectionPart2: "Manifestations du développement du mouvement national tunisien dans les années 1930",
+                newEliteTitle: "L'émergence d'une nouvelle élite et la naissance du Néo-Destour",
+                newEliteText: "Le retour de jeunes instruits dirigés par <strong>Habib Bourguiba</strong> et <strong>Mahmoud El Materi</strong>, la fondation du journal <strong>« L'Action Tunisienne »</strong> (1932), puis la fondation du <strong>Néo-Destour</strong> au <strong>congrès de Ksar Hellal</strong> (2 mars 1934), s'appuyant sur la mobilisation populaire et le contact direct avec les groupes sociaux.",
+                unionRevivalTitle: "La relance de l'action syndicale",
+                unionRevivalText: "Le gouvernement du <strong>Front populaire</strong> en France a offert un climat d'ouverture qui a permis la fondation de la <strong>deuxième Union générale des travailleurs tunisiens</strong> (27 juin 1937). Cependant, elle a ensuite vacillé en raison des pressions des syndicats français et des conflits politiques, ce qui l'a poussée à fusionner de nouveau avec les syndicats français à l'été 1938.",
+                april1938Title: "L'enracinement du mouvement national et les événements du 9 avril 1938",
+                april1938_1: "Le parti a intensifié son contact avec les masses en élargissant ses sections et en intensifiant la lutte pour exiger l'indépendance et un parlement tunisien.",
+                april1938_2: "Les protestations des 8 et 9 avril 1938 et l'arrestation des dirigeants ont conduit à des affrontements sanglants avec des morts et des blessés, suivis de la déclaration de l'état de siège, de la dissolution du Néo-Destour et de l'arrestation des militants.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Le mouvement national est passé au stade de la lutte populaire et du lien direct avec les masses, et la conscience politique croissante a permis d'ancrer des changements décisifs pour l'étape suivante.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et images illustratives",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années et périodes",
+                defOrganizations: "🏢 Organisations et institutions",
+                defOthers: "📌 Autres",
+                defBourguiba: "Habib Bourguiba",
+                defBourguibaDesc: "Leader du mouvement national tunisien et fondateur du Néo-Destour en 1934, chef de la lutte nationale dans les années 1930, devenu plus tard le premier Président de la République tunisienne après l'indépendance en 1956.",
+                defMahmoudMatri: "Mahmoud El Materi",
+                defMahmoudMatriDesc: "L'un des fondateurs du Néo-Destour en 1934 avec Habib Bourguiba, et l'un des plus éminents dirigeants du mouvement national tunisien dans les années 1930.",
+                defTunisia: "Tunisie",
+                defTunisiaDesc: "Le pays tunisien, colonie française depuis 1881, a connu dans les années 1930 une grave crise économique et sociale, coïncidant avec un développement qualitatif du mouvement national.",
+                defKsarHellal: "Ksar Hellal",
+                defKsarHellalDesc: "Ville tunisienne qui a accueilli le congrès fondateur du Néo-Destour le 2 mars 1934, un événement décisif dans l'histoire du mouvement national tunisien.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "Ville archéologique tunisienne qui a accueilli le Congrès eucharistique en 1930 organisé par les autorités d'occupation françaises, ce qui a suscité la colère des élites tunisiennes.",
+                defFrance: "France",
+                defFranceDesc: "La puissance coloniale en Tunisie ; elle a connu dans les années 1930 la crise économique mondiale de 1929, et la montée du gouvernement du Front populaire en 1936 qui a offert un climat temporaire d'ouverture.",
+                defEucharisticCongress: "Le Congrès eucharistique de Carthage",
+                defEucharisticCongressDesc: "Un congrès organisé par les autorités d'occupation françaises à Carthage en 1930 ; les élites tunisiennes l'ont considéré comme une provocation et une démonstration de l'influence française, ce qui a suscité leur colère et leur condamnation.",
+                defHalfCenturyProtectorate: "Le demi-siècle du protectorat",
+                defHalfCenturyProtectorateDesc: "Une célébration organisée par les autorités d'occupation en 1931 à l'occasion de cinquante ans depuis l'imposition du protectorat français à la Tunisie, qui a provoqué des réactions nationales indignées.",
+                defKsarHellalCongress: "Le congrès de Ksar Hellal",
+                defKsarHellalCongressDesc: "Un congrès tenu le 2 mars 1934 à Ksar Hellal qui a fondé le Néo-Destour, s'appuyant sur la mobilisation populaire et le contact direct avec les groupes sociaux, et est considéré comme un moment fondateur dans l'histoire du mouvement national tunisien.",
+                defApril9Events: "Les événements du 9 avril 1938",
+                defApril9EventsDesc: "Des protestations qui ont eu lieu les 8 et 9 avril 1938 pour exiger l'indépendance et un parlement tunisien, conduisant à des affrontements sanglants avec des morts et des blessés, suivis de la déclaration de l'état de siège, de la dissolution du Néo-Destour et de l'arrestation des militants.",
+                defYear1929Desc: "Début de la crise économique mondiale qui a affecté l'économie tunisienne, notamment les prix de l'huile d'olive.",
+                defYear1930Desc: "Tenue du Congrès eucharistique à Carthage, et recul de l'emploi dans les mines à 18 500 ouvriers.",
+                defYear1931Desc: "Célébration du demi-siècle du protectorat français sur la Tunisie.",
+                defYear1932Desc: "Fondation du journal « L'Action Tunisienne », et application de la politique de naturalisation par les autorités d'occupation.",
+                defYear1934Desc: "Fondation du Néo-Destour au congrès de Ksar Hellal le 2 mars.",
+                defYear1935Desc: "Recul de l'emploi dans les mines à 6 720 ouvriers, et chômage dans la capitale atteignant 30 000 en octobre.",
+                defYear1936Desc: "Le gouvernement du Front populaire est arrivé au pouvoir en France, offrant un climat temporaire d'ouverture en Tunisie.",
+                defYear1937Desc: "Fondation de la deuxième Union générale des travailleurs tunisiens le 27 juin.",
+                defYear1938Desc: "Les événements du 9 avril, et la fusion de la deuxième Union générale des travailleurs tunisiens de nouveau avec les syndicats français à l'été 1938.",
+                defNeoDestour: "Le Néo-Destour",
+                defNeoDestourDesc: "Un parti politique national fondé au congrès de Ksar Hellal le 2 mars 1934, dirigé par Habib Bourguiba et Mahmoud El Materi, s'appuyant sur la mobilisation populaire et le contact direct avec les groupes sociaux, menant la lutte pour l'indépendance et un parlement tunisien ; il a été dissous après les événements du 9 avril 1938.",
+                defSecondUnion: "La deuxième Union générale des travailleurs tunisiens",
+                defSecondUnionDesc: "Une organisation syndicale tunisienne fondée le 27 juin 1937 dans le climat d'ouverture offert par le gouvernement du Front populaire en France ; elle a ensuite vacillé en raison des pressions des syndicats français et des conflits politiques, et a donc fusionné de nouveau avec les syndicats français à l'été 1938.",
+                defTunisianAction: "Le journal « L'Action Tunisienne »",
+                defTunisianActionDesc: "Un journal fondé par de jeunes militants du mouvement national dirigés par Habib Bourguiba et Mahmoud El Materi en 1932, qui a servi de plateforme de mobilisation populaire et de défense des revendications tunisiennes.",
+                defPopularFront: "Le Front populaire",
+                defPopularFrontDesc: "Un gouvernement français arrivé au pouvoir en 1936 et qui a offert un climat temporaire d'ouverture en Tunisie permettant la relance de l'action syndicale et la fondation de la deuxième Union générale des travailleurs tunisiens en 1937.",
+                defDryFarming: "L'agriculture pluviale",
+                defDryFarmingDesc: "Une agriculture qui ne dépend que des eaux de pluie sans irrigation ; elle a été touchée dans les années 1930 en raison du manque de pluie.",
+                defNaturalizationPolicy: "La politique de naturalisation",
+                defNaturalizationPolicyDesc: "Une politique française appliquée en 1932 visant à accorder la nationalité française à certains Tunisiens pour accroître l'influence française dans le pays, ce qui a suscité la colère des élites tunisiennes.",
+                defWorldEconomicCrisis: "La crise économique mondiale de 1929",
+                defWorldEconomicCrisisDesc: "Une crise économique mondiale qui a commencé en 1929 aux États-Unis d'Amérique et a affecté l'économie tunisienne par l'effondrement des prix de l'huile d'olive et le recul des échanges.",
+                summaryText: "À retenir : Dans les années 1930, la Tunisie a connu une grave crise économique et sociale due à la crise mondiale de 1929 et à la politique coloniale de la France (Congrès eucharistique 1930, demi-siècle du protectorat 1931, politique de naturalisation 1932). Le mouvement national y a répondu par l'émergence d'une nouvelle élite qui a fondé le Néo-Destour au congrès de Ksar Hellal (2 mars 1934), par la relance de l'action syndicale (deuxième Union générale des travailleurs tunisiens 1937), et par la lutte populaire qui a atteint son apogée dans les événements du 9 avril 1938, ancrant le passage du mouvement national au stade de la lutte populaire et du lien direct avec les masses.",
+                galleryAlt1: "Habib Bourguiba dans les années 1930",
+                galleryAlt2: "Le congrès de Ksar Hellal 1934",
+                galleryAlt3: "Le Néo-Destour",
+                galleryAlt4: "Le Congrès eucharistique de Carthage 1930",
+                galleryAlt5: "Les événements du 9 avril 1938",
+                galleryAlt6: "Le mouvement syndical dans les années 1930",
+                galleryCap1: "Habib Bourguiba dans les années 1930",
+                galleryCap2: "Le congrès de Ksar Hellal 1934",
+                galleryCap3: "Le Néo-Destour",
+                galleryCap4: "Le Congrès eucharistique de Carthage 1930",
+                galleryCap5: "Les événements du 9 avril 1938",
+                galleryCap6: "Le mouvement syndical dans les années 1930",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties, conclusion et résumé",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, personnes, événements, années et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                yearSection: "التاسعة أساسي",
+                moduleName: "التاريخ / المحور الأول: تونس والعالم من الحرب العالمية الأولى إلى الحرب العالمية الثانية",
+                lessonTitleSample: "الحركة الوطنية التونسية في الثلاثينات",
+                sectionIntro: "مقدمة",
+                introText: "شهدت تونس في مطلع الثلاثينات ظروفاً متأزمة محلياً وعالمياً ساهمت في استعادة الحركة الوطنية لنشاطها وتطوير أساليب نضالها ضد المستعمر الفرنسي.",
+                problematiqueText: "فما هي مظاهر الأزمة في البلاد التونسية في الثلاثينات؟ وما هي أبرز تجليات تطور الحركة الوطنية التونسية في هذه المرحلة؟",
+                sectionPart1: "أوضاع متأزمة على جميع المستويات",
+                ecoSocialTitle: "أزمة اقتصادية واجتماعية خانقة",
+                sectorAgriTitle: "القطاع الفلاحي",
+                sectorAgriText: "تضرّر القطاع الفلاحي بسبب <strong>الفلاحة البعلية</strong> ونقص الأمطار، وانهيار أسعار <strong>زيت الزيتون</strong> نتيجة الأزمة الاقتصادية العالمية سنة <strong>1929</strong>.",
+                sectorIndustryTitle: "القطاع الصناعي والمنجمي",
+                sectorIndustryText: "تأزّم القطاع الصناعي والمنجمي بسبب منافسة الفرنسيين والإيطاليين للحرفيين التونسيين وفشل السلط الاستعمارية في حل المشاكل.",
+                socialResultsTitle: "النتائج الاجتماعية",
+                socialResults1: "إفلاس العديد من الحرفيين، وتراجع تشغيل عمال المناجم (من <strong>18,500</strong> عام 1930 إلى <strong>6,720</strong> عام 1935).",
+                socialResults2: "ارتفاع البطالة (وصلت إلى <strong>30 ألف عاطل</strong> بالعاصمة في أكتوبر 1935).",
+                socialResults3: "انتشار الفقر والبؤس والنزوح من الأرياف.",
+                colonialPolicyTitle: "تدعيم فرنسا لسياستها الاستعمارية",
+                colonialPolicyText: "سعت سلطات الاحتلال إلى تعزيز سيطرتها عبر:",
+                colonialPolicy1: "إقامة <strong>المؤتمر الأفخارستي بقرطاج</strong> (1930).",
+                colonialPolicy2: "الاحتفال بمرور <strong>نصف قرن على الحماية</strong> (1931).",
+                colonialPolicy3: "تطبيق <strong>سياسة التجنيس</strong> (1932) لزيادة النفوذ الفرنسي.",
+                colonialPolicyConclusion: "وقد أثارت هذه السياسات غضب وتنديد النخب التونسية.",
+                sectionPart2: "مظاهر تطور الحركة الوطنية التونسية في الثلاثينات",
+                newEliteTitle: "بروز النخبة الجديدة ونشأة الحزب الحر الدستوري الجديد",
+                newEliteText: "عودة شباب مثقف بقيادة <strong>الحبيب بورقيبة</strong> و<strong>محمود الماطري</strong> وتأسيس جريدة <strong>«العمل التونسي»</strong> (1932)، ثم تأسيس <strong>الحزب الحر الدستوري الجديد</strong> في <strong>مؤتمر قصر هلال</strong> (2 مارس 1934) المعتمد على التعبئة الشعبية والاتصال المباشر بالفئات الاجتماعية.",
+                unionRevivalTitle: "إحياء العمل النقابي",
+                unionRevivalText: "أتاحت حكومة <strong>الجبهة الشعبية</strong> بفرنسا مناخ انفراج سمح بتأسيس <strong>جامعة عموم العملة التونسية الثانية</strong> (27 جوان 1937)، غير أنها تعثّرت لاحقاً بسبب ضغوط النقابات الفرنسية والنزاعات السياسية، مما دفعها للاندماج مجدداً بنقابات فرنسا صيف 1938.",
+                april1938Title: "تجدّر الحركة الوطنية وأحداث 9 أفريل 1938",
+                april1938_1: "كثّف الحزب اتصاله بالجماهير عبر توسيع الشُعب وتصعيد النضال للمطالبة بالاستقلال وبرلمان تونسي.",
+                april1938_2: "أدت احتجاجات 8 و9 أفريل 1938 واعتقال القيادات إلى صدامات دامية سقط فيها قتلى وجرحى، أعقبها إعلان حالة الحصار وحل الحزب الدستوري الجديد واعتقال المناضلين.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "انتقلت الحركة الوطنية لمرحلة النضال الشعبي والارتباط المباشر بالجماهير، ومكن الوعي السياسي المتنامي من ترسيخ متغيرات حاسمة للمرحلة اللاحقة.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط وصور توضيحية",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOrganizations: "🏢 منظمات ومؤسسات",
+                defOthers: "📌 أخرى",
+                defBourguiba: "الحبيب بورقيبة",
+                defBourguibaDesc: "زعيم الحركة الوطنية التونسية ومؤسس الحزب الحر الدستوري الجديد سنة 1934، وقائد النضال الوطني في الثلاثينات، وأصبح لاحقاً أول رئيس للجمهورية التونسية بعد الاستقلال سنة 1956.",
+                defMahmoudMatri: "محمود الماطري",
+                defMahmoudMatriDesc: "من مؤسسي الحزب الحر الدستوري الجديد سنة 1934 مع الحبيب بورقيبة، ومن أبرز قادة الحركة الوطنية التونسية في الثلاثينات.",
+                defTunisia: "تونس",
+                defTunisiaDesc: "البلاد التونسية التي كانت مستعمرة فرنسية منذ 1881، وشهدت في الثلاثينات أزمة اقتصادية واجتماعية حادة، تزامنت مع تطور نوعي في الحركة الوطنية.",
+                defKsarHellal: "قصر هلال",
+                defKsarHellalDesc: "مدينة تونسية احتضنت مؤتمر تأسيس الحزب الحر الدستوري الجديد يوم 2 مارس 1934، وهو حدث حاسم في تاريخ الحركة الوطنية التونسية.",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "مدينة أثرية تونسية احتضنت المؤتمر الأفخارستي سنة 1930 الذي نظّمته سلطات الاحتلال الفرنسي، وأثار غضب النخب التونسية.",
+                defFrance: "فرنسا",
+                defFranceDesc: "القوة الاستعمارية في تونس، عرفت في الثلاثينات أزمة اقتصادية عالمية (1929)، وصعود حكومة الجبهة الشعبية سنة 1936 التي أتاحت مناخ انفراج مؤقت.",
+                defEucharisticCongress: "المؤتمر الأفخارستي بقرطاج",
+                defEucharisticCongressDesc: "مؤتمر نظّمته سلطات الاحتلال الفرنسي بقرطاج سنة 1930، واعتبرته النخب التونسية استفزازاً واستعراضاً للنفوذ الفرنسي، مما أثار غضبها وتنديدها.",
+                defHalfCenturyProtectorate: "نصف قرن على الحماية",
+                defHalfCenturyProtectorateDesc: "احتفال نظّمته سلطات الاحتلال سنة 1931 بمناسبة مرور خمسين سنة على فرض الحماية الفرنسية على تونس، وأثار ردود فعل وطنية غاضبة.",
+                defKsarHellalCongress: "مؤتمر قصر هلال",
+                defKsarHellalCongressDesc: "مؤتمر انعقد يوم 2 مارس 1934 بقصر هلال وأسّس الحزب الحر الدستوري الجديد، معتمداً على التعبئة الشعبية والاتصال المباشر بالفئات الاجتماعية، ويُعدّ لحظة تأسيسية في تاريخ الحركة الوطنية التونسية.",
+                defApril9Events: "أحداث 9 أفريل 1938",
+                defApril9EventsDesc: "احتجاجات وقعت يومي 8 و9 أفريل 1938 للمطالبة بالاستقلال وبرلمان تونسي، أدت إلى صدامات دامية سقط فيها قتلى وجرحى، أعقبها إعلان حالة الحصار وحل الحزب الدستوري الجديد واعتقال المناضلين.",
+                defYear1929Desc: "بداية الأزمة الاقتصادية العالمية التي أثّرت على الاقتصاد التونسي، خاصة على أسعار زيت الزيتون.",
+                defYear1930Desc: "انعقاد المؤتمر الأفخارستي بقرطاج، وتراجع تشغيل عمال المناجم إلى 18,500 عامل.",
+                defYear1931Desc: "الاحتفال بمرور نصف قرن على الحماية الفرنسية على تونس.",
+                defYear1932Desc: "تأسيس جريدة «العمل التونسي»، وتطبيق سياسة التجنيس من قبل سلطات الاحتلال.",
+                defYear1934Desc: "تأسيس الحزب الحر الدستوري الجديد في مؤتمر قصر هلال يوم 2 مارس.",
+                defYear1935Desc: "تراجع تشغيل عمال المناجم إلى 6,720 عامل، ووصول البطالة بالعاصمة إلى 30 ألف عاطل في أكتوبر.",
+                defYear1936Desc: "وصول حكومة الجبهة الشعبية إلى الحكم بفرنسا، مما أتاح مناخ انفراج مؤقت في تونس.",
+                defYear1937Desc: "تأسيس جامعة عموم العملة التونسية الثانية في 27 جوان.",
+                defYear1938Desc: "أحداث 9 أفريل، واندماج جامعة عموم العملة التونسية الثانية مجدداً بنقابات فرنسا صيف 1938.",
+                defNeoDestour: "الحزب الحر الدستوري الجديد",
+                defNeoDestourDesc: "حزب سياسي وطني تأسس في مؤتمر قصر هلال يوم 2 مارس 1934 بقيادة الحبيب بورقيبة ومحمود الماطري، واعتمد على التعبئة الشعبية والاتصال المباشر بالفئات الاجتماعية، وقاد النضال من أجل الاستقلال وبرلمان تونسي، وقد تمّ حلّه بعد أحداث 9 أفريل 1938.",
+                defSecondUnion: "جامعة عموم العملة التونسية الثانية",
+                defSecondUnionDesc: "منظمة نقابية تونسية تأسست في 27 جوان 1937 في ظل مناخ الانفراج الذي أتاحته حكومة الجبهة الشعبية بفرنسا، غير أنها تعثرت لاحقاً بسبب ضغوط النقابات الفرنسية والنزاعات السياسية، فاندمجت مجدداً بنقابات فرنسا صيف 1938.",
+                defTunisianAction: "جريدة «العمل التونسي»",
+                defTunisianActionDesc: "جريدة أسّسها شباب الحركة الوطنية بقيادة الحبيب بورقيبة ومحمود الماطري سنة 1932، ومثّلت منبراً للتعبئة الشعبية والدفاع عن مطالب التونسيين.",
+                defPopularFront: "الجبهة الشعبية",
+                defPopularFrontDesc: "حكومة فرنسية وصلت إلى الحكم سنة 1936، وأتاحت في تونس مناخ انفراج مؤقت سمح بإحياء العمل النقابي وتأسيس جامعة عموم العملة التونسية الثانية سنة 1937.",
+                defDryFarming: "الفلاحة البعلية",
+                defDryFarmingDesc: "الفلاحة التي تعتمد على مياه الأمطار فقط دون سقي، وقد تضرّرت في الثلاثينات بسبب نقص الأمطار.",
+                defNaturalizationPolicy: "سياسة التجنيس",
+                defNaturalizationPolicyDesc: "سياسة فرنسية طُبّقت سنة 1932، تهدف إلى منح الجنسية الفرنسية لبعض التونسيين لزيادة النفوذ الفرنسي في البلاد، وقد أثارت غضب النخب التونسية.",
+                defWorldEconomicCrisis: "الأزمة الاقتصادية العالمية 1929",
+                defWorldEconomicCrisisDesc: "أزمة اقتصادية عالمية انطلقت سنة 1929 من الولايات المتحدة الأمريكية، وأثّرت على الاقتصاد التونسي من خلال انهيار أسعار زيت الزيتون وتراجع المبادلات التجارية.",
+                summaryText: "خلاصة: شهدت تونس في الثلاثينات أزمة اقتصادية واجتماعية خانقة بفعل الأزمة العالمية 1929 وسياسة فرنسا الاستعمارية (المؤتمر الأفخارستي 1930، نصف قرن على الحماية 1931، سياسة التجنيس 1932). وقد قابلت الحركة الوطنية ذلك ببروز نخبة جديدة أسّست الحزب الحر الدستوري الجديد في مؤتمر قصر هلال (2 مارس 1934)، وبإحياء العمل النقابي (جامعة عموم العملة الثانية 1937)، وبالنضال الشعبي الذي بلغ ذروته في أحداث 9 أفريل 1938، مما رسّخ انتقال الحركة الوطنية إلى مرحلة النضال الشعبي والارتباط المباشر بالجماهير.",
+                galleryAlt1: "الحبيب بورقيبة في الثلاثينات",
+                galleryAlt2: "مؤتمر قصر هلال 1934",
+                galleryAlt3: "الحزب الحر الدستوري الجديد",
+                galleryAlt4: "المؤتمر الأفخارستي بقرطاج 1930",
+                galleryAlt5: "أحداث 9 أفريل 1938",
+                galleryAlt6: "الحركة النقابية في الثلاثينات",
+                galleryCap1: "الحبيب بورقيبة في الثلاثينات",
+                galleryCap2: "مؤتمر قصر هلال 1934",
+                galleryCap3: "الحزب الحر الدستوري الجديد",
+                galleryCap4: "المؤتمر الأفخارستي بقرطاج 1930",
+                galleryCap5: "أحداث 9 أفريل 1938",
+                galleryCap6: "الحركة النقابية في الثلاثينات",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة، الأجزاء، الخاتمة والخلاصة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات، الأعلام، الأحداث، السنوات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Neo-Destour", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "Neo-Destour Party", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "Second General Tunisian Workers' Union", class: "key-organization", i18n: "defSecondUnion" },
+                { text: "L'Action Tunisienne", class: "key-organization", i18n: "defTunisianAction" },
+                { text: "Popular Front", class: "key-organization", i18n: "defPopularFront" },
+                { text: "Habib Bourguiba", class: "key-person", i18n: "defBourguiba" },
+                { text: "Mahmoud El Materi", class: "key-person", i18n: "defMahmoudMatri" },
+                { text: "Tunisia", class: "key-location", i18n: "defTunisia" },
+                { text: "Ksar Hellal", class: "key-location", i18n: "defKsarHellal" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Eucharistic Congress", class: "key-event", i18n: "defEucharisticCongress" },
+                { text: "Half a Century of the Protectorate", class: "key-event", i18n: "defHalfCenturyProtectorate" },
+                { text: "Ksar Hellal Congress", class: "key-event", i18n: "defKsarHellalCongress" },
+                { text: "Events of April 9, 1938", class: "key-event", i18n: "defApril9Events" },
+                { text: "Dry Farming", class: "key-other", i18n: "defDryFarming" },
+                { text: "Naturalization Policy", class: "key-other", i18n: "defNaturalizationPolicy" },
+                { text: "Global Economic Crisis", class: "key-other", i18n: "defWorldEconomicCrisis" },
+                { text: "1929", class: "key-year", i18n: null },
+                { text: "1930", class: "key-year", i18n: null },
+                { text: "1931", class: "key-year", i18n: null },
+                { text: "1932", class: "key-year", i18n: null },
+                { text: "1934", class: "key-year", i18n: null },
+                { text: "1935", class: "key-year", i18n: null },
+                { text: "1936", class: "key-year", i18n: null },
+                { text: "1937", class: "key-year", i18n: null },
+                { text: "1938", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Néo-Destour", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "deuxième Union générale des travailleurs tunisiens", class: "key-organization", i18n: "defSecondUnion" },
+                { text: "L'Action Tunisienne", class: "key-organization", i18n: "defTunisianAction" },
+                { text: "Front populaire", class: "key-organization", i18n: "defPopularFront" },
+                { text: "Habib Bourguiba", class: "key-person", i18n: "defBourguiba" },
+                { text: "Mahmoud El Materi", class: "key-person", i18n: "defMahmoudMatri" },
+                { text: "Tunisie", class: "key-location", i18n: "defTunisia" },
+                { text: "Ksar Hellal", class: "key-location", i18n: "defKsarHellal" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Congrès eucharistique", class: "key-event", i18n: "defEucharisticCongress" },
+                { text: "demi-siècle du protectorat", class: "key-event", i18n: "defHalfCenturyProtectorate" },
+                { text: "congrès de Ksar Hellal", class: "key-event", i18n: "defKsarHellalCongress" },
+                { text: "événements du 9 avril 1938", class: "key-event", i18n: "defApril9Events" },
+                { text: "agriculture pluviale", class: "key-other", i18n: "defDryFarming" },
+                { text: "politique de naturalisation", class: "key-other", i18n: "defNaturalizationPolicy" },
+                { text: "crise économique mondiale", class: "key-other", i18n: "defWorldEconomicCrisis" },
+                { text: "1929", class: "key-year", i18n: null },
+                { text: "1930", class: "key-year", i18n: null },
+                { text: "1931", class: "key-year", i18n: null },
+                { text: "1932", class: "key-year", i18n: null },
+                { text: "1934", class: "key-year", i18n: null },
+                { text: "1935", class: "key-year", i18n: null },
+                { text: "1936", class: "key-year", i18n: null },
+                { text: "1937", class: "key-year", i18n: null },
+                { text: "1938", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "الحزب الحر الدستوري الجديد", class: "key-organization", i18n: "defNeoDestour" },
+                { text: "جامعة عموم العملة التونسية الثانية", class: "key-organization", i18n: "defSecondUnion" },
+                { text: "العمل التونسي", class: "key-organization", i18n: "defTunisianAction" },
+                { text: "الجبهة الشعبية", class: "key-organization", i18n: "defPopularFront" },
+                { text: "الحبيب بورقيبة", class: "key-person", i18n: "defBourguiba" },
+                { text: "محمود الماطري", class: "key-person", i18n: "defMahmoudMatri" },
+                { text: "تونس", class: "key-location", i18n: "defTunisia" },
+                { text: "قصر هلال", class: "key-location", i18n: "defKsarHellal" },
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "فرنسا", class: "key-location", i18n: "defFrance" },
+                { text: "المؤتمر الأفخارستي", class: "key-event", i18n: "defEucharisticCongress" },
+                { text: "نصف قرن على الحماية", class: "key-event", i18n: "defHalfCenturyProtectorate" },
+                { text: "مؤتمر قصر هلال", class: "key-event", i18n: "defKsarHellalCongress" },
+                { text: "أحداث 9 أفريل 1938", class: "key-event", i18n: "defApril9Events" },
+                { text: "الفلاحة البعلية", class: "key-other", i18n: "defDryFarming" },
+                { text: "سياسة التجنيس", class: "key-other", i18n: "defNaturalizationPolicy" },
+                { text: "الأزمة الاقتصادية العالمية", class: "key-other", i18n: "defWorldEconomicCrisis" },
+                { text: "1929", class: "key-year", i18n: null },
+                { text: "1930", class: "key-year", i18n: null },
+                { text: "1931", class: "key-year", i18n: null },
+                { text: "1932", class: "key-year", i18n: null },
+                { text: "1934", class: "key-year", i18n: null },
+                { text: "1935", class: "key-year", i18n: null },
+                { text: "1936", class: "key-year", i18n: null },
+                { text: "1937", class: "key-year", i18n: null },
+                { text: "1938", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

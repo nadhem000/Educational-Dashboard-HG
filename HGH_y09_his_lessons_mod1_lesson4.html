@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">التاسعة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / المحور الأول: تونس والعالم من الحرب العالمية الأولى إلى الحرب العالمية الثانية</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">أسباب الحرب العالمية الثانية</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">بعد 20 سنة من انتهاء الحرب العالمية الأولى وإبرام مؤتمر الصلح في باريس سنة 1919 خاض العالم حرباً ثانية دامت من سبتمبر 1939 إلى أوت 1945.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فما هي أسباب هذه الحرب؟</p>
+            </div>
+
+            <!-- Part I : Deep causes -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">الأسباب العميقة للحرب العالمية الثانية</span>
+                </h2>
+
+                <!-- 1. Economic crisis -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="ecoDeepTitle">تعميق الأزمة الاقتصادية العالمية لآثار الحرب العالمية الأولى</span>
+                </h4>
+                <ul>
+                    <li data-i18n="ecoDeep1">كانت ألمانيا أكثر الدول تضرراً من آثار الحرب العالمية الأولى وخاصة من قسوة <strong>معاهدة فرساي</strong>، فقد فقدت بمقتضاها أجزاء هامة من ترابها وتشتت الشعب الألماني كما فُرضت عليها تعويضات مجحفة بقي منها سنة 1929 <strong>39 مليار مارك</strong>.</li>
+                    <li data-i18n="ecoDeep2">فرضت الأزمة الاقتصادية موازنات جديدة، فقد انطلقت هذه الأزمة من الولايات المتحدة الأمريكية يوم <strong>24 أكتوبر 1929</strong> إثر انهيار <strong>بورصة وال ستريت</strong> ووصلت آثارها المباشرة إلى الدول الأوروبية مع بداية الثلاثينات.</li>
+                    <li data-i18n="ecoDeep3">للتخفيف من حدة الأزمة وحماية مصالحها المالية لجأت البنوك الأمريكية والأجنبية إلى سحب استثماراتها المالية من ألمانيا التي أصبحت عاجزة عن مواصلة دفع تعويضات الحرب، فقررت في <strong>مؤتمر لوزان</strong> (جوان – جويلية 1932) التخلي عن دفعها للحلفاء.</li>
+                    <li data-i18n="ecoDeep4">كانت هذه التعويضات مصدر التمويل الرئيسي الذي اعتمدته الدول الأوروبية لتسديد ديون الحرب للولايات المتحدة الأمريكية، فتخلت بدورها عن تسديد تلك الديون.</li>
+                </ul>
+
+                <!-- 2. Disorder of international relations -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="disorderTitle">اضطراب العلاقات الدولية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="disorder1">ظهور أنظمة كليانية (دكتاتورية) في كل من <strong>إيطاليا</strong> (<strong>موسوليني</strong>) و<strong>ألمانيا</strong> (<strong>هتلر</strong>) تجعل مصلحة الأمة هي العليا.</li>
+                    <li data-i18n="disorder2">لجوء الدول الفقيرة (الدكتاتوريات) إلى التسلح كسياسة اقتصادية لاستيعاب العاطلين عن العمل، ففي سنة 1939 أصبح الجيش الألماني يعدّ <strong>1.5 مليون مجنّد</strong> في حين اقتصر الجيش الفرنسي على <strong>650 ألف</strong> منهم 200 ألف موزعين على المستعمرات، كما لجأت إلى تطوير التجهيزات الحربية مثل تطوير ألمانيا لأسطولها البحري وخاصة <strong>الغواصات</strong>.</li>
+                    <li data-i18n="disorder3">شعور الديمقراطيات (<strong>فرنسا</strong> – <strong>بريطانيا</strong>) بخطورة الوضع السياسي إلا أنها انشغلت بحل مشاكلها الداخلية التي تسببت فيها الأزمة الاقتصادية، فاكتفت فرنسا مثلاً بإقامة خط دفاعي (<strong>خط ماجينو</strong>) على حدودها الشرقية أما بريطانيا فلن تلجأ للتسلح إلا سنة 1937.</li>
+                    <li data-i18n="disorder4">أمام صمت وانشغال الديمقراطيات وخاصة ضعف <strong>جمعية الأمم</strong> سلكت «الدول الفقيرة» سياسة <strong>التوسع</strong> لتحقيق <strong>المجال الحيوي</strong> وانسحابها من جمعية الأمم.</li>
+                    <li data-i18n="disorder5">لجأت هذه الدول إلى عقد تحالفات فيما بينها أوّلها التحالف بين ألمانيا وإيطاليا «<strong>محور روما – برلين</strong>» في نوفمبر 1936. كما وقّعت ألمانيا مع اليابان <strong>حلفاً مضاداً للشيوعية</strong> في نوفمبر 1936 انضمت له إيطاليا والمجر وإسبانيا سنة 1937. كما دعمت إيطاليا وألمانيا <strong>فرنكو</strong> في إسبانيا فمكّنته من الانتصار على الجبهة الشعبية في أوت 1937.</li>
+                </ul>
+            </div>
+
+            <!-- Part II : Direct causes -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">الأسباب المباشرة للحرب العالمية الثانية: توسعات هتلر في أوروبا الوسطى</span>
+                </h2>
+
+                <!-- 1. Expansions not opposed -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="expansionNotOpposedTitle">توسعات لم تعترض عليها فرنسا وبريطانيا</span>
+                </h4>
+                <ul>
+                    <li data-i18n="expansionNotOpposed1">رأت ألمانيا في <strong>النمسا</strong> منطقة خصبة قريبة يمكن أن تزودها بحاجياتها الفلاحية، فاستعانت بالنازيين الموجودين فيها لدخولها في فيفري 1938 وإتمام ضمّها في <strong>13 مارس 1938</strong>. وقد أقنعت الدول الديمقراطية بهذا الاحتلال بدعوى الاستجابة لمطالب الشعب النمساوي.</li>
+                    <li data-i18n="expansionNotOpposed2">كانت <strong>تشيكوسلوفاكيا</strong> الهدف الثاني، حيث طالب هتلر بضم منطقة <strong>السودات</strong> التي تضم حوالي <strong>3 ملايين ألماني</strong>. وأمام رفض التشيكيين لهذا الطلب عُقد <strong>مؤتمر مونيخ</strong> (29 – 30 سبتمبر 1938) الذي استضافت فيه ألمانيا فرنسا وبريطانيا وإيطاليا، وحظيت بموافقة فرنسية وبريطانية على ضم منطقة السودات، لكن ألمانيا لم تقتصر عليها بل فرضت الحماية على كامل تشيكيا.</li>
+                    <li data-i18n="expansionNotOpposed3">وفي مارس 1939 احتلّ منطقة <strong>ميمل</strong> (بروسيا الشرقية) التي كانت تابعة لألمانيا قبل الحرب العالمية الأولى.</li>
+                </ul>
+                <p data-i18n="expansionNotOpposedConclusion">إلى جانب انشغالها بمشاكلها الداخلية حاولت الدول الديمقراطية تجنّب الصدام مع ألمانيا، وربّما ترى بعض الشرعية في مطالب هتلر وتحديداً ألمانيا التي ترزح تحت ثقل ديمغرافي هائل.</p>
+
+                <!-- 2. Expansions opposed -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="expansionOpposedTitle">توسعات اعترضت عليها الدول الديمقراطية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="expansionOpposed1">طالب هتلر بمنطقة <strong>دانتزيغ</strong> التي كانت تابعة لألمانيا قبل الحرب العالمية الأولى وأصبحت ممراً لبولونيا نحو بحر البلطيق، لكن هذا الطلب لقي اعتراضاً شديداً من فرنسا وبريطانيا وبعض دول البلطيق.</li>
+                    <li data-i18n="expansionOpposed2">عُقد <strong>الحلف الفولاذي</strong> مع إيطاليا في ماي 1939، ويُفهم منه أن ألمانيا أصبحت مستعدة لخوض حرب ضد الديمقراطيات. ولضمان عدم تدخل <strong>الاتحاد السوفياتي</strong> عقدت معه <strong>اتفاقية عدم اعتداء</strong> في أوت 1939.</li>
+                    <li data-i18n="expansionOpposed3">يوم <strong>1 سبتمبر 1939</strong> هاجمت القوات الألمانية <strong>بولونيا</strong> فلم تتردد فرنسا وبريطانيا سوى يومين لإعلان الحرب على ألمانيا أي يوم <strong>3 سبتمبر 1939</strong>.</li>
+                </ul>
+                <p data-i18n="expansionOpposedConclusion">أخيراً اقتنعت الدول الديمقراطية أن توسعات هتلر في أوروبا لن تتوقف ما دام لم يجد أمامه قوة تردعه عن ذلك.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">لقد اعتبرت ألمانيا التسلح والحرب حلاً لمشاكلها بعد الحرب العالمية الأولى، في حين أرادت الدول الديمقراطية الأوروبية الحفاظ على بعض التوازنات التي فرضتها الدول المنتصرة في مؤتمر الصلح بباريس سنة 1919. فهل تتمكن من الانتصار ثانية على ألمانيا وحليفيها إيطاليا واليابان؟ وكيف ستتحمل البشرية دمار أسلحة بحرية وجوية لم تعهدها في الحرب العالمية الأولى؟</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defHitler">أدولف هتلر</strong>: <span data-i18n="defHitlerDesc">زعيم ألمانيا النازية منذ 1933، صاحب سياسة التوسع في أوروبا الوسطى (ضم النمسا، السودات، ميمل، دانتزيغ)، وأشعل الحرب العالمية الثانية بغزو بولونيا يوم 1 سبتمبر 1939.</span></li>
+                        <li><strong class="key-person" data-i18n="defMussolini">بنيتو موسوليني</strong>: <span data-i18n="defMussoliniDesc">زعيم إيطاليا الفاشية، حليف هتلر في محور روما–برلين (1936) والحلف الفولاذي (1939)، ساند فرنكو في إسبانيا، وشارك في مؤتمر مونيخ 1938.</span></li>
+                        <li><strong class="key-person" data-i18n="defFranco">فرانسيسكو فرنكو</strong>: <span data-i18n="defFrancoDesc">زعيم الانتفاضة الوطنية في إسبانيا، دعمته إيطاليا وألمانيا فتمكن من الانتصار على الجبهة الشعبية في أوت 1937.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defGermany">ألمانيا</strong>: <span data-i18n="defGermanyDesc">الدولة التي أشعلت الحرب العالمية الثانية، عاشت أزمة اقتصادية حادة بعد الحرب العالمية الأولى ومعاهدة فرساي، وعرفت نظاماً نازياً بقيادة هتلر سعى إلى التوسع لتحقيق «المجال الحيوي».</span></li>
+                        <li><strong class="key-location" data-i18n="defItaly">إيطاليا</strong>: <span data-i18n="defItalyDesc">دولة أوروبية عرفت نظاماً فاشياً بقيادة موسوليني، حليفة ألمانيا في محور روما–برلين والحلف الفولاذي.</span></li>
+                        <li><strong class="key-location" data-i18n="defFrance">فرنسا</strong>: <span data-i18n="defFranceDesc">من الديمقراطيات الأوروبية التي انشغلت بمشاكلها الداخلية بعد الأزمة الاقتصادية، اكتفت ببناء خط ماجينو الدفاعي، ثم اضطرت لإعلان الحرب على ألمانيا في 3 سبتمبر 1939 بعد غزو بولونيا.</span></li>
+                        <li><strong class="key-location" data-i18n="defBritain">بريطانيا</strong>: <span data-i18n="defBritainDesc">من الديمقراطيات الأوروبية التي لجأت للتسلح سنة 1937، حاولت تجنب الصدام مع هتلر، ثم أعلنت الحرب على ألمانيا في 3 سبتمبر 1939.</span></li>
+                        <li><strong class="key-location" data-i18n="defAustria">النمسا</strong>: <span data-i18n="defAustriaDesc">دولة أوروبية ضمّها هتلر إلى ألمانيا (الأنشلوس) في مارس 1938 بحجة الاستجابة لمطالب الشعب النمساوي.</span></li>
+                        <li><strong class="key-location" data-i18n="defCzechoslovakia">تشيكوسلوفاكيا</strong>: <span data-i18n="defCzechoslovakiaDesc">دولة أوروبية استهدفتها التوسعات الألمانية، حيث ضمّ هتلر منطقة السودات بعد مؤتمر مونيخ 1938 ثم فرض الحماية على كامل تشيكيا.</span></li>
+                        <li><strong class="key-location" data-i18n="defSudetenland">السودات</strong>: <span data-i18n="defSudetenlandDesc">منطقة في تشيكوسلوفاكيا تضم حوالي 3 ملايين ألماني، ضمّتها ألمانيا بعد مؤتمر مونيخ (29–30 سبتمبر 1938).</span></li>
+                        <li><strong class="key-location" data-i18n="defMemel">ميمل</strong>: <span data-i18n="defMemelDesc">منطقة في بروسيا الشرقية كانت تابعة لألمانيا قبل الحرب العالمية الأولى، احتلها هتلر في مارس 1939.</span></li>
+                        <li><strong class="key-location" data-i18n="defPoland">بولونيا</strong>: <span data-i18n="defPolandDesc">دولة أوروبية غزاها هتلر يوم 1 سبتمبر 1939، وكان غزوها الشرارة المباشرة للحرب العالمية الثانية.</span></li>
+                        <li><strong class="key-location" data-i18n="defDanzig">دانتزيغ</strong>: <span data-i18n="defDanzigDesc">مدينة ألمانية قبل الحرب العالمية الأولى أصبحت ممراً لبولونيا نحو بحر البلطيق، طالب بها هتلر لكن فرنسا وبريطانيا رفضتا ذلك.</span></li>
+                        <li><strong class="key-location" data-i18n="defUSSR">الاتحاد السوفياتي</strong>: <span data-i18n="defUSSRDesc">دولة اشتراكية عقدت معها ألمانيا اتفاقية عدم اعتداء في أوت 1939 لضمان عدم تدخلها في الحرب ضد بولونيا.</span></li>
+                        <li><strong class="key-location" data-i18n="defSpain">إسبانيا</strong>: <span data-i18n="defSpainDesc">شهدت حرباً أهلية انتصر فيها فرنكو بدعم إيطالي–ألماني على الجبهة الشعبية في أوت 1937.</span></li>
+                        <li><strong class="key-location" data-i18n="defUSA">الولايات المتحدة الأمريكية</strong>: <span data-i18n="defUSADesc">انطلقت منها أزمة 1929 إثر انهيار بورصة وال ستريت في 24 أكتوبر 1929، وكانت دائنة للدول الأوروبية بديون الحرب.</span></li>
+                        <li><strong class="key-location" data-i18n="defMunich">مونيخ</strong>: <span data-i18n="defMunichDesc">مدينة ألمانية احتضنت مؤتمر مونيخ (29–30 سبتمبر 1938) الذي وافق فيه الديمقراطيون على ضم منطقة السودات.</span></li>
+                        <li><strong class="key-location" data-i18n="defLausanne">لوزان</strong>: <span data-i18n="defLausanneDesc">مدينة سويسرية احتضنت مؤتمر لوزان (جوان–جويلية 1932) الذي قررت فيه ألمانيا التخلي عن دفع تعويضات الحرب للحلفاء.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defWallStreetCrash">انهيار بورصة وال ستريت</strong>: <span data-i18n="defWallStreetCrashDesc">انهيار مالي وقع يوم 24 أكتوبر 1929 بالولايات المتحدة الأمريكية، وأشعل الأزمة الاقتصادية العالمية التي انتقلت إلى أوروبا مع بداية الثلاثينات.</span></li>
+                        <li><strong class="key-event" data-i18n="defAnschluss">الأنشلوس (ضم النمسا)</strong>: <span data-i18n="defAnschlussDesc">ضمّ ألمانيا للنمسا في 13 مارس 1938 بعد دخول القوات الألمانية في فيفري 1938، وقد أقنعت الدول الديمقراطية بذلك بحجة الاستجابة لمطالب الشعب النمساوي.</span></li>
+                        <li><strong class="key-event" data-i18n="defMunichConference">مؤتمر مونيخ</strong>: <span data-i18n="defMunichConferenceDesc">مؤتمر انعقد يومي 29 و30 سبتمبر 1938 في مونيخ، ضمّ ألمانيا وفرنسا وبريطانيا وإيطاليا، ووافق فيه الديمقراطيون على ضم منطقة السودات، لكن ألمانيا فرضت حمايتها على كامل تشيكيا.</span></li>
+                        <li><strong class="key-event" data-i18n="defInvasionPoland">غزو بولونيا</strong>: <span data-i18n="defInvasionPolandDesc">هجوم القوات الألمانية على بولونيا يوم 1 سبتمبر 1939، وهو الشرارة المباشرة للحرب العالمية الثانية، إذ أعلنت فرنسا وبريطانيا الحرب على ألمانيا يوم 3 سبتمبر 1939.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1919</strong>: <span data-i18n="defYear1919Desc">مؤتمر الصلح بباريس الذي فرض معاهدة فرساي على ألمانيا وأرسى توازنات ما بعد الحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-year">1929</strong>: <span data-i18n="defYear1929Desc">انهيار بورصة وال ستريت (24 أكتوبر) وبداية الأزمة الاقتصادية العالمية، وبقي 39 مليار مارك من تعويضات ألمانيا.</span></li>
+                        <li><strong class="key-year">1932</strong>: <span data-i18n="defYear1932Desc">مؤتمر لوزان (جوان–جويلية) الذي قررت فيه ألمانيا التخلي عن دفع تعويضات الحرب للحلفاء.</span></li>
+                        <li><strong class="key-year">1936</strong>: <span data-i18n="defYear1936Desc">تكوين محور روما–برلين (نوفمبر)، وعقد الحلف المضاد للشيوعية بين ألمانيا واليابان (نوفمبر).</span></li>
+                        <li><strong class="key-year">1937</strong>: <span data-i18n="defYear1937Desc">لجوء بريطانيا إلى التسلح، وانتصار فرنكو على الجبهة الشعبية في إسبانيا بدعم إيطالي–ألماني.</span></li>
+                        <li><strong class="key-year">1938</strong>: <span data-i18n="defYear1938Desc">ضم النمسا (مارس)، ومؤتمر مونيخ (سبتمبر) وضم منطقة السودات، وفرض الحماية على تشيكيا.</span></li>
+                        <li><strong class="key-year">1939</strong>: <span data-i18n="defYear1939Desc">احتل هتلر منطقة ميمل (مارس)، والحلف الفولاذي مع إيطاليا (ماي)، واتفاقية عدم الاعتداء مع الاتحاد السوفياتي (أوت)، وغزو بولونيا (1 سبتمبر) وبداية الحرب العالمية الثانية.</span></li>
+                        <li><strong class="key-year">1945</strong>: <span data-i18n="defYear1945Desc">نهاية الحرب العالمية الثانية في أوت 1945.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-treaties">
+                    <h3 data-i18n="defTreaty">📜 معاهدات وتحالفات</h3>
+                    <ul>
+                        <li><strong class="key-treaty" data-i18n="defVersailles">معاهدة فرساي</strong>: <span data-i18n="defVersaillesDesc">معاهدة الصلح الموقّعة سنة 1919، فرضت على ألمانيا فقدان أراضٍ وتعويضات مجحفة (بقي منها 39 مليار مارك سنة 1929)، وكانت من الأسباب العميقة للحرب العالمية الثانية.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defRomeBerlinAxis">محور روما – برلين</strong>: <span data-i18n="defRomeBerlinAxisDesc">تحالف بين ألمانيا وإيطاليا عُقد في نوفمبر 1936، ومهّد للحلف الفولاذي بين البلدين سنة 1939.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defAntiCominternPact">الحلف المضاد للشيوعية</strong>: <span data-i18n="defAntiCominternPactDesc">حلف عُقد بين ألمانيا واليابان في نوفمبر 1936، انضمت إليه إيطاليا والمجر وإسبانيا سنة 1937.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defSteelPact">الحلف الفولاذي</strong>: <span data-i18n="defSteelPactDesc">حلف عُقد بين ألمانيا وإيطاليا في ماي 1939، ويفهم منه أن ألمانيا أصبحت مستعدة لخوض حرب ضد الديمقراطيات.</span></li>
+                        <li><strong class="key-treaty" data-i18n="defNonAggressionPact">اتفاقية عدم الاعتداء</strong>: <span data-i18n="defNonAggressionPactDesc">اتفاقية عقدتها ألمانيا مع الاتحاد السوفياتي في أوت 1939 لضمان عدم تدخله في الحرب ضد بولونيا.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏢 منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defLeagueOfNations">جمعية الأمم</strong>: <span data-i18n="defLeagueOfNationsDesc">منظمة دولية تأسست سنة 1920 بعد الحرب العالمية الأولى، عجزت عن ردع التوسعات الفاشية والنازية، فانسحبت منها عدة دول، وأثبتت ضعفها في مواجهة الأزمات الدولية.</span></li>
+                        <li><strong class="key-organization" data-i18n="defPopularFrontSpain">الجبهة الشعبية</strong>: <span data-i18n="defPopularFrontSpainDesc">حكومة إسبانية يسارية انتصر عليها فرنكو بدعم إيطالي–ألماني في أوت 1937.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defTotalitarian">الأنظمة الكليانية (الدكتاتورية)</strong>: <span data-i18n="defTotalitarianDesc">أنظمة سياسية ظهرت في إيطاليا (موسوليني) وألمانيا (هتلر)، تجعل مصلحة الأمة هي العليا وتنفي الحريات السياسية، واعتمدت على التوسع العسكري والتسلح.</span></li>
+                        <li><strong class="key-other" data-i18n="defLivingSpace">المجال الحيوي</strong>: <span data-i18n="defLivingSpaceDesc">مفهوم نازي يبرّر سياسة التوسع الألماني في أوروبا الوسطى والشرقية لضمان الموارد الفلاحية والطبيعية وزيادة السكان.</span></li>
+                        <li><strong class="key-other" data-i18n="defMaginotLine">خط ماجينو</strong>: <span data-i18n="defMaginotLineDesc">خط دفاعي أقامته فرنسا على حدودها الشرقية بعد الحرب العالمية الأولى، اكتفت به بدل مواجهة التوسع الألماني في الثلاثينات.</span></li>
+                        <li><strong class="key-other" data-i18n="defReparations">تعويضات الحرب</strong>: <span data-i18n="defReparationsDesc">مبالغ مالية فرضتها معاهدة فرساي 1919 على ألمانيا لصالح الدول المنتصرة، وأصبحت مصدر تمويل رئيسياً لتسديد الديون الأوروبية للولايات المتحدة، وتخلّت عنها ألمانيا في مؤتمر لوزان 1932.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Summary box -->
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: تعود الأسباب العميقة للحرب العالمية الثانية إلى الأزمة الاقتصادية العالمية 1929 الناتجة عن آثار الحرب العالمية الأولى ومعاهدة فرساي، وإلى اضطراب العلاقات الدولية بظهور الأنظمة الكليانية (هتلر وموسوليني) وسياسة التوسع والتسلح، وضعف جمعية الأمم وصمت الديمقراطيات. أما الأسباب المباشرة فتجلّت في توسعات هتلر في أوروبا الوسطى (ضم النمسا، السودات، ميمل، دانتزيغ) التي لم تعترض عليها فرنسا وبريطانيا إلا عند غزو بولونيا يوم 1 سبتمبر 1939، فأعلنتا الحرب على ألمانيا يوم 3 سبتمبر 1939.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط وصور توضيحية</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson4/hitler_mussolini.jpg" alt="هتلر وموسوليني" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">هتلر وموسوليني</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson4/wall_street_crash_1929.jpg" alt="انهيار بورصة وال ستريت 1929" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">انهيار بورصة وال ستريت 1929</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson4/munich_conference_1938.jpg" alt="مؤتمر مونيخ 1938" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">مؤتمر مونيخ 1938</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson4/anschluss_austria_1938.jpg" alt="ضم النمسا 1938" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">ضم النمسا 1938</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson4/maginot_line.jpg" alt="خط ماجينو" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">خط ماجينو</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson4/invasion_poland_1939.jpg" alt="غزو بولونيا 1939" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">غزو بولونيا 1939</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y09_his_exercisess_mod1_lesson4.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات، الشخصيات، الأحداث، السنوات، المعاهدات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "9th Basic",
+                moduleName: "History / Axis 1: Tunisia and the World from World War I to World War II",
+                lessonTitleSample: "Causes of World War II",
+                sectionIntro: "Introduction",
+                introText: "Twenty years after the end of World War I and the conclusion of the Paris Peace Conference in 1919, the world waged a second war that lasted from September 1939 to August 1945.",
+                problematiqueText: "What are the causes of this war?",
+                sectionPart1: "Deep Causes of World War II",
+                ecoDeepTitle: "Deepening of the Global Economic Crisis due to the Effects of World War I",
+                ecoDeep1: "Germany was the most affected country by the effects of World War I and especially by the harshness of the <strong>Treaty of Versailles</strong>. It lost important parts of its territory, the German people were dispersed, and exorbitant reparations were imposed on it, of which <strong>39 billion marks</strong> remained in 1929.",
+                ecoDeep2: "The economic crisis imposed new balances. It began in the United States on <strong>October 24, 1929</strong> after the crash of <strong>Wall Street</strong>, and its direct effects reached European countries at the beginning of the 1930s.",
+                ecoDeep3: "To mitigate the crisis and protect their financial interests, American and foreign banks withdrew their financial investments from Germany, which became unable to continue paying war reparations, and decided at the <strong>Lausanne Conference</strong> (June-July 1932) to abandon paying them to the Allies.",
+                ecoDeep4: "These reparations were the main source of financing that European countries relied on to pay their war debts to the United States, so they in turn abandoned paying those debts.",
+                disorderTitle: "Disorder of International Relations",
+                disorder1: "The emergence of totalitarian (dictatorial) regimes in both <strong>Italy</strong> (<strong>Mussolini</strong>) and <strong>Germany</strong> (<strong>Hitler</strong>) that make the nation's interest supreme.",
+                disorder2: "The resort of poor countries (dictatorships) to armament as an economic policy to absorb the unemployed. In 1939, the German army numbered <strong>1.5 million conscripts</strong>, while the French army was limited to <strong>650 thousand</strong>, of whom 200 thousand were distributed across the colonies. They also developed war equipment, such as Germany's development of its naval fleet and especially <strong>submarines</strong>.",
+                disorder3: "The democracies (<strong>France</strong> – <strong>Britain</strong>) felt the danger of the political situation, but they were preoccupied with solving their internal problems caused by the economic crisis. France, for example, sufficed with building a defensive line (<strong>the Maginot Line</strong>) on its eastern borders, while Britain did not resort to armament until 1937.",
+                disorder4: "Faced with the silence and preoccupation of the democracies and especially the weakness of the <strong>League of Nations</strong>, the 'poor countries' adopted a policy of <strong>expansion</strong> to achieve <strong>living space</strong> and withdrew from the League of Nations.",
+                disorder5: "These states resorted to concluding alliances among themselves, the first being the alliance between Germany and Italy, the '<strong>Rome–Berlin Axis</strong>' in November 1936. Germany also concluded an <strong>Anti-Comintern Pact</strong> with Japan in November 1936, to which Italy, Hungary, and Spain joined in 1937. Italy and Germany also supported <strong>Franco</strong> in Spain, enabling him to defeat the Popular Front in August 1937.",
+                sectionPart2: "Direct Causes of World War II: Hitler's Expansions in Central Europe",
+                expansionNotOpposedTitle: "Expansions Not Opposed by France and Britain",
+                expansionNotOpposed1: "Germany saw in <strong>Austria</strong> a nearby fertile region that could supply it with its agricultural needs. It used the Nazis present there to enter it in February 1938 and complete its annexation on <strong>March 13, 1938</strong>. The democratic countries were convinced of this occupation on the pretext of responding to the demands of the Austrian people.",
+                expansionNotOpposed2: "<strong>Czechoslovakia</strong> was the second target, as Hitler demanded the annexation of the <strong>Sudetenland</strong>, which contained about <strong>3 million Germans</strong>. Faced with the Czechs' rejection of this demand, the <strong>Munich Conference</strong> (September 29–30, 1938) was held, hosted by Germany, France, Britain, and Italy, and obtained French and British approval for the annexation of the Sudetenland, but Germany did not limit itself to it, but imposed protection over all of Czechia.",
+                expansionNotOpposed3: "In March 1939, he occupied the <strong>Memel</strong> region (East Prussia), which had been part of Germany before World War I.",
+                expansionNotOpposedConclusion: "In addition to their preoccupation with their internal problems, the democratic countries tried to avoid a clash with Germany, and perhaps they saw some legitimacy in Hitler's demands, specifically Germany which was groaning under a huge demographic burden.",
+                expansionOpposedTitle: "Expansions Opposed by the Democratic Countries",
+                expansionOpposed1: "Hitler demanded the <strong>Danzig</strong> region, which had been part of Germany before World War I and had become a corridor for Poland towards the Baltic Sea, but this demand faced strong opposition from France, Britain, and some Baltic states.",
+                expansionOpposed2: "The <strong>Pact of Steel</strong> was concluded with Italy in May 1939, and it is understood from it that Germany had become ready to wage war against the democracies. To ensure the non-intervention of the <strong>Soviet Union</strong>, it concluded a <strong>non-aggression pact</strong> with it in August 1939.",
+                expansionOpposed3: "On <strong>September 1, 1939</strong>, German forces attacked <strong>Poland</strong>, and France and Britain did not hesitate more than two days to declare war on Germany, that is, on <strong>September 3, 1939</strong>.",
+                expansionOpposedConclusion: "Finally, the democratic countries were convinced that Hitler's expansions in Europe would not stop as long as he did not find a force to deter him from that.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Germany considered armament and war as a solution to its problems after World War I, while the European democratic countries wanted to preserve some of the balances imposed by the victorious powers at the Paris Peace Conference in 1919. Will they be able to win again over Germany and its allies Italy and Japan? And how will humanity bear the destruction of naval and aerial weapons it had not known in World War I?",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Illustrative Images",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries and Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years and Periods",
+                defTreaty: "📜 Treaties and Alliances",
+                defOrganizations: "🏢 Organizations and Institutions",
+                defOthers: "📌 Other",
+                defHitler: "Adolf Hitler",
+                defHitlerDesc: "Leader of Nazi Germany since 1933, author of the expansion policy in Central Europe (annexation of Austria, Sudetenland, Memel, Danzig), who ignited World War II by invading Poland on September 1, 1939.",
+                defMussolini: "Benito Mussolini",
+                defMussoliniDesc: "Leader of Fascist Italy, Hitler's ally in the Rome–Berlin Axis (1936) and the Pact of Steel (1939), supported Franco in Spain, and participated in the Munich Conference of 1938.",
+                defFranco: "Francisco Franco",
+                defFrancoDesc: "Leader of the nationalist uprising in Spain; supported by Italy and Germany, he defeated the Popular Front in August 1937.",
+                defGermany: "Germany",
+                defGermanyDesc: "The state that ignited World War II; it experienced a severe economic crisis after World War I and the Treaty of Versailles, and knew a Nazi regime led by Hitler that sought expansion to achieve 'living space'.",
+                defItaly: "Italy",
+                defItalyDesc: "A European state that knew a Fascist regime led by Mussolini, Germany's ally in the Rome–Berlin Axis and the Pact of Steel.",
+                defFrance: "France",
+                defFranceDesc: "One of the European democracies that was preoccupied with its internal problems after the economic crisis; it sufficed with building the Maginot Line, then was forced to declare war on Germany on September 3, 1939, after the invasion of Poland.",
+                defBritain: "Britain",
+                defBritainDesc: "One of the European democracies that resorted to armament in 1937; it tried to avoid a clash with Hitler, then declared war on Germany on September 3, 1939.",
+                defAustria: "Austria",
+                defAustriaDesc: "A European state annexed by Hitler to Germany (Anschluss) in March 1938 under the pretext of responding to the demands of the Austrian people.",
+                defCzechoslovakia: "Czechoslovakia",
+                defCzechoslovakiaDesc: "A European state targeted by German expansions; Hitler annexed the Sudetenland after the Munich Conference of 1938, then imposed protection over all of Czechia.",
+                defSudetenland: "Sudetenland",
+                defSudetenlandDesc: "A region in Czechoslovakia containing about 3 million Germans, annexed by Germany after the Munich Conference (September 29–30, 1938).",
+                defMemel: "Memel",
+                defMemelDesc: "A region in East Prussia that was part of Germany before World War I, occupied by Hitler in March 1939.",
+                defPoland: "Poland",
+                defPolandDesc: "A European state invaded by Hitler on September 1, 1939, whose invasion was the direct spark of World War II.",
+                defDanzig: "Danzig",
+                defDanzigDesc: "A German city before World War I that became a corridor for Poland towards the Baltic Sea; Hitler demanded it, but France and Britain refused.",
+                defUSSR: "The Soviet Union",
+                defUSSRDesc: "A socialist state with which Germany concluded a non-aggression pact in August 1939 to ensure its non-intervention in the war against Poland.",
+                defSpain: "Spain",
+                defSpainDesc: "Witnessed a civil war in which Franco triumphed with Italian-German support over the Popular Front in August 1937.",
+                defUSA: "The United States of America",
+                defUSADesc: "The crisis of 1929 started there after the Wall Street crash on October 24, 1929, and it was a creditor to European countries for war debts.",
+                defMunich: "Munich",
+                defMunichDesc: "A German city that hosted the Munich Conference (September 29–30, 1938), in which the democracies agreed to the annexation of the Sudetenland.",
+                defLausanne: "Lausanne",
+                defLausanneDesc: "A Swiss city that hosted the Lausanne Conference (June–July 1932), in which Germany decided to abandon paying war reparations to the Allies.",
+                defWallStreetCrash: "The Wall Street Crash",
+                defWallStreetCrashDesc: "A financial crash that occurred on October 24, 1929 in the United States, igniting the global economic crisis that reached Europe at the beginning of the 1930s.",
+                defAnschluss: "The Anschluss (Annexation of Austria)",
+                defAnschlussDesc: "Germany's annexation of Austria on March 13, 1938, after the entry of German troops in February 1938; the democratic countries were convinced of it on the pretext of responding to the demands of the Austrian people.",
+                defMunichConference: "The Munich Conference",
+                defMunichConferenceDesc: "A conference held on September 29 and 30, 1938 in Munich, bringing together Germany, France, Britain, and Italy; the democracies agreed to the annexation of the Sudetenland, but Germany imposed its protection over all of Czechia.",
+                defInvasionPoland: "The Invasion of Poland",
+                defInvasionPolandDesc: "The German forces' attack on Poland on September 1, 1939, the direct spark of World War II, as France and Britain declared war on Germany on September 3, 1939.",
+                defYear1919Desc: "The Paris Peace Conference that imposed the Treaty of Versailles on Germany and established the balances after World War I.",
+                defYear1929Desc: "The Wall Street crash (October 24) and the beginning of the global economic crisis, and 39 billion marks of Germany's reparations remained.",
+                defYear1932Desc: "The Lausanne Conference (June–July), in which Germany decided to abandon paying war reparations to the Allies.",
+                defYear1936Desc: "Formation of the Rome–Berlin Axis (November), and the Anti-Comintern Pact between Germany and Japan (November).",
+                defYear1937Desc: "Britain's resort to armament, and Franco's victory over the Popular Front in Spain with Italian-German support.",
+                defYear1938Desc: "Annexation of Austria (March), the Munich Conference (September) and the annexation of the Sudetenland, and the imposition of protection over Czechia.",
+                defYear1939Desc: "Hitler occupied the Memel region (March), the Pact of Steel with Italy (May), the non-aggression pact with the Soviet Union (August), the invasion of Poland (September 1) and the beginning of World War II.",
+                defYear1945Desc: "The end of World War II in August 1945.",
+                defVersailles: "The Treaty of Versailles",
+                defVersaillesDesc: "The peace treaty signed in 1919, which imposed on Germany loss of territory and exorbitant reparations (of which 39 billion marks remained in 1929), and was among the deep causes of World War II.",
+                defRomeBerlinAxis: "The Rome–Berlin Axis",
+                defRomeBerlinAxisDesc: "An alliance between Germany and Italy concluded in November 1936, which paved the way for the Pact of Steel between the two countries in 1939.",
+                defAntiCominternPact: "The Anti-Comintern Pact",
+                defAntiCominternPactDesc: "A pact concluded between Germany and Japan in November 1936, joined by Italy, Hungary, and Spain in 1937.",
+                defSteelPact: "The Pact of Steel",
+                defSteelPactDesc: "A pact concluded between Germany and Italy in May 1939, from which it is understood that Germany had become ready to wage war against the democracies.",
+                defNonAggressionPact: "The Non-Aggression Pact",
+                defNonAggressionPactDesc: "A pact concluded by Germany with the Soviet Union in August 1939 to ensure its non-intervention in the war against Poland.",
+                defLeagueOfNations: "The League of Nations",
+                defLeagueOfNationsDesc: "An international organization founded in 1920 after World War I, which failed to deter fascist and Nazi expansions; several states withdrew from it, and it proved its weakness in the face of international crises.",
+                defPopularFrontSpain: "The Popular Front",
+                defPopularFrontSpainDesc: "A leftist Spanish government defeated by Franco with Italian-German support in August 1937.",
+                defTotalitarian: "Totalitarian Regimes (Dictatorships)",
+                defTotalitarianDesc: "Political regimes that emerged in Italy (Mussolini) and Germany (Hitler), make the nation's interest supreme and deny political freedoms, and relied on military expansion and armament.",
+                defLivingSpace: "Living Space",
+                defLivingSpaceDesc: "A Nazi concept justifying Germany's expansion policy in Central and Eastern Europe to secure agricultural and natural resources and increase population.",
+                defMaginotLine: "The Maginot Line",
+                defMaginotLineDesc: "A defensive line built by France on its eastern borders after World War I; it sufficed with it instead of confronting German expansion in the 1930s.",
+                defReparations: "War Reparations",
+                defReparationsDesc: "Financial sums imposed by the Treaty of Versailles of 1919 on Germany in favor of the victorious powers, which became a major source of financing for European debts to the United States; Germany abandoned them at the Lausanne Conference of 1932.",
+                summaryText: "Key takeaway: The deep causes of World War II go back to the global economic crisis of 1929 resulting from the effects of World War I and the Treaty of Versailles, to the disorder of international relations with the emergence of totalitarian regimes (Hitler and Mussolini), the policy of expansion and armament, and the weakness of the League of Nations and the silence of the democracies. The direct causes were manifested in Hitler's expansions in Central Europe (annexation of Austria, Sudetenland, Memel, Danzig), which France and Britain did not oppose except when Poland was invaded on September 1, 1939; they then declared war on Germany on September 3, 1939.",
+                galleryAlt1: "Hitler and Mussolini",
+                galleryAlt2: "The Wall Street crash of 1929",
+                galleryAlt3: "The Munich Conference of 1938",
+                galleryAlt4: "Annexation of Austria 1938",
+                galleryAlt5: "The Maginot Line",
+                galleryAlt6: "The invasion of Poland 1939",
+                galleryCap1: "Hitler and Mussolini",
+                galleryCap2: "The Wall Street crash of 1929",
+                galleryCap3: "The Munich Conference of 1938",
+                galleryCap4: "Annexation of Austria 1938",
+                galleryCap5: "The Maginot Line",
+                galleryCap6: "The invasion of Poland 1939",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, conclusion and summary",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, persons, events, years, treaties and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                yearSection: "9ème de base",
+                moduleName: "Histoire / Axe 1 : La Tunisie et le monde de la Première à la Seconde Guerre mondiale",
+                lessonTitleSample: "Les causes de la Seconde Guerre mondiale",
+                sectionIntro: "Introduction",
+                introText: "Vingt ans après la fin de la Première Guerre mondiale et la conclusion de la Conférence de paix de Paris en 1919, le monde a mené une seconde guerre qui a duré de septembre 1939 à août 1945.",
+                problematiqueText: "Quelles sont les causes de cette guerre ?",
+                sectionPart1: "Les causes profondes de la Seconde Guerre mondiale",
+                ecoDeepTitle: "L'aggravation de la crise économique mondiale due aux effets de la Première Guerre mondiale",
+                ecoDeep1: "L'Allemagne était le pays le plus touché par les effets de la Première Guerre mondiale et surtout par la dureté du <strong>Traité de Versailles</strong>. Elle a perdu des parties importantes de son territoire, le peuple allemand a été dispersé, et des réparations exorbitantes lui ont été imposées, dont il restait <strong>39 milliards de marks</strong> en 1929.",
+                ecoDeep2: "La crise économique a imposé de nouveaux équilibres. Elle a commencé aux États-Unis le <strong>24 octobre 1929</strong> après le krach de <strong>Wall Street</strong>, et ses effets directs ont atteint les pays européens au début des années 1930.",
+                ecoDeep3: "Pour atténuer la crise et protéger leurs intérêts financiers, les banques américaines et étrangères ont retiré leurs investissements financiers d'Allemagne, qui est devenue incapable de continuer à payer les réparations de guerre, et a décidé à la <strong>Conférence de Lausanne</strong> (juin-juillet 1932) d'abandonner leur paiement aux Alliés.",
+                ecoDeep4: "Ces réparations étaient la principale source de financement sur laquelle les pays européens s'appuyaient pour payer leurs dettes de guerre aux États-Unis, ils ont donc à leur tour abandonné le paiement de ces dettes.",
+                disorderTitle: "Le désordre des relations internationales",
+                disorder1: "L'émergence de régimes totalitaires (dictatoriaux) en <strong>Italie</strong> (<strong>Mussolini</strong>) et en <strong>Allemagne</strong> (<strong>Hitler</strong>) qui font de l'intérêt de la nation la priorité suprême.",
+                disorder2: "Le recours des pays pauvres (dictatures) à l'armement comme politique économique pour absorber les chômeurs. En 1939, l'armée allemande comptait <strong>1,5 million de conscrits</strong>, tandis que l'armée française se limitait à <strong>650 000</strong>, dont 200 000 répartis dans les colonies. Ils ont également développé l'équipement de guerre, comme le développement par l'Allemagne de sa flotte navale et surtout des <strong>sous-marins</strong>.",
+                disorder3: "Les démocraties (<strong>France</strong> – <strong>Grande-Bretagne</strong>) ressentaient le danger de la situation politique, mais elles étaient préoccupées par la résolution de leurs problèmes internes causés par la crise économique. La France, par exemple, s'est contentée de construire une ligne défensive (<strong>la ligne Maginot</strong>) sur ses frontières orientales, tandis que la Grande-Bretagne ne recourra à l'armement qu'en 1937.",
+                disorder4: "Face au silence et à la préoccupation des démocraties et surtout à la faiblesse de la <strong>Société des Nations</strong>, les « pays pauvres » ont adopté une politique d'<strong>expansion</strong> pour réaliser l'<strong>espace vital</strong> et se sont retirés de la Société des Nations.",
+                disorder5: "Ces États ont eu recours à la conclusion d'alliances entre eux, la première étant l'alliance entre l'Allemagne et l'Italie, l'« <strong>Axe Rome–Berlin</strong> » en novembre 1936. L'Allemagne a également conclu un <strong>pacte anti-Komintern</strong> avec le Japon en novembre 1936, auquel l'Italie, la Hongrie et l'Espagne ont adhéré en 1937. L'Italie et l'Allemagne ont également soutenu <strong>Franco</strong> en Espagne, lui permettant de vaincre le Front populaire en août 1937.",
+                sectionPart2: "Les causes directes de la Seconde Guerre mondiale : les expansions d'Hitler en Europe centrale",
+                expansionNotOpposedTitle: "Des expansions que la France et la Grande-Bretagne n'ont pas contestées",
+                expansionNotOpposed1: "L'Allemagne voyait dans l'<strong>Autriche</strong> une région fertile proche qui pouvait l'approvisionner en besoins agricoles. Elle a utilisé les nazis présents pour y entrer en février 1938 et achever son annexion le <strong>13 mars 1938</strong>. Les pays démocratiques ont été convaincus de cette occupation sous prétexte de répondre aux demandes du peuple autrichien.",
+                expansionNotOpposed2: "La <strong>Tchéquoslovakie</strong> était la deuxième cible, Hitler exigeant l'annexion de la région des <strong>Sudètes</strong> qui comptait environ <strong>3 millions d'Allemands</strong>. Face au refus des Tchèques, la <strong>conférence de Munich</strong> (29-30 septembre 1938) a été tenue, accueillie par l'Allemagne, la France, la Grande-Bretagne et l'Italie, et a obtenu l'approbation française et britannique de l'annexion des Sudètes, mais l'Allemagne ne s'y est pas limitée, imposant sa protection sur toute la Tchéquie.",
+                expansionNotOpposed3: "En mars 1939, il a occupé la région de <strong>Memel</strong> (Prusse orientale), qui faisait partie de l'Allemagne avant la Première Guerre mondiale.",
+                expansionNotOpposedConclusion: "En plus de leur préoccupation par leurs problèmes internes, les pays démocratiques ont tenté d'éviter un affrontement avec l'Allemagne, et peut-être voyaient-ils une certaine légitimité dans les demandes d'Hitler, précisément l'Allemagne qui gémissait sous un énorme fardeau démographique.",
+                expansionOpposedTitle: "Des expansions contestées par les pays démocratiques",
+                expansionOpposed1: "Hitler a exigé la région de <strong>Dantzig</strong>, qui faisait partie de l'Allemagne avant la Première Guerre mondiale et était devenue un corridor pour la Pologne vers la mer Baltique, mais cette demande a fait l'objet d'une forte opposition de la France, de la Grande-Bretagne et de certains États baltes.",
+                expansionOpposed2: "Le <strong>Pacte d'acier</strong> a été conclu avec l'Italie en mai 1939, et il en ressort que l'Allemagne était devenue prête à mener une guerre contre les démocraties. Pour garantir la non-intervention de l'<strong>Union soviétique</strong>, elle a conclu avec elle un <strong>pacte de non-agression</strong> en août 1939.",
+                expansionOpposed3: "Le <strong>1er septembre 1939</strong>, les forces allemandes ont attaqué la <strong>Pologne</strong>, et la France et la Grande-Bretagne n'ont pas hésité plus de deux jours à déclarer la guerre à l'Allemagne, c'est-à-dire le <strong>3 septembre 1939</strong>.",
+                expansionOpposedConclusion: "Finalement, les pays démocratiques ont été convaincus que les expansions d'Hitler en Europe ne s'arrêteraient pas tant qu'il ne trouverait pas une force pour l'en dissuader.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "L'Allemagne a considéré l'armement et la guerre comme une solution à ses problèmes après la Première Guerre mondiale, tandis que les pays démocratiques européens voulaient préserver certains équilibres imposés par les puissances victorieuses à la Conférence de paix de Paris en 1919. Pourront-ils à nouveau vaincre l'Allemagne et ses alliés l'Italie et le Japon ? Et comment l'humanité supportera-t-elle la destruction d'armes navales et aériennes qu'elle n'avait pas connues lors de la Première Guerre mondiale ?",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et images illustratives",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années et périodes",
+                defTreaty: "📜 Traités et alliances",
+                defOrganizations: "🏢 Organisations et institutions",
+                defOthers: "📌 Autres",
+                defHitler: "Adolf Hitler",
+                defHitlerDesc: "Chef de l'Allemagne nazie depuis 1933, auteur de la politique d'expansion en Europe centrale (annexion de l'Autriche, des Sudètes, de Memel, de Dantzig), qui a déclenché la Seconde Guerre mondiale en envahissant la Pologne le 1er septembre 1939.",
+                defMussolini: "Benito Mussolini",
+                defMussoliniDesc: "Chef de l'Italie fasciste, allié d'Hitler dans l'Axe Rome–Berlin (1936) et le Pacte d'acier (1939), a soutenu Franco en Espagne et a participé à la conférence de Munich de 1938.",
+                defFranco: "Francisco Franco",
+                defFrancoDesc: "Chef du soulèvement nationaliste en Espagne ; soutenu par l'Italie et l'Allemagne, il a vaincu le Front populaire en août 1937.",
+                defGermany: "Allemagne",
+                defGermanyDesc: "L'État qui a déclenché la Seconde Guerre mondiale ; il a connu une grave crise économique après la Première Guerre mondiale et le Traité de Versailles, et a connu un régime nazi dirigé par Hitler qui cherchait l'expansion pour réaliser l'« espace vital ».",
+                defItaly: "Italie",
+                defItalyDesc: "Un État européen qui a connu un régime fasciste dirigé par Mussolini, allié de l'Allemagne dans l'Axe Rome–Berlin et le Pacte d'acier.",
+                defFrance: "France",
+                defFranceDesc: "L'une des démocraties européennes qui était préoccupée par ses problèmes internes après la crise économique ; elle s'est contentée de construire la ligne Maginot, puis a été contrainte de déclarer la guerre à l'Allemagne le 3 septembre 1939, après l'invasion de la Pologne.",
+                defBritain: "Grande-Bretagne",
+                defBritainDesc: "L'une des démocraties européennes qui a eu recours à l'armement en 1937 ; elle a tenté d'éviter un affrontement avec Hitler, puis a déclaré la guerre à l'Allemagne le 3 septembre 1939.",
+                defAustria: "Autriche",
+                defAustriaDesc: "Un État européen annexé par Hitler à l'Allemagne (Anschluss) en mars 1938 sous prétexte de répondre aux demandes du peuple autrichien.",
+                defCzechoslovakia: "Tchécoslovaquie",
+                defCzechoslovakiaDesc: "Un État européen ciblé par les expansions allemandes ; Hitler a annexé les Sudètes après la conférence de Munich de 1938, puis a imposé sa protection sur toute la Tchéquie.",
+                defSudetenland: "Sudètes",
+                defSudetenlandDesc: "Une région de Tchécoslovaquie comptant environ 3 millions d'Allemands, annexée par l'Allemagne après la conférence de Munich (29-30 septembre 1938).",
+                defMemel: "Memel",
+                defMemelDesc: "Une région de Prusse orientale qui faisait partie de l'Allemagne avant la Première Guerre mondiale, occupée par Hitler en mars 1939.",
+                defPoland: "Pologne",
+                defPolandDesc: "Un État européen envahi par Hitler le 1er septembre 1939, dont l'invasion a été l'étincelle directe de la Seconde Guerre mondiale.",
+                defDanzig: "Dantzig",
+                defDanzigDesc: "Une ville allemande avant la Première Guerre mondiale devenue un corridor pour la Pologne vers la mer Baltique ; Hitler l'a exigée, mais la France et la Grande-Bretagne ont refusé.",
+                defUSSR: "Union soviétique",
+                defUSSRDesc: "Un État socialiste avec lequel l'Allemagne a conclu un pacte de non-agression en août 1939 pour garantir sa non-intervention dans la guerre contre la Pologne.",
+                defSpain: "Espagne",
+                defSpainDesc: "A connu une guerre civile au cours de laquelle Franco a triomphé avec le soutien italo-allemand sur le Front populaire en août 1937.",
+                defUSA: "Les États-Unis d'Amérique",
+                defUSADesc: "La crise de 1929 y a commencé après le krach de Wall Street le 24 octobre 1929, et ils étaient créanciers des pays européens pour les dettes de guerre.",
+                defMunich: "Munich",
+                defMunichDesc: "Une ville allemande qui a accueilli la conférence de Munich (29-30 septembre 1938), au cours de laquelle les démocraties ont accepté l'annexion des Sudètes.",
+                defLausanne: "Lausanne",
+                defLausanneDesc: "Une ville suisse qui a accueilli la conférence de Lausanne (juin-juillet 1932), au cours de laquelle l'Allemagne a décidé d'abandonner le paiement des réparations de guerre aux Alliés.",
+                defWallStreetCrash: "Le krach de Wall Street",
+                defWallStreetCrashDesc: "Un krach financier survenu le 24 octobre 1929 aux États-Unis, déclenchant la crise économique mondiale qui a atteint l'Europe au début des années 1930.",
+                defAnschluss: "L'Anschluss (annexion de l'Autriche)",
+                defAnschlussDesc: "L'annexion de l'Autriche par l'Allemagne le 13 mars 1938, après l'entrée des troupes allemandes en février 1938 ; les pays démocratiques en ont été convaincus sous prétexte de répondre aux demandes du peuple autrichien.",
+                defMunichConference: "La conférence de Munich",
+                defMunichConferenceDesc: "Une conférence tenue les 29 et 30 septembre 1938 à Munich, réunissant l'Allemagne, la France, la Grande-Bretagne et l'Italie ; les démocraties ont accepté l'annexion des Sudètes, mais l'Allemagne a imposé sa protection sur toute la Tchéquie.",
+                defInvasionPoland: "L'invasion de la Pologne",
+                defInvasionPolandDesc: "L'attaque des forces allemandes contre la Pologne le 1er septembre 1939, étincelle directe de la Seconde Guerre mondiale, la France et la Grande-Bretagne ayant déclaré la guerre à l'Allemagne le 3 septembre 1939.",
+                defYear1919Desc: "La Conférence de paix de Paris qui a imposé le Traité de Versailles à l'Allemagne et a établi les équilibres de l'après-Première Guerre mondiale.",
+                defYear1929Desc: "Le krach de Wall Street (24 octobre) et le début de la crise économique mondiale, et il restait 39 milliards de marks des réparations allemandes.",
+                defYear1932Desc: "La conférence de Lausanne (juin-juillet), au cours de laquelle l'Allemagne a décidé d'abandonner le paiement des réparations de guerre aux Alliés.",
+                defYear1936Desc: "Formation de l'Axe Rome–Berlin (novembre), et pacte anti-Komintern entre l'Allemagne et le Japon (novembre).",
+                defYear1937Desc: "Recours de la Grande-Bretagne à l'armement, et victoire de Franco sur le Front populaire en Espagne avec le soutien italo-allemand.",
+                defYear1938Desc: "Annexion de l'Autriche (mars), conférence de Munich (septembre) et annexion des Sudètes, et imposition de la protection sur la Tchéquie.",
+                defYear1939Desc: "Hitler a occupé la région de Memel (mars), le Pacte d'acier avec l'Italie (mai), le pacte de non-agression avec l'Union soviétique (août), l'invasion de la Pologne (1er septembre) et le début de la Seconde Guerre mondiale.",
+                defYear1945Desc: "La fin de la Seconde Guerre mondiale en août 1945.",
+                defVersailles: "Le Traité de Versailles",
+                defVersaillesDesc: "Le traité de paix signé en 1919, qui a imposé à l'Allemagne la perte de territoires et des réparations exorbitantes (dont 39 milliards de marks restaient en 1929), et a été parmi les causes profondes de la Seconde Guerre mondiale.",
+                defRomeBerlinAxis: "L'Axe Rome–Berlin",
+                defRomeBerlinAxisDesc: "Une alliance entre l'Allemagne et l'Italie conclue en novembre 1936, qui a ouvert la voie au Pacte d'acier entre les deux pays en 1939.",
+                defAntiCominternPact: "Le pacte anti-Komintern",
+                defAntiCominternPactDesc: "Un pacte conclu entre l'Allemagne et le Japon en novembre 1936, auquel l'Italie, la Hongrie et l'Espagne ont adhéré en 1937.",
+                defSteelPact: "Le Pacte d'acier",
+                defSteelPactDesc: "Un pacte conclu entre l'Allemagne et l'Italie en mai 1939, dont il ressort que l'Allemagne était devenue prête à mener une guerre contre les démocraties.",
+                defNonAggressionPact: "Le pacte de non-agression",
+                defNonAggressionPactDesc: "Un pacte conclu par l'Allemagne avec l'Union soviétique en août 1939 pour garantir sa non-intervention dans la guerre contre la Pologne.",
+                defLeagueOfNations: "La Société des Nations",
+                defLeagueOfNationsDesc: "Une organisation internationale fondée en 1920 après la Première Guerre mondiale, qui a échoué à dissuader les expansions fascistes et nazies ; plusieurs États s'en sont retirés, et elle a prouvé sa faiblesse face aux crises internationales.",
+                defPopularFrontSpain: "Le Front populaire",
+                defPopularFrontSpainDesc: "Un gouvernement espagnol de gauche vaincu par Franco avec le soutien italo-allemand en août 1937.",
+                defTotalitarian: "Les régimes totalitaires (dictatures)",
+                defTotalitarianDesc: "Des régimes politiques apparus en Italie (Mussolini) et en Allemagne (Hitler), faisant de l'intérêt de la nation la priorité suprême et niant les libertés politiques, et s'appuyant sur l'expansion militaire et l'armement.",
+                defLivingSpace: "L'espace vital",
+                defLivingSpaceDesc: "Un concept nazi justifiant la politique d'expansion de l'Allemagne en Europe centrale et orientale pour garantir les ressources agricoles et naturelles et augmenter la population.",
+                defMaginotLine: "La ligne Maginot",
+                defMaginotLineDesc: "Une ligne défensive construite par la France sur ses frontières orientales après la Première Guerre mondiale ; elle s'en est contentée au lieu d'affronter l'expansion allemande dans les années 1930.",
+                defReparations: "Les réparations de guerre",
+                defReparationsDesc: "Des sommes financières imposées par le Traité de Versailles de 1919 à l'Allemagne en faveur des puissances victorieuses, devenues une source majeure de financement des dettes européennes envers les États-Unis ; l'Allemagne les a abandonnées à la conférence de Lausanne de 1932.",
+                summaryText: "À retenir : Les causes profondes de la Seconde Guerre mondiale remontent à la crise économique mondiale de 1929 résultant des effets de la Première Guerre mondiale et du Traité de Versailles, au désordre des relations internationales avec l'émergence de régimes totalitaires (Hitler et Mussolini), à la politique d'expansion et d'armement, et à la faiblesse de la Société des Nations et au silence des démocraties. Les causes directes se sont manifestées dans les expansions d'Hitler en Europe centrale (annexion de l'Autriche, des Sudètes, de Memel, de Dantzig), que la France et la Grande-Bretagne n'ont pas contestées sauf lors de l'invasion de la Pologne le 1er septembre 1939 ; elles ont alors déclaré la guerre à l'Allemagne le 3 septembre 1939.",
+                galleryAlt1: "Hitler et Mussolini",
+                galleryAlt2: "Le krach de Wall Street de 1929",
+                galleryAlt3: "La conférence de Munich de 1938",
+                galleryAlt4: "L'annexion de l'Autriche 1938",
+                galleryAlt5: "La ligne Maginot",
+                galleryAlt6: "L'invasion de la Pologne 1939",
+                galleryCap1: "Hitler et Mussolini",
+                galleryCap2: "Le krach de Wall Street de 1929",
+                galleryCap3: "La conférence de Munich de 1938",
+                galleryCap4: "L'annexion de l'Autriche 1938",
+                galleryCap5: "La ligne Maginot",
+                galleryCap6: "L'invasion de la Pologne 1939",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties, conclusion et résumé",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, personnes, événements, années, traités et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                yearSection: "التاسعة أساسي",
+                moduleName: "التاريخ / المحور الأول: تونس والعالم من الحرب العالمية الأولى إلى الحرب العالمية الثانية",
+                lessonTitleSample: "أسباب الحرب العالمية الثانية",
+                sectionIntro: "مقدمة",
+                introText: "بعد 20 سنة من انتهاء الحرب العالمية الأولى وإبرام مؤتمر الصلح في باريس سنة 1919 خاض العالم حرباً ثانية دامت من سبتمبر 1939 إلى أوت 1945.",
+                problematiqueText: "فما هي أسباب هذه الحرب؟",
+                sectionPart1: "الأسباب العميقة للحرب العالمية الثانية",
+                ecoDeepTitle: "تعميق الأزمة الاقتصادية العالمية لآثار الحرب العالمية الأولى",
+                ecoDeep1: "كانت ألمانيا أكثر الدول تضرراً من آثار الحرب العالمية الأولى وخاصة من قسوة <strong>معاهدة فرساي</strong>، فقد فقدت بمقتضاها أجزاء هامة من ترابها وتشتت الشعب الألماني كما فُرضت عليها تعويضات مجحفة بقي منها سنة 1929 <strong>39 مليار مارك</strong>.",
+                ecoDeep2: "فرضت الأزمة الاقتصادية موازنات جديدة، فقد انطلقت هذه الأزمة من الولايات المتحدة الأمريكية يوم <strong>24 أكتوبر 1929</strong> إثر انهيار <strong>بورصة وال ستريت</strong> ووصلت آثارها المباشرة إلى الدول الأوروبية مع بداية الثلاثينات.",
+                ecoDeep3: "للتخفيف من حدة الأزمة وحماية مصالحها المالية لجأت البنوك الأمريكية والأجنبية إلى سحب استثماراتها المالية من ألمانيا التي أصبحت عاجزة عن مواصلة دفع تعويضات الحرب، فقررت في <strong>مؤتمر لوزان</strong> (جوان – جويلية 1932) التخلي عن دفعها للحلفاء.",
+                ecoDeep4: "كانت هذه التعويضات مصدر التمويل الرئيسي الذي اعتمدته الدول الأوروبية لتسديد ديون الحرب للولايات المتحدة الأمريكية، فتخلت بدورها عن تسديد تلك الديون.",
+                disorderTitle: "اضطراب العلاقات الدولية",
+                disorder1: "ظهور أنظمة كليانية (دكتاتورية) في كل من <strong>إيطاليا</strong> (<strong>موسوليني</strong>) و<strong>ألمانيا</strong> (<strong>هتلر</strong>) تجعل مصلحة الأمة هي العليا.",
+                disorder2: "لجوء الدول الفقيرة (الدكتاتوريات) إلى التسلح كسياسة اقتصادية لاستيعاب العاطلين عن العمل، ففي سنة 1939 أصبح الجيش الألماني يعدّ <strong>1.5 مليون مجنّد</strong> في حين اقتصر الجيش الفرنسي على <strong>650 ألف</strong> منهم 200 ألف موزعين على المستعمرات، كما لجأت إلى تطوير التجهيزات الحربية مثل تطوير ألمانيا لأسطولها البحري وخاصة <strong>الغواصات</strong>.",
+                disorder3: "شعور الديمقراطيات (<strong>فرنسا</strong> – <strong>بريطانيا</strong>) بخطورة الوضع السياسي إلا أنها انشغلت بحل مشاكلها الداخلية التي تسببت فيها الأزمة الاقتصادية، فاكتفت فرنسا مثلاً بإقامة خط دفاعي (<strong>خط ماجينو</strong>) على حدودها الشرقية أما بريطانيا فلن تلجأ للتسلح إلا سنة 1937.",
+                disorder4: "أمام صمت وانشغال الديمقراطيات وخاصة ضعف <strong>جمعية الأمم</strong> سلكت «الدول الفقيرة» سياسة <strong>التوسع</strong> لتحقيق <strong>المجال الحيوي</strong> وانسحابها من جمعية الأمم.",
+                disorder5: "لجأت هذه الدول إلى عقد تحالفات فيما بينها أوّلها التحالف بين ألمانيا وإيطاليا «<strong>محور روما – برلين</strong>» في نوفمبر 1936. كما وقّعت ألمانيا مع اليابان <strong>حلفاً مضاداً للشيوعية</strong> في نوفمبر 1936 انضمت له إيطاليا والمجر وإسبانيا سنة 1937. كما دعمت إيطاليا وألمانيا <strong>فرنكو</strong> في إسبانيا فمكّنته من الانتصار على الجبهة الشعبية في أوت 1937.",
+                sectionPart2: "الأسباب المباشرة للحرب العالمية الثانية: توسعات هتلر في أوروبا الوسطى",
+                expansionNotOpposedTitle: "توسعات لم تعترض عليها فرنسا وبريطانيا",
+                expansionNotOpposed1: "رأت ألمانيا في <strong>النمسا</strong> منطقة خصبة قريبة يمكن أن تزودها بحاجياتها الفلاحية، فاستعانت بالنازيين الموجودين فيها لدخولها في فيفري 1938 وإتمام ضمّها في <strong>13 مارس 1938</strong>. وقد أقنعت الدول الديمقراطية بهذا الاحتلال بدعوى الاستجابة لمطالب الشعب النمساوي.",
+                expansionNotOpposed2: "كانت <strong>تشيكوسلوفاكيا</strong> الهدف الثاني، حيث طالب هتلر بضم منطقة <strong>السودات</strong> التي تضم حوالي <strong>3 ملايين ألماني</strong>. وأمام رفض التشيكيين لهذا الطلب عُقد <strong>مؤتمر مونيخ</strong> (29 – 30 سبتمبر 1938) الذي استضافت فيه ألمانيا فرنسا وبريطانيا وإيطاليا، وحظيت بموافقة فرنسية وبريطانية على ضم منطقة السودات، لكن ألمانيا لم تقتصر عليها بل فرضت الحماية على كامل تشيكيا.",
+                expansionNotOpposed3: "وفي مارس 1939 احتلّ منطقة <strong>ميمل</strong> (بروسيا الشرقية) التي كانت تابعة لألمانيا قبل الحرب العالمية الأولى.",
+                expansionNotOpposedConclusion: "إلى جانب انشغالها بمشاكلها الداخلية حاولت الدول الديمقراطية تجنّب الصدام مع ألمانيا، وربّما ترى بعض الشرعية في مطالب هتلر وتحديداً ألمانيا التي ترزح تحت ثقل ديمغرافي هائل.",
+                expansionOpposedTitle: "توسعات اعترضت عليها الدول الديمقراطية",
+                expansionOpposed1: "طالب هتلر بمنطقة <strong>دانتزيغ</strong> التي كانت تابعة لألمانيا قبل الحرب العالمية الأولى وأصبحت ممراً لبولونيا نحو بحر البلطيق، لكن هذا الطلب لقي اعتراضاً شديداً من فرنسا وبريطانيا وبعض دول البلطيق.",
+                expansionOpposed2: "عُقد <strong>الحلف الفولاذي</strong> مع إيطاليا في ماي 1939، ويُفهم منه أن ألمانيا أصبحت مستعدة لخوض حرب ضد الديمقراطيات. ولضمان عدم تدخل <strong>الاتحاد السوفياتي</strong> عقدت معه <strong>اتفاقية عدم اعتداء</strong> في أوت 1939.",
+                expansionOpposed3: "يوم <strong>1 سبتمبر 1939</strong> هاجمت القوات الألمانية <strong>بولونيا</strong> فلم تتردد فرنسا وبريطانيا سوى يومين لإعلان الحرب على ألمانيا أي يوم <strong>3 سبتمبر 1939</strong>.",
+                expansionOpposedConclusion: "أخيراً اقتنعت الدول الديمقراطية أن توسعات هتلر في أوروبا لن تتوقف ما دام لم يجد أمامه قوة تردعه عن ذلك.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "لقد اعتبرت ألمانيا التسلح والحرب حلاً لمشاكلها بعد الحرب العالمية الأولى، في حين أرادت الدول الديمقراطية الأوروبية الحفاظ على بعض التوازنات التي فرضتها الدول المنتصرة في مؤتمر الصلح بباريس سنة 1919. فهل تتمكن من الانتصار ثانية على ألمانيا وحليفيها إيطاليا واليابان؟ وكيف ستتحمل البشرية دمار أسلحة بحرية وجوية لم تعهدها في الحرب العالمية الأولى؟",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط وصور توضيحية",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defTreaty: "📜 معاهدات وتحالفات",
+                defOrganizations: "🏢 منظمات ومؤسسات",
+                defOthers: "📌 أخرى",
+                defHitler: "أدولف هتلر",
+                defHitlerDesc: "زعيم ألمانيا النازية منذ 1933، صاحب سياسة التوسع في أوروبا الوسطى (ضم النمسا، السودات، ميمل، دانتزيغ)، وأشعل الحرب العالمية الثانية بغزو بولونيا يوم 1 سبتمبر 1939.",
+                defMussolini: "بنيتو موسوليني",
+                defMussoliniDesc: "زعيم إيطاليا الفاشية، حليف هتلر في محور روما–برلين (1936) والحلف الفولاذي (1939)، ساند فرنكو في إسبانيا، وشارك في مؤتمر مونيخ 1938.",
+                defFranco: "فرانسيسكو فرنكو",
+                defFrancoDesc: "زعيم الانتفاضة الوطنية في إسبانيا، دعمته إيطاليا وألمانيا فتمكن من الانتصار على الجبهة الشعبية في أوت 1937.",
+                defGermany: "ألمانيا",
+                defGermanyDesc: "الدولة التي أشعلت الحرب العالمية الثانية، عاشت أزمة اقتصادية حادة بعد الحرب العالمية الأولى ومعاهدة فرساي، وعرفت نظاماً نازياً بقيادة هتلر سعى إلى التوسع لتحقيق «المجال الحيوي».",
+                defItaly: "إيطاليا",
+                defItalyDesc: "دولة أوروبية عرفت نظاماً فاشياً بقيادة موسوليني، حليفة ألمانيا في محور روما–برلين والحلف الفولاذي.",
+                defFrance: "فرنسا",
+                defFranceDesc: "من الديمقراطيات الأوروبية التي انشغلت بمشاكلها الداخلية بعد الأزمة الاقتصادية، اكتفت ببناء خط ماجينو الدفاعي، ثم اضطرت لإعلان الحرب على ألمانيا في 3 سبتمبر 1939 بعد غزو بولونيا.",
+                defBritain: "بريطانيا",
+                defBritainDesc: "من الديمقراطيات الأوروبية التي لجأت للتسلح سنة 1937، حاولت تجنب الصدام مع هتلر، ثم أعلنت الحرب على ألمانيا في 3 سبتمبر 1939.",
+                defAustria: "النمسا",
+                defAustriaDesc: "دولة أوروبية ضمّها هتلر إلى ألمانيا (الأنشلوس) في مارس 1938 بحجة الاستجابة لمطالب الشعب النمساوي.",
+                defCzechoslovakia: "تشيكوسلوفاكيا",
+                defCzechoslovakiaDesc: "دولة أوروبية استهدفتها التوسعات الألمانية، حيث ضمّ هتلر منطقة السودات بعد مؤتمر مونيخ 1938 ثم فرض الحماية على كامل تشيكيا.",
+                defSudetenland: "السودات",
+                defSudetenlandDesc: "منطقة في تشيكوسلوفاكيا تضم حوالي 3 ملايين ألماني، ضمّتها ألمانيا بعد مؤتمر مونيخ (29–30 سبتمبر 1938).",
+                defMemel: "ميمل",
+                defMemelDesc: "منطقة في بروسيا الشرقية كانت تابعة لألمانيا قبل الحرب العالمية الأولى، احتلها هتلر في مارس 1939.",
+                defPoland: "بولونيا",
+                defPolandDesc: "دولة أوروبية غزاها هتلر يوم 1 سبتمبر 1939، وكان غزوها الشرارة المباشرة للحرب العالمية الثانية.",
+                defDanzig: "دانتزيغ",
+                defDanzigDesc: "مدينة ألمانية قبل الحرب العالمية الأولى أصبحت ممراً لبولونيا نحو بحر البلطيق، طالب بها هتلر لكن فرنسا وبريطانيا رفضتا ذلك.",
+                defUSSR: "الاتحاد السوفياتي",
+                defUSSRDesc: "دولة اشتراكية عقدت معها ألمانيا اتفاقية عدم اعتداء في أوت 1939 لضمان عدم تدخلها في الحرب ضد بولونيا.",
+                defSpain: "إسبانيا",
+                defSpainDesc: "شهدت حرباً أهلية انتصر فيها فرنكو بدعم إيطالي–ألماني على الجبهة الشعبية في أوت 1937.",
+                defUSA: "الولايات المتحدة الأمريكية",
+                defUSADesc: "انطلقت منها أزمة 1929 إثر انهيار بورصة وال ستريت في 24 أكتوبر 1929، وكانت دائنة للدول الأوروبية بديون الحرب.",
+                defMunich: "مونيخ",
+                defMunichDesc: "مدينة ألمانية احتضنت مؤتمر مونيخ (29–30 سبتمبر 1938) الذي وافق فيه الديمقراطيون على ضم منطقة السودات.",
+                defLausanne: "لوزان",
+                defLausanneDesc: "مدينة سويسرية احتضنت مؤتمر لوزان (جوان–جويلية 1932) الذي قررت فيه ألمانيا التخلي عن دفع تعويضات الحرب للحلفاء.",
+                defWallStreetCrash: "انهيار بورصة وال ستريت",
+                defWallStreetCrashDesc: "انهيار مالي وقع يوم 24 أكتوبر 1929 بالولايات المتحدة الأمريكية، وأشعل الأزمة الاقتصادية العالمية التي انتقلت إلى أوروبا مع بداية الثلاثينات.",
+                defAnschluss: "الأنشلوس (ضم النمسا)",
+                defAnschlussDesc: "ضمّ ألمانيا للنمسا في 13 مارس 1938 بعد دخول القوات الألمانية في فيفري 1938، وقد أقنعت الدول الديمقراطية بذلك بحجة الاستجابة لمطالب الشعب النمساوي.",
+                defMunichConference: "مؤتمر مونيخ",
+                defMunichConferenceDesc: "مؤتمر انعقد يومي 29 و30 سبتمبر 1938 في مونيخ، ضمّ ألمانيا وفرنسا وبريطانيا وإيطاليا، ووافق فيه الديمقراطيون على ضم منطقة السودات، لكن ألمانيا فرضت حمايتها على كامل تشيكيا.",
+                defInvasionPoland: "غزو بولونيا",
+                defInvasionPolandDesc: "هجوم القوات الألمانية على بولونيا يوم 1 سبتمبر 1939، وهو الشرارة المباشرة للحرب العالمية الثانية، إذ أعلنت فرنسا وبريطانيا الحرب على ألمانيا يوم 3 سبتمبر 1939.",
+                defYear1919Desc: "مؤتمر الصلح بباريس الذي فرض معاهدة فرساي على ألمانيا وأرسى توازنات ما بعد الحرب العالمية الأولى.",
+                defYear1929Desc: "انهيار بورصة وال ستريت (24 أكتوبر) وبداية الأزمة الاقتصادية العالمية، وبقي 39 مليار مارك من تعويضات ألمانيا.",
+                defYear1932Desc: "مؤتمر لوزان (جوان–جويلية) الذي قررت فيه ألمانيا التخلي عن دفع تعويضات الحرب للحلفاء.",
+                defYear1936Desc: "تكوين محور روما–برلين (نوفمبر)، وعقد الحلف المضاد للشيوعية بين ألمانيا واليابان (نوفمبر).",
+                defYear1937Desc: "لجوء بريطانيا إلى التسلح، وانتصار فرنكو على الجبهة الشعبية في إسبانيا بدعم إيطالي–ألماني.",
+                defYear1938Desc: "ضم النمسا (مارس)، ومؤتمر مونيخ (سبتمبر) وضم منطقة السودات، وفرض الحماية على تشيكيا.",
+                defYear1939Desc: "احتل هتلر منطقة ميمل (مارس)، والحلف الفولاذي مع إيطاليا (ماي)، واتفاقية عدم الاعتداء مع الاتحاد السوفياتي (أوت)، وغزو بولونيا (1 سبتمبر) وبداية الحرب العالمية الثانية.",
+                defYear1945Desc: "نهاية الحرب العالمية الثانية في أوت 1945.",
+                defVersailles: "معاهدة فرساي",
+                defVersaillesDesc: "معاهدة الصلح الموقّعة سنة 1919، فرضت على ألمانيا فقدان أراضٍ وتعويضات مجحفة (بقي منها 39 مليار مارك سنة 1929)، وكانت من الأسباب العميقة للحرب العالمية الثانية.",
+                defRomeBerlinAxis: "محور روما – برلين",
+                defRomeBerlinAxisDesc: "تحالف بين ألمانيا وإيطاليا عُقد في نوفمبر 1936، ومهّد للحلف الفولاذي بين البلدين سنة 1939.",
+                defAntiCominternPact: "الحلف المضاد للشيوعية",
+                defAntiCominternPactDesc: "حلف عُقد بين ألمانيا واليابان في نوفمبر 1936، انضمت إليه إيطاليا والمجر وإسبانيا سنة 1937.",
+                defSteelPact: "الحلف الفولاذي",
+                defSteelPactDesc: "حلف عُقد بين ألمانيا وإيطاليا في ماي 1939، ويفهم منه أن ألمانيا أصبحت مستعدة لخوض حرب ضد الديمقراطيات.",
+                defNonAggressionPact: "اتفاقية عدم الاعتداء",
+                defNonAggressionPactDesc: "اتفاقية عقدتها ألمانيا مع الاتحاد السوفياتي في أوت 1939 لضمان عدم تدخله في الحرب ضد بولونيا.",
+                defLeagueOfNations: "جمعية الأمم",
+                defLeagueOfNationsDesc: "منظمة دولية تأسست سنة 1920 بعد الحرب العالمية الأولى، عجزت عن ردع التوسعات الفاشية والنازية، فانسحبت منها عدة دول، وأثبتت ضعفها في مواجهة الأزمات الدولية.",
+                defPopularFrontSpain: "الجبهة الشعبية",
+                defPopularFrontSpainDesc: "حكومة إسبانية يسارية انتصر عليها فرنكو بدعم إيطالي–ألماني في أوت 1937.",
+                defTotalitarian: "الأنظمة الكليانية (الدكتاتورية)",
+                defTotalitarianDesc: "أنظمة سياسية ظهرت في إيطاليا (موسوليني) وألمانيا (هتلر)، تجعل مصلحة الأمة هي العليا وتنفي الحريات السياسية، واعتمدت على التوسع العسكري والتسلح.",
+                defLivingSpace: "المجال الحيوي",
+                defLivingSpaceDesc: "مفهوم نازي يبرّر سياسة التوسع الألماني في أوروبا الوسطى والشرقية لضمان الموارد الفلاحية والطبيعية وزيادة السكان.",
+                defMaginotLine: "خط ماجينو",
+                defMaginotLineDesc: "خط دفاعي أقامته فرنسا على حدودها الشرقية بعد الحرب العالمية الأولى، اكتفت به بدل مواجهة التوسع الألماني في الثلاثينات.",
+                defReparations: "تعويضات الحرب",
+                defReparationsDesc: "مبالغ مالية فرضتها معاهدة فرساي 1919 على ألمانيا لصالح الدول المنتصرة، وأصبحت مصدر تمويل رئيسياً لتسديد الديون الأوروبية للولايات المتحدة، وتخلّت عنها ألمانيا في مؤتمر لوزان 1932.",
+                summaryText: "خلاصة: تعود الأسباب العميقة للحرب العالمية الثانية إلى الأزمة الاقتصادية العالمية 1929 الناتجة عن آثار الحرب العالمية الأولى ومعاهدة فرساي، وإلى اضطراب العلاقات الدولية بظهور الأنظمة الكليانية (هتلر وموسوليني) وسياسة التوسع والتسلح، وضعف جمعية الأمم وصمت الديمقراطيات. أما الأسباب المباشرة فتجلّت في توسعات هتلر في أوروبا الوسطى (ضم النمسا، السودات، ميمل، دانتزيغ) التي لم تعترض عليها فرنسا وبريطانيا إلا عند غزو بولونيا يوم 1 سبتمبر 1939، فأعلنتا الحرب على ألمانيا يوم 3 سبتمبر 1939.",
+                galleryAlt1: "هتلر وموسوليني",
+                galleryAlt2: "انهيار بورصة وال ستريت 1929",
+                galleryAlt3: "مؤتمر مونيخ 1938",
+                galleryAlt4: "ضم النمسا 1938",
+                galleryAlt5: "خط ماجينو",
+                galleryAlt6: "غزو بولونيا 1939",
+                galleryCap1: "هتلر وموسوليني",
+                galleryCap2: "انهيار بورصة وال ستريت 1929",
+                galleryCap3: "مؤتمر مونيخ 1938",
+                galleryCap4: "ضم النمسا 1938",
+                galleryCap5: "خط ماجينو",
+                galleryCap6: "غزو بولونيا 1939",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة، الأجزاء، الخاتمة والخلاصة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات، الأعلام، الأحداث، السنوات، المعاهدات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Treaty of Versailles", class: "key-treaty", i18n: "defVersailles" },
+                { text: "Rome–Berlin Axis", class: "key-treaty", i18n: "defRomeBerlinAxis" },
+                { text: "Anti-Comintern Pact", class: "key-treaty", i18n: "defAntiCominternPact" },
+                { text: "Pact of Steel", class: "key-treaty", i18n: "defSteelPact" },
+                { text: "Non-Aggression Pact", class: "key-treaty", i18n: "defNonAggressionPact" },
+                { text: "League of Nations", class: "key-organization", i18n: "defLeagueOfNations" },
+                { text: "Popular Front", class: "key-organization", i18n: "defPopularFrontSpain" },
+                { text: "Adolf Hitler", class: "key-person", i18n: "defHitler" },
+                { text: "Hitler", class: "key-person", i18n: "defHitler" },
+                { text: "Mussolini", class: "key-person", i18n: "defMussolini" },
+                { text: "Franco", class: "key-person", i18n: "defFranco" },
+                { text: "Germany", class: "key-location", i18n: "defGermany" },
+                { text: "Italy", class: "key-location", i18n: "defItaly" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Britain", class: "key-location", i18n: "defBritain" },
+                { text: "Austria", class: "key-location", i18n: "defAustria" },
+                { text: "Czechoslovakia", class: "key-location", i18n: "defCzechoslovakia" },
+                { text: "Sudetenland", class: "key-location", i18n: "defSudetenland" },
+                { text: "Memel", class: "key-location", i18n: "defMemel" },
+                { text: "Poland", class: "key-location", i18n: "defPoland" },
+                { text: "Danzig", class: "key-location", i18n: "defDanzig" },
+                { text: "Soviet Union", class: "key-location", i18n: "defUSSR" },
+                { text: "Spain", class: "key-location", i18n: "defSpain" },
+                { text: "United States", class: "key-location", i18n: "defUSA" },
+                { text: "Munich", class: "key-location", i18n: "defMunich" },
+                { text: "Lausanne", class: "key-location", i18n: "defLausanne" },
+                { text: "Wall Street Crash", class: "key-event", i18n: "defWallStreetCrash" },
+                { text: "Anschluss", class: "key-event", i18n: "defAnschluss" },
+                { text: "Munich Conference", class: "key-event", i18n: "defMunichConference" },
+                { text: "Invasion of Poland", class: "key-event", i18n: "defInvasionPoland" },
+                { text: "Totalitarian", class: "key-other", i18n: "defTotalitarian" },
+                { text: "Living Space", class: "key-other", i18n: "defLivingSpace" },
+                { text: "Maginot Line", class: "key-other", i18n: "defMaginotLine" },
+                { text: "Reparations", class: "key-other", i18n: "defReparations" },
+                { text: "1919", class: "key-year", i18n: null },
+                { text: "1929", class: "key-year", i18n: null },
+                { text: "1932", class: "key-year", i18n: null },
+                { text: "1936", class: "key-year", i18n: null },
+                { text: "1937", class: "key-year", i18n: null },
+                { text: "1938", class: "key-year", i18n: null },
+                { text: "1939", class: "key-year", i18n: null },
+                { text: "1945", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Traité de Versailles", class: "key-treaty", i18n: "defVersailles" },
+                { text: "Axe Rome–Berlin", class: "key-treaty", i18n: "defRomeBerlinAxis" },
+                { text: "pacte anti-Komintern", class: "key-treaty", i18n: "defAntiCominternPact" },
+                { text: "Pacte d'acier", class: "key-treaty", i18n: "defSteelPact" },
+                { text: "pacte de non-agression", class: "key-treaty", i18n: "defNonAggressionPact" },
+                { text: "Société des Nations", class: "key-organization", i18n: "defLeagueOfNations" },
+                { text: "Front populaire", class: "key-organization", i18n: "defPopularFrontSpain" },
+                { text: "Adolf Hitler", class: "key-person", i18n: "defHitler" },
+                { text: "Hitler", class: "key-person", i18n: "defHitler" },
+                { text: "Mussolini", class: "key-person", i18n: "defMussolini" },
+                { text: "Franco", class: "key-person", i18n: "defFranco" },
+                { text: "Allemagne", class: "key-location", i18n: "defGermany" },
+                { text: "Italie", class: "key-location", i18n: "defItaly" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Grande-Bretagne", class: "key-location", i18n: "defBritain" },
+                { text: "Autriche", class: "key-location", i18n: "defAustria" },
+                { text: "Tchécoslovaquie", class: "key-location", i18n: "defCzechoslovakia" },
+                { text: "Sudètes", class: "key-location", i18n: "defSudetenland" },
+                { text: "Memel", class: "key-location", i18n: "defMemel" },
+                { text: "Pologne", class: "key-location", i18n: "defPoland" },
+                { text: "Dantzig", class: "key-location", i18n: "defDanzig" },
+                { text: "Union soviétique", class: "key-location", i18n: "defUSSR" },
+                { text: "Espagne", class: "key-location", i18n: "defSpain" },
+                { text: "États-Unis", class: "key-location", i18n: "defUSA" },
+                { text: "Munich", class: "key-location", i18n: "defMunich" },
+                { text: "Lausanne", class: "key-location", i18n: "defLausanne" },
+                { text: "krach de Wall Street", class: "key-event", i18n: "defWallStreetCrash" },
+                { text: "Anschluss", class: "key-event", i18n: "defAnschluss" },
+                { text: "conférence de Munich", class: "key-event", i18n: "defMunichConference" },
+                { text: "invasion de la Pologne", class: "key-event", i18n: "defInvasionPoland" },
+                { text: "régimes totalitaires", class: "key-other", i18n: "defTotalitarian" },
+                { text: "espace vital", class: "key-other", i18n: "defLivingSpace" },
+                { text: "ligne Maginot", class: "key-other", i18n: "defMaginotLine" },
+                { text: "réparations", class: "key-other", i18n: "defReparations" },
+                { text: "1919", class: "key-year", i18n: null },
+                { text: "1929", class: "key-year", i18n: null },
+                { text: "1932", class: "key-year", i18n: null },
+                { text: "1936", class: "key-year", i18n: null },
+                { text: "1937", class: "key-year", i18n: null },
+                { text: "1938", class: "key-year", i18n: null },
+                { text: "1939", class: "key-year", i18n: null },
+                { text: "1945", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "معاهدة فرساي", class: "key-treaty", i18n: "defVersailles" },
+                { text: "محور روما – برلين", class: "key-treaty", i18n: "defRomeBerlinAxis" },
+                { text: "الحلف المضاد للشيوعية", class: "key-treaty", i18n: "defAntiCominternPact" },
+                { text: "الحلف الفولاذي", class: "key-treaty", i18n: "defSteelPact" },
+                { text: "اتفاقية عدم الاعتداء", class: "key-treaty", i18n: "defNonAggressionPact" },
+                { text: "جمعية الأمم", class: "key-organization", i18n: "defLeagueOfNations" },
+                { text: "الجبهة الشعبية", class: "key-organization", i18n: "defPopularFrontSpain" },
+                { text: "هتلر", class: "key-person", i18n: "defHitler" },
+                { text: "أدولف هتلر", class: "key-person", i18n: "defHitler" },
+                { text: "موسوليني", class: "key-person", i18n: "defMussolini" },
+                { text: "فرنكو", class: "key-person", i18n: "defFranco" },
+                { text: "ألمانيا", class: "key-location", i18n: "defGermany" },
+                { text: "إيطاليا", class: "key-location", i18n: "defItaly" },
+                { text: "فرنسا", class: "key-location", i18n: "defFrance" },
+                { text: "بريطانيا", class: "key-location", i18n: "defBritain" },
+                { text: "النمسا", class: "key-location", i18n: "defAustria" },
+                { text: "تشيكوسلوفاكيا", class: "key-location", i18n: "defCzechoslovakia" },
+                { text: "السودات", class: "key-location", i18n: "defSudetenland" },
+                { text: "ميمل", class: "key-location", i18n: "defMemel" },
+                { text: "بولونيا", class: "key-location", i18n: "defPoland" },
+                { text: "دانتزيغ", class: "key-location", i18n: "defDanzig" },
+                { text: "الاتحاد السوفياتي", class: "key-location", i18n: "defUSSR" },
+                { text: "إسبانيا", class: "key-location", i18n: "defSpain" },
+                { text: "الولايات المتحدة الأمريكية", class: "key-location", i18n: "defUSA" },
+                { text: "مونيخ", class: "key-location", i18n: "defMunich" },
+                { text: "لوزان", class: "key-location", i18n: "defLausanne" },
+                { text: "انهيار بورصة وال ستريت", class: "key-event", i18n: "defWallStreetCrash" },
+                { text: "الأنشلوس", class: "key-event", i18n: "defAnschluss" },
+                { text: "مؤتمر مونيخ", class: "key-event", i18n: "defMunichConference" },
+                { text: "غزو بولونيا", class: "key-event", i18n: "defInvasionPoland" },
+                { text: "الأنظمة الكليانية", class: "key-other", i18n: "defTotalitarian" },
+                { text: "المجال الحيوي", class: "key-other", i18n: "defLivingSpace" },
+                { text: "خط ماجينو", class: "key-other", i18n: "defMaginotLine" },
+                { text: "تعويضات الحرب", class: "key-other", i18n: "defReparations" },
+                { text: "1919", class: "key-year", i18n: null },
+                { text: "1929", class: "key-year", i18n: null },
+                { text: "1932", class: "key-year", i18n: null },
+                { text: "1936", class: "key-year", i18n: null },
+                { text: "1937", class: "key-year", i18n: null },
+                { text: "1938", class: "key-year", i18n: null },
+                { text: "1939", class: "key-year", i18n: null },
+                { text: "1945", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

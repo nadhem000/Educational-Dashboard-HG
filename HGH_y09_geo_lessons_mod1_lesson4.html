@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">التاسعة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">الجغرافيا / المحور الأول: المغرب العربي</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">التنمية الاقتصادية بالمغرب العربي</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">انتهجت دول المغرب العربي سياسات مختلفة لتنمية اقتصادها، فمنها من اعتمدت على ثرواتها الطاقية والمنجمية مثل الجزائر، ومنها من اعتمدت على مواردها المائية لتنشيط فلاحتها إلى جانب عنايتها بالصناعات الخفيفة مثل المغرب الأقصى.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فما هي خصائص التجربتين التنمويتين في كل من الجزائر والمغرب الأقصى؟ وما هي نتائجهما الاقتصادية والاجتماعية؟</p>
+            </div>
+
+            <!-- Part I : Algeria -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">التجربة التنموية في الجزائر وحصيلتها</span>
+                </h2>
+
+                <!-- 1. Industrial policy -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="algeriaIndustrialTitle">سياسة التنمية الصناعية في الجزائر</span>
+                </h4>
+                <ul>
+                    <li data-i18n="algeriaIndustrial1">منذ استقلالها إلى السبعينات اهتمت الدولة الجزائرية بإقامة <strong>نسيج صناعي متكامل</strong> يشمل <strong>الصناعات الثقيلة والوسيطة والصناعات الاستهلاكية</strong> بالاعتماد على ثروة هائلة من النفط والغاز الطبيعي إلى جانب الحديد. فتم إنجاز مشاريع صناعية ضخمة على شكل <strong>أقطاب صناعية ومجمعات كيميائية</strong> وأخرى للحديد والصلب، وقد استعانت بالشركات المتعددة الجنسيات لتحقيق أغلب هذه المشاريع. لقد ساهمت هذه السياسة التنموية في تجهيز البلاد إلا أنها لم تكن مشغّلة لليد العاملة بالقدر الكافي مما اضطر الدولة لإعادة النظر فيها.</li>
+                    <li data-i18n="algeriaIndustrial2">خلال الثمانينات غيّرت الجزائر سياستها التصنيعية في اتجاه تطوير <strong>الصناعات الاستهلاكية الخفيفة</strong> مثل الصناعات الغذائية وغيرها من الصناعات التي لا تتطلب رأس مال ضخم لكنها تشغّل يداً عاملة قليلة الكلفة. وهو ما يعني التوجه أكثر نحو <strong>خوصصة</strong> المشاريع الصناعية. ولتلبية حاجيات هذه الاستثمارات الخاصة كان على الدولة الاعتناء بعدة قطاعات اجتماعية موازية كالتعليم والنقل والمواصلات والصحة والإسكان.</li>
+                    <li data-i18n="algeriaIndustrial3">ومع النصف الثاني من التسعينات قبلت الجزائر بسياسة <strong>الإصلاح الهيكلي</strong> فخفضت في قيمة عملتها ودعمت الخوصصة وحدّت من الاحتكارات كما اتجهت نحو رفع الدعم عن المواد الأساسية والانفتاح على <strong>اقتصاد السوق</strong>. وفي <strong>22 أفريل 2002</strong> تم الاتفاق مع <strong>الاتحاد الأوروبي</strong> على فتح الأسواق الأوروبية أمام الإنتاج الجزائري الذي يحترم المواصفات الأوروبية.</li>
+                </ul>
+
+                <!-- 2. Agricultural policy -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="algeriaAgriculturalTitle">سياسة التنمية الفلاحية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="algeriaAgricultural1">منذ استقلال الجزائر واسترجاعها لأراضي المعمّرين أصبحت الدولة المشرف الرئيسي على عملية الإنتاج بواسطة <strong>لجان التسيير العمالية</strong> والتي بدورها تشرف على <strong>تعاونيات الإنتاج</strong>، وبذلك تكون الجزائر قد طبقت <strong>نظام إنتاج اشتراكي</strong> مكّن من تحسين الإنتاج في كل المجالات الفلاحية إلا أن المردود بقي ضعيفاً ولا يلبي حاجيات الاستهلاك الوطني خاصة في مجال <strong>الحبوب</strong>.</li>
+                    <li data-i18n="algeriaAgricultural2">خلال الثمانينات وخاصة التسعينات توجهت الدولة نحو <strong>تشريك الخواص</strong> في الإنتاج الفلاحي فتحسّن المردود لكن الظروف الطبيعية لم تمكّن الفلاحين من تحقيق الاكتفاء من كل المنتوجات الفلاحية.</li>
+                </ul>
+
+                <!-- 3. Results -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="algeriaResultsTitle">حصيلة التنمية في الجزائر</span>
+                </h4>
+                <ul>
+                    <li data-i18n="algeriaResults1"><strong>على المستوى المجالي والبيئي:</strong> تمكنت الجزائر من توسيع مجال استغلال ثرواتها المنجمية والطاقية، لكن الصناعات الثقيلة تسببت في <strong>تلوث بيئي خطير</strong> في عديد المدن مثل <strong>سكيكدة</strong> في الشمال الشرقي التي تضررت شواطئها وموائدها السطحية إلى جانب هوائها.</li>
+                    <li data-i18n="algeriaResults2"><strong>على المستوى الاقتصادي:</strong> حقق كل من الإنتاج الفلاحي والصناعي تطوراً هاماً إلا أن الجزائر لم تتمكن إلا مؤخراً من تحقيق اكتفائها من <strong>حديد وأسلاك البناء</strong> دون بقية المنتوجات. أما في المجال الفلاحي فهي لا تزال في حاجة إلى الاستيراد خاصة بالنسبة للحبوب، فهي تستورد حوالي <strong>ثلثي حاجياتها من القمح</strong> من فرنسا وكندا. وقد سجل الميزان الفلاحي عجزاً كاملاً ولم يتحقق الفائض التجاري العام إلا بتصدير <strong>المحروقات</strong> سواء كانت خاماً أو مكررة.</li>
+                    <li data-i18n="algeriaResults3"><strong>على المستوى الاجتماعي:</strong> تحسّن معدل الدخل الفردي السنوي رغم أنه لا يزال بعيداً عن معدل الدخل الفردي السنوي الليبي، وقد تحسّن معه مستوى العيش وتجاوز أمل الحياة السبعين سنة (<strong>73 سنة</strong>) إلا أن النمو الاقتصادي لا يغطي الحاجيات الاجتماعية فنسبة <strong>البطالة</strong> لا تزال عالية مما يدفع الشباب الجزائري نحو <strong>الهجرة</strong> بكل أشكالها. لقد تحملت الدولة الجزائرية عبء التنمية الفلاحية والصناعية لعشرات السنين ولم تتمكن من تحقيق أهدافها المرسومة وهي تحقيق الاكتفاء من المواد المنتجة.</li>
+                </ul>
+            </div>
+
+            <!-- Part II : Morocco -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">تنوع الخيارات التنموية في المغرب الأقصى وحصيلتها</span>
+                </h2>
+
+                <!-- 1. Agriculture -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="moroccoAgriculturalTitle">التركيز على النشاط الفلاحي</span>
+                </h4>
+                <p data-i18n="moroccoAgriculturalText">بحكم افتقار المغرب الأقصى للثروة الطاقية وثرائه النسبي بالموارد المائية وجّه اهتمامه منذ الاستقلال نحو تنمية الإنتاج الفلاحي من خلال توفير الظروف الملائمة لتطويره، وخاصة منها تهيئة <strong>السدود</strong> الكفيلة بتعبئة كمية هامة من المياه تغطي حاجيات الفلاحين صغاراً كانوا أو متوسطين أو كباراً. فإلى جانب <strong>الزراعات البعلية</strong> التي تشغّل <strong>82%</strong> من الريفيين تطوّرت <strong>الزراعات السقوية</strong> لكل المنتوجات التي يمكن أن يوفرها المناخ المغربي وتوفر <strong>75%</strong> من الصادرات الفلاحية المغربية إلى جانب <strong>الباكورات</strong> التي لم تعد مخصصة للتصدير مثلما كانت في السابق.</p>
+
+                <!-- 2. Light industries -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="moroccoIndustryTitle">أهمية الصناعات الخفيفة</span>
+                </h4>
+                <p data-i18n="moroccoIndustryText">في المجال الصناعي شجّعت الدولة على تركيز <strong>الصناعات الخفيفة المشغّلة لليد العاملة</strong> في عديد المجالات مثل <strong>النسيج والملابس والصناعات الغذائية</strong> إلى جانب صناعات أخرى استهلاكية مثل صناعة مواد البناء والبلاستيك ومواد التنظيف وصناعات أكثر تطوراً مثل <strong>تركيب السيارات وصناعة الأدوية</strong>. كما اتجهت الدولة نحو <strong>تثمين الفسفاط</strong> بتطوير صناعة الأسمدة الفسفاطية. وقد استفاد القطاع الصناعي المغربي كثيراً من <strong>الاستثمارات الأجنبية</strong> نظراً لأهمية التشجيعات التي تقدمها الدولة للمستثمرين الأجانب.</p>
+
+                <!-- 3. Tourism -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="moroccoTourismTitle">أهمية النشاط السياحي</span>
+                </h4>
+                <p data-i18n="moroccoTourismText">يتمتع المغرب الأقصى بمشاهده الطبيعية الجذابة والمبهرة للسياح الأوروبيين خاصة، فهو يحوي تناقضات مناخية من الجبال المكسوة بالثلوج إلى الصحاري المغطاة بالكثبان الرملية فكان وجهة ملايين السياح سنوياً. فارتفعت طاقة إيواء النزل من <strong>61 ألف سرير سنة 1985</strong> إلى <strong>103 آلاف سرير سنة 2002</strong>، ويعتبر قطاع السياحة مورداً هاماً للعملة الصعبة وخاصة منها الأورو ثم الدولار كما أنه منشّط هام للصناعات التقليدية، ففي <strong>مراكش</strong> لمفردها ينشط <strong>120 ألف حرفي</strong> ويمثل <strong>الموروث البربري الأمازيغي</strong> أفضل أرضية للإنتاج التقليدي. وقد ارتفعت عائدات السياحة من <strong>0.6 مليار دولار سنة 1985</strong> إلى <strong>2.9 مليار دولار سنة 2002</strong> و<strong>أكثر من 7 مليار دولار خلال سنة 2023</strong>.</p>
+
+                <!-- 4. Results -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">4</span>.
+                    <span data-i18n="moroccoResultsTitle">حصيلة التنمية في المغرب الأقصى</span>
+                </h4>
+                <ul>
+                    <li data-i18n="moroccoResults1"><strong>على المستوى المجالي والبيئي:</strong> تسببت الصناعات الاستخراجية للفسفاط وغيره في <strong>تلوث كبير للوسط الطبيعي</strong> بكل مكوناته (هوائه ومائه وتضاريسه وتربته ونباته وأنهاره).</li>
+                    <li data-i18n="moroccoResults2"><strong>على المستوى الاقتصادي:</strong> تحققت نسب نمو هامة في كل القطاعات لكنها غير مضمونة الدوام، وتعاني الأنشطة الاقتصادية من <strong>تركزها في بعض المناطق دون غيرها</strong>، فالصناعات أغلبها ركّزت على السواحل أما السياحة فازدهرت في المدن العتيقة مثل <strong>مراكش والرباط وورزازات وفاس وأغادير</strong>، وأما الفلاحة فهي كذلك تتطلب كميات هامة من المياه لأن <strong>الفلاحة السقوية</strong> هي التي يوجّه إنتاجها للتصدير. ورغم كل التضحيات فإن <strong>الميزان التجاري المغربي عاجز</strong> ويتفاقم عجزه من سنة إلى أخرى ويتسبب في ارتفاع قيمة <strong>الدين الخارجي</strong>.</li>
+                    <li data-i18n="moroccoResults3"><strong>على المستوى الاجتماعي:</strong> لقد تمكنت الأنشطة الاقتصادية من تشغيل نسبة عالية من اليد العاملة إلا أنها تبقى كلها <strong>قطاعات تشغيل هشة</strong> ولا تقدر على توفير مواطن شغل كافية ودائمة إما لارتباطها بالأوضاع الأمنية أو الظروف العالمية أو الظروف الطبيعية أو لضعف مداخيلها. فمعدل الدخل الفردي السنوي تضاعف حوالي 4 مرات بين <strong>1993 و2005</strong> لكنه أضعف من معدل الدخل الفردي السنوي في الجزائر. كما أن <strong>مؤشر التنمية البشرية</strong> سجل ارتفاعاً هاماً لكنه بقي إلى بداية القرن XXI يحتل المرتبة الرابعة مغربياً قبل موريتانيا. ورغم تراجع نسبة <strong>البطالة</strong> فإنها لا تزال مرتفعة خاصة في صفوف أصحاب الشهادات العليا والنساء وقد بلغ معدلها <strong>13.5% سنة 2023</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">لقد سلكت كل من الجزائر والمغرب الأقصى سياسة تنموية متباينة بحكم اختلاف ظروفهما الطبيعية. ورغم صعوبة المسار الذي اتبعته الجزائر فإن العديد من المؤشرات تؤكد الأثر العميق للثروة الطاقية على قدرة الدولة على فرض النظام الاقتصادي الذي تتبناه وإمكانية نجاحها في تحسين مستوى العيش والتحكم في البطالة. فهل تنجح هاتان الدولتان في القضاء على البطالة فيهما دون تغيير منوالهما التنموي؟</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defAlgeria">الجزائر</strong>: <span data-i18n="defAlgeriaDesc">أكبر دول المغرب العربي مساحة، انتهجت منذ استقلالها سياسة تنمية صناعية اعتماداً على ثرواتها الطاقية (النفط والغاز) والمنجمية (الحديد)، فأنشأت صناعات ثقيلة ووسيطة ثم اتجهت نحو الصناعات الخفيفة والخوصصة والإصلاح الهيكلي، وانضمت إلى اقتصاد السوق ووقعت اتفاقاً مع الاتحاد الأوروبي سنة 2002.</span></li>
+                        <li><strong class="key-location" data-i18n="defMorocco">المغرب الأقصى</strong>: <span data-i18n="defMoroccoDesc">دولة في المغرب العربي تفتقر للثروة الطاقية لكنها غنية نسبياً بالموارد المائية، فوجّهت اهتمامها نحو تنمية الفلاحة (السدود والزراعات السقوية) والصناعات الخفيفة والفسفاط والسياحة، وحققت نسب نمو هامة لكن ميزانها التجاري عاجز ودينها الخارجي يرتفع.</span></li>
+                        <li><strong class="key-location" data-i18n="defSkikda">سكيكدة</strong>: <span data-i18n="defSkikdaDesc">مدينة جزائرية في الشمال الشرقي تضررت شواطئها وموائدها السطحية وهواؤها بسبب التلوث البيئي الخطير الناتج عن الصناعات الثقيلة.</span></li>
+                        <li><strong class="key-location" data-i18n="defMarrakech">مراكش</strong>: <span data-i18n="defMarrakechDesc">مدينة مغربية عتيقة ذات جذب سياحي كبير، ينشط فيها 120 ألف حرفي، وتمثل الموروث البربري الأمازيغي أفضل أرضية للإنتاج التقليدي فيها.</span></li>
+                        <li><strong class="key-location" data-i18n="defRabat">الرباط</strong>: <span data-i18n="defRabatDesc">عاصمة المغرب الأقصى السياسية، من المدن العتيقة التي ازدهرت فيها السياحة.</span></li>
+                        <li><strong class="key-location" data-i18n="defOuarzazate">ورزازات</strong>: <span data-i18n="defOuarzazateDesc">مدينة مغربية عتيقة ذات جذب سياحي بفضل مواقعها الطبيعية والثقافية.</span></li>
+                        <li><strong class="key-location" data-i18n="defFez">فاس</strong>: <span data-i18n="defFezDesc">مدينة مغربية عتيقة، من المدن التي ازدهر فيها النشاط السياحي.</span></li>
+                        <li><strong class="key-location" data-i18n="defAgadir">أغادير</strong>: <span data-i18n="defAgadirDesc">مدينة مغربية ساحلية، من المدن التي ازدهر فيها النشاط السياحي.</span></li>
+                        <li><strong class="key-location" data-i18n="defFrance">فرنسا</strong>: <span data-i18n="defFranceDesc">من الدول التي تستورد الجزائر منها حوالي ثلثي حاجياتها من القمح.</span></li>
+                        <li><strong class="key-location" data-i18n="defCanada">كندا</strong>: <span data-i18n="defCanadaDesc">من الدول التي تستورد الجزائر منها جزءاً من حاجياتها من القمح.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defEUAgreement">اتفاق الجزائر مع الاتحاد الأوروبي</strong>: <span data-i18n="defEUAgreementDesc">اتفاق وقع في 22 أفريل 2002 بين الجزائر والاتحاد الأوروبي، ينص على فتح الأسواق الأوروبية أمام الإنتاج الجزائري الذي يحترم المواصفات الأوروبية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1985</strong>: <span data-i18n="defYear1985Desc">سنة بلوغ طاقة إيواء النزل في المغرب الأقصى 61 ألف سرير، وعائدات السياحة 0.6 مليار دولار.</span></li>
+                        <li><strong class="key-year">1993</strong>: <span data-i18n="defYear1993Desc">سنة بداية المقارنة التي شهدت تضاعف معدل الدخل الفردي السنوي في المغرب الأقصى حوالي 4 مرات حتى 2005.</span></li>
+                        <li><strong class="key-year">2002</strong>: <span data-i18n="defYear2002Desc">سنة بلوغ طاقة إيواء النزل في المغرب الأقصى 103 آلاف سرير، وعائدات السياحة 2.9 مليار دولار، وتوقيع الاتفاق بين الجزائر والاتحاد الأوروبي (22 أفريل).</span></li>
+                        <li><strong class="key-year">2005</strong>: <span data-i18n="defYear2005Desc">سنة نهاية المقارنة التي شهدت تضاعف معدل الدخل الفردي السنوي في المغرب الأقصى حوالي 4 مرات منذ 1993.</span></li>
+                        <li><strong class="key-year">2023</strong>: <span data-i18n="defYear2023Desc">سنة بلوغ عائدات السياحة في المغرب الأقصى أكثر من 7 مليارات دولار، وبلوغ نسبة البطالة فيه 13.5%.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏢 منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defEU">الاتحاد الأوروبي</strong>: <span data-i18n="defEUDesc">منظمة إقليمية أوروبية، وقعت معها الجزائر اتفاقاً في 22 أفريل 2002 يقضي بفتح الأسواق الأوروبية أمام الإنتاج الجزائري الذي يحترم المواصفات الأوروبية.</span></li>
+                        <li><strong class="key-organization" data-i18n="defMultinationals">الشركات المتعددة الجنسيات</strong>: <span data-i18n="defMultinationalsDesc">شركات ضخمة تعمل في عدة دول، استعانت بها الجزائر لتحقيق أغلب المشاريع الصناعية الثقيلة والوسيطة في السبعينات.</span></li>
+                        <li><strong class="key-organization" data-i18n="defAMU">اتحاد المغرب العربي</strong>: <span data-i18n="defAMUDesc">منظمة إقليمية تأسست يوم 17 فيفري 1989، وأسّست للوحدة السياسية والاقتصادية بين دول المغرب العربي الخمس، لكن التعاون الفعلي بين دوله في المجالات التنموية يبقى محدوداً.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defDevelopment">التنمية الاقتصادية</strong>: <span data-i18n="defDevelopmentDesc">مجموع السياسات والإجراءات التي تتخذها الدولة لتحسين اقتصادها ورفع مستوى عيش سكانها، وتشمل التنمية الصناعية والفلاحية والسياحية وغيرها.</span></li>
+                        <li><strong class="key-other" data-i18n="defHeavyIndustry">الصناعات الثقيلة</strong>: <span data-i18n="defHeavyIndustryDesc">صناعات تتطلب رأس مال ضخم ومواد أولية كثيرة وتنتج وسائل إنتاج، مثل صناعة الحديد والصلب والصناعات الكيميائية؛ اعتمدتها الجزائر في السبعينات.</span></li>
+                        <li><strong class="key-other" data-i18n="defLightIndustry">الصناعات الخفيفة</strong>: <span data-i18n="defLightIndustryDesc">صناعات لا تتطلب رأس مال ضخم وتشغّل يداً عاملة كثيرة، مثل النسيج والملابس والصناعات الغذائية ومواد البناء؛ اعتمدتها الجزائر في الثمانينات والمغرب الأقصى.</span></li>
+                        <li><strong class="key-other" data-i18n="defIndustrialPoles">الأقطاب الصناعية</strong>: <span data-i18n="defIndustrialPolesDesc">مناطق صناعية كبرى تُنجز فيها مشاريع صناعية ضخمة متكاملة، أنشأتها الجزائر في السبعينات اعتماداً على الثروة الطاقية.</span></li>
+                        <li><strong class="key-other" data-i18n="defPrivatization">الخوصصة</strong>: <span data-i18n="defPrivatizationDesc">نقل ملكية المشاريع والمؤسسات العمومية إلى القطاع الخاص؛ اعتمدتها الجزائر خلال الثمانينات والتسعينات في إطار الإصلاح الاقتصادي.</span></li>
+                        <li><strong class="key-other" data-i18n="defStructuralAdjustment">الإصلاح الهيكلي</strong>: <span data-i18n="defStructuralAdjustmentDesc">سياسة اقتصادية قَبِلت بها الجزائر في النصف الثاني من التسعينات، وقضت على تخفيض قيمة العملة ودعم الخوصصة والحد من الاحتكارات ورفع الدعم عن المواد الأساسية والانفتاح على اقتصاد السوق.</span></li>
+                        <li><strong class="key-other" data-i18n="defMarketEconomy">اقتصاد السوق</strong>: <span data-i18n="defMarketEconomyDesc">نظام اقتصادي يعتمد على قوى العرض والطلب والمبادرة الخاصة، انفتحت عليه الجزائر في النصف الثاني من التسعينات.</span></li>
+                        <li><strong class="key-other" data-i18n="defWorkersManagementCommittees">لجان التسيير العمالية</strong>: <span data-i18n="defWorkersManagementCommitteesDesc">هيئات عمالية أشرفت على إدارة أراضي المعمرين في الجزائر بعد الاستقلال، وأشرفت بدورها على تعاونيات الإنتاج في إطار النظام الاشتراكي.</span></li>
+                        <li><strong class="key-other" data-i18n="defSocialistProduction">نظام الإنتاج الاشتراكي</strong>: <span data-i18n="defSocialistProductionDesc">نظام اقتصادي تعتمد فيه الدولة الإشراف الرئيسي على الإنتاج بواسطة لجان التسيير العمالية والتعاونيات؛ طبّقته الجزائر بعد الاستقلال في القطاع الفلاحي.</span></li>
+                        <li><strong class="key-other" data-i18n="defDryFarming">الزراعات البعلية</strong>: <span data-i18n="defDryFarmingDesc">زراعات تعتمد على مياه الأمطار فقط دون سقي؛ تشغّل 82% من الريفيين في المغرب الأقصى.</span></li>
+                        <li><strong class="key-other" data-i18n="defIrrigatedFarming">الزراعات السقوية</strong>: <span data-i18n="defIrrigatedFarmingDesc">زراعات تعتمد على مياه السقي، طوّرها المغرب الأقصى بفضل السدود، وتوفر 75% من الصادرات الفلاحية المغربية.</span></li>
+                        <li><strong class="key-other" data-i18n="defEarlyCrops">الباكورات</strong>: <span data-i18n="defEarlyCropsDesc">منتوجات فلاحية مبكرة تسوّق قبل موعدها، ولم تعد في المغرب الأقصى مخصصة للتصدير مثلما كانت في السابق.</span></li>
+                        <li><strong class="key-other" data-i18n="defPhosphateValorization">تثمين الفسفاط</strong>: <span data-i18n="defPhosphateValorizationDesc">تحويل الفسفاط الخام إلى منتوجات مصنّعة ذات قيمة مضافة، مثل الأسمدة الفسفاطية، واعتمده المغرب الأقصى.</span></li>
+                        <li><strong class="key-other" data-i18n="defTourismAccommodation">طاقة إيواء النزل</strong>: <span data-i18n="defTourismAccommodationDesc">عدد الأسرّة المتوفرة في النزل السياحية؛ ارتفعت في المغرب الأقصى من 61 ألف سرير سنة 1985 إلى 103 آلاف سرير سنة 2002.</span></li>
+                        <li><strong class="key-other" data-i18n="defAmazighHeritage">الموروث البربري الأمازيغي</strong>: <span data-i18n="defAmazighHeritageDesc">التراث الثقافي الأمازيغي، ويمثل في المغرب الأقصى وخاصة في مراكش أفضل أرضية للإنتاج التقليدي.</span></li>
+                        <li><strong class="key-other" data-i18n="defFragileSectors">قطاعات التشغيل الهشة</strong>: <span data-i18n="defFragileSectorsDesc">قطاعات اقتصادية تشغّل اليد العاملة لكنها لا توفّر مواطن شغل كافية ودائمة، لارتباطها بالأوضاع الأمنية أو الظروف العالمية أو الظروف الطبيعية أو لضعف مداخيلها.</span></li>
+                        <li><strong class="key-other" data-i18n="defUnemployment">البطالة</strong>: <span data-i18n="defUnemploymentDesc">عدم توفر فرص عمل للأشخاص القادرين على العمل؛ بلغت في المغرب الأقصى 13.5% سنة 2023، ولا تزال مرتفعة في الجزائر مما يدفع شبابها نحو الهجرة.</span></li>
+                        <li><strong class="key-other" data-i18n="defHDI">مؤشر التنمية البشرية</strong>: <span data-i18n="defHDIDesc">مؤشر مركب يقيس مستوى التنمية البشرية في دولة ما (الدخل والتعليم والصحة)؛ سجّل ارتفاعاً هاماً في المغرب الأقصى لكنه بقي يحتل المرتبة الرابعة مغربياً قبل موريتانيا.</span></li>
+                        <li><strong class="key-other" data-i18n="defTradeBalance">الميزان التجاري</strong>: <span data-i18n="defTradeBalanceDesc">الفرق بين قيمة الصادرات وقيمة الواردات؛ عاجز في المغرب الأقصى ويتفاقم عجزه من سنة إلى أخرى، وفي الجزائر لم يتحقق الفائض إلا بتصدير المحروقات.</span></li>
+                        <li><strong class="key-other" data-i18n="defExternalDebt">الدين الخارجي</strong>: <span data-i18n="defExternalDebtDesc">مجموع الأموال المقترضة من الخارج والمستحقة السداد؛ يرتفع في المغرب الأقصى بسبب تفاقم عجز الميزان التجاري.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Summary box -->
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: سلكت الجزائر والمغرب الأقصى سياستين تنمويتين متباينتين: اعتمدت الجزائر على ثرواتها الطاقية لبناء صناعات ثقيلة ثم خفيفة، مع نظام إنتاج اشتراكي في الفلاحة ثم تشريك الخواص، لكنها لم تحقق الاكتفاء الغذائي وتلوث بيئي خطير وتستورد ثلثي حاجياتها من القمح. أما المغرب الأقصى فاعتمد على الفلاحة السقوية والصناعات الخفيفة وتثمين الفسفاط والسياحة، محققاً نسب نمو هامة لكن ميزانه التجاري عاجز ودينه الخارجي مرتفع وبطالته 13.5% سنة 2023. وكلاهما لم يقضيا على البطالة رغم تحسن مؤشرات التنمية البشرية.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط وصور توضيحية</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson4/algeria_industry.jpg" alt="الصناعة في الجزائر" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">الصناعة في الجزائر</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson4/skikda_pollution.jpg" alt="التلوث بسكيكدة" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">التلوث بسكيكدة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson4/morocco_dams.jpg" alt="السدود بالمغرب الأقصى" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">السدود بالمغرب الأقصى</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson4/morocco_phosphate.jpg" alt="صناعة الفسفاط بالمغرب الأقصى" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">صناعة الفسفاط بالمغرب الأقصى</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson4/marrakech_tourism.jpg" alt="السياحة بمراكش" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">السياحة بمراكش</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson4/algeria_wheat_import.jpg" alt="استيراد القمح في الجزائر" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">استيراد القمح في الجزائر</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y09_geo_exercisess_mod1_lesson4.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات، الدول، الأحداث، السنوات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "9th Basic",
+                moduleName: "Geography / Axis 1: The Maghreb",
+                lessonTitleSample: "Economic Development in the Maghreb",
+                sectionIntro: "Introduction",
+                introText: "The Maghreb countries have adopted different policies to develop their economies; some relied on their energy and mineral resources such as Algeria, and others relied on their water resources to revitalize their agriculture alongside their interest in light industries such as Morocco.",
+                problematiqueText: "What are the characteristics of the two development experiences in Algeria and Morocco? And what are their economic and social results?",
+                sectionPart1: "Algeria's Development Experience and Its Outcome",
+                algeriaIndustrialTitle: "Industrial Development Policy in Algeria",
+                algeriaIndustrial1: "From its independence until the 1970s, the Algerian state focused on establishing an <strong>integrated industrial fabric</strong> including <strong>heavy, intermediate, and consumer industries</strong>, relying on a huge wealth of oil and natural gas alongside iron. Massive industrial projects were completed in the form of <strong>industrial poles and chemical complexes</strong> and others for iron and steel, and it used <strong>multinational corporations</strong> to realize most of these projects. This development policy contributed to equipping the country, but it was not sufficiently labor-intensive, forcing the state to reconsider it.",
+                algeriaIndustrial2: "During the 1980s, Algeria changed its industrial policy toward developing <strong>light consumer industries</strong> such as food industries and others that do not require huge capital but employ low-cost labor. This means moving more toward the <strong>privatization</strong> of industrial projects. To meet the needs of these private investments, the state had to take care of several parallel social sectors such as education, transport, communications, health, and housing.",
+                algeriaIndustrial3: "In the second half of the 1990s, Algeria accepted the <strong>structural adjustment</strong> policy, devaluing its currency, supporting privatization, limiting monopolies, and moving toward lifting subsidies on basic commodities and opening up to the <strong>market economy</strong>. On <strong>April 22, 2002</strong>, an agreement was reached with the <strong>European Union</strong> to open European markets to Algerian production that respects European standards.",
+                algeriaAgriculturalTitle: "Agricultural Development Policy",
+                algeriaAgricultural1: "Since Algeria's independence and its recovery of the settlers' lands, the state became the main supervisor of the production process through <strong>workers' management committees</strong>, which in turn supervise <strong>production cooperatives</strong>. Thus, Algeria applied a <strong>socialist production system</strong> that improved production in all agricultural fields, but the yield remained weak and did not meet national consumption needs, especially in <strong>cereals</strong>.",
+                algeriaAgricultural2: "During the 1980s and especially the 1990s, the state moved toward <strong>involving the private sector</strong> in agricultural production, and the yield improved, but natural conditions did not enable farmers to achieve self-sufficiency in all agricultural products.",
+                algeriaResultsTitle: "Development Outcome in Algeria",
+                algeriaResults1: "<strong>At the spatial and environmental level:</strong> Algeria was able to expand the scope of exploiting its mineral and energy resources, but heavy industries caused <strong>serious environmental pollution</strong> in many cities such as <strong>Skikda</strong> in the northeast, whose beaches, surface water tables, and air were affected.",
+                algeriaResults2: "<strong>At the economic level:</strong> Both agricultural and industrial production achieved significant development, but Algeria only recently achieved self-sufficiency in <strong>iron and construction wire</strong> without the rest of the products. In agriculture, it still needs imports, especially for cereals; it imports about <strong>two-thirds of its wheat needs</strong> from France and Canada. The agricultural balance recorded a complete deficit, and the overall trade surplus was only achieved by exporting <strong>hydrocarbons</strong>, whether crude or refined.",
+                algeriaResults3: "<strong>At the social level:</strong> The annual per capita income improved, although it remains far from Libya's annual per capita income; the standard of living improved and life expectancy exceeded seventy years (<strong>73 years</strong>). However, economic growth does not cover social needs, and the <strong>unemployment</strong> rate remains high, pushing Algerian youth toward <strong>migration</strong> in all its forms. The Algerian state has borne the burden of agricultural and industrial development for decades without achieving its stated goals of self-sufficiency in produced goods.",
+                sectionPart2: "Diversity of Development Choices in Morocco and Its Outcome",
+                moroccoAgriculturalTitle: "Focus on Agricultural Activity",
+                moroccoAgriculturalText: "Due to Morocco's lack of energy wealth and its relative richness in water resources, it has directed its attention since independence toward developing agricultural production by providing suitable conditions for its development, especially the preparation of <strong>dams</strong> capable of mobilizing significant water quantities to cover farmers' needs, whether small, medium, or large. Alongside <strong>rain-fed agriculture</strong>, which employs <strong>82%</strong> of rural people, <strong>irrigated agriculture</strong> has developed for all products the Moroccan climate can provide, supplying <strong>75%</strong> of Moroccan agricultural exports, in addition to <strong>early crops</strong> that are no longer exclusively intended for export as they were in the past.",
+                moroccoIndustryTitle: "The Importance of Light Industries",
+                moroccoIndustryText: "In the industrial field, the state encouraged the concentration of <strong>light, labor-intensive industries</strong> in many fields such as <strong>textiles, clothing, and food industries</strong>, alongside other consumer industries such as building materials, plastics, and cleaning products, and more advanced industries such as <strong>car assembly and pharmaceutical manufacturing</strong>. The state also moved toward <strong>valorizing phosphate</strong> by developing the phosphate fertilizer industry. The Moroccan industrial sector has benefited greatly from <strong>foreign investments</strong> due to the importance of incentives offered by the state to foreign investors.",
+                moroccoTourismTitle: "The Importance of Tourism",
+                moroccoTourismText: "Morocco enjoys attractive and spectacular natural landscapes for tourists, especially Europeans; it contains climatic contrasts, from snow-capped mountains to sand dune-covered deserts, making it a destination for millions of tourists annually. Hotel accommodation capacity rose from <strong>61,000 beds in 1985</strong> to <strong>103,000 beds in 2002</strong>. The tourism sector is an important source of foreign currency, especially the euro and then the dollar, and an important stimulator of traditional industries; in <strong>Marrakech</strong> alone, <strong>120,000 craftsmen</strong> are active, and the <strong>Berber-Amazigh heritage</strong> represents the best ground for traditional production. Tourism revenues rose from <strong>0.6 billion dollars in 1985</strong> to <strong>2.9 billion dollars in 2002</strong> and <strong>more than 7 billion dollars during 2023</strong>.",
+                moroccoResultsTitle: "Development Outcome in Morocco",
+                moroccoResults1: "<strong>At the spatial and environmental level:</strong> Phosphate and other extractive industries have caused <strong>significant pollution of the natural environment</strong> with all its components (air, water, landforms, soil, vegetation, and rivers).",
+                moroccoResults2: "<strong>At the economic level:</strong> Important growth rates were achieved in all sectors, but they are not guaranteed to last. Economic activities suffer from their <strong>concentration in some regions without others</strong>; industries are mostly concentrated on the coasts, tourism has flourished in old cities such as <strong>Marrakech, Rabat, Ouarzazate, Fez, and Agadir</strong>, and agriculture also requires significant water quantities because <strong>irrigated agriculture</strong> is what produces for export. Despite all sacrifices, the <strong>Moroccan trade balance is in deficit</strong> and its deficit worsens year after year, causing the value of <strong>external debt</strong> to rise.",
+                moroccoResults3: "<strong>At the social level:</strong> Economic activities have been able to employ a high proportion of the labor force, but they all remain <strong>fragile employment sectors</strong> that cannot provide sufficient and permanent jobs, either because they are linked to security conditions, global conditions, natural conditions, or because of their low incomes. The annual per capita income doubled about 4 times between <strong>1993 and 2005</strong> but is weaker than Algeria's annual per capita income. The <strong>Human Development Index</strong> recorded a significant rise, but until the beginning of the 21st century it ranked fourth in the Maghreb, before Mauritania. Despite the decline in the <strong>unemployment</strong> rate, it remains high, especially among higher education graduates and women, reaching <strong>13.5% in 2023</strong>.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Both Algeria and Morocco have adopted different development policies due to the differences in their natural conditions. Despite the difficulty of the path taken by Algeria, many indicators confirm the deep impact of energy wealth on the state's ability to impose the economic system it adopts and the possibility of its success in improving living standards and controlling unemployment. Will these two countries succeed in eliminating unemployment without changing their development model?",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Illustrative Images",
+                defLocations: "🌍 Countries and Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years and Periods",
+                defOrganizations: "🏢 Organizations and Institutions",
+                defOthers: "📌 Other",
+                defAlgeria: "Algeria",
+                defAlgeriaDesc: "The largest Maghreb country by area; it has adopted since its independence an industrial development policy based on its energy (oil and gas) and mineral (iron) wealth, establishing heavy and intermediate industries, then moving toward light industries, privatization, and structural adjustment, joining the market economy and signing an agreement with the European Union in 2002.",
+                defMorocco: "Morocco",
+                defMoroccoDesc: "A Maghreb country lacking energy wealth but relatively rich in water resources; it directed its attention toward developing agriculture (dams and irrigated agriculture), light industries, phosphate, and tourism, achieving significant growth rates but its trade balance is in deficit and its external debt is rising.",
+                defSkikda: "Skikda",
+                defSkikdaDesc: "An Algerian city in the northeast whose beaches, surface water tables, and air were affected by serious environmental pollution resulting from heavy industries.",
+                defMarrakech: "Marrakech",
+                defMarrakechDesc: "An old Moroccan city with significant tourism appeal; 120,000 craftsmen are active in it, and the Berber-Amazigh heritage represents the best ground for traditional production there.",
+                defRabat: "Rabat",
+                defRabatDesc: "The political capital of Morocco; one of the old cities where tourism has flourished.",
+                defOuarzazate: "Ouarzazate",
+                defOuarzazateDesc: "An old Moroccan city with tourism appeal thanks to its natural and cultural sites.",
+                defFez: "Fez",
+                defFezDesc: "An old Moroccan city; one of the cities where tourism activity has flourished.",
+                defAgadir: "Agadir",
+                defAgadirDesc: "A coastal Moroccan city; one of the cities where tourism activity has flourished.",
+                defFrance: "France",
+                defFranceDesc: "One of the countries from which Algeria imports about two-thirds of its wheat needs.",
+                defCanada: "Canada",
+                defCanadaDesc: "One of the countries from which Algeria imports part of its wheat needs.",
+                defEUAgreement: "Algeria's Agreement with the European Union",
+                defEUAgreementDesc: "An agreement signed on April 22, 2002 between Algeria and the European Union, providing for the opening of European markets to Algerian production that respects European standards.",
+                defYear1985Desc: "Year when Morocco's hotel accommodation capacity reached 61,000 beds and tourism revenues 0.6 billion dollars.",
+                defYear1993Desc: "Starting year of the comparison during which Morocco's annual per capita income multiplied about 4 times until 2005.",
+                defYear2002Desc: "Year when Morocco's hotel accommodation capacity reached 103,000 beds, tourism revenues 2.9 billion dollars, and the agreement between Algeria and the European Union was signed (April 22).",
+                defYear2005Desc: "End year of the comparison during which Morocco's annual per capita income multiplied about 4 times since 1993.",
+                defYear2023Desc: "Year when Morocco's tourism revenues reached more than 7 billion dollars, and its unemployment rate reached 13.5%.",
+                defEU: "The European Union",
+                defEUDesc: "A European regional organization with which Algeria signed an agreement on April 22, 2002, providing for the opening of European markets to Algerian production that respects European standards.",
+                defMultinationals: "Multinational Corporations",
+                defMultinationalsDesc: "Large companies operating in several countries; Algeria used them to realize most of the heavy and intermediate industrial projects in the 1970s.",
+                defAMU: "The Arab Maghreb Union",
+                defAMUDesc: "A regional organization founded on February 17, 1989, laying the groundwork for political and economic unity among the five Maghreb countries; however, actual cooperation between its states in development fields remains limited.",
+                defDevelopment: "Economic Development",
+                defDevelopmentDesc: "The sum of policies and measures taken by the state to improve its economy and raise the living standards of its population, including industrial, agricultural, tourism, and other development.",
+                defHeavyIndustry: "Heavy Industries",
+                defHeavyIndustryDesc: "Industries requiring huge capital and large raw materials and producing means of production, such as the iron and steel industry and chemical industries; Algeria adopted them in the 1970s.",
+                defLightIndustry: "Light Industries",
+                defLightIndustryDesc: "Industries not requiring huge capital and employing much labor, such as textiles, clothing, food industries, and building materials; Algeria adopted them in the 1980s and Morocco as well.",
+                defIndustrialPoles: "Industrial Poles",
+                defIndustrialPolesDesc: "Large industrial zones where huge integrated industrial projects are realized; Algeria established them in the 1970s relying on energy wealth.",
+                defPrivatization: "Privatization",
+                defPrivatizationDesc: "Transfer of ownership of public projects and institutions to the private sector; Algeria adopted it during the 1980s and 1990s within the framework of economic reform.",
+                defStructuralAdjustment: "Structural Adjustment",
+                defStructuralAdjustmentDesc: "An economic policy accepted by Algeria in the second half of the 1990s, consisting of devaluing the currency, supporting privatization, limiting monopolies, lifting subsidies on basic commodities, and opening up to the market economy.",
+                defMarketEconomy: "Market Economy",
+                defMarketEconomyDesc: "An economic system based on supply and demand and private initiative; Algeria opened up to it in the second half of the 1990s.",
+                defWorkersManagementCommittees: "Workers' Management Committees",
+                defWorkersManagementCommitteesDesc: "Workers' bodies that supervised the management of settlers' lands in Algeria after independence, and in turn supervised production cooperatives within the framework of the socialist system.",
+                defSocialistProduction: "Socialist Production System",
+                defSocialistProductionDesc: "An economic system in which the state has the main supervision of production through workers' management committees and cooperatives; Algeria applied it after independence in the agricultural sector.",
+                defDryFarming: "Rain-fed Agriculture",
+                defDryFarmingDesc: "Agriculture relying on rainwater only without irrigation; it employs 82% of rural people in Morocco.",
+                defIrrigatedFarming: "Irrigated Agriculture",
+                defIrrigatedFarmingDesc: "Agriculture relying on irrigation water, developed by Morocco thanks to dams, and providing 75% of Moroccan agricultural exports.",
+                defEarlyCrops: "Early Crops",
+                defEarlyCropsDesc: "Early agricultural products marketed before their season; they are no longer exclusively intended for export in Morocco as they were in the past.",
+                defPhosphateValorization: "Phosphate Valorization",
+                defPhosphateValorizationDesc: "Converting raw phosphate into manufactured products with added value, such as phosphate fertilizers; Morocco adopted it.",
+                defTourismAccommodation: "Hotel Accommodation Capacity",
+                defTourismAccommodationDesc: "The number of beds available in tourist hotels; it rose in Morocco from 61,000 beds in 1985 to 103,000 beds in 2002.",
+                defAmazighHeritage: "Berber-Amazigh Heritage",
+                defAmazighHeritageDesc: "The Amazigh cultural heritage, representing in Morocco, especially in Marrakech, the best ground for traditional production.",
+                defFragileSectors: "Fragile Employment Sectors",
+                defFragileSectorsDesc: "Economic sectors that employ labor but do not provide sufficient and permanent jobs, either because they are linked to security conditions, global conditions, natural conditions, or because of their low incomes.",
+                defUnemployment: "Unemployment",
+                defUnemploymentDesc: "The unavailability of job opportunities for people able to work; it reached 13.5% in Morocco in 2023, and remains high in Algeria, pushing its youth toward migration.",
+                defHDI: "Human Development Index",
+                defHDIDesc: "A composite indicator measuring the level of human development in a country (income, education, and health); it recorded a significant rise in Morocco but ranked fourth in the Maghreb until the beginning of the 21st century, before Mauritania.",
+                defTradeBalance: "Trade Balance",
+                defTradeBalanceDesc: "The difference between the value of exports and the value of imports; it is in deficit in Morocco and its deficit worsens year after year, and in Algeria the surplus was only achieved by exporting hydrocarbons.",
+                defExternalDebt: "External Debt",
+                defExternalDebtDesc: "The sum of funds borrowed from abroad and due for repayment; it rises in Morocco due to the worsening trade balance deficit.",
+                summaryText: "Key takeaway: Algeria and Morocco adopted two different development policies: Algeria relied on its energy wealth to build heavy then light industries, with a socialist production system in agriculture then involving the private sector, but it did not achieve food self-sufficiency, caused serious environmental pollution, and imports two-thirds of its wheat needs. Morocco relied on irrigated agriculture, light industries, phosphate valorization, and tourism, achieving significant growth rates, but its trade balance is in deficit, its external debt is high, and its unemployment is 13.5% in 2023. Neither has eliminated unemployment despite improved human development indicators.",
+                galleryAlt1: "Industry in Algeria",
+                galleryAlt2: "Pollution in Skikda",
+                galleryAlt3: "Dams in Morocco",
+                galleryAlt4: "Phosphate industry in Morocco",
+                galleryAlt5: "Tourism in Marrakech",
+                galleryAlt6: "Wheat imports in Algeria",
+                galleryCap1: "Industry in Algeria",
+                galleryCap2: "Pollution in Skikda",
+                galleryCap3: "Dams in Morocco",
+                galleryCap4: "Phosphate industry in Morocco",
+                galleryCap5: "Tourism in Marrakech",
+                galleryCap6: "Wheat imports in Algeria",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, conclusion and summary",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, countries, events, years and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                yearSection: "9ème de base",
+                moduleName: "Géographie / Axe 1 : Le Maghreb",
+                lessonTitleSample: "Le développement économique au Maghreb",
+                sectionIntro: "Introduction",
+                introText: "Les pays du Maghreb ont adopté différentes politiques pour développer leur économie ; certains se sont appuyés sur leurs richesses énergétiques et minières comme l'Algérie, et d'autres se sont appuyés sur leurs ressources en eau pour dynamiser leur agriculture, ainsi que sur leur intérêt pour les industries légères comme le Maroc.",
+                problematiqueText: "Quelles sont les caractéristiques des deux expériences de développement en Algérie et au Maroc ? Et quels sont leurs résultats économiques et sociaux ?",
+                sectionPart1: "L'expérience de développement en Algérie et son bilan",
+                algeriaIndustrialTitle: "La politique de développement industriel en Algérie",
+                algeriaIndustrial1: "Depuis son indépendance jusqu'aux années 1970, l'État algérien s'est attaché à établir un <strong>tissu industriel intégré</strong> comprenant les <strong>industries lourdes, intermédiaires et de consommation</strong>, en s'appuyant sur une richesse énorme de pétrole et de gaz naturel ainsi que le fer. De grands projets industriels ont été réalisés sous forme de <strong>pôles industriels et complexes chimiques</strong> et d'autres pour le fer et l'acier, et il a fait appel aux <strong>sociétés multinationales</strong> pour réaliser la plupart de ces projets. Cette politique de développement a contribué à équiper le pays, mais elle n'était pas suffisamment génératrice d'emplois, ce qui a poussé l'État à la revoir.",
+                algeriaIndustrial2: "Dans les années 1980, l'Algérie a changé sa politique industrielle vers le développement des <strong>industries légères de consommation</strong> telles que les industries alimentaires et autres industries ne nécessitant pas un capital énorme mais employant une main-d'œuvre à faible coût. Cela signifie se diriger davantage vers la <strong>privatisation</strong> des projets industriels. Pour répondre aux besoins de ces investissements privés, l'État devait s'occuper de plusieurs secteurs sociaux parallèles tels que l'éducation, le transport, les communications, la santé et le logement.",
+                algeriaIndustrial3: "Dans la seconde moitié des années 1990, l'Algérie a accepté la politique d'<strong>ajustement structurel</strong>, dévaluant sa monnaie, soutenant la privatisation, limitant les monopoles et s'orientant vers la levée des subventions sur les produits de base et l'ouverture à l'<strong>économie de marché</strong>. Le <strong>22 avril 2002</strong>, un accord a été conclu avec l'<strong>Union européenne</strong> pour ouvrir les marchés européens à la production algérienne respectant les normes européennes.",
+                algeriaAgriculturalTitle: "La politique de développement agricole",
+                algeriaAgricultural1: "Depuis l'indépendance de l'Algérie et la récupération des terres des colons, l'État est devenu le principal superviseur du processus de production par le biais de <strong>comités de gestion ouvriers</strong>, qui supervisent à leur tour les <strong>coopératives de production</strong>. Ainsi, l'Algérie a appliqué un <strong>système de production socialiste</strong> qui a permis d'améliorer la production dans tous les domaines agricoles, mais le rendement est resté faible et ne répond pas aux besoins de la consommation nationale, notamment en matière de <strong>céréales</strong>.",
+                algeriaAgricultural2: "Dans les années 1980 et surtout 1990, l'État s'est orienté vers l'<strong>implication du secteur privé</strong> dans la production agricole, et le rendement s'est amélioré, mais les conditions naturelles n'ont pas permis aux agriculteurs d'atteindre l'autosuffisance dans tous les produits agricoles.",
+                algeriaResultsTitle: "Le bilan du développement en Algérie",
+                algeriaResults1: "<strong>Sur le plan spatial et environnemental :</strong> L'Algérie a pu élargir le champ d'exploitation de ses richesses minières et énergétiques, mais les industries lourdes ont causé une <strong>pollution environnementale grave</strong> dans plusieurs villes comme <strong>Skikda</strong> au nord-est, dont les plages, les nappes superficielles et l'air ont été affectés.",
+                algeriaResults2: "<strong>Sur le plan économique :</strong> La production agricole et industrielle ont réalisé un développement important, mais l'Algérie n'a pu que récemment atteindre l'autosuffisance en <strong>fer et fils de construction</strong> sans les autres produits. Dans le domaine agricole, elle a encore besoin d'importer, notamment pour les céréales ; elle importe environ <strong>deux tiers de ses besoins en blé</strong> de France et du Canada. La balance agricole a enregistré un déficit complet et l'excédent commercial global n'a été réalisé qu'en exportant les <strong>hydrocarbures</strong>, qu'ils soient bruts ou raffinés.",
+                algeriaResults3: "<strong>Sur le plan social :</strong> Le revenu annuel par habitant s'est amélioré, bien qu'il reste loin du revenu annuel par habitant libyen ; le niveau de vie s'est amélioré et l'espérance de vie a dépassé soixante-dix ans (<strong>73 ans</strong>). Cependant, la croissance économique ne couvre pas les besoins sociaux, et le taux de <strong>chômage</strong> reste élevé, poussant la jeunesse algérienne vers la <strong>migration</strong> sous toutes ses formes. L'État algérien a porté le fardeau du développement agricole et industriel pendant des décennies sans atteindre ses objectifs fixés, à savoir l'autosuffisance en produits fabriqués.",
+                sectionPart2: "La diversité des choix de développement au Maroc et son bilan",
+                moroccoAgriculturalTitle: "La concentration sur l'activité agricole",
+                moroccoAgriculturalText: "En raison du manque de richesse énergétique du Maroc et de sa relative richesse en ressources en eau, il a orienté son attention depuis l'indépendance vers le développement de la production agricole en fournissant les conditions favorables à son développement, notamment l'aménagement de <strong>barrages</strong> capables de mobiliser une quantité importante d'eau couvrant les besoins des agriculteurs, qu'ils soient petits, moyens ou grands. Outre les <strong>cultures pluviales</strong> qui emploient <strong>82%</strong> des ruraux, les <strong>cultures irriguées</strong> se sont développées pour tous les produits que le climat marocain peut offrir et fournissent <strong>75%</strong> des exportations agricoles marocaines, ainsi que les <strong>primeurs</strong> qui ne sont plus exclusivement destinés à l'exportation comme auparavant.",
+                moroccoIndustryTitle: "L'importance des industries légères",
+                moroccoIndustryText: "Dans le domaine industriel, l'État a encouragé la concentration des <strong>industries légères employant de la main-d'œuvre</strong> dans de nombreux domaines tels que le <strong>textile, l'habillement et les industries alimentaires</strong>, ainsi que d'autres industries de consommation telles que les matériaux de construction, le plastique et les produits de nettoyage, et des industries plus avancées telles que le <strong>montage automobile et l'industrie pharmaceutique</strong>. L'État s'est également orienté vers la <strong>valorisation du phosphate</strong> en développant l'industrie des engrais phosphatés. Le secteur industriel marocain a grandement bénéficié des <strong>investissements étrangers</strong> en raison de l'importance des encouragements offerts par l'État aux investisseurs étrangers.",
+                moroccoTourismTitle: "L'importance de l'activité touristique",
+                moroccoTourismText: "Le Maroc jouit de paysages naturels attrayants et spectaculaires pour les touristes, notamment européens ; il contient des contrastes climatiques, des montagnes enneigées aux déserts couverts de dunes de sable, ce qui en a fait une destination pour des millions de touristes chaque année. La capacité d'accueil des hôtels est passée de <strong>61 000 lits en 1985</strong> à <strong>103 000 lits en 2002</strong>. Le secteur du tourisme est une source importante de devises fortes, notamment l'euro puis le dollar, et un important stimulateur des industries traditionnelles ; à <strong>Marrakech</strong> seule, <strong>120 000 artisans</strong> sont actifs, et le <strong>patrimoine berbère-amazigh</strong> représente la meilleure base pour la production traditionnelle. Les recettes touristiques sont passées de <strong>0,6 milliard de dollars en 1985</strong> à <strong>2,9 milliards de dollars en 2002</strong> et <strong>plus de 7 milliards de dollars en 2023</strong>.",
+                moroccoResultsTitle: "Le bilan du développement au Maroc",
+                moroccoResults1: "<strong>Sur le plan spatial et environnemental :</strong> Les industries extractives du phosphate et autres ont causé une <strong>pollution importante de l'environnement naturel</strong> dans toutes ses composantes (air, eau, relief, sol, végétation et rivières).",
+                moroccoResults2: "<strong>Sur le plan économique :</strong> Des taux de croissance importants ont été réalisés dans tous les secteurs, mais ils ne sont pas garantis de durer. Les activités économiques souffrent de leur <strong>concentration dans certaines régions à l'exclusion d'autres</strong> ; les industries sont majoritairement concentrées sur les côtes, le tourisme a prospéré dans les villes anciennes comme <strong>Marrakech, Rabat, Ouarzazate, Fès et Agadir</strong>, et l'agriculture nécessite également d'importantes quantités d'eau car <strong>l'agriculture irriguée</strong> est celle dont la production est destinée à l'exportation. Malgré tous les sacrifices, la <strong>balance commerciale marocaine est déficitaire</strong> et son déficit s'aggrave d'année en année, causant la hausse de la valeur de la <strong>dette extérieure</strong>.",
+                moroccoResults3: "<strong>Sur le plan social :</strong> Les activités économiques ont pu employer une proportion élevée de la main-d'œuvre, mais elles restent toutes des <strong>secteurs d'emploi fragiles</strong> incapables de fournir des emplois suffisants et permanents, soit parce qu'ils sont liés aux conditions de sécurité, aux conditions mondiales, aux conditions naturelles, soit en raison de la faiblesse de leurs revenus. Le revenu annuel par habitant a doublé environ 4 fois entre <strong>1993 et 2005</strong>, mais il est plus faible que le revenu annuel par habitant en Algérie. L'<strong>Indice de Développement Humain</strong> a enregistré une hausse importante mais jusqu'au début du XXIe siècle il occupait la quatrième place maghrébine, avant la Mauritanie. Malgré le recul du taux de <strong>chômage</strong>, il reste élevé, notamment parmi les diplômés de l'enseignement supérieur et les femmes, atteignant <strong>13,5% en 2023</strong>.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "L'Algérie et le Maroc ont tous deux suivi des politiques de développement différentes en raison de la différence de leurs conditions naturelles. Malgré la difficulté du parcours suivi par l'Algérie, de nombreux indicateurs confirment l'impact profond de la richesse énergétique sur la capacité de l'État à imposer le système économique qu'il adopte et la possibilité de sa réussite à améliorer le niveau de vie et à maîtriser le chômage. Ces deux pays réussiront-ils à éliminer le chômage sans changer leur modèle de développement ?",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et images illustratives",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années et périodes",
+                defOrganizations: "🏢 Organisations et institutions",
+                defOthers: "📌 Autres",
+                defAlgeria: "Algérie",
+                defAlgeriaDesc: "Le plus grand pays du Maghreb par la superficie ; il a adopté depuis son indépendance une politique de développement industriel basée sur ses richesses énergétiques (pétrole et gaz) et minières (fer), établissant des industries lourdes et intermédiaires puis s'orientant vers les industries légères, la privatisation et l'ajustement structurel, rejoignant l'économie de marché et signant un accord avec l'Union européenne en 2002.",
+                defMorocco: "Maroc",
+                defMoroccoDesc: "Un pays du Maghreb manquant de richesse énergétique mais relativement riche en ressources en eau ; il a orienté son attention vers le développement de l'agriculture (barrages et agriculture irriguée), des industries légères, du phosphate et du tourisme, réalisant des taux de croissance importants mais sa balance commerciale est déficitaire et sa dette extérieure augmente.",
+                defSkikda: "Skikda",
+                defSkikdaDesc: "Une ville algérienne du nord-est dont les plages, les nappes superficielles et l'air ont été affectés par une pollution environnementale grave résultant des industries lourdes.",
+                defMarrakech: "Marrakech",
+                defMarrakechDesc: "Une ville marocaine ancienne à fort attrait touristique ; 120 000 artisans y sont actifs, et le patrimoine berbère-amazigh y représente la meilleure base pour la production traditionnelle.",
+                defRabat: "Rabat",
+                defRabatDesc: "La capitale politique du Maroc ; l'une des villes anciennes où le tourisme a prospéré.",
+                defOuarzazate: "Ouarzazate",
+                defOuarzazateDesc: "Une ville marocaine ancienne à attrait touristique grâce à ses sites naturels et culturels.",
+                defFez: "Fès",
+                defFezDesc: "Une ville marocaine ancienne ; l'une des villes où l'activité touristique a prospéré.",
+                defAgadir: "Agadir",
+                defAgadirDesc: "Une ville marocaine côtière ; l'une des villes où l'activité touristique a prospéré.",
+                defFrance: "France",
+                defFranceDesc: "L'un des pays dont l'Algérie importe environ deux tiers de ses besoins en blé.",
+                defCanada: "Canada",
+                defCanadaDesc: "L'un des pays dont l'Algérie importe une partie de ses besoins en blé.",
+                defEUAgreement: "L'accord de l'Algérie avec l'Union européenne",
+                defEUAgreementDesc: "Un accord signé le 22 avril 2002 entre l'Algérie et l'Union européenne, prévoyant l'ouverture des marchés européens à la production algérienne respectant les normes européennes.",
+                defYear1985Desc: "Année où la capacité d'accueil hôtelière du Maroc a atteint 61 000 lits et les recettes touristiques 0,6 milliard de dollars.",
+                defYear1993Desc: "Année de début de la comparaison durant laquelle le revenu annuel par habitant du Maroc a été multiplié environ 4 fois jusqu'en 2005.",
+                defYear2002Desc: "Année où la capacité d'accueil hôtelière du Maroc a atteint 103 000 lits, les recettes touristiques 2,9 milliards de dollars, et où l'accord entre l'Algérie et l'Union européenne a été signé (22 avril).",
+                defYear2005Desc: "Année de fin de la comparaison durant laquelle le revenu annuel par habitant du Maroc a été multiplié environ 4 fois depuis 1993.",
+                defYear2023Desc: "Année où les recettes touristiques du Maroc ont atteint plus de 7 milliards de dollars, et où son taux de chômage a atteint 13,5%.",
+                defEU: "L'Union européenne",
+                defEUDesc: "Une organisation régionale européenne avec laquelle l'Algérie a signé un accord le 22 avril 2002, prévoyant l'ouverture des marchés européens à la production algérienne respectant les normes européennes.",
+                defMultinationals: "Les sociétés multinationales",
+                defMultinationalsDesc: "De grandes entreprises opérant dans plusieurs pays ; l'Algérie y a fait appel pour réaliser la plupart des projets industriels lourds et intermédiaires dans les années 1970.",
+                defAMU: "L'Union du Maghreb arabe",
+                defAMUDesc: "Une organisation régionale fondée le 17 février 1989, jetant les bases de l'unité politique et économique entre les cinq pays du Maghreb ; toutefois, la coopération effective entre ses États dans les domaines du développement reste limitée.",
+                defDevelopment: "Le développement économique",
+                defDevelopmentDesc: "L'ensemble des politiques et mesures prises par l'État pour améliorer son économie et élever le niveau de vie de sa population, comprenant le développement industriel, agricole, touristique et autre.",
+                defHeavyIndustry: "Les industries lourdes",
+                defHeavyIndustryDesc: "Industries nécessitant un capital énorme et d'importantes matières premières et produisant des moyens de production, comme la sidérurgie et les industries chimiques ; l'Algérie les a adoptées dans les années 1970.",
+                defLightIndustry: "Les industries légères",
+                defLightIndustryDesc: "Industries ne nécessitant pas un capital énorme et employant beaucoup de main-d'œuvre, comme le textile, l'habillement, les industries alimentaires et les matériaux de construction ; l'Algérie les a adoptées dans les années 1980 ainsi que le Maroc.",
+                defIndustrialPoles: "Les pôles industriels",
+                defIndustrialPolesDesc: "De grandes zones industrielles où sont réalisés d'énormes projets industriels intégrés ; l'Algérie les a établis dans les années 1970 en s'appuyant sur la richesse énergétique.",
+                defPrivatization: "La privatisation",
+                defPrivatizationDesc: "Transfert de la propriété des projets et institutions publics au secteur privé ; l'Algérie l'a adoptée dans les années 1980 et 1990 dans le cadre de la réforme économique.",
+                defStructuralAdjustment: "L'ajustement structurel",
+                defStructuralAdjustmentDesc: "Une politique économique acceptée par l'Algérie dans la seconde moitié des années 1990, consistant à dévaluer la monnaie, soutenir la privatisation, limiter les monopoles, lever les subventions sur les produits de base et s'ouvrir à l'économie de marché.",
+                defMarketEconomy: "L'économie de marché",
+                defMarketEconomyDesc: "Un système économique basé sur l'offre et la demande et l'initiative privée ; l'Algérie s'y est ouverte dans la seconde moitié des années 1990.",
+                defWorkersManagementCommittees: "Les comités de gestion ouvriers",
+                defWorkersManagementCommitteesDesc: "Des organes ouvriers qui ont supervisé la gestion des terres des colons en Algérie après l'indépendance, et qui supervisaient à leur tour les coopératives de production dans le cadre du système socialiste.",
+                defSocialistProduction: "Le système de production socialiste",
+                defSocialistProductionDesc: "Un système économique dans lequel l'État a la supervision principale de la production par le biais des comités de gestion ouvriers et des coopératives ; l'Algérie l'a appliqué après l'indépendance dans le secteur agricole.",
+                defDryFarming: "Les cultures pluviales",
+                defDryFarmingDesc: "Agriculture reposant uniquement sur l'eau de pluie sans irrigation ; elle emploie 82% des ruraux au Maroc.",
+                defIrrigatedFarming: "Les cultures irriguées",
+                defIrrigatedFarmingDesc: "Agriculture reposant sur l'eau d'irrigation, développée par le Maroc grâce aux barrages, et fournissant 75% des exportations agricoles marocaines.",
+                defEarlyCrops: "Les primeurs",
+                defEarlyCropsDesc: "Produits agricoles précoces commercialisés avant leur saison ; ils ne sont plus exclusivement destinés à l'exportation au Maroc comme auparavant.",
+                defPhosphateValorization: "La valorisation du phosphate",
+                defPhosphateValorizationDesc: "Transformation du phosphate brut en produits manufacturés à valeur ajoutée, comme les engrais phosphatés ; le Maroc l'a adoptée.",
+                defTourismAccommodation: "La capacité d'accueil hôtelière",
+                defTourismAccommodationDesc: "Le nombre de lits disponibles dans les hôtels touristiques ; il est passé au Maroc de 61 000 lits en 1985 à 103 000 lits en 2002.",
+                defAmazighHeritage: "Le patrimoine berbère-amazigh",
+                defAmazighHeritageDesc: "Le patrimoine culturel amazigh, représentant au Maroc, notamment à Marrakech, la meilleure base pour la production traditionnelle.",
+                defFragileSectors: "Les secteurs d'emploi fragiles",
+                defFragileSectorsDesc: "Secteurs économiques qui emploient de la main-d'œuvre mais ne fournissent pas d'emplois suffisants et permanents, soit parce qu'ils sont liés aux conditions de sécurité, aux conditions mondiales, aux conditions naturelles, soit en raison de la faiblesse de leurs revenus.",
+                defUnemployment: "Le chômage",
+                defUnemploymentDesc: "L'indisponibilité d'opportunités d'emploi pour les personnes capables de travailler ; il a atteint 13,5% au Maroc en 2023, et reste élevé en Algérie, poussant sa jeunesse vers la migration.",
+                defHDI: "L'Indice de Développement Humain",
+                defHDIDesc: "Un indicateur composite mesurant le niveau de développement humain dans un pays (revenu, éducation et santé) ; il a enregistré une hausse importante au Maroc mais occupait la quatrième place maghrébine jusqu'au début du XXIe siècle, avant la Mauritanie.",
+                defTradeBalance: "La balance commerciale",
+                defTradeBalanceDesc: "La différence entre la valeur des exportations et la valeur des importations ; elle est déficitaire au Maroc et son déficit s'aggrave d'année en année, et en Algérie l'excédent n'a été réalisé qu'en exportant les hydrocarbures.",
+                defExternalDebt: "La dette extérieure",
+                defExternalDebtDesc: "L'ensemble des fonds empruntés à l'étranger et arrivant à échéance ; elle augmente au Maroc en raison de l'aggravation du déficit de la balance commerciale.",
+                summaryText: "À retenir : L'Algérie et le Maroc ont adopté deux politiques de développement différentes : l'Algérie s'est appuyée sur sa richesse énergétique pour construire des industries lourdes puis légères, avec un système de production socialiste dans l'agriculture puis l'implication du secteur privé, mais elle n'a pas atteint l'autosuffisance alimentaire, a causé une grave pollution environnementale et importe deux tiers de ses besoins en blé. Le Maroc s'est appuyé sur l'agriculture irriguée, les industries légères, la valorisation du phosphate et le tourisme, réalisant des taux de croissance importants, mais sa balance commerciale est déficitaire, sa dette extérieure est élevée et son chômage est de 13,5% en 2023. Aucun des deux n'a éliminé le chômage malgré l'amélioration des indicateurs de développement humain.",
+                galleryAlt1: "L'industrie en Algérie",
+                galleryAlt2: "La pollution à Skikda",
+                galleryAlt3: "Les barrages au Maroc",
+                galleryAlt4: "L'industrie du phosphate au Maroc",
+                galleryAlt5: "Le tourisme à Marrakech",
+                galleryAlt6: "L'importation de blé en Algérie",
+                galleryCap1: "L'industrie en Algérie",
+                galleryCap2: "La pollution à Skikda",
+                galleryCap3: "Les barrages au Maroc",
+                galleryCap4: "L'industrie du phosphate au Maroc",
+                galleryCap5: "Le tourisme à Marrakech",
+                galleryCap6: "L'importation de blé en Algérie",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties, conclusion et résumé",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, pays, événements, années et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                yearSection: "التاسعة أساسي",
+                moduleName: "الجغرافيا / المحور الأول: المغرب العربي",
+                lessonTitleSample: "التنمية الاقتصادية بالمغرب العربي",
+                sectionIntro: "مقدمة",
+                introText: "انتهجت دول المغرب العربي سياسات مختلفة لتنمية اقتصادها، فمنها من اعتمدت على ثرواتها الطاقية والمنجمية مثل الجزائر، ومنها من اعتمدت على مواردها المائية لتنشيط فلاحتها إلى جانب عنايتها بالصناعات الخفيفة مثل المغرب الأقصى.",
+                problematiqueText: "فما هي خصائص التجربتين التنمويتين في كل من الجزائر والمغرب الأقصى؟ وما هي نتائجهما الاقتصادية والاجتماعية؟",
+                sectionPart1: "التجربة التنموية في الجزائر وحصيلتها",
+                algeriaIndustrialTitle: "سياسة التنمية الصناعية في الجزائر",
+                algeriaIndustrial1: "منذ استقلالها إلى السبعينات اهتمت الدولة الجزائرية بإقامة <strong>نسيج صناعي متكامل</strong> يشمل <strong>الصناعات الثقيلة والوسيطة والصناعات الاستهلاكية</strong> بالاعتماد على ثروة هائلة من النفط والغاز الطبيعي إلى جانب الحديد. فتم إنجاز مشاريع صناعية ضخمة على شكل <strong>أقطاب صناعية ومجمعات كيميائية</strong> وأخرى للحديد والصلب، وقد استعانت بالشركات المتعددة الجنسيات لتحقيق أغلب هذه المشاريع. لقد ساهمت هذه السياسة التنموية في تجهيز البلاد إلا أنها لم تكن مشغّلة لليد العاملة بالقدر الكافي مما اضطر الدولة لإعادة النظر فيها.",
+                algeriaIndustrial2: "خلال الثمانينات غيّرت الجزائر سياستها التصنيعية في اتجاه تطوير <strong>الصناعات الاستهلاكية الخفيفة</strong> مثل الصناعات الغذائية وغيرها من الصناعات التي لا تتطلب رأس مال ضخم لكنها تشغّل يداً عاملة قليلة الكلفة. وهو ما يعني التوجه أكثر نحو <strong>خوصصة</strong> المشاريع الصناعية. ولتلبية حاجيات هذه الاستثمارات الخاصة كان على الدولة الاعتناء بعدة قطاعات اجتماعية موازية كالتعليم والنقل والمواصلات والصحة والإسكان.",
+                algeriaIndustrial3: "ومع النصف الثاني من التسعينات قبلت الجزائر بسياسة <strong>الإصلاح الهيكلي</strong> فخفضت في قيمة عملتها ودعمت الخوصصة وحدّت من الاحتكارات كما اتجهت نحو رفع الدعم عن المواد الأساسية والانفتاح على <strong>اقتصاد السوق</strong>. وفي <strong>22 أفريل 2002</strong> تم الاتفاق مع <strong>الاتحاد الأوروبي</strong> على فتح الأسواق الأوروبية أمام الإنتاج الجزائري الذي يحترم المواصفات الأوروبية.",
+                algeriaAgriculturalTitle: "سياسة التنمية الفلاحية",
+                algeriaAgricultural1: "منذ استقلال الجزائر واسترجاعها لأراضي المعمّرين أصبحت الدولة المشرف الرئيسي على عملية الإنتاج بواسطة <strong>لجان التسيير العمالية</strong> والتي بدورها تشرف على <strong>تعاونيات الإنتاج</strong>، وبذلك تكون الجزائر قد طبقت <strong>نظام إنتاج اشتراكي</strong> مكّن من تحسين الإنتاج في كل المجالات الفلاحية إلا أن المردود بقي ضعيفاً ولا يلبي حاجيات الاستهلاك الوطني خاصة في مجال <strong>الحبوب</strong>.",
+                algeriaAgricultural2: "خلال الثمانينات وخاصة التسعينات توجهت الدولة نحو <strong>تشريك الخواص</strong> في الإنتاج الفلاحي فتحسّن المردود لكن الظروف الطبيعية لم تمكّن الفلاحين من تحقيق الاكتفاء من كل المنتوجات الفلاحية.",
+                algeriaResultsTitle: "حصيلة التنمية في الجزائر",
+                algeriaResults1: "<strong>على المستوى المجالي والبيئي:</strong> تمكنت الجزائر من توسيع مجال استغلال ثرواتها المنجمية والطاقية، لكن الصناعات الثقيلة تسببت في <strong>تلوث بيئي خطير</strong> في عديد المدن مثل <strong>سكيكدة</strong> في الشمال الشرقي التي تضررت شواطئها وموائدها السطحية إلى جانب هوائها.",
+                algeriaResults2: "<strong>على المستوى الاقتصادي:</strong> حقق كل من الإنتاج الفلاحي والصناعي تطوراً هاماً إلا أن الجزائر لم تتمكن إلا مؤخراً من تحقيق اكتفائها من <strong>حديد وأسلاك البناء</strong> دون بقية المنتوجات. أما في المجال الفلاحي فهي لا تزال في حاجة إلى الاستيراد خاصة بالنسبة للحبوب، فهي تستورد حوالي <strong>ثلثي حاجياتها من القمح</strong> من فرنسا وكندا. وقد سجل الميزان الفلاحي عجزاً كاملاً ولم يتحقق الفائض التجاري العام إلا بتصدير <strong>المحروقات</strong> سواء كانت خاماً أو مكررة.",
+                algeriaResults3: "<strong>على المستوى الاجتماعي:</strong> تحسّن معدل الدخل الفردي السنوي رغم أنه لا يزال بعيداً عن معدل الدخل الفردي السنوي الليبي، وقد تحسّن معه مستوى العيش وتجاوز أمل الحياة السبعين سنة (<strong>73 سنة</strong>) إلا أن النمو الاقتصادي لا يغطي الحاجيات الاجتماعية فنسبة <strong>البطالة</strong> لا تزال عالية مما يدفع الشباب الجزائري نحو <strong>الهجرة</strong> بكل أشكالها. لقد تحملت الدولة الجزائرية عبء التنمية الفلاحية والصناعية لعشرات السنين ولم تتمكن من تحقيق أهدافها المرسومة وهي تحقيق الاكتفاء من المواد المنتجة.",
+                sectionPart2: "تنوع الخيارات التنموية في المغرب الأقصى وحصيلتها",
+                moroccoAgriculturalTitle: "التركيز على النشاط الفلاحي",
+                moroccoAgriculturalText: "بحكم افتقار المغرب الأقصى للثروة الطاقية وثرائه النسبي بالموارد المائية وجّه اهتمامه منذ الاستقلال نحو تنمية الإنتاج الفلاحي من خلال توفير الظروف الملائمة لتطويره، وخاصة منها تهيئة <strong>السدود</strong> الكفيلة بتعبئة كمية هامة من المياه تغطي حاجيات الفلاحين صغاراً كانوا أو متوسطين أو كباراً. فإلى جانب <strong>الزراعات البعلية</strong> التي تشغّل <strong>82%</strong> من الريفيين تطوّرت <strong>الزراعات السقوية</strong> لكل المنتوجات التي يمكن أن يوفرها المناخ المغربي وتوفر <strong>75%</strong> من الصادرات الفلاحية المغربية إلى جانب <strong>الباكورات</strong> التي لم تعد مخصصة للتصدير مثلما كانت في السابق.",
+                moroccoIndustryTitle: "أهمية الصناعات الخفيفة",
+                moroccoIndustryText: "في المجال الصناعي شجّعت الدولة على تركيز <strong>الصناعات الخفيفة المشغّلة لليد العاملة</strong> في عديد المجالات مثل <strong>النسيج والملابس والصناعات الغذائية</strong> إلى جانب صناعات أخرى استهلاكية مثل صناعة مواد البناء والبلاستيك ومواد التنظيف وصناعات أكثر تطوراً مثل <strong>تركيب السيارات وصناعة الأدوية</strong>. كما اتجهت الدولة نحو <strong>تثمين الفسفاط</strong> بتطوير صناعة الأسمدة الفسفاطية. وقد استفاد القطاع الصناعي المغربي كثيراً من <strong>الاستثمارات الأجنبية</strong> نظراً لأهمية التشجيعات التي تقدمها الدولة للمستثمرين الأجانب.",
+                moroccoTourismTitle: "أهمية النشاط السياحي",
+                moroccoTourismText: "يتمتع المغرب الأقصى بمشاهده الطبيعية الجذابة والمبهرة للسياح الأوروبيين خاصة، فهو يحوي تناقضات مناخية من الجبال المكسوة بالثلوج إلى الصحاري المغطاة بالكثبان الرملية فكان وجهة ملايين السياح سنوياً. فارتفعت طاقة إيواء النزل من <strong>61 ألف سرير سنة 1985</strong> إلى <strong>103 آلاف سرير سنة 2002</strong>، ويعتبر قطاع السياحة مورداً هاماً للعملة الصعبة وخاصة منها الأورو ثم الدولار كما أنه منشّط هام للصناعات التقليدية، ففي <strong>مراكش</strong> لمفردها ينشط <strong>120 ألف حرفي</strong> ويمثل <strong>الموروث البربري الأمازيغي</strong> أفضل أرضية للإنتاج التقليدي. وقد ارتفعت عائدات السياحة من <strong>0.6 مليار دولار سنة 1985</strong> إلى <strong>2.9 مليار دولار سنة 2002</strong> و<strong>أكثر من 7 مليار دولار خلال سنة 2023</strong>.",
+                moroccoResultsTitle: "حصيلة التنمية في المغرب الأقصى",
+                moroccoResults1: "<strong>على المستوى المجالي والبيئي:</strong> تسببت الصناعات الاستخراجية للفسفاط وغيره في <strong>تلوث كبير للوسط الطبيعي</strong> بكل مكوناته (هوائه ومائه وتضاريسه وتربته ونباته وأنهاره).",
+                moroccoResults2: "<strong>على المستوى الاقتصادي:</strong> تحققت نسب نمو هامة في كل القطاعات لكنها غير مضمونة الدوام، وتعاني الأنشطة الاقتصادية من <strong>تركزها في بعض المناطق دون غيرها</strong>، فالصناعات أغلبها ركّزت على السواحل أما السياحة فازدهرت في المدن العتيقة مثل <strong>مراكش والرباط وورزازات وفاس وأغادير</strong>، وأما الفلاحة فهي كذلك تتطلب كميات هامة من المياه لأن <strong>الفلاحة السقوية</strong> هي التي يوجّه إنتاجها للتصدير. ورغم كل التضحيات فإن <strong>الميزان التجاري المغربي عاجز</strong> ويتفاقم عجزه من سنة إلى أخرى ويتسبب في ارتفاع قيمة <strong>الدين الخارجي</strong>.",
+                moroccoResults3: "<strong>على المستوى الاجتماعي:</strong> لقد تمكنت الأنشطة الاقتصادية من تشغيل نسبة عالية من اليد العاملة إلا أنها تبقى كلها <strong>قطاعات تشغيل هشة</strong> ولا تقدر على توفير مواطن شغل كافية ودائمة إما لارتباطها بالأوضاع الأمنية أو الظروف العالمية أو الظروف الطبيعية أو لضعف مداخيلها. فمعدل الدخل الفردي السنوي تضاعف حوالي 4 مرات بين <strong>1993 و2005</strong> لكنه أضعف من معدل الدخل الفردي السنوي في الجزائر. كما أن <strong>مؤشر التنمية البشرية</strong> سجل ارتفاعاً هاماً لكنه بقي إلى بداية القرن XXI يحتل المرتبة الرابعة مغربياً قبل موريتانيا. ورغم تراجع نسبة <strong>البطالة</strong> فإنها لا تزال مرتفعة خاصة في صفوف أصحاب الشهادات العليا والنساء وقد بلغ معدلها <strong>13.5% سنة 2023</strong>.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "لقد سلكت كل من الجزائر والمغرب الأقصى سياسة تنموية متباينة بحكم اختلاف ظروفهما الطبيعية. ورغم صعوبة المسار الذي اتبعته الجزائر فإن العديد من المؤشرات تؤكد الأثر العميق للثروة الطاقية على قدرة الدولة على فرض النظام الاقتصادي الذي تتبناه وإمكانية نجاحها في تحسين مستوى العيش والتحكم في البطالة. فهل تنجح هاتان الدولتان في القضاء على البطالة فيهما دون تغيير منوالهما التنموي؟",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط وصور توضيحية",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOrganizations: "🏢 منظمات ومؤسسات",
+                defOthers: "📌 أخرى",
+                defAlgeria: "الجزائر",
+                defAlgeriaDesc: "أكبر دول المغرب العربي مساحة، انتهجت منذ استقلالها سياسة تنمية صناعية اعتماداً على ثرواتها الطاقية (النفط والغاز) والمنجمية (الحديد)، فأنشأت صناعات ثقيلة ووسيطة ثم اتجهت نحو الصناعات الخفيفة والخوصصة والإصلاح الهيكلي، وانضمت إلى اقتصاد السوق ووقعت اتفاقاً مع الاتحاد الأوروبي سنة 2002.",
+                defMorocco: "المغرب الأقصى",
+                defMoroccoDesc: "دولة في المغرب العربي تفتقر للثروة الطاقية لكنها غنية نسبياً بالموارد المائية، فوجّهت اهتمامها نحو تنمية الفلاحة (السدود والزراعات السقوية) والصناعات الخفيفة والفسفاط والسياحة، وحققت نسب نمو هامة لكن ميزانها التجاري عاجز ودينها الخارجي يرتفع.",
+                defSkikda: "سكيكدة",
+                defSkikdaDesc: "مدينة جزائرية في الشمال الشرقي تضررت شواطئها وموائدها السطحية وهواؤها بسبب التلوث البيئي الخطير الناتج عن الصناعات الثقيلة.",
+                defMarrakech: "مراكش",
+                defMarrakechDesc: "مدينة مغربية عتيقة ذات جذب سياحي كبير، ينشط فيها 120 ألف حرفي، وتمثل الموروث البربري الأمازيغي أفضل أرضية للإنتاج التقليدي فيها.",
+                defRabat: "الرباط",
+                defRabatDesc: "عاصمة المغرب الأقصى السياسية، من المدن العتيقة التي ازدهرت فيها السياحة.",
+                defOuarzazate: "ورزازات",
+                defOuarzazateDesc: "مدينة مغربية عتيقة ذات جذب سياحي بفضل مواقعها الطبيعية والثقافية.",
+                defFez: "فاس",
+                defFezDesc: "مدينة مغربية عتيقة، من المدن التي ازدهر فيها النشاط السياحي.",
+                defAgadir: "أغادير",
+                defAgadirDesc: "مدينة مغربية ساحلية، من المدن التي ازدهر فيها النشاط السياحي.",
+                defFrance: "فرنسا",
+                defFranceDesc: "من الدول التي تستورد الجزائر منها حوالي ثلثي حاجياتها من القمح.",
+                defCanada: "كندا",
+                defCanadaDesc: "من الدول التي تستورد الجزائر منها جزءاً من حاجياتها من القمح.",
+                defEUAgreement: "اتفاق الجزائر مع الاتحاد الأوروبي",
+                defEUAgreementDesc: "اتفاق وقع في 22 أفريل 2002 بين الجزائر والاتحاد الأوروبي، ينص على فتح الأسواق الأوروبية أمام الإنتاج الجزائري الذي يحترم المواصفات الأوروبية.",
+                defYear1985Desc: "سنة بلوغ طاقة إيواء النزل في المغرب الأقصى 61 ألف سرير، وعائدات السياحة 0.6 مليار دولار.",
+                defYear1993Desc: "سنة بداية المقارنة التي شهدت تضاعف معدل الدخل الفردي السنوي في المغرب الأقصى حوالي 4 مرات حتى 2005.",
+                defYear2002Desc: "سنة بلوغ طاقة إيواء النزل في المغرب الأقصى 103 آلاف سرير، وعائدات السياحة 2.9 مليار دولار، وتوقيع الاتفاق بين الجزائر والاتحاد الأوروبي (22 أفريل).",
+                defYear2005Desc: "سنة نهاية المقارنة التي شهدت تضاعف معدل الدخل الفردي السنوي في المغرب الأقصى حوالي 4 مرات منذ 1993.",
+                defYear2023Desc: "سنة بلوغ عائدات السياحة في المغرب الأقصى أكثر من 7 مليارات دولار، وبلوغ نسبة البطالة فيه 13.5%.",
+                defEU: "الاتحاد الأوروبي",
+                defEUDesc: "منظمة إقليمية أوروبية، وقعت معها الجزائر اتفاقاً في 22 أفريل 2002 يقضي بفتح الأسواق الأوروبية أمام الإنتاج الجزائري الذي يحترم المواصفات الأوروبية.",
+                defMultinationals: "الشركات المتعددة الجنسيات",
+                defMultinationalsDesc: "شركات ضخمة تعمل في عدة دول، استعانت بها الجزائر لتحقيق أغلب المشاريع الصناعية الثقيلة والوسيطة في السبعينات.",
+                defAMU: "اتحاد المغرب العربي",
+                defAMUDesc: "منظمة إقليمية تأسست يوم 17 فيفري 1989، وأسّست للوحدة السياسية والاقتصادية بين دول المغرب العربي الخمس، لكن التعاون الفعلي بين دوله في المجالات التنموية يبقى محدوداً.",
+                defDevelopment: "التنمية الاقتصادية",
+                defDevelopmentDesc: "مجموع السياسات والإجراءات التي تتخذها الدولة لتحسين اقتصادها ورفع مستوى عيش سكانها، وتشمل التنمية الصناعية والفلاحية والسياحية وغيرها.",
+                defHeavyIndustry: "الصناعات الثقيلة",
+                defHeavyIndustryDesc: "صناعات تتطلب رأس مال ضخم ومواد أولية كثيرة وتنتج وسائل إنتاج، مثل صناعة الحديد والصلب والصناعات الكيميائية؛ اعتمدتها الجزائر في السبعينات.",
+                defLightIndustry: "الصناعات الخفيفة",
+                defLightIndustryDesc: "صناعات لا تتطلب رأس مال ضخم وتشغّل يداً عاملة كثيرة، مثل النسيج والملابس والصناعات الغذائية ومواد البناء؛ اعتمدتها الجزائر في الثمانينات والمغرب الأقصى.",
+                defIndustrialPoles: "الأقطاب الصناعية",
+                defIndustrialPolesDesc: "مناطق صناعية كبرى تُنجز فيها مشاريع صناعية ضخمة متكاملة، أنشأتها الجزائر في السبعينات اعتماداً على الثروة الطاقية.",
+                defPrivatization: "الخوصصة",
+                defPrivatizationDesc: "نقل ملكية المشاريع والمؤسسات العمومية إلى القطاع الخاص؛ اعتمدتها الجزائر خلال الثمانينات والتسعينات في إطار الإصلاح الاقتصادي.",
+                defStructuralAdjustment: "الإصلاح الهيكلي",
+                defStructuralAdjustmentDesc: "سياسة اقتصادية قَبِلت بها الجزائر في النصف الثاني من التسعينات، وقضت على تخفيض قيمة العملة ودعم الخوصصة والحد من الاحتكارات ورفع الدعم عن المواد الأساسية والانفتاح على اقتصاد السوق.",
+                defMarketEconomy: "اقتصاد السوق",
+                defMarketEconomyDesc: "نظام اقتصادي يعتمد على قوى العرض والطلب والمبادرة الخاصة، انفتحت عليه الجزائر في النصف الثاني من التسعينات.",
+                defWorkersManagementCommittees: "لجان التسيير العمالية",
+                defWorkersManagementCommitteesDesc: "هيئات عمالية أشرفت على إدارة أراضي المعمرين في الجزائر بعد الاستقلال، وأشرفت بدورها على تعاونيات الإنتاج في إطار النظام الاشتراكي.",
+                defSocialistProduction: "نظام الإنتاج الاشتراكي",
+                defSocialistProductionDesc: "نظام اقتصادي تعتمد فيه الدولة الإشراف الرئيسي على الإنتاج بواسطة لجان التسيير العمالية والتعاونيات؛ طبّقته الجزائر بعد الاستقلال في القطاع الفلاحي.",
+                defDryFarming: "الزراعات البعلية",
+                defDryFarmingDesc: "زراعات تعتمد على مياه الأمطار فقط دون سقي؛ تشغّل 82% من الريفيين في المغرب الأقصى.",
+                defIrrigatedFarming: "الزراعات السقوية",
+                defIrrigatedFarmingDesc: "زراعات تعتمد على مياه السقي، طوّرها المغرب الأقصى بفضل السدود، وتوفر 75% من الصادرات الفلاحية المغربية.",
+                defEarlyCrops: "الباكورات",
+                defEarlyCropsDesc: "منتوجات فلاحية مبكرة تسوّق قبل موعدها، ولم تعد في المغرب الأقصى مخصصة للتصدير مثلما كانت في السابق.",
+                defPhosphateValorization: "تثمين الفسفاط",
+                defPhosphateValorizationDesc: "تحويل الفسفاط الخام إلى منتوجات مصنّعة ذات قيمة مضافة، مثل الأسمدة الفسفاطية، واعتمده المغرب الأقصى.",
+                defTourismAccommodation: "طاقة إيواء النزل",
+                defTourismAccommodationDesc: "عدد الأسرّة المتوفرة في النزل السياحية؛ ارتفعت في المغرب الأقصى من 61 ألف سرير سنة 1985 إلى 103 آلاف سرير سنة 2002.",
+                defAmazighHeritage: "الموروث البربري الأمازيغي",
+                defAmazighHeritageDesc: "التراث الثقافي الأمازيغي، ويمثل في المغرب الأقصى وخاصة في مراكش أفضل أرضية للإنتاج التقليدي.",
+                defFragileSectors: "قطاعات التشغيل الهشة",
+                defFragileSectorsDesc: "قطاعات اقتصادية تشغّل اليد العاملة لكنها لا توفّر مواطن شغل كافية ودائمة، لارتباطها بالأوضاع الأمنية أو الظروف العالمية أو الظروف الطبيعية أو لضعف مداخيلها.",
+                defUnemployment: "البطالة",
+                defUnemploymentDesc: "عدم توفر فرص عمل للأشخاص القادرين على العمل؛ بلغت في المغرب الأقصى 13.5% سنة 2023، ولا تزال مرتفعة في الجزائر مما يدفع شبابها نحو الهجرة.",
+                defHDI: "مؤشر التنمية البشرية",
+                defHDIDesc: "مؤشر مركب يقيس مستوى التنمية البشرية في دولة ما (الدخل والتعليم والصحة)؛ سجّل ارتفاعاً هاماً في المغرب الأقصى لكنه بقي يحتل المرتبة الرابعة مغربياً قبل موريتانيا.",
+                defTradeBalance: "الميزان التجاري",
+                defTradeBalanceDesc: "الفرق بين قيمة الصادرات وقيمة الواردات؛ عاجز في المغرب الأقصى ويتفاقم عجزه من سنة إلى أخرى، وفي الجزائر لم يتحقق الفائض إلا بتصدير المحروقات.",
+                defExternalDebt: "الدين الخارجي",
+                defExternalDebtDesc: "مجموع الأموال المقترضة من الخارج والمستحقة السداد؛ يرتفع في المغرب الأقصى بسبب تفاقم عجز الميزان التجاري.",
+                summaryText: "خلاصة: سلكت الجزائر والمغرب الأقصى سياستين تنمويتين متباينتين: اعتمدت الجزائر على ثرواتها الطاقية لبناء صناعات ثقيلة ثم خفيفة، مع نظام إنتاج اشتراكي في الفلاحة ثم تشريك الخواص، لكنها لم تحقق الاكتفاء الغذائي وتلوث بيئي خطير وتستورد ثلثي حاجياتها من القمح. أما المغرب الأقصى فاعتمد على الفلاحة السقوية والصناعات الخفيفة وتثمين الفسفاط والسياحة، محققاً نسب نمو هامة لكن ميزانه التجاري عاجز ودينه الخارجي مرتفع وبطالته 13.5% سنة 2023. وكلاهما لم يقضيا على البطالة رغم تحسن مؤشرات التنمية البشرية.",
+                galleryAlt1: "الصناعة في الجزائر",
+                galleryAlt2: "التلوث بسكيكدة",
+                galleryAlt3: "السدود بالمغرب الأقصى",
+                galleryAlt4: "صناعة الفسفاط بالمغرب الأقصى",
+                galleryAlt5: "السياحة بمراكش",
+                galleryAlt6: "استيراد القمح في الجزائر",
+                galleryCap1: "الصناعة في الجزائر",
+                galleryCap2: "التلوث بسكيكدة",
+                galleryCap3: "السدود بالمغرب الأقصى",
+                galleryCap4: "صناعة الفسفاط بالمغرب الأقصى",
+                galleryCap5: "السياحة بمراكش",
+                galleryCap6: "استيراد القمح في الجزائر",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة، الأجزاء، الخاتمة والخلاصة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات، الدول، الأحداث، السنوات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "European Union", class: "key-organization", i18n: "defEU" },
+                { text: "Multinational Corporations", class: "key-organization", i18n: "defMultinationals" },
+                { text: "Arab Maghreb Union", class: "key-organization", i18n: "defAMU" },
+                { text: "Algeria", class: "key-location", i18n: "defAlgeria" },
+                { text: "Morocco", class: "key-location", i18n: "defMorocco" },
+                { text: "Skikda", class: "key-location", i18n: "defSkikda" },
+                { text: "Marrakech", class: "key-location", i18n: "defMarrakech" },
+                { text: "Rabat", class: "key-location", i18n: "defRabat" },
+                { text: "Ouarzazate", class: "key-location", i18n: "defOuarzazate" },
+                { text: "Fez", class: "key-location", i18n: "defFez" },
+                { text: "Agadir", class: "key-location", i18n: "defAgadir" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Canada", class: "key-location", i18n: "defCanada" },
+                { text: "EU Agreement", class: "key-event", i18n: "defEUAgreement" },
+                { text: "Economic Development", class: "key-other", i18n: "defDevelopment" },
+                { text: "Heavy Industries", class: "key-other", i18n: "defHeavyIndustry" },
+                { text: "Light Industries", class: "key-other", i18n: "defLightIndustry" },
+                { text: "Industrial Poles", class: "key-other", i18n: "defIndustrialPoles" },
+                { text: "Privatization", class: "key-other", i18n: "defPrivatization" },
+                { text: "Structural Adjustment", class: "key-other", i18n: "defStructuralAdjustment" },
+                { text: "Market Economy", class: "key-other", i18n: "defMarketEconomy" },
+                { text: "Workers' Management Committees", class: "key-other", i18n: "defWorkersManagementCommittees" },
+                { text: "Socialist Production System", class: "key-other", i18n: "defSocialistProduction" },
+                { text: "Rain-fed Agriculture", class: "key-other", i18n: "defDryFarming" },
+                { text: "Irrigated Agriculture", class: "key-other", i18n: "defIrrigatedFarming" },
+                { text: "Early Crops", class: "key-other", i18n: "defEarlyCrops" },
+                { text: "Phosphate Valorization", class: "key-other", i18n: "defPhosphateValorization" },
+                { text: "Hotel Accommodation Capacity", class: "key-other", i18n: "defTourismAccommodation" },
+                { text: "Berber-Amazigh Heritage", class: "key-other", i18n: "defAmazighHeritage" },
+                { text: "Fragile Employment Sectors", class: "key-other", i18n: "defFragileSectors" },
+                { text: "Unemployment", class: "key-other", i18n: "defUnemployment" },
+                { text: "Human Development Index", class: "key-other", i18n: "defHDI" },
+                { text: "Trade Balance", class: "key-other", i18n: "defTradeBalance" },
+                { text: "External Debt", class: "key-other", i18n: "defExternalDebt" },
+                { text: "1985", class: "key-year", i18n: null },
+                { text: "1993", class: "key-year", i18n: null },
+                { text: "2002", class: "key-year", i18n: null },
+                { text: "2005", class: "key-year", i18n: null },
+                { text: "2023", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Union européenne", class: "key-organization", i18n: "defEU" },
+                { text: "sociétés multinationales", class: "key-organization", i18n: "defMultinationals" },
+                { text: "Union du Maghreb arabe", class: "key-organization", i18n: "defAMU" },
+                { text: "Algérie", class: "key-location", i18n: "defAlgeria" },
+                { text: "Maroc", class: "key-location", i18n: "defMorocco" },
+                { text: "Skikda", class: "key-location", i18n: "defSkikda" },
+                { text: "Marrakech", class: "key-location", i18n: "defMarrakech" },
+                { text: "Rabat", class: "key-location", i18n: "defRabat" },
+                { text: "Ouarzazate", class: "key-location", i18n: "defOuarzazate" },
+                { text: "Fès", class: "key-location", i18n: "defFez" },
+                { text: "Agadir", class: "key-location", i18n: "defAgadir" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Canada", class: "key-location", i18n: "defCanada" },
+                { text: "accord avec l'Union européenne", class: "key-event", i18n: "defEUAgreement" },
+                { text: "développement économique", class: "key-other", i18n: "defDevelopment" },
+                { text: "industries lourdes", class: "key-other", i18n: "defHeavyIndustry" },
+                { text: "industries légères", class: "key-other", i18n: "defLightIndustry" },
+                { text: "pôles industriels", class: "key-other", i18n: "defIndustrialPoles" },
+                { text: "privatisation", class: "key-other", i18n: "defPrivatization" },
+                { text: "ajustement structurel", class: "key-other", i18n: "defStructuralAdjustment" },
+                { text: "économie de marché", class: "key-other", i18n: "defMarketEconomy" },
+                { text: "comités de gestion ouvriers", class: "key-other", i18n: "defWorkersManagementCommittees" },
+                { text: "système de production socialiste", class: "key-other", i18n: "defSocialistProduction" },
+                { text: "cultures pluviales", class: "key-other", i18n: "defDryFarming" },
+                { text: "cultures irriguées", class: "key-other", i18n: "defIrrigatedFarming" },
+                { text: "primeurs", class: "key-other", i18n: "defEarlyCrops" },
+                { text: "valorisation du phosphate", class: "key-other", i18n: "defPhosphateValorization" },
+                { text: "capacité d'accueil hôtelière", class: "key-other", i18n: "defTourismAccommodation" },
+                { text: "patrimoine berbère-amazigh", class: "key-other", i18n: "defAmazighHeritage" },
+                { text: "secteurs d'emploi fragiles", class: "key-other", i18n: "defFragileSectors" },
+                { text: "chômage", class: "key-other", i18n: "defUnemployment" },
+                { text: "Indice de Développement Humain", class: "key-other", i18n: "defHDI" },
+                { text: "balance commerciale", class: "key-other", i18n: "defTradeBalance" },
+                { text: "dette extérieure", class: "key-other", i18n: "defExternalDebt" },
+                { text: "1985", class: "key-year", i18n: null },
+                { text: "1993", class: "key-year", i18n: null },
+                { text: "2002", class: "key-year", i18n: null },
+                { text: "2005", class: "key-year", i18n: null },
+                { text: "2023", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "الاتحاد الأوروبي", class: "key-organization", i18n: "defEU" },
+                { text: "الشركات المتعددة الجنسيات", class: "key-organization", i18n: "defMultinationals" },
+                { text: "اتحاد المغرب العربي", class: "key-organization", i18n: "defAMU" },
+                { text: "الجزائر", class: "key-location", i18n: "defAlgeria" },
+                { text: "المغرب الأقصى", class: "key-location", i18n: "defMorocco" },
+                { text: "سكيكدة", class: "key-location", i18n: "defSkikda" },
+                { text: "مراكش", class: "key-location", i18n: "defMarrakech" },
+                { text: "الرباط", class: "key-location", i18n: "defRabat" },
+                { text: "ورزازات", class: "key-location", i18n: "defOuarzazate" },
+                { text: "فاس", class: "key-location", i18n: "defFez" },
+                { text: "أغادير", class: "key-location", i18n: "defAgadir" },
+                { text: "فرنسا", class: "key-location", i18n: "defFrance" },
+                { text: "كندا", class: "key-location", i18n: "defCanada" },
+                { text: "اتفاق الجزائر مع الاتحاد الأوروبي", class: "key-event", i18n: "defEUAgreement" },
+                { text: "التنمية الاقتصادية", class: "key-other", i18n: "defDevelopment" },
+                { text: "الصناعات الثقيلة", class: "key-other", i18n: "defHeavyIndustry" },
+                { text: "الصناعات الخفيفة", class: "key-other", i18n: "defLightIndustry" },
+                { text: "الأقطاب الصناعية", class: "key-other", i18n: "defIndustrialPoles" },
+                { text: "الخوصصة", class: "key-other", i18n: "defPrivatization" },
+                { text: "الإصلاح الهيكلي", class: "key-other", i18n: "defStructuralAdjustment" },
+                { text: "اقتصاد السوق", class: "key-other", i18n: "defMarketEconomy" },
+                { text: "لجان التسيير العمالية", class: "key-other", i18n: "defWorkersManagementCommittees" },
+                { text: "نظام الإنتاج الاشتراكي", class: "key-other", i18n: "defSocialistProduction" },
+                { text: "الزراعات البعلية", class: "key-other", i18n: "defDryFarming" },
+                { text: "الزراعات السقوية", class: "key-other", i18n: "defIrrigatedFarming" },
+                { text: "الباكورات", class: "key-other", i18n: "defEarlyCrops" },
+                { text: "تثمين الفسفاط", class: "key-other", i18n: "defPhosphateValorization" },
+                { text: "طاقة إيواء النزل", class: "key-other", i18n: "defTourismAccommodation" },
+                { text: "الموروث البربري الأمازيغي", class: "key-other", i18n: "defAmazighHeritage" },
+                { text: "قطاعات التشغيل الهشة", class: "key-other", i18n: "defFragileSectors" },
+                { text: "البطالة", class: "key-other", i18n: "defUnemployment" },
+                { text: "مؤشر التنمية البشرية", class: "key-other", i18n: "defHDI" },
+                { text: "الميزان التجاري", class: "key-other", i18n: "defTradeBalance" },
+                { text: "الدين الخارجي", class: "key-other", i18n: "defExternalDebt" },
+                { text: "1985", class: "key-year", i18n: null },
+                { text: "1993", class: "key-year", i18n: null },
+                { text: "2002", class: "key-year", i18n: null },
+                { text: "2005", class: "key-year", i18n: null },
+                { text: "2023", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">التاسعة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / المحور الأول: تونس والعالم من الحرب العالمية الأولى إلى الحرب العالمية الثانية</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">نتائج الحرب العالمية الثانية</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">بعد انتصارات ساحقة للقوات الألمانية في أوروبا والقوات اليابانية في المحيط الهادي وآسيا الشرقية تواصلت إلى بداية 1942 حيث اتسع مجال هيمنة قوات المحور وبدأت تحصد الهزائم المتوالية إلى أن استسلمت روما في 4 جوان 1944 وألمانيا في 8 ماي 1945 واليابان في 19 أوت 1945، وبذلك دامت الحرب العالمية الثانية 6 سنوات.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فما هي نتائج هذه الحرب؟</p>
+            </div>
+
+            <!-- Part I : Human and material losses -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">جسامة الخسائر البشرية والمادية</span>
+                </h2>
+
+                <!-- 1. Human losses -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="humanLossesTitle">خسائر بشرية ضخمة</span>
+                </h4>
+                <ul>
+                    <li data-i18n="humanLosses1">قدّرت الخسائر البشرية بين <strong>50 و55 مليون قتيل</strong> أكثر من نصفهم مدنيون.</li>
+                    <li data-i18n="humanLosses2">تتوزع هذه الخسائر بتفاوت بين الدول المتحاربة:
+                        <ul>
+                            <li data-i18n="humanLossesMil"><strong>على مستوى الجيوش:</strong> خسر <strong>الاتحاد السوفياتي</strong> أكبر عدد من المقاتلين (<strong>7.5 مليون مقاتل</strong>)، تليه <strong>ألمانيا</strong> (3.850 مليون) ثم <strong>اليابان</strong> (1.220 مليون)، وبقية الدول ساهمت كل منها بأقل من 500 ألف قتيل.</li>
+                            <li data-i18n="humanLossesCiv"><strong>على مستوى المدنيين:</strong> كانت أكبر الخسائر البشرية أيضاً سوفياتية بتسجيلها <strong>10 ملايين ضحية مدنية</strong>، تلته <strong>بولونيا</strong> (5.5 مليون ضحية) و<strong>ألمانيا</strong> (3.810 مليون ضحية) و<strong>يوغسلافيا</strong> (1.4 مليون ضحية) و<strong>اليابان</strong> (700 ألف ضحية)، وفي المقابل سلم الأمريكيون المدنيون من عناء هذه الحرب.</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="humanLosses3">كان <strong>القصف الجوي</strong> الأكثر فتكاً بالمدنيين (طوكيو 185 ألف، ودريسدن 135 ألف، وبرلين 50 ألف)، وخاصة باستعمال <strong>القنبلة النووية</strong> في مناسبتين: في <strong>هيروشيما</strong> حيث قتل 80 ألف ياباني، وفي <strong>ناغازاكي</strong> حيث قتل 40 ألف. فقد كثّف الحلفاء بقيادة الولايات المتحدة الأمريكية القصف الجوي العشوائي للتسريع في استسلام دول المحور.</li>
+                    <li data-i18n="humanLosses4">كما خلّفت الحرب عدداً كبيراً من المعوّقين قدّر بـ<strong>30 مليون</strong> أغلبهم أوروبيون.</li>
+                </ul>
+
+                <!-- 2. Material losses -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="materialLossesTitle">خسائر مادية هائلة</span>
+                </h4>
+                <ul>
+                    <li data-i18n="materialLosses1">تعددت وسائل التدمير البرية والبحرية والجوية وكانت أكثر تطوراً تقنياً وأكثر فتكاً.</li>
+                    <li data-i18n="materialLosses2">استهدفت المدن بالقصف الجوي مثل المدن البريطانية والمدن السوفياتية التي دمّرتها المقاتلات الجوية الألمانية، والقصف الانتقامي للمدن الألمانية من قبل قوات الحلفاء قبيل استسلام ألمانيا، واستهداف مدينتي هيروشيما وناغازاكي بقنبلتين نوويتين.</li>
+                    <li data-i18n="materialLosses3">استهدفت <strong>البنية التحتية</strong> لإعاقة التحركات العسكرية البرية، فدمّرت الطرق والجسور والسكك الحديدية والموانئ وعديد المرافق الحيوية داخل المدن وخارجها.</li>
+                    <li data-i18n="materialLosses4">كما استهدفت عديد المناطق التي وقعت فيها معارك بين قوات المحور وقوات الحلفاء خاصة في أوروبا، مما أثّر سلباً على الإنتاج.</li>
+                </ul>
+            </div>
+
+            <!-- Part II : European economy collapse and rise of USA -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">انهيار الاقتصاد الأوروبي وبروز الولايات المتحدة الأمريكية</span>
+                </h2>
+
+                <!-- 1. Collapse of European economy -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="econCollapseTitle">انهيار الاقتصاد الأوروبي</span>
+                </h4>
+                <ul>
+                    <li data-i18n="econCollapse1">شمل هذا الانهيار القطاعين المنتجين الفلاحي والصناعي بسبب المعارك والاحتماء بالملاجئ وانهيار منظومة الإنتاج رغم محاولة تشغيل النساء والأطفال حتى في قطاعات صناعة الأسلحة.</li>
+                    <li data-i18n="econCollapse2">أثّر انهيار الإنتاج سلباً على المبادلات التجارية الأوروبية، ففي حين تضاعف عجز الميزان التجاري الفرنسي 3 مرات، نجد الأسطول البريطاني يتقلّص إلى النصف.</li>
+                    <li data-i18n="econCollapse3">ارتفاع قيمة الديون الخارجية للدول المتحاربة الأوروبية، بتضاعف قيمة الدين العمومي 3 مرات في بريطانيا و4 مرات في فرنسا و7 مرات في ألمانيا بين 1939 و1945. كان الاقتصاد الأوروبي في حالة انهيار شامل عند نهاية الحرب ولم يكن قادراً على إعادة بناء نفسه دون مساعدة خارجية.</li>
+                </ul>
+
+                <!-- 2. Rise of USA -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="usaRiseTitle">بروز الولايات المتحدة الأمريكية</span>
+                </h4>
+                <p data-i18n="usaRiseText">كانت <strong>الولايات المتحدة الأمريكية</strong> أكثر الدول استفادة من انهيار الاقتصاد الأوروبي، فقد استغلّته للتخلص من آثار الأزمة الاقتصادية التي انطلقت منها سنة 1929، فقد رفعت في إنتاجها الزراعي بنسبة <strong>20%</strong> وإنتاجها الصناعي بنسبة <strong>75%</strong>، فتجنبت بذلك الأخطاء التي ارتكبتها إثر الحرب العالمية الأولى، فأصبحت أول قوة تجارية ومالية (<strong>احتكار ثلثي احتياطي الذهب</strong>) في العالم. كما تدعّم اقتصاد بعض الدول الأخرى مثل <strong>كندا</strong> التي ركّزت على صناعة الطيران وإنتاج الألومنيوم، و<strong>الهند</strong> التي طوّرت صناعة النسيج.</p>
+            </div>
+
+            <!-- Part III : Political consequences -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span> <span data-i18n="sectionPart3">النتائج السياسية</span>
+                </h2>
+
+                <!-- 1. New geopolitical map -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="geoMapTitle">خريطة جغراسياسية جديدة</span>
+                </h4>
+
+                <h4 class="sub-alpha-title" style="margin-right:1.5rem;">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="geoMapEuropeTitle">في أوروبا</span>
+                </h4>
+                <ul>
+                    <li data-i18n="geoMapEurope1">عادت <strong>ألمانيا</strong> إلى حدود 1937 مع تقسيمها إلى <strong>4 مناطق نفوذ</strong> بمقتضى <strong>ندوة يالطة</strong> في فيفري 1945، تم تجميع 3 منها تحت تسمية <strong>ألمانيا الغربية</strong> ذات النظام الرأسمالي عاصمتها <strong>بون</strong> وهي خاضعة للحلفاء، أما المنطقة الرابعة فهي ذات نظام اشتراكي وهي خاضعة للاتحاد السوفياتي وعاصمتها <strong>برلين الشرقية</strong>. وقد قُسمت هذه المدينة إلى جزء شرقي وآخر غربي يفصل بينهما <strong>جدار</strong> فرضه تقدم جبهتي القتال الشرقية السوفياتية والغربية لدول الحلفاء. كما تم ترحيل <strong>10 ملايين ألماني</strong> من تشيكوسلوفاكيا والمجر وبولونيا.</li>
+                    <li data-i18n="geoMapEurope2">وقوع <strong>أوروبا الغربية</strong> تحت الهيمنة الأمريكية و<strong>أوروبا الشرقية</strong> تحت الهيمنة السوفياتية.</li>
+                    <li data-i18n="geoMapEurope3">توسّع <strong>الاتحاد السوفياتي</strong> على حساب الدول المجاورة: بولونيا وفنلندا وبروسيا الشرقية وغيرها.</li>
+                    <li data-i18n="geoMapEurope4">فقدت <strong>إيطاليا</strong> بعض المناطق لفائدة يوغسلافيا وفرنسا واليونان.</li>
+                    <li data-i18n="geoMapEurope5">تغيّر حدود <strong>بولونيا</strong> بامتداد ترابها على حساب ألمانيا تعويضاً لها على المناطق التي استولى عليها الاتحاد السوفياتي، وقد تم ترحيل <strong>مليوني بولوني</strong> منها.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title" style="margin-right:1.5rem;">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="geoMapWorldTitle">في بقية العالم</span>
+                </h4>
+                <ul>
+                    <li data-i18n="geoMapWorld1">استقلال <strong>أثيوبيا</strong> و<strong>إرتريا</strong> و<strong>ليبيا</strong> و<strong>الصومال</strong> التي كانت تحت الوصاية الإيطالية.</li>
+                    <li data-i18n="geoMapWorld2">خسر <strong>اليابان</strong> جزر <strong>كوريل</strong> والجزء الجنوبي من جزيرة <strong>ساخالين</strong> لفائدة الاتحاد السوفياتي.</li>
+                    <li data-i18n="geoMapWorld3">استعادة <strong>فرنسا</strong> و<strong>بريطانيا</strong> و<strong>هولندا</strong> لمستعمراتها الآسيوية.</li>
+                </ul>
+
+                <!-- 2. United Nations -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="unTitle">إنشاء منظمة الأمم المتحدة</span>
+                </h4>
+                <ul>
+                    <li data-i18n="un1">تم الاتفاق على إنشاء منظمة أممية جديدة من قبل <strong>التحالف الثلاثي</strong> خلال <strong>ندوة يالطة</strong> في فيفري 1945.</li>
+                    <li data-i18n="un2">خلال <strong>مؤتمر سان فرانسيسكو</strong> في <strong>26 جوان 1945</strong>، تمّ إعلان <strong>ميثاق الأمم المتحدة</strong> الذي وقّعته 15 دولة.</li>
+                    <li data-i18n="un3">تتولى هذه المنظمة حفظ الأمن العالمي وضمان الحقوق الأساسية للإنسان مع عدم التدخل في الشؤون الداخلية للدول الأعضاء.</li>
+                    <li data-i18n="un4">تتكون هذه المنظمة من <strong>جمعية عامة</strong> تنتخب <strong>مجلس الأمن</strong> وهو أبرز جهاز تنفيذي في المنظمة، وهي تعيّن وتراقب <strong>محكمة العدل الدولية</strong>.</li>
+                    <li data-i18n="un5">تملك هذه المنظمة <strong>قوات حفظ السلام</strong> تضعها على ذمّتها الدول الأعضاء.</li>
+                    <li data-i18n="un6">كما تملك مجالس ذات وظائف محددة مثل <strong>مجلس الوصاية</strong> الذي يراقب إدارة المناطق المستعمرة، و<strong>المجلس الاقتصادي والاجتماعي</strong> الذي يعيّن ويراقب مختلف المؤسسات المختصة، منها: <strong>منظمة الأغذية والزراعة (فاو)</strong>، و<strong>منظمة الصحة العالمية</strong>، و<strong>المنظمة الدولية للشغل</strong>، و<strong>منظمة الأمم المتحدة للتربية والثقافة والعلوم (اليونسكو)</strong>، و<strong>المنظمة العالمية لحماية الطفولة (اليونيسف)</strong>، و<strong>البنك الدولي</strong>، و<strong>صندوق النقد الدولي</strong>، و<strong>الاتفاقية العامة للتعريفة الجمركية والتجارة (الجات)</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">رغم الآثار الوخيمة للحرب العالمية الثانية فقد أعطت منظمة الأمم المتحدة الأمل للعديد من الشعوب. فإلى أي حد ساعدت هذه المنظمة على استقلال الشعوب المستعمرة؟</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defGermany">ألمانيا</strong>: <span data-i18n="defGermanyDesc">إحدى الدول المهزومة في الحرب العالمية الثانية، عادت إلى حدود 1937 وقُسمت إلى 4 مناطق نفوذ بعد ندوة يالطة 1945، وتمّ ترحيل 10 ملايين ألماني من تشيكوسلوفاكيا والمجر وبولونيا.</span></li>
+                        <li><strong class="key-location" data-i18n="defItaly">إيطاليا</strong>: <span data-i18n="defItalyDesc">من دول المحور، استسلمت في 4 جوان 1944، وفقدت بعض المناطق لفائدة يوغسلافيا وفرنسا واليونان بعد الحرب.</span></li>
+                        <li><strong class="key-location" data-i18n="defJapan">اليابان</strong>: <span data-i18n="defJapanDesc">من دول المحور، استسلمت في 19 أوت 1945 بعد ضرب هيروشيما وناغازاكي بالقنبلة النووية، وخسرت جزر كوريل والجزء الجنوبي من ساخالين لفائدة الاتحاد السوفياتي.</span></li>
+                        <li><strong class="key-location" data-i18n="defUSSR">الاتحاد السوفياتي</strong>: <span data-i18n="defUSSRDesc">من دول الحلفاء، تحمّل أكبر الخسائر البشرية في الحرب (7.5 مليون مقاتل و10 ملايين مدني)، ووسّع حدوده على حساب بولونيا وفنلندا وبروسيا الشرقية.</span></li>
+                        <li><strong class="key-location" data-i18n="defUSA">الولايات المتحدة الأمريكية</strong>: <span data-i18n="defUSADesc">أكثر الدول استفادة من الحرب العالمية الثانية، رفعت إنتاجها الزراعي بنسبة 20% والصناعي بنسبة 75%، وأصبحت أول قوة تجارية ومالية في العالم باحتكارها ثلثي احتياطي الذهب.</span></li>
+                        <li><strong class="key-location" data-i18n="defPoland">بولونيا</strong>: <span data-i18n="defPolandDesc">من الدول التي عانت خسائر مدنية كبيرة (5.5 مليون ضحية)، وتغيّرت حدودها بعد الحرب بامتداد ترابها على حساب ألمانيا تعويضاً لها على المناطق التي استولى عليها الاتحاد السوفياتي.</span></li>
+                        <li><strong class="key-location" data-i18n="defYugoslavia">يوغسلافيا</strong>: <span data-i18n="defYugoslaviaDesc">دولة أوروبية سجلت 1.4 مليون ضحية مدنية خلال الحرب العالمية الثانية، واستفادت من بعض المناطق التي فقدتها إيطاليا.</span></li>
+                        <li><strong class="key-location" data-i18n="defHiroshima">هيروشيما</strong>: <span data-i18n="defHiroshimaDesc">مدينة يابانية استهدفتها الولايات المتحدة بقنبلة نووية في أوت 1945، حيث قتل 80 ألف ياباني.</span></li>
+                        <li><strong class="key-location" data-i18n="defNagasaki">ناغازاكي</strong>: <span data-i18n="defNagasakiDesc">مدينة يابانية استهدفتها الولايات المتحدة بقنبلة نووية في أوت 1945، حيث قتل 40 ألف ياباني.</span></li>
+                        <li><strong class="key-location" data-i18n="defDresden">دريسدن</strong>: <span data-i18n="defDresdenDesc">مدينة ألمانية استُهدفت بالقصف الجوي في الحرب العالمية الثانية، وسجّلت 135 ألف قتيل.</span></li>
+                        <li><strong class="key-location" data-i18n="defTokyo">طوكيو</strong>: <span data-i18n="defTokyoDesc">عاصمة اليابان، استُهدفت بالقصف الجوي في الحرب العالمية الثانية وسجّلت 185 ألف قتيل.</span></li>
+                        <li><strong class="key-location" data-i18n="defBerlin">برلين</strong>: <span data-i18n="defBerlinDesc">عاصمة ألمانيا، استُهدفت بالقصف الجوي (50 ألف قتيل)، وقُسمت بعد الحرب إلى برلين الشرقية (خاضعة للاتحاد السوفياتي) وبرلين الغربية (خاضعة للحلفاء) بفعل جدار برلين.</span></li>
+                        <li><strong class="key-location" data-i18n="defBonn">بون</strong>: <span data-i18n="defBonnDesc">عاصمة ألمانيا الغربية ذات النظام الرأسمالي بعد الحرب العالمية الثانية.</span></li>
+                        <li><strong class="key-location" data-i18n="defEthiopia">أثيوبيا</strong>: <span data-i18n="defEthiopiaDesc">دولة إفريقية استقلت بعد الحرب العالمية الثانية بعد أن كانت تحت الوصاية الإيطالية.</span></li>
+                        <li><strong class="key-location" data-i18n="defLibya">ليبيا</strong>: <span data-i18n="defLibyaDesc">دولة إفريقية استقلت بعد الحرب العالمية الثانية بعد أن كانت تحت الوصاية الإيطالية.</span></li>
+                        <li><strong class="key-location" data-i18n="defKuril">جزر كوريل</strong>: <span data-i18n="defKurilDesc">جزر خسرتها اليابان لفائدة الاتحاد السوفياتي بعد الحرب العالمية الثانية.</span></li>
+                        <li><strong class="key-location" data-i18n="defSakhalin">ساخالين</strong>: <span data-i18n="defSakhalinDesc">جزيرة خسرت اليابان جزءها الجنوبي لفائدة الاتحاد السوفياتي بعد الحرب العالمية الثانية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defYaltaConference">ندوة يالطة</strong>: <span data-i18n="defYaltaConferenceDesc">ندوة انعقدت في فيفري 1945 بين قادة التحالف الثلاثي (الولايات المتحدة، بريطانيا، الاتحاد السوفياتي)، وقررت تقسيم ألمانيا إلى 4 مناطق نفوذ، والاتفاق على إنشاء منظمة الأمم المتحدة.</span></li>
+                        <li><strong class="key-event" data-i18n="defSanFranciscoConference">مؤتمر سان فرانسيسكو</strong>: <span data-i18n="defSanFranciscoConferenceDesc">مؤتمر انعقد في 26 جوان 1945، وتم فيه إعلان ميثاق الأمم المتحدة الذي وقّعته 15 دولة.</span></li>
+                        <li><strong class="key-event" data-i18n="defAtomicBombing">القصف النووي</strong>: <span data-i18n="defAtomicBombingDesc">استعمال الولايات المتحدة الأمريكية للقنبلة النووية في هيروشيما (80 ألف قتيل) وناغازاكي (40 ألف قتيل) في أوت 1945 للتسريع في استسلام اليابان.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1942</strong>: <span data-i18n="defYear1942Desc">بداية اتساع مجال هيمنة قوات المحور قبل أن تبدأ في حصد الهزائم المتوالية.</span></li>
+                        <li><strong class="key-year">1944</strong>: <span data-i18n="defYear1944Desc">استسلام روما في 4 جوان 1944.</span></li>
+                        <li><strong class="key-year">1945</strong>: <span data-i18n="defYear1945Desc">ندوة يالطة (فيفري)، واستسلام ألمانيا (8 ماي)، ومؤتمر سان فرانسيسكو (26 جوان)، والقصف النووي على هيروشيما وناغازاكي، واستسلام اليابان (19 أوت)، ونهاية الحرب العالمية الثانية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏢 منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defUN">منظمة الأمم المتحدة</strong>: <span data-i18n="defUNDesc">منظمة دولية تأسست بعد الحرب العالمية الثانية، تم الاتفاق على إنشائها في ندوة يالطة (فيفري 1945)، وأُعلن ميثاقها في مؤتمر سان فرانسيسكو (26 جوان 1945). تتولى حفظ الأمن العالمي وضمان الحقوق الأساسية للإنسان، وتتكون من جمعية عامة ومجلس أمن ومحكمة العدل الدولية ومجالس متخصصة.</span></li>
+                        <li><strong class="key-organization" data-i18n="defSecurityCouncil">مجلس الأمن</strong>: <span data-i18n="defSecurityCouncilDesc">أبرز جهاز تنفيذي في منظمة الأمم المتحدة، تنتخبه الجمعية العامة، ويتولى حفظ الأمن العالمي.</span></li>
+                        <li><strong class="key-organization" data-i18n="defICJ">محكمة العدل الدولية</strong>: <span data-i18n="defICJDesc">جهاز قضائي تابع لمنظمة الأمم المتحدة، تعيّنه وتراقبه الجمعية العامة.</span></li>
+                        <li><strong class="key-organization" data-i18n="defFAO">منظمة الأغذية والزراعة (فاو)</strong>: <span data-i18n="defFAODesc">منظمة متخصصة تابعة للأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعنى بمجالات الغذاء والزراعة.</span></li>
+                        <li><strong class="key-organization" data-i18n="defWHO">منظمة الصحة العالمية</strong>: <span data-i18n="defWHODesc">منظمة متخصصة تابعة للأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعنى بمجالات الصحة.</span></li>
+                        <li><strong class="key-organization" data-i18n="defILO">المنظمة الدولية للشغل</strong>: <span data-i18n="defILODesc">منظمة متخصصة تابعة للأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعنى بمجالات الشغل.</span></li>
+                        <li><strong class="key-organization" data-i18n="defUNESCO">اليونسكو</strong>: <span data-i18n="defUNESCODesc">منظمة الأمم المتحدة للتربية والثقافة والعلوم، منظمة متخصصة يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي.</span></li>
+                        <li><strong class="key-organization" data-i18n="defUNICEF">اليونيسف</strong>: <span data-i18n="defUNICEFDesc">المنظمة العالمية لحماية الطفولة، منظمة متخصصة تابعة للأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي.</span></li>
+                        <li><strong class="key-organization" data-i18n="defWorldBank">البنك الدولي</strong>: <span data-i18n="defWorldBankDesc">مؤسسة مالية دولية تابعة لمنظمة الأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تقدم قروضاً للتنمية.</span></li>
+                        <li><strong class="key-organization" data-i18n="defIMF">صندوق النقد الدولي</strong>: <span data-i18n="defIMFDesc">مؤسسة مالية دولية تابعة لمنظمة الأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعمل على استقرار النظام النقدي العالمي.</span></li>
+                        <li><strong class="key-organization" data-i18n="defGATT">الجات</strong>: <span data-i18n="defGATTDesc">الاتفاقية العامة للتعريفة الجمركية والتجارة، مؤسسة تابعة لمنظمة الأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعنى بتنظيم التجارة الدولية.</span></li>
+                        <li><strong class="key-organization" data-i18n="defTrusteeshipCouncil">مجلس الوصاية</strong>: <span data-i18n="defTrusteeshipCouncilDesc">مجلس تابع لمنظمة الأمم المتحدة، يراقب إدارة المناطق المستعمرة.</span></li>
+                        <li><strong class="key-organization" data-i18n="defECOSOC">المجلس الاقتصادي والاجتماعي</strong>: <span data-i18n="defECOSOCDesc">مجلس تابع لمنظمة الأمم المتحدة، يعيّن ويراقب مختلف المؤسسات المختصة (فاو، منظمة الصحة العالمية، اليونسكو، اليونيسف، البنك الدولي، صندوق النقد الدولي، الجات).</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defPeacekeepingForces">قوات حفظ السلام</strong>: <span data-i18n="defPeacekeepingForcesDesc">قوات عسكرية تضعها الدول الأعضاء في منظمة الأمم المتحدة على ذمّتها لحفظ الأمن العالمي.</span></li>
+                        <li><strong class="key-other" data-i18n="defGoldReserve">احتياطي الذهب</strong>: <span data-i18n="defGoldReserveDesc">الكمية من الذهب التي تحتفظ بها البنوك المركزية كضمانة نقدية؛ احتكرت الولايات المتحدة ثلثي احتياطي الذهب في العالم بعد الحرب العالمية الثانية.</span></li>
+                        <li><strong class="key-other" data-i18n="defBerlinWall">جدار برلين</strong>: <span data-i18n="defBerlinWallDesc">جدار فرضه تقدم جبهتي القتال الشرقية السوفياتية والغربية لدول الحلفاء، فصل مدينة برلين إلى جزء شرقي وجزء غربي بعد الحرب العالمية الثانية.</span></li>
+                        <li><strong class="key-other" data-i18n="defZonesOfInfluence">مناطق النفوذ</strong>: <span data-i18n="defZonesOfInfluenceDesc">مناطق خاضعة لهيمنة دولة كبرى؛ قُسمت ألمانيا بعد الحرب العالمية الثانية إلى 4 مناطق نفوذ بين الحلفاء.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Summary box -->
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: خلّفت الحرب العالمية الثانية خسائر بشرية ضخمة (بين 50 و55 مليون قتيل، و30 مليون معوّق) ومادية هائلة (تدمير المدن والبنية التحتية)، وأدّت إلى انهيار الاقتصاد الأوروبي وبروز الولايات المتحدة الأمريكية كأول قوة اقتصادية في العالم، وإلى رسم خريطة جغراسياسية جديدة (تقسيم ألمانيا، الهيمنة الأمريكية على أوروبا الغربية والسوفياتية على أوروبا الشرقية، استقلال بعض المستعمرات)، وإلى تأسيس منظمة الأمم المتحدة في 26 جوان 1945 لحفظ الأمن العالمي وضمان الحقوق الأساسية للإنسان.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط وصور توضيحية</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson5/hiroshima_1945.jpg" alt="قصف هيروشيما 1945" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">قصف هيروشيما 1945</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson5/yalta_conference_1945.jpg" alt="ندوة يالطة 1945" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">ندوة يالطة 1945</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson5/germany_divided_1945.jpg" alt="تقسيم ألمانيا بعد الحرب" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">تقسيم ألمانيا بعد الحرب</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson5/un_charter_1945.jpg" alt="ميثاق الأمم المتحدة 1945" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">ميثاق الأمم المتحدة 1945</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson5/europe_after_wwii.jpg" alt="خريطة أوروبا بعد الحرب العالمية الثانية" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">خريطة أوروبا بعد الحرب العالمية الثانية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson5/berlin_divided.jpg" alt="برلين المقسمة" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">برلين المقسمة</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y09_his_exercisess_mod1_lesson5.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات، الشخصيات، الأحداث، السنوات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "9th Basic",
+                moduleName: "History / Axis 1: Tunisia and the World from World War I to World War II",
+                lessonTitleSample: "Consequences of World War II",
+                sectionIntro: "Introduction",
+                introText: "After overwhelming victories for German forces in Europe and Japanese forces in the Pacific and East Asia, they continued until the beginning of 1942, when the scope of the Axis powers' dominance expanded and they began to reap successive defeats, until Rome surrendered on June 4, 1944, Germany on May 8, 1945, and Japan on August 19, 1945. Thus World War II lasted 6 years.",
+                problematiqueText: "What are the consequences of this war?",
+                sectionPart1: "The Magnitude of Human and Material Losses",
+                humanLossesTitle: "Huge Human Losses",
+                humanLosses1: "Human losses were estimated between <strong>50 and 55 million dead</strong>, more than half of them civilians.",
+                humanLosses2: "These losses are distributed unevenly among the warring states:",
+                humanLossesMil: "<strong>At the level of armies:</strong> the <strong>Soviet Union</strong> lost the largest number of combatants (<strong>7.5 million combatants</strong>), followed by <strong>Germany</strong> (3.850 million), then <strong>Japan</strong> (1.220 million); the remaining states each contributed fewer than 500 thousand dead.",
+                humanLossesCiv: "<strong>At the level of civilians:</strong> the largest human losses were also Soviet, recording <strong>10 million civilian victims</strong>, followed by <strong>Poland</strong> (5.5 million victims), <strong>Germany</strong> (3.810 million victims), <strong>Yugoslavia</strong> (1.4 million victims), and <strong>Japan</strong> (700 thousand victims). By contrast, American civilians were spared the hardships of this war.",
+                humanLosses3: "<strong>Aerial bombardment</strong> was the deadliest for civilians (Tokyo 185 thousand, Dresden 135 thousand, and Berlin 50 thousand), especially through the use of the <strong>atomic bomb</strong> on two occasions: in <strong>Hiroshima</strong> where 80 thousand Japanese were killed, and in <strong>Nagasaki</strong> where 40 thousand were killed. The Allies, led by the United States, intensified indiscriminate aerial bombardment to accelerate the surrender of the Axis powers.",
+                humanLosses4: "The war also left a large number of disabled people, estimated at <strong>30 million</strong>, most of them Europeans.",
+                materialLossesTitle: "Enormous Material Losses",
+                materialLosses1: "The means of destruction on land, sea, and air multiplied, becoming more technically advanced and more lethal.",
+                materialLosses2: "Cities were targeted by aerial bombardment, such as British cities and Soviet cities destroyed by German aircraft, the retaliatory bombing of German cities by Allied forces before Germany's surrender, and the targeting of Hiroshima and Nagasaki with two atomic bombs.",
+                materialLosses3: "<strong>Infrastructure</strong> was targeted to impede land military movements, so roads, bridges, railways, ports, and many vital facilities inside and outside cities were destroyed.",
+                materialLosses4: "Many areas where battles took place between Axis and Allied forces, especially in Europe, were also targeted, which negatively affected production.",
+                sectionPart2: "The Collapse of the European Economy and the Emergence of the United States of America",
+                econCollapseTitle: "The Collapse of the European Economy",
+                econCollapse1: "This collapse included the two productive sectors, agricultural and industrial, due to battles, sheltering in bunkers, and the collapse of the production system, despite attempts to employ women and children even in the weapons industry.",
+                econCollapse2: "The collapse of production negatively affected European trade exchanges: while the deficit of the French trade balance tripled 3 times, the British fleet shrank by half.",
+                econCollapse3: "The value of foreign debts of the warring European states rose, with public debt tripling 3 times in Britain, 4 times in France, and 7 times in Germany between 1939 and 1945. The European economy was in a state of total collapse at the end of the war and was unable to rebuild itself without external assistance.",
+                usaRiseTitle: "The Emergence of the United States of America",
+                usaRiseText: "<strong>The United States of America</strong> was the state that benefited most from the collapse of the European economy; it exploited it to get rid of the effects of the economic crisis that had started from it in 1929. It raised its agricultural production by <strong>20%</strong> and its industrial production by <strong>75%</strong>, thus avoiding the mistakes it made after World War I, and became the leading commercial and financial power (<strong>monopolizing two-thirds of the world's gold reserves</strong>). It also strengthened the economy of some other states, such as <strong>Canada</strong>, which focused on the aviation industry and aluminum production, and <strong>India</strong>, which developed the textile industry.",
+                sectionPart3: "Political Consequences",
+                geoMapTitle: "A New Geopolitical Map",
+                geoMapEuropeTitle: "In Europe",
+                geoMapEurope1: "<strong>Germany</strong> returned to its 1937 borders, with its division into <strong>4 zones of influence</strong> according to the <strong>Yalta Conference</strong> of February 1945. Three of them were grouped under the name <strong>West Germany</strong>, with a capitalist system and its capital <strong>Bonn</strong>, subject to the Allies. The fourth zone had a socialist system and was subject to the Soviet Union, with its capital <strong>East Berlin</strong>. This city was divided into an eastern and a western part separated by a <strong>wall</strong> imposed by the advance of the eastern Soviet and western Allied fronts. <strong>10 million Germans</strong> were also deported from Czechoslovakia, Hungary, and Poland.",
+                geoMapEurope2: "The fall of <strong>Western Europe</strong> under American hegemony and <strong>Eastern Europe</strong> under Soviet hegemony.",
+                geoMapEurope3: "The expansion of the <strong>Soviet Union</strong> at the expense of neighboring states: Poland, Finland, East Prussia, and others.",
+                geoMapEurope4: "<strong>Italy</strong> lost some regions to Yugoslavia, France, and Greece.",
+                geoMapEurope5: "<strong>Poland</strong>'s borders changed by extending its territory at the expense of Germany as compensation for the regions seized by the Soviet Union; <strong>two million Poles</strong> were deported from it.",
+                geoMapWorldTitle: "In the Rest of the World",
+                geoMapWorld1: "The independence of <strong>Ethiopia</strong>, <strong>Eritrea</strong>, <strong>Libya</strong>, and <strong>Somalia</strong>, which had been under Italian trusteeship.",
+                geoMapWorld2: "<strong>Japan</strong> lost the <strong>Kuril Islands</strong> and the southern part of <strong>Sakhalin</strong> Island to the Soviet Union.",
+                geoMapWorld3: "<strong>France</strong>, <strong>Britain</strong>, and the <strong>Netherlands</strong> recovered their Asian colonies.",
+                unTitle: "The Founding of the United Nations",
+                un1: "It was agreed to establish a new international organization by the <strong>Triple Alliance</strong> during the <strong>Yalta Conference</strong> in February 1945.",
+                un2: "During the <strong>San Francisco Conference</strong> on <strong>June 26, 1945</strong>, the <strong>United Nations Charter</strong> was declared and signed by 15 states.",
+                un3: "This organization is responsible for maintaining global security and guaranteeing fundamental human rights, without interfering in the internal affairs of member states.",
+                un4: "This organization consists of a <strong>General Assembly</strong> that elects the <strong>Security Council</strong>, the most prominent executive body in the organization, and appoints and oversees the <strong>International Court of Justice</strong>.",
+                un5: "This organization possesses <strong>peacekeeping forces</strong> placed at its disposal by member states.",
+                un6: "It also has councils with specific functions, such as the <strong>Trusteeship Council</strong>, which oversees the administration of colonized areas, and the <strong>Economic and Social Council</strong>, which appoints and oversees various specialized institutions, including: the <strong>Food and Agriculture Organization (FAO)</strong>, the <strong>World Health Organization</strong>, the <strong>International Labour Organization</strong>, the <strong>United Nations Educational, Scientific and Cultural Organization (UNESCO)</strong>, the <strong>United Nations Children's Fund (UNICEF)</strong>, the <strong>World Bank</strong>, the <strong>International Monetary Fund</strong>, and the <strong>General Agreement on Tariffs and Trade (GATT)</strong>.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Despite the devastating effects of World War II, the United Nations gave hope to many peoples. To what extent did this organization help the independence of colonized peoples?",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Illustrative Images",
+                defLocations: "🌍 Countries and Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years and Periods",
+                defOrganizations: "🏢 Organizations and Institutions",
+                defOthers: "📌 Other",
+                defGermany: "Germany",
+                defGermanyDesc: "One of the defeated states in World War II, returned to its 1937 borders and was divided into 4 zones of influence after the Yalta Conference of 1945; 10 million Germans were deported from Czechoslovakia, Hungary, and Poland.",
+                defItaly: "Italy",
+                defItalyDesc: "One of the Axis powers, surrendered on June 4, 1944, and lost some regions to Yugoslavia, France, and Greece after the war.",
+                defJapan: "Japan",
+                defJapanDesc: "One of the Axis powers, surrendered on August 19, 1945 after the atomic bombing of Hiroshima and Nagasaki, and lost the Kuril Islands and the southern part of Sakhalin to the Soviet Union.",
+                defUSSR: "The Soviet Union",
+                defUSSRDesc: "One of the Allied powers, bore the largest human losses in the war (7.5 million combatants and 10 million civilians), and expanded its borders at the expense of Poland, Finland, and East Prussia.",
+                defUSA: "The United States of America",
+                defUSADesc: "The state that benefited most from World War II; it raised its agricultural production by 20% and its industrial production by 75%, and became the leading commercial and financial power in the world, monopolizing two-thirds of the world's gold reserves.",
+                defPoland: "Poland",
+                defPolandDesc: "One of the states that suffered major civilian losses (5.5 million victims); its borders changed after the war by extending its territory at the expense of Germany as compensation for the regions seized by the Soviet Union.",
+                defYugoslavia: "Yugoslavia",
+                defYugoslaviaDesc: "A European state that recorded 1.4 million civilian victims during World War II, and benefited from some regions lost by Italy.",
+                defHiroshima: "Hiroshima",
+                defHiroshimaDesc: "A Japanese city targeted by a US atomic bomb in August 1945, where 80 thousand Japanese were killed.",
+                defNagasaki: "Nagasaki",
+                defNagasakiDesc: "A Japanese city targeted by a US atomic bomb in August 1945, where 40 thousand Japanese were killed.",
+                defDresden: "Dresden",
+                defDresdenDesc: "A German city targeted by aerial bombardment in World War II, recording 135 thousand dead.",
+                defTokyo: "Tokyo",
+                defTokyoDesc: "The capital of Japan, targeted by aerial bombardment in World War II, recording 185 thousand dead.",
+                defBerlin: "Berlin",
+                defBerlinDesc: "The capital of Germany, targeted by aerial bombardment (50 thousand dead), and divided after the war into East Berlin (under Soviet control) and West Berlin (under Allied control) by the Berlin Wall.",
+                defBonn: "Bonn",
+                defBonnDesc: "The capital of West Germany with a capitalist system after World War II.",
+                defEthiopia: "Ethiopia",
+                defEthiopiaDesc: "An African state that gained independence after World War II, having been under Italian trusteeship.",
+                defLibya: "Libya",
+                defLibyaDesc: "An African state that gained independence after World War II, having been under Italian trusteeship.",
+                defKuril: "Kuril Islands",
+                defKurilDesc: "Islands lost by Japan to the Soviet Union after World War II.",
+                defSakhalin: "Sakhalin",
+                defSakhalinDesc: "An island whose southern part Japan lost to the Soviet Union after World War II.",
+                defYaltaConference: "The Yalta Conference",
+                defYaltaConferenceDesc: "A conference held in February 1945 between the leaders of the Triple Alliance (USA, Britain, USSR), which decided the division of Germany into 4 zones of influence and agreed on the establishment of the United Nations.",
+                defSanFranciscoConference: "The San Francisco Conference",
+                defSanFranciscoConferenceDesc: "A conference held on June 26, 1945, during which the United Nations Charter was declared and signed by 15 states.",
+                defAtomicBombing: "The Atomic Bombing",
+                defAtomicBombingDesc: "The United States' use of the atomic bomb in Hiroshima (80 thousand dead) and Nagasaki (40 thousand dead) in August 1945 to accelerate Japan's surrender.",
+                defYear1942Desc: "The beginning of the expansion of the Axis powers' dominance before they began to reap successive defeats.",
+                defYear1944Desc: "The surrender of Rome on June 4, 1944.",
+                defYear1945Desc: "The Yalta Conference (February), Germany's surrender (May 8), the San Francisco Conference (June 26), the atomic bombing of Hiroshima and Nagasaki, Japan's surrender (August 19), and the end of World War II.",
+                defUN: "The United Nations",
+                defUNDesc: "An international organization founded after World War II; its establishment was agreed at the Yalta Conference (February 1945), and its charter was declared at the San Francisco Conference (June 26, 1945). It is responsible for maintaining global security and guaranteeing fundamental human rights, and consists of a General Assembly, a Security Council, the International Court of Justice, and specialized councils.",
+                defSecurityCouncil: "The Security Council",
+                defSecurityCouncilDesc: "The most prominent executive body of the United Nations, elected by the General Assembly, responsible for maintaining global security.",
+                defICJ: "The International Court of Justice",
+                defICJDesc: "A judicial body affiliated with the United Nations, appointed and overseen by the General Assembly.",
+                defFAO: "The Food and Agriculture Organization (FAO)",
+                defFAODesc: "A specialized agency of the United Nations, appointed and overseen by the Economic and Social Council, concerned with food and agriculture.",
+                defWHO: "The World Health Organization",
+                defWHODesc: "A specialized agency of the United Nations, appointed and overseen by the Economic and Social Council, concerned with health.",
+                defILO: "The International Labour Organization",
+                defILODesc: "A specialized agency of the United Nations, appointed and overseen by the Economic and Social Council, concerned with labor.",
+                defUNESCO: "UNESCO",
+                defUNESCODesc: "The United Nations Educational, Scientific and Cultural Organization, a specialized agency appointed and overseen by the Economic and Social Council.",
+                defUNICEF: "UNICEF",
+                defUNICEFDesc: "The United Nations Children's Fund, a specialized agency of the United Nations, appointed and overseen by the Economic and Social Council.",
+                defWorldBank: "The World Bank",
+                defWorldBankDesc: "An international financial institution affiliated with the United Nations, appointed and overseen by the Economic and Social Council, providing development loans.",
+                defIMF: "The International Monetary Fund",
+                defIMFDesc: "An international financial institution affiliated with the United Nations, appointed and overseen by the Economic and Social Council, working for the stability of the global monetary system.",
+                defGATT: "GATT",
+                defGATTDesc: "The General Agreement on Tariffs and Trade, an institution affiliated with the United Nations, appointed and overseen by the Economic and Social Council, concerned with organizing international trade.",
+                defTrusteeshipCouncil: "The Trusteeship Council",
+                defTrusteeshipCouncilDesc: "A council affiliated with the United Nations, overseeing the administration of colonized areas.",
+                defECOSOC: "The Economic and Social Council",
+                defECOSOCDesc: "A council affiliated with the United Nations, which appoints and oversees various specialized institutions (FAO, WHO, UNESCO, UNICEF, World Bank, IMF, GATT).",
+                defPeacekeepingForces: "Peacekeeping Forces",
+                defPeacekeepingForcesDesc: "Military forces placed by member states at the disposal of the United Nations to maintain global security.",
+                defGoldReserve: "Gold Reserves",
+                defGoldReserveDesc: "The quantity of gold held by central banks as a monetary guarantee; the United States monopolized two-thirds of the world's gold reserves after World War II.",
+                defBerlinWall: "The Berlin Wall",
+                defBerlinWallDesc: "A wall imposed by the advance of the eastern Soviet and western Allied fronts, dividing the city of Berlin into an eastern and a western part after World War II.",
+                defZonesOfInfluence: "Zones of Influence",
+                defZonesOfInfluenceDesc: "Areas subject to the hegemony of a great power; Germany was divided after World War II into 4 zones of influence among the Allies.",
+                summaryText: "Key takeaway: World War II left huge human losses (between 50 and 55 million dead, and 30 million disabled) and enormous material losses (destruction of cities and infrastructure), led to the collapse of the European economy and the emergence of the United States as the leading economic power in the world, to the drawing of a new geopolitical map (division of Germany, American hegemony over Western Europe and Soviet over Eastern Europe, independence of some colonies), and to the founding of the United Nations on June 26, 1945 to maintain global security and guarantee fundamental human rights.",
+                galleryAlt1: "The Hiroshima bombing 1945",
+                galleryAlt2: "The Yalta Conference 1945",
+                galleryAlt3: "The division of Germany after the war",
+                galleryAlt4: "The United Nations Charter 1945",
+                galleryAlt5: "Map of Europe after World War II",
+                galleryAlt6: "Divided Berlin",
+                galleryCap1: "The Hiroshima bombing 1945",
+                galleryCap2: "The Yalta Conference 1945",
+                galleryCap3: "The division of Germany after the war",
+                galleryCap4: "The United Nations Charter 1945",
+                galleryCap5: "Map of Europe after World War II",
+                galleryCap6: "Divided Berlin",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, conclusion and summary",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, persons, events, years and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                yearSection: "9ème de base",
+                moduleName: "Histoire / Axe 1 : La Tunisie et le monde de la Première à la Seconde Guerre mondiale",
+                lessonTitleSample: "Les conséquences de la Seconde Guerre mondiale",
+                sectionIntro: "Introduction",
+                introText: "Après des victoires écrasantes des forces allemandes en Europe et des forces japonaises dans le Pacifique et en Asie de l'Est, celles-ci se sont poursuivies jusqu'au début de 1942, lorsque le champ de domination des forces de l'Axe s'est élargi et qu'elles ont commencé à récolter des défaites successives, jusqu'à la capitulation de Rome le 4 juin 1944, de l'Allemagne le 8 mai 1945 et du Japon le 19 août 1945. Ainsi, la Seconde Guerre mondiale a duré 6 ans.",
+                problematiqueText: "Quelles sont les conséquences de cette guerre ?",
+                sectionPart1: "L'ampleur des pertes humaines et matérielles",
+                humanLossesTitle: "Des pertes humaines énormes",
+                humanLosses1: "Les pertes humaines ont été estimées entre <strong>50 et 55 millions de morts</strong>, dont plus de la moitié étaient des civils.",
+                humanLosses2: "Ces pertes sont réparties de manière inégale entre les États belligérants :",
+                humanLossesMil: "<strong>Au niveau des armées :</strong> l'<strong>Union soviétique</strong> a perdu le plus grand nombre de combattants (<strong>7,5 millions de combattants</strong>), suivie de l'<strong>Allemagne</strong> (3,850 millions), puis du <strong>Japon</strong> (1,220 million) ; les autres États ont chacun contribué pour moins de 500 000 morts.",
+                humanLossesCiv: "<strong>Au niveau des civils :</strong> les plus grandes pertes humaines ont également été soviétiques, avec <strong>10 millions de victimes civiles</strong>, suivies de la <strong>Pologne</strong> (5,5 millions de victimes), de l'<strong>Allemagne</strong> (3,810 millions de victimes), de la <strong>Yougoslavie</strong> (1,4 million de victimes) et du <strong>Japon</strong> (700 000 victimes). En revanche, les civils américains ont été épargnés par les épreuves de cette guerre.",
+                humanLosses3: "Les <strong>bombardements aériens</strong> ont été les plus meurtriers pour les civils (Tokyo 185 000, Dresde 135 000 et Berlin 50 000), notamment par l'utilisation de la <strong>bombe atomique</strong> à deux reprises : à <strong>Hiroshima</strong> où 80 000 Japonais ont été tués, et à <strong>Nagasaki</strong> où 40 000 ont été tués. Les Alliés, dirigés par les États-Unis, ont intensifié les bombardements aériens indiscriminés pour accélérer la capitulation des forces de l'Axe.",
+                humanLosses4: "La guerre a également laissé un grand nombre de personnes handicapées, estimées à <strong>30 millions</strong>, la plupart européennes.",
+                materialLossesTitle: "D'énormes pertes matérielles",
+                materialLosses1: "Les moyens de destruction terrestres, maritimes et aériens se sont multipliés, devenant plus avancés techniquement et plus meurtriers.",
+                materialLosses2: "Les villes ont été visées par les bombardements aériens, comme les villes britanniques et les villes soviétiques détruites par les avions allemands, les bombardements de représailles des villes allemandes par les forces alliées avant la capitulation de l'Allemagne, et le ciblage des villes d'Hiroshima et de Nagasaki par deux bombes atomiques.",
+                materialLosses3: "Les <strong>infrastructures</strong> ont été visées pour entraver les mouvements militaires terrestres, détruisant ainsi les routes, les ponts, les chemins de fer, les ports et de nombreuses installations vitales à l'intérieur et à l'extérieur des villes.",
+                materialLosses4: "De nombreuses zones où se sont déroulées des batailles entre les forces de l'Axe et les forces alliées, notamment en Europe, ont également été visées, ce qui a eu un impact négatif sur la production.",
+                sectionPart2: "L'effondrement de l'économie européenne et l'émergence des États-Unis d'Amérique",
+                econCollapseTitle: "L'effondrement de l'économie européenne",
+                econCollapse1: "Cet effondrement a touché les deux secteurs productifs, agricole et industriel, en raison des batailles, du refuge dans les abris et de l'effondrement du système de production, malgré les tentatives d'employer des femmes et des enfants, même dans les secteurs de l'industrie des armes.",
+                econCollapse2: "L'effondrement de la production a eu un impact négatif sur les échanges commerciaux européens : alors que le déficit de la balance commerciale française a triplé 3 fois, la flotte britannique a diminué de moitié.",
+                econCollapse3: "La valeur des dettes extérieures des États européens belligérants a augmenté, la dette publique ayant triplé 3 fois en Grande-Bretagne, 4 fois en France et 7 fois en Allemagne entre 1939 et 1945. L'économie européenne était dans un état d'effondrement total à la fin de la guerre et n'était pas capable de se reconstruire sans aide extérieure.",
+                usaRiseTitle: "L'émergence des États-Unis d'Amérique",
+                usaRiseText: "Les <strong>États-Unis d'Amérique</strong> ont été l'État qui a le plus bénéficié de l'effondrement de l'économie européenne ; ils l'ont exploité pour se débarrasser des effets de la crise économique qui avait commencé chez eux en 1929. Ils ont augmenté leur production agricole de <strong>20 %</strong> et leur production industrielle de <strong>75 %</strong>, évitant ainsi les erreurs commises après la Première Guerre mondiale, et sont devenus la première puissance commerciale et financière (<strong>monopolisant les deux tiers des réserves mondiales d'or</strong>). Ils ont également renforcé l'économie de certains autres États, comme le <strong>Canada</strong>, qui s'est concentré sur l'industrie aéronautique et la production d'aluminium, et l'<strong>Inde</strong>, qui a développé l'industrie textile.",
+                sectionPart3: "Les conséquences politiques",
+                geoMapTitle: "Une nouvelle carte géopolitique",
+                geoMapEuropeTitle: "En Europe",
+                geoMapEurope1: "L'<strong>Allemagne</strong> est revenue à ses frontières de 1937, avec sa division en <strong>4 zones d'influence</strong> conformément à la <strong>conférence de Yalta</strong> de février 1945. Trois d'entre elles ont été regroupées sous le nom d'<strong>Allemagne de l'Ouest</strong>, à système capitaliste et dont la capitale est <strong>Bonn</strong>, soumise aux Alliés. La quatrième zone avait un système socialiste et était soumise à l'Union soviétique, avec pour capitale <strong>Berlin-Est</strong>. Cette ville a été divisée en une partie orientale et une partie occidentale séparées par un <strong>mur</strong> imposé par l'avancée des fronts soviétique oriental et allié occidental. <strong>10 millions d'Allemands</strong> ont également été expulsés de Tchécoslovaquie, de Hongrie et de Pologne.",
+                geoMapEurope2: "La chute de l'<strong>Europe occidentale</strong> sous l'hégémonie américaine et de l'<strong>Europe orientale</strong> sous l'hégémonie soviétique.",
+                geoMapEurope3: "L'expansion de l'<strong>Union soviétique</strong> aux dépens des États voisins : Pologne, Finlande, Prusse orientale et autres.",
+                geoMapEurope4: "L'<strong>Italie</strong> a perdu certaines régions au profit de la Yougoslavie, de la France et de la Grèce.",
+                geoMapEurope5: "Les frontières de la <strong>Pologne</strong> ont changé en étendant son territoire aux dépens de l'Allemagne en compensation des régions saisies par l'Union soviétique ; <strong>deux millions de Polonais</strong> en ont été expulsés.",
+                geoMapWorldTitle: "Dans le reste du monde",
+                geoMapWorld1: "L'indépendance de l'<strong>Éthiopie</strong>, de l'<strong>Érythrée</strong>, de la <strong>Libye</strong> et de la <strong>Somalie</strong>, qui étaient sous tutelle italienne.",
+                geoMapWorld2: "Le <strong>Japon</strong> a perdu les <strong>îles Kouriles</strong> et la partie sud de l'île de <strong>Sakhaline</strong> au profit de l'Union soviétique.",
+                geoMapWorld3: "La <strong>France</strong>, la <strong>Grande-Bretagne</strong> et les <strong>Pays-Bas</strong> ont récupéré leurs colonies asiatiques.",
+                unTitle: "La fondation de l'Organisation des Nations Unies",
+                un1: "Il a été convenu de créer une nouvelle organisation internationale par la <strong>Triple Alliance</strong> lors de la <strong>conférence de Yalta</strong> en février 1945.",
+                un2: "Lors de la <strong>conférence de San Francisco</strong> du <strong>26 juin 1945</strong>, la <strong>Charte des Nations Unies</strong> a été proclamée et signée par 15 États.",
+                un3: "Cette organisation est chargée de maintenir la sécurité mondiale et de garantir les droits fondamentaux de l'homme, sans interférer dans les affaires internes des États membres.",
+                un4: "Cette organisation se compose d'une <strong>Assemblée générale</strong> qui élit le <strong>Conseil de sécurité</strong>, l'organe exécutif le plus important de l'organisation, et qui nomme et supervise la <strong>Cour internationale de justice</strong>.",
+                un5: "Cette organisation possède des <strong>forces de maintien de la paix</strong> mises à sa disposition par les États membres.",
+                un6: "Elle possède également des conseils aux fonctions spécifiques, comme le <strong>Conseil de tutelle</strong> qui supervise l'administration des zones colonisées, et le <strong>Conseil économique et social</strong> qui nomme et supervise diverses institutions spécialisées, dont : l'<strong>Organisation des Nations Unies pour l'alimentation et l'agriculture (FAO)</strong>, l'<strong>Organisation mondiale de la santé</strong>, l'<strong>Organisation internationale du travail</strong>, l'<strong>Organisation des Nations Unies pour l'éducation, la science et la culture (UNESCO)</strong>, le <strong>Fonds des Nations Unies pour l'enfance (UNICEF)</strong>, la <strong>Banque mondiale</strong>, le <strong>Fonds monétaire international</strong> et l'<strong>Accord général sur les tarifs douaniers et le commerce (GATT)</strong>.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Malgré les effets dévastateurs de la Seconde Guerre mondiale, l'Organisation des Nations Unies a donné de l'espoir à de nombreux peuples. Dans quelle mesure cette organisation a-t-elle aidé à l'indépendance des peuples colonisés ?",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et images illustratives",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années et périodes",
+                defOrganizations: "🏢 Organisations et institutions",
+                defOthers: "📌 Autres",
+                defGermany: "Allemagne",
+                defGermanyDesc: "L'un des États vaincus de la Seconde Guerre mondiale, revenue à ses frontières de 1937 et divisée en 4 zones d'influence après la conférence de Yalta de 1945 ; 10 millions d'Allemands ont été expulsés de Tchécoslovaquie, de Hongrie et de Pologne.",
+                defItaly: "Italie",
+                defItalyDesc: "L'une des puissances de l'Axe, capitulée le 4 juin 1944, ayant perdu certaines régions au profit de la Yougoslavie, de la France et de la Grèce après la guerre.",
+                defJapan: "Japon",
+                defJapanDesc: "L'une des puissances de l'Axe, capitulé le 19 août 1945 après les bombardements atomiques d'Hiroshima et de Nagasaki, ayant perdu les îles Kouriles et la partie sud de Sakhaline au profit de l'Union soviétique.",
+                defUSSR: "Union soviétique",
+                defUSSRDesc: "L'une des puissances alliées, ayant subi les plus grandes pertes humaines de la guerre (7,5 millions de combattants et 10 millions de civils), et ayant étendu ses frontières aux dépens de la Pologne, de la Finlande et de la Prusse orientale.",
+                defUSA: "Les États-Unis d'Amérique",
+                defUSADesc: "L'État qui a le plus bénéficié de la Seconde Guerre mondiale ; il a augmenté sa production agricole de 20 % et sa production industrielle de 75 %, et est devenu la première puissance commerciale et financière du monde, monopolisant les deux tiers des réserves mondiales d'or.",
+                defPoland: "Pologne",
+                defPolandDesc: "L'un des États ayant subi d'importantes pertes civiles (5,5 millions de victimes) ; ses frontières ont changé après la guerre en étendant son territoire aux dépens de l'Allemagne en compensation des régions saisies par l'Union soviétique.",
+                defYugoslavia: "Yougoslavie",
+                defYugoslaviaDesc: "Un État européen ayant enregistré 1,4 million de victimes civiles pendant la Seconde Guerre mondiale, et ayant bénéficié de certaines régions perdues par l'Italie.",
+                defHiroshima: "Hiroshima",
+                defHiroshimaDesc: "Une ville japonaise ciblée par une bombe atomique américaine en août 1945, où 80 000 Japonais ont été tués.",
+                defNagasaki: "Nagasaki",
+                defNagasakiDesc: "Une ville japonaise ciblée par une bombe atomique américaine en août 1945, où 40 000 Japonais ont été tués.",
+                defDresden: "Dresde",
+                defDresdenDesc: "Une ville allemande ciblée par des bombardements aériens pendant la Seconde Guerre mondiale, enregistrant 135 000 morts.",
+                defTokyo: "Tokyo",
+                defTokyoDesc: "La capitale du Japon, ciblée par des bombardements aériens pendant la Seconde Guerre mondiale, enregistrant 185 000 morts.",
+                defBerlin: "Berlin",
+                defBerlinDesc: "La capitale de l'Allemagne, ciblée par des bombardements aériens (50 000 morts), et divisée après la guerre en Berlin-Est (sous contrôle soviétique) et Berlin-Ouest (sous contrôle allié) par le mur de Berlin.",
+                defBonn: "Bonn",
+                defBonnDesc: "La capitale de l'Allemagne de l'Ouest à système capitaliste après la Seconde Guerre mondiale.",
+                defEthiopia: "Éthiopie",
+                defEthiopiaDesc: "Un État africain ayant obtenu son indépendance après la Seconde Guerre mondiale, après avoir été sous tutelle italienne.",
+                defLibya: "Libye",
+                defLibyaDesc: "Un État africain ayant obtenu son indépendance après la Seconde Guerre mondiale, après avoir été sous tutelle italienne.",
+                defKuril: "Îles Kouriles",
+                defKurilDesc: "Des îles perdues par le Japon au profit de l'Union soviétique après la Seconde Guerre mondiale.",
+                defSakhalin: "Sakhaline",
+                defSakhalinDesc: "Une île dont le Japon a perdu la partie sud au profit de l'Union soviétique après la Seconde Guerre mondiale.",
+                defYaltaConference: "La conférence de Yalta",
+                defYaltaConferenceDesc: "Une conférence tenue en février 1945 entre les dirigeants de la Triple Alliance (États-Unis, Grande-Bretagne, URSS), qui a décidé la division de l'Allemagne en 4 zones d'influence et est convenue de la création de l'Organisation des Nations Unies.",
+                defSanFranciscoConference: "La conférence de San Francisco",
+                defSanFranciscoConferenceDesc: "Une conférence tenue le 26 juin 1945, lors de laquelle la Charte des Nations Unies a été proclamée et signée par 15 États.",
+                defAtomicBombing: "Le bombardement atomique",
+                defAtomicBombingDesc: "L'utilisation par les États-Unis de la bombe atomique à Hiroshima (80 000 morts) et à Nagasaki (40 000 morts) en août 1945 pour accélérer la capitulation du Japon.",
+                defYear1942Desc: "Le début de l'élargissement du champ de domination des forces de l'Axe avant qu'elles ne commencent à récolter des défaites successives.",
+                defYear1944Desc: "La capitulation de Rome le 4 juin 1944.",
+                defYear1945Desc: "La conférence de Yalta (février), la capitulation de l'Allemagne (8 mai), la conférence de San Francisco (26 juin), les bombardements atomiques d'Hiroshima et de Nagasaki, la capitulation du Japon (19 août) et la fin de la Seconde Guerre mondiale.",
+                defUN: "L'Organisation des Nations Unies",
+                defUNDesc: "Une organisation internationale fondée après la Seconde Guerre mondiale ; sa création a été convenue à la conférence de Yalta (février 1945), et sa charte a été proclamée à la conférence de San Francisco (26 juin 1945). Elle est chargée de maintenir la sécurité mondiale et de garantir les droits fondamentaux de l'homme, et se compose d'une Assemblée générale, d'un Conseil de sécurité, de la Cour internationale de justice et de conseils spécialisés.",
+                defSecurityCouncil: "Le Conseil de sécurité",
+                defSecurityCouncilDesc: "L'organe exécutif le plus important de l'Organisation des Nations Unies, élu par l'Assemblée générale, chargé de maintenir la sécurité mondiale.",
+                defICJ: "La Cour internationale de justice",
+                defICJDesc: "Un organe judiciaire affilié à l'Organisation des Nations Unies, nommé et supervisé par l'Assemblée générale.",
+                defFAO: "L'Organisation des Nations Unies pour l'alimentation et l'agriculture (FAO)",
+                defFAODesc: "Une institution spécialisée de l'Organisation des Nations Unies, nommée et supervisée par le Conseil économique et social, chargée des domaines de l'alimentation et de l'agriculture.",
+                defWHO: "L'Organisation mondiale de la santé",
+                defWHODesc: "Une institution spécialisée de l'Organisation des Nations Unies, nommée et supervisée par le Conseil économique et social, chargée des domaines de la santé.",
+                defILO: "L'Organisation internationale du travail",
+                defILODesc: "Une institution spécialisée de l'Organisation des Nations Unies, nommée et supervisée par le Conseil économique et social, chargée des domaines du travail.",
+                defUNESCO: "L'UNESCO",
+                defUNESCODesc: "L'Organisation des Nations Unies pour l'éducation, la science et la culture, une institution spécialisée nommée et supervisée par le Conseil économique et social.",
+                defUNICEF: "L'UNICEF",
+                defUNICEFDesc: "Le Fonds des Nations Unies pour l'enfance, une institution spécialisée de l'Organisation des Nations Unies, nommée et supervisée par le Conseil économique et social.",
+                defWorldBank: "La Banque mondiale",
+                defWorldBankDesc: "Une institution financière internationale affiliée à l'Organisation des Nations Unies, nommée et supervisée par le Conseil économique et social, accordant des prêts pour le développement.",
+                defIMF: "Le Fonds monétaire international",
+                defIMFDesc: "Une institution financière internationale affiliée à l'Organisation des Nations Unies, nommée et supervisée par le Conseil économique et social, œuvrant pour la stabilité du système monétaire mondial.",
+                defGATT: "Le GATT",
+                defGATTDesc: "L'Accord général sur les tarifs douaniers et le commerce, une institution affiliée à l'Organisation des Nations Unies, nommée et supervisée par le Conseil économique et social, chargée de l'organisation du commerce international.",
+                defTrusteeshipCouncil: "Le Conseil de tutelle",
+                defTrusteeshipCouncilDesc: "Un conseil affilié à l'Organisation des Nations Unies, supervisant l'administration des zones colonisées.",
+                defECOSOC: "Le Conseil économique et social",
+                defECOSOCDesc: "Un conseil affilié à l'Organisation des Nations Unies, qui nomme et supervise diverses institutions spécialisées (FAO, OMS, UNESCO, UNICEF, Banque mondiale, FMI, GATT).",
+                defPeacekeepingForces: "Les forces de maintien de la paix",
+                defPeacekeepingForcesDesc: "Des forces militaires mises par les États membres à la disposition de l'Organisation des Nations Unies pour maintenir la sécurité mondiale.",
+                defGoldReserve: "Les réserves d'or",
+                defGoldReserveDesc: "La quantité d'or détenue par les banques centrales comme garantie monétaire ; les États-Unis ont monopolisé les deux tiers des réserves mondiales d'or après la Seconde Guerre mondiale.",
+                defBerlinWall: "Le mur de Berlin",
+                defBerlinWallDesc: "Un mur imposé par l'avancée des fronts soviétique oriental et allié occidental, divisant la ville de Berlin en une partie orientale et une partie occidentale après la Seconde Guerre mondiale.",
+                defZonesOfInfluence: "Les zones d'influence",
+                defZonesOfInfluenceDesc: "Des zones soumises à l'hégémonie d'une grande puissance ; l'Allemagne a été divisée après la Seconde Guerre mondiale en 4 zones d'influence entre les Alliés.",
+                summaryText: "À retenir : La Seconde Guerre mondiale a laissé d'énormes pertes humaines (entre 50 et 55 millions de morts, et 30 millions de handicapés) et matérielles (destruction des villes et des infrastructures), a conduit à l'effondrement de l'économie européenne et à l'émergence des États-Unis comme première puissance économique mondiale, au dessin d'une nouvelle carte géopolitique (division de l'Allemagne, hégémonie américaine sur l'Europe occidentale et soviétique sur l'Europe orientale, indépendance de certaines colonies), et à la fondation de l'Organisation des Nations Unies le 26 juin 1945 pour maintenir la sécurité mondiale et garantir les droits fondamentaux de l'homme.",
+                galleryAlt1: "Le bombardement d'Hiroshima 1945",
+                galleryAlt2: "La conférence de Yalta 1945",
+                galleryAlt3: "La division de l'Allemagne après la guerre",
+                galleryAlt4: "La Charte des Nations Unies 1945",
+                galleryAlt5: "Carte de l'Europe après la Seconde Guerre mondiale",
+                galleryAlt6: "Berlin divisée",
+                galleryCap1: "Le bombardement d'Hiroshima 1945",
+                galleryCap2: "La conférence de Yalta 1945",
+                galleryCap3: "La division de l'Allemagne après la guerre",
+                galleryCap4: "La Charte des Nations Unies 1945",
+                galleryCap5: "Carte de l'Europe après la Seconde Guerre mondiale",
+                galleryCap6: "Berlin divisée",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties, conclusion et résumé",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, personnes, événements, années et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                yearSection: "التاسعة أساسي",
+                moduleName: "التاريخ / المحور الأول: تونس والعالم من الحرب العالمية الأولى إلى الحرب العالمية الثانية",
+                lessonTitleSample: "نتائج الحرب العالمية الثانية",
+                sectionIntro: "مقدمة",
+                introText: "بعد انتصارات ساحقة للقوات الألمانية في أوروبا والقوات اليابانية في المحيط الهادي وآسيا الشرقية تواصلت إلى بداية 1942 حيث اتسع مجال هيمنة قوات المحور وبدأت تحصد الهزائم المتوالية إلى أن استسلمت روما في 4 جوان 1944 وألمانيا في 8 ماي 1945 واليابان في 19 أوت 1945، وبذلك دامت الحرب العالمية الثانية 6 سنوات.",
+                problematiqueText: "فما هي نتائج هذه الحرب؟",
+                sectionPart1: "جسامة الخسائر البشرية والمادية",
+                humanLossesTitle: "خسائر بشرية ضخمة",
+                humanLosses1: "قدّرت الخسائر البشرية بين <strong>50 و55 مليون قتيل</strong> أكثر من نصفهم مدنيون.",
+                humanLosses2: "تتوزع هذه الخسائر بتفاوت بين الدول المتحاربة:",
+                humanLossesMil: "<strong>على مستوى الجيوش:</strong> خسر <strong>الاتحاد السوفياتي</strong> أكبر عدد من المقاتلين (<strong>7.5 مليون مقاتل</strong>)، تليه <strong>ألمانيا</strong> (3.850 مليون) ثم <strong>اليابان</strong> (1.220 مليون)، وبقية الدول ساهمت كل منها بأقل من 500 ألف قتيل.",
+                humanLossesCiv: "<strong>على مستوى المدنيين:</strong> كانت أكبر الخسائر البشرية أيضاً سوفياتية بتسجيلها <strong>10 ملايين ضحية مدنية</strong>، تلته <strong>بولونيا</strong> (5.5 مليون ضحية) و<strong>ألمانيا</strong> (3.810 مليون ضحية) و<strong>يوغسلافيا</strong> (1.4 مليون ضحية) و<strong>اليابان</strong> (700 ألف ضحية)، وفي المقابل سلم الأمريكيون المدنيون من عناء هذه الحرب.",
+                humanLosses3: "كان <strong>القصف الجوي</strong> الأكثر فتكاً بالمدنيين (طوكيو 185 ألف، ودريسدن 135 ألف، وبرلين 50 ألف)، وخاصة باستعمال <strong>القنبلة النووية</strong> في مناسبتين: في <strong>هيروشيما</strong> حيث قتل 80 ألف ياباني، وفي <strong>ناغازاكي</strong> حيث قتل 40 ألف. فقد كثّف الحلفاء بقيادة الولايات المتحدة الأمريكية القصف الجوي العشوائي للتسريع في استسلام دول المحور.",
+                humanLosses4: "كما خلّفت الحرب عدداً كبيراً من المعوّقين قدّر بـ<strong>30 مليون</strong> أغلبهم أوروبيون.",
+                materialLossesTitle: "خسائر مادية هائلة",
+                materialLosses1: "تعددت وسائل التدمير البرية والبحرية والجوية وكانت أكثر تطوراً تقنياً وأكثر فتكاً.",
+                materialLosses2: "استهدفت المدن بالقصف الجوي مثل المدن البريطانية والمدن السوفياتية التي دمّرتها المقاتلات الجوية الألمانية، والقصف الانتقامي للمدن الألمانية من قبل قوات الحلفاء قبيل استسلام ألمانيا، واستهداف مدينتي هيروشيما وناغازاكي بقنبلتين نوويتين.",
+                materialLosses3: "استهدفت <strong>البنية التحتية</strong> لإعاقة التحركات العسكرية البرية، فدمّرت الطرق والجسور والسكك الحديدية والموانئ وعديد المرافق الحيوية داخل المدن وخارجها.",
+                materialLosses4: "كما استهدفت عديد المناطق التي وقعت فيها معارك بين قوات المحور وقوات الحلفاء خاصة في أوروبا، مما أثّر سلباً على الإنتاج.",
+                sectionPart2: "انهيار الاقتصاد الأوروبي وبروز الولايات المتحدة الأمريكية",
+                econCollapseTitle: "انهيار الاقتصاد الأوروبي",
+                econCollapse1: "شمل هذا الانهيار القطاعين المنتجين الفلاحي والصناعي بسبب المعارك والاحتماء بالملاجئ وانهيار منظومة الإنتاج رغم محاولة تشغيل النساء والأطفال حتى في قطاعات صناعة الأسلحة.",
+                econCollapse2: "أثّر انهيار الإنتاج سلباً على المبادلات التجارية الأوروبية، ففي حين تضاعف عجز الميزان التجاري الفرنسي 3 مرات، نجد الأسطول البريطاني يتقلّص إلى النصف.",
+                econCollapse3: "ارتفاع قيمة الديون الخارجية للدول المتحاربة الأوروبية، بتضاعف قيمة الدين العمومي 3 مرات في بريطانيا و4 مرات في فرنسا و7 مرات في ألمانيا بين 1939 و1945. كان الاقتصاد الأوروبي في حالة انهيار شامل عند نهاية الحرب ولم يكن قادراً على إعادة بناء نفسه دون مساعدة خارجية.",
+                usaRiseTitle: "بروز الولايات المتحدة الأمريكية",
+                usaRiseText: "كانت <strong>الولايات المتحدة الأمريكية</strong> أكثر الدول استفادة من انهيار الاقتصاد الأوروبي، فقد استغلّته للتخلص من آثار الأزمة الاقتصادية التي انطلقت منها سنة 1929، فقد رفعت في إنتاجها الزراعي بنسبة <strong>20%</strong> وإنتاجها الصناعي بنسبة <strong>75%</strong>، فتجنبت بذلك الأخطاء التي ارتكبتها إثر الحرب العالمية الأولى، فأصبحت أول قوة تجارية ومالية (<strong>احتكار ثلثي احتياطي الذهب</strong>) في العالم. كما تدعّم اقتصاد بعض الدول الأخرى مثل <strong>كندا</strong> التي ركّزت على صناعة الطيران وإنتاج الألومنيوم، و<strong>الهند</strong> التي طوّرت صناعة النسيج.",
+                sectionPart3: "النتائج السياسية",
+                geoMapTitle: "خريطة جغراسياسية جديدة",
+                geoMapEuropeTitle: "في أوروبا",
+                geoMapEurope1: "عادت <strong>ألمانيا</strong> إلى حدود 1937 مع تقسيمها إلى <strong>4 مناطق نفوذ</strong> بمقتضى <strong>ندوة يالطة</strong> في فيفري 1945، تم تجميع 3 منها تحت تسمية <strong>ألمانيا الغربية</strong> ذات النظام الرأسمالي عاصمتها <strong>بون</strong> وهي خاضعة للحلفاء، أما المنطقة الرابعة فهي ذات نظام اشتراكي وهي خاضعة للاتحاد السوفياتي وعاصمتها <strong>برلين الشرقية</strong>. وقد قُسمت هذه المدينة إلى جزء شرقي وآخر غربي يفصل بينهما <strong>جدار</strong> فرضه تقدم جبهتي القتال الشرقية السوفياتية والغربية لدول الحلفاء. كما تم ترحيل <strong>10 ملايين ألماني</strong> من تشيكوسلوفاكيا والمجر وبولونيا.",
+                geoMapEurope2: "وقوع <strong>أوروبا الغربية</strong> تحت الهيمنة الأمريكية و<strong>أوروبا الشرقية</strong> تحت الهيمنة السوفياتية.",
+                geoMapEurope3: "توسّع <strong>الاتحاد السوفياتي</strong> على حساب الدول المجاورة: بولونيا وفنلندا وبروسيا الشرقية وغيرها.",
+                geoMapEurope4: "فقدت <strong>إيطاليا</strong> بعض المناطق لفائدة يوغسلافيا وفرنسا واليونان.",
+                geoMapEurope5: "تغيّر حدود <strong>بولونيا</strong> بامتداد ترابها على حساب ألمانيا تعويضاً لها على المناطق التي استولى عليها الاتحاد السوفياتي، وقد تم ترحيل <strong>مليوني بولوني</strong> منها.",
+                geoMapWorldTitle: "في بقية العالم",
+                geoMapWorld1: "استقلال <strong>أثيوبيا</strong> و<strong>إرتريا</strong> و<strong>ليبيا</strong> و<strong>الصومال</strong> التي كانت تحت الوصاية الإيطالية.",
+                geoMapWorld2: "خسر <strong>اليابان</strong> جزر <strong>كوريل</strong> والجزء الجنوبي من جزيرة <strong>ساخالين</strong> لفائدة الاتحاد السوفياتي.",
+                geoMapWorld3: "استعادة <strong>فرنسا</strong> و<strong>بريطانيا</strong> و<strong>هولندا</strong> لمستعمراتها الآسيوية.",
+                unTitle: "إنشاء منظمة الأمم المتحدة",
+                un1: "تم الاتفاق على إنشاء منظمة أممية جديدة من قبل <strong>التحالف الثلاثي</strong> خلال <strong>ندوة يالطة</strong> في فيفري 1945.",
+                un2: "خلال <strong>مؤتمر سان فرانسيسكو</strong> في <strong>26 جوان 1945</strong>، تمّ إعلان <strong>ميثاق الأمم المتحدة</strong> الذي وقّعته 15 دولة.",
+                un3: "تتولى هذه المنظمة حفظ الأمن العالمي وضمان الحقوق الأساسية للإنسان مع عدم التدخل في الشؤون الداخلية للدول الأعضاء.",
+                un4: "تتكون هذه المنظمة من <strong>جمعية عامة</strong> تنتخب <strong>مجلس الأمن</strong> وهو أبرز جهاز تنفيذي في المنظمة، وهي تعيّن وتراقب <strong>محكمة العدل الدولية</strong>.",
+                un5: "تملك هذه المنظمة <strong>قوات حفظ السلام</strong> تضعها على ذمّتها الدول الأعضاء.",
+                un6: "كما تملك مجالس ذات وظائف محددة مثل <strong>مجلس الوصاية</strong> الذي يراقب إدارة المناطق المستعمرة، و<strong>المجلس الاقتصادي والاجتماعي</strong> الذي يعيّن ويراقب مختلف المؤسسات المختصة، منها: <strong>منظمة الأغذية والزراعة (فاو)</strong>، و<strong>منظمة الصحة العالمية</strong>، و<strong>المنظمة الدولية للشغل</strong>، و<strong>منظمة الأمم المتحدة للتربية والثقافة والعلوم (اليونسكو)</strong>، و<strong>المنظمة العالمية لحماية الطفولة (اليونيسف)</strong>، و<strong>البنك الدولي</strong>، و<strong>صندوق النقد الدولي</strong>، و<strong>الاتفاقية العامة للتعريفة الجمركية والتجارة (الجات)</strong>.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "رغم الآثار الوخيمة للحرب العالمية الثانية فقد أعطت منظمة الأمم المتحدة الأمل للعديد من الشعوب. فإلى أي حد ساعدت هذه المنظمة على استقلال الشعوب المستعمرة؟",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط وصور توضيحية",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOrganizations: "🏢 منظمات ومؤسسات",
+                defOthers: "📌 أخرى",
+                defGermany: "ألمانيا",
+                defGermanyDesc: "إحدى الدول المهزومة في الحرب العالمية الثانية، عادت إلى حدود 1937 وقُسمت إلى 4 مناطق نفوذ بعد ندوة يالطة 1945، وتمّ ترحيل 10 ملايين ألماني من تشيكوسلوفاكيا والمجر وبولونيا.",
+                defItaly: "إيطاليا",
+                defItalyDesc: "من دول المحور، استسلمت في 4 جوان 1944، وفقدت بعض المناطق لفائدة يوغسلافيا وفرنسا واليونان بعد الحرب.",
+                defJapan: "اليابان",
+                defJapanDesc: "من دول المحور، استسلمت في 19 أوت 1945 بعد ضرب هيروشيما وناغازاكي بالقنبلة النووية، وخسرت جزر كوريل والجزء الجنوبي من ساخالين لفائدة الاتحاد السوفياتي.",
+                defUSSR: "الاتحاد السوفياتي",
+                defUSSRDesc: "من دول الحلفاء، تحمّل أكبر الخسائر البشرية في الحرب (7.5 مليون مقاتل و10 ملايين مدني)، ووسّع حدوده على حساب بولونيا وفنلندا وبروسيا الشرقية.",
+                defUSA: "الولايات المتحدة الأمريكية",
+                defUSADesc: "أكثر الدول استفادة من الحرب العالمية الثانية، رفعت إنتاجها الزراعي بنسبة 20% والصناعي بنسبة 75%، وأصبحت أول قوة تجارية ومالية في العالم باحتكارها ثلثي احتياطي الذهب.",
+                defPoland: "بولونيا",
+                defPolandDesc: "من الدول التي عانت خسائر مدنية كبيرة (5.5 مليون ضحية)، وتغيّرت حدودها بعد الحرب بامتداد ترابها على حساب ألمانيا تعويضاً لها على المناطق التي استولى عليها الاتحاد السوفياتي.",
+                defYugoslavia: "يوغسلافيا",
+                defYugoslaviaDesc: "دولة أوروبية سجلت 1.4 مليون ضحية مدنية خلال الحرب العالمية الثانية، واستفادت من بعض المناطق التي فقدتها إيطاليا.",
+                defHiroshima: "هيروشيما",
+                defHiroshimaDesc: "مدينة يابانية استهدفتها الولايات المتحدة بقنبلة نووية في أوت 1945، حيث قتل 80 ألف ياباني.",
+                defNagasaki: "ناغازاكي",
+                defNagasakiDesc: "مدينة يابانية استهدفتها الولايات المتحدة بقنبلة نووية في أوت 1945، حيث قتل 40 ألف ياباني.",
+                defDresden: "دريسدن",
+                defDresdenDesc: "مدينة ألمانية استُهدفت بالقصف الجوي في الحرب العالمية الثانية، وسجّلت 135 ألف قتيل.",
+                defTokyo: "طوكيو",
+                defTokyoDesc: "عاصمة اليابان، استُهدفت بالقصف الجوي في الحرب العالمية الثانية وسجّلت 185 ألف قتيل.",
+                defBerlin: "برلين",
+                defBerlinDesc: "عاصمة ألمانيا، استُهدفت بالقصف الجوي (50 ألف قتيل)، وقُسمت بعد الحرب إلى برلين الشرقية (خاضعة للاتحاد السوفياتي) وبرلين الغربية (خاضعة للحلفاء) بفعل جدار برلين.",
+                defBonn: "بون",
+                defBonnDesc: "عاصمة ألمانيا الغربية ذات النظام الرأسمالي بعد الحرب العالمية الثانية.",
+                defEthiopia: "أثيوبيا",
+                defEthiopiaDesc: "دولة إفريقية استقلت بعد الحرب العالمية الثانية بعد أن كانت تحت الوصاية الإيطالية.",
+                defLibya: "ليبيا",
+                defLibyaDesc: "دولة إفريقية استقلت بعد الحرب العالمية الثانية بعد أن كانت تحت الوصاية الإيطالية.",
+                defKuril: "جزر كوريل",
+                defKurilDesc: "جزر خسرتها اليابان لفائدة الاتحاد السوفياتي بعد الحرب العالمية الثانية.",
+                defSakhalin: "ساخالين",
+                defSakhalinDesc: "جزيرة خسرت اليابان جزءها الجنوبي لفائدة الاتحاد السوفياتي بعد الحرب العالمية الثانية.",
+                defYaltaConference: "ندوة يالطة",
+                defYaltaConferenceDesc: "ندوة انعقدت في فيفري 1945 بين قادة التحالف الثلاثي (الولايات المتحدة، بريطانيا، الاتحاد السوفياتي)، وقررت تقسيم ألمانيا إلى 4 مناطق نفوذ، والاتفاق على إنشاء منظمة الأمم المتحدة.",
+                defSanFranciscoConference: "مؤتمر سان فرانسيسكو",
+                defSanFranciscoConferenceDesc: "مؤتمر انعقد في 26 جوان 1945، وتم فيه إعلان ميثاق الأمم المتحدة الذي وقّعته 15 دولة.",
+                defAtomicBombing: "القصف النووي",
+                defAtomicBombingDesc: "استعمال الولايات المتحدة الأمريكية للقنبلة النووية في هيروشيما (80 ألف قتيل) وناغازاكي (40 ألف قتيل) في أوت 1945 للتسريع في استسلام اليابان.",
+                defYear1942Desc: "بداية اتساع مجال هيمنة قوات المحور قبل أن تبدأ في حصد الهزائم المتوالية.",
+                defYear1944Desc: "استسلام روما في 4 جوان 1944.",
+                defYear1945Desc: "ندوة يالطة (فيفري)، واستسلام ألمانيا (8 ماي)، ومؤتمر سان فرانسيسكو (26 جوان)، والقصف النووي على هيروشيما وناغازاكي، واستسلام اليابان (19 أوت)، ونهاية الحرب العالمية الثانية.",
+                defUN: "منظمة الأمم المتحدة",
+                defUNDesc: "منظمة دولية تأسست بعد الحرب العالمية الثانية، تم الاتفاق على إنشائها في ندوة يالطة (فيفري 1945)، وأُعلن ميثاقها في مؤتمر سان فرانسيسكو (26 جوان 1945). تتولى حفظ الأمن العالمي وضمان الحقوق الأساسية للإنسان، وتتكون من جمعية عامة ومجلس أمن ومحكمة العدل الدولية ومجالس متخصصة.",
+                defSecurityCouncil: "مجلس الأمن",
+                defSecurityCouncilDesc: "أبرز جهاز تنفيذي في منظمة الأمم المتحدة، تنتخبه الجمعية العامة، ويتولى حفظ الأمن العالمي.",
+                defICJ: "محكمة العدل الدولية",
+                defICJDesc: "جهاز قضائي تابع لمنظمة الأمم المتحدة، تعيّنه وتراقبه الجمعية العامة.",
+                defFAO: "منظمة الأغذية والزراعة (فاو)",
+                defFAODesc: "منظمة متخصصة تابعة للأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعنى بمجالات الغذاء والزراعة.",
+                defWHO: "منظمة الصحة العالمية",
+                defWHODesc: "منظمة متخصصة تابعة للأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعنى بمجالات الصحة.",
+                defILO: "المنظمة الدولية للشغل",
+                defILODesc: "منظمة متخصصة تابعة للأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعنى بمجالات الشغل.",
+                defUNESCO: "اليونسكو",
+                defUNESCODesc: "منظمة الأمم المتحدة للتربية والثقافة والعلوم، منظمة متخصصة يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي.",
+                defUNICEF: "اليونيسف",
+                defUNICEFDesc: "المنظمة العالمية لحماية الطفولة، منظمة متخصصة تابعة للأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي.",
+                defWorldBank: "البنك الدولي",
+                defWorldBankDesc: "مؤسسة مالية دولية تابعة لمنظمة الأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تقدم قروضاً للتنمية.",
+                defIMF: "صندوق النقد الدولي",
+                defIMFDesc: "مؤسسة مالية دولية تابعة لمنظمة الأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعمل على استقرار النظام النقدي العالمي.",
+                defGATT: "الجات",
+                defGATTDesc: "الاتفاقية العامة للتعريفة الجمركية والتجارة، مؤسسة تابعة لمنظمة الأمم المتحدة، يعيّنها ويراقبها المجلس الاقتصادي والاجتماعي، تعنى بتنظيم التجارة الدولية.",
+                defTrusteeshipCouncil: "مجلس الوصاية",
+                defTrusteeshipCouncilDesc: "مجلس تابع لمنظمة الأمم المتحدة، يراقب إدارة المناطق المستعمرة.",
+                defECOSOC: "المجلس الاقتصادي والاجتماعي",
+                defECOSOCDesc: "مجلس تابع لمنظمة الأمم المتحدة، يعيّن ويراقب مختلف المؤسسات المختصة (فاو، منظمة الصحة العالمية، اليونسكو، اليونيسف، البنك الدولي، صندوق النقد الدولي، الجات).",
+                defPeacekeepingForces: "قوات حفظ السلام",
+                defPeacekeepingForcesDesc: "قوات عسكرية تضعها الدول الأعضاء في منظمة الأمم المتحدة على ذمّتها لحفظ الأمن العالمي.",
+                defGoldReserve: "احتياطي الذهب",
+                defGoldReserveDesc: "الكمية من الذهب التي تحتفظ بها البنوك المركزية كضمانة نقدية؛ احتكرت الولايات المتحدة ثلثي احتياطي الذهب في العالم بعد الحرب العالمية الثانية.",
+                defBerlinWall: "جدار برلين",
+                defBerlinWallDesc: "جدار فرضه تقدم جبهتي القتال الشرقية السوفياتية والغربية لدول الحلفاء، فصل مدينة برلين إلى جزء شرقي وجزء غربي بعد الحرب العالمية الثانية.",
+                defZonesOfInfluence: "مناطق النفوذ",
+                defZonesOfInfluenceDesc: "مناطق خاضعة لهيمنة دولة كبرى؛ قُسمت ألمانيا بعد الحرب العالمية الثانية إلى 4 مناطق نفوذ بين الحلفاء.",
+                summaryText: "خلاصة: خلّفت الحرب العالمية الثانية خسائر بشرية ضخمة (بين 50 و55 مليون قتيل، و30 مليون معوّق) ومادية هائلة (تدمير المدن والبنية التحتية)، وأدّت إلى انهيار الاقتصاد الأوروبي وبروز الولايات المتحدة الأمريكية كأول قوة اقتصادية في العالم، وإلى رسم خريطة جغراسياسية جديدة (تقسيم ألمانيا، الهيمنة الأمريكية على أوروبا الغربية والسوفياتية على أوروبا الشرقية، استقلال بعض المستعمرات)، وإلى تأسيس منظمة الأمم المتحدة في 26 جوان 1945 لحفظ الأمن العالمي وضمان الحقوق الأساسية للإنسان.",
+                galleryAlt1: "قصف هيروشيما 1945",
+                galleryAlt2: "ندوة يالطة 1945",
+                galleryAlt3: "تقسيم ألمانيا بعد الحرب",
+                galleryAlt4: "ميثاق الأمم المتحدة 1945",
+                galleryAlt5: "خريطة أوروبا بعد الحرب العالمية الثانية",
+                galleryAlt6: "برلين المقسمة",
+                galleryCap1: "قصف هيروشيما 1945",
+                galleryCap2: "ندوة يالطة 1945",
+                galleryCap3: "تقسيم ألمانيا بعد الحرب",
+                galleryCap4: "ميثاق الأمم المتحدة 1945",
+                galleryCap5: "خريطة أوروبا بعد الحرب العالمية الثانية",
+                galleryCap6: "برلين المقسمة",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة، الأجزاء، الخاتمة والخلاصة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات، الأعلام، الأحداث، السنوات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "United Nations", class: "key-organization", i18n: "defUN" },
+                { text: "Security Council", class: "key-organization", i18n: "defSecurityCouncil" },
+                { text: "International Court of Justice", class: "key-organization", i18n: "defICJ" },
+                { text: "FAO", class: "key-organization", i18n: "defFAO" },
+                { text: "World Health Organization", class: "key-organization", i18n: "defWHO" },
+                { text: "International Labour Organization", class: "key-organization", i18n: "defILO" },
+                { text: "UNESCO", class: "key-organization", i18n: "defUNESCO" },
+                { text: "UNICEF", class: "key-organization", i18n: "defUNICEF" },
+                { text: "World Bank", class: "key-organization", i18n: "defWorldBank" },
+                { text: "International Monetary Fund", class: "key-organization", i18n: "defIMF" },
+                { text: "GATT", class: "key-organization", i18n: "defGATT" },
+                { text: "Trusteeship Council", class: "key-organization", i18n: "defTrusteeshipCouncil" },
+                { text: "Economic and Social Council", class: "key-organization", i18n: "defECOSOC" },
+                { text: "Yalta Conference", class: "key-event", i18n: "defYaltaConference" },
+                { text: "San Francisco Conference", class: "key-event", i18n: "defSanFranciscoConference" },
+                { text: "Atomic Bombing", class: "key-event", i18n: "defAtomicBombing" },
+                { text: "Germany", class: "key-location", i18n: "defGermany" },
+                { text: "Italy", class: "key-location", i18n: "defItaly" },
+                { text: "Japan", class: "key-location", i18n: "defJapan" },
+                { text: "Soviet Union", class: "key-location", i18n: "defUSSR" },
+                { text: "United States", class: "key-location", i18n: "defUSA" },
+                { text: "Poland", class: "key-location", i18n: "defPoland" },
+                { text: "Yugoslavia", class: "key-location", i18n: "defYugoslavia" },
+                { text: "Hiroshima", class: "key-location", i18n: "defHiroshima" },
+                { text: "Nagasaki", class: "key-location", i18n: "defNagasaki" },
+                { text: "Dresden", class: "key-location", i18n: "defDresden" },
+                { text: "Tokyo", class: "key-location", i18n: "defTokyo" },
+                { text: "Berlin", class: "key-location", i18n: "defBerlin" },
+                { text: "Bonn", class: "key-location", i18n: "defBonn" },
+                { text: "Ethiopia", class: "key-location", i18n: "defEthiopia" },
+                { text: "Libya", class: "key-location", i18n: "defLibya" },
+                { text: "Kuril Islands", class: "key-location", i18n: "defKuril" },
+                { text: "Sakhalin", class: "key-location", i18n: "defSakhalin" },
+                { text: "Peacekeeping Forces", class: "key-other", i18n: "defPeacekeepingForces" },
+                { text: "Gold Reserves", class: "key-other", i18n: "defGoldReserve" },
+                { text: "Berlin Wall", class: "key-other", i18n: "defBerlinWall" },
+                { text: "Zones of Influence", class: "key-other", i18n: "defZonesOfInfluence" },
+                { text: "1942", class: "key-year", i18n: null },
+                { text: "1944", class: "key-year", i18n: null },
+                { text: "1945", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Organisation des Nations Unies", class: "key-organization", i18n: "defUN" },
+                { text: "Conseil de sécurité", class: "key-organization", i18n: "defSecurityCouncil" },
+                { text: "Cour internationale de justice", class: "key-organization", i18n: "defICJ" },
+                { text: "FAO", class: "key-organization", i18n: "defFAO" },
+                { text: "Organisation mondiale de la santé", class: "key-organization", i18n: "defWHO" },
+                { text: "Organisation internationale du travail", class: "key-organization", i18n: "defILO" },
+                { text: "UNESCO", class: "key-organization", i18n: "defUNESCO" },
+                { text: "UNICEF", class: "key-organization", i18n: "defUNICEF" },
+                { text: "Banque mondiale", class: "key-organization", i18n: "defWorldBank" },
+                { text: "Fonds monétaire international", class: "key-organization", i18n: "defIMF" },
+                { text: "GATT", class: "key-organization", i18n: "defGATT" },
+                { text: "Conseil de tutelle", class: "key-organization", i18n: "defTrusteeshipCouncil" },
+                { text: "Conseil économique et social", class: "key-organization", i18n: "defECOSOC" },
+                { text: "conférence de Yalta", class: "key-event", i18n: "defYaltaConference" },
+                { text: "conférence de San Francisco", class: "key-event", i18n: "defSanFranciscoConference" },
+                { text: "bombardement atomique", class: "key-event", i18n: "defAtomicBombing" },
+                { text: "Allemagne", class: "key-location", i18n: "defGermany" },
+                { text: "Italie", class: "key-location", i18n: "defItaly" },
+                { text: "Japon", class: "key-location", i18n: "defJapan" },
+                { text: "Union soviétique", class: "key-location", i18n: "defUSSR" },
+                { text: "États-Unis", class: "key-location", i18n: "defUSA" },
+                { text: "Pologne", class: "key-location", i18n: "defPoland" },
+                { text: "Yougoslavie", class: "key-location", i18n: "defYugoslavia" },
+                { text: "Hiroshima", class: "key-location", i18n: "defHiroshima" },
+                { text: "Nagasaki", class: "key-location", i18n: "defNagasaki" },
+                { text: "Dresde", class: "key-location", i18n: "defDresden" },
+                { text: "Tokyo", class: "key-location", i18n: "defTokyo" },
+                { text: "Berlin", class: "key-location", i18n: "defBerlin" },
+                { text: "Bonn", class: "key-location", i18n: "defBonn" },
+                { text: "Éthiopie", class: "key-location", i18n: "defEthiopia" },
+                { text: "Libye", class: "key-location", i18n: "defLibya" },
+                { text: "îles Kouriles", class: "key-location", i18n: "defKuril" },
+                { text: "Sakhaline", class: "key-location", i18n: "defSakhalin" },
+                { text: "forces de maintien de la paix", class: "key-other", i18n: "defPeacekeepingForces" },
+                { text: "réserves d'or", class: "key-other", i18n: "defGoldReserve" },
+                { text: "mur de Berlin", class: "key-other", i18n: "defBerlinWall" },
+                { text: "zones d'influence", class: "key-other", i18n: "defZonesOfInfluence" },
+                { text: "1942", class: "key-year", i18n: null },
+                { text: "1944", class: "key-year", i18n: null },
+                { text: "1945", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "منظمة الأمم المتحدة", class: "key-organization", i18n: "defUN" },
+                { text: "مجلس الأمن", class: "key-organization", i18n: "defSecurityCouncil" },
+                { text: "محكمة العدل الدولية", class: "key-organization", i18n: "defICJ" },
+                { text: "منظمة الأغذية والزراعة", class: "key-organization", i18n: "defFAO" },
+                { text: "منظمة الصحة العالمية", class: "key-organization", i18n: "defWHO" },
+                { text: "المنظمة الدولية للشغل", class: "key-organization", i18n: "defILO" },
+                { text: "اليونسكو", class: "key-organization", i18n: "defUNESCO" },
+                { text: "اليونيسف", class: "key-organization", i18n: "defUNICEF" },
+                { text: "البنك الدولي", class: "key-organization", i18n: "defWorldBank" },
+                { text: "صندوق النقد الدولي", class: "key-organization", i18n: "defIMF" },
+                { text: "الجات", class: "key-organization", i18n: "defGATT" },
+                { text: "مجلس الوصاية", class: "key-organization", i18n: "defTrusteeshipCouncil" },
+                { text: "المجلس الاقتصادي والاجتماعي", class: "key-organization", i18n: "defECOSOC" },
+                { text: "ندوة يالطة", class: "key-event", i18n: "defYaltaConference" },
+                { text: "مؤتمر سان فرانسيسكو", class: "key-event", i18n: "defSanFranciscoConference" },
+                { text: "القصف النووي", class: "key-event", i18n: "defAtomicBombing" },
+                { text: "ألمانيا", class: "key-location", i18n: "defGermany" },
+                { text: "إيطاليا", class: "key-location", i18n: "defItaly" },
+                { text: "اليابان", class: "key-location", i18n: "defJapan" },
+                { text: "الاتحاد السوفياتي", class: "key-location", i18n: "defUSSR" },
+                { text: "الولايات المتحدة الأمريكية", class: "key-location", i18n: "defUSA" },
+                { text: "بولونيا", class: "key-location", i18n: "defPoland" },
+                { text: "يوغسلافيا", class: "key-location", i18n: "defYugoslavia" },
+                { text: "هيروشيما", class: "key-location", i18n: "defHiroshima" },
+                { text: "ناغازاكي", class: "key-location", i18n: "defNagasaki" },
+                { text: "دريسدن", class: "key-location", i18n: "defDresden" },
+                { text: "طوكيو", class: "key-location", i18n: "defTokyo" },
+                { text: "برلين", class: "key-location", i18n: "defBerlin" },
+                { text: "بون", class: "key-location", i18n: "defBonn" },
+                { text: "أثيوبيا", class: "key-location", i18n: "defEthiopia" },
+                { text: "ليبيا", class: "key-location", i18n: "defLibya" },
+                { text: "جزر كوريل", class: "key-location", i18n: "defKuril" },
+                { text: "ساخالين", class: "key-location", i18n: "defSakhalin" },
+                { text: "قوات حفظ السلام", class: "key-other", i18n: "defPeacekeepingForces" },
+                { text: "احتياطي الذهب", class: "key-other", i18n: "defGoldReserve" },
+                { text: "جدار برلين", class: "key-other", i18n: "defBerlinWall" },
+                { text: "مناطق النفوذ", class: "key-other", i18n: "defZonesOfInfluence" },
+                { text: "1942", class: "key-year", i18n: null },
+                { text: "1944", class: "key-year", i18n: null },
+                { text: "1945", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

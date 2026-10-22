@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">التاسعة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / المحور الأول: تونس والعالم من الحرب العالمية الأولى إلى الحرب العالمية الثانية</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">الحرب العالمية الأولى: الأسباب وأبرز النتائج</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">شهد العالم بين سنتي 1914 و1918 أول حرب عالمية، وهي صراع مسلح شامل بين دول المحور (ألمانيا، النمسا-المجر، الإمبراطورية العثمانية، بلغاريا) ودول الوفاق (فرنسا، بريطانيا، روسيا، إيطاليا، الولايات المتحدة الأمريكية...). وقد شملت هذه الحرب أوروبا وبعض مناطق الشرق الأوسط وإفريقيا، وساهمت فيها تونس التي كانت مستعمرة فرنسية آنذاك بأبنائها ومواردها. وقد خلّفت الحرب العالمية الأولى آثاراً عميقة على المستوى البشري والاقتصادي والسياسي والمجالي.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فما هي أسباب الحرب العالمية الأولى؟ وما هي أبرز نتائجها؟</p>
+            </div>
+
+            <!-- Part I : Causes -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">أسباب الحرب العالمية الأولى</span>
+                </h2>
+
+                <!-- A. Political -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="causePoliticalTitle">الأسباب السياسية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="causePolitical1">التنافس الاستعماري بين القوى الأوروبية على المستعمرات في إفريقيا وآسيا، خاصة بين فرنسا وبريطانيا وألمانيا وإيطاليا.</li>
+                    <li data-i18n="causePolitical2">السباق نحو التسلح وتقوية الجيوش، إذ عملت كل دولة على زيادة أسطولها الحربي وتكديس الأسلحة.</li>
+                    <li data-i18n="causePolitical3">الأحلاف العسكرية: تكوّن التحالف الثلاثي (ألمانيا، النمسا-المجر، إيطاليا) سنة 1882، والوفاق الثلاثي (فرنسا، بريطانيا، روسيا) سنة 1907، مما قسّم أوروبا إلى كتلتين متعاديتين.</li>
+                    <li data-i18n="causePolitical4">تصاعد النزعة القومية في منطقة البلقان، حيث تنازعت النمسا-المجر وروسيا والدولة العثمانية على النفوذ في هذه المنطقة.</li>
+                </ul>
+
+                <!-- B. Economic -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="causeEconomicTitle">الأسباب الاقتصادية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="causeEconomic1">الثورة الصناعية الثانية والبحث عن أسواق جديدة لتصريف المنتجات الصناعية وتوفير المواد الأولية.</li>
+                    <li data-i18n="causeEconomic2">التنافس البحري والتجاري بين بريطانيا وألمانيا، إذ سعت ألمانيا إلى منافسة الأسطول البريطاني.</li>
+                    <li data-i18n="causeEconomic3">التنافس على مصادر الطاقة والمواد الأولية في المستعمرات.</li>
+                </ul>
+
+                <!-- C. Intellectual -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="causeIntellectualTitle">الأسباب الفكرية والنفسية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="causeIntellectual1">انتشار الأفكار القومية الشوفينية الداعية إلى التفوق العرقي والتمجيد العسكري.</li>
+                    <li data-i18n="causeIntellectual2">دور الصحافة والدعاية في تأجيج الرأي العام ضد «العدو».</li>
+                    <li data-i18n="causeIntellectual3">العداء التاريخي بين فرنسا وألمانيا بعد حرب 1870 وفقدان فرنسا للألزاس واللورين.</li>
+                </ul>
+
+                <!-- D. Direct cause -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>.
+                    <span data-i18n="causeDirectTitle">السبب المباشر</span>
+                </h4>
+                <p data-i18n="causeDirectText">اغتيال ولي عهد النمسا-المجر <strong>فرانسوا فرديناند</strong> وزوجته في مدينة <strong>سراييفو</strong> يوم 28 جوان 1914 على يد الطالب الصربي القومي <strong>غافريلو برينسيب</strong>، مما أدى إلى إعلان النمسا-المجر الحرب على صربيا في 28 جويلية 1914، ثم تفجّر الصراع بين الأحلاف وتوسّع الحرب ليشمل معظم دول العالم.</p>
+            </div>
+
+            <!-- Part II : Consequences -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">أبرز نتائج الحرب العالمية الأولى</span>
+                </h2>
+
+                <!-- A. Human -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="conseqHumanTitle">النتائج البشرية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="conseqHuman1">مقتل حوالي <strong>10 ملايين شخص</strong> وجرح أكثر من <strong>20 مليون آخرين</strong> بين عسكريين ومدنيين.</li>
+                    <li data-i18n="conseqHuman2">تشريد ملايين السكان وتدمير عديد المدن والقرى.</li>
+                    <li data-i18n="conseqHuman3">انتشار الأوبئة والمجاعات في أوروبا بعد الحرب.</li>
+                </ul>
+
+                <!-- B. Economic -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="conseqEcoTitle">النتائج الاقتصادية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="conseqEco1">تدمير البنية التحتية والمصانع والأراضي الزراعية في مناطق القتال.</li>
+                    <li data-i18n="conseqEco2">تدهور الاقتصاد الأوروبي وتراجع الإنتاج الصناعي والفلاحي.</li>
+                    <li data-i18n="conseqEco3">تضخم الديون والتضخم النقدي، مما أدى إلى تدهور القدرة الشرائية للسكان.</li>
+                    <li data-i18n="conseqEco4">تحوّل أوروبا من دائنة إلى مدينة للولايات المتحدة الأمريكية التي أصبحت أول قوة اقتصادية في العالم.</li>
+                </ul>
+
+                <!-- C. Political -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="conseqPolTitle">النتائج السياسية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="conseqPol1">تفكك الإمبراطوريات الكبرى: النمساوية-المجرية، والعثمانية، والروسية، والألمانية.</li>
+                    <li data-i18n="conseqPol2">ظهور دول جديدة في أوروبا مثل بولونيا وتشيكوسلوفاكيا ويوغوسلافيا والمجر.</li>
+                    <li data-i18n="conseqPol3">توقيع معاهدات الصلح، وأهمّها <strong>معاهدة فرساي</strong> (1919) التي فرضت على ألمانيا شروطاً قاسية (فقدان أراضٍ، تسريح الجيش، دفع تعويضات).</li>
+                    <li data-i18n="conseqPol4">تأسيس <strong>عصبة الأمم</strong> سنة 1920 لحفظ السلم العالمي، لكنها فشلت في تحقيق أهدافها لاحقاً.</li>
+                    <li data-i18n="conseqPol5">صعود الولايات المتحدة الأمريكية كقوة عالمية كبرى.</li>
+                    <li data-i18n="conseqPol6">بروز المد الشيوعي في روسيا بعد الثورة البلشفية سنة 1917.</li>
+                </ul>
+
+                <!-- D. Spatial -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">د</span>.
+                    <span data-i18n="conseqSpatialTitle">النتائج المجالية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="conseqSpatial1">تغيّر خريطة أوروبا بظهور دول جديدة واختفاء أخرى.</li>
+                    <li data-i18n="conseqSpatial2">تعديل الحدود بين الدول الأوروبية، خاصة حدود ألمانيا.</li>
+                    <li data-i18n="conseqSpatial3">تقسيم أراضي الإمبراطورية العثمانية وتوزيعها بين فرنسا وبريطانيا في شكل انتداب (سوريا ولبنان لفرنسا، العراق وفلسطين والأردن لبريطانيا).</li>
+                    <li data-i18n="conseqSpatial4">انهيار التوازن الأوروبي لصالح الولايات المتحدة واليابان.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">كانت الحرب العالمية الأولى من أكبر الكوارث في تاريخ البشرية، إذ خلّفت ملايين القتلى والجرحى ودمّرت الاقتصاد الأوروبي، وأدّت إلى تفكك الإمبراطوريات وظهور دول جديدة، كما مهّدت الطريق لحرب عالمية ثانية بعد عقدين من الزمن بسبب الشروط القاسية لمعاهدة فرساي.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-persons">
+                    <h3 data-i18n="defPersons">👤 شخصيات</h3>
+                    <ul>
+                        <li><strong class="key-person" data-i18n="defFranzFerdinand">فرانسوا فرديناند</strong>: <span data-i18n="defFranzFerdinandDesc">ولي عهد النمسا-المجر، اغتيل في سراييفو يوم 28 جوان 1914، وكان اغتياله السبب المباشر لاندلاع الحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-person" data-i18n="defGavriloPrincip">غافريلو برينسيب</strong>: <span data-i18n="defGavriloPrincipDesc">طالب صربي قومي اغتال ولي عهد النمسا فرانسوا فرديناند في سراييفو سنة 1914.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defSarajevo">سراييفو</strong>: <span data-i18n="defSarajevoDesc">عاصمة البوسنة والهرسك، شهدت حادثة اغتيال ولي عهد النمسا فرانسوا فرديناند سنة 1914 التي كانت السبب المباشر للحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-location" data-i18n="defGermany">ألمانيا</strong>: <span data-i18n="defGermanyDesc">قائدة دول المحور في الحرب العالمية الأولى، هُزمت سنة 1918 وفرضت عليها معاهدة فرساي شروطاً قاسية.</span></li>
+                        <li><strong class="key-location" data-i18n="defFrance">فرنسا</strong>: <span data-i18n="defFranceDesc">من دول الوفاق في الحرب العالمية الأولى، وكانت تونس مستعمرة فرنسية آنذاك فشاركت تونس في الحرب إلى جانبها.</span></li>
+                        <li><strong class="key-location" data-i18n="defBritain">بريطانيا</strong>: <span data-i18n="defBritainDesc">من دول الوفاق في الحرب العالمية الأولى، وكانت تمتلك أكبر إمبراطورية استعمارية.</span></li>
+                        <li><strong class="key-location" data-i18n="defRussia">روسيا</strong>: <span data-i18n="defRussiaDesc">من دول الوفاق، عرفت الثورة البلشفية سنة 1917 وانسحبت من الحرب.</span></li>
+                        <li><strong class="key-location" data-i18n="defAustriaHungary">النمسا-المجر</strong>: <span data-i18n="defAustriaHungaryDesc">من دول المحور، إمبراطورية تفككت بعد الحرب العالمية الأولى وظهور دول جديدة.</span></li>
+                        <li><strong class="key-location" data-i18n="defOttoman">الإمبراطورية العثمانية</strong>: <span data-i18n="defOttomanDesc">من دول المحور، تفككت بعد الحرب وتوزعت أراضيها بين الدول المنتصرة في شكل انتداب.</span></li>
+                        <li><strong class="key-location" data-i18n="defUSA">الولايات المتحدة الأمريكية</strong>: <span data-i18n="defUSADesc">انضمت إلى دول الوفاق سنة 1917، وساهمت في حسم الحرب، وأصبحت بعدها أول قوة اقتصادية في العالم.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defSarajevoIncident">حادثة سراييفو</strong>: <span data-i18n="defSarajevoIncidentDesc">اغتيال ولي عهد النمسا فرانسوا فرديناند وزوجته في سراييفو يوم 28 جوان 1914، وكانت السبب المباشر لاندلاع الحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-event" data-i18n="defWWI">الحرب العالمية الأولى</strong>: <span data-i18n="defWWIDesc">حرب عالمية اندلعت بين 1914 و1918 بين دول المحور ودول الوفاق، خلّفت ملايين القتلى والجرحى وأدّت إلى تفكك الإمبراطوريات وتغيّر خريطة أوروبا.</span></li>
+                        <li><strong class="key-event" data-i18n="defBolshevikRevolution">الثورة البلشفية</strong>: <span data-i18n="defBolshevikRevolutionDesc">ثورة اندلعت في روسيا سنة 1917 بقيادة لينين، أدّت إلى انسحاب روسيا من الحرب العالمية الأولى وظهور المد الشيوعي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1914</strong>: <span data-i18n="defYear1914Desc">اندلاع الحرب العالمية الأولى بعد حادثة سراييفو.</span></li>
+                        <li><strong class="key-year">1917</strong>: <span data-i18n="defYear1917Desc">انضمام الولايات المتحدة إلى الحرب إلى جانب دول الوفاق، واندلاع الثورة البلشفية في روسيا.</span></li>
+                        <li><strong class="key-year">1918</strong>: <span data-i18n="defYear1918Desc">نهاية الحرب العالمية الأولى بانتصار دول الوفاق وهزيمة ألمانيا.</span></li>
+                        <li><strong class="key-year">1919</strong>: <span data-i18n="defYear1919Desc">توقيع معاهدة فرساي بين ألمانيا ودول الوفاق.</span></li>
+                        <li><strong class="key-year">1920</strong>: <span data-i18n="defYear1920Desc">تأسيس عصبة الأمم لحفظ السلم العالمي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-treaties">
+                    <h3 data-i18n="defTreaty">📜 معاهدات</h3>
+                    <ul>
+                        <li><strong class="key-treaty" data-i18n="defVersailles">معاهدة فرساي</strong>: <span data-i18n="defVersaillesDesc">معاهدة الصلح الموقّعة سنة 1919 بين ألمانيا ودول الوفاق، فرضت على ألمانيا شروطاً قاسية: فقدان أراضٍ، تسريح الجيش، دفع تعويضات كبيرة، مما مهّد لاندلاع الحرب العالمية الثانية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏢 منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defLeagueOfNations">عصبة الأمم</strong>: <span data-i18n="defLeagueOfNationsDesc">منظمة دولية تأسست سنة 1920 بعد الحرب العالمية الأولى لحفظ السلم العالمي، لكنها فشلت في تحقيق أهدافها وتمّ تعويضها بمنظمة الأمم المتحدة بعد الحرب العالمية الثانية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defCentralPowers">دول المحور</strong>: <span data-i18n="defCentralPowersDesc">التحالف الذي ضمّ ألمانيا والنمسا-المجر والإمبراطورية العثمانية وبلغاريا خلال الحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-other" data-i18n="defAlliedPowers">دول الوفاق</strong>: <span data-i18n="defAlliedPowersDesc">التحالف الذي ضمّ فرنسا وبريطانيا وروسيا وإيطاليا والولايات المتحدة الأمريكية خلال الحرب العالمية الأولى، وانتصر في النهاية.</span></li>
+                        <li><strong class="key-other" data-i18n="defArmsRace">السباق نحو التسلح</strong>: <span data-i18n="defArmsRaceDesc">تنافس بين الدول الأوروبية على زيادة الأسلحة وتقوية الجيوش قبل الحرب العالمية الأولى.</span></li>
+                        <li><strong class="key-other" data-i18n="defMilitaryAlliances">الأحلاف العسكرية</strong>: <span data-i18n="defMilitaryAlliancesDesc">تحالفات بين دول أوروبية قبل الحرب العالمية الأولى، أهمّها التحالف الثلاثي (1882) والوفاق الثلاثي (1907).</span></li>
+                        <li><strong class="key-other" data-i18n="defSecondIndustrialRevolution">الثورة الصناعية الثانية</strong>: <span data-i18n="defSecondIndustrialRevolutionDesc">مرحلة صناعية جديدة في أواخر القرن 19 وأوائل القرن 20، تميّزت باستخدام النفط والكهرباء والصناعات الثقيلة، مما زاد من التنافس الاقتصادي بين الدول الأوروبية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Summary box -->
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: اندلعت الحرب العالمية الأولى سنة 1914 بسبب عوامل سياسية واقتصادية وفكرية، وكان السبب المباشر لها اغتيال ولي عهد النمسا فرانسوا فرديناند في سراييفو. وقد خلّفت الحرب ملايين القتلى والجرحى، ودمرت الاقتصاد الأوروبي، وأدت إلى تفكك الإمبراطوريات وتغيّر خريطة أوروبا وظهور عصبة الأمم.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط وصور توضيحية</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson1/wwi_alliances_1914.jpg" alt="الأحلاف العسكرية سنة 1914" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">الأحلاف العسكرية سنة 1914</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson1/sarajevo_1914.jpg" alt="حادثة سراييفو 1914" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">حادثة سراييفو 1914</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson1/wwi_trenches.jpg" alt="حرب الخنادق" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">حرب الخنادق</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson1/treaty_versailles_1919.jpg" alt="معاهدة فرساي 1919" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">معاهدة فرساي 1919</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson1/europe_after_wwi.jpg" alt="خريطة أوروبا بعد الحرب العالمية الأولى" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">خريطة أوروبا بعد الحرب العالمية الأولى</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/history/unit1/lesson1/league_of_nations.jpg" alt="عصبة الأمم" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">عصبة الأمم</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y09_his_exercisess_mod1_lesson1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات، الشخصيات، الأحداث، السنوات، المعاهدات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "9th Basic",
+                moduleName: "History / Axis 1: Tunisia and the World from World War I to World War II",
+                lessonTitleSample: "World War I: Causes and Main Consequences",
+                sectionIntro: "Introduction",
+                introText: "Between 1914 and 1918, the world witnessed the First World War, a comprehensive armed conflict between the Central Powers (Germany, Austria-Hungary, the Ottoman Empire, Bulgaria) and the Allied Powers (France, Britain, Russia, Italy, the United States...). The war covered Europe and some regions of the Middle East and Africa, and Tunisia — then a French colony — participated in it with its sons and resources. The First World War left profound human, economic, political, and spatial consequences.",
+                problematiqueText: "What are the causes of World War I? And what are its main consequences?",
+                sectionPart1: "Causes of World War I",
+                causePoliticalTitle: "Political Causes",
+                causePolitical1: "Colonial rivalry between European powers over colonies in Africa and Asia, especially between France, Britain, Germany, and Italy.",
+                causePolitical2: "The arms race and military buildup, as each state worked to increase its war fleet and stockpile weapons.",
+                causePolitical3: "Military alliances: the Triple Alliance (Germany, Austria-Hungary, Italy) formed in 1882, and the Triple Entente (France, Britain, Russia) in 1907, dividing Europe into two hostile blocs.",
+                causePolitical4: "The rise of nationalism in the Balkans, where Austria-Hungary, Russia, and the Ottoman Empire competed for influence.",
+                causeEconomicTitle: "Economic Causes",
+                causeEconomic1: "The Second Industrial Revolution and the search for new markets to sell industrial products and secure raw materials.",
+                causeEconomic2: "Naval and commercial rivalry between Britain and Germany, as Germany sought to compete with the British fleet.",
+                causeEconomic3: "Competition over energy sources and raw materials in the colonies.",
+                causeIntellectualTitle: "Intellectual and Psychological Causes",
+                causeIntellectual1: "The spread of chauvinistic nationalist ideas calling for racial superiority and military glorification.",
+                causeIntellectual2: "The role of the press and propaganda in inflaming public opinion against 'the enemy'.",
+                causeIntellectual3: "The historical enmity between France and Germany after the 1870 war and France's loss of Alsace and Lorraine.",
+                causeDirectTitle: "The Direct Cause",
+                causeDirectText: "The assassination of the heir to the Austro-Hungarian throne, <strong>Franz Ferdinand</strong>, and his wife in <strong>Sarajevo</strong> on June 28, 1914 by the Serbian nationalist student <strong>Gavrilo Princip</strong>, prompting Austria-Hungary to declare war on Serbia on July 28, 1914, then the conflict between the alliances exploded and the war expanded to include most countries of the world.",
+                sectionPart2: "Main Consequences of World War I",
+                conseqHumanTitle: "Human Consequences",
+                conseqHuman1: "The death of about <strong>10 million people</strong> and the injury of more than <strong>20 million others</strong>, both military and civilian.",
+                conseqHuman2: "The displacement of millions of people and the destruction of many cities and villages.",
+                conseqHuman3: "The spread of epidemics and famines in Europe after the war.",
+                conseqEcoTitle: "Economic Consequences",
+                conseqEco1: "The destruction of infrastructure, factories, and agricultural land in combat zones.",
+                conseqEco2: "The deterioration of the European economy and the decline of industrial and agricultural production.",
+                conseqEco3: "The accumulation of debts and monetary inflation, leading to a deterioration in the purchasing power of populations.",
+                conseqEco4: "Europe's transformation from a creditor to a debtor to the United States, which became the world's leading economic power.",
+                conseqPolTitle: "Political Consequences",
+                conseqPol1: "The disintegration of the great empires: Austro-Hungarian, Ottoman, Russian, and German.",
+                conseqPol2: "The emergence of new states in Europe such as Poland, Czechoslovakia, Yugoslavia, and Hungary.",
+                conseqPol3: "The signing of peace treaties, most importantly the <strong>Treaty of Versailles</strong> (1919), which imposed harsh conditions on Germany (loss of territory, army reduction, payment of reparations).",
+                conseqPol4: "The founding of the <strong>League of Nations</strong> in 1920 to preserve world peace, though it later failed to achieve its goals.",
+                conseqPol5: "The rise of the United States as a major world power.",
+                conseqPol6: "The emergence of communism in Russia after the Bolshevik Revolution of 1917.",
+                conseqSpatialTitle: "Spatial Consequences",
+                conseqSpatial1: "The change of the map of Europe with the emergence of new states and the disappearance of others.",
+                conseqSpatial2: "The modification of borders between European states, especially Germany's borders.",
+                conseqSpatial3: "The division of the Ottoman Empire's territories and their distribution between France and Britain in the form of mandates (Syria and Lebanon to France; Iraq, Palestine, and Jordan to Britain).",
+                conseqSpatial4: "The collapse of the European balance in favor of the United States and Japan.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "World War I was one of the greatest catastrophes in human history, leaving millions dead and wounded, destroying the European economy, leading to the disintegration of empires and the emergence of new states, and paving the way for a second world war two decades later due to the harsh terms of the Treaty of Versailles.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Illustrative Images",
+                defPersons: "👤 Persons",
+                defLocations: "🌍 Countries and Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years and Periods",
+                defTreaty: "📜 Treaties",
+                defOrganizations: "🏢 Organizations and Institutions",
+                defOthers: "📌 Other",
+                defFranzFerdinand: "Franz Ferdinand",
+                defFranzFerdinandDesc: "Heir to the Austro-Hungarian throne, assassinated in Sarajevo on June 28, 1914, an event that was the direct cause of the outbreak of World War I.",
+                defGavriloPrincip: "Gavrilo Princip",
+                defGavriloPrincipDesc: "A Serbian nationalist student who assassinated the heir to the Austrian throne, Franz Ferdinand, in Sarajevo in 1914.",
+                defSarajevo: "Sarajevo",
+                defSarajevoDesc: "The capital of Bosnia and Herzegovina, where the assassination of the Austrian heir Franz Ferdinand took place in 1914, the direct cause of World War I.",
+                defGermany: "Germany",
+                defGermanyDesc: "Leader of the Central Powers in World War I, defeated in 1918 and subjected to harsh terms by the Treaty of Versailles.",
+                defFrance: "France",
+                defFranceDesc: "One of the Allied Powers in World War I, and Tunisia was a French colony at the time, so Tunisia participated in the war alongside it.",
+                defBritain: "Britain",
+                defBritainDesc: "One of the Allied Powers in World War I, possessing the largest colonial empire.",
+                defRussia: "Russia",
+                defRussiaDesc: "One of the Allied Powers, experienced the Bolshevik Revolution in 1917 and withdrew from the war.",
+                defAustriaHungary: "Austria-Hungary",
+                defAustriaHungaryDesc: "One of the Central Powers, an empire that disintegrated after World War I with the emergence of new states.",
+                defOttoman: "The Ottoman Empire",
+                defOttomanDesc: "One of the Central Powers, disintegrated after the war and its territories were distributed among the victorious powers in the form of mandates.",
+                defUSA: "The United States of America",
+                defUSADesc: "Joined the Allied Powers in 1917, contributed to deciding the war, and became the leading economic power in the world afterwards.",
+                defSarajevoIncident: "The Sarajevo Incident",
+                defSarajevoIncidentDesc: "The assassination of the Austrian heir Franz Ferdinand and his wife in Sarajevo on June 28, 1914, the direct cause of the outbreak of World War I.",
+                defWWI: "World War I",
+                defWWIDesc: "A world war that broke out between 1914 and 1918 between the Central Powers and the Allied Powers, leaving millions dead and wounded and leading to the disintegration of empires and the change of the map of Europe.",
+                defBolshevikRevolution: "The Bolshevik Revolution",
+                defBolshevikRevolutionDesc: "A revolution that broke out in Russia in 1917 led by Lenin, leading to Russia's withdrawal from World War I and the emergence of communism.",
+                defYear1914Desc: "Outbreak of World War I after the Sarajevo incident.",
+                defYear1917Desc: "The United States joined the war alongside the Allied Powers, and the Bolshevik Revolution broke out in Russia.",
+                defYear1918Desc: "The end of World War I with the victory of the Allied Powers and the defeat of Germany.",
+                defYear1919Desc: "The signing of the Treaty of Versailles between Germany and the Allied Powers.",
+                defYear1920Desc: "The founding of the League of Nations to preserve world peace.",
+                defVersailles: "The Treaty of Versailles",
+                defVersaillesDesc: "The peace treaty signed in 1919 between Germany and the Allied Powers, imposing harsh conditions on Germany: loss of territory, army reduction, payment of large reparations, paving the way for the outbreak of World War II.",
+                defLeagueOfNations: "The League of Nations",
+                defLeagueOfNationsDesc: "An international organization founded in 1920 after World War I to preserve world peace, but it failed to achieve its goals and was replaced by the United Nations after World War II.",
+                defCentralPowers: "The Central Powers",
+                defCentralPowersDesc: "The alliance that included Germany, Austria-Hungary, the Ottoman Empire, and Bulgaria during World War I.",
+                defAlliedPowers: "The Allied Powers",
+                defAlliedPowersDesc: "The alliance that included France, Britain, Russia, Italy, and the United States during World War I, and won in the end.",
+                defArmsRace: "The Arms Race",
+                defArmsRaceDesc: "Competition between European states to increase weapons and strengthen armies before World War I.",
+                defMilitaryAlliances: "Military Alliances",
+                defMilitaryAlliancesDesc: "Alliances between European states before World War I, most importantly the Triple Alliance (1882) and the Triple Entente (1907).",
+                defSecondIndustrialRevolution: "The Second Industrial Revolution",
+                defSecondIndustrialRevolutionDesc: "A new industrial phase in the late 19th and early 20th centuries, characterized by the use of oil and electricity and heavy industries, increasing economic rivalry between European states.",
+                summaryText: "Key takeaway: World War I broke out in 1914 due to political, economic, and intellectual factors, and its direct cause was the assassination of the Austrian heir Franz Ferdinand in Sarajevo. The war left millions dead and wounded, destroyed the European economy, led to the disintegration of empires and the change of the map of Europe, and the emergence of the League of Nations.",
+                galleryAlt1: "Military alliances in 1914",
+                galleryAlt2: "The Sarajevo incident 1914",
+                galleryAlt3: "Trench warfare",
+                galleryAlt4: "The Treaty of Versailles 1919",
+                galleryAlt5: "Map of Europe after World War I",
+                galleryAlt6: "The League of Nations",
+                galleryCap1: "Military alliances in 1914",
+                galleryCap2: "The Sarajevo incident 1914",
+                galleryCap3: "Trench warfare",
+                galleryCap4: "The Treaty of Versailles 1919",
+                galleryCap5: "Map of Europe after World War I",
+                galleryCap6: "The League of Nations",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, conclusion and summary",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, persons, events, years, treaties and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                yearSection: "9ème de base",
+                moduleName: "Histoire / Axe 1 : La Tunisie et le monde de la Première à la Seconde Guerre mondiale",
+                lessonTitleSample: "La Première Guerre mondiale : causes et principales conséquences",
+                sectionIntro: "Introduction",
+                introText: "Entre 1914 et 1918, le monde a connu la Première Guerre mondiale, un conflit armé global entre les Puissances centrales (Allemagne, Autriche-Hongrie, Empire ottoman, Bulgarie) et les Puissances alliées (France, Grande-Bretagne, Russie, Italie, États-Unis...). La guerre a couvert l'Europe et certaines régions du Moyen-Orient et d'Afrique, et la Tunisie — alors colonie française — y a participé avec ses fils et ses ressources. La Première Guerre mondiale a laissé de profondes conséquences humaines, économiques, politiques et spatiales.",
+                problematiqueText: "Quelles sont les causes de la Première Guerre mondiale ? Et quelles sont ses principales conséquences ?",
+                sectionPart1: "Les causes de la Première Guerre mondiale",
+                causePoliticalTitle: "Les causes politiques",
+                causePolitical1: "La rivalité coloniale entre les puissances européennes pour les colonies en Afrique et en Asie, en particulier entre la France, la Grande-Bretagne, l'Allemagne et l'Italie.",
+                causePolitical2: "La course aux armements et le renforcement militaire, chaque État cherchant à augmenter sa flotte de guerre et à accumuler des armes.",
+                causePolitical3: "Les alliances militaires : la Triple Alliance (Allemagne, Autriche-Hongrie, Italie) formée en 1882, et la Triple Entente (France, Grande-Bretagne, Russie) en 1907, divisant l'Europe en deux blocs hostiles.",
+                causePolitical4: "La montée du nationalisme dans les Balkans, où l'Autriche-Hongrie, la Russie et l'Empire ottoman rivalisaient pour l'influence.",
+                causeEconomicTitle: "Les causes économiques",
+                causeEconomic1: "La deuxième révolution industrielle et la recherche de nouveaux marchés pour écouler les produits industriels et sécuriser les matières premières.",
+                causeEconomic2: "La rivalité navale et commerciale entre la Grande-Bretagne et l'Allemagne, l'Allemagne cherchant à concurrencer la flotte britannique.",
+                causeEconomic3: "La concurrence pour les sources d'énergie et les matières premières dans les colonies.",
+                causeIntellectualTitle: "Les causes intellectuelles et psychologiques",
+                causeIntellectual1: "La diffusion des idées nationalistes chauvines prônant la supériorité raciale et la glorification militaire.",
+                causeIntellectual2: "Le rôle de la presse et de la propagande dans l'excitation de l'opinion publique contre « l'ennemi ».",
+                causeIntellectual3: "L'hostilité historique entre la France et l'Allemagne après la guerre de 1870 et la perte de l'Alsace-Lorraine par la France.",
+                causeDirectTitle: "La cause directe",
+                causeDirectText: "L'assassinat de l'héritier du trône austro-hongrois, <strong>François-Ferdinand</strong>, et de son épouse à <strong>Sarajevo</strong> le 28 juin 1914 par l'étudiant nationaliste serbe <strong>Gavrilo Princip</strong>, poussant l'Autriche-Hongrie à déclarer la guerre à la Serbie le 28 juillet 1914, puis le conflit entre les alliances a explosé et la guerre s'est étendue pour englober la plupart des pays du monde.",
+                sectionPart2: "Principales conséquences de la Première Guerre mondiale",
+                conseqHumanTitle: "Les conséquences humaines",
+                conseqHuman1: "La mort d'environ <strong>10 millions de personnes</strong> et la blessure de plus de <strong>20 millions d'autres</strong>, tant militaires que civiles.",
+                conseqHuman2: "Le déplacement de millions de personnes et la destruction de nombreuses villes et villages.",
+                conseqHuman3: "La propagation des épidémies et des famines en Europe après la guerre.",
+                conseqEcoTitle: "Les conséquences économiques",
+                conseqEco1: "La destruction des infrastructures, des usines et des terres agricoles dans les zones de combat.",
+                conseqEco2: "La détérioration de l'économie européenne et la baisse de la production industrielle et agricole.",
+                conseqEco3: "L'accumulation des dettes et l'inflation monétaire, entraînant une détérioration du pouvoir d'achat des populations.",
+                conseqEco4: "La transformation de l'Europe de créancière en débitrice envers les États-Unis, qui sont devenus la première puissance économique mondiale.",
+                conseqPolTitle: "Les conséquences politiques",
+                conseqPol1: "La désintégration des grands empires : austro-hongrois, ottoman, russe et allemand.",
+                conseqPol2: "L'émergence de nouveaux États en Europe comme la Pologne, la Tchécoslovaquie, la Yougoslavie et la Hongrie.",
+                conseqPol3: "La signature des traités de paix, dont le plus important est le <strong>Traité de Versailles</strong> (1919) qui a imposé à l'Allemagne des conditions sévères (perte de territoires, réduction de l'armée, paiement de réparations).",
+                conseqPol4: "La fondation de la <strong>Société des Nations</strong> en 1920 pour préserver la paix mondiale, mais elle a ensuite échoué à atteindre ses objectifs.",
+                conseqPol5: "L'ascension des États-Unis en tant que grande puissance mondiale.",
+                conseqPol6: "L'émergence du communisme en Russie après la Révolution bolchevique de 1917.",
+                conseqSpatialTitle: "Les conséquences spatiales",
+                conseqSpatial1: "Le changement de la carte de l'Europe avec l'émergence de nouveaux États et la disparition d'autres.",
+                conseqSpatial2: "La modification des frontières entre les États européens, en particulier les frontières de l'Allemagne.",
+                conseqSpatial3: "La division des territoires de l'Empire ottoman et leur répartition entre la France et la Grande-Bretagne sous forme de mandats (Syrie et Liban à la France ; Irak, Palestine et Jordanie à la Grande-Bretagne).",
+                conseqSpatial4: "L'effondrement de l'équilibre européen en faveur des États-Unis et du Japon.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "La Première Guerre mondiale a été l'une des plus grandes catastrophes de l'histoire de l'humanité, laissant des millions de morts et de blessés, détruisant l'économie européenne, entraînant la désintégration des empires et l'émergence de nouveaux États, et ouvrant la voie à une seconde guerre mondiale deux décennies plus tard en raison des conditions sévères du Traité de Versailles.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et images illustratives",
+                defPersons: "👤 Personnes",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années et périodes",
+                defTreaty: "📜 Traités",
+                defOrganizations: "🏢 Organisations et institutions",
+                defOthers: "📌 Autres",
+                defFranzFerdinand: "François-Ferdinand",
+                defFranzFerdinandDesc: "Héritier du trône austro-hongrois, assassiné à Sarajevo le 28 juin 1914, un événement qui fut la cause directe du déclenchement de la Première Guerre mondiale.",
+                defGavriloPrincip: "Gavrilo Princip",
+                defGavriloPrincipDesc: "Étudiant nationaliste serbe qui a assassiné l'héritier du trône autrichien, François-Ferdinand, à Sarajevo en 1914.",
+                defSarajevo: "Sarajevo",
+                defSarajevoDesc: "Capitale de la Bosnie-Herzégovine, où a eu lieu l'assassinat de l'héritier autrichien François-Ferdinand en 1914, cause directe de la Première Guerre mondiale.",
+                defGermany: "Allemagne",
+                defGermanyDesc: "Chef des Puissances centrales pendant la Première Guerre mondiale, vaincue en 1918 et soumise à des conditions sévères par le Traité de Versailles.",
+                defFrance: "France",
+                defFranceDesc: "L'une des Puissances alliées pendant la Première Guerre mondiale, et la Tunisie était alors une colonie française, donc la Tunisie a participé à la guerre à ses côtés.",
+                defBritain: "Grande-Bretagne",
+                defBritainDesc: "L'une des Puissances alliées pendant la Première Guerre mondiale, possédant le plus grand empire colonial.",
+                defRussia: "Russie",
+                defRussiaDesc: "L'une des Puissances alliées, a connu la Révolution bolchevique en 1917 et s'est retirée de la guerre.",
+                defAustriaHungary: "Autriche-Hongrie",
+                defAustriaHungaryDesc: "L'une des Puissances centrales, un empire qui s'est désintégré après la Première Guerre mondiale avec l'émergence de nouveaux États.",
+                defOttoman: "L'Empire ottoman",
+                defOttomanDesc: "L'une des Puissances centrales, s'est désintégré après la guerre et ses territoires ont été répartis entre les puissances victorieuses sous forme de mandats.",
+                defUSA: "Les États-Unis d'Amérique",
+                defUSADesc: "Ont rejoint les Puissances alliées en 1917, ont contribué à décider de la guerre et sont devenus la première puissance économique mondiale par la suite.",
+                defSarajevoIncident: "L'incident de Sarajevo",
+                defSarajevoIncidentDesc: "L'assassinat de l'héritier autrichien François-Ferdinand et de son épouse à Sarajevo le 28 juin 1914, cause directe du déclenchement de la Première Guerre mondiale.",
+                defWWI: "La Première Guerre mondiale",
+                defWWIDesc: "Une guerre mondiale qui a éclaté entre 1914 et 1918 entre les Puissances centrales et les Puissances alliées, laissant des millions de morts et de blessés et entraînant la désintégration des empires et le changement de la carte de l'Europe.",
+                defBolshevikRevolution: "La Révolution bolchevique",
+                defBolshevikRevolutionDesc: "Une révolution qui a éclaté en Russie en 1917 dirigée par Lénine, entraînant le retrait de la Russie de la Première Guerre mondiale et l'émergence du communisme.",
+                defYear1914Desc: "Déclenchement de la Première Guerre mondiale après l'incident de Sarajevo.",
+                defYear1917Desc: "Les États-Unis ont rejoint la guerre aux côtés des Puissances alliées, et la Révolution bolchevique a éclaté en Russie.",
+                defYear1918Desc: "Fin de la Première Guerre mondiale avec la victoire des Puissances alliées et la défaite de l'Allemagne.",
+                defYear1919Desc: "Signature du Traité de Versailles entre l'Allemagne et les Puissances alliées.",
+                defYear1920Desc: "Fondation de la Société des Nations pour préserver la paix mondiale.",
+                defVersailles: "Le Traité de Versailles",
+                defVersaillesDesc: "Le traité de paix signé en 1919 entre l'Allemagne et les Puissances alliées, imposant des conditions sévères à l'Allemagne : perte de territoires, réduction de l'armée, paiement de réparations importantes, ouvrant la voie au déclenchement de la Seconde Guerre mondiale.",
+                defLeagueOfNations: "La Société des Nations",
+                defLeagueOfNationsDesc: "Une organisation internationale fondée en 1920 après la Première Guerre mondiale pour préserver la paix mondiale, mais elle a échoué à atteindre ses objectifs et a été remplacée par l'Organisation des Nations Unies après la Seconde Guerre mondiale.",
+                defCentralPowers: "Les Puissances centrales",
+                defCentralPowersDesc: "L'alliance qui comprenait l'Allemagne, l'Autriche-Hongrie, l'Empire ottoman et la Bulgarie pendant la Première Guerre mondiale.",
+                defAlliedPowers: "Les Puissances alliées",
+                defAlliedPowersDesc: "L'alliance qui comprenait la France, la Grande-Bretagne, la Russie, l'Italie et les États-Unis pendant la Première Guerre mondiale, et qui a finalement gagné.",
+                defArmsRace: "La course aux armements",
+                defArmsRaceDesc: "Compétition entre les États européens pour augmenter les armes et renforcer les armées avant la Première Guerre mondiale.",
+                defMilitaryAlliances: "Les alliances militaires",
+                defMilitaryAlliancesDesc: "Alliances entre États européens avant la Première Guerre mondiale, dont les plus importantes sont la Triple Alliance (1882) et la Triple Entente (1907).",
+                defSecondIndustrialRevolution: "La deuxième révolution industrielle",
+                defSecondIndustrialRevolutionDesc: "Une nouvelle phase industrielle à la fin du XIXe et au début du XXe siècle, caractérisée par l'utilisation du pétrole et de l'électricité et des industries lourdes, augmentant la rivalité économique entre les États européens.",
+                summaryText: "À retenir : La Première Guerre mondiale a éclaté en 1914 en raison de facteurs politiques, économiques et intellectuels, et sa cause directe a été l'assassinat de l'héritier autrichien François-Ferdinand à Sarajevo. La guerre a laissé des millions de morts et de blessés, détruit l'économie européenne, entraîné la désintégration des empires et le changement de la carte de l'Europe, et l'émergence de la Société des Nations.",
+                galleryAlt1: "Les alliances militaires en 1914",
+                galleryAlt2: "L'incident de Sarajevo 1914",
+                galleryAlt3: "La guerre des tranchées",
+                galleryAlt4: "Le Traité de Versailles 1919",
+                galleryAlt5: "Carte de l'Europe après la Première Guerre mondiale",
+                galleryAlt6: "La Société des Nations",
+                galleryCap1: "Les alliances militaires en 1914",
+                galleryCap2: "L'incident de Sarajevo 1914",
+                galleryCap3: "La guerre des tranchées",
+                galleryCap4: "Le Traité de Versailles 1919",
+                galleryCap5: "Carte de l'Europe après la Première Guerre mondiale",
+                galleryCap6: "La Société des Nations",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties, conclusion et résumé",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, personnes, événements, années, traités et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                yearSection: "التاسعة أساسي",
+                moduleName: "التاريخ / المحور الأول: تونس والعالم من الحرب العالمية الأولى إلى الحرب العالمية الثانية",
+                lessonTitleSample: "الحرب العالمية الأولى: الأسباب وأبرز النتائج",
+                sectionIntro: "مقدمة",
+                introText: "شهد العالم بين سنتي 1914 و1918 أول حرب عالمية، وهي صراع مسلح شامل بين دول المحور (ألمانيا، النمسا-المجر، الإمبراطورية العثمانية، بلغاريا) ودول الوفاق (فرنسا، بريطانيا، روسيا، إيطاليا، الولايات المتحدة الأمريكية...). وقد شملت هذه الحرب أوروبا وبعض مناطق الشرق الأوسط وإفريقيا، وساهمت فيها تونس التي كانت مستعمرة فرنسية آنذاك بأبنائها ومواردها. وقد خلّفت الحرب العالمية الأولى آثاراً عميقة على المستوى البشري والاقتصادي والسياسي والمجالي.",
+                problematiqueText: "فما هي أسباب الحرب العالمية الأولى؟ وما هي أبرز نتائجها؟",
+                sectionPart1: "أسباب الحرب العالمية الأولى",
+                causePoliticalTitle: "الأسباب السياسية",
+                causePolitical1: "التنافس الاستعماري بين القوى الأوروبية على المستعمرات في إفريقيا وآسيا، خاصة بين فرنسا وبريطانيا وألمانيا وإيطاليا.",
+                causePolitical2: "السباق نحو التسلح وتقوية الجيوش، إذ عملت كل دولة على زيادة أسطولها الحربي وتكديس الأسلحة.",
+                causePolitical3: "الأحلاف العسكرية: تكوّن التحالف الثلاثي (ألمانيا، النمسا-المجر، إيطاليا) سنة 1882، والوفاق الثلاثي (فرنسا، بريطانيا، روسيا) سنة 1907، مما قسّم أوروبا إلى كتلتين متعاديتين.",
+                causePolitical4: "تصاعد النزعة القومية في منطقة البلقان، حيث تنازعت النمسا-المجر وروسيا والدولة العثمانية على النفوذ في هذه المنطقة.",
+                causeEconomicTitle: "الأسباب الاقتصادية",
+                causeEconomic1: "الثورة الصناعية الثانية والبحث عن أسواق جديدة لتصريف المنتجات الصناعية وتوفير المواد الأولية.",
+                causeEconomic2: "التنافس البحري والتجاري بين بريطانيا وألمانيا، إذ سعت ألمانيا إلى منافسة الأسطول البريطاني.",
+                causeEconomic3: "التنافس على مصادر الطاقة والمواد الأولية في المستعمرات.",
+                causeIntellectualTitle: "الأسباب الفكرية والنفسية",
+                causeIntellectual1: "انتشار الأفكار القومية الشوفينية الداعية إلى التفوق العرقي والتمجيد العسكري.",
+                causeIntellectual2: "دور الصحافة والدعاية في تأجيج الرأي العام ضد «العدو».",
+                causeIntellectual3: "العداء التاريخي بين فرنسا وألمانيا بعد حرب 1870 وفقدان فرنسا للألزاس واللورين.",
+                causeDirectTitle: "السبب المباشر",
+                causeDirectText: "اغتيال ولي عهد النمسا-المجر <strong>فرانسوا فرديناند</strong> وزوجته في مدينة <strong>سراييفو</strong> يوم 28 جوان 1914 على يد الطالب الصربي القومي <strong>غافريلو برينسيب</strong>، مما أدى إلى إعلان النمسا-المجر الحرب على صربيا في 28 جويلية 1914، ثم تفجّر الصراع بين الأحلاف وتوسّع الحرب ليشمل معظم دول العالم.",
+                sectionPart2: "أبرز نتائج الحرب العالمية الأولى",
+                conseqHumanTitle: "النتائج البشرية",
+                conseqHuman1: "مقتل حوالي <strong>10 ملايين شخص</strong> وجرح أكثر من <strong>20 مليون آخرين</strong> بين عسكريين ومدنيين.",
+                conseqHuman2: "تشريد ملايين السكان وتدمير عديد المدن والقرى.",
+                conseqHuman3: "انتشار الأوبئة والمجاعات في أوروبا بعد الحرب.",
+                conseqEcoTitle: "النتائج الاقتصادية",
+                conseqEco1: "تدمير البنية التحتية والمصانع والأراضي الزراعية في مناطق القتال.",
+                conseqEco2: "تدهور الاقتصاد الأوروبي وتراجع الإنتاج الصناعي والفلاحي.",
+                conseqEco3: "تضخم الديون والتضخم النقدي، مما أدى إلى تدهور القدرة الشرائية للسكان.",
+                conseqEco4: "تحوّل أوروبا من دائنة إلى مدينة للولايات المتحدة الأمريكية التي أصبحت أول قوة اقتصادية في العالم.",
+                conseqPolTitle: "النتائج السياسية",
+                conseqPol1: "تفكك الإمبراطوريات الكبرى: النمساوية-المجرية، والعثمانية، والروسية، والألمانية.",
+                conseqPol2: "ظهور دول جديدة في أوروبا مثل بولونيا وتشيكوسلوفاكيا ويوغوسلافيا والمجر.",
+                conseqPol3: "توقيع معاهدات الصلح، وأهمّها <strong>معاهدة فرساي</strong> (1919) التي فرضت على ألمانيا شروطاً قاسية (فقدان أراضٍ، تسريح الجيش، دفع تعويضات).",
+                conseqPol4: "تأسيس <strong>عصبة الأمم</strong> سنة 1920 لحفظ السلم العالمي، لكنها فشلت في تحقيق أهدافها لاحقاً.",
+                conseqPol5: "صعود الولايات المتحدة الأمريكية كقوة عالمية كبرى.",
+                conseqPol6: "بروز المد الشيوعي في روسيا بعد الثورة البلشفية سنة 1917.",
+                conseqSpatialTitle: "النتائج المجالية",
+                conseqSpatial1: "تغيّر خريطة أوروبا بظهور دول جديدة واختفاء أخرى.",
+                conseqSpatial2: "تعديل الحدود بين الدول الأوروبية، خاصة حدود ألمانيا.",
+                conseqSpatial3: "تقسيم أراضي الإمبراطورية العثمانية وتوزيعها بين فرنسا وبريطانيا في شكل انتداب (سوريا ولبنان لفرنسا، العراق وفلسطين والأردن لبريطانيا).",
+                conseqSpatial4: "انهيار التوازن الأوروبي لصالح الولايات المتحدة واليابان.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "كانت الحرب العالمية الأولى من أكبر الكوارث في تاريخ البشرية، إذ خلّفت ملايين القتلى والجرحى ودمّرت الاقتصاد الأوروبي، وأدّت إلى تفكك الإمبراطوريات وظهور دول جديدة، كما مهّدت الطريق لحرب عالمية ثانية بعد عقدين من الزمن بسبب الشروط القاسية لمعاهدة فرساي.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط وصور توضيحية",
+                defPersons: "👤 شخصيات",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defTreaty: "📜 معاهدات",
+                defOrganizations: "🏢 منظمات ومؤسسات",
+                defOthers: "📌 أخرى",
+                defFranzFerdinand: "فرانسوا فرديناند",
+                defFranzFerdinandDesc: "ولي عهد النمسا-المجر، اغتيل في سراييفو يوم 28 جوان 1914، وكان اغتياله السبب المباشر لاندلاع الحرب العالمية الأولى.",
+                defGavriloPrincip: "غافريلو برينسيب",
+                defGavriloPrincipDesc: "طالب صربي قومي اغتال ولي عهد النمسا فرانسوا فرديناند في سراييفو سنة 1914.",
+                defSarajevo: "سراييفو",
+                defSarajevoDesc: "عاصمة البوسنة والهرسك، شهدت حادثة اغتيال ولي عهد النمسا فرانسوا فرديناند سنة 1914 التي كانت السبب المباشر للحرب العالمية الأولى.",
+                defGermany: "ألمانيا",
+                defGermanyDesc: "قائدة دول المحور في الحرب العالمية الأولى، هُزمت سنة 1918 وفرضت عليها معاهدة فرساي شروطاً قاسية.",
+                defFrance: "فرنسا",
+                defFranceDesc: "من دول الوفاق في الحرب العالمية الأولى، وكانت تونس مستعمرة فرنسية آنذاك فشاركت تونس في الحرب إلى جانبها.",
+                defBritain: "بريطانيا",
+                defBritainDesc: "من دول الوفاق في الحرب العالمية الأولى، وكانت تمتلك أكبر إمبراطورية استعمارية.",
+                defRussia: "روسيا",
+                defRussiaDesc: "من دول الوفاق، عرفت الثورة البلشفية سنة 1917 وانسحبت من الحرب.",
+                defAustriaHungary: "النمسا-المجر",
+                defAustriaHungaryDesc: "من دول المحور، إمبراطورية تفككت بعد الحرب العالمية الأولى وظهور دول جديدة.",
+                defOttoman: "الإمبراطورية العثمانية",
+                defOttomanDesc: "من دول المحور، تفككت بعد الحرب وتوزعت أراضيها بين الدول المنتصرة في شكل انتداب.",
+                defUSA: "الولايات المتحدة الأمريكية",
+                defUSADesc: "انضمت إلى دول الوفاق سنة 1917، وساهمت في حسم الحرب، وأصبحت بعدها أول قوة اقتصادية في العالم.",
+                defSarajevoIncident: "حادثة سراييفو",
+                defSarajevoIncidentDesc: "اغتيال ولي عهد النمسا فرانسوا فرديناند وزوجته في سراييفو يوم 28 جوان 1914، وكانت السبب المباشر لاندلاع الحرب العالمية الأولى.",
+                defWWI: "الحرب العالمية الأولى",
+                defWWIDesc: "حرب عالمية اندلعت بين 1914 و1918 بين دول المحور ودول الوفاق، خلّفت ملايين القتلى والجرحى وأدّت إلى تفكك الإمبراطوريات وتغيّر خريطة أوروبا.",
+                defBolshevikRevolution: "الثورة البلشفية",
+                defBolshevikRevolutionDesc: "ثورة اندلعت في روسيا سنة 1917 بقيادة لينين، أدّت إلى انسحاب روسيا من الحرب العالمية الأولى وظهور المد الشيوعي.",
+                defYear1914Desc: "اندلاع الحرب العالمية الأولى بعد حادثة سراييفو.",
+                defYear1917Desc: "انضمام الولايات المتحدة إلى الحرب إلى جانب دول الوفاق، واندلاع الثورة البلشفية في روسيا.",
+                defYear1918Desc: "نهاية الحرب العالمية الأولى بانتصار دول الوفاق وهزيمة ألمانيا.",
+                defYear1919Desc: "توقيع معاهدة فرساي بين ألمانيا ودول الوفاق.",
+                defYear1920Desc: "تأسيس عصبة الأمم لحفظ السلم العالمي.",
+                defVersailles: "معاهدة فرساي",
+                defVersaillesDesc: "معاهدة الصلح الموقّعة سنة 1919 بين ألمانيا ودول الوفاق، فرضت على ألمانيا شروطاً قاسية: فقدان أراضٍ، تسريح الجيش، دفع تعويضات كبيرة، مما مهّد لاندلاع الحرب العالمية الثانية.",
+                defLeagueOfNations: "عصبة الأمم",
+                defLeagueOfNationsDesc: "منظمة دولية تأسست سنة 1920 بعد الحرب العالمية الأولى لحفظ السلم العالمي، لكنها فشلت في تحقيق أهدافها وتمّ تعويضها بمنظمة الأمم المتحدة بعد الحرب العالمية الثانية.",
+                defCentralPowers: "دول المحور",
+                defCentralPowersDesc: "التحالف الذي ضمّ ألمانيا والنمسا-المجر والإمبراطورية العثمانية وبلغاريا خلال الحرب العالمية الأولى.",
+                defAlliedPowers: "دول الوفاق",
+                defAlliedPowersDesc: "التحالف الذي ضمّ فرنسا وبريطانيا وروسيا وإيطاليا والولايات المتحدة الأمريكية خلال الحرب العالمية الأولى، وانتصر في النهاية.",
+                defArmsRace: "السباق نحو التسلح",
+                defArmsRaceDesc: "تنافس بين الدول الأوروبية على زيادة الأسلحة وتقوية الجيوش قبل الحرب العالمية الأولى.",
+                defMilitaryAlliances: "الأحلاف العسكرية",
+                defMilitaryAlliancesDesc: "تحالفات بين دول أوروبية قبل الحرب العالمية الأولى، أهمّها التحالف الثلاثي (1882) والوفاق الثلاثي (1907).",
+                defSecondIndustrialRevolution: "الثورة الصناعية الثانية",
+                defSecondIndustrialRevolutionDesc: "مرحلة صناعية جديدة في أواخر القرن 19 وأوائل القرن 20، تميّزت باستخدام النفط والكهرباء والصناعات الثقيلة، مما زاد من التنافس الاقتصادي بين الدول الأوروبية.",
+                summaryText: "خلاصة: اندلعت الحرب العالمية الأولى سنة 1914 بسبب عوامل سياسية واقتصادية وفكرية، وكان السبب المباشر لها اغتيال ولي عهد النمسا فرانسوا فرديناند في سراييفو. وقد خلّفت الحرب ملايين القتلى والجرحى، ودمرت الاقتصاد الأوروبي، وأدت إلى تفكك الإمبراطوريات وتغيّر خريطة أوروبا وظهور عصبة الأمم.",
+                galleryAlt1: "الأحلاف العسكرية سنة 1914",
+                galleryAlt2: "حادثة سراييفو 1914",
+                galleryAlt3: "حرب الخنادق",
+                galleryAlt4: "معاهدة فرساي 1919",
+                galleryAlt5: "خريطة أوروبا بعد الحرب العالمية الأولى",
+                galleryAlt6: "عصبة الأمم",
+                galleryCap1: "الأحلاف العسكرية سنة 1914",
+                galleryCap2: "حادثة سراييفو 1914",
+                galleryCap3: "حرب الخنادق",
+                galleryCap4: "معاهدة فرساي 1919",
+                galleryCap5: "خريطة أوروبا بعد الحرب العالمية الأولى",
+                galleryCap6: "عصبة الأمم",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة، الأجزاء، الخاتمة والخلاصة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات، الأعلام، الأحداث، السنوات، المعاهدات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "World War I", class: "key-event", i18n: "defWWI" },
+                { text: "The First World War", class: "key-event", i18n: "defWWI" },
+                { text: "Treaty of Versailles", class: "key-treaty", i18n: "defVersailles" },
+                { text: "League of Nations", class: "key-organization", i18n: "defLeagueOfNations" },
+                { text: "Franz Ferdinand", class: "key-person", i18n: "defFranzFerdinand" },
+                { text: "Gavrilo Princip", class: "key-person", i18n: "defGavriloPrincip" },
+                { text: "Sarajevo", class: "key-location", i18n: "defSarajevo" },
+                { text: "Germany", class: "key-location", i18n: "defGermany" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Britain", class: "key-location", i18n: "defBritain" },
+                { text: "Russia", class: "key-location", i18n: "defRussia" },
+                { text: "Austria-Hungary", class: "key-location", i18n: "defAustriaHungary" },
+                { text: "Ottoman Empire", class: "key-location", i18n: "defOttoman" },
+                { text: "United States", class: "key-location", i18n: "defUSA" },
+                { text: "Central Powers", class: "key-other", i18n: "defCentralPowers" },
+                { text: "Allied Powers", class: "key-other", i18n: "defAlliedPowers" },
+                { text: "Arms Race", class: "key-other", i18n: "defArmsRace" },
+                { text: "Military Alliances", class: "key-other", i18n: "defMilitaryAlliances" },
+                { text: "Second Industrial Revolution", class: "key-other", i18n: "defSecondIndustrialRevolution" },
+                { text: "Sarajevo Incident", class: "key-event", i18n: "defSarajevoIncident" },
+                { text: "Bolshevik Revolution", class: "key-event", i18n: "defBolshevikRevolution" },
+                { text: "1914", class: "key-year", i18n: null },
+                { text: "1917", class: "key-year", i18n: null },
+                { text: "1918", class: "key-year", i18n: null },
+                { text: "1919", class: "key-year", i18n: null },
+                { text: "1920", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Première Guerre mondiale", class: "key-event", i18n: "defWWI" },
+                { text: "Traité de Versailles", class: "key-treaty", i18n: "defVersailles" },
+                { text: "Société des Nations", class: "key-organization", i18n: "defLeagueOfNations" },
+                { text: "François-Ferdinand", class: "key-person", i18n: "defFranzFerdinand" },
+                { text: "Gavrilo Princip", class: "key-person", i18n: "defGavriloPrincip" },
+                { text: "Sarajevo", class: "key-location", i18n: "defSarajevo" },
+                { text: "Allemagne", class: "key-location", i18n: "defGermany" },
+                { text: "France", class: "key-location", i18n: "defFrance" },
+                { text: "Grande-Bretagne", class: "key-location", i18n: "defBritain" },
+                { text: "Russie", class: "key-location", i18n: "defRussia" },
+                { text: "Autriche-Hongrie", class: "key-location", i18n: "defAustriaHungary" },
+                { text: "Empire ottoman", class: "key-location", i18n: "defOttoman" },
+                { text: "États-Unis", class: "key-location", i18n: "defUSA" },
+                { text: "Puissances centrales", class: "key-other", i18n: "defCentralPowers" },
+                { text: "Puissances alliées", class: "key-other", i18n: "defAlliedPowers" },
+                { text: "course aux armements", class: "key-other", i18n: "defArmsRace" },
+                { text: "alliances militaires", class: "key-other", i18n: "defMilitaryAlliances" },
+                { text: "deuxième révolution industrielle", class: "key-other", i18n: "defSecondIndustrialRevolution" },
+                { text: "incident de Sarajevo", class: "key-event", i18n: "defSarajevoIncident" },
+                { text: "Révolution bolchevique", class: "key-event", i18n: "defBolshevikRevolution" },
+                { text: "1914", class: "key-year", i18n: null },
+                { text: "1917", class: "key-year", i18n: null },
+                { text: "1918", class: "key-year", i18n: null },
+                { text: "1919", class: "key-year", i18n: null },
+                { text: "1920", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "الحرب العالمية الأولى", class: "key-event", i18n: "defWWI" },
+                { text: "معاهدة فرساي", class: "key-treaty", i18n: "defVersailles" },
+                { text: "عصبة الأمم", class: "key-organization", i18n: "defLeagueOfNations" },
+                { text: "فرانسوا فرديناند", class: "key-person", i18n: "defFranzFerdinand" },
+                { text: "غافريلو برينسيب", class: "key-person", i18n: "defGavriloPrincip" },
+                { text: "سراييفو", class: "key-location", i18n: "defSarajevo" },
+                { text: "ألمانيا", class: "key-location", i18n: "defGermany" },
+                { text: "فرنسا", class: "key-location", i18n: "defFrance" },
+                { text: "بريطانيا", class: "key-location", i18n: "defBritain" },
+                { text: "روسيا", class: "key-location", i18n: "defRussia" },
+                { text: "النمسا-المجر", class: "key-location", i18n: "defAustriaHungary" },
+                { text: "الإمبراطورية العثمانية", class: "key-location", i18n: "defOttoman" },
+                { text: "الولايات المتحدة الأمريكية", class: "key-location", i18n: "defUSA" },
+                { text: "دول المحور", class: "key-other", i18n: "defCentralPowers" },
+                { text: "دول الوفاق", class: "key-other", i18n: "defAlliedPowers" },
+                { text: "السباق نحو التسلح", class: "key-other", i18n: "defArmsRace" },
+                { text: "الأحلاف العسكرية", class: "key-other", i18n: "defMilitaryAlliances" },
+                { text: "الثورة الصناعية الثانية", class: "key-other", i18n: "defSecondIndustrialRevolution" },
+                { text: "حادثة سراييفو", class: "key-event", i18n: "defSarajevoIncident" },
+                { text: "الثورة البلشفية", class: "key-event", i18n: "defBolshevikRevolution" },
+                { text: "1914", class: "key-year", i18n: null },
+                { text: "1917", class: "key-year", i18n: null },
+                { text: "1918", class: "key-year", i18n: null },
+                { text: "1919", class: "key-year", i18n: null },
+                { text: "1920", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

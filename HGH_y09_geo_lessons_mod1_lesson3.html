@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">التاسعة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">الجغرافيا / المحور الأول: المغرب العربي</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">السكان والتنمية البشرية بالمغرب العربي</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">إن معرفتنا السابقة للخصائص الطبيعية المناخية والتضاريسية لبلدان المغرب العربي، إلى جانب التوزع الجغرافي لموارده الطبيعية، تجعلنا نتخيل خريطة توزع سكانه بحكم توفر مناطق جاذبة وأخرى منفرة.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">فما هي أهم خصائص التوزع المجالي والحضري للسكان في دول المغرب العربي، علماً وأنهم قد تجاوزوا 100 مليون نسمة منذ 2020؟ وما هي أبرز مميزات النمو الديمغرافي وانعكاساته؟ وما هو واقع التنمية البشرية بهذه الدول؟</p>
+            </div>
+
+            <!-- Part I : Spatial distribution and urban explosion -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">التوزع المجالي للسكان في دول المغرب العربي والانفجار الحضري</span>
+                </h2>
+
+                <!-- 1. Coastalization -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="coastalizationTitle">تفاقم ظاهرة السوحلة</span>
+                </h4>
+
+                <h4 class="sub-alpha-title" style="margin-right:1.5rem;">
+                    <span class="alpha-number">أ</span>.
+                    <span data-i18n="coastalManifestationsTitle">مظاهرها</span>
+                </h4>
+                <p data-i18n="coastalManifestationsText">ارتفاع الكثافات السكانية على السواحل الشمالية للمغرب العربي.</p>
+
+                <h4 class="sub-alpha-title" style="margin-right:1.5rem;">
+                    <span class="alpha-number">ب</span>.
+                    <span data-i18n="coastalFactorsTitle">عواملها</span>
+                </h4>
+                <ul>
+                    <li data-i18n="coastalFactorsNatural"><strong>الطبيعية:</strong> تتمثل في توفر العديد من الظروف الملائمة للاستقرار في هذه المناطق، مناخية كانت أو تضاريسية.</li>
+                    <li data-i18n="coastalFactorsHistoric"><strong>التاريخية:</strong> حيث بدأت ظاهرة السوحلة في دول المغرب العربي، وخاصة ليبيا وتونس والجزائر، مع قدوم قبائل <strong>بني هلال</strong>، ثم تدعّمت في عهد الاستعمار إثر استيلاء المعمّرين على الأراضي الفلاحية واضطرار العديد من الريفيين إلى التوجه نحو المدن الساحلية القريبة وخاصة العواصم. وإثر استقلال دول المغرب خلال الستينات وخاصة السبعينات، تدعّمت حركة النزوح نحو المدن الساحلية لما توفرت فيها من خدمات وفرص تشغيل.</li>
+                    <li data-i18n="coastalFactorsPolitical"><strong>السياسية الاقتصادية:</strong> تتمثل في تركيز دول المغرب عنايتها على المناطق الساحلية الآهلة بالسكان، فتم تجهيزها بالبنية الأساسية التي أهلتها لاستقطاب بعض الاستثمارات المحلية وخاصة الأجنبية، وإنشاء العديد من المشاريع الخاصة التي عمّقت ظاهرة السوحلة وانفتاح هذه المناطق على السواحل الشمالية للمتوسط، وتحديداً إيطاليا وفرنسا وإسبانيا.</li>
+                </ul>
+
+                <h4 class="sub-alpha-title" style="margin-right:1.5rem;">
+                    <span class="alpha-number">ج</span>.
+                    <span data-i18n="coastalRepercussionsTitle">انعكاساتها على اقتصاد دول المغرب العربي</span>
+                </h4>
+                <p data-i18n="coastalRepercussionsText">إذا ما استثنينا بعض الواحات الطبيعية الناشئة حول نقاط مياه أو حول ضفة نهر السنيغال الشمالية في أقصى جنوب موريتانيا، أو بعض الواحات الاصطناعية الناتجة عن استغلال ثروة طبيعية في صحراء ليبيا أو الجزائر أو موريتانيا، حيث تكون الكثافات متوسطة، فإن بقية المناطق الداخلية لدول المغرب العربي تعاني من حالة تفقّر على مستوى تجهيزها البنيوي، فلا يشجع ذلك المستثمرين على التوجه إليها رغم سنّ العديد من التشريعات التي تحثهم على الاستثمار في تلك المناطق. في حين تعاني المناطق الساحلية من الاكتظاظ وتفقّر التربة وارتفاع نسبة الملوحة فيها. نجد مناطق داخلية شاسعة ذات كثافة سكانية ضعيفة تنتظر اهتمام الدولة بها وإعطاءها حظوظها في التنمية المستدامة.</p>
+
+                <!-- 2. Urban explosion -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="urbanExplosionTitle">الانفجار الحضري بالمغرب العربي</span>
+                </h4>
+                <div class="table-scroll-wrapper" style="margin-top:1rem;">
+                    <table class="hgh-exercices-type3-tabToHistogram-table">
+                        <tr>
+                            <th data-i18n="tableState">الدولة</th>
+                            <th data-i18n="tableUrbanMid">نسبة التحضر في منتصف القرن العشرين</th>
+                            <th data-i18n="tableUrban21">نسبة التحضر في بداية القرن الواحد والعشرين</th>
+                        </tr>
+                        <tr>
+                            <td data-i18n="countryLibya">ليبيا</td>
+                            <td>25%</td>
+                            <td>86%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="countryTunisia">تونس</td>
+                            <td>33%</td>
+                            <td>64.9%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="countryAlgeria">الجزائر</td>
+                            <td>25.6%</td>
+                            <td>61%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="countryMorocco">المغرب الأقصى</td>
+                            <td>25%</td>
+                            <td>55.1%</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="countryMauritania">موريتانيا</td>
+                            <td>2.3%</td>
+                            <td>58%</td>
+                        </tr>
+                    </table>
+                </div>
+                <p class="hgh-exercices-type3-tabToHistogram-table-source" data-i18n="tableSource">المصدر: أزمون كولان «السفر الكبير» ص 76</p>
+                <ul>
+                    <li data-i18n="urbanExplosion1">شهدت المجتمعات المغاربية تحولاً هاماً على مستوى نسبة تحضرها منذ منتصف القرن العشرين، فبعد أن كانت أقلية منها تعيش في المدن نجدها في بداية القرن الواحد والعشرين تتضاعف عدة مرات في <strong>ليبيا</strong> وخاصة في <strong>موريتانيا</strong>، أما في بقية دول المغرب فقد تضاعفت مرة واحدة.</li>
+                    <li data-i18n="urbanExplosion2">كما يظهر الانفجار الحضري من خلال تضخم حجم مدن المغرب العربي وخاصة عواصم دوله. فباستثناء <strong>موريتانيا</strong> التي تضخمت عاصمتها دون أن تصبح مليونية، فإن بقية عواصم دول المغرب العربي مليونية، بل إن <strong>المغرب الأقصى</strong> نجد فيه مدينتين مليونيتين: العاصمة الاقتصادية <strong>الدار البيضاء</strong> إلى جانب العاصمة السياسية <strong>الرباط</strong>.</li>
+                    <li data-i18n="urbanExplosion3">وتتعدد العوامل المفسرة للانفجار الحضري بدول المغرب العربي، أولها ظاهرة السوحلة التي تدعّمت خلال ستينات وسبعينات القرن العشرين بحركة نزوح قوية نحو المدن التي كانت جاذبة بفضل الخدمات التي توفرت فيها وخاصة منها الاجتماعية كالصحة والتعليم، إلى جانب توفر مواطن الشغل في القطاع الصناعي وفي العديد من الخدمات.</li>
+                    <li data-i18n="urbanExplosion4">ولئن مكّن الانفجار الحضري من تحسين مستوى عيش العديد من العائلات النازحة وتغيير نمط عيشها من نمط ريفي وأحياناً قبلي إلى نمط حضري، إلا أن سرعة نسق الانفجار الحضري لم تواكبه هيكلة المدن لاحتواء هذا التزايد السريع في عدد سكان المدن، مما تسبب في انعكاسات سلبية عديدة مثل مشاكل <strong>السكن غير اللائق والسكن الفوضوي</strong> الذي لا تتوفر فيه كل المستلزمات الصحية، إلى جانب مشكل <strong>التلوث</strong> وصعوبة إعادة تدوير النفايات المنزلية دون اعتبار النفايات الصناعية التي تتسبب في مشاكل صحية خطيرة في العديد من المناطق الصناعية التي لم تلتزم منذ إنشائها بكراس شروط مراعٍ للبيئة. كما تسبب تلوث بعض السواحل بالنفايات المنزلية أو الصناعية في تحولها إلى شواطئ ممنوعة على المصطافين.</li>
+                </ul>
+                <p data-i18n="urbanExplosionConclusion">إن الانفجار الحضري كان نتيجة حتمية للانفجار السكاني ولظاهرة السوحلة ولبحث سكان المغرب العربي عن ظروف عيش أفضل توفرت في المدن أكثر من الأرياف.</p>
+            </div>
+
+            <!-- Part II : Demographic transition -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">تباين مواقع مجتمعات المغرب العربي من الانتقال الديمغرافي</span>
+                </h2>
+
+                <!-- 1. Demographic indicators -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="demographicIndicatorsTitle">تطور المؤشرات الديمغرافية لدول المغرب العربي وتباينها</span>
+                </h4>
+                <ul>
+                    <li data-i18n="demographicIndicators1">شهدت كل المؤشرات الديمغرافية لدول المغرب العربي توجهاً نحو التحكم في النمو الطبيعي، بحيث تراجعت الولادات وتراجعت كذلك الوفيات بفضل توفر العديد من الخدمات الصحية، مما تسبب في مرحلة أولى في ارتفاع في نسبة النمو الطبيعي لأن نسق تراجع الوفيات كان أهم من نسق تراجع الولادات، فكان الانفجار الديمغرافي في كل دول المغرب العربي.</li>
+                    <li data-i18n="demographicIndicators2">ولئن تمكنت كل من <strong>الجزائر</strong> و<strong>المغرب الأقصى</strong> وخاصة <strong>تونس</strong> من الضغط على الولادات بتطبيق سياسة التنظيم العائلي والتحكم في النمو الطبيعي الذي أصبح معتدلاً، فإن كلا من <strong>ليبيا</strong> وخاصة <strong>موريتانيا</strong> لا تزالان في المرحلة الأولى من الانتقال الديمغرافي، فلا زالت نسبة الولادات مرتفعة رغم التراجع الكبير لنسبة الوفيات، وهو ما يجعل النمو الطبيعي يحافظ على ارتفاعه.</li>
+                </ul>
+
+                <!-- 2. Age pyramids -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="agePyramidsTitle">آثار متباينة للتحولات الديمغرافية على هرم الأعمار في دول المغرب العربي</span>
+                </h4>
+                <ul>
+                    <li data-i18n="agePyramids1">تنفرد <strong>موريتانيا</strong> بهرم أعمار مميز للدول ذات النمو الطبيعي المرتفع، فنسبة الولادات المرتفعة جعلت <strong>قاعدة الهرم عريضة</strong> بحكم ارتفاع نسبة الأطفال إلى أكثر من <strong>40%</strong>، و<strong>قمة حادة</strong> نظراً لضعف نسبة الشيوخ، فهي تقل عن <strong>4%</strong>.</li>
+                    <li data-i18n="agePyramids2">أما <strong>المغرب الأقصى</strong> و<strong>الجزائر</strong> و<strong>ليبيا</strong> فإن النمو الطبيعي فيها معتدل بشكل تسبب في تراجع نسبة الأطفال إلى ما بين <strong>30 و35%</strong>، وهو ما يعني بداية تقلص قاعدة هرم الأعمار، لكن قمته لا تزال حادة.</li>
+                    <li data-i18n="agePyramids3">أما <strong>تونس</strong> التي طبقت سياسة التنظيم العائلي في وقت مبكر نسبياً، فقد شهدت نسبة الولادات فيها تراجعاً كبيراً أدى إلى تراجع نسبة الأطفال إلى <strong>27%</strong>، وبالتالي تقلصت قاعدة الهرم أكثر من كل دول المغرب، كما أن قمة الهرم أصبحت أكثر اتساعاً بحكم ارتفاع نسبة الشيوخ إلى <strong>7%</strong>، وهي ضعف نسبة الشيوخ في موريتانيا، لكن ذلك لا ينفي فتوة المجتمع التونسي.</li>
+                </ul>
+
+                <!-- 3. Repercussions of youth -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="youthRepercussionsTitle">أهم انعكاسات فتوة المجتمعات المغاربية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="youthRepercussions1">ثقل <strong>العبء الاجتماعي</strong> الذي تتحمله الدول المغاربية بحكم تحملها مسؤولية الإنفاق على الأطفال في مرحلة الدراسة في عديد المجالات كالتعليم والصحة والنقل. وإذا كان هذا العبء يخف قليلاً في الدول المغاربية النفطية فهو ثقيل جداً في بقية الدول.</li>
+                    <li data-i18n="youthRepercussions2">مع بداية القرن الواحد والعشرين، مكّن تحسن مستوى العيش في بعض الدول المغاربية مثل <strong>تونس</strong> من مساهمة <strong>القطاع الخاص</strong> في تخفيف العبء على الدولة بالمساهمة في تغطية جزء من الخدمات التي كانت حكراً على الدولة مثل التعليم والصحة والنقل.</li>
+                </ul>
+            </div>
+
+            <!-- Part III : Human development -->
+            <div class="lesson-part" id="part3" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">III</span> <span data-i18n="sectionPart3">تحسن عام في مؤشرات التنمية البشرية في دول المغرب العربي</span>
+                </h2>
+
+                <!-- 1. GDP per capita -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="gdpPerCapitaTitle">ارتفاع نصيب الفرد من الناتج الداخلي الخام</span>
+                </h4>
+                <ul>
+                    <li data-i18n="gdpPerCapita1">تحتل <strong>ليبيا</strong> صدارة دول المغرب العربي على مستوى معدل الدخل الفردي فيها، فهي دولة نفطية وعدد سكانها محدود، فقد تجاوز سنة 2005 <strong>11000 $</strong>.</li>
+                    <li data-i18n="gdpPerCapita2">ويتقارب معدل الدخل الفردي السنوي في كل من <strong>تونس</strong> و<strong>الجزائر</strong> في حدود <strong>8000 $</strong>.</li>
+                    <li data-i18n="gdpPerCapita3">ويتراجع في <strong>المغرب الأقصى</strong> إلى حوالي <strong>4500 $</strong>.</li>
+                    <li data-i18n="gdpPerCapita4">أما في <strong>موريتانيا</strong> فإن معدل الدخل الفردي السنوي لا يزال ضعيفاً جداً حسب معطيات سنة 2005، فهو يقل عن <strong>2500 $</strong>.</li>
+                </ul>
+
+                <!-- 2. Infant mortality and life expectancy -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="infantMortalityTitle">تراجع وفيات الرضع وارتفاع أمل الحياة عند الميلاد</span>
+                </h4>
+                <ul>
+                    <li data-i18n="infantMortality1">كانت وفيات الرضع عالية جداً في كل الدول المغربية سنة <strong>1960</strong>، وخاصة في <strong>موريتانيا</strong> حيث بلغت <strong>186‰</strong>، ومتقاربة في بقية الدول بين 150 و160‰. وقد تراجعت كثيراً في هذه الدول وخاصة في <strong>تونس</strong> حيث بلغت <strong>22‰</strong> سنة 2004، وتراوحت بين 30 و37‰ في كل من ليبيا والجزائر والمغرب الأقصى، أما في موريتانيا فكانت مرتفعة نسبياً حيث بلغت <strong>75‰</strong> في نفس التاريخ.</li>
+                    <li data-i18n="infantMortality2">لتراجع وفيات الرضع أثر مباشر على ارتفاع معدل <strong>أمل الحياة عند الميلاد</strong>، ففي سنة 1960 قدّر معدل أمل الحياة بين 48 و50 سنة في كل من تونس والجزائر وليبيا والمغرب الأقصى، وقد تجاوز <strong>70 سنة</strong> في كل منها سنة 2004 وخاصة في ليبيا حيث بلغ <strong>75 سنة</strong>. لكن أمل الحياة في موريتانيا كان ضعيفاً جداً سنة 1960 حيث بلغ <strong>36 سنة</strong>، ورغم تحسنه حيث بلغ 54 سنة عام 2004 إلا أنه لا يزال ضعيفاً جداً بحكم نقص الخدمات الصحية الموفرة للمجتمع.</li>
+                </ul>
+
+                <!-- 3. Schooling and literacy -->
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">3</span>.
+                    <span data-i18n="schoolingLiteracyTitle">ارتفاع نسبة التمدرس وتراجع نسبة الأمية</span>
+                </h4>
+                <ul>
+                    <li data-i18n="schooling1">سجلت <strong>نسب التمدرس</strong> ارتفاعاً هاماً في كل دول المغرب العربي، بما في ذلك موريتانيا حيث بلغت فيها <strong>87.8%</strong> خلال السنة الدراسية 2002/2003، وهي في بقية دول المغرب العربي تتجاوز <strong>90%</strong>، وقد شملت الذكور والإناث على حد السواء.</li>
+                    <li data-i18n="schooling2">وفي مقابل ارتفاع نسب التمدرس، سجلت <strong>نسب الأمية</strong> تراجعاً كبيراً في دول المغرب العربي. ففي سنة 1960 كانت أعلى نسبة أمية في موريتانيا <strong>95%</strong> وأدناها في ليبيا <strong>55%</strong>، في حين تراوحت في بقية الدول بين 84 و90%. وقد سجلت هذه النسب تراجعاً كبيراً في كل الدول، فبلغت أدناها سنة 2003 في ليبيا <strong>18%</strong>، وأقصاها في كل من المغرب الأقصى <strong>49%</strong> وموريتانيا <strong>48.8%</strong>، أما في تونس والجزائر فتراوحت بين 25 و30%.</li>
+                    <li data-i18n="schooling3">تحسن عام في <strong>مؤشر التنمية البشرية</strong> في كل دول المغرب العربي، رغم أنه لا زال ضعيفاً في موريتانيا، لكنه في تونس وخاصة في ليبيا يقارب <strong>0.8</strong> وهو مؤهل لمزيد الارتفاع.</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">ساهمت الضغوطات الطبيعية والاقتصادية في إحداث تحولات هامة في المجتمعات المغاربية، وقد راهنت بعض الدول المغاربية مثل تونس على التنمية الاجتماعية فنالت الأسبقية في بعض المجالات السكانية. فهل وجدت المجتمعات المغربية مبتغاها في التنمية الاقتصادية التي تحققت منذ استقلالها؟</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 دول ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defMaghreb">المغرب العربي</strong>: <span data-i18n="defMaghrebDesc">مجموعة إقليمية تتكون من 5 دول (ليبيا وتونس والجزائر والمغرب الأقصى وموريتانيا)، تجاوز عدد سكانها 100 مليون نسمة منذ 2020، وتتميز بتفاوت كبير في التوزع السكاني والتنمية البشرية بين دولها.</span></li>
+                        <li><strong class="key-location" data-i18n="defLibya">ليبيا</strong>: <span data-i18n="defLibyaDesc">دولة نفطية محدودة السكان، تعد أعلى دول المغرب العربي في نسبة التحضر (86%) وفي معدل الدخل الفردي (أكثر من 11000$ سنة 2005)، وفي معدل أمل الحياة عند الميلاد (75 سنة سنة 2004)، وفي انخفاض نسبة الأمية (18% سنة 2003).</span></li>
+                        <li><strong class="key-location" data-i18n="defTunisia">تونس</strong>: <span data-i18n="defTunisiaDesc">دولة راهنت على التنمية الاجتماعية، وطبقت سياسة التنظيم العائلي مبكراً، فتراجعت فيها نسبة الأطفال إلى 27%، وارتفعت نسبة الشيوخ إلى 7%، وانخفضت وفيات الرضع إلى 22‰ سنة 2004، وبلغ معدل الدخل الفردي فيها نحو 8000$ سنة 2005.</span></li>
+                        <li><strong class="key-location" data-i18n="defAlgeria">الجزائر</strong>: <span data-i18n="defAlgeriaDesc">دولة نفطية كبرى في المغرب العربي، تمكنت من الضغط على الولادات بتطبيق سياسة التنظيم العائلي، فيتقارب معدل دخلها الفردي مع تونس (نحو 8000$ سنة 2005)، وتتراوح فيها نسبة الأمية بين 25 و30%.</span></li>
+                        <li><strong class="key-location" data-i18n="defMorocco">المغرب الأقصى</strong>: <span data-i18n="defMoroccoDesc">دولة في المغرب العربي، بلغت فيها نسبة التحضر 55.1% في بداية القرن الواحد والعشرين، ويضم مدينتين مليونيتين (الدار البيضاء والرباط)، ويبلغ معدل دخلها الفردي نحو 4500$ سنة 2005، وترتفع فيها نسبة الأمية إلى 49% سنة 2003.</span></li>
+                        <li><strong class="key-location" data-i18n="defMauritania">موريتانيا</strong>: <span data-i18n="defMauritaniaDesc">دولة في المغرب العربي، لا تزال في المرحلة الأولى من الانتقال الديمغرافي، وتنفرد بهرم أعمار ذي قاعدة عريضة (نسبة الأطفال أكثر من 40%) وقمة حادة (نسبة الشيوخ أقل من 4%)، ولا يزال دخلها الفردي ضعيفاً (أقل من 2500$ سنة 2005) ونسبة الأمية مرتفعة (48.8% سنة 2003).</span></li>
+                        <li><strong class="key-location" data-i18n="defCasablanca">الدار البيضاء</strong>: <span data-i18n="defCasablancaDesc">العاصمة الاقتصادية للمغرب الأقصى، وهي إحدى المدينتين المليونيتين فيه إلى جانب العاصمة السياسية الرباط.</span></li>
+                        <li><strong class="key-location" data-i18n="defRabat">الرباط</strong>: <span data-i18n="defRabatDesc">العاصمة السياسية للمغرب الأقصى، وهي إحدى المدينتين المليونيتين فيه إلى جانب الدار البيضاء.</span></li>
+                        <li><strong class="key-location" data-i18n="defSenegal">السنغال</strong>: <span data-i18n="defSenegalDesc">نهر يمر بأقصى جنوب موريتانيا، وتنشأ حول ضفته الشمالية بعض الواحات الطبيعية التي تعرف كثافات سكانية متوسطة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-events">
+                    <h3 data-i18n="defEvents">⚔️ أحداث هامة</h3>
+                    <ul>
+                        <li><strong class="key-event" data-i18n="defBanuHilal">قدوم قبائل بني هلال</strong>: <span data-i18n="defBanuHilalDesc">حدث تاريخي مرتبط ببداية ظاهرة السوحلة في دول المغرب العربي وخاصة ليبيا وتونس والجزائر، إذ ساهمت هذه القبائل العربية في تعمير المناطق الساحلية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-years">
+                    <h3 data-i18n="defYears">📅 سنوات وفترات</h3>
+                    <ul>
+                        <li><strong class="key-year">1960</strong>: <span data-i18n="defYear1960Desc">سنة تسجيل أعلى نسب وفيات الرضع (186‰ في موريتانيا) وأدنى معدلات أمل الحياة عند الميلاد (36 سنة في موريتانيا، و48-50 سنة في بقية الدول) وأعلى نسب أمية (95% في موريتانيا، و55% في ليبيا).</span></li>
+                        <li><strong class="key-year">2002/2003</strong>: <span data-i18n="defYear20022003Desc">السنة الدراسية التي بلغت فيها نسبة التمدرس في موريتانيا 87.8%.</span></li>
+                        <li><strong class="key-year">2003</strong>: <span data-i18n="defYear2003Desc">السنة التي سجلت فيها نسب الأمية أدناها في ليبيا (18%) وأقصاها في المغرب الأقصى (49%) وموريتانيا (48.8%).</span></li>
+                        <li><strong class="key-year">2004</strong>: <span data-i18n="defYear2004Desc">السنة التي بلغت فيها وفيات الرضع 22‰ في تونس، وتجاوز فيها معدل أمل الحياة 70 سنة في تونس والجزائر وليبيا والمغرب الأقصى (75 سنة في ليبيا).</span></li>
+                        <li><strong class="key-year">2005</strong>: <span data-i18n="defYear2005Desc">السنة التي بلغ فيها معدل الدخل الفردي السنوي أكثر من 11000$ في ليبيا، ونحو 8000$ في تونس والجزائر، و4500$ في المغرب الأقصى، وأقل من 2500$ في موريتانيا.</span></li>
+                        <li><strong class="key-year">2020</strong>: <span data-i18n="defYear2020Desc">السنة التي تجاوز فيها عدد سكان المغرب العربي 100 مليون نسمة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-organizations">
+                    <h3 data-i18n="defOrganizations">🏢 منظمات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-organization" data-i18n="defAMU">اتحاد المغرب العربي</strong>: <span data-i18n="defAMUDesc">منظمة إقليمية تأسست يوم 17 فيفري 1989، وأسّست للوحدة السياسية والاقتصادية بين دول المغرب العربي الخمس، لكن التعاون الفعلي بين دوله في المجالات السكانية والتنموية يبقى محدوداً.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defCoastalization">السوحلة</strong>: <span data-i18n="defCoastalizationDesc">ظاهرة تركز السكان والأنشطة الاقتصادية على السواحل، وتفاقمت في المغرب العربي بفعل عوامل طبيعية وتاريخية وسياسية اقتصادية، مما أدى إلى اكتظاظ المناطق الساحلية وتفقر المناطق الداخلية.</span></li>
+                        <li><strong class="key-other" data-i18n="defUrbanizationRate">نسبة التحضر</strong>: <span data-i18n="defUrbanizationRateDesc">نسبة سكان المدن من مجموع السكان في دولة ما؛ ارتفعت بشكل كبير في دول المغرب العربي منذ منتصف القرن العشرين (مثلاً من 2.3% إلى 58% في موريتانيا، ومن 25% إلى 86% في ليبيا).</span></li>
+                        <li><strong class="key-other" data-i18n="defUrbanExplosion">الانفجار الحضري</strong>: <span data-i18n="defUrbanExplosionDesc">التزايد السريع لعدد سكان المدن وحجم المدن، وهو نتيجة حتمية للانفجار السكاني وللسوحلة، وترتبت عنه مشاكل السكن غير اللائق والسكن الفوضوي والتلوث وصعوبة إعادة تدوير النفايات.</span></li>
+                        <li><strong class="key-other" data-i18n="defDemographicTransition">الانتقال الديمغرافي</strong>: <span data-i18n="defDemographicTransitionDesc">المرحلة الانتقالية من نظام ديمغرافي تقليدي (ولادات ووفيات مرتفعة) إلى نظام عصري (ولادات ووفيات منخفضة)؛ وصلت إليه الجزائر والمغرب الأقصى وتونس، بينما لا تزال ليبيا وموريتانيا في مرحلته الأولى.</span></li>
+                        <li><strong class="key-other" data-i18n="defAgePyramid">هرم الأعمار</strong>: <span data-i18n="defAgePyramidDesc">تمثيل بياني لتركيبة السكان حسب السن والجنس؛ يتميز في موريتانيا بقاعدة عريضة وقمة حادة (فتوة)، وفي تونس بقاعدة متقلصة وقمة متسعة (بداية تهرم).</span></li>
+                        <li><strong class="key-other" data-i18n="defNaturalGrowth">النمو الطبيعي</strong>: <span data-i18n="defNaturalGrowthDesc">الفرق بين نسبة الولادات ونسبة الوفيات؛ كان مرتفعاً في كل دول المغرب العربي في المرحلة الأولى، ثم اعتدل في الجزائر والمغرب الأقصى وتونس، بينما لا يزال مرتفعاً في ليبيا وموريتانيا.</span></li>
+                        <li><strong class="key-other" data-i18n="defFamilyPlanning">سياسة التنظيم العائلي</strong>: <span data-i18n="defFamilyPlanningDesc">سياسة سكانية تطبقها دول المغرب العربي وخاصة تونس والجزائر والمغرب الأقصى، تهدف إلى الضغط على الولادات والتحكم في النمو الطبيعي.</span></li>
+                        <li><strong class="key-other" data-i18n="defYouthSociety">المجتمع الفتي</strong>: <span data-i18n="defYouthSocietyDesc">مجتمع ترتفع فيه نسبة الأطفال والشباب، ويتميز بهرم أعمار ذي قاعدة عريضة وقمة حادة، ويترتب عنه ثقل العبء الاجتماعي على الدولة في مجالات التعليم والصحة والنقل.</span></li>
+                        <li><strong class="key-other" data-i18n="defGDPPerCapita">نصيب الفرد من الناتج الداخلي الخام</strong>: <span data-i18n="defGDPPerCapitaDesc">مؤشر اقتصادي يقيس متوسط الدخل الفردي السنوي، ويُعدّ من أهم مؤشرات التنمية البشرية؛ أعلى معدلاته في ليبيا، وأدناها في موريتانيا.</span></li>
+                        <li><strong class="key-other" data-i18n="defInfantMortality">وفيات الرضع</strong>: <span data-i18n="defInfantMortalityDesc">عدد وفيات الأطفال الرضع لكل ألف مولود حي؛ تراجعت بشكل كبير في دول المغرب العربي من 150-186‰ سنة 1960 إلى 22-75‰ سنة 2004، بفضل تحسن الخدمات الصحية.</span></li>
+                        <li><strong class="key-other" data-i18n="defLifeExpectancy">أمل الحياة عند الميلاد</strong>: <span data-i18n="defLifeExpectancyDesc">عدد السنوات التي يُتوقع أن يعيشها المولود في ظروف الوفيات السائدة؛ ارتفع من 36-50 سنة سنة 1960 إلى 54-75 سنة سنة 2004 في دول المغرب العربي.</span></li>
+                        <li><strong class="key-other" data-i18n="defSchoolingRate">نسبة التمدرس</strong>: <span data-i18n="defSchoolingRateDesc">نسبة الأطفال الملتحقين بالمدارس من مجموع الأطفال في سن التمدرس؛ ارتفعت إلى أكثر من 90% في أغلب دول المغرب العربي (87.8% في موريتانيا سنة 2002/2003).</span></li>
+                        <li><strong class="key-other" data-i18n="defIlliteracyRate">نسبة الأمية</strong>: <span data-i18n="defIlliteracyRateDesc">نسبة السكان الذين لا يعرفون القراءة والكتابة؛ تراجعت بشكل كبير في دول المغرب العربي من 55-95% سنة 1960 إلى 18-49% سنة 2003.</span></li>
+                        <li><strong class="key-other" data-i18n="defHDI">مؤشر التنمية البشرية</strong>: <span data-i18n="defHDIDesc">مؤشر مركب يقيس مستوى التنمية البشرية في دولة ما (الدخل والتعليم والصحة)؛ تحسّن في كل دول المغرب العربي، لكنه لا يزال ضعيفاً في موريتانيا، ويقارب 0.8 في تونس وليبيا.</span></li>
+                        <li><strong class="key-other" data-i18n="defMillionCity">المدينة المليونية</strong>: <span data-i18n="defMillionCityDesc">مدينة يتجاوز عدد سكانها مليون نسمة؛ كل عواصم المغرب العربي مليونية باستثناء نواكشوط، ويضم المغرب الأقصى مدينتين مليونيتين (الدار البيضاء والرباط).</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Summary box -->
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: يتوزع سكان المغرب العربي (أكثر من 100 مليون نسمة منذ 2020) توزعاً غير متوازن، إذ تتركز الكثافات على السواحل الشمالية بفعل السوحلة، بينما تبقى المناطق الداخلية ضعيفة التجهيز. وعرف المغرب العربي انفجاراً حضرياً كبيراً (نسبة التحضر 55-86% في بداية القرن 21) رافقته مشاكل سكنية وبيئية. كما تباينت مواقع دوله من الانتقال الديمغرافي: تونس والجزائر والمغرب الأقصى في مرحلة متقدمة، بينما لا تزال ليبيا وموريتانيا في مرحلة أولى. وقد سجلت مؤشرات التنمية البشرية تحسناً عاماً (ارتفاع الدخل الفردي وتراجع وفيات الرضع وارتفاع أمل الحياة والتمدرس وتراجع الأمية).</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط وصور توضيحية</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson3/maghreb_population_map.jpg" alt="خريطة توزع السكان بالمغرب العربي" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">خريطة توزع السكان بالمغرب العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson3/urban_growth_maghreb.jpg" alt="الانفجار الحضري بالمغرب العربي" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">الانفجار الحضري بالمغرب العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson3/age_pyramids_maghreb.jpg" alt="أهرامات الأعمار بدول المغرب العربي" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">أهرامات الأعمار بدول المغرب العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson3/demographic_transition_maghreb.jpg" alt="الانتقال الديمغرافي بالمغرب العربي" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">الانتقال الديمغرافي بالمغرب العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson3/coastal_cities_maghreb.jpg" alt="المدن الساحلية بالمغرب العربي" data-i18n-alt="galleryAlt5" loading="lazy">
+                        <figcaption data-i18n="galleryCap5">المدن الساحلية بالمغرب العربي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets9/lessons/geography/unit1/lesson3/human_development_indicators.jpg" alt="مؤشرات التنمية البشرية" data-i18n-alt="galleryAlt6" loading="lazy">
+                        <figcaption data-i18n="galleryCap6">مؤشرات التنمية البشرية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y09_geo_exercisess_mod1_lesson3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات، الدول، الأحداث، السنوات والمنظمات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الصور والخرائط</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "9th Basic",
+                moduleName: "Geography / Axis 1: The Maghreb",
+                lessonTitleSample: "Population and Human Development in the Maghreb",
+                sectionIntro: "Introduction",
+                introText: "Our previous knowledge of the climatic and topographical natural characteristics of the Maghreb countries, along with the geographical distribution of their natural resources, allows us to imagine the map of their population distribution given the presence of attractive and repulsive areas.",
+                problematiqueText: "What are the most important characteristics of the spatial and urban distribution of population in the Maghreb countries, knowing that they have exceeded 100 million inhabitants since 2020? What are the main features of demographic growth and its repercussions? And what is the reality of human development in these countries?",
+                sectionPart1: "Spatial Distribution of Population in the Maghreb Countries and Urban Explosion",
+                coastalizationTitle: "The Aggravation of Coastalization",
+                coastalManifestationsTitle: "Its Manifestations",
+                coastalManifestationsText: "The rise of population densities on the northern coasts of the Maghreb.",
+                coastalFactorsTitle: "Its Factors",
+                coastalFactorsNatural: "<strong>Natural:</strong> Consist of the availability of many favorable conditions for settlement in these areas, whether climatic or topographical.",
+                coastalFactorsHistoric: "<strong>Historical:</strong> The phenomenon of coastalization began in the Maghreb countries, especially Libya, Tunisia, and Algeria, with the arrival of the <strong>Banu Hilal</strong> tribes, then strengthened during the colonial era following the settlers' seizure of agricultural land and the forced migration of many rural people toward nearby coastal cities, especially the capitals. After the independence of the Maghreb countries during the 1960s and especially the 1970s, the migration movement toward coastal cities was reinforced because of the services and employment opportunities available there.",
+                coastalFactorsPolitical: "<strong>Political-economic:</strong> Consist of the Maghreb countries' focus on coastal areas densely populated, equipping them with infrastructure that qualified them to attract some local and especially foreign investments, and establishing many private projects that deepened the phenomenon of coastalization and the openness of these areas to the northern Mediterranean coasts, specifically Italy, France, and Spain.",
+                coastalRepercussionsTitle: "Its Repercussions on the Maghreb Economy",
+                coastalRepercussionsText: "If we exclude some natural oases emerging around water points or along the northern bank of the Senegal River at the far south of Mauritania, or some artificial oases resulting from the exploitation of a natural resource in the Sahara of Libya, Algeria, or Mauritania, where densities are medium, the rest of the interior regions of the Maghreb countries suffer from a state of poverty in their structural equipment, which does not encourage investors to go to them despite the enactment of many legislations urging them to invest in those regions. Meanwhile, coastal areas suffer from overcrowding, poor soil, and high salinity. We find vast interior areas with low population density waiting for the state's attention and for giving them their chances in sustainable development.",
+                urbanExplosionTitle: "The Urban Explosion in the Maghreb",
+                tableState: "Country",
+                tableUrbanMid: "Urbanization rate in the mid-20th century",
+                tableUrban21: "Urbanization rate at the beginning of the 21st century",
+                countryLibya: "Libya",
+                countryTunisia: "Tunisia",
+                countryAlgeria: "Algeria",
+                countryMorocco: "Morocco",
+                countryMauritania: "Mauritania",
+                tableSource: "Source: Azmon Colan, 'The Great Journey', p. 76",
+                urbanExplosion1: "Maghreb societies have witnessed a significant transformation in their urbanization rate since the mid-20th century; after only a minority lived in cities, at the beginning of the 21st century it has multiplied several times in <strong>Libya</strong> and especially in <strong>Mauritania</strong>, while in the rest of the Maghreb countries it doubled once.",
+                urbanExplosion2: "The urban explosion is also evident in the massive growth of Maghreb cities, especially the capitals of its states. Except for <strong>Mauritania</strong>, whose capital grew without becoming a million-inhabitant city, the rest of the Maghreb capitals are million-inhabitant cities; <strong>Morocco</strong> even has two million-inhabitant cities: the economic capital <strong>Casablanca</strong> alongside the political capital <strong>Rabat</strong>.",
+                urbanExplosion3: "Multiple factors explain the urban explosion in the Maghreb countries; the first is the phenomenon of coastalization which was reinforced during the 1960s and 1970s by a strong migration movement toward the cities that were attractive thanks to the services available in them, especially social services such as health and education, along with the availability of jobs in the industrial sector and many services.",
+                urbanExplosion4: "While the urban explosion has improved the living standards of many displaced families and changed their lifestyle from rural and sometimes tribal to urban, the speed of urban explosion was not matched by the structuring of cities to contain this rapid increase in urban population, causing many negative repercussions such as <strong>inadequate housing and informal housing</strong> lacking all health requirements, along with the problem of <strong>pollution</strong> and the difficulty of recycling household waste, not to mention industrial waste that causes serious health problems in many industrial zones that have not complied since their creation with an environmentally respectful terms of reference. Pollution of some coasts with household or industrial waste has also turned them into beaches forbidden to swimmers.",
+                urbanExplosionConclusion: "The urban explosion was an inevitable result of the population explosion, the coastalization phenomenon, and the search of Maghreb populations for better living conditions available in cities more than in rural areas.",
+                sectionPart2: "Divergent Positions of Maghreb Societies in the Demographic Transition",
+                demographicIndicatorsTitle: "Evolution and Divergence of Demographic Indicators in the Maghreb Countries",
+                demographicIndicators1: "All demographic indicators of the Maghreb countries have moved toward controlling natural growth; births declined and deaths also declined thanks to the availability of many health services, causing in a first phase a rise in the natural growth rate because the pace of death decline was greater than the pace of birth decline, resulting in demographic explosion in all Maghreb countries.",
+                demographicIndicators2: "While <strong>Algeria</strong>, <strong>Morocco</strong>, and especially <strong>Tunisia</strong> managed to reduce births by implementing family planning policy and controlling natural growth, which became moderate, both <strong>Libya</strong> and especially <strong>Mauritania</strong> are still in the first phase of demographic transition; their birth rates remain high despite the significant decline in death rates, keeping natural growth high.",
+                agePyramidsTitle: "Divergent Effects of Demographic Changes on the Age Pyramids in the Maghreb Countries",
+                agePyramids1: "<strong>Mauritania</strong> stands out with an age pyramid characteristic of countries with high natural growth; high birth rates made the <strong>base of the pyramid broad</strong> due to the high proportion of children exceeding <strong>40%</strong>, and the <strong>peak sharp</strong> due to the low proportion of the elderly, which is less than <strong>4%</strong>.",
+                agePyramids2: "<strong>Morocco</strong>, <strong>Algeria</strong>, and <strong>Libya</strong> have moderate natural growth, causing the proportion of children to decline to between <strong>30 and 35%</strong>, which means the base of the age pyramid has begun to shrink, but its peak is still sharp.",
+                agePyramids3: "<strong>Tunisia</strong>, which implemented family planning policy relatively early, has seen a significant decline in birth rates leading to a drop in the proportion of children to <strong>27%</strong>; the base of the pyramid has thus shrunk more than in any other Maghreb country, and the peak of the pyramid has become wider due to the rise in the proportion of the elderly to <strong>7%</strong>, double the elderly rate in Mauritania, though this does not negate the youthfulness of Tunisian society.",
+                youthRepercussionsTitle: "Main Repercussions of the Youthfulness of Maghreb Societies",
+                youthRepercussions1: "The weight of the <strong>social burden</strong> borne by Maghreb states due to their responsibility for spending on school-age children in many fields such as education, health, and transport. While this burden is somewhat lighter in oil-producing Maghreb countries, it is very heavy in the rest.",
+                youthRepercussions2: "At the beginning of the 21st century, the improvement in living standards in some Maghreb countries such as <strong>Tunisia</strong> has enabled the <strong>private sector</strong> to contribute to alleviating the burden on the state by covering part of the services that were previously the state's monopoly, such as education, health, and transport.",
+                sectionPart3: "General Improvement in Human Development Indicators in the Maghreb Countries",
+                gdpPerCapitaTitle: "Rise in GDP per Capita",
+                gdpPerCapita1: "<strong>Libya</strong> leads the Maghreb countries in terms of per capita income; it is an oil-producing country with a limited population, exceeding <strong>11000 $</strong> in 2005.",
+                gdpPerCapita2: "The annual per capita income in both <strong>Tunisia</strong> and <strong>Algeria</strong> converges around <strong>8000 $</strong>.",
+                gdpPerCapita3: "It declines in <strong>Morocco</strong> to about <strong>4500 $</strong>.",
+                gdpPerCapita4: "In <strong>Mauritania</strong>, the annual per capita income remains very weak according to 2005 data, below <strong>2500 $</strong>.",
+                infantMortalityTitle: "Decline in Infant Mortality and Rise in Life Expectancy at Birth",
+                infantMortality1: "Infant mortality was very high in all Maghreb countries in <strong>1960</strong>, especially in <strong>Mauritania</strong> where it reached <strong>186‰</strong>, and close in the other countries between 150 and 160‰. It has declined greatly in these countries, especially in <strong>Tunisia</strong> where it reached <strong>22‰</strong> in 2004, and ranged between 30 and 37‰ in Libya, Algeria, and Morocco, while in Mauritania it was relatively high at <strong>75‰</strong> on the same date.",
+                infantMortality2: "The decline in infant mortality has a direct impact on the rise in <strong>life expectancy at birth</strong>; in 1960, life expectancy was estimated between 48 and 50 years in Tunisia, Algeria, Libya, and Morocco, and exceeded <strong>70 years</strong> in each of them in 2004, especially in Libya where it reached <strong>75 years</strong>. However, life expectancy in Mauritania was very low in 1960 at <strong>36 years</strong>, and despite its improvement to 54 years in 2004, it remains very weak due to the lack of health services available to society.",
+                schoolingLiteracyTitle: "Rise in Schooling Rate and Decline in Illiteracy Rate",
+                schooling1: "<strong>Schooling rates</strong> have risen significantly in all Maghreb countries, including Mauritania where it reached <strong>87.8%</strong> during the academic year 2002/2003; in the rest of the Maghreb countries it exceeds <strong>90%</strong>, and has included both males and females equally.",
+                schooling2: "In return for the rise in schooling rates, <strong>illiteracy rates</strong> have declined greatly in the Maghreb countries. In 1960, the highest illiteracy rate was in Mauritania at <strong>95%</strong> and the lowest in Libya at <strong>55%</strong>, while it ranged between 84 and 90% in the other countries. These rates have declined greatly in all countries, reaching their lowest in 2003 in Libya at <strong>18%</strong>, and their highest in Morocco at <strong>49%</strong> and Mauritania at <strong>48.8%</strong>, while in Tunisia and Algeria they ranged between 25 and 30%.",
+                schooling3: "General improvement in the <strong>Human Development Index</strong> in all Maghreb countries, although it remains weak in Mauritania; in Tunisia and especially in Libya it approaches <strong>0.8</strong> and is qualified for further rise.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Natural and economic pressures have contributed to significant transformations in Maghreb societies; some Maghreb countries, such as Tunisia, have bet on social development and gained precedence in some demographic fields. Have Maghreb societies found their goal in the economic development achieved since their independence?",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Illustrative Images",
+                defLocations: "🌍 Countries and Regions",
+                defEvents: "⚔️ Key Events",
+                defYears: "📅 Years and Periods",
+                defOrganizations: "🏢 Organizations and Institutions",
+                defOthers: "📌 Other",
+                defMaghreb: "The Maghreb",
+                defMaghrebDesc: "A regional group consisting of 5 countries (Libya, Tunisia, Algeria, Morocco, and Mauritania), whose population has exceeded 100 million since 2020, and characterized by great disparity in spatial distribution and human development between its states.",
+                defLibya: "Libya",
+                defLibyaDesc: "An oil-producing country with limited population; it has the highest urbanization rate in the Maghreb (86%), the highest per capita income (more than 11000 $ in 2005), the highest life expectancy (75 years in 2004), and the lowest illiteracy rate (18% in 2003).",
+                defTunisia: "Tunisia",
+                defTunisiaDesc: "A country that bet on social development and implemented family planning early; the proportion of children declined to 27%, the proportion of the elderly rose to 7%, infant mortality dropped to 22‰ in 2004, and per capita income reached about 8000 $ in 2005.",
+                defAlgeria: "Algeria",
+                defAlgeriaDesc: "A major oil-producing Maghreb country; it managed to reduce births by implementing family planning policy, its per capita income is close to Tunisia's (about 8000 $ in 2005), and its illiteracy rate ranges between 25 and 30%.",
+                defMorocco: "Morocco",
+                defMoroccoDesc: "A Maghreb country whose urbanization rate reached 55.1% at the beginning of the 21st century; it has two million-inhabitant cities (Casablanca and Rabat), per capita income about 4500 $ in 2005, and illiteracy rate up to 49% in 2003.",
+                defMauritania: "Mauritania",
+                defMauritaniaDesc: "A Maghreb country still in the first phase of demographic transition; it stands out with an age pyramid with a broad base (children more than 40%) and a sharp peak (elderly less than 4%); its per capita income remains weak (less than 2500 $ in 2005) and its illiteracy rate high (48.8% in 2003).",
+                defCasablanca: "Casablanca",
+                defCasablancaDesc: "The economic capital of Morocco; it is one of its two million-inhabitant cities alongside the political capital Rabat.",
+                defRabat: "Rabat",
+                defRabatDesc: "The political capital of Morocco; it is one of its two million-inhabitant cities alongside Casablanca.",
+                defSenegal: "Senegal",
+                defSenegalDesc: "A river passing through the far south of Mauritania, along whose northern bank some natural oases with medium population densities emerge.",
+                defBanuHilal: "The Arrival of Banu Hilal Tribes",
+                defBanuHilalDesc: "A historical event linked to the beginning of the coastalization phenomenon in the Maghreb countries, especially Libya, Tunisia, and Algeria; these Arab tribes contributed to the settlement of coastal areas.",
+                defYear1960Desc: "Year when the highest infant mortality rates (186‰ in Mauritania) and lowest life expectancy (36 years in Mauritania, 48-50 years in other countries) and highest illiteracy rates (95% in Mauritania, 55% in Libya) were recorded.",
+                defYear20022003Desc: "The academic year when the schooling rate in Mauritania reached 87.8%.",
+                defYear2003Desc: "The year when illiteracy rates recorded their lowest in Libya (18%) and their highest in Morocco (49%) and Mauritania (48.8%).",
+                defYear2004Desc: "The year when infant mortality reached 22‰ in Tunisia, and life expectancy exceeded 70 years in Tunisia, Algeria, Libya, and Morocco (75 years in Libya).",
+                defYear2005Desc: "The year when per capita income reached more than 11000 $ in Libya, about 8000 $ in Tunisia and Algeria, 4500 $ in Morocco, and less than 2500 $ in Mauritania.",
+                defYear2020Desc: "The year when the population of the Maghreb exceeded 100 million inhabitants.",
+                defAMU: "The Arab Maghreb Union",
+                defAMUDesc: "A regional organization founded on February 17, 1989, laying the groundwork for political and economic unity among the five Maghreb countries; however, actual cooperation between its states in demographic and development fields remains limited.",
+                defCoastalization: "Coastalization",
+                defCoastalizationDesc: "The phenomenon of concentration of population and economic activities on the coasts; it has worsened in the Maghreb due to natural, historical, and political-economic factors, leading to overcrowding of coastal areas and impoverishment of interior regions.",
+                defUrbanizationRate: "Urbanization Rate",
+                defUrbanizationRateDesc: "The proportion of urban population out of the total population in a country; it has risen greatly in the Maghreb since the mid-20th century (e.g., from 2.3% to 58% in Mauritania, and from 25% to 86% in Libya).",
+                defUrbanExplosion: "Urban Explosion",
+                defUrbanExplosionDesc: "The rapid increase in urban population and city size; it is an inevitable result of the population explosion and coastalization, and has produced problems of inadequate housing, informal housing, pollution, and difficulty in recycling waste.",
+                defDemographicTransition: "Demographic Transition",
+                defDemographicTransitionDesc: "The transitional phase from a traditional demographic regime (high births and deaths) to a modern one (low births and deaths); Algeria, Morocco, and Tunisia have reached it, while Libya and Mauritania are still in its first phase.",
+                defAgePyramid: "Age Pyramid",
+                defAgePyramidDesc: "A graphical representation of population composition by age and sex; it is characterized in Mauritania by a broad base and sharp peak (youthfulness), and in Tunisia by a shrinking base and widening peak (beginning of ageing).",
+                defNaturalGrowth: "Natural Growth",
+                defNaturalGrowthDesc: "The difference between birth rate and death rate; it was high in all Maghreb countries in the first phase, then became moderate in Algeria, Morocco, and Tunisia, while it remains high in Libya and Mauritania.",
+                defFamilyPlanning: "Family Planning Policy",
+                defFamilyPlanningDesc: "A population policy applied by Maghreb countries, especially Tunisia, Algeria, and Morocco, aimed at reducing births and controlling natural growth.",
+                defYouthSociety: "Youthful Society",
+                defYouthSocietyDesc: "A society with a high proportion of children and youth, characterized by an age pyramid with a broad base and sharp peak, and resulting in a heavy social burden on the state in education, health, and transport.",
+                defGDPPerCapita: "GDP per Capita",
+                defGDPPerCapitaDesc: "An economic indicator measuring average annual per capita income, one of the most important indicators of human development; its highest rates are in Libya and its lowest in Mauritania.",
+                defInfantMortality: "Infant Mortality",
+                defInfantMortalityDesc: "The number of infant deaths per thousand live births; it has declined greatly in the Maghreb from 150-186‰ in 1960 to 22-75‰ in 2004, thanks to improved health services.",
+                defLifeExpectancy: "Life Expectancy at Birth",
+                defLifeExpectancyDesc: "The number of years a newborn is expected to live under prevailing mortality conditions; it has risen from 36-50 years in 1960 to 54-75 years in 2004 in the Maghreb countries.",
+                defSchoolingRate: "Schooling Rate",
+                defSchoolingRateDesc: "The proportion of children enrolled in schools out of all children of school age; it has risen to more than 90% in most Maghreb countries (87.8% in Mauritania in 2002/2003).",
+                defIlliteracyRate: "Illiteracy Rate",
+                defIlliteracyRateDesc: "The proportion of the population who cannot read or write; it has declined greatly in the Maghreb from 55-95% in 1960 to 18-49% in 2003.",
+                defHDI: "Human Development Index",
+                defHDIDesc: "A composite indicator measuring the level of human development in a country (income, education, and health); it has improved in all Maghreb countries but remains weak in Mauritania and approaches 0.8 in Tunisia and Libya.",
+                defMillionCity: "Million-Inhabitant City",
+                defMillionCityDesc: "A city with more than one million inhabitants; all Maghreb capitals are million-inhabitant cities except Nouakchott, and Morocco has two million-inhabitant cities (Casablanca and Rabat).",
+                summaryText: "Key takeaway: The population of the Maghreb (more than 100 million since 2020) is unevenly distributed, with densities concentrated on the northern coasts due to coastalization, while the interior regions remain poorly equipped. The Maghreb has experienced a major urban explosion (urbanization rate of 55-86% at the beginning of the 21st century), accompanied by housing and environmental problems. The countries' positions in the demographic transition vary: Tunisia, Algeria, and Morocco are in an advanced phase, while Libya and Mauritania are still in the first phase. Human development indicators have shown general improvement (higher per capita income, lower infant mortality, higher life expectancy and schooling, lower illiteracy).",
+                galleryAlt1: "Map of population distribution in the Maghreb",
+                galleryAlt2: "Urban explosion in the Maghreb",
+                galleryAlt3: "Age pyramids in Maghreb countries",
+                galleryAlt4: "Demographic transition in the Maghreb",
+                galleryAlt5: "Coastal cities in the Maghreb",
+                galleryAlt6: "Human development indicators",
+                galleryCap1: "Map of population distribution in the Maghreb",
+                galleryCap2: "Urban explosion in the Maghreb",
+                galleryCap3: "Age pyramids in Maghreb countries",
+                galleryCap4: "Demographic transition in the Maghreb",
+                galleryCap5: "Coastal cities in the Maghreb",
+                galleryCap6: "Human development indicators",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main",
+                printModalTitle: "Select Sections to Print",
+                printModalSubtitle: "Choose one or more sections to include:",
+                printOptionLesson: "📖 Lesson",
+                printOptionLessonDesc: "Introduction, parts, conclusion and summary",
+                printOptionDefinitions: "📚 Definitions",
+                printOptionDefinitionsDesc: "Key terms, countries, events, years and organizations",
+                printOptionGallery: "🗺️ Gallery",
+                printOptionGalleryDesc: "Images and maps",
+                printModalCancel: "Cancel",
+                printModalConfirm: "🖨️ Print Selected"
+            },
+            fr: {
+                yearSection: "9ème de base",
+                moduleName: "Géographie / Axe 1 : Le Maghreb",
+                lessonTitleSample: "Population et développement humain au Maghreb",
+                sectionIntro: "Introduction",
+                introText: "Notre connaissance préalable des caractéristiques naturelles climatiques et topographiques des pays du Maghreb, ainsi que de la répartition géographique de leurs ressources naturelles, nous permet d'imaginer la carte de la répartition de leur population compte tenu de l'existence de zones attractives et de zones répulsives.",
+                problematiqueText: "Quelles sont les caractéristiques les plus importantes de la répartition spatiale et urbaine de la population dans les pays du Maghreb, sachant qu'ils ont dépassé 100 millions d'habitants depuis 2020 ? Quelles sont les principales caractéristiques de la croissance démographique et ses répercussions ? Et quelle est la réalité du développement humain dans ces pays ?",
+                sectionPart1: "Répartition spatiale de la population dans les pays du Maghreb et explosion urbaine",
+                coastalizationTitle: "L'aggravation du phénomène de littoralisation",
+                coastalManifestationsTitle: "Ses manifestations",
+                coastalManifestationsText: "L'élévation des densités de population sur les côtes septentrionales du Maghreb.",
+                coastalFactorsTitle: "Ses facteurs",
+                coastalFactorsNatural: "<strong>Naturels :</strong> Consistent en la disponibilité de nombreuses conditions favorables à l'installation dans ces zones, qu'elles soient climatiques ou topographiques.",
+                coastalFactorsHistoric: "<strong>Historiques :</strong> Le phénomène de littoralisation a commencé dans les pays du Maghreb, notamment en Libye, en Tunisie et en Algérie, avec l'arrivée des tribus <strong>Banu Hilal</strong>, puis s'est renforcé à l'époque coloniale après la confiscation des terres agricoles par les colons et le déplacement forcé de nombreux ruraux vers les villes côtières proches, notamment les capitales. Après l'indépendance des pays du Maghreb dans les années 1960 et surtout 1970, le mouvement migratoire vers les villes côtières s'est renforcé en raison des services et des opportunités d'emploi qui y étaient disponibles.",
+                coastalFactorsPolitical: "<strong>Politico-économiques :</strong> Consistent en la concentration de l'attention des pays du Maghreb sur les zones côtières densément peuplées, en les équipant d'infrastructures qui les ont rendues capables d'attirer certains investissements locaux et surtout étrangers, et en créant de nombreux projets privés qui ont approfondi le phénomène de littoralisation et l'ouverture de ces zones sur les côtes septentrionales de la Méditerranée, notamment l'Italie, la France et l'Espagne.",
+                coastalRepercussionsTitle: "Ses répercussions sur l'économie du Maghreb",
+                coastalRepercussionsText: "Si l'on exclut quelques oasis naturelles émergeant autour de points d'eau ou le long de la rive nord du fleuve Sénégal à l'extrême sud de la Mauritanie, ou quelques oasis artificielles résultant de l'exploitation d'une ressource naturelle dans le Sahara de Libye, d'Algérie ou de Mauritanie, où les densités sont moyennes, le reste des régions intérieures des pays du Maghreb souffre d'un état de pauvreté au niveau de son équipement structurel, ce qui n'encourage pas les investisseurs à s'y diriger malgré la promulgation de nombreuses législations les incitant à investir dans ces régions. En revanche, les zones côtières souffrent de la surpopulation, de la pauvreté des sols et de la salinité élevée. On trouve de vastes zones intérieures à faible densité de population qui attendent l'attention de l'État et qu'on leur donne leurs chances dans le développement durable.",
+                urbanExplosionTitle: "L'explosion urbaine au Maghreb",
+                tableState: "État",
+                tableUrbanMid: "Taux d'urbanisation au milieu du XXe siècle",
+                tableUrban21: "Taux d'urbanisation au début du XXIe siècle",
+                countryLibya: "Libye",
+                countryTunisia: "Tunisie",
+                countryAlgeria: "Algérie",
+                countryMorocco: "Maroc",
+                countryMauritania: "Mauritanie",
+                tableSource: "Source : Azmon Colan, « Le Grand Voyage », p. 76",
+                urbanExplosion1: "Les sociétés maghrébines ont connu une transformation importante de leur taux d'urbanisation depuis le milieu du XXe siècle ; alors qu'une minorité d'entre elles vivait dans les villes, au début du XXIe siècle ce taux a été multiplié plusieurs fois en <strong>Libye</strong> et surtout en <strong>Mauritanie</strong>, tandis que dans le reste des pays du Maghreb il a doublé une fois.",
+                urbanExplosion2: "L'explosion urbaine se manifeste aussi par la croissance massive des villes du Maghreb, notamment les capitales de ses États. À l'exception de la <strong>Mauritanie</strong>, dont la capitale s'est développée sans devenir millionnaire, les autres capitales maghrébines sont millionnaires ; le <strong>Maroc</strong> compte même deux villes millionnaires : la capitale économique <strong>Casablanca</strong> et la capitale politique <strong>Rabat</strong>.",
+                urbanExplosion3: "Plusieurs facteurs expliquent l'explosion urbaine dans les pays du Maghreb ; le premier est le phénomène de littoralisation qui s'est renforcé dans les années 1960 et 1970 par un fort mouvement migratoire vers les villes attractives grâce aux services qui y étaient disponibles, notamment sociaux tels que la santé et l'éducation, ainsi qu'à la disponibilité d'emplois dans le secteur industriel et dans de nombreux services.",
+                urbanExplosion4: "Si l'explosion urbaine a permis d'améliorer le niveau de vie de nombreuses familles déplacées et de changer leur mode de vie du rural et parfois tribal à l'urbain, la rapidité de l'explosion urbaine n'a pas été accompagnée par la structuration des villes pour contenir cette croissance rapide de la population urbaine, causant de nombreuses répercussions négatives telles que les problèmes de <strong>logement inadéquat et de logement informel</strong> ne disposant pas de toutes les exigences sanitaires, ainsi que le problème de la <strong>pollution</strong> et la difficulté de recycler les déchets ménagers, sans compter les déchets industriels qui causent de graves problèmes de santé dans de nombreuses zones industrielles qui n'ont pas respecté depuis leur création un cahier des charges respectueux de l'environnement. La pollution de certaines côtes par les déchets ménagers ou industriels les a également transformées en plages interdites aux baigneurs.",
+                urbanExplosionConclusion: "L'explosion urbaine a été une conséquence inévitable de l'explosion démographique, du phénomène de littoralisation et de la recherche par les populations du Maghreb de meilleures conditions de vie disponibles dans les villes plus que dans les campagnes.",
+                sectionPart2: "Positions divergentes des sociétés du Maghreb dans la transition démographique",
+                demographicIndicatorsTitle: "Évolution et divergence des indicateurs démographiques dans les pays du Maghreb",
+                demographicIndicators1: "Tous les indicateurs démographiques des pays du Maghreb se sont orientés vers la maîtrise de la croissance naturelle ; les naissances ont reculé et les décès aussi grâce à la disponibilité de nombreux services de santé, causant dans une première phase une hausse du taux de croissance naturelle parce que le rythme de recul des décès était plus important que celui du recul des naissances, d'où l'explosion démographique dans tous les pays du Maghreb.",
+                demographicIndicators2: "Si l'<strong>Algérie</strong>, le <strong>Maroc</strong> et surtout la <strong>Tunisie</strong> ont pu réduire les naissances en appliquant une politique de planning familial et en maîtrisant la croissance naturelle devenue modérée, la <strong>Libye</strong> et surtout la <strong>Mauritanie</strong> sont encore dans la première phase de la transition démographique ; leur taux de natalité reste élevé malgré le recul important du taux de mortalité, ce qui maintient la croissance naturelle élevée.",
+                agePyramidsTitle: "Effets divergents des transformations démographiques sur les pyramides des âges dans les pays du Maghreb",
+                agePyramids1: "La <strong>Mauritanie</strong> se distingue par une pyramide des âges caractéristique des pays à forte croissance naturelle ; les taux de natalité élevés ont rendu la <strong>base de la pyramide large</strong> en raison de la forte proportion d'enfants dépassant <strong>40 %</strong>, et le <strong>sommet pointu</strong> en raison de la faible proportion de personnes âgées, inférieure à <strong>4 %</strong>.",
+                agePyramids2: "Le <strong>Maroc</strong>, l'<strong>Algérie</strong> et la <strong>Libye</strong> ont une croissance naturelle modérée qui a fait reculer la proportion d'enfants entre <strong>30 et 35 %</strong>, ce qui signifie que la base de la pyramide des âges a commencé à se rétrécir, mais son sommet reste pointu.",
+                agePyramids3: "La <strong>Tunisie</strong>, qui a appliqué une politique de planning familial relativement tôt, a connu un recul important du taux de natalité entraînant une baisse de la proportion d'enfants à <strong>27 %</strong> ; la base de la pyramide s'est donc rétrécie plus que dans tout autre pays du Maghreb, et le sommet de la pyramide est devenu plus large en raison de la hausse de la proportion de personnes âgées à <strong>7 %</strong>, soit le double du taux de personnes âgées en Mauritanie, ce qui n'enlève rien à la jeunesse de la société tunisienne.",
+                youthRepercussionsTitle: "Principales répercussions de la jeunesse des sociétés maghrébines",
+                youthRepercussions1: "Le poids de la <strong>charge sociale</strong> supportée par les États maghrébins en raison de leur responsabilité de dépenses pour les enfants en âge scolaire dans de nombreux domaines tels que l'éducation, la santé et le transport. Si cette charge est quelque peu allégée dans les pays maghrébins pétroliers, elle est très lourde dans les autres.",
+                youthRepercussions2: "Au début du XXIe siècle, l'amélioration du niveau de vie dans certains pays du Maghreb comme la <strong>Tunisie</strong> a permis au <strong>secteur privé</strong> de contribuer à alléger la charge de l'État en couvrant une partie des services qui étaient auparavant le monopole de l'État, comme l'éducation, la santé et le transport.",
+                sectionPart3: "Amélioration générale des indicateurs de développement humain dans les pays du Maghreb",
+                gdpPerCapitaTitle: "Hausse du PIB par habitant",
+                gdpPerCapita1: "La <strong>Libye</strong> occupe la première place des pays du Maghreb en termes de revenu par habitant ; c'est un pays pétrolier à population limitée, ayant dépassé <strong>11000 $</strong> en 2005.",
+                gdpPerCapita2: "Le revenu annuel par habitant en <strong>Tunisie</strong> et en <strong>Algérie</strong> converge autour de <strong>8000 $</strong>.",
+                gdpPerCapita3: "Il recule au <strong>Maroc</strong> à environ <strong>4500 $</strong>.",
+                gdpPerCapita4: "En <strong>Mauritanie</strong>, le revenu annuel par habitant reste très faible selon les données de 2005, inférieur à <strong>2500 $</strong>.",
+                infantMortalityTitle: "Recul de la mortalité infantile et hausse de l'espérance de vie à la naissance",
+                infantMortality1: "La mortalité infantile était très élevée dans tous les pays du Maghreb en <strong>1960</strong>, notamment en <strong>Mauritanie</strong> où elle atteignait <strong>186‰</strong>, et proche dans les autres pays entre 150 et 160‰. Elle a beaucoup reculé dans ces pays, notamment en <strong>Tunisie</strong> où elle a atteint <strong>22‰</strong> en 2004, et a varié entre 30 et 37‰ en Libye, en Algérie et au Maroc, tandis qu'en Mauritanie elle était relativement élevée à <strong>75‰</strong> à la même date.",
+                infantMortality2: "Le recul de la mortalité infantile a un impact direct sur la hausse de l'<strong>espérance de vie à la naissance</strong> ; en 1960, l'espérance de vie était estimée entre 48 et 50 ans en Tunisie, en Algérie, en Libye et au Maroc, et a dépassé <strong>70 ans</strong> dans chacun d'eux en 2004, notamment en Libye où elle a atteint <strong>75 ans</strong>. Cependant, l'espérance de vie en Mauritanie était très faible en 1960 à <strong>36 ans</strong>, et malgré son amélioration à 54 ans en 2004, elle reste très faible en raison du manque de services de santé disponibles pour la société.",
+                schoolingLiteracyTitle: "Hausse du taux de scolarisation et recul du taux d'analphabétisme",
+                schooling1: "Les <strong>taux de scolarisation</strong> ont connu une hausse importante dans tous les pays du Maghreb, y compris la Mauritanie où ils ont atteint <strong>87,8 %</strong> durant l'année scolaire 2002/2003 ; dans le reste des pays du Maghreb ils dépassent <strong>90 %</strong>, et ont concerné les garçons et les filles également.",
+                schooling2: "En contrepartie de la hausse des taux de scolarisation, les <strong>taux d'analphabétisme</strong> ont beaucoup reculé dans les pays du Maghreb. En 1960, le taux d'analphabétisme le plus élevé était en Mauritanie à <strong>95 %</strong> et le plus faible en Libye à <strong>55 %</strong>, tandis qu'il variait entre 84 et 90 % dans les autres pays. Ces taux ont beaucoup reculé dans tous les pays, atteignant leur plus bas en 2003 en Libye à <strong>18 %</strong>, et leur plus haut au Maroc à <strong>49 %</strong> et en Mauritanie à <strong>48,8 %</strong>, tandis qu'en Tunisie et en Algérie ils variaient entre 25 et 30 %.",
+                schooling3: "Amélioration générale de l'<strong>Indice de Développement Humain</strong> dans tous les pays du Maghreb, bien qu'il reste faible en Mauritanie ; en Tunisie et surtout en Libye il approche <strong>0,8</strong> et est qualifié pour une nouvelle hausse.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Les pressions naturelles et économiques ont contribué à des transformations importantes dans les sociétés maghrébines ; certains pays du Maghreb, comme la Tunisie, ont misé sur le développement social et ont acquis une antériorité dans certains domaines démographiques. Les sociétés maghrébines ont-elles trouvé leur but dans le développement économique réalisé depuis leur indépendance ?",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et images illustratives",
+                defLocations: "🌍 Pays et régions",
+                defEvents: "⚔️ Événements clés",
+                defYears: "📅 Années et périodes",
+                defOrganizations: "🏢 Organisations et institutions",
+                defOthers: "📌 Autres",
+                defMaghreb: "Le Maghreb",
+                defMaghrebDesc: "Un ensemble régional composé de 5 pays (Libye, Tunisie, Algérie, Maroc et Mauritanie), dont la population a dépassé 100 millions depuis 2020, et caractérisé par une grande disparité dans la répartition spatiale et le développement humain entre ses États.",
+                defLibya: "Libye",
+                defLibyaDesc: "Un pays pétrolier à population limitée ; il a le taux d'urbanisation le plus élevé du Maghreb (86 %), le revenu par habitant le plus élevé (plus de 11000 $ en 2005), l'espérance de vie la plus élevée (75 ans en 2004) et le taux d'analphabétisme le plus bas (18 % en 2003).",
+                defTunisia: "Tunisie",
+                defTunisiaDesc: "Un pays qui a misé sur le développement social et appliqué le planning familial précocement ; la proportion d'enfants a reculé à 27 %, celle des personnes âgées a augmenté à 7 %, la mortalité infantile a chuté à 22‰ en 2004, et le revenu par habitant a atteint environ 8000 $ en 2005.",
+                defAlgeria: "Algérie",
+                defAlgeriaDesc: "Un grand pays pétrolier du Maghreb ; il a réussi à réduire les naissances en appliquant une politique de planning familial, son revenu par habitant est proche de celui de la Tunisie (environ 8000 $ en 2005), et son taux d'analphabétisme varie entre 25 et 30 %.",
+                defMorocco: "Maroc",
+                defMoroccoDesc: "Un pays du Maghreb dont le taux d'urbanisation a atteint 55,1 % au début du XXIe siècle ; il compte deux villes millionnaires (Casablanca et Rabat), un revenu par habitant d'environ 4500 $ en 2005 et un taux d'analphabétisme atteignant 49 % en 2003.",
+                defMauritania: "Mauritanie",
+                defMauritaniaDesc: "Un pays du Maghreb encore dans la première phase de la transition démographique ; il se distingue par une pyramide des âges à base large (plus de 40 % d'enfants) et sommet pointu (moins de 4 % de personnes âgées) ; son revenu par habitant reste faible (moins de 2500 $ en 2005) et son taux d'analphabétisme élevé (48,8 % en 2003).",
+                defCasablanca: "Casablanca",
+                defCasablancaDesc: "La capitale économique du Maroc ; c'est l'une de ses deux villes millionnaires aux côtés de la capitale politique Rabat.",
+                defRabat: "Rabat",
+                defRabatDesc: "La capitale politique du Maroc ; c'est l'une de ses deux villes millionnaires aux côtés de Casablanca.",
+                defSenegal: "Sénégal",
+                defSenegalDesc: "Un fleuve traversant l'extrême sud de la Mauritanie, sur la rive nord duquel émergent quelques oasis naturelles aux densités moyennes.",
+                defBanuHilal: "L'arrivée des tribus Banu Hilal",
+                defBanuHilalDesc: "Un événement historique lié au début du phénomène de littoralisation dans les pays du Maghreb, notamment en Libye, en Tunisie et en Algérie ; ces tribus arabes ont contribué au peuplement des zones côtières.",
+                defYear1960Desc: "Année où les taux de mortalité infantile les plus élevés (186‰ en Mauritanie), les espérances de vie les plus faibles (36 ans en Mauritanie, 48-50 ans dans les autres pays) et les taux d'analphabétisme les plus élevés (95 % en Mauritanie, 55 % en Libye) ont été enregistrés.",
+                defYear20022003Desc: "L'année scolaire où le taux de scolarisation en Mauritanie a atteint 87,8 %.",
+                defYear2003Desc: "L'année où les taux d'analphabétisme ont enregistré leur plus bas en Libye (18 %) et leur plus haut au Maroc (49 %) et en Mauritanie (48,8 %).",
+                defYear2004Desc: "L'année où la mortalité infantile a atteint 22‰ en Tunisie, et où l'espérance de vie a dépassé 70 ans en Tunisie, en Algérie, en Libye et au Maroc (75 ans en Libye).",
+                defYear2005Desc: "L'année où le revenu par habitant a atteint plus de 11000 $ en Libye, environ 8000 $ en Tunisie et en Algérie, 4500 $ au Maroc, et moins de 2500 $ en Mauritanie.",
+                defYear2020Desc: "L'année où la population du Maghreb a dépassé 100 millions d'habitants.",
+                defAMU: "L'Union du Maghreb arabe",
+                defAMUDesc: "Une organisation régionale fondée le 17 février 1989, jetant les bases de l'unité politique et économique entre les cinq pays du Maghreb ; toutefois, la coopération effective entre ses États dans les domaines démographique et de développement reste limitée.",
+                defCoastalization: "La littoralisation",
+                defCoastalizationDesc: "Le phénomène de concentration de la population et des activités économiques sur les côtes ; il s'est aggravé au Maghreb en raison de facteurs naturels, historiques et politico-économiques, conduisant à la surpopulation des zones côtières et à l'appauvrissement des régions intérieures.",
+                defUrbanizationRate: "Le taux d'urbanisation",
+                defUrbanizationRateDesc: "La proportion de la population urbaine par rapport à la population totale d'un pays ; il a fortement augmenté au Maghreb depuis le milieu du XXe siècle (par exemple de 2,3 % à 58 % en Mauritanie, et de 25 % à 86 % en Libye).",
+                defUrbanExplosion: "L'explosion urbaine",
+                defUrbanExplosionDesc: "L'augmentation rapide de la population urbaine et de la taille des villes ; elle est une conséquence inévitable de l'explosion démographique et de la littoralisation, et a produit des problèmes de logement inadéquat, de logement informel, de pollution et de difficulté à recycler les déchets.",
+                defDemographicTransition: "La transition démographique",
+                defDemographicTransitionDesc: "La phase de transition d'un régime démographique traditionnel (naissances et décès élevés) à un régime moderne (naissances et décès faibles) ; l'Algérie, le Maroc et la Tunisie l'ont atteinte, tandis que la Libye et la Mauritanie sont encore dans sa première phase.",
+                defAgePyramid: "La pyramide des âges",
+                defAgePyramidDesc: "Une représentation graphique de la composition de la population par âge et par sexe ; elle se caractérise en Mauritanie par une base large et un sommet pointu (jeunesse), et en Tunisie par une base rétrécie et un sommet élargi (début du vieillissement).",
+                defNaturalGrowth: "La croissance naturelle",
+                defNaturalGrowthDesc: "La différence entre le taux de natalité et le taux de mortalité ; elle était élevée dans tous les pays du Maghreb dans la première phase, puis est devenue modérée en Algérie, au Maroc et en Tunisie, tandis qu'elle reste élevée en Libye et en Mauritanie.",
+                defFamilyPlanning: "La politique de planning familial",
+                defFamilyPlanningDesc: "Une politique démographique appliquée par les pays du Maghreb, notamment la Tunisie, l'Algérie et le Maroc, visant à réduire les naissances et à maîtriser la croissance naturelle.",
+                defYouthSociety: "La société jeune",
+                defYouthSocietyDesc: "Une société à forte proportion d'enfants et de jeunes, caractérisée par une pyramide des âges à base large et sommet pointu, et entraînant une lourde charge sociale sur l'État dans les domaines de l'éducation, de la santé et du transport.",
+                defGDPPerCapita: "Le PIB par habitant",
+                defGDPPerCapitaDesc: "Un indicateur économique mesurant le revenu annuel moyen par habitant, l'un des plus importants indicateurs de développement humain ; ses taux les plus élevés sont en Libye et les plus bas en Mauritanie.",
+                defInfantMortality: "La mortalité infantile",
+                defInfantMortalityDesc: "Le nombre de décès de nourrissons pour mille naissances vivantes ; elle a beaucoup reculé au Maghreb de 150-186‰ en 1960 à 22-75‰ en 2004, grâce à l'amélioration des services de santé.",
+                defLifeExpectancy: "L'espérance de vie à la naissance",
+                defLifeExpectancyDesc: "Le nombre d'années qu'un nouveau-né est censé vivre dans les conditions de mortalité existantes ; elle a augmenté de 36-50 ans en 1960 à 54-75 ans en 2004 dans les pays du Maghreb.",
+                defSchoolingRate: "Le taux de scolarisation",
+                defSchoolingRateDesc: "La proportion d'enfants inscrits à l'école par rapport à tous les enfants en âge scolaire ; il a augmenté à plus de 90 % dans la plupart des pays du Maghreb (87,8 % en Mauritanie en 2002/2003).",
+                defIlliteracyRate: "Le taux d'analphabétisme",
+                defIlliteracyRateDesc: "La proportion de la population qui ne sait ni lire ni écrire ; elle a beaucoup reculé au Maghreb de 55-95 % en 1960 à 18-49 % en 2003.",
+                defHDI: "L'Indice de Développement Humain",
+                defHDIDesc: "Un indicateur composite mesurant le niveau de développement humain dans un pays (revenu, éducation et santé) ; il s'est amélioré dans tous les pays du Maghreb mais reste faible en Mauritanie et approche 0,8 en Tunisie et en Libye.",
+                defMillionCity: "La ville millionnaire",
+                defMillionCityDesc: "Une ville de plus d'un million d'habitants ; toutes les capitales du Maghreb sont millionnaires sauf Nouakchott, et le Maroc compte deux villes millionnaires (Casablanca et Rabat).",
+                summaryText: "À retenir : La population du Maghreb (plus de 100 millions depuis 2020) est inégalement répartie, les densités étant concentrées sur les côtes septentrionales en raison de la littoralisation, tandis que les régions intérieures restent faiblement équipées. Le Maghreb a connu une explosion urbaine majeure (taux d'urbanisation de 55-86 % au début du XXIe siècle), accompagnée de problèmes de logement et d'environnement. Les positions des pays dans la transition démographique varient : la Tunisie, l'Algérie et le Maroc sont dans une phase avancée, tandis que la Libye et la Mauritanie sont encore dans la première phase. Les indicateurs de développement humain ont montré une amélioration générale (hausse du revenu par habitant, baisse de la mortalité infantile, hausse de l'espérance de vie et de la scolarisation, baisse de l'analphabétisme).",
+                galleryAlt1: "Carte de la répartition de la population au Maghreb",
+                galleryAlt2: "L'explosion urbaine au Maghreb",
+                galleryAlt3: "Pyramides des âges dans les pays du Maghreb",
+                galleryAlt4: "La transition démographique au Maghreb",
+                galleryAlt5: "Les villes côtières du Maghreb",
+                galleryAlt6: "Indicateurs de développement humain",
+                galleryCap1: "Carte de la répartition de la population au Maghreb",
+                galleryCap2: "L'explosion urbaine au Maghreb",
+                galleryCap3: "Pyramides des âges dans les pays du Maghreb",
+                galleryCap4: "La transition démographique au Maghreb",
+                galleryCap5: "Les villes côtières du Maghreb",
+                galleryCap6: "Indicateurs de développement humain",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil",
+                printModalTitle: "Sélectionner les sections à imprimer",
+                printModalSubtitle: "Choisissez une ou plusieurs sections à inclure :",
+                printOptionLesson: "📖 Leçon",
+                printOptionLessonDesc: "Introduction, parties, conclusion et résumé",
+                printOptionDefinitions: "📚 Définitions",
+                printOptionDefinitionsDesc: "Termes clés, pays, événements, années et organisations",
+                printOptionGallery: "🗺️ Galerie",
+                printOptionGalleryDesc: "Images et cartes",
+                printModalCancel: "Annuler",
+                printModalConfirm: "🖨️ Imprimer la sélection"
+            },
+            ar: {
+                yearSection: "التاسعة أساسي",
+                moduleName: "الجغرافيا / المحور الأول: المغرب العربي",
+                lessonTitleSample: "السكان والتنمية البشرية بالمغرب العربي",
+                sectionIntro: "مقدمة",
+                introText: "إن معرفتنا السابقة للخصائص الطبيعية المناخية والتضاريسية لبلدان المغرب العربي، إلى جانب التوزع الجغرافي لموارده الطبيعية، تجعلنا نتخيل خريطة توزع سكانه بحكم توفر مناطق جاذبة وأخرى منفرة.",
+                problematiqueText: "فما هي أهم خصائص التوزع المجالي والحضري للسكان في دول المغرب العربي، علماً وأنهم قد تجاوزوا 100 مليون نسمة منذ 2020؟ وما هي أبرز مميزات النمو الديمغرافي وانعكاساته؟ وما هو واقع التنمية البشرية بهذه الدول؟",
+                sectionPart1: "التوزع المجالي للسكان في دول المغرب العربي والانفجار الحضري",
+                coastalizationTitle: "تفاقم ظاهرة السوحلة",
+                coastalManifestationsTitle: "مظاهرها",
+                coastalManifestationsText: "ارتفاع الكثافات السكانية على السواحل الشمالية للمغرب العربي.",
+                coastalFactorsTitle: "عواملها",
+                coastalFactorsNatural: "<strong>الطبيعية:</strong> تتمثل في توفر العديد من الظروف الملائمة للاستقرار في هذه المناطق، مناخية كانت أو تضاريسية.",
+                coastalFactorsHistoric: "<strong>التاريخية:</strong> حيث بدأت ظاهرة السوحلة في دول المغرب العربي، وخاصة ليبيا وتونس والجزائر، مع قدوم قبائل <strong>بني هلال</strong>، ثم تدعّمت في عهد الاستعمار إثر استيلاء المعمّرين على الأراضي الفلاحية واضطرار العديد من الريفيين إلى التوجه نحو المدن الساحلية القريبة وخاصة العواصم. وإثر استقلال دول المغرب خلال الستينات وخاصة السبعينات، تدعّمت حركة النزوح نحو المدن الساحلية لما توفرت فيها من خدمات وفرص تشغيل.",
+                coastalFactorsPolitical: "<strong>السياسية الاقتصادية:</strong> تتمثل في تركيز دول المغرب عنايتها على المناطق الساحلية الآهلة بالسكان، فتم تجهيزها بالبنية الأساسية التي أهلتها لاستقطاب بعض الاستثمارات المحلية وخاصة الأجنبية، وإنشاء العديد من المشاريع الخاصة التي عمّقت ظاهرة السوحلة وانفتاح هذه المناطق على السواحل الشمالية للمتوسط، وتحديداً إيطاليا وفرنسا وإسبانيا.",
+                coastalRepercussionsTitle: "انعكاساتها على اقتصاد دول المغرب العربي",
+                coastalRepercussionsText: "إذا ما استثنينا بعض الواحات الطبيعية الناشئة حول نقاط مياه أو حول ضفة نهر السنيغال الشمالية في أقصى جنوب موريتانيا، أو بعض الواحات الاصطناعية الناتجة عن استغلال ثروة طبيعية في صحراء ليبيا أو الجزائر أو موريتانيا، حيث تكون الكثافات متوسطة، فإن بقية المناطق الداخلية لدول المغرب العربي تعاني من حالة تفقّر على مستوى تجهيزها البنيوي، فلا يشجع ذلك المستثمرين على التوجه إليها رغم سنّ العديد من التشريعات التي تحثهم على الاستثمار في تلك المناطق. في حين تعاني المناطق الساحلية من الاكتظاظ وتفقّر التربة وارتفاع نسبة الملوحة فيها. نجد مناطق داخلية شاسعة ذات كثافة سكانية ضعيفة تنتظر اهتمام الدولة بها وإعطاءها حظوظها في التنمية المستدامة.",
+                urbanExplosionTitle: "الانفجار الحضري بالمغرب العربي",
+                tableState: "الدولة",
+                tableUrbanMid: "نسبة التحضر في منتصف القرن العشرين",
+                tableUrban21: "نسبة التحضر في بداية القرن الواحد والعشرين",
+                countryLibya: "ليبيا",
+                countryTunisia: "تونس",
+                countryAlgeria: "الجزائر",
+                countryMorocco: "المغرب الأقصى",
+                countryMauritania: "موريتانيا",
+                tableSource: "المصدر: أزمون كولان «السفر الكبير» ص 76",
+                urbanExplosion1: "شهدت المجتمعات المغاربية تحولاً هاماً على مستوى نسبة تحضرها منذ منتصف القرن العشرين، فبعد أن كانت أقلية منها تعيش في المدن نجدها في بداية القرن الواحد والعشرين تتضاعف عدة مرات في <strong>ليبيا</strong> وخاصة في <strong>موريتانيا</strong>، أما في بقية دول المغرب فقد تضاعفت مرة واحدة.",
+                urbanExplosion2: "كما يظهر الانفجار الحضري من خلال تضخم حجم مدن المغرب العربي وخاصة عواصم دوله. فباستثناء <strong>موريتانيا</strong> التي تضخمت عاصمتها دون أن تصبح مليونية، فإن بقية عواصم دول المغرب العربي مليونية، بل إن <strong>المغرب الأقصى</strong> نجد فيه مدينتين مليونيتين: العاصمة الاقتصادية <strong>الدار البيضاء</strong> إلى جانب العاصمة السياسية <strong>الرباط</strong>.",
+                urbanExplosion3: "وتتعدد العوامل المفسرة للانفجار الحضري بدول المغرب العربي، أولها ظاهرة السوحلة التي تدعّمت خلال ستينات وسبعينات القرن العشرين بحركة نزوح قوية نحو المدن التي كانت جاذبة بفضل الخدمات التي توفرت فيها وخاصة منها الاجتماعية كالصحة والتعليم، إلى جانب توفر مواطن الشغل في القطاع الصناعي وفي العديد من الخدمات.",
+                urbanExplosion4: "ولئن مكّن الانفجار الحضري من تحسين مستوى عيش العديد من العائلات النازحة وتغيير نمط عيشها من نمط ريفي وأحياناً قبلي إلى نمط حضري، إلا أن سرعة نسق الانفجار الحضري لم تواكبه هيكلة المدن لاحتواء هذا التزايد السريع في عدد سكان المدن، مما تسبب في انعكاسات سلبية عديدة مثل مشاكل <strong>السكن غير اللائق والسكن الفوضوي</strong> الذي لا تتوفر فيه كل المستلزمات الصحية، إلى جانب مشكل <strong>التلوث</strong> وصعوبة إعادة تدوير النفايات المنزلية دون اعتبار النفايات الصناعية التي تتسبب في مشاكل صحية خطيرة في العديد من المناطق الصناعية التي لم تلتزم منذ إنشائها بكراس شروط مراعٍ للبيئة. كما تسبب تلوث بعض السواحل بالنفايات المنزلية أو الصناعية في تحولها إلى شواطئ ممنوعة على المصطافين.",
+                urbanExplosionConclusion: "إن الانفجار الحضري كان نتيجة حتمية للانفجار السكاني ولظاهرة السوحلة ولبحث سكان المغرب العربي عن ظروف عيش أفضل توفرت في المدن أكثر من الأرياف.",
+                sectionPart2: "تباين مواقع مجتمعات المغرب العربي من الانتقال الديمغرافي",
+                demographicIndicatorsTitle: "تطور المؤشرات الديمغرافية لدول المغرب العربي وتباينها",
+                demographicIndicators1: "شهدت كل المؤشرات الديمغرافية لدول المغرب العربي توجهاً نحو التحكم في النمو الطبيعي، بحيث تراجعت الولادات وتراجعت كذلك الوفيات بفضل توفر العديد من الخدمات الصحية، مما تسبب في مرحلة أولى في ارتفاع في نسبة النمو الطبيعي لأن نسق تراجع الوفيات كان أهم من نسق تراجع الولادات، فكان الانفجار الديمغرافي في كل دول المغرب العربي.",
+                demographicIndicators2: "ولئن تمكنت كل من <strong>الجزائر</strong> و<strong>المغرب الأقصى</strong> وخاصة <strong>تونس</strong> من الضغط على الولادات بتطبيق سياسة التنظيم العائلي والتحكم في النمو الطبيعي الذي أصبح معتدلاً، فإن كلا من <strong>ليبيا</strong> وخاصة <strong>موريتانيا</strong> لا تزالان في المرحلة الأولى من الانتقال الديمغرافي، فلا زالت نسبة الولادات مرتفعة رغم التراجع الكبير لنسبة الوفيات، وهو ما يجعل النمو الطبيعي يحافظ على ارتفاعه.",
+                agePyramidsTitle: "آثار متباينة للتحولات الديمغرافية على هرم الأعمار في دول المغرب العربي",
+                agePyramids1: "تنفرد <strong>موريتانيا</strong> بهرم أعمار مميز للدول ذات النمو الطبيعي المرتفع، فنسبة الولادات المرتفعة جعلت <strong>قاعدة الهرم عريضة</strong> بحكم ارتفاع نسبة الأطفال إلى أكثر من <strong>40%</strong>، و<strong>قمة حادة</strong> نظراً لضعف نسبة الشيوخ، فهي تقل عن <strong>4%</strong>.",
+                agePyramids2: "أما <strong>المغرب الأقصى</strong> و<strong>الجزائر</strong> و<strong>ليبيا</strong> فإن النمو الطبيعي فيها معتدل بشكل تسبب في تراجع نسبة الأطفال إلى ما بين <strong>30 و35%</strong>، وهو ما يعني بداية تقلص قاعدة هرم الأعمار، لكن قمته لا تزال حادة.",
+                agePyramids3: "أما <strong>تونس</strong> التي طبقت سياسة التنظيم العائلي في وقت مبكر نسبياً، فقد شهدت نسبة الولادات فيها تراجعاً كبيراً أدى إلى تراجع نسبة الأطفال إلى <strong>27%</strong>، وبالتالي تقلصت قاعدة الهرم أكثر من كل دول المغرب، كما أن قمة الهرم أصبحت أكثر اتساعاً بحكم ارتفاع نسبة الشيوخ إلى <strong>7%</strong>، وهي ضعف نسبة الشيوخ في موريتانيا، لكن ذلك لا ينفي فتوة المجتمع التونسي.",
+                youthRepercussionsTitle: "أهم انعكاسات فتوة المجتمعات المغاربية",
+                youthRepercussions1: "ثقل <strong>العبء الاجتماعي</strong> الذي تتحمله الدول المغاربية بحكم تحملها مسؤولية الإنفاق على الأطفال في مرحلة الدراسة في عديد المجالات كالتعليم والصحة والنقل. وإذا كان هذا العبء يخف قليلاً في الدول المغاربية النفطية فهو ثقيل جداً في بقية الدول.",
+                youthRepercussions2: "مع بداية القرن الواحد والعشرين، مكّن تحسن مستوى العيش في بعض الدول المغاربية مثل <strong>تونس</strong> من مساهمة <strong>القطاع الخاص</strong> في تخفيف العبء على الدولة بالمساهمة في تغطية جزء من الخدمات التي كانت حكراً على الدولة مثل التعليم والصحة والنقل.",
+                sectionPart3: "تحسن عام في مؤشرات التنمية البشرية في دول المغرب العربي",
+                gdpPerCapitaTitle: "ارتفاع نصيب الفرد من الناتج الداخلي الخام",
+                gdpPerCapita1: "تحتل <strong>ليبيا</strong> صدارة دول المغرب العربي على مستوى معدل الدخل الفردي فيها، فهي دولة نفطية وعدد سكانها محدود، فقد تجاوز سنة 2005 <strong>11000 $</strong>.",
+                gdpPerCapita2: "ويتقارب معدل الدخل الفردي السنوي في كل من <strong>تونس</strong> و<strong>الجزائر</strong> في حدود <strong>8000 $</strong>.",
+                gdpPerCapita3: "ويتراجع في <strong>المغرب الأقصى</strong> إلى حوالي <strong>4500 $</strong>.",
+                gdpPerCapita4: "أما في <strong>موريتانيا</strong> فإن معدل الدخل الفردي السنوي لا يزال ضعيفاً جداً حسب معطيات سنة 2005، فهو يقل عن <strong>2500 $</strong>.",
+                infantMortalityTitle: "تراجع وفيات الرضع وارتفاع أمل الحياة عند الميلاد",
+                infantMortality1: "كانت وفيات الرضع عالية جداً في كل الدول المغربية سنة <strong>1960</strong>، وخاصة في <strong>موريتانيا</strong> حيث بلغت <strong>186‰</strong>، ومتقاربة في بقية الدول بين 150 و160‰. وقد تراجعت كثيراً في هذه الدول وخاصة في <strong>تونس</strong> حيث بلغت <strong>22‰</strong> سنة 2004، وتراوحت بين 30 و37‰ في كل من ليبيا والجزائر والمغرب الأقصى، أما في موريتانيا فكانت مرتفعة نسبياً حيث بلغت <strong>75‰</strong> في نفس التاريخ.",
+                infantMortality2: "لتراجع وفيات الرضع أثر مباشر على ارتفاع معدل <strong>أمل الحياة عند الميلاد</strong>، ففي سنة 1960 قدّر معدل أمل الحياة بين 48 و50 سنة في كل من تونس والجزائر وليبيا والمغرب الأقصى، وقد تجاوز <strong>70 سنة</strong> في كل منها سنة 2004 وخاصة في ليبيا حيث بلغ <strong>75 سنة</strong>. لكن أمل الحياة في موريتانيا كان ضعيفاً جداً سنة 1960 حيث بلغ <strong>36 سنة</strong>، ورغم تحسنه حيث بلغ 54 سنة عام 2004 إلا أنه لا يزال ضعيفاً جداً بحكم نقص الخدمات الصحية الموفرة للمجتمع.",
+                schoolingLiteracyTitle: "ارتفاع نسبة التمدرس وتراجع نسبة الأمية",
+                schooling1: "سجلت <strong>نسب التمدرس</strong> ارتفاعاً هاماً في كل دول المغرب العربي، بما في ذلك موريتانيا حيث بلغت فيها <strong>87.8%</strong> خلال السنة الدراسية 2002/2003، وهي في بقية دول المغرب العربي تتجاوز <strong>90%</strong>، وقد شملت الذكور والإناث على حد السواء.",
+                schooling2: "وفي مقابل ارتفاع نسب التمدرس، سجلت <strong>نسب الأمية</strong> تراجعاً كبيراً في دول المغرب العربي. ففي سنة 1960 كانت أعلى نسبة أمية في موريتانيا <strong>95%</strong> وأدناها في ليبيا <strong>55%</strong>، في حين تراوحت في بقية الدول بين 84 و90%. وقد سجلت هذه النسب تراجعاً كبيراً في كل الدول، فبلغت أدناها سنة 2003 في ليبيا <strong>18%</strong>، وأقصاها في كل من المغرب الأقصى <strong>49%</strong> وموريتانيا <strong>48.8%</strong>، أما في تونس والجزائر فتراوحت بين 25 و30%.",
+                schooling3: "تحسن عام في <strong>مؤشر التنمية البشرية</strong> في كل دول المغرب العربي، رغم أنه لا زال ضعيفاً في موريتانيا، لكنه في تونس وخاصة في ليبيا يقارب <strong>0.8</strong> وهو مؤهل لمزيد الارتفاع.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "ساهمت الضغوطات الطبيعية والاقتصادية في إحداث تحولات هامة في المجتمعات المغاربية، وقد راهنت بعض الدول المغاربية مثل تونس على التنمية الاجتماعية فنالت الأسبقية في بعض المجالات السكانية. فهل وجدت المجتمعات المغربية مبتغاها في التنمية الاقتصادية التي تحققت منذ استقلالها؟",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط وصور توضيحية",
+                defLocations: "🌍 دول ومناطق",
+                defEvents: "⚔️ أحداث هامة",
+                defYears: "📅 سنوات وفترات",
+                defOrganizations: "🏢 منظمات ومؤسسات",
+                defOthers: "📌 أخرى",
+                defMaghreb: "المغرب العربي",
+                defMaghrebDesc: "مجموعة إقليمية تتكون من 5 دول (ليبيا وتونس والجزائر والمغرب الأقصى وموريتانيا)، تجاوز عدد سكانها 100 مليون نسمة منذ 2020، وتتميز بتفاوت كبير في التوزع السكاني والتنمية البشرية بين دولها.",
+                defLibya: "ليبيا",
+                defLibyaDesc: "دولة نفطية محدودة السكان، تعد أعلى دول المغرب العربي في نسبة التحضر (86%) وفي معدل الدخل الفردي (أكثر من 11000$ سنة 2005)، وفي معدل أمل الحياة عند الميلاد (75 سنة سنة 2004)، وفي انخفاض نسبة الأمية (18% سنة 2003).",
+                defTunisia: "تونس",
+                defTunisiaDesc: "دولة راهنت على التنمية الاجتماعية، وطبقت سياسة التنظيم العائلي مبكراً، فتراجعت فيها نسبة الأطفال إلى 27%، وارتفعت نسبة الشيوخ إلى 7%، وانخفضت وفيات الرضع إلى 22‰ سنة 2004، وبلغ معدل الدخل الفردي فيها نحو 8000$ سنة 2005.",
+                defAlgeria: "الجزائر",
+                defAlgeriaDesc: "دولة نفطية كبرى في المغرب العربي، تمكنت من الضغط على الولادات بتطبيق سياسة التنظيم العائلي، فيتقارب معدل دخلها الفردي مع تونس (نحو 8000$ سنة 2005)، وتتراوح فيها نسبة الأمية بين 25 و30%.",
+                defMorocco: "المغرب الأقصى",
+                defMoroccoDesc: "دولة في المغرب العربي، بلغت فيها نسبة التحضر 55.1% في بداية القرن الواحد والعشرين، ويضم مدينتين مليونيتين (الدار البيضاء والرباط)، ويبلغ معدل دخلها الفردي نحو 4500$ سنة 2005، وترتفع فيها نسبة الأمية إلى 49% سنة 2003.",
+                defMauritania: "موريتانيا",
+                defMauritaniaDesc: "دولة في المغرب العربي، لا تزال في المرحلة الأولى من الانتقال الديمغرافي، وتنفرد بهرم أعمار ذي قاعدة عريضة (نسبة الأطفال أكثر من 40%) وقمة حادة (نسبة الشيوخ أقل من 4%)، ولا يزال دخلها الفردي ضعيفاً (أقل من 2500$ سنة 2005) ونسبة الأمية مرتفعة (48.8% سنة 2003).",
+                defCasablanca: "الدار البيضاء",
+                defCasablancaDesc: "العاصمة الاقتصادية للمغرب الأقصى، وهي إحدى المدينتين المليونيتين فيه إلى جانب العاصمة السياسية الرباط.",
+                defRabat: "الرباط",
+                defRabatDesc: "العاصمة السياسية للمغرب الأقصى، وهي إحدى المدينتين المليونيتين فيه إلى جانب الدار البيضاء.",
+                defSenegal: "السنغال",
+                defSenegalDesc: "نهر يمر بأقصى جنوب موريتانيا، وتنشأ حول ضفته الشمالية بعض الواحات الطبيعية التي تعرف كثافات سكانية متوسطة.",
+                defBanuHilal: "قدوم قبائل بني هلال",
+                defBanuHilalDesc: "حدث تاريخي مرتبط ببداية ظاهرة السوحلة في دول المغرب العربي وخاصة ليبيا وتونس والجزائر، إذ ساهمت هذه القبائل العربية في تعمير المناطق الساحلية.",
+                defYear1960Desc: "سنة تسجيل أعلى نسب وفيات الرضع (186‰ في موريتانيا) وأدنى معدلات أمل الحياة عند الميلاد (36 سنة في موريتانيا، و48-50 سنة في بقية الدول) وأعلى نسب أمية (95% في موريتانيا، و55% في ليبيا).",
+                defYear20022003Desc: "السنة الدراسية التي بلغت فيها نسبة التمدرس في موريتانيا 87.8%.",
+                defYear2003Desc: "السنة التي سجلت فيها نسب الأمية أدناها في ليبيا (18%) وأقصاها في المغرب الأقصى (49%) وموريتانيا (48.8%).",
+                defYear2004Desc: "السنة التي بلغت فيها وفيات الرضع 22‰ في تونس، وتجاوز فيها معدل أمل الحياة 70 سنة في تونس والجزائر وليبيا والمغرب الأقصى (75 سنة في ليبيا).",
+                defYear2005Desc: "السنة التي بلغ فيها معدل الدخل الفردي السنوي أكثر من 11000$ في ليبيا، ونحو 8000$ في تونس والجزائر، و4500$ في المغرب الأقصى، وأقل من 2500$ في موريتانيا.",
+                defYear2020Desc: "السنة التي تجاوز فيها عدد سكان المغرب العربي 100 مليون نسمة.",
+                defAMU: "اتحاد المغرب العربي",
+                defAMUDesc: "منظمة إقليمية تأسست يوم 17 فيفري 1989، وأسّست للوحدة السياسية والاقتصادية بين دول المغرب العربي الخمس، لكن التعاون الفعلي بين دوله في المجالات السكانية والتنموية يبقى محدوداً.",
+                defCoastalization: "السوحلة",
+                defCoastalizationDesc: "ظاهرة تركز السكان والأنشطة الاقتصادية على السواحل، وتفاقمت في المغرب العربي بفعل عوامل طبيعية وتاريخية وسياسية اقتصادية، مما أدى إلى اكتظاظ المناطق الساحلية وتفقر المناطق الداخلية.",
+                defUrbanizationRate: "نسبة التحضر",
+                defUrbanizationRateDesc: "نسبة سكان المدن من مجموع السكان في دولة ما؛ ارتفعت بشكل كبير في دول المغرب العربي منذ منتصف القرن العشرين (مثلاً من 2.3% إلى 58% في موريتانيا، ومن 25% إلى 86% في ليبيا).",
+                defUrbanExplosion: "الانفجار الحضري",
+                defUrbanExplosionDesc: "التزايد السريع لعدد سكان المدن وحجم المدن، وهو نتيجة حتمية للانفجار السكاني وللسوحلة، وترتبت عنه مشاكل السكن غير اللائق والسكن الفوضوي والتلوث وصعوبة إعادة تدوير النفايات.",
+                defDemographicTransition: "الانتقال الديمغرافي",
+                defDemographicTransitionDesc: "المرحلة الانتقالية من نظام ديمغرافي تقليدي (ولادات ووفيات مرتفعة) إلى نظام عصري (ولادات ووفيات منخفضة)؛ وصلت إليه الجزائر والمغرب الأقصى وتونس، بينما لا تزال ليبيا وموريتانيا في مرحلته الأولى.",
+                defAgePyramid: "هرم الأعمار",
+                defAgePyramidDesc: "تمثيل بياني لتركيبة السكان حسب السن والجنس؛ يتميز في موريتانيا بقاعدة عريضة وقمة حادة (فتوة)، وفي تونس بقاعدة متقلصة وقمة متسعة (بداية تهرم).",
+                defNaturalGrowth: "النمو الطبيعي",
+                defNaturalGrowthDesc: "الفرق بين نسبة الولادات ونسبة الوفيات؛ كان مرتفعاً في كل دول المغرب العربي في المرحلة الأولى، ثم اعتدل في الجزائر والمغرب الأقصى وتونس، بينما لا يزال مرتفعاً في ليبيا وموريتانيا.",
+                defFamilyPlanning: "سياسة التنظيم العائلي",
+                defFamilyPlanningDesc: "سياسة سكانية تطبقها دول المغرب العربي وخاصة تونس والجزائر والمغرب الأقصى، تهدف إلى الضغط على الولادات والتحكم في النمو الطبيعي.",
+                defYouthSociety: "المجتمع الفتي",
+                defYouthSocietyDesc: "مجتمع ترتفع فيه نسبة الأطفال والشباب، ويتميز بهرم أعمار ذي قاعدة عريضة وقمة حادة، ويترتب عنه ثقل العبء الاجتماعي على الدولة في مجالات التعليم والصحة والنقل.",
+                defGDPPerCapita: "نصيب الفرد من الناتج الداخلي الخام",
+                defGDPPerCapitaDesc: "مؤشر اقتصادي يقيس متوسط الدخل الفردي السنوي، ويُعدّ من أهم مؤشرات التنمية البشرية؛ أعلى معدلاته في ليبيا، وأدناها في موريتانيا.",
+                defInfantMortality: "وفيات الرضع",
+                defInfantMortalityDesc: "عدد وفيات الأطفال الرضع لكل ألف مولود حي؛ تراجعت بشكل كبير في دول المغرب العربي من 150-186‰ سنة 1960 إلى 22-75‰ سنة 2004، بفضل تحسن الخدمات الصحية.",
+                defLifeExpectancy: "أمل الحياة عند الميلاد",
+                defLifeExpectancyDesc: "عدد السنوات التي يُتوقع أن يعيشها المولود في ظروف الوفيات السائدة؛ ارتفع من 36-50 سنة سنة 1960 إلى 54-75 سنة سنة 2004 في دول المغرب العربي.",
+                defSchoolingRate: "نسبة التمدرس",
+                defSchoolingRateDesc: "نسبة الأطفال الملتحقين بالمدارس من مجموع الأطفال في سن التمدرس؛ ارتفعت إلى أكثر من 90% في أغلب دول المغرب العربي (87.8% في موريتانيا سنة 2002/2003).",
+                defIlliteracyRate: "نسبة الأمية",
+                defIlliteracyRateDesc: "نسبة السكان الذين لا يعرفون القراءة والكتابة؛ تراجعت بشكل كبير في دول المغرب العربي من 55-95% سنة 1960 إلى 18-49% سنة 2003.",
+                defHDI: "مؤشر التنمية البشرية",
+                defHDIDesc: "مؤشر مركب يقيس مستوى التنمية البشرية في دولة ما (الدخل والتعليم والصحة)؛ تحسّن في كل دول المغرب العربي، لكنه لا يزال ضعيفاً في موريتانيا، ويقارب 0.8 في تونس وليبيا.",
+                defMillionCity: "المدينة المليونية",
+                defMillionCityDesc: "مدينة يتجاوز عدد سكانها مليون نسمة؛ كل عواصم المغرب العربي مليونية باستثناء نواكشوط، ويضم المغرب الأقصى مدينتين مليونيتين (الدار البيضاء والرباط).",
+                summaryText: "خلاصة: يتوزع سكان المغرب العربي (أكثر من 100 مليون نسمة منذ 2020) توزعاً غير متوازن، إذ تتركز الكثافات على السواحل الشمالية بفعل السوحلة، بينما تبقى المناطق الداخلية ضعيفة التجهيز. وعرف المغرب العربي انفجاراً حضرياً كبيراً (نسبة التحضر 55-86% في بداية القرن 21) رافقته مشاكل سكنية وبيئية. كما تباينت مواقع دوله من الانتقال الديمغرافي: تونس والجزائر والمغرب الأقصى في مرحلة متقدمة، بينما لا تزال ليبيا وموريتانيا في مرحلة أولى. وقد سجلت مؤشرات التنمية البشرية تحسناً عاماً (ارتفاع الدخل الفردي وتراجع وفيات الرضع وارتفاع أمل الحياة والتمدرس وتراجع الأمية).",
+                galleryAlt1: "خريطة توزع السكان بالمغرب العربي",
+                galleryAlt2: "الانفجار الحضري بالمغرب العربي",
+                galleryAlt3: "أهرامات الأعمار بدول المغرب العربي",
+                galleryAlt4: "الانتقال الديمغرافي بالمغرب العربي",
+                galleryAlt5: "المدن الساحلية بالمغرب العربي",
+                galleryAlt6: "مؤشرات التنمية البشرية",
+                galleryCap1: "خريطة توزع السكان بالمغرب العربي",
+                galleryCap2: "الانفجار الحضري بالمغرب العربي",
+                galleryCap3: "أهرامات الأعمار بدول المغرب العربي",
+                galleryCap4: "الانتقال الديمغرافي بالمغرب العربي",
+                galleryCap5: "المدن الساحلية بالمغرب العربي",
+                galleryCap6: "مؤشرات التنمية البشرية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية",
+                printModalTitle: "اختر الأقسام للطباعة",
+                printModalSubtitle: "حدد قسمًا واحدًا أو أكثر:",
+                printOptionLesson: "📖 الدرس",
+                printOptionLessonDesc: "المقدمة، الأجزاء، الخاتمة والخلاصة",
+                printOptionDefinitions: "📚 التعريفات",
+                printOptionDefinitionsDesc: "المصطلحات، الدول، الأحداث، السنوات والمنظمات",
+                printOptionGallery: "🗺️ المعرض",
+                printOptionGalleryDesc: "الصور والخرائط",
+                printModalCancel: "إلغاء",
+                printModalConfirm: "🖨️ طباعة المحدد"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Arab Maghreb Union", class: "key-organization", i18n: "defAMU" },
+                { text: "The Maghreb", class: "key-location", i18n: "defMaghreb" },
+                { text: "Libya", class: "key-location", i18n: "defLibya" },
+                { text: "Tunisia", class: "key-location", i18n: "defTunisia" },
+                { text: "Algeria", class: "key-location", i18n: "defAlgeria" },
+                { text: "Morocco", class: "key-location", i18n: "defMorocco" },
+                { text: "Mauritania", class: "key-location", i18n: "defMauritania" },
+                { text: "Casablanca", class: "key-location", i18n: "defCasablanca" },
+                { text: "Rabat", class: "key-location", i18n: "defRabat" },
+                { text: "Senegal", class: "key-location", i18n: "defSenegal" },
+                { text: "Banu Hilal", class: "key-event", i18n: "defBanuHilal" },
+                { text: "Coastalization", class: "key-other", i18n: "defCoastalization" },
+                { text: "Urbanization Rate", class: "key-other", i18n: "defUrbanizationRate" },
+                { text: "Urban Explosion", class: "key-other", i18n: "defUrbanExplosion" },
+                { text: "Demographic Transition", class: "key-other", i18n: "defDemographicTransition" },
+                { text: "Age Pyramid", class: "key-other", i18n: "defAgePyramid" },
+                { text: "Natural Growth", class: "key-other", i18n: "defNaturalGrowth" },
+                { text: "Family Planning", class: "key-other", i18n: "defFamilyPlanning" },
+                { text: "Youthful Society", class: "key-other", i18n: "defYouthSociety" },
+                { text: "GDP per Capita", class: "key-other", i18n: "defGDPPerCapita" },
+                { text: "Infant Mortality", class: "key-other", i18n: "defInfantMortality" },
+                { text: "Life Expectancy", class: "key-other", i18n: "defLifeExpectancy" },
+                { text: "Schooling Rate", class: "key-other", i18n: "defSchoolingRate" },
+                { text: "Illiteracy Rate", class: "key-other", i18n: "defIlliteracyRate" },
+                { text: "Human Development Index", class: "key-other", i18n: "defHDI" },
+                { text: "Million-Inhabitant City", class: "key-other", i18n: "defMillionCity" },
+                { text: "1960", class: "key-year", i18n: null },
+                { text: "2002", class: "key-year", i18n: null },
+                { text: "2003", class: "key-year", i18n: null },
+                { text: "2004", class: "key-year", i18n: null },
+                { text: "2005", class: "key-year", i18n: null },
+                { text: "2020", class: "key-year", i18n: null }
+            ],
+            fr: [
+                { text: "Union du Maghreb arabe", class: "key-organization", i18n: "defAMU" },
+                { text: "Maghreb", class: "key-location", i18n: "defMaghreb" },
+                { text: "Libye", class: "key-location", i18n: "defLibya" },
+                { text: "Tunisie", class: "key-location", i18n: "defTunisia" },
+                { text: "Algérie", class: "key-location", i18n: "defAlgeria" },
+                { text: "Maroc", class: "key-location", i18n: "defMorocco" },
+                { text: "Mauritanie", class: "key-location", i18n: "defMauritania" },
+                { text: "Casablanca", class: "key-location", i18n: "defCasablanca" },
+                { text: "Rabat", class: "key-location", i18n: "defRabat" },
+                { text: "Sénégal", class: "key-location", i18n: "defSenegal" },
+                { text: "Banu Hilal", class: "key-event", i18n: "defBanuHilal" },
+                { text: "littoralisation", class: "key-other", i18n: "defCoastalization" },
+                { text: "taux d'urbanisation", class: "key-other", i18n: "defUrbanizationRate" },
+                { text: "explosion urbaine", class: "key-other", i18n: "defUrbanExplosion" },
+                { text: "transition démographique", class: "key-other", i18n: "defDemographicTransition" },
+                { text: "pyramide des âges", class: "key-other", i18n: "defAgePyramid" },
+                { text: "croissance naturelle", class: "key-other", i18n: "defNaturalGrowth" },
+                { text: "planning familial", class: "key-other", i18n: "defFamilyPlanning" },
+                { text: "société jeune", class: "key-other", i18n: "defYouthSociety" },
+                { text: "PIB par habitant", class: "key-other", i18n: "defGDPPerCapita" },
+                { text: "mortalité infantile", class: "key-other", i18n: "defInfantMortality" },
+                { text: "espérance de vie", class: "key-other", i18n: "defLifeExpectancy" },
+                { text: "taux de scolarisation", class: "key-other", i18n: "defSchoolingRate" },
+                { text: "taux d'analphabétisme", class: "key-other", i18n: "defIlliteracyRate" },
+                { text: "Indice de Développement Humain", class: "key-other", i18n: "defHDI" },
+                { text: "ville millionnaire", class: "key-other", i18n: "defMillionCity" },
+                { text: "1960", class: "key-year", i18n: null },
+                { text: "2002", class: "key-year", i18n: null },
+                { text: "2003", class: "key-year", i18n: null },
+                { text: "2004", class: "key-year", i18n: null },
+                { text: "2005", class: "key-year", i18n: null },
+                { text: "2020", class: "key-year", i18n: null }
+            ],
+            ar: [
+                { text: "اتحاد المغرب العربي", class: "key-organization", i18n: "defAMU" },
+                { text: "المغرب العربي", class: "key-location", i18n: "defMaghreb" },
+                { text: "ليبيا", class: "key-location", i18n: "defLibya" },
+                { text: "تونس", class: "key-location", i18n: "defTunisia" },
+                { text: "الجزائر", class: "key-location", i18n: "defAlgeria" },
+                { text: "المغرب الأقصى", class: "key-location", i18n: "defMorocco" },
+                { text: "موريتانيا", class: "key-location", i18n: "defMauritania" },
+                { text: "الدار البيضاء", class: "key-location", i18n: "defCasablanca" },
+                { text: "الرباط", class: "key-location", i18n: "defRabat" },
+                { text: "السنغال", class: "key-location", i18n: "defSenegal" },
+                { text: "بني هلال", class: "key-event", i18n: "defBanuHilal" },
+                { text: "السوحلة", class: "key-other", i18n: "defCoastalization" },
+                { text: "نسبة التحضر", class: "key-other", i18n: "defUrbanizationRate" },
+                { text: "الانفجار الحضري", class: "key-other", i18n: "defUrbanExplosion" },
+                { text: "الانتقال الديمغرافي", class: "key-other", i18n: "defDemographicTransition" },
+                { text: "هرم الأعمار", class: "key-other", i18n: "defAgePyramid" },
+                { text: "النمو الطبيعي", class: "key-other", i18n: "defNaturalGrowth" },
+                { text: "التنظيم العائلي", class: "key-other", i18n: "defFamilyPlanning" },
+                { text: "المجتمع الفتي", class: "key-other", i18n: "defYouthSociety" },
+                { text: "نصيب الفرد من الناتج الداخلي الخام", class: "key-other", i18n: "defGDPPerCapita" },
+                { text: "وفيات الرضع", class: "key-other", i18n: "defInfantMortality" },
+                { text: "أمل الحياة عند الميلاد", class: "key-other", i18n: "defLifeExpectancy" },
+                { text: "نسبة التمدرس", class: "key-other", i18n: "defSchoolingRate" },
+                { text: "نسبة الأمية", class: "key-other", i18n: "defIlliteracyRate" },
+                { text: "مؤشر التنمية البشرية", class: "key-other", i18n: "defHDI" },
+                { text: "المدينة المليونية", class: "key-other", i18n: "defMillionCity" },
+                { text: "1960", class: "key-year", i18n: null },
+                { text: "2002", class: "key-year", i18n: null },
+                { text: "2003", class: "key-year", i18n: null },
+                { text: "2004", class: "key-year", i18n: null },
+                { text: "2005", class: "key-year", i18n: null },
+                { text: "2020", class: "key-year", i18n: null }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
