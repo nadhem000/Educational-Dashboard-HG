@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">حنّبعل</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">تُعدّ الحروب البونيقية التي دارت بين قرطاج وروما من أطول وأشرس الحروب في التاريخ القديم، حيث استمرت قرابة قرن من الزمن. وقد برز في هذه الحروب شخصية عسكرية فذّة، تركت بصمة لا تُمحى في فنون القتال والقيادة، وهو القائد القرطاجي «حنّبعل». لقد شكّل هذا القائد العظيم خطراً وجودياً على الإمبراطورية الرومانية، وصنع ملاحم عسكرية خالدة تجلّت في عبوره لجبال الألب وتكتيكاته العبقرية في المعارك. في هذا الدرس، نتعرف على مراحل الصراع بين روما وقرطاج، ونتناول بالتفصيل شخصية حنّبعل وعبقريته العسكرية.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي مراحل الحروب البونيقية بين قرطاج وروما؟ ومن هو حنّبعل؟ وما هي أبرز ميزات شخصيته وعبقريته العسكرية؟</p>
+            </div>
+
+            <!-- Part I : Stages of the Conflict -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">مراحل الصراع بين قرطاج وروما (الحروب البونيقية)</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="warsOneThreeTitle">الحرب الأولى والحرب الثالثة</span>
+                </h4>
+                <p data-i18n="warOneText"><strong>الحرب الأولى (264 – 241 ق.م):</strong> استمرت 23 سنة. بدأت عندما التقى الجيشان في «ميسنا»، وتمكّنت فيها روما من الاستيلاء على جزر هامّة في البحر المتوسط هي: <strong>صقلية</strong>، و<strong>كرسيكا</strong> (كورسيكا)، و<strong>سردانيا</strong> (سردينيا).</p>
+                <p data-i18n="warThreeText"><strong>الحرب الثالثة (149 – 146 ق.م):</strong> استمرت 3 سنوات، وانتهت بسيطرة روما التامة على قرطاج وتدميرها.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="warTwoTitle">الحرب الثانية وملحمة حنّبعل العسكرية</span>
+                </h4>
+                <p data-i18n="warTwoText"><strong>الحرب الثانية (218 – 201 ق.م):</strong> استمرت 17 سنة، وهي الحرب التي قاد فيها حنّبعل الجيش القرطاجي.</p>
+                <p data-i18n="marchText"><strong>الزحف نحو إيطاليا:</strong> انطلق حنّبعل بجيش عظيم من <strong>«قرطاجنة»</strong> (إسبانيا حالياً) متجهاً نحو إيطاليا، في رحلة شاقّة اجتاز فيها <strong>جبال الألب</strong> حتى وصل إلى وادي نهر البو.</p>
+                <p data-i18n="victoriesText"><strong>انتصارات حنّبعل:</strong> حقّق حنّبعل انتصارات ساحقة على الرومان في عدة معارك: <strong>تيسيونس</strong> (218 ق.م)، و<strong>ترابيا</strong> (217 ق.م)، و<strong>ميّتروس</strong> (207 ق.م)، وكان أعظم انتصاراته في معركة <strong>كنني</strong> (216 ق.م).</p>
+                <p data-i18n="warTwoEndText"><strong>نهاية الحرب:</strong> في سنة 202 ق.م، شنّت روما هجوماً بقيادة القائد <strong>«شيبون الإفريقي»</strong> على قرطاج، فالقهاء حنّبعل في منطقة <strong>«جاما»</strong>. وبسبب فرار جنوده حديثي العهد بالقتال، استسلمت قرطاج وانتهت الحرب الثانية بهزيمتها.</p>
+            </div>
+
+            <!-- Part II : Hannibal's Personality and Military Genius -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">شخصية حنّبعل وعبقريته العسكرية</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="personalityTitle">ميزات شخصية حنّبعل والقيادية</span>
+                </h4>
+                <p data-i18n="lifespanText">عاش حنّبعل بين سنتي <strong>247 ق.م</strong> و<strong>183 ق.م</strong>.</p>
+                <p data-i18n="traitsText">كان قائداً شجاعاً واثقاً، يتمتع بشجاعة فائقة واتزان في مجابهة الأبطال.</p>
+                <p data-i18n="trustText">كان يظفر بثقة وطاعة كبيرة من قبل جنوده.</p>
+                <p data-i18n="exampleText">اتصف بأنه كان أول من يدخل ساحة الوغى (المعركة) وآخر من يغادرها، مما جعله قدوة لجنوده.</p>
+                <p data-i18n="exileText">بعد انتهاء الحرب، عمل على تطوير قرطاج ومحاربة الفساد، إلا أنّ روما رأت في ذلك إعداداً لحرب أخرى، فعملت على إبعاده (نفيه).</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="militaryGeniusTitle">العبقرية العسكرية (تخطيط معركة كنني)</span>
+                </h4>
+                <p data-i18n="cannaeIntro">يبرز التخطيط الذي قام به حنّبعل في <strong>معركة كنني</strong> (216 ق.م) حنكته ودرايته الكبيرة بالحروب.</p>
+                <p data-i18n="tacticText"><strong>التكتيك العسكري:</strong> كلّف الخيّالة بمواجهة الخيّالة الرومانيين. أما المشاة، فطلب منهم التقهقر (التراجع للخلف) بشكل مدروس.</p>
+                <p data-i18n="encirclementText"><strong>التطويق:</strong> عندما تقدّم المشاة الرومانيون للهجوم، قامت المشاة القرطاجية بتطويقهم (محاصرتهم) من الجانبين، بينما تمكّنت الخيّالة القرطاجية من الفتك بالخيّالة الرومانية.</p>
+                <p data-i18n="resultText"><strong>النتيجة:</strong> أصبح الجيش الروماني محاصراً من كلّ الجهات، مما أدّى إلى انتصار ساحق للجيش القرطاجي بقيادة حنّبعل.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا، يتجلّى لنا من خلال هذا الدرس أنّ «حنّبعل» لم يكن مجرد قائد عسكري عادي، بل كان عبقرياً استراتيجياً وشخصية استثنائية في التاريخ القديم. ورغم انتهاء الحروب البونيقية بهزيمة قرطاج، إلاّ أنّ ملاحم حنّبعل وتكتيكاته العسكرية التي أذهلت الرومان، تظلّ شاهداً على عظمة الحضارة القرطاجية وقدرتها على إنجاب قادة أفذاذ يربطون تاريخهم بحبّ الوطن والدفاع عنه والذود عن حياضه بالشجاعة والجرأة.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">القوة البحرية والتجارية في غرب البحر الأبيض المتوسط، خصم روما في الحروب البونيقية.</span></li>
+                        <li><strong class="key-location" data-i18n="defRome">روما</strong>: <span data-i18n="defRomeDesc">القوة الصاعدة في إيطاليا التي خاضت الحروب البونيقية ضد قرطاج، وانتهت بسيطرتها على غرب المتوسط.</span></li>
+                        <li><strong class="key-location" data-i18n="defCarthagoNova">قرطاجنة</strong>: <span data-i18n="defCarthagoNovaDesc">مدينة في شبه الجزيرة الأيبيرية (إسبانيا حالياً) انطلق منها حنّبعل بجيشه نحو إيطاليا.</span></li>
+                        <li><strong class="key-location" data-i18n="defAlps">جبال الألب</strong>: <span data-i18n="defAlpsDesc">الجبال الشاهقة التي اجتازها حنّبعل بجيشه في رحلته الشاقة من إسبانيا إلى إيطاليا.</span></li>
+                        <li><strong class="key-location" data-i18n="defPo">وادي نهر البو</strong>: <span data-i18n="defPoDesc">المنطقة التي وصل إليها حنّبعل بعد عبوره جبال الألب، وبدأ منها حملته على روما.</span></li>
+                        <li><strong class="key-location" data-i18n="defZama">جاما</strong>: <span data-i18n="defZamaDesc">المنطقة التي وقعت فيها المعركة الفاصلة في الحرب البونيقية الثانية سنة 202 ق.م، والتي انهزم فيها حنّبعل أمام شيبون الإفريقي.</span></li>
+                        <li><strong class="key-location" data-i18n="defSicily">صقلية</strong>: <span data-i18n="defSicilyDesc">جزيرة في البحر الأبيض المتوسط استولت عليها روما في الحرب البونيقية الأولى.</span></li>
+                        <li><strong class="key-location" data-i18n="defCorsica">كرسيكا (كورسيكا)</strong>: <span data-i18n="defCorsicaDesc">جزيرة في البحر الأبيض المتوسط استولت عليها روما في الحرب البونيقية الأولى.</span></li>
+                        <li><strong class="key-location" data-i18n="defSardinia">سردانيا (سردينيا)</strong>: <span data-i18n="defSardiniaDesc">جزيرة في البحر الأبيض المتوسط استولت عليها روما في الحرب البونيقية الأولى.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 شخصيات ومفاهيم</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defHannibal">حنّبعل</strong>: <span data-i18n="defHannibalDesc">القائد القرطاجي العظيم (247 – 183 ق.م) الذي قاد الحرب البونيقية الثانية ضد روما، واجتاز جبال الألب بجيشه، وحقّق انتصارات ساحقة، وأعظمها معركة كنني (216 ق.م).</span></li>
+                        <li><strong class="key-other" data-i18n="defScipio">شيبون الإفريقي</strong>: <span data-i18n="defScipioDesc">القائد الروماني الذي قاد هجوم روما على قرطاج سنة 202 ق.م، فهزم حنّبعل في معركة جاما.</span></li>
+                        <li><strong class="key-other" data-i18n="defPunicWars">الحروب البونيقية</strong>: <span data-i18n="defPunicWarsDesc">سلسلة من الحروب بين قرطاج وروما استمرت قرابة قرن من الزمن (264 – 146 ق.م)، وتنقسم إلى ثلاث حروب.</span></li>
+                        <li><strong class="key-other" data-i18n="defCannae">معركة كنني</strong>: <span data-i18n="defCannaeDesc">أعظم انتصارات حنّبعل (216 ق.م) في الحرب البونيقية الثانية، وقد استعمل فيها تكتيك التطويق الذي أذهل الرومان.</span></li>
+                        <li><strong class="key-other" data-i18n="defEncirclement">التطويق</strong>: <span data-i18n="defEncirclementDesc">تكتيك عسكري يعتمد على محاصرة العدو من الجانبين، استعمله حنّبعل في معركة كنني بعد أن طلب من مشاته التقهقر بشكل مدروس.</span></li>
+                        <li><strong class="key-other" data-i18n="defRetreat">التقهقر</strong>: <span data-i18n="defRetreatDesc">التراجع للخلف، وقد استعمله حنّبعل كخطة مدروسة في معركة كنني لاستدراج الجيش الروماني إلى داخل صفوف المشاة القرطاجية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: الحروب البونيقية بين قرطاج وروما ثلاث: الأولى (264 – 241 ق.م) استولت فيها روما على صقلية وكرسيكا وسردانيا، والثانية (218 – 201 ق.م) قاد فيها حنّبعل الجيش القرطاجي فاجتاز جبال الألب وحقّق انتصارات ساحقة أبرزها كنني، لكنه انهزم في جاما سنة 202 ق.م أمام شيبون الإفريقي، والثالثة (149 – 146 ق.م) انتهت بتدمير قرطاج. عاش حنّبعل بين 247 و183 ق.م، وكان شجاعاً واثقاً وقدوة لجنوده، وأبرز عبقريته في معركة كنني حيث استعمل تكتيك التطويق.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق ومعالم حول حنّبعل</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson4/hannibal_bust.jpg" alt="تمثال القائد حنّبعل" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">تمثال القائد حنّبعل</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson4/hannibal_crossing_alps.jpg" alt="عبور حنّبعل جبال الألب" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">عبور حنّبعل جبال الألب</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson4/battle_of_cannae.jpg" alt="معركة كنني (216 ق.م)" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">معركة كنني (216 ق.م)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson4/punic_wars_map.jpg" alt="خريطة الحروب البونيقية" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">خريطة الحروب البونيقية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod2_lesson4.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">الشخصيات والمفاهيم والأمكنة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الوثائق والمعالم حول حنّبعل</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Tunisia from Prehistory to the Roman Era",
+                lessonTitleSample: "Hannibal",
+                sectionIntro: "Introduction",
+                introText: "The Punic Wars fought between Carthage and Rome are among the longest and fiercest wars in ancient history, lasting nearly a century. Among them emerged an exceptional military figure who left an indelible mark on the arts of combat and leadership: the Carthaginian commander 'Hannibal'. This great commander posed an existential threat to the Roman Empire and created immortal military epics manifested in his crossing of the Alps and his brilliant tactics in battle. In this lesson, we learn about the stages of the conflict between Rome and Carthage and examine in detail the personality of Hannibal and his military genius.",
+                problematiqueText: "What were the stages of the Punic Wars between Carthage and Rome? Who was Hannibal? And what were the most important features of his personality and military genius?",
+                sectionPart1: "Stages of the Conflict between Carthage and Rome (The Punic Wars)",
+                warsOneThreeTitle: "The First and Third Wars",
+                warOneText: "<strong>The First War (264 – 241 BC):</strong> It lasted 23 years. It began when the two armies met at 'Messana', and Rome managed to seize important islands in the Mediterranean: <strong>Sicily</strong>, <strong>Corsica</strong>, and <strong>Sardinia</strong>.",
+                warThreeText: "<strong>The Third War (149 – 146 BC):</strong> It lasted 3 years and ended with Rome's complete control over Carthage and its destruction.",
+                warTwoTitle: "The Second War and Hannibal's Military Epic",
+                warTwoText: "<strong>The Second War (218 – 201 BC):</strong> It lasted 17 years, and it was the war in which Hannibal led the Carthaginian army.",
+                marchText: "<strong>The march towards Italy:</strong> Hannibal set out with a great army from <strong>'Carthago Nova'</strong> (present-day Spain) heading towards Italy, on an arduous journey in which he crossed the <strong>Alps</strong> until he reached the Po River valley.",
+                victoriesText: "<strong>Hannibal's victories:</strong> Hannibal achieved crushing victories over the Romans in several battles: <strong>Ticinus</strong> (218 BC), <strong>Trebbia</strong> (217 BC), and <strong>Metaurus</strong> (207 BC), and his greatest victory was at the battle of <strong>Cannae</strong> (216 BC).",
+                warTwoEndText: "<strong>The end of the war:</strong> In 202 BC, Rome launched an attack led by the commander <strong>'Scipio Africanus'</strong> against Carthage, and he defeated Hannibal in the region of <strong>'Zama'</strong>. Due to the flight of his inexperienced soldiers, Carthage surrendered, and the Second War ended with its defeat.",
+                sectionPart2: "Hannibal's Personality and Military Genius",
+                personalityTitle: "Features of Hannibal's Personal and Leadership Character",
+                lifespanText: "Hannibal lived between <strong>247 BC</strong> and <strong>183 BC</strong>.",
+                traitsText: "He was a brave and confident commander, possessing great courage and composure when facing heroes.",
+                trustText: "He won great trust and obedience from his soldiers.",
+                exampleText: "He was characterized by being the first to enter the battlefield and the last to leave it, which made him a role model for his soldiers.",
+                exileText: "After the end of the war, he worked to develop Carthage and fight corruption, but Rome saw this as preparation for another war, so it worked to remove (exile) him.",
+                militaryGeniusTitle: "Military Genius (The Planning of the Battle of Cannae)",
+                cannaeIntro: "The planning that Hannibal carried out at the <strong>battle of Cannae</strong> (216 BC) highlights his skill and great knowledge of warfare.",
+                tacticText: "<strong>The military tactic:</strong> He assigned the cavalry to confront the Roman cavalry. As for the infantry, he asked them to retreat (withdraw backward) in a calculated manner.",
+                encirclementText: "<strong>The encirclement:</strong> When the Roman infantry advanced to attack, the Carthaginian infantry encircled (surrounded) them from both sides, while the Carthaginian cavalry managed to annihilate the Roman cavalry.",
+                resultText: "<strong>The result:</strong> The Roman army became surrounded from all directions, leading to a crushing victory for the Carthaginian army led by Hannibal.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus, this lesson reveals to us that 'Hannibal' was not merely an ordinary military commander, but a strategic genius and an exceptional figure in ancient history. Despite the Punic Wars ending with the defeat of Carthage, Hannibal's epics and military tactics that astonished the Romans remain a witness to the greatness of Carthaginian civilization and its ability to produce outstanding leaders who link their history to the love of the homeland, defending it and protecting it with courage and boldness.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Monuments about Hannibal",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Figures and Concepts",
+                defCarthage: "Carthage",
+                defCarthageDesc: "The maritime and commercial power in the western Mediterranean, Rome's rival in the Punic Wars.",
+                defRome: "Rome",
+                defRomeDesc: "The rising power in Italy that fought the Punic Wars against Carthage, ending with its control over the western Mediterranean.",
+                defCarthagoNova: "Carthago Nova",
+                defCarthagoNovaDesc: "A city in the Iberian Peninsula (present-day Spain) from which Hannibal set out with his army towards Italy.",
+                defAlps: "The Alps",
+                defAlpsDesc: "The towering mountains that Hannibal crossed with his army on his arduous journey from Spain to Italy.",
+                defPo: "The Po River Valley",
+                defPoDesc: "The region Hannibal reached after crossing the Alps, from which he began his campaign against Rome.",
+                defZama: "Zama",
+                defZamaDesc: "The region where the decisive battle of the Second Punic War took place in 202 BC, in which Hannibal was defeated by Scipio Africanus.",
+                defSicily: "Sicily",
+                defSicilyDesc: "An island in the Mediterranean that Rome seized in the First Punic War.",
+                defCorsica: "Corsica",
+                defCorsicaDesc: "An island in the Mediterranean that Rome seized in the First Punic War.",
+                defSardinia: "Sardinia",
+                defSardiniaDesc: "An island in the Mediterranean that Rome seized in the First Punic War.",
+                defHannibal: "Hannibal",
+                defHannibalDesc: "The great Carthaginian commander (247 – 183 BC) who led the Second Punic War against Rome, crossed the Alps with his army, and achieved crushing victories, the greatest of which was the battle of Cannae (216 BC).",
+                defScipio: "Scipio Africanus",
+                defScipioDesc: "The Roman commander who led Rome's attack on Carthage in 202 BC, defeating Hannibal at the battle of Zama.",
+                defPunicWars: "The Punic Wars",
+                defPunicWarsDesc: "A series of wars between Carthage and Rome lasting nearly a century (264 – 146 BC), divided into three wars.",
+                defCannae: "The Battle of Cannae",
+                defCannaeDesc: "Hannibal's greatest victory (216 BC) in the Second Punic War, in which he used the encirclement tactic that astonished the Romans.",
+                defEncirclement: "Encirclement",
+                defEncirclementDesc: "A military tactic based on surrounding the enemy from both sides, used by Hannibal at the battle of Cannae after asking his infantry to retreat in a calculated manner.",
+                defRetreat: "Retreat",
+                defRetreatDesc: "Withdrawing backward, used by Hannibal as a calculated plan at the battle of Cannae to lure the Roman army into the ranks of the Carthaginian infantry.",
+                summaryText: "Key takeaway: The Punic Wars between Carthage and Rome are three: the First (264 – 241 BC) in which Rome seized Sicily, Corsica, and Sardinia; the Second (218 – 201 BC) in which Hannibal led the Carthaginian army, crossed the Alps, and achieved crushing victories, most notably Cannae, but was defeated at Zama in 202 BC by Scipio Africanus; and the Third (149 – 146 BC) which ended with the destruction of Carthage. Hannibal lived between 247 and 183 BC, was brave and confident, a role model for his soldiers, and displayed his genius at the battle of Cannae where he used the encirclement tactic.",
+                galleryAlt1: "Statue of the commander Hannibal",
+                galleryAlt2: "Hannibal crossing the Alps",
+                galleryAlt3: "The Battle of Cannae (216 BC)",
+                galleryAlt4: "Map of the Punic Wars",
+                galleryCap1: "Statue of the commander Hannibal",
+                galleryCap2: "Hannibal crossing the Alps",
+                galleryCap3: "The Battle of Cannae (216 BC)",
+                galleryCap4: "Map of the Punic Wars",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / La Tunisie de la préhistoire à l'époque romaine",
+                lessonTitleSample: "Hannibal",
+                sectionIntro: "Introduction",
+                introText: "Les guerres puniques entre Carthage et Rome comptent parmi les guerres les plus longues et les plus acharnées de l'histoire ancienne, ayant duré près d'un siècle. Une figure militaire exceptionnelle s'y est distinguée, laissant une empreinte indélébile dans l'art du combat et du commandement : le général carthaginois « Hannibal ». Ce grand général a représenté une menace existentielle pour l'Empire romain et a créé des épopées militaires immortelles qui se sont manifestées dans sa traversée des Alpes et ses tactiques brillantes au combat. Dans cette leçon, nous découvrons les étapes du conflit entre Rome et Carthage et nous examinons en détail la personnalité d'Hannibal et son génie militaire.",
+                problematiqueText: "Quelles étaient les étapes des guerres puniques entre Carthage et Rome ? Qui était Hannibal ? Et quelles étaient les caractéristiques les plus importantes de sa personnalité et de son génie militaire ?",
+                sectionPart1: "Les étapes du conflit entre Carthage et Rome (les guerres puniques)",
+                warsOneThreeTitle: "La première et la troisième guerre",
+                warOneText: "<strong>La première guerre (264 – 241 av. J.-C.) :</strong> Elle a duré 23 ans. Elle a commencé lorsque les deux armées se sont rencontrées à « Messine », et Rome a réussi à s'emparer d'îles importantes de la Méditerranée : la <strong>Sicile</strong>, la <strong>Corse</strong> et la <strong>Sardaigne</strong>.",
+                warThreeText: "<strong>La troisième guerre (149 – 146 av. J.-C.) :</strong> Elle a duré 3 ans et s'est terminée par le contrôle total de Rome sur Carthage et sa destruction.",
+                warTwoTitle: "La deuxième guerre et l'épopée militaire d'Hannibal",
+                warTwoText: "<strong>La deuxième guerre (218 – 201 av. J.-C.) :</strong> Elle a duré 17 ans, et c'est la guerre au cours de laquelle Hannibal a dirigé l'armée carthaginoise.",
+                marchText: "<strong>La marche vers l'Italie :</strong> Hannibal est parti avec une grande armée de <strong>« Carthagène »</strong> (l'actuelle Espagne) en direction de l'Italie, lors d'un voyage ardu au cours duquel il a traversé les <strong>Alpes</strong> jusqu'à atteindre la vallée du Pô.",
+                victoriesText: "<strong>Les victoires d'Hannibal :</strong> Hannibal a remporté des victoires écrasantes sur les Romains lors de plusieurs batailles : <strong>la Trébie</strong> (218 av. J.-C.), <strong>le lac Trasimène</strong> (217 av. J.-C.) et <strong>le Métaure</strong> (207 av. J.-C.), et sa plus grande victoire fut à la bataille de <strong>Cannes</strong> (216 av. J.-C.).",
+                warTwoEndText: "<strong>La fin de la guerre :</strong> En 202 av. J.-C., Rome lança une attaque dirigée par le général <strong>« Scipion l'Africain »</strong> contre Carthage, et il vainquit Hannibal dans la région de <strong>« Zama »</strong>. En raison de la fuite de ses soldats inexpérimentés, Carthage capitula, et la deuxième guerre se termina par sa défaite.",
+                sectionPart2: "La personnalité d'Hannibal et son génie militaire",
+                personalityTitle: "Les traits de la personnalité et du leadership d'Hannibal",
+                lifespanText: "Hannibal a vécu entre <strong>247 av. J.-C.</strong> et <strong>183 av. J.-C.</strong>.",
+                traitsText: "Il était un général courageux et confiant, doté d'un courage extrême et d'un sang-froid face aux héros.",
+                trustText: "Il bénéficiait d'une grande confiance et d'une grande obéissance de la part de ses soldats.",
+                exampleText: "Il se caractérisait par le fait d'être le premier à entrer sur le champ de bataille et le dernier à le quitter, ce qui en faisait un modèle pour ses soldats.",
+                exileText: "Après la fin de la guerre, il travailla à développer Carthage et à lutter contre la corruption, mais Rome y vit une préparation à une nouvelle guerre, et œuvra à l'éloigner (l'exiler).",
+                militaryGeniusTitle: "Le génie militaire (la planification de la bataille de Cannes)",
+                cannaeIntro: "La planification réalisée par Hannibal lors de la <strong>bataille de Cannes</strong> (216 av. J.-C.) met en évidence son habileté et sa grande connaissance de la guerre.",
+                tacticText: "<strong>La tactique militaire :</strong> Il chargea la cavalerie d'affronter la cavalerie romaine. Quant à l'infanterie, il lui demanda de reculer (reculer vers l'arrière) de manière calculée.",
+                encirclementText: "<strong>L'encerclement :</strong> Lorsque l'infanterie romaine avança pour attaquer, l'infanterie carthaginoise l'encercla (l'entoura) sur les deux flancs, tandis que la cavalerie carthaginoise parvint à anéantir la cavalerie romaine.",
+                resultText: "<strong>Le résultat :</strong> L'armée romaine se retrouva encerclée de toutes parts, ce qui entraîna une victoire écrasante de l'armée carthaginoise dirigée par Hannibal.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi, cette leçon nous révèle qu'« Hannibal » n'était pas simplement un général ordinaire, mais un génie stratégique et une figure exceptionnelle de l'histoire ancienne. Bien que les guerres puniques se soient terminées par la défaite de Carthage, les épopées et les tactiques militaires d'Hannibal qui ont stupéfié les Romains demeurent un témoignage de la grandeur de la civilisation carthaginoise et de sa capacité à produire des chefs éminents qui lient leur histoire à l'amour de la patrie, à sa défense et à sa protection avec courage et audace.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et monuments sur Hannibal",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Figures et concepts",
+                defCarthage: "Carthage",
+                defCarthageDesc: "La puissance maritime et commerciale de la Méditerranée occidentale, rivale de Rome dans les guerres puniques.",
+                defRome: "Rome",
+                defRomeDesc: "La puissance montante en Italie qui a mené les guerres puniques contre Carthage, se terminant par son contrôle de la Méditerranée occidentale.",
+                defCarthagoNova: "Carthagène",
+                defCarthagoNovaDesc: "Une ville de la péninsule Ibérique (actuelle Espagne) d'où Hannibal partit avec son armée vers l'Italie.",
+                defAlps: "Les Alpes",
+                defAlpsDesc: "Les hautes montagnes qu'Hannibal a traversées avec son armée lors de son voyage ardu d'Espagne en Italie.",
+                defPo: "La vallée du Pô",
+                defPoDesc: "La région qu'Hannibal a atteinte après avoir traversé les Alpes, d'où il a commencé sa campagne contre Rome.",
+                defZama: "Zama",
+                defZamaDesc: "La région où s'est déroulée la bataille décisive de la deuxième guerre punique en 202 av. J.-C., au cours de laquelle Hannibal fut vaincu par Scipion l'Africain.",
+                defSicily: "La Sicile",
+                defSicilyDesc: "Une île de la Méditerranée que Rome s'empara lors de la première guerre punique.",
+                defCorsica: "La Corse",
+                defCorsicaDesc: "Une île de la Méditerranée que Rome s'empara lors de la première guerre punique.",
+                defSardinia: "La Sardaigne",
+                defSardiniaDesc: "Une île de la Méditerranée que Rome s'empara lors de la première guerre punique.",
+                defHannibal: "Hannibal",
+                defHannibalDesc: "Le grand général carthaginois (247 – 183 av. J.-C.) qui a dirigé la deuxième guerre punique contre Rome, traversé les Alpes avec son armée, et remporté des victoires écrasantes, la plus grande étant la bataille de Cannes (216 av. J.-C.).",
+                defScipio: "Scipion l'Africain",
+                defScipioDesc: "Le général romain qui a dirigé l'attaque de Rome contre Carthage en 202 av. J.-C., vainquant Hannibal à la bataille de Zama.",
+                defPunicWars: "Les guerres puniques",
+                defPunicWarsDesc: "Une série de guerres entre Carthage et Rome ayant duré près d'un siècle (264 – 146 av. J.-C.), divisée en trois guerres.",
+                defCannae: "La bataille de Cannes",
+                defCannaeDesc: "La plus grande victoire d'Hannibal (216 av. J.-C.) lors de la deuxième guerre punique, au cours de laquelle il utilisa la tactique d'encerclement qui stupéfia les Romains.",
+                defEncirclement: "L'encerclement",
+                defEncirclementDesc: "Une tactique militaire consistant à encercler l'ennemi sur les deux flancs, utilisée par Hannibal à la bataille de Cannes après avoir demandé à son infanterie de reculer de manière calculée.",
+                defRetreat: "Le repli",
+                defRetreatDesc: "Le fait de reculer vers l'arrière, utilisé par Hannibal comme plan calculé à la bataille de Cannes pour attirer l'armée romaine dans les rangs de l'infanterie carthaginoise.",
+                summaryText: "À retenir : Les guerres puniques entre Carthage et Rome sont au nombre de trois : la première (264 – 241 av. J.-C.) au cours de laquelle Rome s'empara de la Sicile, de la Corse et de la Sardaigne ; la deuxième (218 – 201 av. J.-C.) au cours de laquelle Hannibal dirigea l'armée carthaginoise, traversa les Alpes et remporta des victoires écrasantes, notamment Cannes, mais fut vaincu à Zama en 202 av. J.-C. par Scipion l'Africain ; et la troisième (149 – 146 av. J.-C.) qui se termina par la destruction de Carthage. Hannibal a vécu entre 247 et 183 av. J.-C., il était courageux et confiant, un modèle pour ses soldats, et il manifesta son génie à la bataille de Cannes où il utilisa la tactique d'encerclement.",
+                galleryAlt1: "Statue du général Hannibal",
+                galleryAlt2: "Hannibal traversant les Alpes",
+                galleryAlt3: "La bataille de Cannes (216 av. J.-C.)",
+                galleryAlt4: "Carte des guerres puniques",
+                galleryCap1: "Statue du général Hannibal",
+                galleryCap2: "Hannibal traversant les Alpes",
+                galleryCap3: "La bataille de Cannes (216 av. J.-C.)",
+                galleryCap4: "Carte des guerres puniques",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني",
+                lessonTitleSample: "حنّبعل",
+                sectionIntro: "مقدمة",
+                introText: "تُعدّ الحروب البونيقية التي دارت بين قرطاج وروما من أطول وأشرس الحروب في التاريخ القديم، حيث استمرت قرابة قرن من الزمن. وقد برز في هذه الحروب شخصية عسكرية فذّة، تركت بصمة لا تُمحى في فنون القتال والقيادة، وهو القائد القرطاجي «حنّبعل». لقد شكّل هذا القائد العظيم خطراً وجودياً على الإمبراطورية الرومانية، وصنع ملاحم عسكرية خالدة تجلّت في عبوره لجبال الألب وتكتيكاته العبقرية في المعارك. في هذا الدرس، نتعرف على مراحل الصراع بين روما وقرطاج، ونتناول بالتفصيل شخصية حنّبعل وعبقريته العسكرية.",
+                problematiqueText: "ما هي مراحل الحروب البونيقية بين قرطاج وروما؟ ومن هو حنّبعل؟ وما هي أبرز ميزات شخصيته وعبقريته العسكرية؟",
+                sectionPart1: "مراحل الصراع بين قرطاج وروما (الحروب البونيقية)",
+                warsOneThreeTitle: "الحرب الأولى والحرب الثالثة",
+                warOneText: "<strong>الحرب الأولى (264 – 241 ق.م):</strong> استمرت 23 سنة. بدأت عندما التقى الجيشان في «ميسنا»، وتمكّنت فيها روما من الاستيلاء على جزر هامّة في البحر المتوسط هي: <strong>صقلية</strong>، و<strong>كرسيكا</strong> (كورسيكا)، و<strong>سردانيا</strong> (سردينيا).",
+                warThreeText: "<strong>الحرب الثالثة (149 – 146 ق.م):</strong> استمرت 3 سنوات، وانتهت بسيطرة روما التامة على قرطاج وتدميرها.",
+                warTwoTitle: "الحرب الثانية وملحمة حنّبعل العسكرية",
+                warTwoText: "<strong>الحرب الثانية (218 – 201 ق.م):</strong> استمرت 17 سنة، وهي الحرب التي قاد فيها حنّبعل الجيش القرطاجي.",
+                marchText: "<strong>الزحف نحو إيطاليا:</strong> انطلق حنّبعل بجيش عظيم من <strong>«قرطاجنة»</strong> (إسبانيا حالياً) متجهاً نحو إيطاليا، في رحلة شاقّة اجتاز فيها <strong>جبال الألب</strong> حتى وصل إلى وادي نهر البو.",
+                victoriesText: "<strong>انتصارات حنّبعل:</strong> حقّق حنّبعل انتصارات ساحقة على الرومان في عدة معارك: <strong>تيسيونس</strong> (218 ق.م)، و<strong>ترابيا</strong> (217 ق.م)، و<strong>ميّتروس</strong> (207 ق.م)، وكان أعظم انتصاراته في معركة <strong>كنني</strong> (216 ق.م).",
+                warTwoEndText: "<strong>نهاية الحرب:</strong> في سنة 202 ق.م، شنّت روما هجوماً بقيادة القائد <strong>«شيبون الإفريقي»</strong> على قرطاج، فالقهاء حنّبعل في منطقة <strong>«جاما»</strong>. وبسبب فرار جنوده حديثي العهد بالقتال، استسلمت قرطاج وانتهت الحرب الثانية بهزيمتها.",
+                sectionPart2: "شخصية حنّبعل وعبقريته العسكرية",
+                personalityTitle: "ميزات شخصية حنّبعل والقيادية",
+                lifespanText: "عاش حنّبعل بين سنتي <strong>247 ق.م</strong> و<strong>183 ق.م</strong>.",
+                traitsText: "كان قائداً شجاعاً واثقاً، يتمتع بشجاعة فائقة واتزان في مجابهة الأبطال.",
+                trustText: "كان يظفر بثقة وطاعة كبيرة من قبل جنوده.",
+                exampleText: "اتصف بأنه كان أول من يدخل ساحة الوغى (المعركة) وآخر من يغادرها، مما جعله قدوة لجنوده.",
+                exileText: "بعد انتهاء الحرب، عمل على تطوير قرطاج ومحاربة الفساد، إلا أنّ روما رأت في ذلك إعداداً لحرب أخرى، فعملت على إبعاده (نفيه).",
+                militaryGeniusTitle: "العبقرية العسكرية (تخطيط معركة كنني)",
+                cannaeIntro: "يبرز التخطيط الذي قام به حنّبعل في <strong>معركة كنني</strong> (216 ق.م) حنكته ودرايته الكبيرة بالحروب.",
+                tacticText: "<strong>التكتيك العسكري:</strong> كلّف الخيّالة بمواجهة الخيّالة الرومانيين. أما المشاة، فطلب منهم التقهقر (التراجع للخلف) بشكل مدروس.",
+                encirclementText: "<strong>التطويق:</strong> عندما تقدّم المشاة الرومانيون للهجوم، قامت المشاة القرطاجية بتطويقهم (محاصرتهم) من الجانبين، بينما تمكّنت الخيّالة القرطاجية من الفتك بالخيّالة الرومانية.",
+                resultText: "<strong>النتيجة:</strong> أصبح الجيش الروماني محاصراً من كلّ الجهات، مما أدّى إلى انتصار ساحق للجيش القرطاجي بقيادة حنّبعل.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا، يتجلّى لنا من خلال هذا الدرس أنّ «حنّبعل» لم يكن مجرد قائد عسكري عادي، بل كان عبقرياً استراتيجياً وشخصية استثنائية في التاريخ القديم. ورغم انتهاء الحروب البونيقية بهزيمة قرطاج، إلاّ أنّ ملاحم حنّبعل وتكتيكاته العسكرية التي أذهلت الرومان، تظلّ شاهداً على عظمة الحضارة القرطاجية وقدرتها على إنجاب قادة أفذاذ يربطون تاريخهم بحبّ الوطن والدفاع عنه والذود عن حياضه بالشجاعة والجرأة.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق ومعالم حول حنّبعل",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 شخصيات ومفاهيم",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "القوة البحرية والتجارية في غرب البحر الأبيض المتوسط، خصم روما في الحروب البونيقية.",
+                defRome: "روما",
+                defRomeDesc: "القوة الصاعدة في إيطاليا التي خاضت الحروب البونيقية ضد قرطاج، وانتهت بسيطرتها على غرب المتوسط.",
+                defCarthagoNova: "قرطاجنة",
+                defCarthagoNovaDesc: "مدينة في شبه الجزيرة الأيبيرية (إسبانيا حالياً) انطلق منها حنّبعل بجيشه نحو إيطاليا.",
+                defAlps: "جبال الألب",
+                defAlpsDesc: "الجبال الشاهقة التي اجتازها حنّبعل بجيشه في رحلته الشاقة من إسبانيا إلى إيطاليا.",
+                defPo: "وادي نهر البو",
+                defPoDesc: "المنطقة التي وصل إليها حنّبعل بعد عبوره جبال الألب، وبدأ منها حملته على روما.",
+                defZama: "جاما",
+                defZamaDesc: "المنطقة التي وقعت فيها المعركة الفاصلة في الحرب البونيقية الثانية سنة 202 ق.م، والتي انهزم فيها حنّبعل أمام شيبون الإفريقي.",
+                defSicily: "صقلية",
+                defSicilyDesc: "جزيرة في البحر الأبيض المتوسط استولت عليها روما في الحرب البونيقية الأولى.",
+                defCorsica: "كرسيكا (كورسيكا)",
+                defCorsicaDesc: "جزيرة في البحر الأبيض المتوسط استولت عليها روما في الحرب البونيقية الأولى.",
+                defSardinia: "سردانيا (سردينيا)",
+                defSardiniaDesc: "جزيرة في البحر الأبيض المتوسط استولت عليها روما في الحرب البونيقية الأولى.",
+                defHannibal: "حنّبعل",
+                defHannibalDesc: "القائد القرطاجي العظيم (247 – 183 ق.م) الذي قاد الحرب البونيقية الثانية ضد روما، واجتاز جبال الألب بجيشه، وحقّق انتصارات ساحقة، وأعظمها معركة كنني (216 ق.م).",
+                defScipio: "شيبون الإفريقي",
+                defScipioDesc: "القائد الروماني الذي قاد هجوم روما على قرطاج سنة 202 ق.م، فهزم حنّبعل في معركة جاما.",
+                defPunicWars: "الحروب البونيقية",
+                defPunicWarsDesc: "سلسلة من الحروب بين قرطاج وروما استمرت قرابة قرن من الزمن (264 – 146 ق.م)، وتنقسم إلى ثلاث حروب.",
+                defCannae: "معركة كنني",
+                defCannaeDesc: "أعظم انتصارات حنّبعل (216 ق.م) في الحرب البونيقية الثانية، وقد استعمل فيها تكتيك التطويق الذي أذهل الرومان.",
+                defEncirclement: "التطويق",
+                defEncirclementDesc: "تكتيك عسكري يعتمد على محاصرة العدو من الجانبين، استعمله حنّبعل في معركة كنني بعد أن طلب من مشاته التقهقر بشكل مدروس.",
+                defRetreat: "التقهقر",
+                defRetreatDesc: "التراجع للخلف، وقد استعمله حنّبعل كخطة مدروسة في معركة كنني لاستدراج الجيش الروماني إلى داخل صفوف المشاة القرطاجية.",
+                summaryText: "خلاصة: الحروب البونيقية بين قرطاج وروما ثلاث: الأولى (264 – 241 ق.م) استولت فيها روما على صقلية وكرسيكا وسردانيا، والثانية (218 – 201 ق.م) قاد فيها حنّبعل الجيش القرطاجي فاجتاز جبال الألب وحقّق انتصارات ساحقة أبرزها كنني، لكنه انهزم في جاما سنة 202 ق.م أمام شيبون الإفريقي، والثالثة (149 – 146 ق.م) انتهت بتدمير قرطاج. عاش حنّبعل بين 247 و183 ق.م، وكان شجاعاً واثقاً وقدوة لجنوده، وأبرز عبقريته في معركة كنني حيث استعمل تكتيك التطويق.",
+                galleryAlt1: "تمثال القائد حنّبعل",
+                galleryAlt2: "عبور حنّبعل جبال الألب",
+                galleryAlt3: "معركة كنني (216 ق.م)",
+                galleryAlt4: "خريطة الحروب البونيقية",
+                galleryCap1: "تمثال القائد حنّبعل",
+                galleryCap2: "عبور حنّبعل جبال الألب",
+                galleryCap3: "معركة كنني (216 ق.م)",
+                galleryCap4: "خريطة الحروب البونيقية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Carthago Nova", class: "key-location", i18n: "defCarthagoNova" },
+                { text: "The Alps", class: "key-location", i18n: "defAlps" },
+                { text: "The Po River Valley", class: "key-location", i18n: "defPo" },
+                { text: "Zama", class: "key-location", i18n: "defZama" },
+                { text: "Sicily", class: "key-location", i18n: "defSicily" },
+                { text: "Corsica", class: "key-location", i18n: "defCorsica" },
+                { text: "Sardinia", class: "key-location", i18n: "defSardinia" },
+                { text: "Hannibal", class: "key-other", i18n: "defHannibal" },
+                { text: "Scipio Africanus", class: "key-other", i18n: "defScipio" },
+                { text: "The Punic Wars", class: "key-other", i18n: "defPunicWars" },
+                { text: "The Battle of Cannae", class: "key-other", i18n: "defCannae" },
+                { text: "Encirclement", class: "key-other", i18n: "defEncirclement" },
+                { text: "Retreat", class: "key-other", i18n: "defRetreat" }
+            ],
+            fr: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Rome", class: "key-location", i18n: "defRome" },
+                { text: "Carthagène", class: "key-location", i18n: "defCarthagoNova" },
+                { text: "Les Alpes", class: "key-location", i18n: "defAlps" },
+                { text: "La vallée du Pô", class: "key-location", i18n: "defPo" },
+                { text: "Zama", class: "key-location", i18n: "defZama" },
+                { text: "La Sicile", class: "key-location", i18n: "defSicily" },
+                { text: "La Corse", class: "key-location", i18n: "defCorsica" },
+                { text: "La Sardaigne", class: "key-location", i18n: "defSardinia" },
+                { text: "Hannibal", class: "key-other", i18n: "defHannibal" },
+                { text: "Scipion l'Africain", class: "key-other", i18n: "defScipio" },
+                { text: "Les guerres puniques", class: "key-other", i18n: "defPunicWars" },
+                { text: "La bataille de Cannes", class: "key-other", i18n: "defCannae" },
+                { text: "L'encerclement", class: "key-other", i18n: "defEncirclement" },
+                { text: "Le repli", class: "key-other", i18n: "defRetreat" }
+            ],
+            ar: [
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "روما", class: "key-location", i18n: "defRome" },
+                { text: "قرطاجنة", class: "key-location", i18n: "defCarthagoNova" },
+                { text: "جبال الألب", class: "key-location", i18n: "defAlps" },
+                { text: "وادي نهر البو", class: "key-location", i18n: "defPo" },
+                { text: "جاما", class: "key-location", i18n: "defZama" },
+                { text: "صقلية", class: "key-location", i18n: "defSicily" },
+                { text: "كرسيكا", class: "key-location", i18n: "defCorsica" },
+                { text: "سردانيا", class: "key-location", i18n: "defSardinia" },
+                { text: "حنّبعل", class: "key-other", i18n: "defHannibal" },
+                { text: "شيبون الإفريقي", class: "key-other", i18n: "defScipio" },
+                { text: "الحروب البونيقية", class: "key-other", i18n: "defPunicWars" },
+                { text: "معركة كنني", class: "key-other", i18n: "defCannae" },
+                { text: "التطويق", class: "key-other", i18n: "defEncirclement" },
+                { text: "التقهقر", class: "key-other", i18n: "defRetreat" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

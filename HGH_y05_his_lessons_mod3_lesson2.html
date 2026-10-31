@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / القيروان مركز إشعاع للحضارة العربيّة الإسلاميّة</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">حياة الرسول (ص): الهجرة والفترة المدنية</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">بعد مرحلة الدعوة في مكة، واشتداد الأذى بالرسول محمد (ص) وأصحابه، انتقلت الدعوة إلى مرحلة جديدة بدأت بالهجرة إلى يثرب (المدينة المنورة). وتُعدّ الهجرة حدثاً تاريخياً محورياً؛ إذ أسست لقيام مجتمع إسلامي منظم، وبدأ بها التقويم الهجري. وفي هذا الدرس نتعرف على أسباب الهجرة، وأهم أحداث الفترة المدنية، ومظاهر تنظيم المجتمع الجديد، وذلك اعتماداً على ما ورد في المصادر والوثائق التاريخية.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي أسباب الهجرة؟ وكيف تأسّس المجتمع الإسلامي في المدينة؟ وما هي أبرز أحداث الفترة المدنية؟</p>
+            </div>
+
+            <!-- Part I : Migration and the Founding of Islamic Society -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">الهجرة وتأسيس المجتمع الإسلامي</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="causesTitle">أسباب الهجرة والرحلة إلى يثرب</span>
+                </h4>
+                <p data-i18n="meccaPeriodText">قضى الرسول (ص) نحو <strong>ثلاث عشرة سنة</strong> في مكة يدعو إلى عبادة الله، وواجه هو وأصحابه معارضة واضطهاداً من مشركي قريش.</p>
+                <p data-i18n="causesText">تشير المصادر التاريخية إلى أن اشتداد الأذى كان من أهم أسباب الهجرة، إضافة إلى توجيه إلهي بالانتقال إلى يثرب. هاجر أصحاب الرسول (ص) إلى <strong>يثرب</strong>، وهي <strong>المدينة المنورة</strong> حالياً.</p>
+                <p data-i18n="companionsText">رافق الرسول (ص) في هجرته <strong>أبو بكر بن أبي قحافة</strong>، الملقب بـ<strong>«الصديق»</strong>؛ لأنه كان يصدّق الرسول فيما جاء به. وبقي <strong>علي بن أبي طالب</strong> في مكة مدة، ثم لحق بالرسول (ص) والمهاجرين.</p>
+                <p data-i18n="thawrText">اختبأ الرسول (ص) وأبو بكر في <strong>غار ثور</strong> مدة من الزمن قبل مواصلة الطريق.</p>
+                <p data-i18n="hijraDateText">كانت الهجرة سنة <strong>622 م</strong>، وتُعدّ بداية <strong>التقويم الهجري</strong> (السنة الأولى للهجرة).</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="sahifaTitle">وثيقة الصحيفة وتنظيم المجتمع الجديد</span>
+                </h4>
+                <p data-i18n="integrationText">بعد الهجرة اندمج <strong>المهاجرون</strong> (أصحاب الرسول القادمون من مكة) مع <strong>الأنصار</strong> (سكان يثرب الذين دعموا الرسول وأسلموا).</p>
+                <p data-i18n="sahifaText">أصدر الرسول (ص) وثيقة تُعرف بـ<strong>«الصحيفة»</strong> لتنظيم العلاقات الاجتماعية بين الجماعات المختلفة في المدينة.</p>
+                <p data-i18n="sahifaPrinciplesIntro">من أبرز مبادئ الصحيفة:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="principle1">توحيد المؤمنين والمسلمين من قريش وغيرهم تحت راية الأمة الواحدة.</li>
+                    <li data-i18n="principle2">تقاسم الأموال والممتلكات بين مسلمي يثرب ومسلمي قريش.</li>
+                    <li data-i18n="principle3">الرجوع إلى الله ورسوله للفصل في الخلافات.</li>
+                    <li data-i18n="principle4">احترام وجود يهود بني عوف وعدم إكراههم على الإسلام.</li>
+                </ul>
+                <p data-i18n="sahifaResultText">ساعدت هذه المبادئ على تحقيق السلم والتآلف وتماسك المجتمع الإسلامي في المدينة.</p>
+            </div>
+
+            <!-- Part II : Major Events and Medinan Period -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">الأحداث الكبرى والفترة المدنية</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="battlesTitle">الغزوات وفتح مكة وسنة الوفود</span>
+                </h4>
+                <p data-i18n="battlesIntroText">واجه المسلمون في المدينة معارضة من مشركي قريش، وجرت بينهم معارك تُعرف بـ<strong>الغزوات</strong>، منها:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="badrText"><strong>غزوة بدر:</strong> سنة 2 هـ.</li>
+                    <li data-i18n="uhudText"><strong>غزوة أحد:</strong> سنة 3 هـ.</li>
+                    <li data-i18n="khandaqText"><strong>غزوة الخندق:</strong> وقعت في الفترة المدنية.</li>
+                </ul>
+                <p data-i18n="meccaConquestText">في السنة الثامنة للهجرة (8 هـ) تمكن المسلمون من <strong>فتح مكة</strong>، وأسلمت قريش. وبعد فتح مكة سيطر المسلمون على معظم الحجاز.</p>
+                <p data-i18n="delegationsText">في السنة التاسعة للهجرة (9 هـ) توافدت وفود القبائل العربية على الرسول (ص) لطلب الانضمام إليه أو عقد الاتفاقات معه، ولذلك سُميت <strong>«سنة الوفود»</strong>. أدى ذلك إلى التفاف القبائل العربية حول الرسول (ص) واتحادها.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="deathTitle">وفاة الرسول (ص) وبداية الخلافة</span>
+                </h4>
+                <p data-i18n="deathText">في السنة الحادية عشرة للهجرة (11 هـ) توفي الرسول محمد (ص) في <strong>المدينة المنورة</strong>، ودُفن فيها.</p>
+                <p data-i18n="caliphateText">بعد وفاته تولى <strong>أبو بكر الصديق</strong> شؤون المسلمين، وفق ما تشير إليه المصادر التاريخية.</p>
+                <p data-i18n="timelineIntro">يمكن ترتيب أهم الأحداث في السلم الزمني على النحو التالي:</p>
+                <ul class="lesson-list timeline-list">
+                    <li data-i18n="timelineBirth"><strong>570 م:</strong> ولادة الرسول (ص).</li>
+                    <li data-i18n="timelineHijra"><strong>622 م:</strong> الهجرة إلى المدينة، وبداية التقويم الهجري.</li>
+                    <li data-i18n="timelineBadr"><strong>2 هـ:</strong> غزوة بدر.</li>
+                    <li data-i18n="timelineUhud"><strong>3 هـ:</strong> غزوة أحد.</li>
+                    <li data-i18n="timelineMecca"><strong>8 هـ:</strong> فتح مكة.</li>
+                    <li data-i18n="timelineDelegations"><strong>9 هـ:</strong> سنة الوفود.</li>
+                    <li data-i18n="timelineDeath"><strong>11 هـ:</strong> وفاة الرسول (ص).</li>
+                </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">تُظهر الهجرة والفترة المدنية كيف انتقل المسلمون من مرحلة الدعوة والصبر في مكة إلى مرحلة بناء مجتمع منظم في المدينة. فقد أسست وثيقة الصحيفة لعلاقات تقوم على التآلف والعدل، وأدت الأحداث الكبرى، مثل الغزوات وفتح مكة وسنة الوفود، إلى تقوية المجتمع الإسلامي واتساعه. وتبقى الهجرة نقطة تحول تاريخية؛ لأنها بداية التقويم الهجري، ورمزاً للتنظيم والصبر في مواجهة التحديات.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defMecca">مكة المكرمة</strong>: <span data-i18n="defMeccaDesc">المدينة التي قضى فيها الرسول (ص) نحو ثلاث عشرة سنة يدعو إلى الإسلام قبل الهجرة.</span></li>
+                        <li><strong class="key-location" data-i18n="defMedina">المدينة المنورة (يثرب)</strong>: <span data-i18n="defMedinaDesc">المدينة التي هاجر إليها الرسول (ص) سنة 622م، وفيها أسّس المجتمع الإسلامي المنظّم، ودُفن فيها.</span></li>
+                        <li><strong class="key-location" data-i18n="defThawr">غار ثور</strong>: <span data-i18n="defThawrDesc">الغار الذي اختبأ فيه الرسول (ص) وأبو بكر الصديق مدة من الزمن قبل مواصلة طريق الهجرة.</span></li>
+                        <li><strong class="key-location" data-i18n="defHijaz">الحجاز</strong>: <span data-i18n="defHijazDesc">المنطقة الغربية من الجزيرة العربية، سيطر المسلمون على معظمها بعد فتح مكة.</span></li>
+                        <li><strong class="key-location" data-i18n="defBadr">بدر</strong>: <span data-i18n="defBadrDesc">موقع غزوة بدر التي وقعت سنة 2 هـ بين المسلمين ومشركي قريش.</span></li>
+                        <li><strong class="key-location" data-i18n="defUhud">أحد</strong>: <span data-i18n="defUhudDesc">موقع غزوة أحد التي وقعت سنة 3 هـ بين المسلمين ومشركي قريش.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 مصطلحات وشخصيات</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defMuhajirun">المهاجرون</strong>: <span data-i18n="defMuhajirunDesc">أصحاب الرسول (ص) الذين انتقلوا من مكة إلى المدينة.</span></li>
+                        <li><strong class="key-other" data-i18n="defAnsar">الأنصار</strong>: <span data-i18n="defAnsarDesc">سكان يثرب الذين دعموا الرسول (ص) والمهاجرين وأسلموا.</span></li>
+                        <li><strong class="key-other" data-i18n="defSahifa">الصحيفة</strong>: <span data-i18n="defSahifaDesc">وثيقة نظّمت العلاقات الاجتماعية في المدينة بعد الهجرة، وأصدرها الرسول (ص) لتنظيم المجتمع الجديد.</span></li>
+                        <li><strong class="key-other" data-i18n="defGhazawat">الغزوات</strong>: <span data-i18n="defGhazawatDesc">معارك وقعت بين المسلمين ومشركي قريش، مثل بدر وأحد والخندق.</span></li>
+                        <li><strong class="key-other" data-i18n="defDelegationsYear">سنة الوفود</strong>: <span data-i18n="defDelegationsYearDesc">السنة التاسعة للهجرة، التي توافدت فيها وفود القبائل العربية على الرسول (ص) لطلب الانضمام إليه أو عقد الاتفاقات معه.</span></li>
+                        <li><strong class="key-other" data-i18n="defHijriCalendar">التقويم الهجري</strong>: <span data-i18n="defHijriCalendarDesc">تقويم يبدأ بسنة الهجرة (622 م).</span></li>
+                        <li><strong class="key-other" data-i18n="defAbuBakr">أبو بكر الصديق</strong>: <span data-i18n="defAbuBakrDesc">أبو بكر بن أبي قحافة، رافق الرسول (ص) في هجرته، ولُقّب بالصديق لأنه كان يصدّق الرسول فيما جاء به، وتولى شؤون المسلمين بعد وفاة الرسول (ص).</span></li>
+                        <li><strong class="key-other" data-i18n="defAli">علي بن أبي طالب</strong>: <span data-i18n="defAliDesc">بقي في مكة مدة بعد الهجرة، ثم لحق بالرسول (ص) والمهاجرين.</span></li>
+                        <li><strong class="key-other" data-i18n="defBanuAwf">يهود بني عوف</strong>: <span data-i18n="defBanuAwfDesc">إحدى الجماعات اليهودية في المدينة التي نصّت الصحيفة على احترام وجودها وعدم إكراهها على الإسلام.</span></li>
+                        <li><strong class="key-other" data-i18n="defUmmah">الأمة الواحدة</strong>: <span data-i18n="defUmmahDesc">المبدأ الذي نصّت عليه الصحيفة بتوحيد المؤمنين والمسلمين من قريش وغيرهم تحت راية واحدة.</span></li>
+                        <li><strong class="key-other" data-i18n="defKhandaq">غزوة الخندق</strong>: <span data-i18n="defKhandaqDesc">إحدى الغزوات التي وقعت في الفترة المدنية بين المسلمين ومشركي قريش.</span></li>
+                        <li><strong class="key-other" data-i18n="defMeccaConquest">فتح مكة</strong>: <span data-i18n="defMeccaConquestDesc">الحدث الذي وقع في السنة الثامنة للهجرة، وتمكن فيه المسلمون من دخول مكة وإسلام قريش.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: بعد ثلاث عشرة سنة من الدعوة في مكة، هاجر الرسول (ص) إلى يثرب (المدينة المنورة) سنة 622م رفقة أبي بكر الصديق، وكانت بداية التقويم الهجري. اندمج المهاجرون مع الأنصار، وأصدر الرسول (ص) وثيقة «الصحيفة» لتنظيم العلاقات الاجتماعية على أساس التآلف والعدل واحترام الجميع. توالت الأحداث الكبرى: غزوة بدر (2 هـ)، وأحد (3 هـ)، والخندق، ثم فتح مكة (8 هـ)، وسنة الوفود (9 هـ). وفي سنة 11 هـ توفي الرسول (ص) بالمدينة المنورة، وتولى أبو بكر الصديق شؤون المسلمين.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق ومعالم من الفترة المدنيّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson2/hijra_route_map.jpg" alt="خريطة طريق الهجرة من مكة إلى المدينة" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">خريطة طريق الهجرة من مكة إلى المدينة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson2/sahifa_document.jpg" alt="وثيقة الصحيفة" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">وثيقة الصحيفة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson2/battle_of_badr.jpg" alt="غزوة بدر (2 هـ)" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">غزوة بدر (2 هـ)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson2/mecca_conquest.jpg" alt="فتح مكة (8 هـ)" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">فتح مكة (8 هـ)</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod3_lesson2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات والأماكن والشخصيات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الوثائق والمعالم المدنيّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Kairouan, a Center of Arab-Islamic Civilization",
+                lessonTitleSample: "Life of the Prophet (PBUH): The Hijra and the Medinan Period",
+                sectionIntro: "Introduction",
+                introText: "After the stage of the call in Mecca, and the intensification of harm against the Prophet Muhammad (PBUH) and his companions, the call moved to a new stage that began with the migration to Yathrib (Medina). The Hijra is a pivotal historical event; it founded the establishment of an organized Islamic society, and with it began the Hijri calendar. In this lesson, we learn about the causes of the migration, the most important events of the Medinan period, and the aspects of organizing the new society, relying on what is stated in historical sources and documents.",
+                problematiqueText: "What were the causes of the migration? How was the Islamic society founded in Medina? And what were the most prominent events of the Medinan period?",
+                sectionPart1: "The Migration and the Founding of Islamic Society",
+                causesTitle: "The Causes of the Migration and the Journey to Yathrib",
+                meccaPeriodText: "The Prophet (PBUH) spent about <strong>thirteen years</strong> in Mecca calling to the worship of God, and he and his companions faced opposition and persecution from the polytheists of Quraysh.",
+                causesText: "Historical sources indicate that the intensification of harm was among the most important causes of the migration, in addition to a divine direction to move to Yathrib. The companions of the Prophet (PBUH) migrated to <strong>Yathrib</strong>, which is <strong>Medina</strong> today.",
+                companionsText: "<strong>Abu Bakr ibn Abi Quhafa</strong>, nicknamed <strong>'Al-Siddiq'</strong>, accompanied the Prophet (PBUH) on his migration, because he used to believe the Prophet in what he brought. <strong>Ali ibn Abi Talib</strong> remained in Mecca for a while, then joined the Prophet (PBUH) and the emigrants.",
+                thawrText: "The Prophet (PBUH) and Abu Bakr hid in <strong>the Cave of Thawr</strong> for a period of time before continuing the journey.",
+                hijraDateText: "The migration took place in the year <strong>622 AD</strong>, and it marks the beginning of the <strong>Hijri Calendar</strong> (the first year of the Hijra).",
+                sahifaTitle: "The Document of the Sahifa and the Organization of the New Society",
+                integrationText: "After the migration, the <strong>Muhajirun</strong> (the companions of the Prophet coming from Mecca) merged with the <strong>Ansar</strong> (the inhabitants of Yathrib who supported the Prophet and embraced Islam).",
+                sahifaText: "The Prophet (PBUH) issued a document known as <strong>'the Sahifa'</strong> to organize social relations between the different groups in Medina.",
+                sahifaPrinciplesIntro: "Among the most prominent principles of the Sahifa:",
+                principle1: "Unifying the believers and Muslims from Quraysh and others under the banner of the one Ummah.",
+                principle2: "Sharing wealth and property between the Muslims of Yathrib and the Muslims of Quraysh.",
+                principle3: "Referring to God and His Messenger to settle disputes.",
+                principle4: "Respecting the presence of the Jews of Banu Awf and not forcing them to embrace Islam.",
+                sahifaResultText: "These principles helped achieve peace, harmony, and cohesion of the Islamic society in Medina.",
+                sectionPart2: "Major Events and the Medinan Period",
+                battlesTitle: "The Battles, the Conquest of Mecca, and the Year of Delegations",
+                battlesIntroText: "The Muslims in Medina faced opposition from the polytheists of Quraysh, and battles known as <strong>the Ghazawat</strong> took place between them, including:",
+                badrText: "<strong>The Battle of Badr:</strong> Year 2 AH.",
+                uhudText: "<strong>The Battle of Uhud:</strong> Year 3 AH.",
+                khandaqText: "<strong>The Battle of the Trench:</strong> It took place during the Medinan period.",
+                meccaConquestText: "In the eighth year of the Hijra (8 AH), the Muslims managed to achieve <strong>the Conquest of Mecca</strong>, and Quraysh embraced Islam. After the conquest of Mecca, the Muslims controlled most of the Hijaz.",
+                delegationsText: "In the ninth year of the Hijra (9 AH), delegations of Arab tribes came to the Prophet (PBUH) to request joining him or concluding agreements with him, and therefore it was called <strong>'the Year of Delegations'</strong>. This led to the rallying of the Arab tribes around the Prophet (PBUH) and their unification.",
+                deathTitle: "The Death of the Prophet (PBUH) and the Beginning of the Caliphate",
+                deathText: "In the eleventh year of the Hijra (11 AH), the Prophet Muhammad (PBUH) died in <strong>Medina</strong>, and was buried there.",
+                caliphateText: "After his death, <strong>Abu Bakr al-Siddiq</strong> took charge of the affairs of the Muslims, according to what the historical sources indicate.",
+                timelineIntro: "The most important events can be arranged on the timeline as follows:",
+                timelineBirth: "<strong>570 AD:</strong> The birth of the Prophet (PBUH).",
+                timelineHijra: "<strong>622 AD:</strong> The migration to Medina, and the beginning of the Hijri calendar.",
+                timelineBadr: "<strong>2 AH:</strong> The Battle of Badr.",
+                timelineUhud: "<strong>3 AH:</strong> The Battle of Uhud.",
+                timelineMecca: "<strong>8 AH:</strong> The Conquest of Mecca.",
+                timelineDelegations: "<strong>9 AH:</strong> The Year of Delegations.",
+                timelineDeath: "<strong>11 AH:</strong> The death of the Prophet (PBUH).",
+                sectionConclusion: "Conclusion",
+                conclusionText: "The Hijra and the Medinan period show how the Muslims moved from the stage of the call and patience in Mecca to the stage of building an organized society in Medina. The document of the Sahifa founded relations based on harmony and justice, and the major events, such as the battles, the conquest of Mecca, and the Year of Delegations, led to the strengthening and expansion of the Islamic society. The Hijra remains a historical turning point, because it is the beginning of the Hijri calendar and a symbol of organization and patience in the face of challenges.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Monuments from the Medinan Period",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Terms and Figures",
+                defMecca: "Mecca",
+                defMeccaDesc: "The city where the Prophet (PBUH) spent about thirteen years calling to Islam before the migration.",
+                defMedina: "Medina (Yathrib)",
+                defMedinaDesc: "The city to which the Prophet (PBUH) migrated in 622 AD, where he established the organized Islamic society, and where he was buried.",
+                defThawr: "The Cave of Thawr",
+                defThawrDesc: "The cave where the Prophet (PBUH) and Abu Bakr al-Siddiq hid for a period of time before continuing the migration journey.",
+                defHijaz: "The Hijaz",
+                defHijazDesc: "The western region of the Arabian Peninsula, most of which the Muslims controlled after the conquest of Mecca.",
+                defBadr: "Badr",
+                defBadrDesc: "The site of the Battle of Badr, which took place in the year 2 AH between the Muslims and the polytheists of Quraysh.",
+                defUhud: "Uhud",
+                defUhudDesc: "The site of the Battle of Uhud, which took place in the year 3 AH between the Muslims and the polytheists of Quraysh.",
+                defMuhajirun: "The Muhajirun (Emigrants)",
+                defMuhajirunDesc: "The companions of the Prophet (PBUH) who moved from Mecca to Medina.",
+                defAnsar: "The Ansar (Supporters)",
+                defAnsarDesc: "The inhabitants of Yathrib who supported the Prophet (PBUH) and the emigrants and embraced Islam.",
+                defSahifa: "The Sahifa",
+                defSahifaDesc: "A document that organized social relations in Medina after the migration, issued by the Prophet (PBUH) to organize the new society.",
+                defGhazawat: "The Ghazawat (Battles)",
+                defGhazawatDesc: "Battles that took place between the Muslims and the polytheists of Quraysh, such as Badr, Uhud, and the Trench.",
+                defDelegationsYear: "The Year of Delegations",
+                defDelegationsYearDesc: "The ninth year of the Hijra, in which delegations of Arab tribes came to the Prophet (PBUH) to request joining him or concluding agreements with him.",
+                defHijriCalendar: "The Hijri Calendar",
+                defHijriCalendarDesc: "A calendar that begins with the year of the Hijra (622 AD).",
+                defAbuBakr: "Abu Bakr al-Siddiq",
+                defAbuBakrDesc: "Abu Bakr ibn Abi Quhafa, who accompanied the Prophet (PBUH) on his migration, was nicknamed Al-Siddiq because he believed the Prophet in what he brought, and took charge of the Muslims' affairs after the death of the Prophet (PBUH).",
+                defAli: "Ali ibn Abi Talib",
+                defAliDesc: "He remained in Mecca for a while after the migration, then joined the Prophet (PBUH) and the emigrants.",
+                defBanuAwf: "The Jews of Banu Awf",
+                defBanuAwfDesc: "One of the Jewish groups in Medina that the Sahifa stipulated respecting their presence and not forcing them to embrace Islam.",
+                defUmmah: "The One Ummah",
+                defUmmahDesc: "The principle stipulated by the Sahifa of unifying the believers and Muslims from Quraysh and others under one banner.",
+                defKhandaq: "The Battle of the Trench",
+                defKhandaqDesc: "One of the battles that took place during the Medinan period between the Muslims and the polytheists of Quraysh.",
+                defMeccaConquest: "The Conquest of Mecca",
+                defMeccaConquestDesc: "The event that took place in the eighth year of the Hijra, in which the Muslims managed to enter Mecca and Quraysh embraced Islam.",
+                summaryText: "Key takeaway: After thirteen years of the call in Mecca, the Prophet (PBUH) migrated to Yathrib (Medina) in 622 AD accompanied by Abu Bakr al-Siddiq, marking the beginning of the Hijri calendar. The Muhajirun merged with the Ansar, and the Prophet (PBUH) issued the document of 'the Sahifa' to organize social relations on the basis of harmony, justice, and respect for all. Major events followed: the Battle of Badr (2 AH), Uhud (3 AH), and the Trench, then the Conquest of Mecca (8 AH), and the Year of Delegations (9 AH). In the year 11 AH, the Prophet (PBUH) died in Medina, and Abu Bakr al-Siddiq took charge of the Muslims' affairs.",
+                galleryAlt1: "Map of the migration route from Mecca to Medina",
+                galleryAlt2: "The document of the Sahifa",
+                galleryAlt3: "The Battle of Badr (2 AH)",
+                galleryAlt4: "The Conquest of Mecca (8 AH)",
+                galleryCap1: "Map of the migration route from Mecca to Medina",
+                galleryCap2: "The document of the Sahifa",
+                galleryCap3: "The Battle of Badr (2 AH)",
+                galleryCap4: "The Conquest of Mecca (8 AH)",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / Kairouan, centre de rayonnement de la civilisation arabo-islamique",
+                lessonTitleSample: "Vie du Prophète (PBSL) : L'Hégire et la période médinoise",
+                sectionIntro: "Introduction",
+                introText: "Après la phase de la prédication à La Mecque, et l'intensification des préjudices contre le Prophète Muhammad (PBSL) et ses compagnons, la prédication est passée à une nouvelle étape qui a commencé par l'émigration vers Yathrib (Médine). L'Hégire est un événement historique pivot ; elle a fondé l'établissement d'une société islamique organisée, et c'est avec elle qu'a commencé le calendrier hégirien. Dans cette leçon, nous découvrons les causes de l'émigration, les événements les plus importants de la période médinoise, et les aspects de l'organisation de la nouvelle société, en nous appuyant sur ce qui est mentionné dans les sources et documents historiques.",
+                problematiqueText: "Quelles étaient les causes de l'émigration ? Comment la société islamique a-t-elle été fondée à Médine ? Et quels ont été les événements les plus marquants de la période médinoise ?",
+                sectionPart1: "L'Hégire et la fondation de la société islamique",
+                causesTitle: "Les causes de l'émigration et le voyage vers Yathrib",
+                meccaPeriodText: "Le Prophète (PBSL) a passé environ <strong>treize ans</strong> à La Mecque à appeler à l'adoration de Dieu, et lui et ses compagnons ont fait face à l'opposition et à la persécution des polythéistes de Quraysh.",
+                causesText: "Les sources historiques indiquent que l'intensification des préjudices était l'une des causes les plus importantes de l'émigration, en plus d'une orientation divine de se rendre à Yathrib. Les compagnons du Prophète (PBSL) ont émigré vers <strong>Yathrib</strong>, qui est <strong>Médine</strong> aujourd'hui.",
+                companionsText: "<strong>Abu Bakr ibn Abi Quhafa</strong>, surnommé <strong>« Al-Siddiq »</strong>, a accompagné le Prophète (PBSL) dans son émigration, parce qu'il croyait le Prophète en ce qu'il apportait. <strong>Ali ibn Abi Talib</strong> est resté à La Mecque un certain temps, puis a rejoint le Prophète (PBSL) et les émigrants.",
+                thawrText: "Le Prophète (PBSL) et Abu Bakr se sont cachés dans <strong>la grotte de Thawr</strong> pendant un certain temps avant de poursuivre le voyage.",
+                hijraDateText: "L'émigration a eu lieu en l'an <strong>622 après Jésus-Christ</strong>, et elle marque le début du <strong>calendrier hégirien</strong> (la première année de l'Hégire).",
+                sahifaTitle: "Le document de la Sahifa et l'organisation de la nouvelle société",
+                integrationText: "Après l'émigration, les <strong>Muhajirun</strong> (les compagnons du Prophète venus de La Mecque) ont fusionné avec les <strong>Ansar</strong> (les habitants de Yathrib qui ont soutenu le Prophète et embrassé l'islam).",
+                sahifaText: "Le Prophète (PBSL) a publié un document connu sous le nom de <strong>« la Sahifa »</strong> pour organiser les relations sociales entre les différents groupes à Médine.",
+                sahifaPrinciplesIntro: "Parmi les principes les plus marquants de la Sahifa :",
+                principle1: "Unifier les croyants et les musulmans de Quraysh et d'autres sous la bannière de l'Ummah unique.",
+                principle2: "Partager les biens et les richesses entre les musulmans de Yathrib et les musulmans de Quraysh.",
+                principle3: "Recourir à Dieu et à Son Messager pour trancher les différends.",
+                principle4: "Respecter la présence des Juifs de Banu Awf et ne pas les contraindre à embrasser l'islam.",
+                sahifaResultText: "Ces principes ont contribué à réaliser la paix, l'harmonie et la cohésion de la société islamique à Médine.",
+                sectionPart2: "Les grands événements et la période médinoise",
+                battlesTitle: "Les batailles, la conquête de La Mecque et l'Année des délégations",
+                battlesIntroText: "Les musulmans à Médine ont fait face à l'opposition des polythéistes de Quraysh, et des batailles connues sous le nom de <strong>Ghazawat</strong> ont eu lieu entre eux, notamment :",
+                badrText: "<strong>La bataille de Badr :</strong> An 2 H.",
+                uhudText: "<strong>La bataille d'Uhud :</strong> An 3 H.",
+                khandaqText: "<strong>La bataille de la Tranchée :</strong> Elle a eu lieu pendant la période médinoise.",
+                meccaConquestText: "En la huitième année de l'Hégire (8 H), les musulmans ont réussi à réaliser <strong>la conquête de La Mecque</strong>, et Quraysh a embrassé l'islam. Après la conquête de La Mecque, les musulmans ont contrôlé la majeure partie du Hedjaz.",
+                delegationsText: "En la neuvième année de l'Hégire (9 H), des délégations de tribus arabes sont venues auprès du Prophète (PBSL) pour demander à le rejoindre ou à conclure des accords avec lui, et c'est pourquoi elle a été appelée <strong>« l'Année des délégations »</strong>. Cela a conduit au ralliement des tribus arabes autour du Prophète (PBSL) et à leur unification.",
+                deathTitle: "La mort du Prophète (PBSL) et le début du califat",
+                deathText: "En la onzième année de l'Hégire (11 H), le Prophète Muhammad (PBSL) est décédé à <strong>Médine</strong>, et y a été enterré.",
+                caliphateText: "Après sa mort, <strong>Abu Bakr al-Siddiq</strong> a pris en charge les affaires des musulmans, selon ce qu'indiquent les sources historiques.",
+                timelineIntro: "Les événements les plus importants peuvent être disposés sur la ligne du temps comme suit :",
+                timelineBirth: "<strong>570 apr. J.-C. :</strong> La naissance du Prophète (PBSL).",
+                timelineHijra: "<strong>622 apr. J.-C. :</strong> L'émigration vers Médine, et le début du calendrier hégirien.",
+                timelineBadr: "<strong>2 H :</strong> La bataille de Badr.",
+                timelineUhud: "<strong>3 H :</strong> La bataille d'Uhud.",
+                timelineMecca: "<strong>8 H :</strong> La conquête de La Mecque.",
+                timelineDelegations: "<strong>9 H :</strong> L'Année des délégations.",
+                timelineDeath: "<strong>11 H :</strong> La mort du Prophète (PBSL).",
+                sectionConclusion: "Conclusion",
+                conclusionText: "L'Hégire et la période médinoise montrent comment les musulmans sont passés de la phase de la prédication et de la patience à La Mecque à la phase de la construction d'une société organisée à Médine. Le document de la Sahifa a fondé des relations reposant sur l'harmonie et la justice, et les grands événements, tels que les batailles, la conquête de La Mecque et l'Année des délégations, ont conduit au renforcement et à l'expansion de la société islamique. L'Hégire reste un tournant historique, parce qu'elle est le début du calendrier hégirien et un symbole d'organisation et de patience face aux défis.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et monuments de la période médinoise",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Termes et figures",
+                defMecca: "La Mecque",
+                defMeccaDesc: "La ville où le Prophète (PBSL) a passé environ treize ans à appeler à l'islam avant l'émigration.",
+                defMedina: "Médine (Yathrib)",
+                defMedinaDesc: "La ville vers laquelle le Prophète (PBSL) a émigré en 622 après Jésus-Christ, où il a établi la société islamique organisée, et où il a été enterré.",
+                defThawr: "La grotte de Thawr",
+                defThawrDesc: "La grotte où le Prophète (PBSL) et Abu Bakr al-Siddiq se sont cachés pendant un certain temps avant de poursuivre le voyage de l'émigration.",
+                defHijaz: "Le Hedjaz",
+                defHijazDesc: "La région occidentale de la péninsule arabique, dont les musulmans ont contrôlé la majeure partie après la conquête de La Mecque.",
+                defBadr: "Badr",
+                defBadrDesc: "Le site de la bataille de Badr, qui a eu lieu en l'an 2 H entre les musulmans et les polythéistes de Quraysh.",
+                defUhud: "Uhud",
+                defUhudDesc: "Le site de la bataille d'Uhud, qui a eu lieu en l'an 3 H entre les musulmans et les polythéistes de Quraysh.",
+                defMuhajirun: "Les Muhajirun (Émigrants)",
+                defMuhajirunDesc: "Les compagnons du Prophète (PBSL) qui ont quitté La Mecque pour Médine.",
+                defAnsar: "Les Ansar (Partisans)",
+                defAnsarDesc: "Les habitants de Yathrib qui ont soutenu le Prophète (PBSL) et les émigrants et ont embrassé l'islam.",
+                defSahifa: "La Sahifa",
+                defSahifaDesc: "Un document qui a organisé les relations sociales à Médine après l'émigration, publié par le Prophète (PBSL) pour organiser la nouvelle société.",
+                defGhazawat: "Les Ghazawat (Batailles)",
+                defGhazawatDesc: "Des batailles qui ont eu lieu entre les musulmans et les polythéistes de Quraysh, comme Badr, Uhud et la Tranchée.",
+                defDelegationsYear: "L'Année des délégations",
+                defDelegationsYearDesc: "La neuvième année de l'Hégire, où des délégations de tribus arabes sont venues auprès du Prophète (PBSL) pour demander à le rejoindre ou à conclure des accords avec lui.",
+                defHijriCalendar: "Le calendrier hégirien",
+                defHijriCalendarDesc: "Un calendrier qui commence par l'année de l'Hégire (622 après Jésus-Christ).",
+                defAbuBakr: "Abu Bakr al-Siddiq",
+                defAbuBakrDesc: "Abu Bakr ibn Abi Quhafa, qui a accompagné le Prophète (PBSL) dans son émigration, a été surnommé Al-Siddiq parce qu'il croyait le Prophète en ce qu'il apportait, et a pris en charge les affaires des musulmans après la mort du Prophète (PBSL).",
+                defAli: "Ali ibn Abi Talib",
+                defAliDesc: "Il est resté à La Mecque un certain temps après l'émigration, puis a rejoint le Prophète (PBSL) et les émigrants.",
+                defBanuAwf: "Les Juifs de Banu Awf",
+                defBanuAwfDesc: "L'un des groupes juifs de Médine dont la Sahifa stipulait le respect de la présence et la non-contrainte à l'islam.",
+                defUmmah: "L'Ummah unique",
+                defUmmahDesc: "Le principe stipulé par la Sahifa d'unifier les croyants et les musulmans de Quraysh et d'autres sous une seule bannière.",
+                defKhandaq: "La bataille de la Tranchée",
+                defKhandaqDesc: "L'une des batailles qui ont eu lieu pendant la période médinoise entre les musulmans et les polythéistes de Quraysh.",
+                defMeccaConquest: "La conquête de La Mecque",
+                defMeccaConquestDesc: "L'événement qui a eu lieu en la huitième année de l'Hégire, où les musulmans ont réussi à entrer à La Mecque et Quraysh a embrassé l'islam.",
+                summaryText: "À retenir : Après treize ans de prédication à La Mecque, le Prophète (PBSL) a émigré vers Yathrib (Médine) en 622 après Jésus-Christ, accompagné d'Abu Bakr al-Siddiq, marquant le début du calendrier hégirien. Les Muhajirun ont fusionné avec les Ansar, et le Prophète (PBSL) a publié le document de « la Sahifa » pour organiser les relations sociales sur la base de l'harmonie, de la justice et du respect de tous. De grands événements se sont succédé : la bataille de Badr (2 H), d'Uhud (3 H) et de la Tranchée, puis la conquête de La Mecque (8 H) et l'Année des délégations (9 H). En l'an 11 H, le Prophète (PBSL) est décédé à Médine, et Abu Bakr al-Siddiq a pris en charge les affaires des musulmans.",
+                galleryAlt1: "Carte de la route de l'émigration de La Mecque à Médine",
+                galleryAlt2: "Le document de la Sahifa",
+                galleryAlt3: "La bataille de Badr (2 H)",
+                galleryAlt4: "La conquête de La Mecque (8 H)",
+                galleryCap1: "Carte de la route de l'émigration de La Mecque à Médine",
+                galleryCap2: "Le document de la Sahifa",
+                galleryCap3: "La bataille de Badr (2 H)",
+                galleryCap4: "La conquête de La Mecque (8 H)",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / القيروان مركز إشعاع للحضارة العربيّة الإسلاميّة",
+                lessonTitleSample: "حياة الرسول (ص): الهجرة والفترة المدنية",
+                sectionIntro: "مقدمة",
+                introText: "بعد مرحلة الدعوة في مكة، واشتداد الأذى بالرسول محمد (ص) وأصحابه، انتقلت الدعوة إلى مرحلة جديدة بدأت بالهجرة إلى يثرب (المدينة المنورة). وتُعدّ الهجرة حدثاً تاريخياً محورياً؛ إذ أسست لقيام مجتمع إسلامي منظم، وبدأ بها التقويم الهجري. وفي هذا الدرس نتعرف على أسباب الهجرة، وأهم أحداث الفترة المدنية، ومظاهر تنظيم المجتمع الجديد، وذلك اعتماداً على ما ورد في المصادر والوثائق التاريخية.",
+                problematiqueText: "ما هي أسباب الهجرة؟ وكيف تأسّس المجتمع الإسلامي في المدينة؟ وما هي أبرز أحداث الفترة المدنية؟",
+                sectionPart1: "الهجرة وتأسيس المجتمع الإسلامي",
+                causesTitle: "أسباب الهجرة والرحلة إلى يثرب",
+                meccaPeriodText: "قضى الرسول (ص) نحو <strong>ثلاث عشرة سنة</strong> في مكة يدعو إلى عبادة الله، وواجه هو وأصحابه معارضة واضطهاداً من مشركي قريش.",
+                causesText: "تشير المصادر التاريخية إلى أن اشتداد الأذى كان من أهم أسباب الهجرة، إضافة إلى توجيه إلهي بالانتقال إلى يثرب. هاجر أصحاب الرسول (ص) إلى <strong>يثرب</strong>، وهي <strong>المدينة المنورة</strong> حالياً.",
+                companionsText: "رافق الرسول (ص) في هجرته <strong>أبو بكر بن أبي قحافة</strong>، الملقب بـ<strong>«الصديق»</strong>؛ لأنه كان يصدّق الرسول فيما جاء به. وبقي <strong>علي بن أبي طالب</strong> في مكة مدة، ثم لحق بالرسول (ص) والمهاجرين.",
+                thawrText: "اختبأ الرسول (ص) وأبو بكر في <strong>غار ثور</strong> مدة من الزمن قبل مواصلة الطريق.",
+                hijraDateText: "كانت الهجرة سنة <strong>622 م</strong>، وتُعدّ بداية <strong>التقويم الهجري</strong> (السنة الأولى للهجرة).",
+                sahifaTitle: "وثيقة الصحيفة وتنظيم المجتمع الجديد",
+                integrationText: "بعد الهجرة اندمج <strong>المهاجرون</strong> (أصحاب الرسول القادمون من مكة) مع <strong>الأنصار</strong> (سكان يثرب الذين دعموا الرسول وأسلموا).",
+                sahifaText: "أصدر الرسول (ص) وثيقة تُعرف بـ<strong>«الصحيفة»</strong> لتنظيم العلاقات الاجتماعية بين الجماعات المختلفة في المدينة.",
+                sahifaPrinciplesIntro: "من أبرز مبادئ الصحيفة:",
+                principle1: "توحيد المؤمنين والمسلمين من قريش وغيرهم تحت راية الأمة الواحدة.",
+                principle2: "تقاسم الأموال والممتلكات بين مسلمي يثرب ومسلمي قريش.",
+                principle3: "الرجوع إلى الله ورسوله للفصل في الخلافات.",
+                principle4: "احترام وجود يهود بني عوف وعدم إكراههم على الإسلام.",
+                sahifaResultText: "ساعدت هذه المبادئ على تحقيق السلم والتآلف وتماسك المجتمع الإسلامي في المدينة.",
+                sectionPart2: "الأحداث الكبرى والفترة المدنية",
+                battlesTitle: "الغزوات وفتح مكة وسنة الوفود",
+                battlesIntroText: "واجه المسلمون في المدينة معارضة من مشركي قريش، وجرت بينهم معارك تُعرف بـ<strong>الغزوات</strong>، منها:",
+                badrText: "<strong>غزوة بدر:</strong> سنة 2 هـ.",
+                uhudText: "<strong>غزوة أحد:</strong> سنة 3 هـ.",
+                khandaqText: "<strong>غزوة الخندق:</strong> وقعت في الفترة المدنية.",
+                meccaConquestText: "في السنة الثامنة للهجرة (8 هـ) تمكن المسلمون من <strong>فتح مكة</strong>، وأسلمت قريش. وبعد فتح مكة سيطر المسلمون على معظم الحجاز.",
+                delegationsText: "في السنة التاسعة للهجرة (9 هـ) توافدت وفود القبائل العربية على الرسول (ص) لطلب الانضمام إليه أو عقد الاتفاقات معه، ولذلك سُميت <strong>«سنة الوفود»</strong>. أدى ذلك إلى التفاف القبائل العربية حول الرسول (ص) واتحادها.",
+                deathTitle: "وفاة الرسول (ص) وبداية الخلافة",
+                deathText: "في السنة الحادية عشرة للهجرة (11 هـ) توفي الرسول محمد (ص) في <strong>المدينة المنورة</strong>، ودُفن فيها.",
+                caliphateText: "بعد وفاته تولى <strong>أبو بكر الصديق</strong> شؤون المسلمين، وفق ما تشير إليه المصادر التاريخية.",
+                timelineIntro: "يمكن ترتيب أهم الأحداث في السلم الزمني على النحو التالي:",
+                timelineBirth: "<strong>570 م:</strong> ولادة الرسول (ص).",
+                timelineHijra: "<strong>622 م:</strong> الهجرة إلى المدينة، وبداية التقويم الهجري.",
+                timelineBadr: "<strong>2 هـ:</strong> غزوة بدر.",
+                timelineUhud: "<strong>3 هـ:</strong> غزوة أحد.",
+                timelineMecca: "<strong>8 هـ:</strong> فتح مكة.",
+                timelineDelegations: "<strong>9 هـ:</strong> سنة الوفود.",
+                timelineDeath: "<strong>11 هـ:</strong> وفاة الرسول (ص).",
+                sectionConclusion: "خاتمة",
+                conclusionText: "تُظهر الهجرة والفترة المدنية كيف انتقل المسلمون من مرحلة الدعوة والصبر في مكة إلى مرحلة بناء مجتمع منظم في المدينة. فقد أسست وثيقة الصحيفة لعلاقات تقوم على التآلف والعدل، وأدت الأحداث الكبرى، مثل الغزوات وفتح مكة وسنة الوفود، إلى تقوية المجتمع الإسلامي واتساعه. وتبقى الهجرة نقطة تحول تاريخية؛ لأنها بداية التقويم الهجري، ورمزاً للتنظيم والصبر في مواجهة التحديات.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق ومعالم من الفترة المدنيّة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 مصطلحات وشخصيات",
+                defMecca: "مكة المكرمة",
+                defMeccaDesc: "المدينة التي قضى فيها الرسول (ص) نحو ثلاث عشرة سنة يدعو إلى الإسلام قبل الهجرة.",
+                defMedina: "المدينة المنورة (يثرب)",
+                defMedinaDesc: "المدينة التي هاجر إليها الرسول (ص) سنة 622م، وفيها أسّس المجتمع الإسلامي المنظّم، ودُفن فيها.",
+                defThawr: "غار ثور",
+                defThawrDesc: "الغار الذي اختبأ فيه الرسول (ص) وأبو بكر الصديق مدة من الزمن قبل مواصلة طريق الهجرة.",
+                defHijaz: "الحجاز",
+                defHijazDesc: "المنطقة الغربية من الجزيرة العربية، سيطر المسلمون على معظمها بعد فتح مكة.",
+                defBadr: "بدر",
+                defBadrDesc: "موقع غزوة بدر التي وقعت سنة 2 هـ بين المسلمين ومشركي قريش.",
+                defUhud: "أحد",
+                defUhudDesc: "موقع غزوة أحد التي وقعت سنة 3 هـ بين المسلمين ومشركي قريش.",
+                defMuhajirun: "المهاجرون",
+                defMuhajirunDesc: "أصحاب الرسول (ص) الذين انتقلوا من مكة إلى المدينة.",
+                defAnsar: "الأنصار",
+                defAnsarDesc: "سكان يثرب الذين دعموا الرسول (ص) والمهاجرين وأسلموا.",
+                defSahifa: "الصحيفة",
+                defSahifaDesc: "وثيقة نظّمت العلاقات الاجتماعية في المدينة بعد الهجرة، وأصدرها الرسول (ص) لتنظيم المجتمع الجديد.",
+                defGhazawat: "الغزوات",
+                defGhazawatDesc: "معارك وقعت بين المسلمين ومشركي قريش، مثل بدر وأحد والخندق.",
+                defDelegationsYear: "سنة الوفود",
+                defDelegationsYearDesc: "السنة التاسعة للهجرة، التي توافدت فيها وفود القبائل العربية على الرسول (ص) لطلب الانضمام إليه أو عقد الاتفاقات معه.",
+                defHijriCalendar: "التقويم الهجري",
+                defHijriCalendarDesc: "تقويم يبدأ بسنة الهجرة (622 م).",
+                defAbuBakr: "أبو بكر الصديق",
+                defAbuBakrDesc: "أبو بكر بن أبي قحافة، رافق الرسول (ص) في هجرته، ولُقّب بالصديق لأنه كان يصدّق الرسول فيما جاء به، وتولى شؤون المسلمين بعد وفاة الرسول (ص).",
+                defAli: "علي بن أبي طالب",
+                defAliDesc: "بقي في مكة مدة بعد الهجرة، ثم لحق بالرسول (ص) والمهاجرين.",
+                defBanuAwf: "يهود بني عوف",
+                defBanuAwfDesc: "إحدى الجماعات اليهودية في المدينة التي نصّت الصحيفة على احترام وجودها وعدم إكراهها على الإسلام.",
+                defUmmah: "الأمة الواحدة",
+                defUmmahDesc: "المبدأ الذي نصّت عليه الصحيفة بتوحيد المؤمنين والمسلمين من قريش وغيرهم تحت راية واحدة.",
+                defKhandaq: "غزوة الخندق",
+                defKhandaqDesc: "إحدى الغزوات التي وقعت في الفترة المدنية بين المسلمين ومشركي قريش.",
+                defMeccaConquest: "فتح مكة",
+                defMeccaConquestDesc: "الحدث الذي وقع في السنة الثامنة للهجرة، وتمكن فيه المسلمون من دخول مكة وإسلام قريش.",
+                summaryText: "خلاصة: بعد ثلاث عشرة سنة من الدعوة في مكة، هاجر الرسول (ص) إلى يثرب (المدينة المنورة) سنة 622م رفقة أبي بكر الصديق، وكانت بداية التقويم الهجري. اندمج المهاجرون مع الأنصار، وأصدر الرسول (ص) وثيقة «الصحيفة» لتنظيم العلاقات الاجتماعية على أساس التآلف والعدل واحترام الجميع. توالت الأحداث الكبرى: غزوة بدر (2 هـ)، وأحد (3 هـ)، والخندق، ثم فتح مكة (8 هـ)، وسنة الوفود (9 هـ). وفي سنة 11 هـ توفي الرسول (ص) بالمدينة المنورة، وتولى أبو بكر الصديق شؤون المسلمين.",
+                galleryAlt1: "خريطة طريق الهجرة من مكة إلى المدينة",
+                galleryAlt2: "وثيقة الصحيفة",
+                galleryAlt3: "غزوة بدر (2 هـ)",
+                galleryAlt4: "فتح مكة (8 هـ)",
+                galleryCap1: "خريطة طريق الهجرة من مكة إلى المدينة",
+                galleryCap2: "وثيقة الصحيفة",
+                galleryCap3: "غزوة بدر (2 هـ)",
+                galleryCap4: "فتح مكة (8 هـ)",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Mecca", class: "key-location", i18n: "defMecca" },
+                { text: "Medina", class: "key-location", i18n: "defMedina" },
+                { text: "Yathrib", class: "key-location", i18n: "defMedina" },
+                { text: "The Cave of Thawr", class: "key-location", i18n: "defThawr" },
+                { text: "The Hijaz", class: "key-location", i18n: "defHijaz" },
+                { text: "Badr", class: "key-location", i18n: "defBadr" },
+                { text: "Uhud", class: "key-location", i18n: "defUhud" },
+                { text: "The Muhajirun", class: "key-other", i18n: "defMuhajirun" },
+                { text: "The Ansar", class: "key-other", i18n: "defAnsar" },
+                { text: "The Sahifa", class: "key-other", i18n: "defSahifa" },
+                { text: "The Ghazawat", class: "key-other", i18n: "defGhazawat" },
+                { text: "The Year of Delegations", class: "key-other", i18n: "defDelegationsYear" },
+                { text: "The Hijri Calendar", class: "key-other", i18n: "defHijriCalendar" },
+                { text: "Abu Bakr al-Siddiq", class: "key-other", i18n: "defAbuBakr" },
+                { text: "Ali ibn Abi Talib", class: "key-other", i18n: "defAli" },
+                { text: "Banu Awf", class: "key-other", i18n: "defBanuAwf" },
+                { text: "The One Ummah", class: "key-other", i18n: "defUmmah" },
+                { text: "The Battle of the Trench", class: "key-other", i18n: "defKhandaq" },
+                { text: "The Conquest of Mecca", class: "key-other", i18n: "defMeccaConquest" }
+            ],
+            fr: [
+                { text: "La Mecque", class: "key-location", i18n: "defMecca" },
+                { text: "Médine", class: "key-location", i18n: "defMedina" },
+                { text: "Yathrib", class: "key-location", i18n: "defMedina" },
+                { text: "La grotte de Thawr", class: "key-location", i18n: "defThawr" },
+                { text: "Le Hedjaz", class: "key-location", i18n: "defHijaz" },
+                { text: "Badr", class: "key-location", i18n: "defBadr" },
+                { text: "Uhud", class: "key-location", i18n: "defUhud" },
+                { text: "Les Muhajirun", class: "key-other", i18n: "defMuhajirun" },
+                { text: "Les Ansar", class: "key-other", i18n: "defAnsar" },
+                { text: "La Sahifa", class: "key-other", i18n: "defSahifa" },
+                { text: "Les Ghazawat", class: "key-other", i18n: "defGhazawat" },
+                { text: "L'Année des délégations", class: "key-other", i18n: "defDelegationsYear" },
+                { text: "Le calendrier hégirien", class: "key-other", i18n: "defHijriCalendar" },
+                { text: "Abu Bakr al-Siddiq", class: "key-other", i18n: "defAbuBakr" },
+                { text: "Ali ibn Abi Talib", class: "key-other", i18n: "defAli" },
+                { text: "Banu Awf", class: "key-other", i18n: "defBanuAwf" },
+                { text: "L'Ummah unique", class: "key-other", i18n: "defUmmah" },
+                { text: "La bataille de la Tranchée", class: "key-other", i18n: "defKhandaq" },
+                { text: "La conquête de La Mecque", class: "key-other", i18n: "defMeccaConquest" }
+            ],
+            ar: [
+                { text: "مكة المكرمة", class: "key-location", i18n: "defMecca" },
+                { text: "المدينة المنورة", class: "key-location", i18n: "defMedina" },
+                { text: "يثرب", class: "key-location", i18n: "defMedina" },
+                { text: "غار ثور", class: "key-location", i18n: "defThawr" },
+                { text: "الحجاز", class: "key-location", i18n: "defHijaz" },
+                { text: "بدر", class: "key-location", i18n: "defBadr" },
+                { text: "أحد", class: "key-location", i18n: "defUhud" },
+                { text: "المهاجرون", class: "key-other", i18n: "defMuhajirun" },
+                { text: "الأنصار", class: "key-other", i18n: "defAnsar" },
+                { text: "الصحيفة", class: "key-other", i18n: "defSahifa" },
+                { text: "الغزوات", class: "key-other", i18n: "defGhazawat" },
+                { text: "سنة الوفود", class: "key-other", i18n: "defDelegationsYear" },
+                { text: "التقويم الهجري", class: "key-other", i18n: "defHijriCalendar" },
+                { text: "أبو بكر الصديق", class: "key-other", i18n: "defAbuBakr" },
+                { text: "علي بن أبي طالب", class: "key-other", i18n: "defAli" },
+                { text: "يهود بني عوف", class: "key-other", i18n: "defBanuAwf" },
+                { text: "الأمة الواحدة", class: "key-other", i18n: "defUmmah" },
+                { text: "غزوة الخندق", class: "key-other", i18n: "defKhandaq" },
+                { text: "فتح مكة", class: "key-other", i18n: "defMeccaConquest" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

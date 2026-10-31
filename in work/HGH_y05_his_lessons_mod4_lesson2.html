@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / المهديّة وتونس مركز إشعاع للحضارة العربيّة الإسلاميّة</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">مدينة تونس مركز إشعاع حضاري في العهد الحفصي</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">مرحباً بكم أبنائي التلاميذ في رحلة جديدة عبر التاريخ. بعد أن تعرفنا في الدروس السابقة على دول تعاقبت على حكم بلادنا (مثل الأغالبة والفاطميين)، سنكتشف اليوم فصلاً هاماً من تاريخنا الوطني. سنتناول في هذا الدرس «الدولة الحفصية»، التي جعلت من مدينة تونس عاصمة لها. سنتعرف على كيفية تأسيس هذه الدولة، ونتعرف على مظاهر الازدهار الاقتصادي، والنهضة العمرانية، والإشعاع الثقافي والعلمي الذي شهدته مدينة تونس في ذلك العهد.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">كيف تأسست الدولة الحفصية؟ وما هي مظاهر الازدهار الاقتصادي في عهدها؟ وما هي مظاهر النهضة العمرانية والإشعاع الثقافي والعلمي في مدينة تونس؟</p>
+            </div>
+
+            <!-- Part I : Founding of the Hafsid State and Economic Prosperity -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">تأسيس الدولة الحفصية ومظاهر الازدهار الاقتصادي</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="foundingTitle">قيام الدولة الحفصية واتخاذ تونس عاصمة لها</span>
+                </h4>
+                <p data-i18n="fourthStateText">تُعتبر الدولة الحفصية الدولة الإسلامية الرابعة في بلادنا بعد <strong>الدولة الأغلبية</strong> و<strong>الفاطمية</strong> و<strong>الزيرية</strong>، وقد استمر حكمها لمدة 347 سنة هجرية.</p>
+                <p data-i18n="founderText">أسسها <strong>أبو زكرياء يحيى الحفصي</strong> سنة <strong>634 هـ / 1237 م</strong>، وينتمي إلى قبيلة عربية كانت تعيش قرب مراكش.</p>
+                <p data-i18n="independenceText">استغل أبو زكرياء ضعف <strong>الدولة الموحدية</strong> (التي كانت تتبع لها بلادنا)، وأعلن الاستقلال وتأسيس دولة قوية.</p>
+                <p data-i18n="bordersText">امتدت حدود الدولة الحفصية لتشمل كامل <strong>إفريقية</strong> (تونس)، وجزءاً من الجزائر وليبيا، واتخذت مدينة <strong>«تونس»</strong> عاصمة لها.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="economyTitle">الازدهار الاقتصادي وتنوع الأسواق</span>
+                </h4>
+                <p data-i18n="economyProsperityText">شهدت مدينة تونس في العهد الحفصي ازدهاراً اقتصادياً كبيراً، حيث تنوعت الصناعات فيها.</p>
+                <p data-i18n="marketsText">كان لكل نوع من الصناعات سوق خاص بها، مثل: <strong>سوق النساجين</strong>، و<strong>سوق العطارين</strong>، و<strong>سوق الصباغين</strong>، و<strong>سوق الدباغين</strong>، و<strong>سوق الحدادين</strong>. (ومازالت هذه الأسواق موجودة إلى يومنا هذا بنفس الأسماء).</p>
+                <p data-i18n="foreignQuarterText">مع توسع المدينة، ظهر تجمع سكني جديد خارج <strong>«باب البحر»</strong>، خُصص للتجار الأجانب (خاصة الإيطاليين والأسبان).</p>
+                <p data-i18n="hotelsText">تم إنشاء الفنادق والملاجئ لإيواء هؤلاء التجار، مما يدل على الانفتاح التجاري للمدينة.</p>
+            </div>
+
+            <!-- Part II : Urban Renaissance and Cultural Influence -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">النهضة العمرانية والإشعاع الثقافي</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="urbanFacilitiesTitle">المنشآت العمرانية والمرافق العامة</span>
+                </h4>
+                <p data-i18n="schoolsText">أظهر الحفصيون اهتماماً كبيراً بالتطوير العمراني، حيث أسسوا مدارس بارزة مثل: <strong>جامع الزيتونة</strong>، و<strong>المدرسة الشماعية</strong>، و<strong>مدرسة المعرض</strong>.</p>
+                <p data-i18n="bathsGardensText">شيدوا الحمامات والأسواق، وأنشأوا البساتين الجميلة.</p>
+                <p data-i18n="waterChannelsText">اهتموا بتوفير المياه، فقاموا بتجديد <strong>«الحنايا»</strong> (القنوات المائية) التي كانت تجلب المياه من مدينة <strong>زغوان</strong> إلى العاصمة.</p>
+                <p data-i18n="zawayaText">أنشئت <strong>«الزوايا»</strong> (مثل <strong>زاوية سيدي قاسم الجليزي</strong>) لتكون مراكز للعلم والتعليم والعبادة.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="scientificMovementTitle">الحركة العلمية وأبرز العلماء</span>
+                </h4>
+                <p data-i18n="sciencesFlourishText">ازدهرت العلوم والثقافة بتشجيع من سلاطين الدولة الحفصية، الذين أنفقوا أموالهم على شراء الكتب النفيسة وبناء المؤسسات التعليمية.</p>
+                <p data-i18n="zaytunaUniversityText">كان <strong>«جامع الزيتونة»</strong> بمثابة جامعة كبرى، حيث جذب الطلاب من مختلف أنحاء المغرب والأندلس.</p>
+                <p data-i18n="scholarsText">برز في هذه الفترة العديد من العلماء، ومن أبرزهم العلامة <strong>«عبد الرحمن بن خلدون»</strong> (المولود سنة 732 هـ).</p>
+                <p data-i18n="ibnKhaldunText">اشتهر ابن خلدون كمؤرخ وعالم اجتماع، وألف كتباً مهمة أصبحت مراجع في علم التاريخ، مثل كتاب <strong>«العبر»</strong> و<strong>مقدمته</strong> الشهيرة.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا نصل إلى نهاية درسنا عن مدينة تونس في العهد الحفصي. لقد تعرفنا على كيف تحولت تونس إلى عاصمة لدولة قوية، وإلى مركز حضاري يجمع بين ازدهار الاقتصاد (الأسواق والصناعات)، وروعة العمران (المدارس والقنوات المائية)، ونهضة علمية وثقافية (جامع الزيتونة وابن خلدون). لقد ترك الحفصيون بصمات عميقة في تاريخ تونس لا تزال شاهدة عليها إلى اليوم. أدعوكم إلى الاعتزاز بهذا الموروث الحضاري، والاستفادة من قيم العمل والاجتهاد في طلب العلم.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defTunis">مدينة تونس</strong>: <span data-i18n="defTunisDesc">المدينة التي اتخذها الحفصيون عاصمة لدولتهم سنة 634 هـ، وتحوّلت في عهدهم إلى مركز إشعاع اقتصادي وعمراني وثقافي.</span></li>
+                        <li><strong class="key-location" data-i18n="defZaghouan">زغوان</strong>: <span data-i18n="defZaghouanDesc">المدينة التي كانت تجلب منها المياه إلى العاصمة تونس عبر «الحنايا» (القنوات المائية) التي جدّدها الحفصيون.</span></li>
+                        <li><strong class="key-location" data-i18n="defIfriqiya">إفريقية</strong>: <span data-i18n="defIfriqiyaDesc">الاسم التاريخي للجزء الشرقي من بلاد المغرب (تونس وشرق الجزائر حالياً)، وقد شملتها حدود الدولة الحفصية.</span></li>
+                        <li><strong class="key-location" data-i18n="defBabElBahr">باب البحر</strong>: <span data-i18n="defBabElBahrDesc">أحد أبواب مدينة تونس، وقد ظهر خارجه تجمع سكني جديد خُصص للتجار الأجانب (خاصة الإيطاليين والأسبان).</span></li>
+                        <li><strong class="key-location" data-i18n="defMarrakesh">مراكش</strong>: <span data-i18n="defMarrakeshDesc">المدينة التي كانت تعيش قربها القبيلة العربية التي ينتمي إليها أبو زكرياء يحيى الحفصي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 مصطلحات وشخصيات</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defHafsidState">الدولة الحفصية</strong>: <span data-i18n="defHafsidStateDesc">دولة إسلامية تأسست سنة 634 هـ / 1237 م، واتخذت من مدينة تونس عاصمة لها، وهي الدولة الإسلامية الرابعة في بلادنا بعد الأغلبية والفاطمية والزيرية.</span></li>
+                        <li><strong class="key-other" data-i18n="defAbuZakariya">أبو زكرياء يحيى الحفصي</strong>: <span data-i18n="defAbuZakariyaDesc">مؤسس الدولة الحفصية سنة 634 هـ / 1237 م، استغل ضعف الدولة الموحدية وأعلن الاستقلال.</span></li>
+                        <li><strong class="key-other" data-i18n="defAlmohadState">الدولة الموحدية</strong>: <span data-i18n="defAlmohadStateDesc">الدولة التي كانت تتبع لها بلادنا قبل تأسيس الدولة الحفصية، وقد استغل أبو زكرياء ضعفها ليعلن الاستقلال.</span></li>
+                        <li><strong class="key-other" data-i18n="defZiridState">الدولة الزيرية</strong>: <span data-i18n="defZiridStateDesc">الدولة الإسلامية التي حكمت بلادنا قبل الدولة الحفصية، وهي إحدى الدول الثلاث السابقة للحفصيين.</span></li>
+                        <li><strong class="key-other" data-i18n="defHanaya">الحنايا</strong>: <span data-i18n="defHanayaDesc">قنوات مائية (جمع حنية) بناها الحفصيون وجدّدوها لجلب المياه من جبال زغوان إلى مدينة تونس.</span></li>
+                        <li><strong class="key-other" data-i18n="defZawaya">الزوايا</strong>: <span data-i18n="defZawayaDesc">مؤسسات دينية وتعليمية (مفردها زاوية) كانت تُستخدم للعبادة وتدريس العلوم، ومنها زاوية سيدي قاسم الجليزي.</span></li>
+                        <li><strong class="key-other" data-i18n="defZaytuna">جامع الزيتونة</strong>: <span data-i18n="defZaytunaDesc">من أهم المدارس والمساجد في مدينة تونس، وقد كان بمثابة جامعة كبرى تجذب الطلاب من مختلف أنحاء المغرب والأندلس.</span></li>
+                        <li><strong class="key-other" data-i18n="defShammaiya">المدرسة الشماعية</strong>: <span data-i18n="defShammaiyaDesc">إحدى المدارس البارزة التي أسسها الحفصيون في مدينة تونس.</span></li>
+                        <li><strong class="key-other" data-i18n="defMaaradSchool">مدرسة المعرض</strong>: <span data-i18n="defMaaradSchoolDesc">مدرسة أمر ببنائها السلطان أبو زكرياء بن أبي إسحاق، وكانت مركزاً لطلب العلم.</span></li>
+                        <li><strong class="key-other" data-i18n="defSidiQasimZawiya">زاوية سيدي قاسم الجليزي</strong>: <span data-i18n="defSidiQasimZawiyaDesc">إحدى الزوايا التي أنشأها الحفصيون في مدينة تونس لتكون مركزاً للعلم والتعليم والعبادة.</span></li>
+                        <li><strong class="key-other" data-i18n="defIbnKhaldun">ابن خلدون</strong>: <span data-i18n="defIbnKhaldunDesc">عبد الرحمن بن خلدون (المولود سنة 732 هـ)، مؤرخ وعالم اجتماع تونسي، صاحب كتاب «العبر» ومقدمته الشهيرة، ويُعد من كبار مفكري التاريخ.</span></li>
+                        <li><strong class="key-other" data-i18n="defAlIbar">كتاب العبر</strong>: <span data-i18n="defAlIbarDesc">من أهم مؤلفات ابن خلدون، ويُعد مرجعاً في علم التاريخ، ومعه مقدمته الشهيرة.</span></li>
+                        <li><strong class="key-other" data-i18n="defMuqaddima">المقدمة</strong>: <span data-i18n="defMuqaddimaDesc">مقدمة كتاب «العبر» لابن خلدون، وهي من أشهر المؤلفات في علم الاجتماع والتاريخ.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: تأسست الدولة الحفصية سنة 634 هـ / 1237 م على يد أبي زكرياء يحيى الحفصي، واتخذت مدينة تونس عاصمة لها، وامتدت حدودها لتشمل كامل إفريقية وجزءاً من الجزائر وليبيا. ازدهر الاقتصاد بتنوع الأسواق (النساجين والعطارين والصباغين والدباغين والحدادين)، وظهر تجمع سكني جديد خارج باب البحر للتجار الأجانب. عمرانياً، أسس الحفصيون المدارس (جامع الزيتونة، والمدرسة الشماعية، ومدرسة المعرض)، وجدّدوا «الحنايا» لجلب المياه من زغوان، وأنشأوا الزوايا. علمياً، ازدهر جامع الزيتونة كجامعة كبرى، وبرز ابن خلدون مؤلف «العبر» ومقدمته الشهيرة.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق ومعالم من تونس الحفصيّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit4/lesson2/tunis_medina_hafsid.jpg" alt="مدينة تونس العتيقة في العهد الحفصي" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">مدينة تونس العتيقة في العهد الحفصي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit4/lesson2/zaytuna_mosque.jpg" alt="جامع الزيتونة" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">جامع الزيتونة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit4/lesson2/hanaya_water_channels.jpg" alt="الحنايا (قنوات جر المياه من زغوان)" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">الحنايا (قنوات جر المياه من زغوان)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit4/lesson2/ibn_khaldun_portrait.jpg" alt="العلامة عبد الرحمن بن خلدون" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">العلامة عبد الرحمن بن خلدون</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod4_lesson2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">الأماكن والمصطلحات والشخصيات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الوثائق والمعالم الحفصيّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Mahdia and Tunis, Centers of Arab-Islamic Civilization",
+                lessonTitleSample: "The City of Tunis, a Center of Cultural Influence in the Hafsid Era",
+                sectionIntro: "Introduction",
+                introText: "Welcome, dear students, on a new journey through history. After having learned in previous lessons about states that successively ruled our country (such as the Aghlabids and the Fatimids), we will discover today an important chapter of our national history. In this lesson, we will study 'the Hafsid State', which made the city of Tunis its capital. We will learn how this state was founded, and we will discover the aspects of economic prosperity, the urban renaissance, and the cultural and scientific influence witnessed by the city of Tunis in that era.",
+                problematiqueText: "How was the Hafsid State founded? What are the aspects of economic prosperity in its era? And what are the aspects of the urban renaissance and the cultural and scientific influence in the city of Tunis?",
+                sectionPart1: "The Founding of the Hafsid State and the Aspects of Economic Prosperity",
+                foundingTitle: "The Rise of the Hafsid State and the Adoption of Tunis as Its Capital",
+                fourthStateText: "The Hafsid State is considered the fourth Islamic state in our country after <strong>the Aghlabid State</strong>, <strong>the Fatimid State</strong>, and <strong>the Zirid State</strong>, and its rule lasted for 347 Hijri years.",
+                founderText: "It was founded by <strong>Abu Zakariya Yahya al-Hafsi</strong> in the year <strong>634 AH / 1237 AD</strong>, and he belongs to an Arab tribe that lived near Marrakesh.",
+                independenceText: "Abu Zakariya took advantage of the weakness of <strong>the Almohad State</strong> (to which our country was subject), and declared independence and the founding of a strong state.",
+                bordersText: "The borders of the Hafsid State extended to include the whole of <strong>Ifriqiya</strong> (Tunisia), and part of Algeria and Libya, and it took the city of <strong>'Tunis'</strong> as its capital.",
+                economyTitle: "Economic Prosperity and the Diversity of Markets",
+                economyProsperityText: "The city of Tunis witnessed great economic prosperity in the Hafsid era, as industries diversified in it.",
+                marketsText: "Each type of industry had its own market, such as: <strong>the market of weavers</strong>, <strong>the market of perfumers</strong>, <strong>the market of dyers</strong>, <strong>the market of tanners</strong>, and <strong>the market of blacksmiths</strong>. (These markets still exist today under the same names).",
+                foreignQuarterText: "With the expansion of the city, a new residential agglomeration appeared outside <strong>'Bab al-Bahr'</strong>, dedicated to foreign traders (especially Italians and Spaniards).",
+                hotelsText: "Hotels and shelters were established to accommodate these traders, which indicates the commercial openness of the city.",
+                sectionPart2: "The Urban Renaissance and Cultural Influence",
+                urbanFacilitiesTitle: "Urban Facilities and Public Utilities",
+                schoolsText: "The Hafsids showed great interest in urban development, as they founded prominent schools such as: <strong>the Zaytuna Mosque</strong>, <strong>the Shammaiya School</strong>, and <strong>the Ma'rad School</strong>.",
+                bathsGardensText: "They built bathhouses and markets, and created beautiful gardens.",
+                waterChannelsText: "They took care of providing water, so they renewed <strong>'the Hanaya'</strong> (the water channels) that used to bring water from the city of <strong>Zaghouan</strong> to the capital.",
+                zawayaText: "<strong>'The Zawaya'</strong> were established (such as <strong>the Zawiya of Sidi Qasim al-Jalizi</strong>) to be centers of knowledge, education, and worship.",
+                scientificMovementTitle: "The Scientific Movement and the Most Prominent Scholars",
+                sciencesFlourishText: "Sciences and culture flourished with the encouragement of the sultans of the Hafsid State, who spent their money on buying precious books and building educational institutions.",
+                zaytunaUniversityText: "<strong>'The Zaytuna Mosque'</strong> acted as a great university, attracting students from various parts of the Maghreb and Al-Andalus.",
+                scholarsText: "Many scholars emerged in this period, the most prominent of whom is the scholar <strong>'Abd al-Rahman ibn Khaldun'</strong> (born in the year 732 AH).",
+                ibnKhaldunText: "Ibn Khaldun became famous as a historian and sociologist, and he authored important books that became references in the science of history, such as the book <strong>'al-Ibar'</strong> and <strong>its famous Introduction</strong>.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus we reach the end of our lesson on the city of Tunis in the Hafsid era. We have learned how Tunis became the capital of a strong state, and a cultural center combining economic prosperity (markets and industries), the splendor of architecture (schools and water channels), and a scientific and cultural renaissance (the Zaytuna Mosque and Ibn Khaldun). The Hafsids left deep marks on the history of Tunisia that are still witnesses to it today. I invite you to take pride in this cultural heritage, and to benefit from the values of work and diligence in seeking knowledge.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Monuments from Hafsid Tunis",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Terms and Figures",
+                defTunis: "The City of Tunis",
+                defTunisDesc: "The city that the Hafsids took as the capital of their state in 634 AH, and which became in their era a center of economic, urban, and cultural influence.",
+                defZaghouan: "Zaghouan",
+                defZaghouanDesc: "The city from which water was brought to the capital Tunis through 'the Hanaya' (the water channels) that the Hafsids renewed.",
+                defIfriqiya: "Ifriqiya",
+                defIfriqiyaDesc: "The historical name for the eastern part of the Maghreb (present-day Tunisia and eastern Algeria), which the borders of the Hafsid State included.",
+                defBabElBahr: "Bab al-Bahr",
+                defBabElBahrDesc: "One of the gates of the city of Tunis, outside of which a new residential agglomeration appeared, dedicated to foreign traders (especially Italians and Spaniards).",
+                defMarrakesh: "Marrakesh",
+                defMarrakeshDesc: "The city near which the Arab tribe to which Abu Zakariya Yahya al-Hafsi belonged lived.",
+                defHafsidState: "The Hafsid State",
+                defHafsidStateDesc: "An Islamic state founded in 634 AH / 1237 AD, which took the city of Tunis as its capital; it is the fourth Islamic state in our country after the Aghlabid, Fatimid, and Zirid states.",
+                defAbuZakariya: "Abu Zakariya Yahya al-Hafsi",
+                defAbuZakariyaDesc: "The founder of the Hafsid State in 634 AH / 1237 AD, who took advantage of the weakness of the Almohad State and declared independence.",
+                defAlmohadState: "The Almohad State",
+                defAlmohadStateDesc: "The state to which our country was subject before the founding of the Hafsid State; Abu Zakariya took advantage of its weakness to declare independence.",
+                defZiridState: "The Zirid State",
+                defZiridStateDesc: "The Islamic state that ruled our country before the Hafsid State; it is one of the three states preceding the Hafsids.",
+                defHanaya: "The Hanaya",
+                defHanayaDesc: "Water channels (plural of haniya) built and renewed by the Hafsids to bring water from the mountains of Zaghouan to the city of Tunis.",
+                defZawaya: "The Zawaya",
+                defZawayaDesc: "Religious and educational institutions (singular: zawiya) used for worship and teaching sciences, such as the Zawiya of Sidi Qasim al-Jalizi.",
+                defZaytuna: "The Zaytuna Mosque",
+                defZaytunaDesc: "One of the most important schools and mosques in the city of Tunis; it acted as a great university attracting students from various parts of the Maghreb and Al-Andalus.",
+                defShammaiya: "The Shammaiya School",
+                defShammaiyaDesc: "One of the prominent schools founded by the Hafsids in the city of Tunis.",
+                defMaaradSchool: "The Ma'rad School",
+                defMaaradSchoolDesc: "A school ordered to be built by Sultan Abu Zakariya ibn Abi Ishaq, and it was a center for seeking knowledge.",
+                defSidiQasimZawiya: "The Zawiya of Sidi Qasim al-Jalizi",
+                defSidiQasimZawiyaDesc: "One of the zawiyas established by the Hafsids in the city of Tunis to be a center of knowledge, education, and worship.",
+                defIbnKhaldun: "Ibn Khaldun",
+                defIbnKhaldunDesc: "Abd al-Rahman ibn Khaldun (born in 732 AH), a Tunisian historian and sociologist, author of 'al-Ibar' and its famous Introduction, and considered one of the greatest thinkers of history.",
+                defAlIbar: "The Book of al-Ibar",
+                defAlIbarDesc: "One of Ibn Khaldun's most important works, considered a reference in the science of history, together with its famous Introduction.",
+                defMuqaddima: "The Muqaddima (Introduction)",
+                defMuqaddimaDesc: "The introduction to Ibn Khaldun's book 'al-Ibar', one of the most famous works in sociology and history.",
+                summaryText: "Key takeaway: The Hafsid State was founded in 634 AH / 1237 AD by Abu Zakariya Yahya al-Hafsi, and took the city of Tunis as its capital; its borders extended to include the whole of Ifriqiya and part of Algeria and Libya. The economy flourished with the diversity of markets (weavers, perfumers, dyers, tanners, and blacksmiths), and a new residential agglomeration appeared outside Bab al-Bahr for foreign traders. Architecturally, the Hafsids founded schools (the Zaytuna Mosque, the Shammaiya School, and the Ma'rad School), renewed 'the Hanaya' to bring water from Zaghouan, and established zawiyas. Scientifically, the Zaytuna Mosque flourished as a great university, and Ibn Khaldun emerged as the author of 'al-Ibar' and its famous Introduction.",
+                galleryAlt1: "The medina of Tunis in the Hafsid era",
+                galleryAlt2: "The Zaytuna Mosque",
+                galleryAlt3: "The Hanaya (water channels from Zaghouan)",
+                galleryAlt4: "The scholar Abd al-Rahman ibn Khaldun",
+                galleryCap1: "The medina of Tunis in the Hafsid era",
+                galleryCap2: "The Zaytuna Mosque",
+                galleryCap3: "The Hanaya (water channels from Zaghouan)",
+                galleryCap4: "The scholar Abd al-Rahman ibn Khaldun",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / Mahdia et Tunis, centres de rayonnement de la civilisation arabo-islamique",
+                lessonTitleSample: "La ville de Tunis, centre de rayonnement culturel à l'époque hafside",
+                sectionIntro: "Introduction",
+                introText: "Bienvenue, chers élèves, dans un nouveau voyage à travers l'histoire. Après avoir découvert dans les leçons précédentes les États qui se sont succédé à la tête de notre pays (comme les Aghlabides et les Fatimides), nous découvrirons aujourd'hui un chapitre important de notre histoire nationale. Dans cette leçon, nous étudierons « l'État hafside », qui a fait de la ville de Tunis sa capitale. Nous découvrirons comment cet État a été fondé, et nous verrons les aspects de la prospérité économique, de la renaissance urbanistique, et du rayonnement culturel et scientifique dont a témoigné la ville de Tunis à cette époque.",
+                problematiqueText: "Comment l'État hafside a-t-il été fondé ? Quels sont les aspects de la prospérité économique à son époque ? Et quels sont les aspects de la renaissance urbanistique et du rayonnement culturel et scientifique dans la ville de Tunis ?",
+                sectionPart1: "La fondation de l'État hafside et les aspects de la prospérité économique",
+                foundingTitle: "L'avènement de l'État hafside et l'adoption de Tunis comme capitale",
+                fourthStateText: "L'État hafside est considéré comme le quatrième État islamique de notre pays après <strong>l'État aghlabide</strong>, <strong>l'État fatimide</strong> et <strong>l'État ziride</strong>, et son règne a duré 347 années hégiriennes.",
+                founderText: "Il a été fondé par <strong>Abu Zakariya Yahya al-Hafsi</strong> en l'an <strong>634 H / 1237 apr. J.-C.</strong>, et il appartient à une tribu arabe qui vivait près de Marrakech.",
+                independenceText: "Abu Zakariya a profité de la faiblesse de <strong>l'État almohade</strong> (auquel notre pays était soumis), et a proclamé l'indépendance et la fondation d'un État fort.",
+                bordersText: "Les frontières de l'État hafside se sont étendues pour inclure toute <strong>l'Ifriqiya</strong> (la Tunisie), et une partie de l'Algérie et de la Libye, et il a pris la ville de <strong>« Tunis »</strong> comme capitale.",
+                economyTitle: "La prospérité économique et la diversité des marchés",
+                economyProsperityText: "La ville de Tunis a connu une grande prospérité économique à l'époque hafside, les industries s'y étant diversifiées.",
+                marketsText: "Chaque type d'industrie avait son propre marché, comme : <strong>le marché des tisserands</strong>, <strong>le marché des parfumeurs</strong>, <strong>le marché des teinturiers</strong>, <strong>le marché des tanneurs</strong>, et <strong>le marché des forgerons</strong>. (Ces marchés existent encore aujourd'hui sous les mêmes noms).",
+                foreignQuarterText: "Avec l'expansion de la ville, un nouvel ensemble résidentiel est apparu hors de <strong>« Bab al-Bahr »</strong>, réservé aux commerçants étrangers (notamment les Italiens et les Espagnols).",
+                hotelsText: "Des hôtels et des abris ont été créés pour accueillir ces commerçants, ce qui témoigne de l'ouverture commerciale de la ville.",
+                sectionPart2: "La renaissance urbanistique et le rayonnement culturel",
+                urbanFacilitiesTitle: "Les installations urbanistiques et les équipements publics",
+                schoolsText: "Les Hafsides ont montré un grand intérêt pour le développement urbain, en fondant des écoles remarquables telles que : <strong>la mosquée Zitouna</strong>, <strong>l'école Shammaiya</strong>, et <strong>l'école Ma'rad</strong>.",
+                bathsGardensText: "Ils ont construit des hammams et des marchés, et ont créé de beaux jardins.",
+                waterChannelsText: "Ils ont pris soin d'assurer l'approvisionnement en eau, en renouvelant <strong>« les Hanaya »</strong> (les canaux d'eau) qui amenaient l'eau de la ville de <strong>Zaghouan</strong> à la capitale.",
+                zawayaText: "<strong>« Les Zawaya »</strong> ont été créées (comme <strong>la zaouïa de Sidi Qasim al-Jalizi</strong>) pour être des centres de savoir, d'enseignement et de culte.",
+                scientificMovementTitle: "Le mouvement scientifique et les savants les plus éminents",
+                sciencesFlourishText: "Les sciences et la culture ont prospéré grâce à l'encouragement des sultans de l'État hafside, qui dépensaient leur argent pour acheter des livres précieux et construire des institutions éducatives.",
+                zaytunaUniversityText: "<strong>« La mosquée Zitouna »</strong> faisait office de grande université, attirant des étudiants de diverses régions du Maghreb et de l'Andalousie.",
+                scholarsText: "De nombreux savants se sont illustrés à cette période, dont le plus éminent est le savant <strong>« Abd al-Rahman ibn Khaldoun »</strong> (né en l'an 732 H).",
+                ibnKhaldunText: "Ibn Khaldoun s'est fait connaître comme historien et sociologue, et il a composé des ouvrages importants devenus des références dans la science de l'histoire, comme le livre <strong>« al-Ibar »</strong> et <strong>sa célèbre Introduction</strong>.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi nous arrivons à la fin de notre leçon sur la ville de Tunis à l'époque hafside. Nous avons découvert comment Tunis est devenue la capitale d'un État fort, et un centre culturel réunissant la prospérité économique (les marchés et les industries), la splendeur de l'urbanisme (les écoles et les canaux d'eau), et une renaissance scientifique et culturelle (la mosquée Zitouna et Ibn Khaldoun). Les Hafsides ont laissé des empreintes profondes dans l'histoire de la Tunisie qui en témoignent encore aujourd'hui. Je vous invite à être fiers de ce patrimoine culturel, et à tirer profit des valeurs du travail et de la persévérance dans la recherche du savoir.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et monuments de la Tunis hafside",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Termes et figures",
+                defTunis: "La ville de Tunis",
+                defTunisDesc: "La ville que les Hafsides ont prise comme capitale de leur État en 634 H, et qui est devenue à leur époque un centre de rayonnement économique, urbanistique et culturel.",
+                defZaghouan: "Zaghouan",
+                defZaghouanDesc: "La ville d'où l'eau était amenée à la capitale Tunis à travers « les Hanaya » (les canaux d'eau) que les Hafsides ont renouvelés.",
+                defIfriqiya: "L'Ifriqiya",
+                defIfriqiyaDesc: "Le nom historique de la partie orientale du Maghreb (la Tunisie et l'est de l'Algérie actuels), que les frontières de l'État hafside englobaient.",
+                defBabElBahr: "Bab al-Bahr",
+                defBabElBahrDesc: "L'une des portes de la ville de Tunis, en dehors de laquelle est apparu un nouvel ensemble résidentiel réservé aux commerçants étrangers (notamment les Italiens et les Espagnols).",
+                defMarrakesh: "Marrakech",
+                defMarrakeshDesc: "La ville près de laquelle vivait la tribu arabe à laquelle appartenait Abu Zakariya Yahya al-Hafsi.",
+                defHafsidState: "L'État hafside",
+                defHafsidStateDesc: "Un État islamique fondé en 634 H / 1237 apr. J.-C., qui a pris la ville de Tunis comme capitale ; il est le quatrième État islamique de notre pays après les États aghlabide, fatimide et ziride.",
+                defAbuZakariya: "Abu Zakariya Yahya al-Hafsi",
+                defAbuZakariyaDesc: "Le fondateur de l'État hafside en 634 H / 1237 apr. J.-C., qui a profité de la faiblesse de l'État almohade pour proclamer l'indépendance.",
+                defAlmohadState: "L'État almohade",
+                defAlmohadStateDesc: "L'État auquel notre pays était soumis avant la fondation de l'État hafside ; Abu Zakariya a profité de sa faiblesse pour proclamer l'indépendance.",
+                defZiridState: "L'État ziride",
+                defZiridStateDesc: "L'État islamique qui a gouverné notre pays avant l'État hafside ; il est l'un des trois États précédant les Hafsides.",
+                defHanaya: "Les Hanaya",
+                defHanayaDesc: "Des canaux d'eau (pluriel de haniya) construits et renouvelés par les Hafsides pour amener l'eau des montagnes de Zaghouan à la ville de Tunis.",
+                defZawaya: "Les Zawaya",
+                defZawayaDesc: "Des institutions religieuses et éducatives (singulier : zaouïa) utilisées pour le culte et l'enseignement des sciences, comme la zaouïa de Sidi Qasim al-Jalizi.",
+                defZaytuna: "La mosquée Zitouna",
+                defZaytunaDesc: "L'une des écoles et mosquées les plus importantes de la ville de Tunis ; elle faisait office de grande université attirant des étudiants de diverses régions du Maghreb et de l'Andalousie.",
+                defShammaiya: "L'école Shammaiya",
+                defShammaiyaDesc: "L'une des écoles remarquables fondées par les Hafsides dans la ville de Tunis.",
+                defMaaradSchool: "L'école Ma'rad",
+                defMaaradSchoolDesc: "Une école dont la construction a été ordonnée par le sultan Abu Zakariya ibn Abi Ishaq, et qui était un centre de recherche du savoir.",
+                defSidiQasimZawiya: "La zaouïa de Sidi Qasim al-Jalizi",
+                defSidiQasimZawiyaDesc: "L'une des zaouïas créées par les Hafsides dans la ville de Tunis pour être un centre de savoir, d'enseignement et de culte.",
+                defIbnKhaldun: "Ibn Khaldoun",
+                defIbnKhaldunDesc: "Abd al-Rahman ibn Khaldoun (né en 732 H), historien et sociologue tunisien, auteur de « al-Ibar » et de sa célèbre Introduction, et considéré comme l'un des plus grands penseurs de l'histoire.",
+                defAlIbar: "Le livre d'al-Ibar",
+                defAlIbarDesc: "L'une des œuvres les plus importantes d'Ibn Khaldoun, considérée comme une référence dans la science de l'histoire, avec sa célèbre Introduction.",
+                defMuqaddima: "La Muqaddima (Introduction)",
+                defMuqaddimaDesc: "L'introduction du livre « al-Ibar » d'Ibn Khaldoun, l'une des œuvres les plus célèbres en sociologie et en histoire.",
+                summaryText: "À retenir : L'État hafside a été fondé en 634 H / 1237 apr. J.-C. par Abu Zakariya Yahya al-Hafsi, et a pris la ville de Tunis comme capitale ; ses frontières s'étendaient à toute l'Ifriqiya et à une partie de l'Algérie et de la Libye. L'économie a prospéré avec la diversité des marchés (tisserands, parfumeurs, teinturiers, tanneurs et forgerons), et un nouvel ensemble résidentiel est apparu hors de Bab al-Bahr pour les commerçants étrangers. Sur le plan urbanistique, les Hafsides ont fondé des écoles (la mosquée Zitouna, l'école Shammaiya et l'école Ma'rad), renouvelé « les Hanaya » pour amener l'eau de Zaghouan, et créé des zaouïas. Sur le plan scientifique, la mosquée Zitouna a prospéré comme une grande université, et Ibn Khaldoun s'est illustré comme auteur de « al-Ibar » et de sa célèbre Introduction.",
+                galleryAlt1: "La médina de Tunis à l'époque hafside",
+                galleryAlt2: "La mosquée Zitouna",
+                galleryAlt3: "Les Hanaya (canaux d'eau de Zaghouan)",
+                galleryAlt4: "Le savant Abd al-Rahman ibn Khaldoun",
+                galleryCap1: "La médina de Tunis à l'époque hafside",
+                galleryCap2: "La mosquée Zitouna",
+                galleryCap3: "Les Hanaya (canaux d'eau de Zaghouan)",
+                galleryCap4: "Le savant Abd al-Rahman ibn Khaldoun",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / المهديّة وتونس مركز إشعاع للحضارة العربيّة الإسلاميّة",
+                lessonTitleSample: "مدينة تونس مركز إشعاع حضاري في العهد الحفصي",
+                sectionIntro: "مقدمة",
+                introText: "مرحباً بكم أبنائي التلاميذ في رحلة جديدة عبر التاريخ. بعد أن تعرفنا في الدروس السابقة على دول تعاقبت على حكم بلادنا (مثل الأغالبة والفاطميين)، سنكتشف اليوم فصلاً هاماً من تاريخنا الوطني. سنتناول في هذا الدرس «الدولة الحفصية»، التي جعلت من مدينة تونس عاصمة لها. سنتعرف على كيفية تأسيس هذه الدولة، ونتعرف على مظاهر الازدهار الاقتصادي، والنهضة العمرانية، والإشعاع الثقافي والعلمي الذي شهدته مدينة تونس في ذلك العهد.",
+                problematiqueText: "كيف تأسست الدولة الحفصية؟ وما هي مظاهر الازدهار الاقتصادي في عهدها؟ وما هي مظاهر النهضة العمرانية والإشعاع الثقافي والعلمي في مدينة تونس؟",
+                sectionPart1: "تأسيس الدولة الحفصية ومظاهر الازدهار الاقتصادي",
+                foundingTitle: "قيام الدولة الحفصية واتخاذ تونس عاصمة لها",
+                fourthStateText: "تُعتبر الدولة الحفصية الدولة الإسلامية الرابعة في بلادنا بعد <strong>الدولة الأغلبية</strong> و<strong>الفاطمية</strong> و<strong>الزيرية</strong>، وقد استمر حكمها لمدة 347 سنة هجرية.",
+                founderText: "أسسها <strong>أبو زكرياء يحيى الحفصي</strong> سنة <strong>634 هـ / 1237 م</strong>، وينتمي إلى قبيلة عربية كانت تعيش قرب مراكش.",
+                independenceText: "استغل أبو زكرياء ضعف <strong>الدولة الموحدية</strong> (التي كانت تتبع لها بلادنا)، وأعلن الاستقلال وتأسيس دولة قوية.",
+                bordersText: "امتدت حدود الدولة الحفصية لتشمل كامل <strong>إفريقية</strong> (تونس)، وجزءاً من الجزائر وليبيا، واتخذت مدينة <strong>«تونس»</strong> عاصمة لها.",
+                economyTitle: "الازدهار الاقتصادي وتنوع الأسواق",
+                economyProsperityText: "شهدت مدينة تونس في العهد الحفصي ازدهاراً اقتصادياً كبيراً، حيث تنوعت الصناعات فيها.",
+                marketsText: "كان لكل نوع من الصناعات سوق خاص بها، مثل: <strong>سوق النساجين</strong>، و<strong>سوق العطارين</strong>، و<strong>سوق الصباغين</strong>، و<strong>سوق الدباغين</strong>، و<strong>سوق الحدادين</strong>. (ومازالت هذه الأسواق موجودة إلى يومنا هذا بنفس الأسماء).",
+                foreignQuarterText: "مع توسع المدينة، ظهر تجمع سكني جديد خارج <strong>«باب البحر»</strong>، خُصص للتجار الأجانب (خاصة الإيطاليين والأسبان).",
+                hotelsText: "تم إنشاء الفنادق والملاجئ لإيواء هؤلاء التجار، مما يدل على الانفتاح التجاري للمدينة.",
+                sectionPart2: "النهضة العمرانية والإشعاع الثقافي",
+                urbanFacilitiesTitle: "المنشآت العمرانية والمرافق العامة",
+                schoolsText: "أظهر الحفصيون اهتماماً كبيراً بالتطوير العمراني، حيث أسسوا مدارس بارزة مثل: <strong>جامع الزيتونة</strong>، و<strong>المدرسة الشماعية</strong>، و<strong>مدرسة المعرض</strong>.",
+                bathsGardensText: "شيدوا الحمامات والأسواق، وأنشأوا البساتين الجميلة.",
+                waterChannelsText: "اهتموا بتوفير المياه، فقاموا بتجديد <strong>«الحنايا»</strong> (القنوات المائية) التي كانت تجلب المياه من مدينة <strong>زغوان</strong> إلى العاصمة.",
+                zawayaText: "أنشئت <strong>«الزوايا»</strong> (مثل <strong>زاوية سيدي قاسم الجليزي</strong>) لتكون مراكز للعلم والتعليم والعبادة.",
+                scientificMovementTitle: "الحركة العلمية وأبرز العلماء",
+                sciencesFlourishText: "ازدهرت العلوم والثقافة بتشجيع من سلاطين الدولة الحفصية، الذين أنفقوا أموالهم على شراء الكتب النفيسة وبناء المؤسسات التعليمية.",
+                zaytunaUniversityText: "كان <strong>«جامع الزيتونة»</strong> بمثابة جامعة كبرى، حيث جذب الطلاب من مختلف أنحاء المغرب والأندلس.",
+                scholarsText: "برز في هذه الفترة العديد من العلماء، ومن أبرزهم العلامة <strong>«عبد الرحمن بن خلدون»</strong> (المولود سنة 732 هـ).",
+                ibnKhaldunText: "اشتهر ابن خلدون كمؤرخ وعالم اجتماع، وألف كتباً مهمة أصبحت مراجع في علم التاريخ، مثل كتاب <strong>«العبر»</strong> و<strong>مقدمته</strong> الشهيرة.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا نصل إلى نهاية درسنا عن مدينة تونس في العهد الحفصي. لقد تعرفنا على كيف تحولت تونس إلى عاصمة لدولة قوية، وإلى مركز حضاري يجمع بين ازدهار الاقتصاد (الأسواق والصناعات)، وروعة العمران (المدارس والقنوات المائية)، ونهضة علمية وثقافية (جامع الزيتونة وابن خلدون). لقد ترك الحفصيون بصمات عميقة في تاريخ تونس لا تزال شاهدة عليها إلى اليوم. أدعوكم إلى الاعتزاز بهذا الموروث الحضاري، والاستفادة من قيم العمل والاجتهاد في طلب العلم.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق ومعالم من تونس الحفصيّة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 مصطلحات وشخصيات",
+                defTunis: "مدينة تونس",
+                defTunisDesc: "المدينة التي اتخذها الحفصيون عاصمة لدولتهم سنة 634 هـ، وتحوّلت في عهدهم إلى مركز إشعاع اقتصادي وعمراني وثقافي.",
+                defZaghouan: "زغوان",
+                defZaghouanDesc: "المدينة التي كانت تجلب منها المياه إلى العاصمة تونس عبر «الحنايا» (القنوات المائية) التي جدّدها الحفصيون.",
+                defIfriqiya: "إفريقية",
+                defIfriqiyaDesc: "الاسم التاريخي للجزء الشرقي من بلاد المغرب (تونس وشرق الجزائر حالياً)، وقد شملتها حدود الدولة الحفصية.",
+                defBabElBahr: "باب البحر",
+                defBabElBahrDesc: "أحد أبواب مدينة تونس، وقد ظهر خارجه تجمع سكني جديد خُصص للتجار الأجانب (خاصة الإيطاليين والأسبان).",
+                defMarrakesh: "مراكش",
+                defMarrakeshDesc: "المدينة التي كانت تعيش قربها القبيلة العربية التي ينتمي إليها أبو زكرياء يحيى الحفصي.",
+                defHafsidState: "الدولة الحفصية",
+                defHafsidStateDesc: "دولة إسلامية تأسست سنة 634 هـ / 1237 م، واتخذت من مدينة تونس عاصمة لها، وهي الدولة الإسلامية الرابعة في بلادنا بعد الأغلبية والفاطمية والزيرية.",
+                defAbuZakariya: "أبو زكرياء يحيى الحفصي",
+                defAbuZakariyaDesc: "مؤسس الدولة الحفصية سنة 634 هـ / 1237 م، استغل ضعف الدولة الموحدية وأعلن الاستقلال.",
+                defAlmohadState: "الدولة الموحدية",
+                defAlmohadStateDesc: "الدولة التي كانت تتبع لها بلادنا قبل تأسيس الدولة الحفصية، وقد استغل أبو زكرياء ضعفها ليعلن الاستقلال.",
+                defZiridState: "الدولة الزيرية",
+                defZiridStateDesc: "الدولة الإسلامية التي حكمت بلادنا قبل الدولة الحفصية، وهي إحدى الدول الثلاث السابقة للحفصيين.",
+                defHanaya: "الحنايا",
+                defHanayaDesc: "قنوات مائية (جمع حنية) بناها الحفصيون وجدّدوها لجلب المياه من جبال زغوان إلى مدينة تونس.",
+                defZawaya: "الزوايا",
+                defZawayaDesc: "مؤسسات دينية وتعليمية (مفردها زاوية) كانت تُستخدم للعبادة وتدريس العلوم، ومنها زاوية سيدي قاسم الجليزي.",
+                defZaytuna: "جامع الزيتونة",
+                defZaytunaDesc: "من أهم المدارس والمساجد في مدينة تونس، وقد كان بمثابة جامعة كبرى تجذب الطلاب من مختلف أنحاء المغرب والأندلس.",
+                defShammaiya: "المدرسة الشماعية",
+                defShammaiyaDesc: "إحدى المدارس البارزة التي أسسها الحفصيون في مدينة تونس.",
+                defMaaradSchool: "مدرسة المعرض",
+                defMaaradSchoolDesc: "مدرسة أمر ببنائها السلطان أبو زكرياء بن أبي إسحاق، وكانت مركزاً لطلب العلم.",
+                defSidiQasimZawiya: "زاوية سيدي قاسم الجليزي",
+                defSidiQasimZawiyaDesc: "إحدى الزوايا التي أنشأها الحفصيون في مدينة تونس لتكون مركزاً للعلم والتعليم والعبادة.",
+                defIbnKhaldun: "ابن خلدون",
+                defIbnKhaldunDesc: "عبد الرحمن بن خلدون (المولود سنة 732 هـ)، مؤرخ وعالم اجتماع تونسي، صاحب كتاب «العبر» ومقدمته الشهيرة، ويُعد من كبار مفكري التاريخ.",
+                defAlIbar: "كتاب العبر",
+                defAlIbarDesc: "من أهم مؤلفات ابن خلدون، ويُعد مرجعاً في علم التاريخ، ومعه مقدمته الشهيرة.",
+                defMuqaddima: "المقدمة",
+                defMuqaddimaDesc: "مقدمة كتاب «العبر» لابن خلدون، وهي من أشهر المؤلفات في علم الاجتماع والتاريخ.",
+                summaryText: "خلاصة: تأسست الدولة الحفصية سنة 634 هـ / 1237 م على يد أبي زكرياء يحيى الحفصي، واتخذت مدينة تونس عاصمة لها، وامتدت حدودها لتشمل كامل إفريقية وجزءاً من الجزائر وليبيا. ازدهر الاقتصاد بتنوع الأسواق (النساجين والعطارين والصباغين والدباغين والحدادين)، وظهر تجمع سكني جديد خارج باب البحر للتجار الأجانب. عمرانياً، أسس الحفصيون المدارس (جامع الزيتونة، والمدرسة الشماعية، ومدرسة المعرض)، وجدّدوا «الحنايا» لجلب المياه من زغوان، وأنشأوا الزوايا. علمياً، ازدهر جامع الزيتونة كجامعة كبرى، وبرز ابن خلدون مؤلف «العبر» ومقدمته الشهيرة.",
+                galleryAlt1: "مدينة تونس العتيقة في العهد الحفصي",
+                galleryAlt2: "جامع الزيتونة",
+                galleryAlt3: "الحنايا (قنوات جر المياه من زغوان)",
+                galleryAlt4: "العلامة عبد الرحمن بن خلدون",
+                galleryCap1: "مدينة تونس العتيقة في العهد الحفصي",
+                galleryCap2: "جامع الزيتونة",
+                galleryCap3: "الحنايا (قنوات جر المياه من زغوان)",
+                galleryCap4: "العلامة عبد الرحمن بن خلدون",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "The City of Tunis", class: "key-location", i18n: "defTunis" },
+                { text: "Tunis", class: "key-location", i18n: "defTunis" },
+                { text: "Zaghouan", class: "key-location", i18n: "defZaghouan" },
+                { text: "Ifriqiya", class: "key-location", i18n: "defIfriqiya" },
+                { text: "Bab al-Bahr", class: "key-location", i18n: "defBabElBahr" },
+                { text: "Marrakesh", class: "key-location", i18n: "defMarrakesh" },
+                { text: "The Hafsid State", class: "key-other", i18n: "defHafsidState" },
+                { text: "Abu Zakariya Yahya al-Hafsi", class: "key-other", i18n: "defAbuZakariya" },
+                { text: "The Almohad State", class: "key-other", i18n: "defAlmohadState" },
+                { text: "The Zirid State", class: "key-other", i18n: "defZiridState" },
+                { text: "The Hanaya", class: "key-other", i18n: "defHanaya" },
+                { text: "The Zawaya", class: "key-other", i18n: "defZawaya" },
+                { text: "The Zaytuna Mosque", class: "key-other", i18n: "defZaytuna" },
+                { text: "The Shammaiya School", class: "key-other", i18n: "defShammaiya" },
+                { text: "The Ma'rad School", class: "key-other", i18n: "defMaaradSchool" },
+                { text: "The Zawiya of Sidi Qasim al-Jalizi", class: "key-other", i18n: "defSidiQasimZawiya" },
+                { text: "Ibn Khaldun", class: "key-other", i18n: "defIbnKhaldun" },
+                { text: "The Book of al-Ibar", class: "key-other", i18n: "defAlIbar" },
+                { text: "al-Ibar", class: "key-other", i18n: "defAlIbar" },
+                { text: "The Muqaddima (Introduction)", class: "key-other", i18n: "defMuqaddima" },
+                { text: "The Muqaddima", class: "key-other", i18n: "defMuqaddima" }
+            ],
+            fr: [
+                { text: "La ville de Tunis", class: "key-location", i18n: "defTunis" },
+                { text: "Tunis", class: "key-location", i18n: "defTunis" },
+                { text: "Zaghouan", class: "key-location", i18n: "defZaghouan" },
+                { text: "L'Ifriqiya", class: "key-location", i18n: "defIfriqiya" },
+                { text: "Bab al-Bahr", class: "key-location", i18n: "defBabElBahr" },
+                { text: "Marrakech", class: "key-location", i18n: "defMarrakesh" },
+                { text: "L'État hafside", class: "key-other", i18n: "defHafsidState" },
+                { text: "Abu Zakariya Yahya al-Hafsi", class: "key-other", i18n: "defAbuZakariya" },
+                { text: "L'État almohade", class: "key-other", i18n: "defAlmohadState" },
+                { text: "L'État ziride", class: "key-other", i18n: "defZiridState" },
+                { text: "Les Hanaya", class: "key-other", i18n: "defHanaya" },
+                { text: "Les Zawaya", class: "key-other", i18n: "defZawaya" },
+                { text: "La mosquée Zitouna", class: "key-other", i18n: "defZaytuna" },
+                { text: "L'école Shammaiya", class: "key-other", i18n: "defShammaiya" },
+                { text: "L'école Ma'rad", class: "key-other", i18n: "defMaaradSchool" },
+                { text: "La zaouïa de Sidi Qasim al-Jalizi", class: "key-other", i18n: "defSidiQasimZawiya" },
+                { text: "Ibn Khaldoun", class: "key-other", i18n: "defIbnKhaldun" },
+                { text: "Le livre d'al-Ibar", class: "key-other", i18n: "defAlIbar" },
+                { text: "al-Ibar", class: "key-other", i18n: "defAlIbar" },
+                { text: "La Muqaddima", class: "key-other", i18n: "defMuqaddima" }
+            ],
+            ar: [
+                { text: "مدينة تونس", class: "key-location", i18n: "defTunis" },
+                { text: "تونس", class: "key-location", i18n: "defTunis" },
+                { text: "زغوان", class: "key-location", i18n: "defZaghouan" },
+                { text: "إفريقية", class: "key-location", i18n: "defIfriqiya" },
+                { text: "باب البحر", class: "key-location", i18n: "defBabElBahr" },
+                { text: "مراكش", class: "key-location", i18n: "defMarrakesh" },
+                { text: "الدولة الحفصية", class: "key-other", i18n: "defHafsidState" },
+                { text: "أبو زكرياء يحيى الحفصي", class: "key-other", i18n: "defAbuZakariya" },
+                { text: "الدولة الموحدية", class: "key-other", i18n: "defAlmohadState" },
+                { text: "الدولة الزيرية", class: "key-other", i18n: "defZiridState" },
+                { text: "الحنايا", class: "key-other", i18n: "defHanaya" },
+                { text: "الزوايا", class: "key-other", i18n: "defZawaya" },
+                { text: "جامع الزيتونة", class: "key-other", i18n: "defZaytuna" },
+                { text: "المدرسة الشماعية", class: "key-other", i18n: "defShammaiya" },
+                { text: "مدرسة المعرض", class: "key-other", i18n: "defMaaradSchool" },
+                { text: "زاوية سيدي قاسم الجليزي", class: "key-other", i18n: "defSidiQasimZawiya" },
+                { text: "ابن خلدون", class: "key-other", i18n: "defIbnKhaldun" },
+                { text: "كتاب العبر", class: "key-other", i18n: "defAlIbar" },
+                { text: "العبر", class: "key-other", i18n: "defAlIbar" },
+                { text: "المقدمة", class: "key-other", i18n: "defMuqaddima" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

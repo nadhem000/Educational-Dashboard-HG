@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">مظاهر الإشعاع الحضاري لقرطاج البونيّة</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">على ضفاف الحوض الغربي للبحر الأبيض المتوسط، وفي ملتقى الحضارات القديمة، برزت مدينة «قرطاج» كواحدة من أعظم القوى البحرية والاقتصادية في التاريخ القديم. لم تكن قرطاج مجرد محطة تجارية أسّسها الفينيقيون، بل تحوّلت بفضل موقعها الاستراتيجي وذكاء ساستها وتجارها إلى إمبراطورية مترامية الأطراف، تركت إرثاً حضارياً غنياً في التنظيم السياسي، والاقتصاد، والفنون، والمعتقدات. في هذا الدرس، نستكشف قصة نشأة هذه المدينة العريقة، ونتعرّف على مظاهر إشعاعها الحضاري.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">كيف تأسست مدينة قرطاج؟ وكيف تنظّمت مؤسساتها السياسية ومجتمعها؟ وما هي مظاهر إشعاعها الاقتصادي والثقافي؟</p>
+            </div>
+
+            <!-- Part I : Foundation and Political/Social Organization -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">نشأة قرطاج وتنظيمها السياسي والاجتماعي</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="foundationTitle">تأسيس المدينة وموقعها الاستراتيجي</span>
+                </h4>
+                <p data-i18n="foundationText"><strong>الفينيقيون والتأسيس:</strong> في الألف الثانية قبل الميلاد، دخل الفينيقيون (سكان فينيقيا – لبنان حالياً) منطقة غربي البحر المتوسط وأسّسوا مدناً تجارية مثل <strong>أوتيكا</strong> و<strong>حضرموت</strong>. وفي سنة <strong>814 قبل الميلاد</strong>، أسّسوا مدينة <strong>«قرت حدشت»</strong> (وتعني المدينة الجديدة)، وهي المعروفة باسم <strong>قرطاج</strong>.</p>
+                <p data-i18n="foundationLegend"><strong>الأسطورة:</strong> ارتبط تأسيس قرطاج بشخصية <strong>«عليسة»</strong> (إليسا)، حيث تحمل كتابات المؤرخين حولها طابعاً أسطورياً.</p>
+                <p data-i18n="foundationLocation"><strong>الموقع الاستراتيجي:</strong> اختار الفينيقيون موقعاً فريداً لقرطاج؛ فهي محاطة بالبحر في أغلب أرجائها، وقريبة جداً من مدينة أوتيكا، وتطلّ على دول البحر الأبيض المتوسط، مما جعلها مركزاً مثالياً للتحكم في طرق الملاحة والتجارة.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="societyTitle">المجتمع والمؤسسات السياسية</span>
+                </h4>
+                <p data-i18n="societyIntro"><strong>مكونات المجتمع:</strong> انقسم المجتمع القرطاجي إلى صنفين:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="societyCitizens"><strong>المواطنون:</strong> يعيشون داخل المدينة، يتمتعون بحق المساهمة في الحياة السياسية، ولا يدفعون الضرائب.</li>
+                    <li data-i18n="societyNonCitizens"><strong>غير المواطنين:</strong> يقيمون خارج المدينة، لا يساهمون في الحياة السياسية، ويدفعون الضرائب.</li>
+                </ul>
+
+                <p data-i18n="institutionsIntro"><strong>المؤسسات السياسية:</strong></p>
+                <ul class="lesson-list">
+                    <li data-i18n="institutionSuffetes"><strong>الأشفاط (الحكام):</strong> هم حكام المدينة، ينحدرون من أرقى العائلات، ولا يستلمون الحكم وراثياً بل يتم اختيارهم من قبل سكان المدينة.</li>
+                    <li data-i18n="institutionSenate"><strong>مجلس الشيوخ:</strong> يناقش أهم القرارات ويراقب تصرفات الحاكم.</li>
+                    <li data-i18n="institutionAssembly"><strong>مجلس العامة (الشعب):</strong> يتدخل كرقيب وحاكم بين مجلس الشيوخ والملك عند حدوث خلاف، ويتخذ القرار الأنسب.</li>
+                    <li data-i18n="institutionCourt"><strong>محكمة المائة:</strong> تتكون من 100 قاضٍ من أعضاء مجلس الشيوخ، وتختص بفض النزاعات بين القادة.</li>
+                </ul>
+            </div>
+
+            <!-- Part II : Economic and Cultural Influence -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">مظاهر الإشعاع الاقتصادي والثقافي لقرطاج البونية</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="economyTitle">الازدهار الاقتصادي (التجارة، الفلاحة، الصناعة)</span>
+                </h4>
+                <p data-i18n="tradeText"><strong>التوسع التجاري:</strong> شهدت التجارة القرطاجية انتشاراً هائلاً؛ فبلغت القوافل التجارية إفريقيا الاستوائية، ووصل البحارة إلى كامل الدول المطلّة على المتوسط (مثل سرقوسة، وصيدا، وأثينا، وروما) وصولاً إلى المحيط الأطلسي عبر مضيق جبل طارق (<strong>أعمدة هرقل</strong>). وامتدّ نفوذهم إلى سواحل الجزائر والمغرب وإسبانيا (بلاد الإيبار).</p>
+                <p data-i18n="goodsText"><strong>السلع والموانئ:</strong> تاجروا في الفضة، والنحاس، والحديد، والخزف، والصباغ، والبخور، والأقمشة، والذهب، والعاج والفيلة. ولتلبية هذا النشاط، توسّعت الموانئ وانقسمت إلى موانئ عسكرية وموانئ تجارية.</p>
+                <p data-i18n="agricultureText"><strong>الفلاحة:</strong> اهتم القرطاجيون بالفلاحة (خاصة في منطقة الوطن القبلي)، فزرعوا الكروم والزياتين والأشجار المثمرة، وربّوا الأبقار والأغنام والخيول. كما برز علماء فلاحيون كتبوا مؤلفات هامّة مثل <strong>«موسوعة ماغون»</strong>.</p>
+                <p data-i18n="craftsText"><strong>الصناعات الحرفية:</strong> ازدهرت صناعة السفن الحربية والتجارية، وصناعة الفخار (الجرار)، وصناعة الأقمشة وصبغها باستعمال الصباغ (<strong>الأرجوان</strong>) المجلوب من الشرق.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="beliefsTitle">المعتقدات والفنون</span>
+                </h4>
+                <p data-i18n="beliefsIntro"><strong>المعتقدات الدينية:</strong> كان القرطاجيون يعبدون عدة آلهة، أبرزها:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="godBaalHammon"><strong>بعل حموّن:</strong> كبير الآلهة وحامي قرطاج.</li>
+                    <li data-i18n="godTanit"><strong>تانيت:</strong> آلهة الخصب والرضاعة.</li>
+                    <li data-i18n="godDemeter"><strong>أديمترة:</strong> آلهة الزراعة.</li>
+                    <li data-i18n="godPersephone"><strong>يرسفونة:</strong> بنت الآلهة ديمترة.</li>
+                </ul>
+                <p data-i18n="artsText"><strong>الفنون:</strong> استغلّ القرطاجيون المواد الأولية المتوفرة لديهم (كالخشب، والعاج، وعجين البلور) في صنع أدوات الزينة والأقنعة الفنية ذات الطابع العقائدي لتمجيد الآلهة. كما اشتهرت النقوش و<strong>النصب النذرية</strong> التي ترمز للإلهة تانيت (شكل زجاجة).</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا، نرى أنّ قرطاج لم تكن مجرد محطة تجارية عابرة، بل كانت إمبراطورية بحرية واقتصادية عظيمة، ونظاماً سياسياً متطوراً، ومنارة للفنون والمعتقدات. لقد أسّس الفينيقيون مدينة صغيرة، لكن القرطاجيين بذكائهم وقوّتهم حوّلوها إلى قوة مهيمنة على غرب البحر الأبيض المتوسط والمحيط الأطلسي، تاركة وراءها إرثاً حضارياً خالداً يظلّ شاهداً على عظمة الإنسان في منطقة شمال إفريقيا.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">مدينة أسّسها الفينيقيون سنة 814 ق.م باسم «قرت حدشت» أي «المدينة الجديدة»، وتحوّلت بفضل موقعها الاستراتيجي وذكاء ساستها إلى إمبراطورية بحرية واقتصادية عظيمة في غرب المتوسط.</span></li>
+                        <li><strong class="key-location" data-i18n="defPhoenicia">فينيقيا</strong>: <span data-i18n="defPhoeniciaDesc">المنطقة التاريخية التي تقع حالياً في لبنان، ومنها انطلق الفينيقيون في رحلاتهم البحرية والتجارية.</span></li>
+                        <li><strong class="key-location" data-i18n="defUtica">أوتيكا (Utica)</strong>: <span data-i18n="defUticaDesc">مدينة فينيقية أسّسها الفينيقيون في شمال إفريقيا قبل قرطاج، وتقع قريبة جداً من موقع قرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defHadrumetum">حضرموت</strong>: <span data-i18n="defHadrumetumDesc">مدينة فينيقية أسّسها الفينيقيون في شمال إفريقيا (سوسة حالياً)، وكانت من محطاتهم التجارية البحرية.</span></li>
+                        <li><strong class="key-location" data-i18n="defPillarsHercules">أعمدة هرقل (مضيق جبل طارق)</strong>: <span data-i18n="defPillarsHerculesDesc">المضيق الذي عبره البحارة القرطاجيون للوصول إلى المحيط الأطلسي.</span></li>
+                        <li><strong class="key-location" data-i18n="defCapeBon">الوطن القبلي</strong>: <span data-i18n="defCapeBonDesc">المنطقة التي اهتمّ فيها القرطاجيون بالفلاحة، فزرعوا فيها الكروم والزياتين والأشجار المثمرة.</span></li>
+                        <li><strong class="key-location" data-i18n="defIberia">بلاد الإيبار</strong>: <span data-i18n="defIberiaDesc">شبه الجزيرة الأيبيرية، وتشمل إسبانيا والبرتغال حالياً، وقد بلغها النفوذ القرطاجي.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 مؤسسات ومصطلحات</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defSuffetes">الأشفاط (الحكام)</strong>: <span data-i18n="defSuffetesDesc">حكّام مدينة قرطاج، ينحدرون من أرقى العائلات، ولا يستلمون الحكم وراثياً بل يتم اختيارهم من قبل سكان المدينة.</span></li>
+                        <li><strong class="key-other" data-i18n="defSenate">مجلس الشيوخ</strong>: <span data-i18n="defSenateDesc">المؤسسة القرطاجية التي تناقش أهم القرارات وتراقب تصرفات الحاكم.</span></li>
+                        <li><strong class="key-other" data-i18n="defAssembly">مجلس العامة (الشعب)</strong>: <span data-i18n="defAssemblyDesc">المؤسسة التي تتدخل كرقيب وحاكم بين مجلس الشيوخ والملك عند حدوث خلاف، وتتخذ القرار الأنسب.</span></li>
+                        <li><strong class="key-other" data-i18n="defCourt">محكمة المائة</strong>: <span data-i18n="defCourtDesc">محكمة تتكون من 100 قاضٍ من أعضاء مجلس الشيوخ، تختص بفض النزاعات بين القادة.</span></li>
+                        <li><strong class="key-other" data-i18n="defCitizens">المواطنون</strong>: <span data-i18n="defCitizensDesc">الصنف الذي يعيش داخل المدينة، يتمتع بحق المساهمة في الحياة السياسية، ولا يدفع الضرائب.</span></li>
+                        <li><strong class="key-other" data-i18n="defNonCitizens">غير المواطنين</strong>: <span data-i18n="defNonCitizensDesc">الصنف الذي يقيم خارج المدينة، لا يساهم في الحياة السياسية، ويدفع الضرائب.</span></li>
+                        <li><strong class="key-other" data-i18n="defBaalHammon">بعل حموّن</strong>: <span data-i18n="defBaalHammonDesc">كبير آلهة القرطاجيين وحامي مدينة قرطاج.</span></li>
+                        <li><strong class="key-other" data-i18n="defTanit">تانيت</strong>: <span data-i18n="defTanitDesc">آلهة الخصب والرضاعة عند القرطاجيين، ويُرمز إليها بالنصب النذرية على شكل زجاجة.</span></li>
+                        <li><strong class="key-other" data-i18n="defDemeter">أديمترة</strong>: <span data-i18n="defDemeterDesc">آلهة الزراعة عند القرطاجيين.</span></li>
+                        <li><strong class="key-other" data-i18n="defPersephone">يرسفونة</strong>: <span data-i18n="defPersephoneDesc">بنت الآلهة ديمترة، ومعبودة عند القرطاجيين.</span></li>
+                        <li><strong class="key-other" data-i18n="defMago">موسوعة ماغون</strong>: <span data-i18n="defMagoDesc">مؤلف فلاحي هام كتبه العلماء القرطاجيون، يتناول شؤون الفلاحة وطرقها.</span></li>
+                        <li><strong class="key-other" data-i18n="defPurple">الأرجوان</strong>: <span data-i18n="defPurpleDesc">صباغ مجلوب من الشرق استعمله القرطاجيون في صباغة الأقمشة.</span></li>
+                        <li><strong class="key-other" data-i18n="defVotiveSteles">النصب النذرية</strong>: <span data-i18n="defVotiveStelesDesc">نقوش ونصب اشتهر بها القرطاجيون، ترمز للإلهة تانيت على شكل زجاجة، وكانت تُقدَّم تمجيداً للآلهة.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: أسّس الفينيقيون قرطاج سنة 814 ق.م، واختاروا لها موقعاً استراتيجياً محاطاً بالبحر وقريباً من أوتيكا ومطلّاً على دول المتوسط. انقسم مجتمعها إلى مواطنين (داخل المدينة، يساهمون في السياسة ولا يدفعون الضرائب) وغير مواطنين (خارج المدينة، يدفعون الضرائب)، وقامت مؤسساتها السياسية على الأشفاط ومجلس الشيوخ ومجلس العامة ومحكمة المائة. اقتصادياً، بلغت التجارة القرطاجية إفريقيا الاستوائية والمحيط الأطلسي عبر مضيق جبل طارق، وازدهرت الفلاحة (الكروم والزياتين وموسوعة ماغون) والصناعات الحرفية (السفن والفخار والأقمشة والأرجوان). دينياً، عبدوا بعل حموّن وتانيت وأديمترة ويرسفونة، وتركوا فنوناً ونصباً نذرية تحمل طابعاً عقائدياً.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق ومعالم من قرطاج البونيّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson3/carthaginian_harbor.jpg" alt="الميناء القرطاجي" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">الميناء القرطاجي</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson3/tanit_symbol.jpg" alt="رمز الإلهة تانيت" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">رمز الإلهة تانيت</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson3/carthaginian_masks.jpg" alt="الأقنعة الفنية القرطاجية" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">الأقنعة الفنية القرطاجية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson3/carthaginian_pottery.jpg" alt="الفخار القرطاجي (الجرار)" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">الفخار القرطاجي (الجرار)</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod2_lesson3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات والمؤسسات والآلهة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الوثائق والمعالم القرطاجيّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Tunisia from Prehistory to the Roman Era",
+                lessonTitleSample: "The Cultural Influence of Punic Carthage",
+                sectionIntro: "Introduction",
+                introText: "On the shores of the western Mediterranean basin, at the crossroads of ancient civilizations, the city of 'Carthage' emerged as one of the greatest maritime and economic powers of ancient history. Carthage was not merely a trading post founded by the Phoenicians; thanks to its strategic location and the intelligence of its statesmen and traders, it became a vast empire that left a rich cultural legacy in political organization, economy, arts, and beliefs. In this lesson, we explore the story of the rise of this ancient city and discover the aspects of its cultural influence.",
+                problematiqueText: "How was the city of Carthage founded? How were its political institutions and society organized? And what were the aspects of its economic and cultural influence?",
+                sectionPart1: "The Rise of Carthage and Its Political and Social Organization",
+                foundationTitle: "The Founding of the City and Its Strategic Location",
+                foundationText: "<strong>The Phoenicians and the founding:</strong> In the second millennium BC, the Phoenicians (the people of Phoenicia – present-day Lebanon) entered the western Mediterranean region and founded trading cities such as <strong>Utica</strong> and <strong>Hadrumetum</strong>. In <strong>814 BC</strong>, they founded the city of <strong>'Qart Hadasht'</strong> (meaning the New City), known as <strong>Carthage</strong>.",
+                foundationLegend: "<strong>The legend:</strong> The founding of Carthage was linked to the figure of <strong>'Elisha'</strong> (Elissa), and the writings of historians on the subject carry a legendary character.",
+                foundationLocation: "<strong>Strategic location:</strong> The Phoenicians chose a unique site for Carthage; it is surrounded by the sea on most of its sides, very close to the city of Utica, and overlooks the countries of the Mediterranean, making it an ideal center for controlling navigation and trade routes.",
+                societyTitle: "Society and Political Institutions",
+                societyIntro: "<strong>Composition of society:</strong> Carthaginian society was divided into two classes:",
+                societyCitizens: "<strong>Citizens:</strong> They live inside the city, enjoy the right to participate in political life, and do not pay taxes.",
+                societyNonCitizens: "<strong>Non-citizens:</strong> They reside outside the city, do not participate in political life, and pay taxes.",
+                institutionsIntro: "<strong>Political institutions:</strong>",
+                institutionSuffetes: "<strong>The Suffetes (rulers):</strong> They are the rulers of the city, descended from the noblest families; they do not inherit power but are chosen by the city's inhabitants.",
+                institutionSenate: "<strong>The Senate:</strong> It discusses the most important decisions and monitors the ruler's actions.",
+                institutionAssembly: "<strong>The Assembly of the People:</strong> It intervenes as an arbiter and judge between the Senate and the king when a dispute arises, and takes the most appropriate decision.",
+                institutionCourt: "<strong>The Court of the Hundred:</strong> It consists of 100 judges from the members of the Senate, and is specialized in settling disputes between leaders.",
+                sectionPart2: "Aspects of the Economic and Cultural Influence of Punic Carthage",
+                economyTitle: "Economic Prosperity (Trade, Agriculture, Industry)",
+                tradeText: "<strong>Commercial expansion:</strong> Carthaginian trade witnessed a tremendous spread; trade caravans reached equatorial Africa, sailors reached all the countries overlooking the Mediterranean (such as Syracuse, Sidon, Athens, and Rome), and reached the Atlantic Ocean via the Strait of Gibraltar (<strong>the Pillars of Hercules</strong>). Their influence extended to the coasts of Algeria, Morocco, and Spain (the land of Iberia).",
+                goodsText: "<strong>Goods and ports:</strong> They traded in silver, copper, iron, pottery, dye, incense, textiles, gold, and ivory and elephants. To meet this activity, the ports were expanded and divided into military ports and commercial ports.",
+                agricultureText: "<strong>Agriculture:</strong> The Carthaginians were interested in agriculture (especially in the Cape Bon region), where they planted vines, olive trees, and fruit trees, and raised cattle, sheep, and horses. Agricultural scholars also emerged who wrote important works such as <strong>'Mago's Encyclopedia'</strong>.",
+                craftsText: "<strong>Craft industries:</strong> The industry of military and commercial ships flourished, as did pottery (jars), and the textile industry and its dyeing using <strong>purple</strong> dye imported from the East.",
+                beliefsTitle: "Beliefs and Arts",
+                beliefsIntro: "<strong>Religious beliefs:</strong> The Carthaginians worshipped several deities, the most prominent of which are:",
+                godBaalHammon: "<strong>Baal Hammon:</strong> The chief god and protector of Carthage.",
+                godTanit: "<strong>Tanit:</strong> The goddess of fertility and nursing.",
+                godDemeter: "<strong>Demeter:</strong> The goddess of agriculture.",
+                godPersephone: "<strong>Persephone:</strong> The daughter of the goddess Demeter.",
+                artsText: "<strong>Arts:</strong> The Carthaginians used the raw materials available to them (such as wood, ivory, and crystal paste) to make ornaments and artistic masks with a doctrinal character to glorify the gods. Engravings and <strong>votive steles</strong> symbolizing the goddess Tanit (in the shape of a bottle) were also famous.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus, we see that Carthage was not merely a passing trading post, but a great maritime and economic empire, an advanced political system, and a beacon of arts and beliefs. The Phoenicians founded a small city, but the Carthaginians, with their intelligence and strength, transformed it into a dominant power over the western Mediterranean and the Atlantic Ocean, leaving behind an immortal cultural legacy that remains a witness to the greatness of man in the North African region.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Monuments of Punic Carthage",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Institutions and Terms",
+                defCarthage: "Carthage",
+                defCarthageDesc: "A city founded by the Phoenicians in 814 BC under the name 'Qart Hadasht' meaning 'the New City', transformed thanks to its strategic location and the intelligence of its statesmen into a great maritime and economic empire in the western Mediterranean.",
+                defPhoenicia: "Phoenicia",
+                defPhoeniciaDesc: "The historical region currently located in Lebanon, from which the Phoenicians set out on their maritime and commercial voyages.",
+                defUtica: "Utica",
+                defUticaDesc: "A Phoenician city founded by the Phoenicians in North Africa before Carthage, located very close to the site of Carthage.",
+                defHadrumetum: "Hadrumetum",
+                defHadrumetumDesc: "A Phoenician city founded by the Phoenicians in North Africa (present-day Sousse), one of their maritime commercial stations.",
+                defPillarsHercules: "The Pillars of Hercules (Strait of Gibraltar)",
+                defPillarsHerculesDesc: "The strait crossed by Carthaginian sailors to reach the Atlantic Ocean.",
+                defCapeBon: "Cape Bon Region",
+                defCapeBonDesc: "The region where the Carthaginians practiced agriculture, planting vines, olive trees, and fruit trees.",
+                defIberia: "The Land of Iberia",
+                defIberiaDesc: "The Iberian Peninsula, comprising present-day Spain and Portugal, which Carthaginian influence reached.",
+                defSuffetes: "The Suffetes (Rulers)",
+                defSuffetesDesc: "The rulers of the city of Carthage, descended from the noblest families; they do not inherit power but are chosen by the city's inhabitants.",
+                defSenate: "The Senate",
+                defSenateDesc: "The Carthaginian institution that discusses the most important decisions and monitors the ruler's actions.",
+                defAssembly: "The Assembly of the People",
+                defAssemblyDesc: "The institution that intervenes as an arbiter and judge between the Senate and the king when a dispute arises, and takes the most appropriate decision.",
+                defCourt: "The Court of the Hundred",
+                defCourtDesc: "A court consisting of 100 judges from the members of the Senate, specialized in settling disputes between leaders.",
+                defCitizens: "Citizens",
+                defCitizensDesc: "The class that lives inside the city, enjoys the right to participate in political life, and does not pay taxes.",
+                defNonCitizens: "Non-Citizens",
+                defNonCitizensDesc: "The class that resides outside the city, does not participate in political life, and pays taxes.",
+                defBaalHammon: "Baal Hammon",
+                defBaalHammonDesc: "The chief god of the Carthaginians and protector of the city of Carthage.",
+                defTanit: "Tanit",
+                defTanitDesc: "The goddess of fertility and nursing among the Carthaginians, symbolized by votive steles in the shape of a bottle.",
+                defDemeter: "Demeter",
+                defDemeterDesc: "The goddess of agriculture among the Carthaginians.",
+                defPersephone: "Persephone",
+                defPersephoneDesc: "The daughter of the goddess Demeter, and a deity among the Carthaginians.",
+                defMago: "Mago's Encyclopedia",
+                defMagoDesc: "An important agricultural work written by Carthaginian scholars, dealing with agricultural affairs and methods.",
+                defPurple: "Purple Dye",
+                defPurpleDesc: "A dye imported from the East, used by the Carthaginians in dyeing textiles.",
+                defVotiveSteles: "Votive Steles",
+                defVotiveStelesDesc: "Engravings and monuments famous among the Carthaginians, symbolizing the goddess Tanit in the shape of a bottle, offered in glorification of the gods.",
+                summaryText: "Key takeaway: The Phoenicians founded Carthage in 814 BC and chose for it a strategic location surrounded by the sea, close to Utica, and overlooking the Mediterranean countries. Its society was divided into citizens (inside the city, participating in politics and exempt from taxes) and non-citizens (outside the city, paying taxes), and its political institutions were based on the Suffetes, the Senate, the Assembly of the People, and the Court of the Hundred. Economically, Carthaginian trade reached equatorial Africa and the Atlantic Ocean via the Strait of Gibraltar, and agriculture flourished (vines, olive trees, and Mago's Encyclopedia) along with craft industries (ships, pottery, textiles, and purple dye). Religiously, they worshipped Baal Hammon, Tanit, Demeter, and Persephone, and they left arts and votive steles with a doctrinal character.",
+                galleryAlt1: "The Carthaginian harbor",
+                galleryAlt2: "Symbol of the goddess Tanit",
+                galleryAlt3: "Carthaginian artistic masks",
+                galleryAlt4: "Carthaginian pottery (jars)",
+                galleryCap1: "The Carthaginian harbor",
+                galleryCap2: "Symbol of the goddess Tanit",
+                galleryCap3: "Carthaginian artistic masks",
+                galleryCap4: "Carthaginian pottery (jars)",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / La Tunisie de la préhistoire à l'époque romaine",
+                lessonTitleSample: "Le rayonnement culturel de la Carthage punique",
+                sectionIntro: "Introduction",
+                introText: "Sur les rives du bassin occidental de la Méditerranée, au carrefour des civilisations anciennes, la ville de « Carthage » s'est imposée comme l'une des plus grandes puissances maritimes et économiques de l'histoire ancienne. Carthage n'était pas un simple comptoir commercial fondé par les Phéniciens ; grâce à sa situation stratégique et à l'intelligence de ses hommes d'État et de ses marchands, elle est devenue un empire vaste qui a laissé un riche héritage culturel dans l'organisation politique, l'économie, les arts et les croyances. Dans cette leçon, nous explorons l'histoire de la naissance de cette cité antique et nous découvrons les aspects de son rayonnement culturel.",
+                problematiqueText: "Comment la ville de Carthage a-t-elle été fondée ? Comment ses institutions politiques et sa société étaient-elles organisées ? Et quels étaient les aspects de son rayonnement économique et culturel ?",
+                sectionPart1: "La naissance de Carthage et son organisation politique et sociale",
+                foundationTitle: "La fondation de la ville et sa situation stratégique",
+                foundationText: "<strong>Les Phéniciens et la fondation :</strong> Au deuxième millénaire avant Jésus-Christ, les Phéniciens (les habitants de la Phénicie – l'actuel Liban) pénétrèrent dans la région de la Méditerranée occidentale et fondèrent des villes commerciales comme <strong>Utique</strong> et <strong>Hadrumète</strong>. En <strong>814 av. J.-C.</strong>, ils fondèrent la ville de <strong>« Qart Hadasht »</strong> (qui signifie la Ville Neuve), connue sous le nom de <strong>Carthage</strong>.",
+                foundationLegend: "<strong>La légende :</strong> La fondation de Carthage est liée à la figure d'<strong>« Elisha »</strong> (Élissa), et les écrits des historiens à son sujet portent un caractère légendaire.",
+                foundationLocation: "<strong>La situation stratégique :</strong> Les Phéniciens choisirent pour Carthage un site unique ; elle est entourée de la mer sur la plupart de ses côtés, très proche de la ville d'Utique et donne sur les pays de la Méditerranée, ce qui en fait un centre idéal pour contrôler les routes de navigation et de commerce.",
+                societyTitle: "La société et les institutions politiques",
+                societyIntro: "<strong>Les composantes de la société :</strong> La société carthaginoise se divisait en deux classes :",
+                societyCitizens: "<strong>Les citoyens :</strong> Ils vivent à l'intérieur de la ville, jouissent du droit de participer à la vie politique et ne paient pas d'impôts.",
+                societyNonCitizens: "<strong>Les non-citoyens :</strong> Ils résident à l'extérieur de la ville, ne participent pas à la vie politique et paient des impôts.",
+                institutionsIntro: "<strong>Les institutions politiques :</strong>",
+                institutionSuffetes: "<strong>Les suffètes (gouverneurs) :</strong> Ce sont les gouverneurs de la ville, issus des familles les plus nobles ; ils n'héritent pas du pouvoir mais sont choisis par les habitants de la ville.",
+                institutionSenate: "<strong>Le Sénat :</strong> Il discute des décisions les plus importantes et surveille les agissements du gouverneur.",
+                institutionAssembly: "<strong>L'Assemblée du peuple :</strong> Elle intervient comme arbitre et juge entre le Sénat et le roi en cas de différend, et prend la décision la plus appropriée.",
+                institutionCourt: "<strong>Le Tribunal des Cent :</strong> Il est composé de 100 juges parmi les membres du Sénat, et est spécialisé dans le règlement des différends entre les chefs.",
+                sectionPart2: "Les aspects du rayonnement économique et culturel de la Carthage punique",
+                economyTitle: "La prospérité économique (commerce, agriculture, industrie)",
+                tradeText: "<strong>L'expansion commerciale :</strong> Le commerce carthaginois connut une diffusion prodigieuse ; les caravanes commerciales atteignirent l'Afrique équatoriale, les marins atteignirent tous les pays riverains de la Méditerranée (comme Syracuse, Sidon, Athènes et Rome) ainsi que l'océan Atlantique via le détroit de Gibraltar (<strong>les colonnes d'Hercule</strong>). Leur influence s'étendit aux côtes de l'Algérie, du Maroc et de l'Espagne (le pays d'Ibérie).",
+                goodsText: "<strong>Les marchandises et les ports :</strong> Ils commerçaient l'argent, le cuivre, le fer, la poterie, la teinture, l'encens, les tissus, l'or, l'ivoire et les éléphants. Pour répondre à cette activité, les ports s'agrandirent et se divisèrent en ports militaires et ports commerciaux.",
+                agricultureText: "<strong>L'agriculture :</strong> Les Carthaginois s'intéressaient à l'agriculture (surtout dans la région du cap Bon) ; ils plantaient la vigne, les oliviers et les arbres fruitiers, et élevaient des bovins, des ovins et des chevaux. Des savants agronomes se distinguèrent également, écrivant des ouvrages importants comme <strong>« l'Encyclopédie de Magon »</strong>.",
+                craftsText: "<strong>Les industries artisanales :</strong> L'industrie des navires de guerre et de commerce prospéra, ainsi que la poterie (jarres), et l'industrie textile et sa teinture à l'aide du <strong>pourpre</strong> importé de l'Orient.",
+                beliefsTitle: "Les croyances et les arts",
+                beliefsIntro: "<strong>Les croyances religieuses :</strong> Les Carthaginois adoraient plusieurs divinités, les plus importantes étant :",
+                godBaalHammon: "<strong>Baal Hammon :</strong> Le dieu suprême et protecteur de Carthage.",
+                godTanit: "<strong>Tanit :</strong> La déesse de la fécondité et de l'allaitement.",
+                godDemeter: "<strong>Déméter :</strong> La déesse de l'agriculture.",
+                godPersephone: "<strong>Perséphone :</strong> La fille de la déesse Déméter.",
+                artsText: "<strong>Les arts :</strong> Les Carthaginois exploitaient les matières premières disponibles (comme le bois, l'ivoire et la pâte de cristal) pour fabriquer des objets de parure et des masques artistiques à caractère doctrinal pour glorifier les dieux. Les gravures et les <strong>stèles votives</strong> symbolisant la déesse Tanit (en forme de flacon) étaient également célèbres.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi, nous voyons que Carthage n'était pas simplement un comptoir commercial passager, mais un grand empire maritime et économique, un système politique avancé et un phare des arts et des croyances. Les Phéniciens ont fondé une petite ville, mais les Carthaginois, par leur intelligence et leur puissance, l'ont transformée en une force dominante sur la Méditerranée occidentale et l'océan Atlantique, laissant derrière eux un héritage culturel immortel qui demeure un témoignage de la grandeur de l'homme dans la région de l'Afrique du Nord.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et monuments de la Carthage punique",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Institutions et termes",
+                defCarthage: "Carthage",
+                defCarthageDesc: "Une ville fondée par les Phéniciens en 814 av. J.-C. sous le nom de « Qart Hadasht » signifiant « la Ville Neuve », devenue grâce à sa situation stratégique et à l'intelligence de ses hommes d'État un grand empire maritime et économique en Méditerranée occidentale.",
+                defPhoenicia: "La Phénicie",
+                defPhoeniciaDesc: "La région historique située actuellement au Liban, d'où les Phéniciens sont partis pour leurs voyages maritimes et commerciaux.",
+                defUtica: "Utique",
+                defUticaDesc: "Une ville phénicienne fondée par les Phéniciens en Afrique du Nord avant Carthage, située très près du site de Carthage.",
+                defHadrumetum: "Hadrumète",
+                defHadrumetumDesc: "Une ville phénicienne fondée par les Phéniciens en Afrique du Nord (actuelle Sousse), l'un de leurs comptoirs commerciaux maritimes.",
+                defPillarsHercules: "Les colonnes d'Hercule (détroit de Gibraltar)",
+                defPillarsHerculesDesc: "Le détroit traversé par les marins carthaginois pour atteindre l'océan Atlantique.",
+                defCapeBon: "La région du cap Bon",
+                defCapeBonDesc: "La région où les Carthaginois pratiquaient l'agriculture, plantant la vigne, les oliviers et les arbres fruitiers.",
+                defIberia: "Le pays d'Ibérie",
+                defIberiaDesc: "La péninsule Ibérique, comprenant l'actuelle Espagne et le Portugal, atteinte par l'influence carthaginoise.",
+                defSuffetes: "Les suffètes (gouverneurs)",
+                defSuffetesDesc: "Les gouverneurs de la ville de Carthage, issus des familles les plus nobles ; ils n'héritent pas du pouvoir mais sont choisis par les habitants de la ville.",
+                defSenate: "Le Sénat",
+                defSenateDesc: "L'institution carthaginoise qui discute des décisions les plus importantes et surveille les agissements du gouverneur.",
+                defAssembly: "L'Assemblée du peuple",
+                defAssemblyDesc: "L'institution qui intervient comme arbitre et juge entre le Sénat et le roi en cas de différend, et prend la décision la plus appropriée.",
+                defCourt: "Le Tribunal des Cent",
+                defCourtDesc: "Un tribunal composé de 100 juges parmi les membres du Sénat, spécialisé dans le règlement des différends entre les chefs.",
+                defCitizens: "Les citoyens",
+                defCitizensDesc: "La classe qui vit à l'intérieur de la ville, jouit du droit de participer à la vie politique et ne paie pas d'impôts.",
+                defNonCitizens: "Les non-citoyens",
+                defNonCitizensDesc: "La classe qui réside à l'extérieur de la ville, ne participe pas à la vie politique et paie des impôts.",
+                defBaalHammon: "Baal Hammon",
+                defBaalHammonDesc: "Le dieu suprême des Carthaginois et protecteur de la ville de Carthage.",
+                defTanit: "Tanit",
+                defTanitDesc: "La déesse de la fécondité et de l'allaitement chez les Carthaginois, symbolisée par des stèles votives en forme de flacon.",
+                defDemeter: "Déméter",
+                defDemeterDesc: "La déesse de l'agriculture chez les Carthaginois.",
+                defPersephone: "Perséphone",
+                defPersephoneDesc: "La fille de la déesse Déméter, et une divinité chez les Carthaginois.",
+                defMago: "L'Encyclopédie de Magon",
+                defMagoDesc: "Un ouvrage agricole important rédigé par les savants carthaginois, traitant des affaires et des méthodes agricoles.",
+                defPurple: "Le pourpre",
+                defPurpleDesc: "Une teinture importée de l'Orient, utilisée par les Carthaginois dans la teinture des tissus.",
+                defVotiveSteles: "Les stèles votives",
+                defVotiveStelesDesc: "Des gravures et des monuments célèbres chez les Carthaginois, symbolisant la déesse Tanit en forme de flacon, offerts en glorification des dieux.",
+                summaryText: "À retenir : Les Phéniciens fondèrent Carthage en 814 av. J.-C. et choisirent pour elle une situation stratégique entourée de la mer, proche d'Utique et donnant sur les pays de la Méditerranée. Sa société se divisait en citoyens (à l'intérieur de la ville, participant à la politique et exemptés d'impôts) et non-citoyens (à l'extérieur de la ville, payant des impôts), et ses institutions politiques reposaient sur les suffètes, le Sénat, l'Assemblée du peuple et le Tribunal des Cent. Économiquement, le commerce carthaginois atteignit l'Afrique équatoriale et l'océan Atlantique via le détroit de Gibraltar, et l'agriculture prospéra (vigne, oliviers et Encyclopédie de Magon) ainsi que les industries artisanales (navires, poterie, tissus et pourpre). Religieusement, ils adoraient Baal Hammon, Tanit, Déméter et Perséphone, et ils laissèrent des arts et des stèles votives à caractère doctrinal.",
+                galleryAlt1: "Le port carthaginois",
+                galleryAlt2: "Symbole de la déesse Tanit",
+                galleryAlt3: "Masques artistiques carthaginois",
+                galleryAlt4: "Poterie carthaginoise (jarres)",
+                galleryCap1: "Le port carthaginois",
+                galleryCap2: "Symbole de la déesse Tanit",
+                galleryCap3: "Masques artistiques carthaginois",
+                galleryCap4: "Poterie carthaginoise (jarres)",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني",
+                lessonTitleSample: "مظاهر الإشعاع الحضاري لقرطاج البونيّة",
+                sectionIntro: "مقدمة",
+                introText: "على ضفاف الحوض الغربي للبحر الأبيض المتوسط، وفي ملتقى الحضارات القديمة، برزت مدينة «قرطاج» كواحدة من أعظم القوى البحرية والاقتصادية في التاريخ القديم. لم تكن قرطاج مجرد محطة تجارية أسّسها الفينيقيون، بل تحوّلت بفضل موقعها الاستراتيجي وذكاء ساستها وتجارها إلى إمبراطورية مترامية الأطراف، تركت إرثاً حضارياً غنياً في التنظيم السياسي، والاقتصاد، والفنون، والمعتقدات. في هذا الدرس، نستكشف قصة نشأة هذه المدينة العريقة، ونتعرّف على مظاهر إشعاعها الحضاري.",
+                problematiqueText: "كيف تأسست مدينة قرطاج؟ وكيف تنظّمت مؤسساتها السياسية ومجتمعها؟ وما هي مظاهر إشعاعها الاقتصادي والثقافي؟",
+                sectionPart1: "نشأة قرطاج وتنظيمها السياسي والاجتماعي",
+                foundationTitle: "تأسيس المدينة وموقعها الاستراتيجي",
+                foundationText: "<strong>الفينيقيون والتأسيس:</strong> في الألف الثانية قبل الميلاد، دخل الفينيقيون (سكان فينيقيا – لبنان حالياً) منطقة غربي البحر المتوسط وأسّسوا مدناً تجارية مثل <strong>أوتيكا</strong> و<strong>حضرموت</strong>. وفي سنة <strong>814 قبل الميلاد</strong>، أسّسوا مدينة <strong>«قرت حدشت»</strong> (وتعني المدينة الجديدة)، وهي المعروفة باسم <strong>قرطاج</strong>.",
+                foundationLegend: "<strong>الأسطورة:</strong> ارتبط تأسيس قرطاج بشخصية <strong>«عليسة»</strong> (إليسا)، حيث تحمل كتابات المؤرخين حولها طابعاً أسطورياً.",
+                foundationLocation: "<strong>الموقع الاستراتيجي:</strong> اختار الفينيقيون موقعاً فريداً لقرطاج؛ فهي محاطة بالبحر في أغلب أرجائها، وقريبة جداً من مدينة أوتيكا، وتطلّ على دول البحر الأبيض المتوسط، مما جعلها مركزاً مثالياً للتحكم في طرق الملاحة والتجارة.",
+                societyTitle: "المجتمع والمؤسسات السياسية",
+                societyIntro: "<strong>مكونات المجتمع:</strong> انقسم المجتمع القرطاجي إلى صنفين:",
+                societyCitizens: "<strong>المواطنون:</strong> يعيشون داخل المدينة، يتمتعون بحق المساهمة في الحياة السياسية، ولا يدفعون الضرائب.",
+                societyNonCitizens: "<strong>غير المواطنين:</strong> يقيمون خارج المدينة، لا يساهمون في الحياة السياسية، ويدفعون الضرائب.",
+                institutionsIntro: "<strong>المؤسسات السياسية:</strong>",
+                institutionSuffetes: "<strong>الأشفاط (الحكام):</strong> هم حكام المدينة، ينحدرون من أرقى العائلات، ولا يستلمون الحكم وراثياً بل يتم اختيارهم من قبل سكان المدينة.",
+                institutionSenate: "<strong>مجلس الشيوخ:</strong> يناقش أهم القرارات ويراقب تصرفات الحاكم.",
+                institutionAssembly: "<strong>مجلس العامة (الشعب):</strong> يتدخل كرقيب وحاكم بين مجلس الشيوخ والملك عند حدوث خلاف، ويتخذ القرار الأنسب.",
+                institutionCourt: "<strong>محكمة المائة:</strong> تتكون من 100 قاضٍ من أعضاء مجلس الشيوخ، وتختص بفض النزاعات بين القادة.",
+                sectionPart2: "مظاهر الإشعاع الاقتصادي والثقافي لقرطاج البونية",
+                economyTitle: "الازدهار الاقتصادي (التجارة، الفلاحة، الصناعة)",
+                tradeText: "<strong>التوسع التجاري:</strong> شهدت التجارة القرطاجية انتشاراً هائلاً؛ فبلغت القوافل التجارية إفريقيا الاستوائية، ووصل البحارة إلى كامل الدول المطلّة على المتوسط (مثل سرقوسة، وصيدا، وأثينا، وروما) وصولاً إلى المحيط الأطلسي عبر مضيق جبل طارق (<strong>أعمدة هرقل</strong>). وامتدّ نفوذهم إلى سواحل الجزائر والمغرب وإسبانيا (بلاد الإيبار).",
+                goodsText: "<strong>السلع والموانئ:</strong> تاجروا في الفضة، والنحاس، والحديد، والخزف، والصباغ، والبخور، والأقمشة، والذهب، والعاج والفيلة. ولتلبية هذا النشاط، توسّعت الموانئ وانقسمت إلى موانئ عسكرية وموانئ تجارية.",
+                agricultureText: "<strong>الفلاحة:</strong> اهتم القرطاجيون بالفلاحة (خاصة في منطقة الوطن القبلي)، فزرعوا الكروم والزياتين والأشجار المثمرة، وربّوا الأبقار والأغنام والخيول. كما برز علماء فلاحيون كتبوا مؤلفات هامّة مثل <strong>«موسوعة ماغون»</strong>.",
+                craftsText: "<strong>الصناعات الحرفية:</strong> ازدهرت صناعة السفن الحربية والتجارية، وصناعة الفخار (الجرار)، وصناعة الأقمشة وصبغها باستعمال الصباغ (<strong>الأرجوان</strong>) المجلوب من الشرق.",
+                beliefsTitle: "المعتقدات والفنون",
+                beliefsIntro: "<strong>المعتقدات الدينية:</strong> كان القرطاجيون يعبدون عدة آلهة، أبرزها:",
+                godBaalHammon: "<strong>بعل حموّن:</strong> كبير الآلهة وحامي قرطاج.",
+                godTanit: "<strong>تانيت:</strong> آلهة الخصب والرضاعة.",
+                godDemeter: "<strong>أديمترة:</strong> آلهة الزراعة.",
+                godPersephone: "<strong>يرسفونة:</strong> بنت الآلهة ديمترة.",
+                artsText: "<strong>الفنون:</strong> استغلّ القرطاجيون المواد الأولية المتوفرة لديهم (كالخشب، والعاج، وعجين البلور) في صنع أدوات الزينة والأقنعة الفنية ذات الطابع العقائدي لتمجيد الآلهة. كما اشتهرت النقوش و<strong>النصب النذرية</strong> التي ترمز للإلهة تانيت (شكل زجاجة).",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا، نرى أنّ قرطاج لم تكن مجرد محطة تجارية عابرة، بل كانت إمبراطورية بحرية واقتصادية عظيمة، ونظاماً سياسياً متطوراً، ومنارة للفنون والمعتقدات. لقد أسّس الفينيقيون مدينة صغيرة، لكن القرطاجيين بذكائهم وقوّتهم حوّلوها إلى قوة مهيمنة على غرب البحر الأبيض المتوسط والمحيط الأطلسي، تاركة وراءها إرثاً حضارياً خالداً يظلّ شاهداً على عظمة الإنسان في منطقة شمال إفريقيا.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق ومعالم من قرطاج البونيّة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 مؤسسات ومصطلحات",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "مدينة أسّسها الفينيقيون سنة 814 ق.م باسم «قرت حدشت» أي «المدينة الجديدة»، وتحوّلت بفضل موقعها الاستراتيجي وذكاء ساستها إلى إمبراطورية بحرية واقتصادية عظيمة في غرب المتوسط.",
+                defPhoenicia: "فينيقيا",
+                defPhoeniciaDesc: "المنطقة التاريخية التي تقع حالياً في لبنان، ومنها انطلق الفينيقيون في رحلاتهم البحرية والتجارية.",
+                defUtica: "أوتيكا (Utica)",
+                defUticaDesc: "مدينة فينيقية أسّسها الفينيقيون في شمال إفريقيا قبل قرطاج، وتقع قريبة جداً من موقع قرطاج.",
+                defHadrumetum: "حضرموت",
+                defHadrumetumDesc: "مدينة فينيقية أسّسها الفينيقيون في شمال إفريقيا (سوسة حالياً)، وكانت من محطاتهم التجارية البحرية.",
+                defPillarsHercules: "أعمدة هرقل (مضيق جبل طارق)",
+                defPillarsHerculesDesc: "المضيق الذي عبره البحارة القرطاجيون للوصول إلى المحيط الأطلسي.",
+                defCapeBon: "الوطن القبلي",
+                defCapeBonDesc: "المنطقة التي اهتمّ فيها القرطاجيون بالفلاحة، فزرعوا فيها الكروم والزياتين والأشجار المثمرة.",
+                defIberia: "بلاد الإيبار",
+                defIberiaDesc: "شبه الجزيرة الأيبيرية، وتشمل إسبانيا والبرتغال حالياً، وقد بلغها النفوذ القرطاجي.",
+                defSuffetes: "الأشفاط (الحكام)",
+                defSuffetesDesc: "حكّام مدينة قرطاج، ينحدرون من أرقى العائلات، ولا يستلمون الحكم وراثياً بل يتم اختيارهم من قبل سكان المدينة.",
+                defSenate: "مجلس الشيوخ",
+                defSenateDesc: "المؤسسة القرطاجية التي تناقش أهم القرارات وتراقب تصرفات الحاكم.",
+                defAssembly: "مجلس العامة (الشعب)",
+                defAssemblyDesc: "المؤسسة التي تتدخل كرقيب وحاكم بين مجلس الشيوخ والملك عند حدوث خلاف، وتتخذ القرار الأنسب.",
+                defCourt: "محكمة المائة",
+                defCourtDesc: "محكمة تتكون من 100 قاضٍ من أعضاء مجلس الشيوخ، تختص بفض النزاعات بين القادة.",
+                defCitizens: "المواطنون",
+                defCitizensDesc: "الصنف الذي يعيش داخل المدينة، يتمتع بحق المساهمة في الحياة السياسية، ولا يدفع الضرائب.",
+                defNonCitizens: "غير المواطنين",
+                defNonCitizensDesc: "الصنف الذي يقيم خارج المدينة، لا يساهم في الحياة السياسية، ويدفع الضرائب.",
+                defBaalHammon: "بعل حموّن",
+                defBaalHammonDesc: "كبير آلهة القرطاجيين وحامي مدينة قرطاج.",
+                defTanit: "تانيت",
+                defTanitDesc: "آلهة الخصب والرضاعة عند القرطاجيين، ويُرمز إليها بالنصب النذرية على شكل زجاجة.",
+                defDemeter: "أديمترة",
+                defDemeterDesc: "آلهة الزراعة عند القرطاجيين.",
+                defPersephone: "يرسفونة",
+                defPersephoneDesc: "بنت الآلهة ديمترة، ومعبودة عند القرطاجيين.",
+                defMago: "موسوعة ماغون",
+                defMagoDesc: "مؤلف فلاحي هام كتبه العلماء القرطاجيون، يتناول شؤون الفلاحة وطرقها.",
+                defPurple: "الأرجوان",
+                defPurpleDesc: "صباغ مجلوب من الشرق استعمله القرطاجيون في صباغة الأقمشة.",
+                defVotiveSteles: "النصب النذرية",
+                defVotiveStelesDesc: "نقوش ونصب اشتهر بها القرطاجيون، ترمز للإلهة تانيت على شكل زجاجة، وكانت تُقدَّم تمجيداً للآلهة.",
+                summaryText: "خلاصة: أسّس الفينيقيون قرطاج سنة 814 ق.م، واختاروا لها موقعاً استراتيجياً محاطاً بالبحر وقريباً من أوتيكا ومطلّاً على دول المتوسط. انقسم مجتمعها إلى مواطنين (داخل المدينة، يساهمون في السياسة ولا يدفعون الضرائب) وغير مواطنين (خارج المدينة، يدفعون الضرائب)، وقامت مؤسساتها السياسية على الأشفاط ومجلس الشيوخ ومجلس العامة ومحكمة المائة. اقتصادياً، بلغت التجارة القرطاجية إفريقيا الاستوائية والمحيط الأطلسي عبر مضيق جبل طارق، وازدهرت الفلاحة (الكروم والزياتين وموسوعة ماغون) والصناعات الحرفية (السفن والفخار والأقمشة والأرجوان). دينياً، عبدوا بعل حموّن وتانيت وأديمترة ويرسفونة، وتركوا فنوناً ونصباً نذرية تحمل طابعاً عقائدياً.",
+                galleryAlt1: "الميناء القرطاجي",
+                galleryAlt2: "رمز الإلهة تانيت",
+                galleryAlt3: "الأقنعة الفنية القرطاجية",
+                galleryAlt4: "الفخار القرطاجي (الجرار)",
+                galleryCap1: "الميناء القرطاجي",
+                galleryCap2: "رمز الإلهة تانيت",
+                galleryCap3: "الأقنعة الفنية القرطاجية",
+                galleryCap4: "الفخار القرطاجي (الجرار)",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Phoenicia", class: "key-location", i18n: "defPhoenicia" },
+                { text: "Utica", class: "key-location", i18n: "defUtica" },
+                { text: "Hadrumetum", class: "key-location", i18n: "defHadrumetum" },
+                { text: "The Pillars of Hercules", class: "key-location", i18n: "defPillarsHercules" },
+                { text: "Cape Bon", class: "key-location", i18n: "defCapeBon" },
+                { text: "The Land of Iberia", class: "key-location", i18n: "defIberia" },
+                { text: "The Suffetes", class: "key-other", i18n: "defSuffetes" },
+                { text: "The Senate", class: "key-other", i18n: "defSenate" },
+                { text: "The Assembly of the People", class: "key-other", i18n: "defAssembly" },
+                { text: "The Court of the Hundred", class: "key-other", i18n: "defCourt" },
+                { text: "Citizens", class: "key-other", i18n: "defCitizens" },
+                { text: "Non-Citizens", class: "key-other", i18n: "defNonCitizens" },
+                { text: "Baal Hammon", class: "key-other", i18n: "defBaalHammon" },
+                { text: "Tanit", class: "key-other", i18n: "defTanit" },
+                { text: "Demeter", class: "key-other", i18n: "defDemeter" },
+                { text: "Persephone", class: "key-other", i18n: "defPersephone" },
+                { text: "Mago's Encyclopedia", class: "key-other", i18n: "defMago" },
+                { text: "Purple Dye", class: "key-other", i18n: "defPurple" },
+                { text: "Votive Steles", class: "key-other", i18n: "defVotiveSteles" }
+            ],
+            fr: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "La Phénicie", class: "key-location", i18n: "defPhoenicia" },
+                { text: "Utique", class: "key-location", i18n: "defUtica" },
+                { text: "Hadrumète", class: "key-location", i18n: "defHadrumetum" },
+                { text: "Les colonnes d'Hercule", class: "key-location", i18n: "defPillarsHercules" },
+                { text: "Le cap Bon", class: "key-location", i18n: "defCapeBon" },
+                { text: "Le pays d'Ibérie", class: "key-location", i18n: "defIberia" },
+                { text: "Les suffètes", class: "key-other", i18n: "defSuffetes" },
+                { text: "Le Sénat", class: "key-other", i18n: "defSenate" },
+                { text: "L'Assemblée du peuple", class: "key-other", i18n: "defAssembly" },
+                { text: "Le Tribunal des Cent", class: "key-other", i18n: "defCourt" },
+                { text: "Les citoyens", class: "key-other", i18n: "defCitizens" },
+                { text: "Les non-citoyens", class: "key-other", i18n: "defNonCitizens" },
+                { text: "Baal Hammon", class: "key-other", i18n: "defBaalHammon" },
+                { text: "Tanit", class: "key-other", i18n: "defTanit" },
+                { text: "Déméter", class: "key-other", i18n: "defDemeter" },
+                { text: "Perséphone", class: "key-other", i18n: "defPersephone" },
+                { text: "L'Encyclopédie de Magon", class: "key-other", i18n: "defMago" },
+                { text: "Le pourpre", class: "key-other", i18n: "defPurple" },
+                { text: "Les stèles votives", class: "key-other", i18n: "defVotiveSteles" }
+            ],
+            ar: [
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "فينيقيا", class: "key-location", i18n: "defPhoenicia" },
+                { text: "أوتيكا", class: "key-location", i18n: "defUtica" },
+                { text: "حضرموت", class: "key-location", i18n: "defHadrumetum" },
+                { text: "أعمدة هرقل", class: "key-location", i18n: "defPillarsHercules" },
+                { text: "مضيق جبل طارق", class: "key-location", i18n: "defPillarsHercules" },
+                { text: "الوطن القبلي", class: "key-location", i18n: "defCapeBon" },
+                { text: "بلاد الإيبار", class: "key-location", i18n: "defIberia" },
+                { text: "الأشفاط", class: "key-other", i18n: "defSuffetes" },
+                { text: "مجلس الشيوخ", class: "key-other", i18n: "defSenate" },
+                { text: "مجلس العامة", class: "key-other", i18n: "defAssembly" },
+                { text: "محكمة المائة", class: "key-other", i18n: "defCourt" },
+                { text: "المواطنون", class: "key-other", i18n: "defCitizens" },
+                { text: "غير المواطنين", class: "key-other", i18n: "defNonCitizens" },
+                { text: "بعل حموّن", class: "key-other", i18n: "defBaalHammon" },
+                { text: "تانيت", class: "key-other", i18n: "defTanit" },
+                { text: "أديمترة", class: "key-other", i18n: "defDemeter" },
+                { text: "يرسفونة", class: "key-other", i18n: "defPersephone" },
+                { text: "موسوعة ماغون", class: "key-other", i18n: "defMago" },
+                { text: "الأرجوان", class: "key-other", i18n: "defPurple" },
+                { text: "النصب النذرية", class: "key-other", i18n: "defVotiveSteles" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

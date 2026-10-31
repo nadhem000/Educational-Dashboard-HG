@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">الحضارة القبصيّة</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">تُعدّ منطقة شمال إفريقيا مهداً للعديد من الحضارات القديمة التي تركت بصماتها في تاريخ الإنسانية. وقبل آلاف السنين، وقبل اختراع الكتابة، استطاع الإنسان في هذه المنطقة أن يتكيف مع بيئته، وأن يطور أساليب حياته في السكن والغذاء والصناعة. ومن أبرز هذه الحضارات التي ازدهرت في بلادنا التونسية والجزائرية: الحضارة القبصيّة، التي سنتعرف من خلال هذا الدرس على أبعادها الزمنية والمكانية، وأهم مظاهر الحياة فيها.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي الحضارة القبصيّة؟ وما أصل تسميتها؟ وما هو مجالها الجغرافي وإطارها الزمني؟ وما هي أهمّ مظاهر الحياة والمعتقدات عند الإنسان القبصي؟</p>
+            </div>
+
+            <!-- Part I : Definition, Geography, Time -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">التعريف بالحضارة القبصية وإطارها الزمني والمكاني</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="conceptTitle">مفهوم الحضارة وأصل التسمية</span>
+                </h4>
+                <p data-i18n="conceptText"><strong>مفهوم الحضارة:</strong> هي جملة الممارسات الاجتماعية التي تتعلق بحياة مجموعة بشرية في فترة معينة من الزمن، وتشمل: الفنون، والسكن، والغذاء، والمعتقدات، والسياسة.</p>
+                <p data-i18n="namingText"><strong>أصل التسمية:</strong> سُميت «القبصية» نسبة إلى عاصمتها <strong>قبصة</strong> (والتي تُعرف حالياً بمدينة <strong>قفصة</strong> في تونس).</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="geographyTitle">المجال الجغرافي والإطار الزمني</span>
+                </h4>
+                <p data-i18n="geographyText"><strong>المجال الجغرافي:</strong> امتدت هذه الحضارة على جزء من تونس (تشمل: القصرين، وفريانة، وقفصة، وأم العرايس) وجزء من الجزائر (تشمل مدينة تبسة).</p>
+                <p data-i18n="timeframeText"><strong>الإطار الزمني:</strong> امتدت الحضارة القبصية من <strong>7000 قبل الميلاد</strong> إلى <strong>5000 قبل الميلاد</strong>.</p>
+                <p data-i18n="timeframeRule"><strong>قاعدة زمنية هامة:</strong> في التواريخ قبل الميلاد، نعدّ من العدد الكبير إلى العدد الصغير وصولاً إلى الصفر (تاريخ ميلاد المسيح). لذلك، تنتمي هذه الفترة إلى <strong>عصور ما قبل التاريخ</strong> (قبل ظهور الكتابة سنة 3000 ق.م).</p>
+            </div>
+
+            <!-- Part II : Aspects of Life and Beliefs -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">مظاهر الحياة والمعتقدات عند الإنسان القبصي</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="lifeTitle">السكن والغذاء وصناعة الأدوات</span>
+                </h4>
+                <p data-i18n="housingText"><strong>السكن:</strong> طوّر الإنسان القبصي مسكنه فأصبح يسكن في <strong>الأكواخ</strong>.</p>
+                <p data-i18n="foodText"><strong>الغذاء:</strong> كان يطهو الحلزونيات (<strong>البرنق</strong>)، واستمر في صيد الحيوانات، كما بدأ في تدجين (تربية) الحيوانات في المنزل.</p>
+                <p data-i18n="toolsText"><strong>صناعة الأدوات:</strong> صنع أدوات حجرية للصيد والتقطيع، وابتكر قوارير للاستخدام صنعها من قشرة بيض النعام.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="artTitle">الفنون والمعتقدات وطرق الدفن</span>
+                </h4>
+                <p data-i18n="artText"><strong>الفنون:</strong> ترك القبصيون نقوشاً صخرية على الجدران تعبّر عن حياتهم.</p>
+                <p data-i18n="beliefText"><strong>المعتقدات والدفن:</strong> كانوا يتعبّدون في المعابد، ويدفنون موتاهم في قبور محفورة في الصخر تُسمّى <strong>«الحوانيت»</strong>. وكان الميت يوضع في قبره في وضعية جانبية مثنية (<strong>وضعية الجنين</strong>).</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا، تُبرز لنا الحضارة القبصية مدى ذكاء الإنسان القديم وقدرته على التطور والابتكار في فترة ما قبل التاريخ. فقد انتقل من حياة الترحال والصيد البدائي إلى الاستقرار النسبي في الأكواخ، وتدجين الحيوانات، وصناعة الأدوات، ودفن موتاه بطرق تعكس معتقداته. وتظلّ هذه الحضارة شاهداً تاريخياً هامّاً على عراقة الإنسان في تونس والجزائر، وجسراً يربطنا بجذورنا الإنسانية العميقة قبل ظهور الكتابة.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCapsa">قبصة (قفصة)</strong>: <span data-i18n="defCapsaDesc">عاصمة الحضارة القبصية، وتُعرف حالياً بمدينة قفصة في تونس. سُميّت الحضارة القبصية بهذا الاسم نسبة إليها.</span></li>
+                        <li><strong class="key-location" data-i18n="defTunisia">تونس</strong>: <span data-i18n="defTunisiaDesc">البلد الذي شمل جزءاً من مجال الحضارة القبصية، وتحديداً مناطق: القصرين، وفريانة، وقفصة، وأم العرايس.</span></li>
+                        <li><strong class="key-location" data-i18n="defAlgeria">الجزائر</strong>: <span data-i18n="defAlgeriaDesc">البلد المجاور الذي شمل جزءاً من مجال الحضارة القبصية، وتحديداً مدينة تبسة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defCivilization">الحضارة</strong>: <span data-i18n="defCivilizationDesc">جملة الممارسات الاجتماعية التي تتعلق بحياة مجموعة بشرية في فترة معينة من الزمن، وتشمل: الفنون، والسكن، والغذاء، والمعتقدات، والسياسة.</span></li>
+                        <li><strong class="key-other" data-i18n="defCapsian">الحضارة القبصية</strong>: <span data-i18n="defCapsianDesc">من أبرز حضارات ما قبل التاريخ التي ازدهرت في تونس والجزائر، امتدت من 7000 ق.م إلى 5000 ق.م، وسُميّت بهذا الاسم نسبة إلى عاصمتها قبصة (قفصة).</span></li>
+                        <li><strong class="key-other" data-i18n="defPrehistory">عصور ما قبل التاريخ</strong>: <span data-i18n="defPrehistoryDesc">الفترة السابقة لظهور الكتابة سنة 3000 ق.م، وتنتمي إليها الحضارة القبصية.</span></li>
+                        <li><strong class="key-other" data-i18n="defHawanit">الحوانيت</strong>: <span data-i18n="defHawanitDesc">قبور محفورة في الصخر، كان الإنسان القبصي يدفن فيها موتاه.</span></li>
+                        <li><strong class="key-other" data-i18n="defFetalPosition">وضعية الجنين</strong>: <span data-i18n="defFetalPositionDesc">وضعية جانبية مثنية كان يُوضع فيها الميت في قبره، تُشبه وضعية الجنين في بطن أمه، وتعكس معتقدات الإنسان القبصي.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: الحضارة القبصية من أبرز حضارات ما قبل التاريخ التي ازدهرت في تونس والجزائر من 7000 ق.م إلى 5000 ق.م، وسُميّت بهذا الاسم نسبة إلى عاصمتها قبصة (قفصة). سكن الإنسان القبصي الأكواخ، وتغذّى على الحلزونيات (البرنق)، ومارس الصيد وبدأ في تدجين الحيوانات، وصنع أدوات حجرية وقوارير من قشرة بيض النعام، وترك نقوشاً صخرية، ودفن موتاه في قبور تُسمّى الحوانيت في وضعية الجنين.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق ومعالم من الحضارة القبصيّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson1/capsian_stone_tools.jpg" alt="أدوات حجرية قبصيّة" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">أدوات حجرية قبصيّة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson1/ostrich_eggshell_vessels.jpg" alt="قوارير من قشرة بيض النعام" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">قوارير من قشرة بيض النعام</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson1/capsian_rock_engravings.jpg" alt="نقوش صخرية قبصيّة" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">نقوش صخرية قبصيّة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson1/hawanit_tombs.jpg" alt="قبور الحوانيت" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">قبور الحوانيت</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod2_lesson1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية والأمكنة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الوثائق والمعالم القبصيّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Tunisia from Prehistory to the Roman Era",
+                lessonTitleSample: "The Capsian Civilization",
+                sectionIntro: "Introduction",
+                introText: "The North African region is a cradle of many ancient civilizations that have left their mark on the history of humanity. Thousands of years ago, before the invention of writing, humans in this region were able to adapt to their environment and develop their ways of life in housing, food, and industry. Among the most prominent civilizations that flourished in our countries Tunisia and Algeria is the Capsian Civilization, through which we will learn in this lesson about its temporal and spatial dimensions and the most important aspects of life in it.",
+                problematiqueText: "What is the Capsian Civilization? What is the origin of its name? What is its geographical scope and temporal framework? And what are the most important aspects of life and beliefs of Capsian man?",
+                sectionPart1: "Introducing the Capsian Civilization and Its Temporal and Spatial Framework",
+                conceptTitle: "The Concept of Civilization and the Origin of the Name",
+                conceptText: "<strong>The concept of civilization:</strong> It is the set of social practices related to the life of a human group in a specific period of time, including: arts, housing, food, beliefs, and politics.",
+                namingText: "<strong>Origin of the name:</strong> It was called 'Capsian' after its capital <strong>Capsa</strong> (currently known as the city of <strong>Gafsa</strong> in Tunisia).",
+                geographyTitle: "Geographical Scope and Temporal Framework",
+                geographyText: "<strong>Geographical scope:</strong> This civilization extended over part of Tunisia (including: Kasserine, Fériana, Gafsa, and Oum El Araies) and part of Algeria (including the city of Tébessa).",
+                timeframeText: "<strong>Temporal framework:</strong> The Capsian Civilization extended from <strong>7000 BC</strong> to <strong>5000 BC</strong>.",
+                timeframeRule: "<strong>Important temporal rule:</strong> In dates before Christ, we count from the larger number to the smaller number until reaching zero (the date of Christ's birth). Therefore, this period belongs to <strong>prehistoric times</strong> (before the appearance of writing in 3000 BC).",
+                sectionPart2: "Aspects of Life and Beliefs of Capsian Man",
+                lifeTitle: "Housing, Food, and Tool Making",
+                housingText: "<strong>Housing:</strong> Capsian man developed his dwelling, so he began to live in <strong>huts</strong>.",
+                foodText: "<strong>Food:</strong> He cooked snails (<strong>barnaq</strong>), continued hunting animals, and began domesticating (raising) animals at home.",
+                toolsText: "<strong>Tool making:</strong> He made stone tools for hunting and cutting, and invented vessels for use made from ostrich eggshells.",
+                artTitle: "Arts, Beliefs, and Burial Methods",
+                artText: "<strong>Arts:</strong> The Capsians left rock engravings on walls expressing their lives.",
+                beliefText: "<strong>Beliefs and burial:</strong> They worshipped in temples, and buried their dead in tombs carved in rock called <strong>'Hawanit'</strong>. The dead person was placed in his grave in a bent side position (<strong>fetal position</strong>).",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus, the Capsian Civilization highlights the intelligence of ancient man and his ability to develop and innovate in prehistoric times. He moved from a life of wandering and primitive hunting to relative settlement in huts, domestication of animals, tool making, and burying his dead in ways that reflect his beliefs. This civilization remains an important historical witness to the ancientness of man in Tunisia and Algeria, and a bridge linking us to our deep human roots before the appearance of writing.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Monuments of the Capsian Civilization",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Other",
+                defCapsa: "Capsa (Gafsa)",
+                defCapsaDesc: "The capital of the Capsian Civilization, currently known as the city of Gafsa in Tunisia. The Capsian Civilization was named after it.",
+                defTunisia: "Tunisia",
+                defTunisiaDesc: "The country that included part of the Capsian Civilization's territory, specifically: Kasserine, Fériana, Gafsa, and Oum El Araies.",
+                defAlgeria: "Algeria",
+                defAlgeriaDesc: "The neighboring country that included part of the Capsian Civilization's territory, specifically the city of Tébessa.",
+                defCivilization: "Civilization",
+                defCivilizationDesc: "The set of social practices related to the life of a human group in a specific period of time, including arts, housing, food, beliefs, and politics.",
+                defCapsian: "The Capsian Civilization",
+                defCapsianDesc: "One of the most prominent prehistoric civilizations that flourished in Tunisia and Algeria, extending from 7000 BC to 5000 BC, named after its capital Capsa (Gafsa).",
+                defPrehistory: "Prehistoric Times",
+                defPrehistoryDesc: "The period preceding the appearance of writing in 3000 BC, to which the Capsian Civilization belongs.",
+                defHawanit: "Hawanit",
+                defHawanitDesc: "Tombs carved in rock in which Capsian man buried his dead.",
+                defFetalPosition: "Fetal Position",
+                defFetalPositionDesc: "A bent side position in which the dead person was placed in his grave, resembling the position of a fetus in its mother's womb, reflecting the beliefs of Capsian man.",
+                summaryText: "Key takeaway: The Capsian Civilization is one of the most prominent prehistoric civilizations that flourished in Tunisia and Algeria from 7000 BC to 5000 BC, named after its capital Capsa (Gafsa). Capsian man lived in huts, ate snails (barnaq), hunted and began domesticating animals, made stone tools and vessels from ostrich eggshells, left rock engravings, and buried his dead in tombs called 'Hawanit' in the fetal position.",
+                galleryAlt1: "Capsian stone tools",
+                galleryAlt2: "Ostrich eggshell vessels",
+                galleryAlt3: "Capsian rock engravings",
+                galleryAlt4: "Hawanit tombs",
+                galleryCap1: "Capsian stone tools",
+                galleryCap2: "Ostrich eggshell vessels",
+                galleryCap3: "Capsian rock engravings",
+                galleryCap4: "Hawanit tombs",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / La Tunisie de la préhistoire à l'époque romaine",
+                lessonTitleSample: "La civilisation capsienne",
+                sectionIntro: "Introduction",
+                introText: "La région de l'Afrique du Nord est le berceau de nombreuses civilisations anciennes qui ont laissé leur empreinte dans l'histoire de l'humanité. Il y a des milliers d'années, avant l'invention de l'écriture, l'homme de cette région a su s'adapter à son environnement et développer ses modes de vie dans l'habitat, l'alimentation et l'industrie. Parmi les civilisations les plus marquantes qui ont prospéré dans nos pays, la Tunisie et l'Algérie, figure la civilisation capsienne, à travers laquelle nous découvrirons dans cette leçon ses dimensions temporelle et spatiale et les aspects les plus importants de la vie en son sein.",
+                problematiqueText: "Qu'est-ce que la civilisation capsienne ? Quelle est l'origine de son nom ? Quel est son champ géographique et son cadre temporel ? Et quels sont les aspects les plus importants de la vie et des croyances de l'homme capsien ?",
+                sectionPart1: "Présentation de la civilisation capsienne et de son cadre temporel et spatial",
+                conceptTitle: "Le concept de civilisation et l'origine du nom",
+                conceptText: "<strong>Le concept de civilisation :</strong> C'est l'ensemble des pratiques sociales liées à la vie d'un groupe humain à une période donnée, comprenant : les arts, l'habitat, l'alimentation, les croyances et la politique.",
+                namingText: "<strong>Origine du nom :</strong> Elle a été appelée « capsienne » d'après sa capitale <strong>Capsa</strong> (actuellement connue sous le nom de ville de <strong>Gafsa</strong> en Tunisie).",
+                geographyTitle: "Champ géographique et cadre temporel",
+                geographyText: "<strong>Champ géographique :</strong> Cette civilisation s'est étendue sur une partie de la Tunisie (comprenant : Kasserine, Fériana, Gafsa et Oum El Araies) et une partie de l'Algérie (comprenant la ville de Tébessa).",
+                timeframeText: "<strong>Cadre temporel :</strong> La civilisation capsienne s'est étendue de <strong>7000 av. J.-C.</strong> à <strong>5000 av. J.-C.</strong>.",
+                timeframeRule: "<strong>Règle temporelle importante :</strong> Dans les dates avant Jésus-Christ, on compte du plus grand nombre vers le plus petit nombre jusqu'à zéro (date de la naissance du Christ). Par conséquent, cette période appartient à la <strong>préhistoire</strong> (avant l'apparition de l'écriture en 3000 av. J.-C.).",
+                sectionPart2: "Aspects de la vie et croyances de l'homme capsien",
+                lifeTitle: "Habitat, alimentation et fabrication d'outils",
+                housingText: "<strong>Habitat :</strong> L'homme capsien a développé son habitation, vivant désormais dans des <strong>huttes</strong>.",
+                foodText: "<strong>Alimentation :</strong> Il cuisinait les escargots (<strong>barnaq</strong>), continuait à chasser les animaux et commençait à domestiquer (élever) les animaux à la maison.",
+                toolsText: "<strong>Fabrication d'outils :</strong> Il fabriquait des outils en pierre pour la chasse et la découpe, et inventait des récipients fabriqués à partir de coquilles d'œufs d'autruche.",
+                artTitle: "Arts, croyances et méthodes d'inhumation",
+                artText: "<strong>Arts :</strong> Les Capsiens ont laissé des gravures rupestres sur les parois exprimant leur vie.",
+                beliefText: "<strong>Croyances et inhumation :</strong> Ils adoraient dans des temples et enterraient leurs morts dans des tombes creusées dans la roche appelées <strong>« Hawanit »</strong>. Le défunt était placé dans sa tombe en position latérale fléchie (<strong>position fœtale</strong>).",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi, la civilisation capsienne met en évidence l'intelligence de l'homme ancien et sa capacité à se développer et à innover à l'époque préhistorique. Il est passé d'une vie de nomadisme et de chasse primitive à une relative sédentarisation dans des huttes, à la domestication des animaux, à la fabrication d'outils et à l'inhumation de ses morts selon des rites reflétant ses croyances. Cette civilisation reste un témoin historique important de l'ancienneté de l'homme en Tunisie et en Algérie, et un pont nous reliant à nos racines humaines profondes avant l'apparition de l'écriture.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et monuments de la civilisation capsienne",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Autres",
+                defCapsa: "Capsa (Gafsa)",
+                defCapsaDesc: "La capitale de la civilisation capsienne, actuellement connue sous le nom de ville de Gafsa en Tunisie. La civilisation capsienne tire son nom de cette ville.",
+                defTunisia: "La Tunisie",
+                defTunisiaDesc: "Le pays qui comprenait une partie du territoire de la civilisation capsienne, précisément : Kasserine, Fériana, Gafsa et Oum El Araies.",
+                defAlgeria: "L'Algérie",
+                defAlgeriaDesc: "Le pays voisin qui comprenait une partie du territoire de la civilisation capsienne, précisément la ville de Tébessa.",
+                defCivilization: "La civilisation",
+                defCivilizationDesc: "L'ensemble des pratiques sociales liées à la vie d'un groupe humain à une période donnée, comprenant les arts, l'habitat, l'alimentation, les croyances et la politique.",
+                defCapsian: "La civilisation capsienne",
+                defCapsianDesc: "L'une des civilisations préhistoriques les plus marquantes qui ont prospéré en Tunisie et en Algérie, s'étendant de 7000 av. J.-C. à 5000 av. J.-C., et tirant son nom de sa capitale Capsa (Gafsa).",
+                defPrehistory: "La préhistoire",
+                defPrehistoryDesc: "La période précédant l'apparition de l'écriture en 3000 av. J.-C., à laquelle appartient la civilisation capsienne.",
+                defHawanit: "Les Hawanit",
+                defHawanitDesc: "Des tombes creusées dans la roche dans lesquelles l'homme capsien enterrait ses morts.",
+                defFetalPosition: "La position fœtale",
+                defFetalPositionDesc: "Une position latérale fléchie dans laquelle le défunt était placé dans sa tombe, rappelant la position du fœtus dans le ventre de sa mère, et reflétant les croyances de l'homme capsien.",
+                summaryText: "À retenir : La civilisation capsienne est l'une des civilisations préhistoriques les plus marquantes qui ont prospéré en Tunisie et en Algérie de 7000 av. J.-C. à 5000 av. J.-C., et tire son nom de sa capitale Capsa (Gafsa). L'homme capsien vivait dans des huttes, se nourrissait d'escargots (barnaq), chassait et commençait à domestiquer les animaux, fabriquait des outils en pierre et des récipients en coquilles d'œufs d'autruche, laissait des gravures rupestres et enterrait ses morts dans des tombes appelées Hawanit en position fœtale.",
+                galleryAlt1: "Outils en pierre capsiens",
+                galleryAlt2: "Récipients en coquilles d'œufs d'autruche",
+                galleryAlt3: "Gravures rupestres capsiennes",
+                galleryAlt4: "Tombes Hawanit",
+                galleryCap1: "Outils en pierre capsiens",
+                galleryCap2: "Récipients en coquilles d'œufs d'autruche",
+                galleryCap3: "Gravures rupestres capsiennes",
+                galleryCap4: "Tombes Hawanit",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني",
+                lessonTitleSample: "الحضارة القبصيّة",
+                sectionIntro: "مقدمة",
+                introText: "تُعدّ منطقة شمال إفريقيا مهداً للعديد من الحضارات القديمة التي تركت بصماتها في تاريخ الإنسانية. وقبل آلاف السنين، وقبل اختراع الكتابة، استطاع الإنسان في هذه المنطقة أن يتكيف مع بيئته، وأن يطور أساليب حياته في السكن والغذاء والصناعة. ومن أبرز هذه الحضارات التي ازدهرت في بلادنا التونسية والجزائرية: الحضارة القبصيّة، التي سنتعرف من خلال هذا الدرس على أبعادها الزمنية والمكانية، وأهم مظاهر الحياة فيها.",
+                problematiqueText: "ما هي الحضارة القبصيّة؟ وما أصل تسميتها؟ وما هو مجالها الجغرافي وإطارها الزمني؟ وما هي أهمّ مظاهر الحياة والمعتقدات عند الإنسان القبصي؟",
+                sectionPart1: "التعريف بالحضارة القبصية وإطارها الزمني والمكاني",
+                conceptTitle: "مفهوم الحضارة وأصل التسمية",
+                conceptText: "<strong>مفهوم الحضارة:</strong> هي جملة الممارسات الاجتماعية التي تتعلق بحياة مجموعة بشرية في فترة معينة من الزمن، وتشمل: الفنون، والسكن، والغذاء، والمعتقدات، والسياسة.",
+                namingText: "<strong>أصل التسمية:</strong> سُميت «القبصية» نسبة إلى عاصمتها <strong>قبصة</strong> (والتي تُعرف حالياً بمدينة <strong>قفصة</strong> في تونس).",
+                geographyTitle: "المجال الجغرافي والإطار الزمني",
+                geographyText: "<strong>المجال الجغرافي:</strong> امتدت هذه الحضارة على جزء من تونس (تشمل: القصرين، وفريانة، وقفصة، وأم العرايس) وجزء من الجزائر (تشمل مدينة تبسة).",
+                timeframeText: "<strong>الإطار الزمني:</strong> امتدت الحضارة القبصية من <strong>7000 قبل الميلاد</strong> إلى <strong>5000 قبل الميلاد</strong>.",
+                timeframeRule: "<strong>قاعدة زمنية هامة:</strong> في التواريخ قبل الميلاد، نعدّ من العدد الكبير إلى العدد الصغير وصولاً إلى الصفر (تاريخ ميلاد المسيح). لذلك، تنتمي هذه الفترة إلى <strong>عصور ما قبل التاريخ</strong> (قبل ظهور الكتابة سنة 3000 ق.م).",
+                sectionPart2: "مظاهر الحياة والمعتقدات عند الإنسان القبصي",
+                lifeTitle: "السكن والغذاء وصناعة الأدوات",
+                housingText: "<strong>السكن:</strong> طوّر الإنسان القبصي مسكنه فأصبح يسكن في <strong>الأكواخ</strong>.",
+                foodText: "<strong>الغذاء:</strong> كان يطهو الحلزونيات (<strong>البرنق</strong>)، واستمر في صيد الحيوانات، كما بدأ في تدجين (تربية) الحيوانات في المنزل.",
+                toolsText: "<strong>صناعة الأدوات:</strong> صنع أدوات حجرية للصيد والتقطيع، وابتكر قوارير للاستخدام صنعها من قشرة بيض النعام.",
+                artTitle: "الفنون والمعتقدات وطرق الدفن",
+                artText: "<strong>الفنون:</strong> ترك القبصيون نقوشاً صخرية على الجدران تعبّر عن حياتهم.",
+                beliefText: "<strong>المعتقدات والدفن:</strong> كانوا يتعبّدون في المعابد، ويدفنون موتاهم في قبور محفورة في الصخر تُسمّى <strong>«الحوانيت»</strong>. وكان الميت يوضع في قبره في وضعية جانبية مثنية (<strong>وضعية الجنين</strong>).",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا، تُبرز لنا الحضارة القبصية مدى ذكاء الإنسان القديم وقدرته على التطور والابتكار في فترة ما قبل التاريخ. فقد انتقل من حياة الترحال والصيد البدائي إلى الاستقرار النسبي في الأكواخ، وتدجين الحيوانات، وصناعة الأدوات، ودفن موتاه بطرق تعكس معتقداته. وتظلّ هذه الحضارة شاهداً تاريخياً هامّاً على عراقة الإنسان في تونس والجزائر، وجسراً يربطنا بجذورنا الإنسانية العميقة قبل ظهور الكتابة.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق ومعالم من الحضارة القبصيّة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 أخرى",
+                defCapsa: "قبصة (قفصة)",
+                defCapsaDesc: "عاصمة الحضارة القبصية، وتُعرف حالياً بمدينة قفصة في تونس. سُميّت الحضارة القبصية بهذا الاسم نسبة إليها.",
+                defTunisia: "تونس",
+                defTunisiaDesc: "البلد الذي شمل جزءاً من مجال الحضارة القبصية، وتحديداً مناطق: القصرين، وفريانة، وقفصة، وأم العرايس.",
+                defAlgeria: "الجزائر",
+                defAlgeriaDesc: "البلد المجاور الذي شمل جزءاً من مجال الحضارة القبصية، وتحديداً مدينة تبسة.",
+                defCivilization: "الحضارة",
+                defCivilizationDesc: "جملة الممارسات الاجتماعية التي تتعلق بحياة مجموعة بشرية في فترة معينة من الزمن، وتشمل: الفنون، والسكن، والغذاء، والمعتقدات، والسياسة.",
+                defCapsian: "الحضارة القبصية",
+                defCapsianDesc: "من أبرز حضارات ما قبل التاريخ التي ازدهرت في تونس والجزائر، امتدت من 7000 ق.م إلى 5000 ق.م، وسُميّت بهذا الاسم نسبة إلى عاصمتها قبصة (قفصة).",
+                defPrehistory: "عصور ما قبل التاريخ",
+                defPrehistoryDesc: "الفترة السابقة لظهور الكتابة سنة 3000 ق.م، وتنتمي إليها الحضارة القبصية.",
+                defHawanit: "الحوانيت",
+                defHawanitDesc: "قبور محفورة في الصخر، كان الإنسان القبصي يدفن فيها موتاه.",
+                defFetalPosition: "وضعية الجنين",
+                defFetalPositionDesc: "وضعية جانبية مثنية كان يُوضع فيها الميت في قبره، تُشبه وضعية الجنين في بطن أمه، وتعكس معتقدات الإنسان القبصي.",
+                summaryText: "خلاصة: الحضارة القبصية من أبرز حضارات ما قبل التاريخ التي ازدهرت في تونس والجزائر من 7000 ق.م إلى 5000 ق.م، وسُميّت بهذا الاسم نسبة إلى عاصمتها قبصة (قفصة). سكن الإنسان القبصي الأكواخ، وتغذّى على الحلزونيات (البرنق)، ومارس الصيد وبدأ في تدجين الحيوانات، وصنع أدوات حجرية وقوارير من قشرة بيض النعام، وترك نقوشاً صخرية، ودفن موتاه في قبور تُسمّى الحوانيت في وضعية الجنين.",
+                galleryAlt1: "أدوات حجرية قبصيّة",
+                galleryAlt2: "قوارير من قشرة بيض النعام",
+                galleryAlt3: "نقوش صخرية قبصيّة",
+                galleryAlt4: "قبور الحوانيت",
+                galleryCap1: "أدوات حجرية قبصيّة",
+                galleryCap2: "قوارير من قشرة بيض النعام",
+                galleryCap3: "نقوش صخرية قبصيّة",
+                galleryCap4: "قبور الحوانيت",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Capsa", class: "key-location", i18n: "defCapsa" },
+                { text: "Tunisia", class: "key-location", i18n: "defTunisia" },
+                { text: "Algeria", class: "key-location", i18n: "defAlgeria" },
+                { text: "Civilization", class: "key-other", i18n: "defCivilization" },
+                { text: "The Capsian Civilization", class: "key-other", i18n: "defCapsian" },
+                { text: "Prehistoric Times", class: "key-other", i18n: "defPrehistory" },
+                { text: "Hawanit", class: "key-other", i18n: "defHawanit" },
+                { text: "Fetal Position", class: "key-other", i18n: "defFetalPosition" }
+            ],
+            fr: [
+                { text: "Capsa", class: "key-location", i18n: "defCapsa" },
+                { text: "La Tunisie", class: "key-location", i18n: "defTunisia" },
+                { text: "L'Algérie", class: "key-location", i18n: "defAlgeria" },
+                { text: "La civilisation", class: "key-other", i18n: "defCivilization" },
+                { text: "La civilisation capsienne", class: "key-other", i18n: "defCapsian" },
+                { text: "La préhistoire", class: "key-other", i18n: "defPrehistory" },
+                { text: "Les Hawanit", class: "key-other", i18n: "defHawanit" },
+                { text: "La position fœtale", class: "key-other", i18n: "defFetalPosition" }
+            ],
+            ar: [
+                { text: "قبصة", class: "key-location", i18n: "defCapsa" },
+                { text: "قفصة", class: "key-location", i18n: "defCapsa" },
+                { text: "تونس", class: "key-location", i18n: "defTunisia" },
+                { text: "الجزائر", class: "key-location", i18n: "defAlgeria" },
+                { text: "الحضارة القبصية", class: "key-other", i18n: "defCapsian" },
+                { text: "عصور ما قبل التاريخ", class: "key-other", i18n: "defPrehistory" },
+                { text: "الحوانيت", class: "key-other", i18n: "defHawanit" },
+                { text: "وضعية الجنين", class: "key-other", i18n: "defFetalPosition" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

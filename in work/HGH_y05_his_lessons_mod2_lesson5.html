@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">مظاهر الازدهار الحضاري لأفريكا الرومانيّة: ازدهار المدن</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">بعد تدمير مدينة قرطاج سنة 146 ق.م، سيطر الرومان على منطقة شمال إفريقيا وأسّسوا ولاية جديدة أطلقوا عليها اسم «أفريكا». وقد شهدت هذه الولاية خلال القرون التالية ازدهاراً حضارياً وعمرانياً كبيراً، تجلّى بشكل خاص في انتشار المدن وتعددها، وتشييد المعالم المعمارية الضخمة، وتنظيم إداري وبلدي محكم. في هذا الدرس، نكتشف مظاهر هذا الإشعاع الحضاري الذي ترك آثاره الباقية إلى يومنا هذا.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هو الإطار الزمني والمجال الجغرافي للمدن الأفريقية الرومانية؟ وما هي أهم معالمها المعمارية؟ وكيف تنظّمت إدارياً وبلدياً؟</p>
+            </div>
+
+            <!-- Part I : Roman Presence and Urban Prosperity -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">الحضور الروماني بأفريكا ومظاهر ازدهار المدن</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="frameworkTitle">الإطار الزمني والمجال الجغرافي للمدن الأفريقية الرومانية</span>
+                </h4>
+                <p data-i18n="timeframeText"><strong>الإطار الزمني:</strong> استمر الحضور الروماني في أفريكا من سنة <strong>146 ق.م</strong> (تاريخ تدمير قرطاج) إلى غاية سنة <strong>435 م</strong> (نهاية الفترة الرومانية). وقد أُطلق على الولاية اسم <strong>«أفريكا البروقنصلية»</strong> نسبة إلى حاكمها، واتّخذت من مدينة <strong>أوتيكا</strong> عاصمةً لها قبل أن تصبح <strong>قرطاج</strong> العاصمة لاحقاً.</p>
+                <p data-i18n="citiesIntro"><strong>تعدّد المدن:</strong> تعدّدت المدن في أفريكا الرومانية وتوزّعت بين:</p>
+                <ul class="lesson-list">
+                    <li data-i18n="coastalCities"><strong>مدن ساحلية:</strong> مثل قرطاج، وهدرومتوم (حضرموت)، وتيسدروس (الجم)، وتقابس.</li>
+                    <li data-i18n="inlandCities"><strong>مدن داخلية:</strong> مثل بوالريجيا، ومكتريس، وقبصا (قفصة).</li>
+                </ul>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="monumentsTitle">أهم المعالم المعمارية للمدن (مظاهر العمران)</span>
+                </h4>
+                <p data-i18n="forumText"><strong>المنتدى (الفوروم):</strong> هو ساحة تقع في قلب المدينة، كان يجتمع فيها السكان في المناسبات الهامّة (السياسية والدينية)، ومنه نجد ساحة الفوروم وجانب <strong>معبد الكابيتول</strong> بمدينة <strong>سفيطلة</strong> (سيبيطلة).</p>
+                <p data-i18n="templesText"><strong>المعابد:</strong> مثل معبد الكابيتول بمدينة سفيطلة الذي يُعدّ من أهم المظاهر الدينية.</p>
+                <p data-i18n="bathsText"><strong>الحمّامات:</strong> مثل حمّامات <strong>بولا ريغيا</strong> (بوالريجيا)، التي كانت تمثّل مظهراً من مظاهر الترف والرفاهية.</p>
+                <p data-i18n="arenasText"><strong>الملاعب الدائرية:</strong> مثل <strong>المدرج الروماني بمدينة تيسدروس</strong> (الجم حالياً)، وهو من أبرز معالم المدينة، وكان يشهد إقبالاً جماهيرياً هائلاً لمشاهدة مصارعة الوحوش، والمصارعين، والمساجين، وأسرى الحروب، وسباقات العربات.</p>
+            </div>
+
+            <!-- Part II : Administrative and Municipal Organization -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">التنظيم الإداري والبلدي في أفريكا الرومانية</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="adminTitle">التنظيم الإداري (الوالي ومهامه)</span>
+                </h4>
+                <p data-i18n="governorAppointment"><strong>تعيين الوالي:</strong> يعيّن الإمبراطور الروماني والياً على ولاية أفريكا.</p>
+                <p data-i18n="governorTasksIntro"><strong>مهام الوالي:</strong></p>
+                <ul class="lesson-list">
+                    <li data-i18n="governorTaskSecurity">يشرف على أمن الولاية.</li>
+                    <li data-i18n="governorTaskJustice">يسهر على القضاء وإبلاغ القوانين والقرارات وتنفيذها.</li>
+                    <li data-i18n="governorTaskFinance">يدير المصالح المالية (مثل جمع الضرائب).</li>
+                    <li data-i18n="governorTaskWorks">يشرف على الأشغال العامة الكبرى: كشقّ الطرق، وبناء الجسور، والسدود، وقنوات المياه، وتشييد المعالم الدينية.</li>
+                </ul>
+                <p data-i18n="delegatesText"><strong>المفوضون المحليون:</strong> ينتدب الوالي مفوّضين محليين للقيام بمهامه، حيث يدير أحدهم دائرة قرطاج والآخر دائرة عنابة (حالياً).</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="municipalTitle">النظم البلدية (تصنيف المدن)</span>
+                </h4>
+                <p data-i18n="municipalIntro">صنّف الرومان مدن أفريكا إلى عدة أصناف، أبرزها:</p>
+                <p data-i18n="settlementsText"><strong>المستوطنات (المدن البونية أو الولبية):</strong> هي مدن جديدة ينظّمها الدستور الروماني، تتكوّن من مجموعة من المدن البونية أو الولبية أو القرى التي تأسست بناءً على قرار روماني، وتُدار بواسطة جهاز بلدي يتألف من مجلس الشعب ومجلس الوجهاء والحكام المحليين.</p>
+                <p data-i18n="indigenousCitiesText"><strong>مدن الأهالي:</strong> هي مدن سُمح لها من قبل السلطات الرومانية بممارسة قوانينها وتقاليدها، فظلّت تعمل بدساتيرها ونظمها السياسية القديمة (سواء كانت بونية أو لوبية).</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا يتضح أنّ الحضارة الرومانية تركت بصمات عميقة في شمال إفريقيا، لم تقتصر على العمارة الفخمة من ملاعب وحمّامات ومعابد، بل شملت أيضاً تنظيماً إدارياً وبلدياً دقيقاً. وقد شكّل هذا الإرث الحضاري أساساً لازدهار المدن، وما تزال الآثار الرومانية الباقية في تونس والجزائر وليبيا شاهدة على عظمة تلك الحقبة، ومصدراً هامّاً للتراث الإنساني والثقافي.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومدن</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defAfrica">أفريكا (أفريكا البروقنصلية)</strong>: <span data-i18n="defAfricaDesc">الولاية الرومانية التي أسّسها الرومان في شمال إفريقيا بعد تدمير قرطاج سنة 146 ق.م، واتخذت من أوتيكا عاصمةً لها ثم قرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defUtica">أوتيكا</strong>: <span data-i18n="defUticaDesc">أول عاصمة لولاية أفريكا الرومانية قبل أن تصبح قرطاج العاصمة لاحقاً.</span></li>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">المدينة التي دمّرها الرومان سنة 146 ق.م ثم أعادوا بناءها لتصبح عاصمة ولاية أفريكا.</span></li>
+                        <li><strong class="key-location" data-i18n="defHadrumetum">هدرومتوم (حضرموت)</strong>: <span data-i18n="defHadrumetumDesc">مدينة ساحلية من مدن أفريكا الرومانية (سوسة حالياً).</span></li>
+                        <li><strong class="key-location" data-i18n="defThysdrus">تيسدروس (الجم)</strong>: <span data-i18n="defThysdrusDesc">مدينة ساحلية من مدن أفريكا الرومانية، تشتهر بمدرجها الروماني الضخم (الجم حالياً).</span></li>
+                        <li><strong class="key-location" data-i18n="defTacapae">تقابس</strong>: <span data-i18n="defTacapaeDesc">مدينة ساحلية من مدن أفريكا الرومانية (قابس حالياً).</span></li>
+                        <li><strong class="key-location" data-i18n="defBullaRegia">بوالريجيا (بولا ريغيا)</strong>: <span data-i18n="defBullaRegiaDesc">مدينة داخلية من مدن أفريكا الرومانية، تشتهر بحمّاماتها التي كانت مظهراً من مظاهر الترف.</span></li>
+                        <li><strong class="key-location" data-i18n="defMactaris">مكتريس</strong>: <span data-i18n="defMactarisDesc">مدينة داخلية من مدن أفريكا الرومانية.</span></li>
+                        <li><strong class="key-location" data-i18n="defCapsa">قبصا (قفصة)</strong>: <span data-i18n="defCapsaDesc">مدينة داخلية من مدن أفريكا الرومانية (قفصة حالياً).</span></li>
+                        <li><strong class="key-location" data-i18n="defSufetula">سفيطلة (سيبيطلة)</strong>: <span data-i18n="defSufetulaDesc">مدينة من مدن أفريكا الرومانية، تشتهر بمعبد الكابيتول وساحة الفوروم.</span></li>
+                        <li><strong class="key-location" data-i18n="defAnnaba">عنابة</strong>: <span data-i18n="defAnnabaDesc">دائرة إدارية رومانية في أفريكا (عنابة حالياً في الجزائر)، يديرها أحد المفوضين المحليين.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 مصطلحات ومؤسسات</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defForum">المنتدى (الفوروم)</strong>: <span data-i18n="defForumDesc">ساحة تقع في قلب المدينة الرومانية، كان يجتمع فيها السكان في المناسبات الهامة السياسية والدينية.</span></li>
+                        <li><strong class="key-other" data-i18n="defCapitol">معبد الكابيتول</strong>: <span data-i18n="defCapitolDesc">من أهم المعابد الدينية الرومانية، ومن أبرزها معبد الكابيتول بمدينة سفيطلة.</span></li>
+                        <li><strong class="key-other" data-i18n="defBaths">الحمّامات</strong>: <span data-i18n="defBathsDesc">معالم رومانية كانت تمثّل مظهراً من مظاهر الترف والرفاهية، ومن أشهرها حمّامات بولا ريغيا (بوالريجيا).</span></li>
+                        <li><strong class="key-other" data-i18n="defAmphitheater">الملاعب الدائرية (المدرج الروماني)</strong>: <span data-i18n="defAmphitheaterDesc">معالم رومانية ضخمة كانت تشهد إقبالاً جماهيرياً هائلاً لمشاهدة مصارعة الوحوش والمصارعين والمساجين وأسرى الحروب وسباقات العربات، ومن أبرزها المدرج الروماني بالجم.</span></li>
+                        <li><strong class="key-other" data-i18n="defGovernor">الوالي</strong>: <span data-i18n="defGovernorDesc">حاكم ولاية أفريكا، يعيّنه الإمبراطور الروماني، ويشرف على الأمن والقضاء والمالية والأشغال العامة الكبرى.</span></li>
+                        <li><strong class="key-other" data-i18n="defLocalDelegates">المفوضون المحليون</strong>: <span data-i18n="defLocalDelegatesDesc">مفوّضون ينتدبهم الوالي للقيام بمهامه في دوائر محلية، منها دائرة قرطاج ودائرة عنابة.</span></li>
+                        <li><strong class="key-other" data-i18n="defSettlements">المستوطنات</strong>: <span data-i18n="defSettlementsDesc">مدن جديدة نظّمها الدستور الروماني، تتكوّن من مدن بونية أو ولبية أو قرى تأسست بقرار روماني، وتُدار بواسطة جهاز بلدي (مجلس الشعب، مجلس الوجهاء، حكام محليون).</span></li>
+                        <li><strong class="key-other" data-i18n="defIndigenousCities">مدن الأهالي</strong>: <span data-i18n="defIndigenousCitiesDesc">مدن سُمح لها من قبل السلطات الرومانية بممارسة قوانينها وتقاليدها، فظلّت تعمل بدساتيرها ونظمها السياسية القديمة، بونية كانت أو لوبية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: أسّس الرومان ولاية أفريكا (البروقنصلية) سنة 146 ق.م بعد تدمير قرطاج، واستمر حكمهم إلى غاية 435 م، واتخذوا من أوتيكا عاصمةً قبل قرطاج. تعددت المدن بين ساحلية (قرطاج، هدرومتوم، تيسدروس، تقابس) وداخلية (بوالريجيا، مكتريس، قبصا)، وازدهرت فيها المعالم المعمارية من منتديات ومعابد وحمّامات وملاعب دائرية (كالمدرج الروماني بالجم). كما ازدهر التنظيم الإداري بتعيين الإمبراطور والياً يدير الأمن والقضاء والمالية والأشغال العامة، ويعاونه مفوّضون محليون، وازدهر التنظيم البلدي بتصنيف المدن إلى مستوطنات ومدن أهالي.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق ومعالم من أفريكا الرومانيّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson5/sbeitla_forum.jpg" alt="المنتدى بمدينة سفيطلة" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">المنتدى بمدينة سفيطلة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson5/capitol_temple_sbeitla.jpg" alt="معبد الكابيتول بسفيطلة" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">معبد الكابيتول بسفيطلة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson5/eljem_amphitheater.jpg" alt="المدرج الروماني بالجم" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">المدرج الروماني بالجم</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson5/bulla_regia_baths.jpg" alt="حمّامات بولا ريغيا" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">حمّامات بولا ريغيا</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod2_lesson5.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المدن والمعالم والمصطلحات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">المعالم الأثرية الرومانية</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Tunisia from Prehistory to the Roman Era",
+                lessonTitleSample: "Cultural Prosperity of Roman Africa: Urban Prosperity",
+                sectionIntro: "Introduction",
+                introText: "After the destruction of Carthage in 146 BC, the Romans took control of the North African region and established a new province they called 'Africa'. During the following centuries, this province witnessed great cultural and urban prosperity, manifested particularly in the spread and multiplication of cities, the construction of monumental architectural landmarks, and a precise administrative and municipal organization. In this lesson, we discover the aspects of this cultural influence that left its remaining traces to this day.",
+                problematiqueText: "What is the temporal framework and geographical scope of the Roman African cities? What are their most important architectural landmarks? And how were they organized administratively and municipally?",
+                sectionPart1: "Roman Presence in Africa and Aspects of Urban Prosperity",
+                frameworkTitle: "The Temporal Framework and Geographical Scope of the Roman African Cities",
+                timeframeText: "<strong>The temporal framework:</strong> The Roman presence in Africa lasted from <strong>146 BC</strong> (the date of the destruction of Carthage) until <strong>435 AD</strong> (the end of the Roman period). The province was called <strong>'Africa Proconsularis'</strong> after its governor, and took the city of <strong>Utica</strong> as its capital before <strong>Carthage</strong> became the capital later.",
+                citiesIntro: "<strong>The multiplicity of cities:</strong> Cities multiplied in Roman Africa and were distributed between:",
+                coastalCities: "<strong>Coastal cities:</strong> such as Carthage, Hadrumetum, Thysdrus (El Jem), and Tacapae.",
+                inlandCities: "<strong>Inland cities:</strong> such as Bulla Regia, Mactaris, and Capsa (Gafsa).",
+                monumentsTitle: "The Most Important Architectural Landmarks of the Cities (Aspects of Urbanism)",
+                forumText: "<strong>The Forum:</strong> It is a square located in the heart of the city, where the inhabitants gathered on important occasions (political and religious); one of the examples is the forum square and the side of the <strong>Capitol Temple</strong> in the city of <strong>Sufetula</strong> (Sbeitla).",
+                templesText: "<strong>The temples:</strong> such as the Capitol Temple in the city of Sufetula, considered one of the most important religious manifestations.",
+                bathsText: "<strong>The baths:</strong> such as the baths of <strong>Bulla Regia</strong>, which represented a manifestation of luxury and well-being.",
+                arenasText: "<strong>The amphitheaters (circular arenas):</strong> such as the <strong>Roman amphitheater in the city of Thysdrus</strong> (present-day El Jem), one of the most prominent landmarks of the city; it witnessed a huge popular turnout to watch the fighting of wild beasts, gladiators, prisoners, prisoners of war, and chariot races.",
+                sectionPart2: "Administrative and Municipal Organization in Roman Africa",
+                adminTitle: "Administrative Organization (The Governor and His Tasks)",
+                governorAppointment: "<strong>Appointment of the governor:</strong> The Roman Emperor appoints a governor over the province of Africa.",
+                governorTasksIntro: "<strong>The governor's tasks:</strong>",
+                governorTaskSecurity: "He supervises the security of the province.",
+                governorTaskJustice: "He oversees the judiciary, communicates the laws and decisions, and ensures their implementation.",
+                governorTaskFinance: "He manages financial affairs (such as collecting taxes).",
+                governorTaskWorks: "He supervises major public works: such as cutting roads, building bridges, dams, water canals, and constructing religious monuments.",
+                delegatesText: "<strong>Local delegates:</strong> The governor appoints local delegates to carry out his tasks, one of them managing the district of Carthage and the other the district of Annaba (present-day).",
+                municipalTitle: "Municipal Systems (Classification of Cities)",
+                municipalIntro: "The Romans classified the cities of Africa into several categories, the most prominent of which are:",
+                settlementsText: "<strong>Settlements (Punic or Libian cities):</strong> They are new cities organized by the Roman constitution, consisting of a group of Punic, Libian, or village cities founded by a Roman decision, and administered by a municipal body composed of the assembly of the people, the council of notables, and local rulers.",
+                indigenousCitiesText: "<strong>Cities of the natives:</strong> Cities that were permitted by the Roman authorities to practice their own laws and traditions, so they continued to operate under their old constitutions and political systems (whether Punic or Libian).",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus it becomes clear that Roman civilization left deep marks in North Africa, not limited to luxurious architecture of arenas, baths, and temples, but also including a precise administrative and municipal organization. This cultural legacy formed the basis for the prosperity of cities, and the remaining Roman ruins in Tunisia, Algeria, and Libya still bear witness to the greatness of that era and remain an important source of human and cultural heritage.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Monuments of Roman Africa",
+                defLocations: "🌍 Places and Cities",
+                defOthers: "📌 Terms and Institutions",
+                defAfrica: "Africa (Africa Proconsularis)",
+                defAfricaDesc: "The Roman province established by the Romans in North Africa after the destruction of Carthage in 146 BC, which took Utica as its capital and later Carthage.",
+                defUtica: "Utica",
+                defUticaDesc: "The first capital of the Roman province of Africa before Carthage became the capital later.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "The city that the Romans destroyed in 146 BC, then rebuilt to become the capital of the province of Africa.",
+                defHadrumetum: "Hadrumetum",
+                defHadrumetumDesc: "A coastal city among the Roman African cities (present-day Sousse).",
+                defThysdrus: "Thysdrus (El Jem)",
+                defThysdrusDesc: "A coastal city among the Roman African cities, famous for its huge Roman amphitheater (present-day El Jem).",
+                defTacapae: "Tacapae",
+                defTacapaeDesc: "A coastal city among the Roman African cities (present-day Gabès).",
+                defBullaRegia: "Bulla Regia",
+                defBullaRegiaDesc: "An inland city among the Roman African cities, famous for its baths, which were a manifestation of luxury.",
+                defMactaris: "Mactaris",
+                defMactarisDesc: "An inland city among the Roman African cities.",
+                defCapsa: "Capsa (Gafsa)",
+                defCapsaDesc: "An inland city among the Roman African cities (present-day Gafsa).",
+                defSufetula: "Sufetula (Sbeitla)",
+                defSufetulaDesc: "A city among the Roman African cities, famous for the Capitol Temple and the forum square.",
+                defAnnaba: "Annaba",
+                defAnnabaDesc: "A Roman administrative district in Africa (present-day Annaba in Algeria), managed by one of the local delegates.",
+                defForum: "The Forum",
+                defForumDesc: "A square located in the heart of the Roman city, where inhabitants gathered on important political and religious occasions.",
+                defCapitol: "The Capitol Temple",
+                defCapitolDesc: "One of the most important Roman religious temples, the most prominent of which is the Capitol Temple in the city of Sufetula.",
+                defBaths: "The Baths",
+                defBathsDesc: "Roman monuments that represented a manifestation of luxury and well-being, the most famous of which are the baths of Bulla Regia.",
+                defAmphitheater: "The Amphitheaters (Roman Amphitheater)",
+                defAmphitheaterDesc: "Huge Roman monuments that witnessed a massive popular turnout to watch the fighting of wild beasts, gladiators, prisoners, prisoners of war, and chariot races; one of the most prominent is the Roman amphitheater of El Jem.",
+                defGovernor: "The Governor",
+                defGovernorDesc: "The governor of the province of Africa, appointed by the Roman Emperor, supervising security, justice, finance, and major public works.",
+                defLocalDelegates: "Local Delegates",
+                defLocalDelegatesDesc: "Delegates appointed by the governor to carry out his tasks in local districts, including the district of Carthage and the district of Annaba.",
+                defSettlements: "Settlements",
+                defSettlementsDesc: "New cities organized by the Roman constitution, consisting of Punic, Libian, or village cities founded by a Roman decision, administered by a municipal body (assembly of the people, council of notables, local rulers).",
+                defIndigenousCities: "Cities of the Natives",
+                defIndigenousCitiesDesc: "Cities permitted by the Roman authorities to practice their own laws and traditions, so they continued to operate under their old constitutions and political systems, whether Punic or Libian.",
+                summaryText: "Key takeaway: The Romans established the province of Africa (Proconsularis) in 146 BC after the destruction of Carthage, and their rule lasted until 435 AD; they took Utica as capital before Carthage. Cities multiplied between coastal (Carthage, Hadrumetum, Thysdrus, Tacapae) and inland (Bulla Regia, Mactaris, Capsa), and architectural landmarks flourished, including forums, temples, baths, and amphitheaters (such as the Roman amphitheater of El Jem). Administrative organization also flourished with the Emperor appointing a governor who managed security, justice, finance, and public works, assisted by local delegates, and municipal organization flourished with the classification of cities into settlements and cities of the natives.",
+                galleryAlt1: "The forum of Sufetula",
+                galleryAlt2: "The Capitol Temple of Sufetula",
+                galleryAlt3: "The Roman amphitheater of El Jem",
+                galleryAlt4: "The baths of Bulla Regia",
+                galleryCap1: "The forum of Sufetula",
+                galleryCap2: "The Capitol Temple of Sufetula",
+                galleryCap3: "The Roman amphitheater of El Jem",
+                galleryCap4: "The baths of Bulla Regia",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / La Tunisie de la préhistoire à l'époque romaine",
+                lessonTitleSample: "Prospérité de l'Afrique romaine : essor des villes",
+                sectionIntro: "Introduction",
+                introText: "Après la destruction de Carthage en 146 av. J.-C., les Romains prirent le contrôle de la région de l'Afrique du Nord et fondèrent une nouvelle province qu'ils appelèrent « Africa ». Au cours des siècles suivants, cette province connut une grande prospérité culturelle et urbanistique, qui se manifesta notamment par la diffusion et la multiplication des villes, la construction de monuments architecturaux imposants et une organisation administrative et municipale rigoureuse. Dans cette leçon, nous découvrons les aspects de ce rayonnement culturel qui a laissé ses traces jusqu'à nos jours.",
+                problematiqueText: "Quel est le cadre temporel et le champ géographique des villes africaines romaines ? Quels sont leurs monuments architecturaux les plus importants ? Et comment étaient-elles organisées administrativement et municipalement ?",
+                sectionPart1: "La présence romaine en Afrique et les aspects de l'essor des villes",
+                frameworkTitle: "Le cadre temporel et le champ géographique des villes africaines romaines",
+                timeframeText: "<strong>Le cadre temporel :</strong> La présence romaine en Afrique dura de <strong>146 av. J.-C.</strong> (date de la destruction de Carthage) jusqu'en <strong>435 apr. J.-C.</strong> (fin de la période romaine). La province fut appelée <strong>« Africa Proconsularis »</strong> d'après son gouverneur, et prit la ville d'<strong>Utique</strong> comme capitale avant que <strong>Carthage</strong> ne devienne la capitale plus tard.",
+                citiesIntro: "<strong>La multiplicité des villes :</strong> Les villes se multiplièrent en Afrique romaine et se répartissaient entre :",
+                coastalCities: "<strong>Villes côtières :</strong> comme Carthage, Hadrumète, Thysdrus (El Jem) et Tacapae.",
+                inlandCities: "<strong>Villes intérieures :</strong> comme Bulla Regia, Mactaris et Capsa (Gafsa).",
+                monumentsTitle: "Les monuments architecturaux les plus importants des villes (aspects de l'urbanisme)",
+                forumText: "<strong>Le Forum :</strong> C'est une place située au cœur de la ville, où les habitants se réunissaient lors d'occasions importantes (politiques et religieuses) ; on y trouve la place du forum et le flanc du <strong>temple du Capitole</strong> dans la ville de <strong>Sufetula</strong> (Sbeïtla).",
+                templesText: "<strong>Les temples :</strong> comme le temple du Capitole dans la ville de Sufetula, considéré comme l'une des manifestations religieuses les plus importantes.",
+                bathsText: "<strong>Les thermes :</strong> comme les thermes de <strong>Bulla Regia</strong>, qui représentaient une manifestation de luxe et de bien-être.",
+                arenasText: "<strong>Les amphithéâtres (arènes circulaires) :</strong> comme l'<strong>amphithéâtre romain de la ville de Thysdrus</strong> (actuelle El Jem), l'un des monuments les plus remarquables de la ville ; il accueillait une affluence populaire considérable pour assister aux combats de bêtes sauvages, de gladiateurs, de prisonniers, de prisonniers de guerre et aux courses de chars.",
+                sectionPart2: "L'organisation administrative et municipale en Afrique romaine",
+                adminTitle: "L'organisation administrative (le gouverneur et ses fonctions)",
+                governorAppointment: "<strong>Nomination du gouverneur :</strong> L'empereur romain nomme un gouverneur à la tête de la province d'Afrique.",
+                governorTasksIntro: "<strong>Les fonctions du gouverneur :</strong>",
+                governorTaskSecurity: "Il supervise la sécurité de la province.",
+                governorTaskJustice: "Il veille à la justice, communique les lois et les décisions et en assure l'exécution.",
+                governorTaskFinance: "Il gère les affaires financières (comme la collecte des impôts).",
+                governorTaskWorks: "Il supervise les grands travaux publics : comme le tracé des routes, la construction de ponts, de barrages, de canaux d'eau et l'édification de monuments religieux.",
+                delegatesText: "<strong>Les délégués locaux :</strong> Le gouverneur nomme des délégués locaux pour accomplir ses fonctions, l'un gérant le district de Carthage et l'autre le district d'Annaba (actuellement).",
+                municipalTitle: "Les systèmes municipaux (classification des villes)",
+                municipalIntro: "Les Romains classaient les villes d'Afrique en plusieurs catégories, dont les plus importantes sont :",
+                settlementsText: "<strong>Les colonies (villes puniques ou libyques) :</strong> Ce sont de nouvelles villes organisées par la constitution romaine, composées d'un ensemble de villes puniques, libyques ou de villages fondés par une décision romaine, et administrées par un organe municipal composé de l'assemblée du peuple, du conseil des notables et des gouverneurs locaux.",
+                indigenousCitiesText: "<strong>Les villes des indigènes :</strong> Des villes auxquelles les autorités romaines permirent de pratiquer leurs propres lois et traditions, elles continuèrent donc à fonctionner selon leurs anciennes constitutions et systèmes politiques (qu'ils soient puniques ou libyques).",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi, il devient clair que la civilisation romaine a laissé des marques profondes en Afrique du Nord, non limitées à l'architecture luxueuse des arènes, des thermes et des temples, mais incluant également une organisation administrative et municipale précise. Cet héritage culturel a constitué la base de la prospérité des villes, et les vestiges romains subsistant en Tunisie, en Algérie et en Libye restent un témoignage de la grandeur de cette époque et une source importante du patrimoine humain et culturel.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et monuments de l'Afrique romaine",
+                defLocations: "🌍 Lieux et villes",
+                defOthers: "📌 Termes et institutions",
+                defAfrica: "Africa (Africa Proconsularis)",
+                defAfricaDesc: "La province romaine fondée par les Romains en Afrique du Nord après la destruction de Carthage en 146 av. J.-C., qui prit Utique comme capitale puis Carthage.",
+                defUtica: "Utique",
+                defUticaDesc: "La première capitale de la province romaine d'Afrique avant que Carthage ne devienne la capitale plus tard.",
+                defCarthage: "Carthage",
+                defCarthageDesc: "La ville que les Romains détruisirent en 146 av. J.-C., puis reconstruisirent pour devenir la capitale de la province d'Afrique.",
+                defHadrumetum: "Hadrumète",
+                defHadrumetumDesc: "Une ville côtière parmi les villes africaines romaines (actuelle Sousse).",
+                defThysdrus: "Thysdrus (El Jem)",
+                defThysdrusDesc: "Une ville côtière parmi les villes africaines romaines, célèbre pour son immense amphithéâtre romain (actuelle El Jem).",
+                defTacapae: "Tacapae",
+                defTacapaeDesc: "Une ville côtière parmi les villes africaines romaines (actuelle Gabès).",
+                defBullaRegia: "Bulla Regia",
+                defBullaRegiaDesc: "Une ville intérieure parmi les villes africaines romaines, célèbre pour ses thermes, qui étaient une manifestation de luxe.",
+                defMactaris: "Mactaris",
+                defMactarisDesc: "Une ville intérieure parmi les villes africaines romaines.",
+                defCapsa: "Capsa (Gafsa)",
+                defCapsaDesc: "Une ville intérieure parmi les villes africaines romaines (actuelle Gafsa).",
+                defSufetula: "Sufetula (Sbeïtla)",
+                defSufetulaDesc: "Une ville parmi les villes africaines romaines, célèbre pour le temple du Capitole et la place du forum.",
+                defAnnaba: "Annaba",
+                defAnnabaDesc: "Un district administratif romain en Afrique (actuelle Annaba en Algérie), géré par l'un des délégués locaux.",
+                defForum: "Le Forum",
+                defForumDesc: "Une place située au cœur de la ville romaine, où les habitants se réunissaient lors d'occasions importantes politiques et religieuses.",
+                defCapitol: "Le temple du Capitole",
+                defCapitolDesc: "L'un des temples religieux romains les plus importants, dont le plus célèbre est le temple du Capitole dans la ville de Sufetula.",
+                defBaths: "Les thermes",
+                defBathsDesc: "Des monuments romains qui représentaient une manifestation de luxe et de bien-être, les plus célèbres étant les thermes de Bulla Regia.",
+                defAmphitheater: "Les amphithéâtres (amphithéâtre romain)",
+                defAmphitheaterDesc: "D'immenses monuments romains qui accueillaient une affluence populaire massive pour assister aux combats de bêtes sauvages, de gladiateurs, de prisonniers, de prisonniers de guerre et aux courses de chars ; l'un des plus remarquables est l'amphithéâtre romain d'El Jem.",
+                defGovernor: "Le gouverneur",
+                defGovernorDesc: "Le gouverneur de la province d'Afrique, nommé par l'empereur romain, supervisant la sécurité, la justice, les finances et les grands travaux publics.",
+                defLocalDelegates: "Les délégués locaux",
+                defLocalDelegatesDesc: "Des délégués nommés par le gouverneur pour accomplir ses fonctions dans les districts locaux, dont le district de Carthage et le district d'Annaba.",
+                defSettlements: "Les colonies",
+                defSettlementsDesc: "De nouvelles villes organisées par la constitution romaine, composées de villes puniques, libyques ou de villages fondés par une décision romaine, administrées par un organe municipal (assemblée du peuple, conseil des notables, gouverneurs locaux).",
+                defIndigenousCities: "Les villes des indigènes",
+                defIndigenousCitiesDesc: "Des villes auxquelles les autorités romaines permirent de pratiquer leurs propres lois et traditions, elles continuèrent donc à fonctionner selon leurs anciennes constitutions et systèmes politiques, qu'ils soient puniques ou libyques.",
+                summaryText: "À retenir : Les Romains fondèrent la province d'Afrique (Proconsularis) en 146 av. J.-C. après la destruction de Carthage, et leur domination dura jusqu'en 435 apr. J.-C. ; ils prirent Utique comme capitale avant Carthage. Les villes se multiplièrent entre côtières (Carthage, Hadrumète, Thysdrus, Tacapae) et intérieures (Bulla Regia, Mactaris, Capsa), et les monuments architecturaux prospérèrent, dont des forums, des temples, des thermes et des amphithéâtres (comme l'amphithéâtre romain d'El Jem). L'organisation administrative prospéra également avec l'empereur nommant un gouverneur qui gérait la sécurité, la justice, les finances et les travaux publics, assisté de délégués locaux, et l'organisation municipale prospéra avec la classification des villes en colonies et villes des indigènes.",
+                galleryAlt1: "Le forum de Sufetula",
+                galleryAlt2: "Le temple du Capitole de Sufetula",
+                galleryAlt3: "L'amphithéâtre romain d'El Jem",
+                galleryAlt4: "Les thermes de Bulla Regia",
+                galleryCap1: "Le forum de Sufetula",
+                galleryCap2: "Le temple du Capitole de Sufetula",
+                galleryCap3: "L'amphithéâtre romain d'El Jem",
+                galleryCap4: "Les thermes de Bulla Regia",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني",
+                lessonTitleSample: "مظاهر الازدهار الحضاري لأفريكا الرومانيّة: ازدهار المدن",
+                sectionIntro: "مقدمة",
+                introText: "بعد تدمير مدينة قرطاج سنة 146 ق.م، سيطر الرومان على منطقة شمال إفريقيا وأسّسوا ولاية جديدة أطلقوا عليها اسم «أفريكا». وقد شهدت هذه الولاية خلال القرون التالية ازدهاراً حضارياً وعمرانياً كبيراً، تجلّى بشكل خاص في انتشار المدن وتعددها، وتشييد المعالم المعمارية الضخمة، وتنظيم إداري وبلدي محكم. في هذا الدرس، نكتشف مظاهر هذا الإشعاع الحضاري الذي ترك آثاره الباقية إلى يومنا هذا.",
+                problematiqueText: "ما هو الإطار الزمني والمجال الجغرافي للمدن الأفريقية الرومانية؟ وما هي أهم معالمها المعمارية؟ وكيف تنظّمت إدارياً وبلدياً؟",
+                sectionPart1: "الحضور الروماني بأفريكا ومظاهر ازدهار المدن",
+                frameworkTitle: "الإطار الزمني والمجال الجغرافي للمدن الأفريقية الرومانية",
+                timeframeText: "<strong>الإطار الزمني:</strong> استمر الحضور الروماني في أفريكا من سنة <strong>146 ق.م</strong> (تاريخ تدمير قرطاج) إلى غاية سنة <strong>435 م</strong> (نهاية الفترة الرومانية). وقد أُطلق على الولاية اسم <strong>«أفريكا البروقنصلية»</strong> نسبة إلى حاكمها، واتّخذت من مدينة <strong>أوتيكا</strong> عاصمةً لها قبل أن تصبح <strong>قرطاج</strong> العاصمة لاحقاً.",
+                citiesIntro: "<strong>تعدّد المدن:</strong> تعدّدت المدن في أفريكا الرومانية وتوزّعت بين:",
+                coastalCities: "<strong>مدن ساحلية:</strong> مثل قرطاج، وهدرومتوم (حضرموت)، وتيسدروس (الجم)، وتقابس.",
+                inlandCities: "<strong>مدن داخلية:</strong> مثل بوالريجيا، ومكتريس، وقبصا (قفصة).",
+                monumentsTitle: "أهم المعالم المعمارية للمدن (مظاهر العمران)",
+                forumText: "<strong>المنتدى (الفوروم):</strong> هو ساحة تقع في قلب المدينة، كان يجتمع فيها السكان في المناسبات الهامّة (السياسية والدينية)، ومنه نجد ساحة الفوروم وجانب <strong>معبد الكابيتول</strong> بمدينة <strong>سفيطلة</strong> (سيبيطلة).",
+                templesText: "<strong>المعابد:</strong> مثل معبد الكابيتول بمدينة سفيطلة الذي يُعدّ من أهم المظاهر الدينية.",
+                bathsText: "<strong>الحمّامات:</strong> مثل حمّامات <strong>بولا ريغيا</strong> (بوالريجيا)، التي كانت تمثّل مظهراً من مظاهر الترف والرفاهية.",
+                arenasText: "<strong>الملاعب الدائرية:</strong> مثل <strong>المدرج الروماني بمدينة تيسدروس</strong> (الجم حالياً)، وهو من أبرز معالم المدينة، وكان يشهد إقبالاً جماهيرياً هائلاً لمشاهدة مصارعة الوحوش، والمصارعين، والمساجين، وأسرى الحروب، وسباقات العربات.",
+                sectionPart2: "التنظيم الإداري والبلدي في أفريكا الرومانية",
+                adminTitle: "التنظيم الإداري (الوالي ومهامه)",
+                governorAppointment: "<strong>تعيين الوالي:</strong> يعيّن الإمبراطور الروماني والياً على ولاية أفريكا.",
+                governorTasksIntro: "<strong>مهام الوالي:</strong>",
+                governorTaskSecurity: "يشرف على أمن الولاية.",
+                governorTaskJustice: "يسهر على القضاء وإبلاغ القوانين والقرارات وتنفيذها.",
+                governorTaskFinance: "يدير المصالح المالية (مثل جمع الضرائب).",
+                governorTaskWorks: "يشرف على الأشغال العامة الكبرى: كشقّ الطرق، وبناء الجسور، والسدود، وقنوات المياه، وتشييد المعالم الدينية.",
+                delegatesText: "<strong>المفوضون المحليون:</strong> ينتدب الوالي مفوّضين محليين للقيام بمهامه، حيث يدير أحدهم دائرة قرطاج والآخر دائرة عنابة (حالياً).",
+                municipalTitle: "النظم البلدية (تصنيف المدن)",
+                municipalIntro: "صنّف الرومان مدن أفريكا إلى عدة أصناف، أبرزها:",
+                settlementsText: "<strong>المستوطنات (المدن البونية أو الولبية):</strong> هي مدن جديدة ينظّمها الدستور الروماني، تتكوّن من مجموعة من المدن البونية أو الولبية أو القرى التي تأسست بناءً على قرار روماني، وتُدار بواسطة جهاز بلدي يتألف من مجلس الشعب ومجلس الوجهاء والحكام المحليين.",
+                indigenousCitiesText: "<strong>مدن الأهالي:</strong> هي مدن سُمح لها من قبل السلطات الرومانية بممارسة قوانينها وتقاليدها، فظلّت تعمل بدساتيرها ونظمها السياسية القديمة (سواء كانت بونية أو لوبية).",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا يتضح أنّ الحضارة الرومانية تركت بصمات عميقة في شمال إفريقيا، لم تقتصر على العمارة الفخمة من ملاعب وحمّامات ومعابد، بل شملت أيضاً تنظيماً إدارياً وبلدياً دقيقاً. وقد شكّل هذا الإرث الحضاري أساساً لازدهار المدن، وما تزال الآثار الرومانية الباقية في تونس والجزائر وليبيا شاهدة على عظمة تلك الحقبة، ومصدراً هامّاً للتراث الإنساني والثقافي.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق ومعالم من أفريكا الرومانيّة",
+                defLocations: "🌍 أمكنة ومدن",
+                defOthers: "📌 مصطلحات ومؤسسات",
+                defAfrica: "أفريكا (أفريكا البروقنصلية)",
+                defAfricaDesc: "الولاية الرومانية التي أسّسها الرومان في شمال إفريقيا بعد تدمير قرطاج سنة 146 ق.م، واتخذت من أوتيكا عاصمةً لها ثم قرطاج.",
+                defUtica: "أوتيكا",
+                defUticaDesc: "أول عاصمة لولاية أفريكا الرومانية قبل أن تصبح قرطاج العاصمة لاحقاً.",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "المدينة التي دمّرها الرومان سنة 146 ق.م ثم أعادوا بناءها لتصبح عاصمة ولاية أفريكا.",
+                defHadrumetum: "هدرومتوم (حضرموت)",
+                defHadrumetumDesc: "مدينة ساحلية من مدن أفريكا الرومانية (سوسة حالياً).",
+                defThysdrus: "تيسدروس (الجم)",
+                defThysdrusDesc: "مدينة ساحلية من مدن أفريكا الرومانية، تشتهر بمدرجها الروماني الضخم (الجم حالياً).",
+                defTacapae: "تقابس",
+                defTacapaeDesc: "مدينة ساحلية من مدن أفريكا الرومانية (قابس حالياً).",
+                defBullaRegia: "بوالريجيا (بولا ريغيا)",
+                defBullaRegiaDesc: "مدينة داخلية من مدن أفريكا الرومانية، تشتهر بحمّاماتها التي كانت مظهراً من مظاهر الترف.",
+                defMactaris: "مكتريس",
+                defMactarisDesc: "مدينة داخلية من مدن أفريكا الرومانية.",
+                defCapsa: "قبصا (قفصة)",
+                defCapsaDesc: "مدينة داخلية من مدن أفريكا الرومانية (قفصة حالياً).",
+                defSufetula: "سفيطلة (سيبيطلة)",
+                defSufetulaDesc: "مدينة من مدن أفريكا الرومانية، تشتهر بمعبد الكابيتول وساحة الفوروم.",
+                defAnnaba: "عنابة",
+                defAnnabaDesc: "دائرة إدارية رومانية في أفريكا (عنابة حالياً في الجزائر)، يديرها أحد المفوضين المحليين.",
+                defForum: "المنتدى (الفوروم)",
+                defForumDesc: "ساحة تقع في قلب المدينة الرومانية، كان يجتمع فيها السكان في المناسبات الهامة السياسية والدينية.",
+                defCapitol: "معبد الكابيتول",
+                defCapitolDesc: "من أهم المعابد الدينية الرومانية، ومن أبرزها معبد الكابيتول بمدينة سفيطلة.",
+                defBaths: "الحمّامات",
+                defBathsDesc: "معالم رومانية كانت تمثّل مظهراً من مظاهر الترف والرفاهية، ومن أشهرها حمّامات بولا ريغيا (بوالريجيا).",
+                defAmphitheater: "الملاعب الدائرية (المدرج الروماني)",
+                defAmphitheaterDesc: "معالم رومانية ضخمة كانت تشهد إقبالاً جماهيرياً هائلاً لمشاهدة مصارعة الوحوش والمصارعين والمساجين وأسرى الحروب وسباقات العربات، ومن أبرزها المدرج الروماني بالجم.",
+                defGovernor: "الوالي",
+                defGovernorDesc: "حاكم ولاية أفريكا، يعيّنه الإمبراطور الروماني، ويشرف على الأمن والقضاء والمالية والأشغال العامة الكبرى.",
+                defLocalDelegates: "المفوضون المحليون",
+                defLocalDelegatesDesc: "مفوّضون ينتدبهم الوالي للقيام بمهامه في دوائر محلية، منها دائرة قرطاج ودائرة عنابة.",
+                defSettlements: "المستوطنات",
+                defSettlementsDesc: "مدن جديدة نظّمها الدستور الروماني، تتكوّن من مدن بونية أو ولبية أو قرى تأسست بقرار روماني، وتُدار بواسطة جهاز بلدي (مجلس الشعب، مجلس الوجهاء، حكام محليون).",
+                defIndigenousCities: "مدن الأهالي",
+                defIndigenousCitiesDesc: "مدن سُمح لها من قبل السلطات الرومانية بممارسة قوانينها وتقاليدها، فظلّت تعمل بدساتيرها ونظمها السياسية القديمة، بونية كانت أو لوبية.",
+                summaryText: "خلاصة: أسّس الرومان ولاية أفريكا (البروقنصلية) سنة 146 ق.م بعد تدمير قرطاج، واستمر حكمهم إلى غاية 435 م، واتخذوا من أوتيكا عاصمةً قبل قرطاج. تعددت المدن بين ساحلية (قرطاج، هدرومتوم، تيسدروس، تقابس) وداخلية (بوالريجيا، مكتريس، قبصا)، وازدهرت فيها المعالم المعمارية من منتديات ومعابد وحمّامات وملاعب دائرية (كالمدرج الروماني بالجم). كما ازدهر التنظيم الإداري بتعيين الإمبراطور والياً يدير الأمن والقضاء والمالية والأشغال العامة، ويعاونه مفوّضون محليون، وازدهر التنظيم البلدي بتصنيف المدن إلى مستوطنات ومدن أهالي.",
+                galleryAlt1: "المنتدى بمدينة سفيطلة",
+                galleryAlt2: "معبد الكابيتول بسفيطلة",
+                galleryAlt3: "المدرج الروماني بالجم",
+                galleryAlt4: "حمّامات بولا ريغيا",
+                galleryCap1: "المنتدى بمدينة سفيطلة",
+                galleryCap2: "معبد الكابيتول بسفيطلة",
+                galleryCap3: "المدرج الروماني بالجم",
+                galleryCap4: "حمّامات بولا ريغيا",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Africa Proconsularis", class: "key-location", i18n: "defAfrica" },
+                { text: "Utica", class: "key-location", i18n: "defUtica" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Hadrumetum", class: "key-location", i18n: "defHadrumetum" },
+                { text: "Thysdrus", class: "key-location", i18n: "defThysdrus" },
+                { text: "El Jem", class: "key-location", i18n: "defThysdrus" },
+                { text: "Tacapae", class: "key-location", i18n: "defTacapae" },
+                { text: "Bulla Regia", class: "key-location", i18n: "defBullaRegia" },
+                { text: "Mactaris", class: "key-location", i18n: "defMactaris" },
+                { text: "Capsa", class: "key-location", i18n: "defCapsa" },
+                { text: "Sufetula", class: "key-location", i18n: "defSufetula" },
+                { text: "Sbeitla", class: "key-location", i18n: "defSufetula" },
+                { text: "Annaba", class: "key-location", i18n: "defAnnaba" },
+                { text: "The Forum", class: "key-other", i18n: "defForum" },
+                { text: "Capitol Temple", class: "key-other", i18n: "defCapitol" },
+                { text: "The Baths", class: "key-other", i18n: "defBaths" },
+                { text: "Amphitheaters", class: "key-other", i18n: "defAmphitheater" },
+                { text: "The Governor", class: "key-other", i18n: "defGovernor" },
+                { text: "Local Delegates", class: "key-other", i18n: "defLocalDelegates" },
+                { text: "Settlements", class: "key-other", i18n: "defSettlements" },
+                { text: "Cities of the Natives", class: "key-other", i18n: "defIndigenousCities" }
+            ],
+            fr: [
+                { text: "Africa Proconsularis", class: "key-location", i18n: "defAfrica" },
+                { text: "Utique", class: "key-location", i18n: "defUtica" },
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Hadrumète", class: "key-location", i18n: "defHadrumetum" },
+                { text: "Thysdrus", class: "key-location", i18n: "defThysdrus" },
+                { text: "El Jem", class: "key-location", i18n: "defThysdrus" },
+                { text: "Tacapae", class: "key-location", i18n: "defTacapae" },
+                { text: "Bulla Regia", class: "key-location", i18n: "defBullaRegia" },
+                { text: "Mactaris", class: "key-location", i18n: "defMactaris" },
+                { text: "Capsa", class: "key-location", i18n: "defCapsa" },
+                { text: "Sufetula", class: "key-location", i18n: "defSufetula" },
+                { text: "Sbeïtla", class: "key-location", i18n: "defSufetula" },
+                { text: "Annaba", class: "key-location", i18n: "defAnnaba" },
+                { text: "Le Forum", class: "key-other", i18n: "defForum" },
+                { text: "Le temple du Capitole", class: "key-other", i18n: "defCapitol" },
+                { text: "Les thermes", class: "key-other", i18n: "defBaths" },
+                { text: "Les amphithéâtres", class: "key-other", i18n: "defAmphitheater" },
+                { text: "Le gouverneur", class: "key-other", i18n: "defGovernor" },
+                { text: "Les délégués locaux", class: "key-other", i18n: "defLocalDelegates" },
+                { text: "Les colonies", class: "key-other", i18n: "defSettlements" },
+                { text: "Les villes des indigènes", class: "key-other", i18n: "defIndigenousCities" }
+            ],
+            ar: [
+                { text: "أفريكا البروقنصلية", class: "key-location", i18n: "defAfrica" },
+                { text: "أوتيكا", class: "key-location", i18n: "defUtica" },
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "هدرومتوم", class: "key-location", i18n: "defHadrumetum" },
+                { text: "حضرموت", class: "key-location", i18n: "defHadrumetum" },
+                { text: "تيسدروس", class: "key-location", i18n: "defThysdrus" },
+                { text: "الجم", class: "key-location", i18n: "defThysdrus" },
+                { text: "تقابس", class: "key-location", i18n: "defTacapae" },
+                { text: "بوالريجيا", class: "key-location", i18n: "defBullaRegia" },
+                { text: "بولا ريغيا", class: "key-location", i18n: "defBullaRegia" },
+                { text: "مكتريس", class: "key-location", i18n: "defMactaris" },
+                { text: "قبصا", class: "key-location", i18n: "defCapsa" },
+                { text: "قفصة", class: "key-location", i18n: "defCapsa" },
+                { text: "سفيطلة", class: "key-location", i18n: "defSufetula" },
+                { text: "سيبيطلة", class: "key-location", i18n: "defSufetula" },
+                { text: "عنابة", class: "key-location", i18n: "defAnnaba" },
+                { text: "المنتدى", class: "key-other", i18n: "defForum" },
+                { text: "الفوروم", class: "key-other", i18n: "defForum" },
+                { text: "معبد الكابيتول", class: "key-other", i18n: "defCapitol" },
+                { text: "الحمّامات", class: "key-other", i18n: "defBaths" },
+                { text: "المدرج الروماني", class: "key-other", i18n: "defAmphitheater" },
+                { text: "الملاعب الدائرية", class: "key-other", i18n: "defAmphitheater" },
+                { text: "الوالي", class: "key-other", i18n: "defGovernor" },
+                { text: "المفوضون المحليون", class: "key-other", i18n: "defLocalDelegates" },
+                { text: "المستوطنات", class: "key-other", i18n: "defSettlements" },
+                { text: "مدن الأهالي", class: "key-other", i18n: "defIndigenousCities" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

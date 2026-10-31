@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">نشأة قرطاج وتوسّعها</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">في الألف الثانية قبل الميلاد، كان البحر الأبيض المتوسط مسرحاً لحركة تجارية وبحرية نشطة. وقد برع الفينيقيون (سكان فينيقيا – لبنان حالياً) في الإبحار والتجارة، فاجتازوا البحر ووصلوا إلى سواحل شمال إفريقيا. وهناك، أسّسوا مدناً ساحلية لتكون محطات تجارية، كان من أبرزها مدينة «قرطاج» التي تحوّلت مع مرور الزمن إلى واحدة من أعظم قوى البحر المتوسط. في هذا الدرس، نتعرّف على ظروف نشأة هذه المدينة العريقة ومراحل توسّعها.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">من هم الفينيقيون؟ وكيف تأسست مدينة قرطاج؟ وما هو موقعها الاستراتيجي؟ وكيف توسّعت قرطاج برّاً وبحراً؟</p>
+            </div>
+
+            <!-- Part I : Foundation and Location -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">نشأة مدينة قرطاج وموقعها</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="phoeniciansTitle">الفينيقيون وتأسيس المدينة</span>
+                </h4>
+                <p data-i18n="phoeniciansText">دخل الفينيقيون منطقة غربي البحر الأبيض المتوسط في الألف الثانية قبل الميلاد، وأسّسوا فيها مدناً لتساعدهم على ممارسة تجارتهم البحرية مثل مدينة <strong>أوتيكا</strong> (Utica) ومدينة <strong>حضرموت</strong>.</p>
+                <p data-i18n="foundationText">في سنة <strong>814 قبل الميلاد</strong>، أسّسوا مدينة <strong>«قرت حدشت»</strong> (Qart Hadasht) والتي تعني <strong>«المدينة الجديدة»</strong>، وهي المعروفة باسم <strong>قرطاج</strong>.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="locationTitle">الموقع الاستراتيجي وأسطورة التأسيس</span>
+                </h4>
+                <p data-i18n="locationText"><strong>الموقع الاستراتيجي:</strong> اختار الفينيقيون موقع قرطاج بعناية فائقة؛ فهي محاطة بالبحر في أغلب أرجائها، وقريبة جداً من مدينة أوتيكا، وتطلّ على دول البحر الأبيض المتوسط، مما يجعلها مركزاً مثالياً للتحكم في طرق الملاحة والتجارة.</p>
+                <p data-i18n="legendText"><strong>أسطورة التأسيس:</strong> ارتبط تأسيس قرطاج بشخصية <strong>«عليسة»</strong> (إليسا)، حيث تحمل كتابات المؤرخين حول هذا الموضوع طابعاً أسطورياً يخلط بين الحقيقة والخيال.</p>
+            </div>
+
+            <!-- Part II : Carthaginian Expansion -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">التوسّع القرطاجي (البري والبحري)</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="maritimeTitle">الهيمنة البحرية والتجارية</span>
+                </h4>
+                <p data-i18n="maritimeText">في القرن السادس قبل الميلاد، تمكّن القرطاجيون من الهيمنة على جانب عظيم من البحر الأبيض المتوسط.</p>
+                <p data-i18n="maritimeText2">أصبحت قرطاج قوة بحرية وتجارية كبرى، حتى «ضاق البحر على البخارة» (السفن)، فسعوا إلى حماية طرقهم البحرية وإنشاء مراكز ومستوطنات تجارية على السواحل لتبادل البضائع والبيع والشراء.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="geographicTitle">الامتداد الجغرافي والوصول إلى المحيط</span>
+                </h4>
+                <p data-i18n="geographicText">لم يقتصر توسّع القرطاجيين على السواحل القريبة، بل تجاوزوها بحثاً عن أسواق وأماكن جديدة.</p>
+                <p data-i18n="geographicText2">امتدّ نفوذهم ليشمل سواحل الجزائر والمغرب الحاليين، وبلاد الإيبار (شبه الجزيرة الأيبيرية – إسبانيا والبرتغال حالياً)، بالإضافة إلى سواحل ليبيا الحالية (تحديداً مدينتي صبراطة وليتتيس الكبرى).</p>
+                <p data-i18n="geographicText3">تمكّنوا من بلوغ <strong>المحيط الأطلسي</strong>، مما يعكس مدى قوتهم البحرية والملاحية.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا، نرى أنّ قرطاج لم تكن مجرد محطة تجارية عابرة أسّسها الفينيقيون، بل تحوّلت بفضل موقعها الاستراتيجي وذكاء سكانها إلى عاصمة لنفوذ فينيقي واسع في غرب البحر الأبيض المتوسط. لقد أسّست قرطاج إمبراطورية بحرية وتجارية عظيمة امتدّت من سواحل ليبيا شرقاً إلى المحيط الأطلسي غرباً، لتترك إرثاً حضارياً وتاريخياً خالداً في منطقة شمال إفريقيا والبحر المتوسط.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defCarthage">قرطاج</strong>: <span data-i18n="defCarthageDesc">مدينة أسّسها الفينيقيون سنة 814 ق.م باسم «قرت حدشت» أي «المدينة الجديدة»، وتحوّلت إلى واحدة من أعظم قوى البحر الأبيض المتوسط.</span></li>
+                        <li><strong class="key-location" data-i18n="defPhoenicia">فينيقيا</strong>: <span data-i18n="defPhoeniciaDesc">المنطقة التاريخية التي تقع حالياً في لبنان، ومنها انطلق الفينيقيون في رحلاتهم البحرية والتجارية.</span></li>
+                        <li><strong class="key-location" data-i18n="defUtica">أوتيكا (Utica)</strong>: <span data-i18n="defUticaDesc">مدينة فينيقية أسّسها الفينيقيون في شمال إفريقيا قبل قرطاج، وتقع قريبة جداً من موقع قرطاج.</span></li>
+                        <li><strong class="key-location" data-i18n="defHadrumetum">حضرموت</strong>: <span data-i18n="defHadrumetumDesc">مدينة فينيقية أسّسها الفينيقيون في شمال إفريقيا (سوسة حالياً)، وكانت من محطاتهم التجارية البحرية.</span></li>
+                        <li><strong class="key-location" data-i18n="defIberia">بلاد الإيبار</strong>: <span data-i18n="defIberiaDesc">شبه الجزيرة الأيبيرية، وتشمل إسبانيا والبرتغال حالياً، وقد بلغها النفوذ القرطاجي.</span></li>
+                        <li><strong class="key-location" data-i18n="defSabratha">صبراطة</strong>: <span data-i18n="defSabrathaDesc">مدينة على الساحل الليبي الحالي، بلغها النفوذ القرطاجي.</span></li>
+                        <li><strong class="key-location" data-i18n="defLeptisMagna">ليتتيس الكبرى</strong>: <span data-i18n="defLeptisMagnaDesc">مدينة على الساحل الليبي الحالي، بلغها النفوذ القرطاجي.</span></li>
+                        <li><strong class="key-location" data-i18n="defAtlantic">المحيط الأطلسي</strong>: <span data-i18n="defAtlanticDesc">المحيط الذي تمكّن القرطاجيون من بلوغه غرباً، مما يعكس قوّتهم البحرية والملاحية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 أخرى</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defPhoenicians">الفينيقيون</strong>: <span data-i18n="defPhoeniciansDesc">شعب برع في الإبحار والتجارة، سكن فينيقيا (لبنان حالياً)، ووصل إلى سواحل شمال إفريقيا في الألف الثانية قبل الميلاد حيث أسّس مدناً ساحلية تجارية من أبرزها قرطاج.</span></li>
+                        <li><strong class="key-other" data-i18n="defQartHadasht">قرت حدشت (Qart Hadasht)</strong>: <span data-i18n="defQartHadashtDesc">الاسم الفينيقي لمدينة قرطاج، ويعني «المدينة الجديدة»، وقد أسّست سنة 814 قبل الميلاد.</span></li>
+                        <li><strong class="key-other" data-i18n="defElissa">عليسة (إليسا)</strong>: <span data-i18n="defElissaDesc">شخصية ارتبط بها تأسيس قرطاج وفق الروايات الأسطورية التي تحمل طابعاً يخلط بين الحقيقة والخيال.</span></li>
+                        <li><strong class="key-other" data-i18n="defBakhara">البخارة</strong>: <span data-i18n="defBakharaDesc">السفن التجارية والبحرية التي استعملها القرطاجيون في تجارتهم وأسفارهم البحرية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: أسّس الفينيقيون في الألف الثانية قبل الميلاد مدناً ساحلية في غربي المتوسط مثل أوتيكا وحضرموت، ثم أسّسوا سنة 814 ق.م مدينة «قرت حدشت» أي «المدينة الجديدة» المعروفة بقرطاج. اختاروا لها موقعاً استراتيجياً محاطاً بالبحر وقريباً من أوتيكا ومطلّاً على دول المتوسط، وارتبط تأسيسها أسطورياً بشخصية عليسة (إليسا). في القرن السادس ق.م، هيمنت قرطاج على جزء كبير من المتوسط، وأصبحت قوة بحرية وتجارية كبرى، فامتدّ نفوذها إلى سواحل الجزائر والمغرب وبلاد الإيبار وسواحل ليبيا، وبلغت المحيط الأطلسي غرباً.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ خرائط وصور توضيحيّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson2/carthage_site_map.jpg" alt="موقع مدينة قرطاج على الخريطة" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">موقع مدينة قرطاج على الخريطة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson2/phoenician_ships.jpg" alt="سفن فينيقية (البخارة)" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">سفن فينيقية (البخارة)</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson2/elissa_dido.jpg" alt="عليسة (إليسا) مؤسّسة قرطاج" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">عليسة (إليسا) مؤسّسة قرطاج</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson2/carthaginian_expansion_map.jpg" alt="خريطة التوسّع القرطاجي في غربي المتوسط" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">خريطة التوسّع القرطاجي في غربي المتوسط</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod2_lesson2.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات الأساسية والأمكنة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الخرائط والصور التوضيحيّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Tunisia from Prehistory to the Roman Era",
+                lessonTitleSample: "The Rise and Expansion of Carthage",
+                sectionIntro: "Introduction",
+                introText: "In the second millennium BC, the Mediterranean was the scene of active commercial and maritime movement. The Phoenicians (the people of Phoenicia – present-day Lebanon) excelled in navigation and trade, crossed the sea, and reached the coasts of North Africa. There, they founded coastal cities as trading posts, the most prominent of which was the city of 'Carthage', which over time became one of the greatest powers of the Mediterranean. In this lesson, we learn about the circumstances of the rise of this ancient city and the stages of its expansion.",
+                problematiqueText: "Who were the Phoenicians? How was the city of Carthage founded? What was its strategic location? And how did Carthage expand by land and sea?",
+                sectionPart1: "The Rise of the City of Carthage and Its Location",
+                phoeniciansTitle: "The Phoenicians and the Founding of the City",
+                phoeniciansText: "The Phoenicians entered the western Mediterranean region in the second millennium BC and founded cities there to help them practice their maritime trade, such as the city of <strong>Utica</strong> and the city of <strong>Hadrumetum</strong>.",
+                foundationText: "In <strong>814 BC</strong>, they founded the city of <strong>'Qart Hadasht'</strong>, which means <strong>'the New City'</strong>, and which is known as <strong>Carthage</strong>.",
+                locationTitle: "Strategic Location and the Legend of Foundation",
+                locationText: "<strong>Strategic location:</strong> The Phoenicians chose the site of Carthage with great care; it is surrounded by the sea on most of its sides, very close to the city of Utica, and overlooks the countries of the Mediterranean, making it an ideal center for controlling navigation and trade routes.",
+                legendText: "<strong>The legend of foundation:</strong> The founding of Carthage was linked to the figure of <strong>'Elisha'</strong> (Elissa), and the writings of historians on this subject carry a legendary character that mixes truth and fiction.",
+                sectionPart2: "Carthaginian Expansion (Land and Sea)",
+                maritimeTitle: "Maritime and Commercial Dominance",
+                maritimeText: "In the 6th century BC, the Carthaginians managed to dominate a great part of the Mediterranean.",
+                maritimeText2: "Carthage became a great maritime and commercial power, until 'the sea became narrow for the ships (bakhara)', so they sought to protect their maritime routes and establish commercial centers and settlements on the coasts to exchange goods and buy and sell.",
+                geographicTitle: "Geographical Extension and Reaching the Ocean",
+                geographicText: "The expansion of the Carthaginians was not limited to nearby coasts; they went beyond them in search of new markets and places.",
+                geographicText2: "Their influence extended to include the coasts of present-day Algeria and Morocco, the land of Iberia (the Iberian Peninsula – present-day Spain and Portugal), in addition to the coasts of present-day Libya (specifically the cities of Sabratha and Leptis Magna).",
+                geographicText3: "They managed to reach the <strong>Atlantic Ocean</strong>, which reflects the extent of their maritime and navigational power.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus, we see that Carthage was not merely a passing commercial station founded by the Phoenicians, but thanks to its strategic location and the intelligence of its inhabitants, it became the capital of a vast Phoenician influence in the western Mediterranean. Carthage founded a great maritime and commercial empire extending from the coasts of Libya in the east to the Atlantic Ocean in the west, leaving an immortal cultural and historical legacy in the region of North Africa and the Mediterranean.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Maps and Illustrative Images",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Other",
+                defCarthage: "Carthage",
+                defCarthageDesc: "A city founded by the Phoenicians in 814 BC under the name 'Qart Hadasht' meaning 'the New City', and which became one of the greatest powers of the Mediterranean.",
+                defPhoenicia: "Phoenicia",
+                defPhoeniciaDesc: "The historical region currently located in Lebanon, from which the Phoenicians set out on their maritime and commercial voyages.",
+                defUtica: "Utica",
+                defUticaDesc: "A Phoenician city founded by the Phoenicians in North Africa before Carthage, located very close to the site of Carthage.",
+                defHadrumetum: "Hadrumetum",
+                defHadrumetumDesc: "A Phoenician city founded by the Phoenicians in North Africa (present-day Sousse), one of their maritime commercial stations.",
+                defIberia: "The Land of Iberia",
+                defIberiaDesc: "The Iberian Peninsula, comprising present-day Spain and Portugal, which Carthaginian influence reached.",
+                defSabratha: "Sabratha",
+                defSabrathaDesc: "A city on the present-day Libyan coast that Carthaginian influence reached.",
+                defLeptisMagna: "Leptis Magna",
+                defLeptisMagnaDesc: "A city on the present-day Libyan coast that Carthaginian influence reached.",
+                defAtlantic: "The Atlantic Ocean",
+                defAtlanticDesc: "The ocean that the Carthaginians managed to reach in the west, reflecting their maritime and navigational power.",
+                defPhoenicians: "The Phoenicians",
+                defPhoeniciansDesc: "A people who excelled in navigation and trade, lived in Phoenicia (present-day Lebanon), and reached the coasts of North Africa in the second millennium BC, where they founded coastal trading cities, the most prominent of which was Carthage.",
+                defQartHadasht: "Qart Hadasht",
+                defQartHadashtDesc: "The Phoenician name of the city of Carthage, meaning 'the New City', founded in 814 BC.",
+                defElissa: "Elisha (Elissa)",
+                defElissaDesc: "A figure associated with the founding of Carthage according to legendary accounts that mix truth and fiction.",
+                defBakhara: "Bakhara (Ships)",
+                defBakharaDesc: "The commercial and maritime ships used by the Carthaginians in their trade and maritime voyages.",
+                summaryText: "Key takeaway: The Phoenicians founded coastal cities in the western Mediterranean in the second millennium BC, such as Utica and Hadrumetum, then founded in 814 BC the city of 'Qart Hadasht' meaning 'the New City', known as Carthage. They chose for it a strategic location surrounded by the sea, close to Utica, and overlooking the Mediterranean countries, and its founding was mythically linked to the figure of Elisha (Elissa). In the 6th century BC, Carthage dominated a large part of the Mediterranean, became a great maritime and commercial power, and its influence extended to the coasts of Algeria, Morocco, the land of Iberia, and the coasts of Libya, reaching the Atlantic Ocean in the west.",
+                galleryAlt1: "Location of the city of Carthage on the map",
+                galleryAlt2: "Phoenician ships (bakhara)",
+                galleryAlt3: "Elisha (Elissa), founder of Carthage",
+                galleryAlt4: "Map of Carthaginian expansion in the western Mediterranean",
+                galleryCap1: "Location of the city of Carthage on the map",
+                galleryCap2: "Phoenician ships (bakhara)",
+                galleryCap3: "Elisha (Elissa), founder of Carthage",
+                galleryCap4: "Map of Carthaginian expansion in the western Mediterranean",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / La Tunisie de la préhistoire à l'époque romaine",
+                lessonTitleSample: "Naissance et expansion de Carthage",
+                sectionIntro: "Introduction",
+                introText: "Au deuxième millénaire avant Jésus-Christ, la Méditerranée était le théâtre d'un mouvement commercial et maritime actif. Les Phéniciens (les habitants de la Phénicie – l'actuel Liban) excellaient dans la navigation et le commerce ; ils traversèrent la mer et atteignirent les côtes de l'Afrique du Nord. Là, ils fondèrent des villes côtières comme comptoirs commerciaux, dont la plus remarquable fut la ville de « Carthage », qui devint au fil du temps l'une des plus grandes puissances de la Méditerranée. Dans cette leçon, nous découvrons les circonstances de la naissance de cette cité antique et les étapes de son expansion.",
+                problematiqueText: "Qui étaient les Phéniciens ? Comment la ville de Carthage a-t-elle été fondée ? Quelle était sa situation stratégique ? Et comment Carthage s'est-elle étendue par terre et par mer ?",
+                sectionPart1: "La naissance de la ville de Carthage et sa situation",
+                phoeniciansTitle: "Les Phéniciens et la fondation de la ville",
+                phoeniciansText: "Les Phéniciens pénétrèrent dans la région de la Méditerranée occidentale au deuxième millénaire avant Jésus-Christ et y fondèrent des villes pour les aider à exercer leur commerce maritime, comme la ville d'<strong>Utique</strong> et la ville d'<strong>Hadrumète</strong>.",
+                foundationText: "En <strong>814 av. J.-C.</strong>, ils fondèrent la ville de <strong>« Qart Hadasht »</strong>, qui signifie <strong>« la Ville Neuve »</strong>, et qui est connue sous le nom de <strong>Carthage</strong>.",
+                locationTitle: "La situation stratégique et la légende de la fondation",
+                locationText: "<strong>La situation stratégique :</strong> Les Phéniciens choisirent le site de Carthage avec un soin extrême ; elle est entourée de la mer sur la plupart de ses côtés, très proche de la ville d'Utique, et donne sur les pays de la Méditerranée, ce qui en fait un centre idéal pour contrôler les routes de navigation et de commerce.",
+                legendText: "<strong>La légende de la fondation :</strong> La fondation de Carthage est liée à la figure d'<strong>« Elisha »</strong> (Élissa), et les écrits des historiens sur ce sujet portent un caractère légendaire qui mêle le vrai et l'imaginaire.",
+                sectionPart2: "L'expansion carthaginoise (par terre et par mer)",
+                maritimeTitle: "La domination maritime et commerciale",
+                maritimeText: "Au VIe siècle avant Jésus-Christ, les Carthaginois parvinrent à dominer une grande partie de la Méditerranée.",
+                maritimeText2: "Carthage devint une grande puissance maritime et commerciale, au point que « la mer devint étroite pour les navires (bakhara) » ; ils cherchèrent alors à protéger leurs routes maritimes et à établir des centres et des comptoirs commerciaux sur les côtes pour échanger les marchandises et acheter et vendre.",
+                geographicTitle: "L'extension géographique et l'atteinte de l'océan",
+                geographicText: "L'expansion des Carthaginois ne se limita pas aux côtes proches ; ils les dépassèrent à la recherche de nouveaux marchés et de nouveaux lieux.",
+                geographicText2: "Leur influence s'étendit aux côtes de l'actuelle Algérie et du Maroc, au pays d'Ibérie (la péninsule Ibérique – l'actuelle Espagne et le Portugal), ainsi qu'aux côtes de l'actuelle Libye (précisément les villes de Sabratha et Leptis Magna).",
+                geographicText3: "Ils parvinrent à atteindre l'<strong>océan Atlantique</strong>, ce qui reflète l'étendue de leur puissance maritime et navigatrice.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi, nous voyons que Carthage n'était pas simplement une escale commerciale passagère fondée par les Phéniciens, mais qu'elle devint, grâce à sa situation stratégique et à l'intelligence de ses habitants, la capitale d'une vaste influence phénicienne en Méditerranée occidentale. Carthage fonda un grand empire maritime et commercial s'étendant des côtes de la Libye à l'est jusqu'à l'océan Atlantique à l'ouest, laissant un héritage culturel et historique immortel dans la région de l'Afrique du Nord et de la Méditerranée.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Cartes et images illustratives",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Autres",
+                defCarthage: "Carthage",
+                defCarthageDesc: "Une ville fondée par les Phéniciens en 814 av. J.-C. sous le nom de « Qart Hadasht » signifiant « la Ville Neuve », devenue l'une des plus grandes puissances de la Méditerranée.",
+                defPhoenicia: "La Phénicie",
+                defPhoeniciaDesc: "La région historique située actuellement au Liban, d'où les Phéniciens sont partis pour leurs voyages maritimes et commerciaux.",
+                defUtica: "Utique",
+                defUticaDesc: "Une ville phénicienne fondée par les Phéniciens en Afrique du Nord avant Carthage, située très près du site de Carthage.",
+                defHadrumetum: "Hadrumète",
+                defHadrumetumDesc: "Une ville phénicienne fondée par les Phéniciens en Afrique du Nord (actuelle Sousse), l'un de leurs comptoirs commerciaux maritimes.",
+                defIberia: "Le pays d'Ibérie",
+                defIberiaDesc: "La péninsule Ibérique, comprenant l'actuelle Espagne et le Portugal, atteinte par l'influence carthaginoise.",
+                defSabratha: "Sabratha",
+                defSabrathaDesc: "Une ville de l'actuelle côte libyenne atteinte par l'influence carthaginoise.",
+                defLeptisMagna: "Leptis Magna",
+                defLeptisMagnaDesc: "Une ville de l'actuelle côte libyenne atteinte par l'influence carthaginoise.",
+                defAtlantic: "L'océan Atlantique",
+                defAtlanticDesc: "L'océan que les Carthaginois parvinrent à atteindre à l'ouest, reflétant leur puissance maritime et navigatrice.",
+                defPhoenicians: "Les Phéniciens",
+                defPhoeniciansDesc: "Un peuple qui excellait dans la navigation et le commerce, habitait la Phénicie (l'actuel Liban), et atteignit les côtes de l'Afrique du Nord au deuxième millénaire avant Jésus-Christ, où il fonda des villes côtières commerciales, dont la plus remarquable fut Carthage.",
+                defQartHadasht: "Qart Hadasht",
+                defQartHadashtDesc: "Le nom phénicien de la ville de Carthage, signifiant « la Ville Neuve », fondée en 814 av. J.-C.",
+                defElissa: "Elisha (Élissa)",
+                defElissaDesc: "Une figure liée à la fondation de Carthage selon des récits légendaires mêlant le vrai et l'imaginaire.",
+                defBakhara: "Bakhara (navires)",
+                defBakharaDesc: "Les navires commerciaux et maritimes utilisés par les Carthaginois dans leur commerce et leurs voyages maritimes.",
+                summaryText: "À retenir : Les Phéniciens fondèrent des villes côtières en Méditerranée occidentale au deuxième millénaire avant Jésus-Christ, comme Utique et Hadrumète, puis fondèrent en 814 av. J.-C. la ville de « Qart Hadasht » signifiant « la Ville Neuve », connue sous le nom de Carthage. Ils choisirent pour elle une situation stratégique entourée de la mer, proche d'Utique et donnant sur les pays de la Méditerranée, et sa fondation fut liée mythiquement à la figure d'Elisha (Élissa). Au VIe siècle av. J.-C., Carthage domina une grande partie de la Méditerranée, devint une grande puissance maritime et commerciale, et son influence s'étendit aux côtes de l'Algérie, du Maroc, au pays d'Ibérie et aux côtes de la Libye, atteignant l'océan Atlantique à l'ouest.",
+                galleryAlt1: "Situation de la ville de Carthage sur la carte",
+                galleryAlt2: "Navires phéniciens (bakhara)",
+                galleryAlt3: "Elisha (Élissa), fondatrice de Carthage",
+                galleryAlt4: "Carte de l'expansion carthaginoise en Méditerranée occidentale",
+                galleryCap1: "Situation de la ville de Carthage sur la carte",
+                galleryCap2: "Navires phéniciens (bakhara)",
+                galleryCap3: "Elisha (Élissa), fondatrice de Carthage",
+                galleryCap4: "Carte de l'expansion carthaginoise en Méditerranée occidentale",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني",
+                lessonTitleSample: "نشأة قرطاج وتوسّعها",
+                sectionIntro: "مقدمة",
+                introText: "في الألف الثانية قبل الميلاد، كان البحر الأبيض المتوسط مسرحاً لحركة تجارية وبحرية نشطة. وقد برع الفينيقيون (سكان فينيقيا – لبنان حالياً) في الإبحار والتجارة، فاجتازوا البحر ووصلوا إلى سواحل شمال إفريقيا. وهناك، أسّسوا مدناً ساحلية لتكون محطات تجارية، كان من أبرزها مدينة «قرطاج» التي تحوّلت مع مرور الزمن إلى واحدة من أعظم قوى البحر المتوسط. في هذا الدرس، نتعرّف على ظروف نشأة هذه المدينة العريقة ومراحل توسّعها.",
+                problematiqueText: "من هم الفينيقيون؟ وكيف تأسست مدينة قرطاج؟ وما هو موقعها الاستراتيجي؟ وكيف توسّعت قرطاج برّاً وبحراً؟",
+                sectionPart1: "نشأة مدينة قرطاج وموقعها",
+                phoeniciansTitle: "الفينيقيون وتأسيس المدينة",
+                phoeniciansText: "دخل الفينيقيون منطقة غربي البحر الأبيض المتوسط في الألف الثانية قبل الميلاد، وأسّسوا فيها مدناً لتساعدهم على ممارسة تجارتهم البحرية مثل مدينة <strong>أوتيكا</strong> (Utica) ومدينة <strong>حضرموت</strong>.",
+                foundationText: "في سنة <strong>814 قبل الميلاد</strong>، أسّسوا مدينة <strong>«قرت حدشت»</strong> (Qart Hadasht) والتي تعني <strong>«المدينة الجديدة»</strong>، وهي المعروفة باسم <strong>قرطاج</strong>.",
+                locationTitle: "الموقع الاستراتيجي وأسطورة التأسيس",
+                locationText: "<strong>الموقع الاستراتيجي:</strong> اختار الفينيقيون موقع قرطاج بعناية فائقة؛ فهي محاطة بالبحر في أغلب أرجائها، وقريبة جداً من مدينة أوتيكا، وتطلّ على دول البحر الأبيض المتوسط، مما يجعلها مركزاً مثالياً للتحكم في طرق الملاحة والتجارة.",
+                legendText: "<strong>أسطورة التأسيس:</strong> ارتبط تأسيس قرطاج بشخصية <strong>«عليسة»</strong> (إليسا)، حيث تحمل كتابات المؤرخين حول هذا الموضوع طابعاً أسطورياً يخلط بين الحقيقة والخيال.",
+                sectionPart2: "التوسّع القرطاجي (البري والبحري)",
+                maritimeTitle: "الهيمنة البحرية والتجارية",
+                maritimeText: "في القرن السادس قبل الميلاد، تمكّن القرطاجيون من الهيمنة على جانب عظيم من البحر الأبيض المتوسط.",
+                maritimeText2: "أصبحت قرطاج قوة بحرية وتجارية كبرى، حتى «ضاق البحر على البخارة» (السفن)، فسعوا إلى حماية طرقهم البحرية وإنشاء مراكز ومستوطنات تجارية على السواحل لتبادل البضائع والبيع والشراء.",
+                geographicTitle: "الامتداد الجغرافي والوصول إلى المحيط",
+                geographicText: "لم يقتصر توسّع القرطاجيين على السواحل القريبة، بل تجاوزوها بحثاً عن أسواق وأماكن جديدة.",
+                geographicText2: "امتدّ نفوذهم ليشمل سواحل الجزائر والمغرب الحاليين، وبلاد الإيبار (شبه الجزيرة الأيبيرية – إسبانيا والبرتغال حالياً)، بالإضافة إلى سواحل ليبيا الحالية (تحديداً مدينتي صبراطة وليتتيس الكبرى).",
+                geographicText3: "تمكّنوا من بلوغ <strong>المحيط الأطلسي</strong>، مما يعكس مدى قوتهم البحرية والملاحية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا، نرى أنّ قرطاج لم تكن مجرد محطة تجارية عابرة أسّسها الفينيقيون، بل تحوّلت بفضل موقعها الاستراتيجي وذكاء سكانها إلى عاصمة لنفوذ فينيقي واسع في غرب البحر الأبيض المتوسط. لقد أسّست قرطاج إمبراطورية بحرية وتجارية عظيمة امتدّت من سواحل ليبيا شرقاً إلى المحيط الأطلسي غرباً، لتترك إرثاً حضارياً وتاريخياً خالداً في منطقة شمال إفريقيا والبحر المتوسط.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ خرائط وصور توضيحيّة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 أخرى",
+                defCarthage: "قرطاج",
+                defCarthageDesc: "مدينة أسّسها الفينيقيون سنة 814 ق.م باسم «قرت حدشت» أي «المدينة الجديدة»، وتحوّلت إلى واحدة من أعظم قوى البحر الأبيض المتوسط.",
+                defPhoenicia: "فينيقيا",
+                defPhoeniciaDesc: "المنطقة التاريخية التي تقع حالياً في لبنان، ومنها انطلق الفينيقيون في رحلاتهم البحرية والتجارية.",
+                defUtica: "أوتيكا (Utica)",
+                defUticaDesc: "مدينة فينيقية أسّسها الفينيقيون في شمال إفريقيا قبل قرطاج، وتقع قريبة جداً من موقع قرطاج.",
+                defHadrumetum: "حضرموت",
+                defHadrumetumDesc: "مدينة فينيقية أسّسها الفينيقيون في شمال إفريقيا (سوسة حالياً)، وكانت من محطاتهم التجارية البحرية.",
+                defIberia: "بلاد الإيبار",
+                defIberiaDesc: "شبه الجزيرة الأيبيرية، وتشمل إسبانيا والبرتغال حالياً، وقد بلغها النفوذ القرطاجي.",
+                defSabratha: "صبراطة",
+                defSabrathaDesc: "مدينة على الساحل الليبي الحالي، بلغها النفوذ القرطاجي.",
+                defLeptisMagna: "ليتتيس الكبرى",
+                defLeptisMagnaDesc: "مدينة على الساحل الليبي الحالي، بلغها النفوذ القرطاجي.",
+                defAtlantic: "المحيط الأطلسي",
+                defAtlanticDesc: "المحيط الذي تمكّن القرطاجيون من بلوغه غرباً، مما يعكس قوّتهم البحرية والملاحية.",
+                defPhoenicians: "الفينيقيون",
+                defPhoeniciansDesc: "شعب برع في الإبحار والتجارة، سكن فينيقيا (لبنان حالياً)، ووصل إلى سواحل شمال إفريقيا في الألف الثانية قبل الميلاد حيث أسّس مدناً ساحلية تجارية من أبرزها قرطاج.",
+                defQartHadasht: "قرت حدشت (Qart Hadasht)",
+                defQartHadashtDesc: "الاسم الفينيقي لمدينة قرطاج، ويعني «المدينة الجديدة»، وقد أسّست سنة 814 قبل الميلاد.",
+                defElissa: "عليسة (إليسا)",
+                defElissaDesc: "شخصية ارتبط بها تأسيس قرطاج وفق الروايات الأسطورية التي تحمل طابعاً يخلط بين الحقيقة والخيال.",
+                defBakhara: "البخارة",
+                defBakharaDesc: "السفن التجارية والبحرية التي استعملها القرطاجيون في تجارتهم وأسفارهم البحرية.",
+                summaryText: "خلاصة: أسّس الفينيقيون في الألف الثانية قبل الميلاد مدناً ساحلية في غربي المتوسط مثل أوتيكا وحضرموت، ثم أسّسوا سنة 814 ق.م مدينة «قرت حدشت» أي «المدينة الجديدة» المعروفة بقرطاج. اختاروا لها موقعاً استراتيجياً محاطاً بالبحر وقريباً من أوتيكا ومطلّاً على دول المتوسط، وارتبط تأسيسها أسطورياً بشخصية عليسة (إليسا). في القرن السادس ق.م، هيمنت قرطاج على جزء كبير من المتوسط، وأصبحت قوة بحرية وتجارية كبرى، فامتدّ نفوذها إلى سواحل الجزائر والمغرب وبلاد الإيبار وسواحل ليبيا، وبلغت المحيط الأطلسي غرباً.",
+                galleryAlt1: "موقع مدينة قرطاج على الخريطة",
+                galleryAlt2: "سفن فينيقية (البخارة)",
+                galleryAlt3: "عليسة (إليسا) مؤسّسة قرطاج",
+                galleryAlt4: "خريطة التوسّع القرطاجي في غربي المتوسط",
+                galleryCap1: "موقع مدينة قرطاج على الخريطة",
+                galleryCap2: "سفن فينيقية (البخارة)",
+                galleryCap3: "عليسة (إليسا) مؤسّسة قرطاج",
+                galleryCap4: "خريطة التوسّع القرطاجي في غربي المتوسط",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "Phoenicia", class: "key-location", i18n: "defPhoenicia" },
+                { text: "Utica", class: "key-location", i18n: "defUtica" },
+                { text: "Hadrumetum", class: "key-location", i18n: "defHadrumetum" },
+                { text: "The Land of Iberia", class: "key-location", i18n: "defIberia" },
+                { text: "Sabratha", class: "key-location", i18n: "defSabratha" },
+                { text: "Leptis Magna", class: "key-location", i18n: "defLeptisMagna" },
+                { text: "The Atlantic Ocean", class: "key-location", i18n: "defAtlantic" },
+                { text: "The Phoenicians", class: "key-other", i18n: "defPhoenicians" },
+                { text: "Qart Hadasht", class: "key-other", i18n: "defQartHadasht" },
+                { text: "Elisha", class: "key-other", i18n: "defElissa" },
+                { text: "Elissa", class: "key-other", i18n: "defElissa" },
+                { text: "Bakhara", class: "key-other", i18n: "defBakhara" }
+            ],
+            fr: [
+                { text: "Carthage", class: "key-location", i18n: "defCarthage" },
+                { text: "La Phénicie", class: "key-location", i18n: "defPhoenicia" },
+                { text: "Utique", class: "key-location", i18n: "defUtica" },
+                { text: "Hadrumète", class: "key-location", i18n: "defHadrumetum" },
+                { text: "Le pays d'Ibérie", class: "key-location", i18n: "defIberia" },
+                { text: "Sabratha", class: "key-location", i18n: "defSabratha" },
+                { text: "Leptis Magna", class: "key-location", i18n: "defLeptisMagna" },
+                { text: "L'océan Atlantique", class: "key-location", i18n: "defAtlantic" },
+                { text: "Les Phéniciens", class: "key-other", i18n: "defPhoenicians" },
+                { text: "Qart Hadasht", class: "key-other", i18n: "defQartHadasht" },
+                { text: "Elisha", class: "key-other", i18n: "defElissa" },
+                { text: "Élissa", class: "key-other", i18n: "defElissa" },
+                { text: "Bakhara", class: "key-other", i18n: "defBakhara" }
+            ],
+            ar: [
+                { text: "قرطاج", class: "key-location", i18n: "defCarthage" },
+                { text: "فينيقيا", class: "key-location", i18n: "defPhoenicia" },
+                { text: "أوتيكا", class: "key-location", i18n: "defUtica" },
+                { text: "حضرموت", class: "key-location", i18n: "defHadrumetum" },
+                { text: "بلاد الإيبار", class: "key-location", i18n: "defIberia" },
+                { text: "صبراطة", class: "key-location", i18n: "defSabratha" },
+                { text: "ليتتيس الكبرى", class: "key-location", i18n: "defLeptisMagna" },
+                { text: "المحيط الأطلسي", class: "key-location", i18n: "defAtlantic" },
+                { text: "الفينيقيون", class: "key-other", i18n: "defPhoenicians" },
+                { text: "قرت حدشت", class: "key-other", i18n: "defQartHadasht" },
+                { text: "عليسة", class: "key-other", i18n: "defElissa" },
+                { text: "إليسا", class: "key-other", i18n: "defElissa" },
+                { text: "البخارة", class: "key-other", i18n: "defBakhara" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

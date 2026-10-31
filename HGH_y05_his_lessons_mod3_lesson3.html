@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / القيروان مركز إشعاع للحضارة العربيّة الإسلاميّة</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">انتشار الإسلام في بلاد المغرب والأندلس</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">مرحباً بكم أبنائي التلاميذ في رحلة جديدة لاستكشاف فصل عظيم من فصول التاريخ الإسلامي. بعد وفاة الرسول (صلى الله عليه وسلم)، حمل الخلفاء الراشدون ثم الدولة الأموية راية نشر الإسلام خارج الجزيرة العربية. وفي هذا الدرس، سنتناول كيف وصل الإسلام إلى «بلاد المغرب» (شمال إفريقيا) و«الأندلس» (شبه الجزيرة الإيبيرية)، وكيف أسس المسلمون هناك حضارة عريقة ازدهرت بالعلم والعمران. سنتتبع مسار القادة والفاتحين، ونكتشف كيف تحولت هذه البقاع إلى مراكز إشعاع حضاري غيرت مجرى التاريخ.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">كيف انتشر الإسلام في بلاد المغرب؟ وما هي أهم الحملات والفتوحات؟ وكيف فُتحت الأندلس؟ وكيف ازدهرت الحضارة الإسلامية في المغرب والأندلس؟</p>
+            </div>
+
+            <!-- Part I : Islamic Conquests in the Maghreb -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">الفتوحات الإسلامية في بلاد المغرب</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="caliphateTitle">الخلافة والبداية في بلاد المغرب</span>
+                </h4>
+                <p data-i18n="rashidunText">بعد وفاة الرسول (ص) عام <strong>632م</strong> (11 هـ)، تولى الخلافة مجموعة من كبار الصحابة، وهم <strong>الخلفاء الراشدون</strong>: أبو بكر الصديق، وعمر بن الخطاب، وعثمان بن عفان، وعلي بن أبي طالب.</p>
+                <p data-i18n="umayyadText">ثم أسس <strong>معاوية بن أبي سفيان</strong> <strong>الدولة الأموية</strong> عام <strong>661م</strong> (40 هـ).</p>
+                <p data-i18n="campaignsStartText">في عهد الخلافة الأموية، بدأت الحملات الإسلامية تتجه نحو <strong>بلاد المغرب</strong> (شمال إفريقيا) لنشر الإسلام وتأمين حدود الدولة.</p>
+                <p data-i18n="uqbaSentText">أرسل الخليفة معاوية بن أبي سفيان القائد <strong>عقبة بن نافع</strong> لفتح <strong>إفريقية</strong> (تونس الحالية) ونشر الإسلام فيها.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="campaignsTitle">أهم الحملات وتأسيس القيروان</span>
+                </h4>
+                <p data-i18n="uqbaCampaignText"><strong>حملة عقبة بن نافع (سنة 50 هـ / 670 م):</strong> تمكن من فتح إفريقية وتأسيس مدينة <strong>«القيروان»</strong> لتكون قاعدة عسكرية وعاصمة للمسلمين في المنطقة. استشهد عقبة بن نافع لاحقاً على يد الزعيم البربري <strong>«كسيلة»</strong>.</p>
+                <p data-i18n="zuhayrCampaignText"><strong>حملة زهير بن قيس البلوي (سنة 69 هـ):</strong> انتصر فيها المسلمون على البربر وتمكنوا من قتل زعيمهم كسيلة.</p>
+                <p data-i18n="hassanCampaignText"><strong>حملة حسان بن النعمان (سنة 82 هـ):</strong> تمكن فيها من استعادة إفريقية من البيزنطيين، وهزم الملكة البربرية <strong>«الكاهنة»</strong> وقتلها، مما أدى إلى استقرار الحكم الإسلامي في المنطقة.</p>
+                <p data-i18n="musaCampaignText"><strong>حملة موسى بن نصير (سنة 85 هـ):</strong> فتح <strong>المغرب الأقصى</strong> (المغرب الحالي)، واتخذ مدينة <strong>طنجة</strong> قاعدة عسكرية لجيش المسلمين.</p>
+            </div>
+
+            <!-- Part II : Conquest of Al-Andalus and Cultural Flourishing -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">فتح الأندلس وازدهار الحضارة</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="andalusTitle">فتح الأندلس (شبه الجزيرة الإيبيرية)</span>
+                </h4>
+                <p data-i18n="andalusAttentionText">بعد استقرار المسلمين في بلاد المغرب، توجهت أنظارهم نحو <strong>«الأندلس»</strong> (إسبانيا والبرتغال حالياً).</p>
+                <p data-i18n="tariqCampaignText"><strong>الحملة الأولى (سنة 92 هـ / 711 م):</strong> قادها القائد <strong>طارق بن زياد</strong>، وتمكن من عبور البحر وفتح عدة مدن منها <strong>قرطبة</strong> و<strong>إشبيلية</strong> و<strong>طليطلة</strong>.</p>
+                <p data-i18n="musaAndalusCampaignText"><strong>الحملة الثانية (سنة 93 هـ / 714 م):</strong> قادها القائد <strong>موسى بن نصير</strong>، وأكمل فتح باقي مدن الأندلس مثل <strong>سرقسطة</strong>.</p>
+                <p data-i18n="andalusResultText">بذلك أصبحت الأندلس جزءاً من الدولة الإسلامية، وازدهرت فيها العلوم والعمران لقرون عديدة.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="civilizationTitle">ازدهار الحضارة في المغرب والأندلس</span>
+                </h4>
+                <p data-i18n="kairouanCenterText">أصبحت <strong>القيروان</strong> مركزاً هاماً لنشر علوم الدين واللغة العربية، وأهم معالمها <strong>«جامع عقبة بن نافع»</strong> الذي درس فيه علماء كبار مثل <strong>«أسد بن الفرات»</strong> و<strong>«الإمام سحنون»</strong>.</p>
+                <p data-i18n="aghlabidText">في <strong>العهد الأغلبي</strong> (184 هـ / 800 م): أسس <strong>إبراهيم بن الأغلب</strong> الدولة الأغلبية وعاصمتها القيروان، وازدهرت الفلاحة والصناعة (مثل صناعة البلور والخزف والنسيج)، وبنى <strong>إبراهيم الثاني</strong> <strong>«بيت الحكمة»</strong> سنة 264 هـ.</p>
+                <p data-i18n="fatimidText">تأسست <strong>الدولة الفاطمية</strong> (296 هـ / 909 م) على يد <strong>عبيد الله المهدي</strong>، وبنوا مدينة <strong>«المهدية»</strong> لتكون عاصمة لهم، واهتموا بإنشاء المرافق مثل الأسوار والمخازن والمساجد.</p>
+                <p data-i18n="hafsidText">في <strong>العهد الحفصي</strong> (634 هـ / 1236 م): ازدهرت مدينة <strong>تونس</strong>، وانتشرت الزراعة، ونشطت الأسواق والحرف (مثل سوق العطارين والحدادين)، وازدهرت العلوم، ومن أبرز علمائها <strong>«عبد الرحمن بن خلدون»</strong> مؤلف كتاب <strong>«العبر»</strong>، وبنوا <strong>«جامع الزيتونة»</strong> الذي يعد من أهم المؤسسات التعليمية.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا نصل إلى نهاية هذا الدرس، حيث تعرفنا على الجهود العظيمة التي بذلها المسلمون لنشر الإسلام في بلاد المغرب والأندلس. لقد كانت هذه الفتوحات بمثابة جسر تواصل حضاري بين الشرق والغرب، حيث لم تقتصر على نشر العقيدة الإسلامية فحسب، بل نقلت اللغة العربية والعلوم والفنون والمعمار. إن دراسة تاريخ هذه المنطقة يثبت لنا أن الحضارة الإسلامية كانت حضارة بناء وعلم وتعايش. أدعوكم إلى التأمل في هذه الإنجازات، واستلهام قيم الاجتهاد والمثابرة في دراستكم وحياتكم.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defMaghreb">بلاد المغرب</strong>: <span data-i18n="defMaghrebDesc">المنطقة الواقعة في شمال إفريقيا (تونس والجزائر والمغرب حالياً).</span></li>
+                        <li><strong class="key-location" data-i18n="defAndalus">الأندلس</strong>: <span data-i18n="defAndalusDesc">الاسم الذي أطلقه المسلمون على شبه الجزيرة الإيبيرية (إسبانيا والبرتغال حالياً).</span></li>
+                        <li><strong class="key-location" data-i18n="defIfriqiya">إفريقية</strong>: <span data-i18n="defIfriqiyaDesc">الاسم التاريخي للجزء الشرقي من بلاد المغرب (تونس وشرق الجزائر حالياً).</span></li>
+                        <li><strong class="key-location" data-i18n="defKairouan">القيروان</strong>: <span data-i18n="defKairouanDesc">المدينة التي أسسها عقبة بن نافع سنة 50 هـ / 670 م لتكون قاعدة عسكرية وعاصمة للمسلمين في المنطقة.</span></li>
+                        <li><strong class="key-location" data-i18n="defTangier">طنجة</strong>: <span data-i18n="defTangierDesc">المدينة التي اتخذها موسى بن نصير قاعدة عسكرية لجيش المسلمين في المغرب الأقصى.</span></li>
+                        <li><strong class="key-location" data-i18n="defCordoba">قرطبة</strong>: <span data-i18n="defCordobaDesc">إحدى المدن الأندلسية التي فتحها طارق بن زياد في حملته الأولى.</span></li>
+                        <li><strong class="key-location" data-i18n="defSeville">إشبيلية</strong>: <span data-i18n="defSevilleDesc">إحدى المدن الأندلسية التي فتحها طارق بن زياد في حملته الأولى.</span></li>
+                        <li><strong class="key-location" data-i18n="defToledo">طليطلة</strong>: <span data-i18n="defToledoDesc">إحدى المدن الأندلسية التي فتحها طارق بن زياد في حملته الأولى.</span></li>
+                        <li><strong class="key-location" data-i18n="defZaragoza">سرقسطة</strong>: <span data-i18n="defZaragozaDesc">إحدى المدن الأندلسية التي أكمل فتحها موسى بن نصير في حملته الثانية.</span></li>
+                        <li><strong class="key-location" data-i18n="defMahdia">المهدية</strong>: <span data-i18n="defMahdiaDesc">المدينة التي بناها الفاطميون لتكون عاصمة لهم، واهتموا بإنشاء المرافق فيها.</span></li>
+                        <li><strong class="key-location" data-i18n="defTunis">تونس</strong>: <span data-i18n="defTunisDesc">المدينة التي ازدهرت في العهد الحفصي، وفيها جامع الزيتونة أحد أهم المؤسسات التعليمية.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 مصطلحات وشخصيات</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defRashidun">الخلفاء الراشدون</strong>: <span data-i18n="defRashidunDesc">الصحابة الذين تولوا الخلافة بعد وفاة الرسول (ص): أبو بكر الصديق، وعمر بن الخطاب، وعثمان بن عفان، وعلي بن أبي طالب.</span></li>
+                        <li><strong class="key-other" data-i18n="defUmayyadState">الدولة الأموية</strong>: <span data-i18n="defUmayyadStateDesc">الدولة التي أسسها معاوية بن أبي سفيان عام 661م (40 هـ).</span></li>
+                        <li><strong class="key-other" data-i18n="defUqba">عقبة بن نافع</strong>: <span data-i18n="defUqbaDesc">القائد الذي أرسله معاوية بن أبي سفيان لفتح إفريقية، وأسّس مدينة القيروان، واستشهد على يد كسيلة.</span></li>
+                        <li><strong class="key-other" data-i18n="defKusayla">كسيلة</strong>: <span data-i18n="defKusaylaDesc">زعيم بربري قاد مقاومة ضد المسلمين، واستشهد على يده عقبة بن نافع، ثم قُتل في حملة زهير بن قيس البلوي.</span></li>
+                        <li><strong class="key-other" data-i18n="defKahina">الكاهنة</strong>: <span data-i18n="defKahinaDesc">ملكة بربرية قادت مقاومة ضد المسلمين في بلاد المغرب، هزمها حسان بن النعمان وقتلها.</span></li>
+                        <li><strong class="key-other" data-i18n="defHassan">حسان بن النعمان</strong>: <span data-i18n="defHassanDesc">القائد الذي استعاد إفريقية من البيزنطيين، وهزم الكاهنة وقتلها، مما أدى إلى استقرار الحكم الإسلامي في المنطقة.</span></li>
+                        <li><strong class="key-other" data-i18n="defMusaNusayr">موسى بن نصير</strong>: <span data-i18n="defMusaNusayrDesc">القائد الذي فتح المغرب الأقصى واتخذ طنجة قاعدة عسكرية، ثم قاد الحملة الثانية لفتح الأندلس.</span></li>
+                        <li><strong class="key-other" data-i18n="defTariq">طارق بن زياد</strong>: <span data-i18n="defTariqDesc">القائد الذي قاد الحملة الأولى لفتح الأندلس سنة 92 هـ / 711 م، ففتح قرطبة وإشبيلية وطليطلة.</span></li>
+                        <li><strong class="key-other" data-i18n="defIbrahimAghlab">إبراهيم بن الأغلب</strong>: <span data-i18n="defIbrahimAghlabDesc">مؤسس الدولة الأغلبية وعاصمتها القيروان، في سنة 184 هـ / 800 م.</span></li>
+                        <li><strong class="key-other" data-i18n="defBaytHikma">بيت الحكمة</strong>: <span data-i18n="defBaytHikmaDesc">مؤسسة بناها إبراهيم الثاني سنة 264 هـ في العهد الأغلبي.</span></li>
+                        <li><strong class="key-other" data-i18n="defFatimidState">الدولة الفاطمية</strong>: <span data-i18n="defFatimidStateDesc">الدولة التي تأسست سنة 296 هـ / 909 م على يد عبيد الله المهدي، وبنوا مدينة المهدية عاصمة لهم.</span></li>
+                        <li><strong class="key-other" data-i18n="defUbaydAllah">عبيد الله المهدي</strong>: <span data-i18n="defUbaydAllahDesc">مؤسس الدولة الفاطمية سنة 296 هـ / 909 م.</span></li>
+                        <li><strong class="key-other" data-i18n="defHafsidState">العهد الحفصي</strong>: <span data-i18n="defHafsidStateDesc">العهد الذي ازدهرت فيه مدينة تونس (634 هـ / 1236 م)، وانتشرت فيه الزراعة والأسواق والحرف والعلوم.</span></li>
+                        <li><strong class="key-other" data-i18n="defIbnKhaldun">عبد الرحمن بن خلدون</strong>: <span data-i18n="defIbnKhaldunDesc">من أبرز علماء العهد الحفصي، ومؤلف كتاب «العبر».</span></li>
+                        <li><strong class="key-other" data-i18n="defZaytuna">جامع الزيتونة</strong>: <span data-i18n="defZaytunaDesc">من أهم المؤسسات التعليمية في تونس، بناه الحفصيون.</span></li>
+                        <li><strong class="key-other" data-i18n="defUqbaMosque">جامع عقبة بن نافع</strong>: <span data-i18n="defUqbaMosqueDesc">أهم معالم القيروان، درس فيه علماء كبار مثل أسد بن الفرات والإمام سحنون.</span></li>
+                        <li><strong class="key-other" data-i18n="defAsadIbnFurat">أسد بن الفرات</strong>: <span data-i18n="defAsadIbnFuratDesc">من العلماء الكبار الذين درسوا في جامع عقبة بن نافع بالقيروان.</span></li>
+                        <li><strong class="key-other" data-i18n="defImamSahnun">الإمام سحنون</strong>: <span data-i18n="defImamSahnunDesc">من العلماء الكبار الذين درسوا في جامع عقبة بن نافع بالقيروان.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: بعد وفاة الرسول (ص) تولى الخلفاء الراشدون ثم الأمويون نشر الإسلام خارج الجزيرة العربية. في العهد الأموي أُرسل عقبة بن نافع لفتح إفريقية وأسّس القيروان (50 هـ / 670 م)، ثم توالت حملات زهير بن قيس البلوي وحسان بن النعمان وموسى بن نصير. وفي سنة 92 هـ / 711 م قاد طارق بن زياد الحملة الأولى لفتح الأندلس، وأكملها موسى بن نصير سنة 93 هـ. ازدهرت الحضارة الإسلامية في القيروان وتونس والمهدية في العهود الأغلبية والفاطمية والحفصية، وبرز علماء كبار مثل أسد بن الفرات والإمام سحنون وابن خلدون، وبُنيت مؤسسات مثل جامع عقبة بن نافع وجامع الزيتونة وبيت الحكمة.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق ومعالم من الفتوحات والحضارة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson3/conquest_of_maghreb_map.jpg" alt="خريطة فتح بلاد المغرب والأندلس" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">خريطة فتح بلاد المغرب والأندلس</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson3/uqba_mosque_kairouan.jpg" alt="جامع عقبة بن نافع بالقيروان" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">جامع عقبة بن نافع بالقيروان</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson3/tariq_ibn_ziyad_crossing.jpg" alt="عبور طارق بن زياد إلى الأندلس" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">عبور طارق بن زياد إلى الأندلس</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson3/zaytuna_mosque_tunis.jpg" alt="جامع الزيتونة بتونس" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">جامع الزيتونة بتونس</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod3_lesson3.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">الأماكن والمصطلحات والشخصيات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الوثائق والمعالم التاريخيّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Kairouan, a Center of Arab-Islamic Civilization",
+                lessonTitleSample: "The Spread of Islam in the Maghreb and Al-Andalus",
+                sectionIntro: "Introduction",
+                introText: "Welcome, dear students, on a new journey to explore a great chapter of Islamic history. After the death of the Prophet (peace be upon him), the Rightly Guided Caliphs and then the Umayyad state carried the banner of spreading Islam outside the Arabian Peninsula. In this lesson, we will examine how Islam reached 'the Maghreb' (North Africa) and 'Al-Andalus' (the Iberian Peninsula), and how the Muslims established there a deep-rooted civilization that flourished with knowledge and construction. We will follow the path of the leaders and conquerors, and discover how these lands turned into centers of cultural influence that changed the course of history.",
+                problematiqueText: "How did Islam spread in the Maghreb? What were the most important campaigns and conquests? How was Al-Andalus conquered? And how did Islamic civilization flourish in the Maghreb and Al-Andalus?",
+                sectionPart1: "The Islamic Conquests in the Maghreb",
+                caliphateTitle: "The Caliphate and the Beginning in the Maghreb",
+                rashidunText: "After the death of the Prophet (PBUH) in <strong>632 AD</strong> (11 AH), a group of senior companions took over the caliphate, namely <strong>the Rightly Guided Caliphs</strong>: Abu Bakr al-Siddiq, Umar ibn al-Khattab, Uthman ibn Affan, and Ali ibn Abi Talib.",
+                umayyadText: "Then <strong>Muawiya ibn Abi Sufyan</strong> founded <strong>the Umayyad State</strong> in <strong>661 AD</strong> (40 AH).",
+                campaignsStartText: "During the Umayyad Caliphate, Islamic campaigns began to head towards <strong>the Maghreb</strong> (North Africa) to spread Islam and secure the borders of the state.",
+                uqbaSentText: "The Caliph Muawiya ibn Abi Sufyan sent the commander <strong>Uqba ibn Nafi</strong> to conquer <strong>Ifriqiya</strong> (present-day Tunisia) and spread Islam in it.",
+                campaignsTitle: "The Most Important Campaigns and the Founding of Kairouan",
+                uqbaCampaignText: "<strong>Uqba ibn Nafi's campaign (year 50 AH / 670 AD):</strong> He managed to conquer Ifriqiya and found the city of <strong>'Kairouan'</strong> to be a military base and capital for the Muslims in the region. Uqba ibn Nafi was later martyred at the hands of the Berber leader <strong>'Kusayla'</strong>.",
+                zuhayrCampaignText: "<strong>Zuhayr ibn Qays al-Balawi's campaign (year 69 AH):</strong> The Muslims defeated the Berbers and managed to kill their leader Kusayla.",
+                hassanCampaignText: "<strong>Hassan ibn al-Numan's campaign (year 82 AH):</strong> He managed to recover Ifriqiya from the Byzantines, defeated the Berber queen <strong>'al-Kahina'</strong> and killed her, leading to the stabilization of Islamic rule in the region.",
+                musaCampaignText: "<strong>Musa ibn Nusayr's campaign (year 85 AH):</strong> He conquered <strong>the Far Maghreb</strong> (present-day Morocco), and took the city of <strong>Tangier</strong> as a military base for the Muslim army.",
+                sectionPart2: "The Conquest of Al-Andalus and Cultural Flourishing",
+                andalusTitle: "The Conquest of Al-Andalus (the Iberian Peninsula)",
+                andalusAttentionText: "After the Muslims settled in the Maghreb, their eyes turned towards <strong>'Al-Andalus'</strong> (present-day Spain and Portugal).",
+                tariqCampaignText: "<strong>The first campaign (year 92 AH / 711 AD):</strong> It was led by the commander <strong>Tariq ibn Ziyad</strong>, who managed to cross the sea and conquer several cities, including <strong>Cordoba</strong>, <strong>Seville</strong>, and <strong>Toledo</strong>.",
+                musaAndalusCampaignText: "<strong>The second campaign (year 93 AH / 714 AD):</strong> It was led by the commander <strong>Musa ibn Nusayr</strong>, who completed the conquest of the remaining cities of Al-Andalus such as <strong>Zaragoza</strong>.",
+                andalusResultText: "Thus Al-Andalus became part of the Islamic state, and knowledge and construction flourished in it for many centuries.",
+                civilizationTitle: "The Flourishing of Civilization in the Maghreb and Al-Andalus",
+                kairouanCenterText: "<strong>Kairouan</strong> became an important center for spreading the sciences of religion and the Arabic language, and its most important landmark is <strong>'the Mosque of Uqba ibn Nafi'</strong> where great scholars studied, such as <strong>'Asad ibn al-Furat'</strong> and <strong>'Imam Sahnun'</strong>.",
+                aghlabidText: "In <strong>the Aghlabid era</strong> (184 AH / 800 AD): <strong>Ibrahim ibn al-Aghlab</strong> founded the Aghlabid State with Kairouan as its capital, and agriculture and industry flourished (such as the industry of crystal, pottery, and textiles), and <strong>Ibrahim II</strong> built <strong>'the House of Wisdom'</strong> in the year 264 AH.",
+                fatimidText: "<strong>The Fatimid State</strong> was founded (296 AH / 909 AD) by <strong>Ubayd Allah al-Mahdi</strong>, and they built the city of <strong>'Mahdia'</strong> to be their capital, and they took care of establishing facilities such as walls, warehouses, and mosques.",
+                hafsidText: "In <strong>the Hafsid era</strong> (634 AH / 1236 AD): the city of <strong>Tunis</strong> flourished, agriculture spread, markets and crafts became active (such as the market of perfumers and blacksmiths), and the sciences flourished, and among its most prominent scholars is <strong>'Abd al-Rahman ibn Khaldun'</strong>, author of the book <strong>'al-Ibar'</strong>, and they built <strong>'the Zaytuna Mosque'</strong>, which is considered one of the most important educational institutions.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus we reach the end of this lesson, where we have learned about the great efforts made by the Muslims to spread Islam in the Maghreb and Al-Andalus. These conquests were a bridge of cultural communication between East and West, as they were not limited to spreading the Islamic faith only, but also transferred the Arabic language, sciences, arts, and architecture. Studying the history of this region proves to us that Islamic civilization was a civilization of construction, knowledge, and coexistence. I invite you to reflect on these achievements, and to draw inspiration from the values of diligence and perseverance in your studies and your lives.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Monuments from the Conquests and Civilization",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Terms and Figures",
+                defMaghreb: "The Maghreb",
+                defMaghrebDesc: "The region located in North Africa (present-day Tunisia, Algeria, and Morocco).",
+                defAndalus: "Al-Andalus",
+                defAndalusDesc: "The name given by the Muslims to the Iberian Peninsula (present-day Spain and Portugal).",
+                defIfriqiya: "Ifriqiya",
+                defIfriqiyaDesc: "The historical name for the eastern part of the Maghreb (present-day Tunisia and eastern Algeria).",
+                defKairouan: "Kairouan",
+                defKairouanDesc: "The city founded by Uqba ibn Nafi in 50 AH / 670 AD to be a military base and capital for the Muslims in the region.",
+                defTangier: "Tangier",
+                defTangierDesc: "The city that Musa ibn Nusayr took as a military base for the Muslim army in the Far Maghreb.",
+                defCordoba: "Cordoba",
+                defCordobaDesc: "One of the Andalusian cities conquered by Tariq ibn Ziyad in his first campaign.",
+                defSeville: "Seville",
+                defSevilleDesc: "One of the Andalusian cities conquered by Tariq ibn Ziyad in his first campaign.",
+                defToledo: "Toledo",
+                defToledoDesc: "One of the Andalusian cities conquered by Tariq ibn Ziyad in his first campaign.",
+                defZaragoza: "Zaragoza",
+                defZaragozaDesc: "One of the Andalusian cities whose conquest Musa ibn Nusayr completed in his second campaign.",
+                defMahdia: "Mahdia",
+                defMahdiaDesc: "The city built by the Fatimids to be their capital, and they took care of establishing facilities in it.",
+                defTunis: "Tunis",
+                defTunisDesc: "The city that flourished in the Hafsid era, and in which the Zaytuna Mosque, one of the most important educational institutions, is located.",
+                defRashidun: "The Rightly Guided Caliphs",
+                defRashidunDesc: "The companions who took over the caliphate after the death of the Prophet (PBUH): Abu Bakr al-Siddiq, Umar ibn al-Khattab, Uthman ibn Affan, and Ali ibn Abi Talib.",
+                defUmayyadState: "The Umayyad State",
+                defUmayyadStateDesc: "The state founded by Muawiya ibn Abi Sufyan in 661 AD (40 AH).",
+                defUqba: "Uqba ibn Nafi",
+                defUqbaDesc: "The commander sent by Muawiya ibn Abi Sufyan to conquer Ifriqiya, who founded the city of Kairouan, and was martyred at the hands of Kusayla.",
+                defKusayla: "Kusayla",
+                defKusaylaDesc: "A Berber leader who led a resistance against the Muslims, at whose hands Uqba ibn Nafi was martyred, and who was then killed in the campaign of Zuhayr ibn Qays al-Balawi.",
+                defKahina: "Al-Kahina",
+                defKahinaDesc: "A Berber queen who led a resistance against the Muslims in the Maghreb; Hassan ibn al-Numan defeated and killed her.",
+                defHassan: "Hassan ibn al-Numan",
+                defHassanDesc: "The commander who recovered Ifriqiya from the Byzantines, defeated and killed al-Kahina, leading to the stabilization of Islamic rule in the region.",
+                defMusaNusayr: "Musa ibn Nusayr",
+                defMusaNusayrDesc: "The commander who conquered the Far Maghreb and took Tangier as a military base, then led the second campaign to conquer Al-Andalus.",
+                defTariq: "Tariq ibn Ziyad",
+                defTariqDesc: "The commander who led the first campaign to conquer Al-Andalus in 92 AH / 711 AD, conquering Cordoba, Seville, and Toledo.",
+                defIbrahimAghlab: "Ibrahim ibn al-Aghlab",
+                defIbrahimAghlabDesc: "The founder of the Aghlabid State with Kairouan as its capital, in the year 184 AH / 800 AD.",
+                defBaytHikma: "The House of Wisdom",
+                defBaytHikmaDesc: "An institution built by Ibrahim II in the year 264 AH during the Aghlabid era.",
+                defFatimidState: "The Fatimid State",
+                defFatimidStateDesc: "The state founded in 296 AH / 909 AD by Ubayd Allah al-Mahdi, who built the city of Mahdia as their capital.",
+                defUbaydAllah: "Ubayd Allah al-Mahdi",
+                defUbaydAllahDesc: "The founder of the Fatimid State in 296 AH / 909 AD.",
+                defHafsidState: "The Hafsid Era",
+                defHafsidStateDesc: "The era in which the city of Tunis flourished (634 AH / 1236 AD), during which agriculture, markets, crafts, and sciences spread.",
+                defIbnKhaldun: "Abd al-Rahman ibn Khaldun",
+                defIbnKhaldunDesc: "One of the most prominent scholars of the Hafsid era, and the author of the book 'al-Ibar'.",
+                defZaytuna: "The Zaytuna Mosque",
+                defZaytunaDesc: "One of the most important educational institutions in Tunis, built by the Hafsids.",
+                defUqbaMosque: "The Mosque of Uqba ibn Nafi",
+                defUqbaMosqueDesc: "The most important landmark of Kairouan, where great scholars such as Asad ibn al-Furat and Imam Sahnun studied.",
+                defAsadIbnFurat: "Asad ibn al-Furat",
+                defAsadIbnFuratDesc: "One of the great scholars who studied at the Mosque of Uqba ibn Nafi in Kairouan.",
+                defImamSahnun: "Imam Sahnun",
+                defImamSahnunDesc: "One of the great scholars who studied at the Mosque of Uqba ibn Nafi in Kairouan.",
+                summaryText: "Key takeaway: After the death of the Prophet (PBUH), the Rightly Guided Caliphs and then the Umayyads took on the spreading of Islam outside the Arabian Peninsula. During the Umayyad era, Uqba ibn Nafi was sent to conquer Ifriqiya and founded Kairouan (50 AH / 670 AD), then the campaigns of Zuhayr ibn Qays al-Balawi, Hassan ibn al-Numan, and Musa ibn Nusayr followed. In the year 92 AH / 711 AD, Tariq ibn Ziyad led the first campaign to conquer Al-Andalus, and Musa ibn Nusayr completed it in the year 93 AH. Islamic civilization flourished in Kairouan, Tunis, and Mahdia during the Aghlabid, Fatimid, and Hafsid eras, and great scholars emerged such as Asad ibn al-Furat, Imam Sahnun, and Ibn Khaldun, and institutions were built such as the Mosque of Uqba ibn Nafi, the Zaytuna Mosque, and the House of Wisdom.",
+                galleryAlt1: "Map of the conquest of the Maghreb and Al-Andalus",
+                galleryAlt2: "The Mosque of Uqba ibn Nafi in Kairouan",
+                galleryAlt3: "Tariq ibn Ziyad crossing to Al-Andalus",
+                galleryAlt4: "The Zaytuna Mosque in Tunis",
+                galleryCap1: "Map of the conquest of the Maghreb and Al-Andalus",
+                galleryCap2: "The Mosque of Uqba ibn Nafi in Kairouan",
+                galleryCap3: "Tariq ibn Ziyad crossing to Al-Andalus",
+                galleryCap4: "The Zaytuna Mosque in Tunis",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / Kairouan, centre de rayonnement de la civilisation arabo-islamique",
+                lessonTitleSample: "L'expansion de l'islam au Maghreb et en Andalousie",
+                sectionIntro: "Introduction",
+                introText: "Bienvenue, chers élèves, dans un nouveau voyage pour explorer un grand chapitre de l'histoire islamique. Après la mort du Prophète (paix et bénédiction sur lui), les califes bien guidés puis l'État omeyyade ont porté la bannière de la diffusion de l'islam en dehors de la péninsule arabique. Dans cette leçon, nous examinerons comment l'islam est parvenu au « Maghreb » (Afrique du Nord) et en « Andalousie » (péninsule Ibérique), et comment les musulmans y ont fondé une civilisation ancienne qui a prospéré par le savoir et la construction. Nous suivrons le parcours des chefs et des conquérants, et nous découvrirons comment ces contrées sont devenues des centres de rayonnement culturel qui ont changé le cours de l'histoire.",
+                problematiqueText: "Comment l'islam s'est-il répandu au Maghreb ? Quelles ont été les campagnes et les conquêtes les plus importantes ? Comment l'Andalousie a-t-elle été conquise ? Et comment la civilisation islamique a-t-elle prospéré au Maghreb et en Andalousie ?",
+                sectionPart1: "Les conquêtes islamiques au Maghreb",
+                caliphateTitle: "Le califat et le début au Maghreb",
+                rashidunText: "Après la mort du Prophète (PBSL) en <strong>632 apr. J.-C.</strong> (11 H), un groupe de grands compagnons a pris le califat, à savoir <strong>les califes bien guidés</strong> : Abu Bakr al-Siddiq, Umar ibn al-Khattab, Uthman ibn Affan et Ali ibn Abi Talib.",
+                umayyadText: "Puis <strong>Muawiya ibn Abi Sufyan</strong> a fondé <strong>l'État omeyyade</strong> en <strong>661 apr. J.-C.</strong> (40 H).",
+                campaignsStartText: "Sous le califat omeyyade, les campagnes islamiques ont commencé à se diriger vers <strong>le Maghreb</strong> (Afrique du Nord) pour répandre l'islam et sécuriser les frontières de l'État.",
+                uqbaSentText: "Le calife Muawiya ibn Abi Sufyan a envoyé le chef <strong>Uqba ibn Nafi</strong> pour conquérir <strong>l'Ifriqiya</strong> (la Tunisie actuelle) et y répandre l'islam.",
+                campaignsTitle: "Les campagnes les plus importantes et la fondation de Kairouan",
+                uqbaCampaignText: "<strong>La campagne d'Uqba ibn Nafi (an 50 H / 670 apr. J.-C.) :</strong> Il a réussi à conquérir l'Ifriqiya et à fonder la ville de <strong>« Kairouan »</strong> pour être une base militaire et une capitale pour les musulmans de la région. Uqba ibn Nafi a été plus tard martyrisé aux mains du chef berbère <strong>« Kusayla »</strong>.",
+                zuhayrCampaignText: "<strong>La campagne de Zuhayr ibn Qays al-Balawi (an 69 H) :</strong> Les musulmans ont vaincu les Berbères et ont réussi à tuer leur chef Kusayla.",
+                hassanCampaignText: "<strong>La campagne de Hassan ibn al-Numan (an 82 H) :</strong> Il a réussi à récupérer l'Ifriqiya des Byzantins, a vaincu la reine berbère <strong>« al-Kahina »</strong> et l'a tuée, ce qui a conduit à la stabilisation de la domination islamique dans la région.",
+                musaCampaignText: "<strong>La campagne de Musa ibn Nusayr (an 85 H) :</strong> Il a conquis <strong>le Maghreb extrême</strong> (le Maroc actuel), et a pris la ville de <strong>Tanger</strong> comme base militaire pour l'armée musulmane.",
+                sectionPart2: "La conquête de l'Andalousie et l'épanouissement de la civilisation",
+                andalusTitle: "La conquête de l'Andalousie (la péninsule Ibérique)",
+                andalusAttentionText: "Après que les musulmans se sont installés au Maghreb, leurs regards se sont tournés vers <strong>« l'Andalousie »</strong> (l'Espagne et le Portugal actuels).",
+                tariqCampaignText: "<strong>La première campagne (an 92 H / 711 apr. J.-C.) :</strong> Elle a été dirigée par le chef <strong>Tariq ibn Ziyad</strong>, qui a réussi à traverser la mer et à conquérir plusieurs villes, dont <strong>Cordoue</strong>, <strong>Séville</strong> et <strong>Tolède</strong>.",
+                musaAndalusCampaignText: "<strong>La deuxième campagne (an 93 H / 714 apr. J.-C.) :</strong> Elle a été dirigée par le chef <strong>Musa ibn Nusayr</strong>, qui a achevé la conquête des autres villes de l'Andalousie comme <strong>Saragosse</strong>.",
+                andalusResultText: "Ainsi l'Andalousie est devenue une partie de l'État islamique, et les sciences et la construction y ont prospéré pendant de nombreux siècles.",
+                civilizationTitle: "L'épanouissement de la civilisation au Maghreb et en Andalousie",
+                kairouanCenterText: "<strong>Kairouan</strong> est devenue un centre important pour la diffusion des sciences religieuses et de la langue arabe, et son monument le plus important est <strong>« la mosquée d'Uqba ibn Nafi »</strong> où ont étudié de grands savants tels que <strong>« Asad ibn al-Furat »</strong> et <strong>« l'imam Sahnun »</strong>.",
+                aghlabidText: "À <strong>l'époque aghlabide</strong> (184 H / 800 apr. J.-C.) : <strong>Ibrahim ibn al-Aghlab</strong> a fondé l'État aghlabide avec Kairouan pour capitale, et l'agriculture et l'industrie ont prospéré (comme l'industrie du cristal, de la poterie et du textile), et <strong>Ibrahim II</strong> a construit <strong>« la Maison de la Sagesse »</strong> en l'an 264 H.",
+                fatimidText: "<strong>L'État fatimide</strong> a été fondé (296 H / 909 apr. J.-C.) par <strong>Ubayd Allah al-Mahdi</strong>, et ils ont construit la ville de <strong>« Mahdia »</strong> pour être leur capitale, et ils ont pris soin de créer des installations telles que des remparts, des entrepôts et des mosquées.",
+                hafsidText: "À <strong>l'époque hafside</strong> (634 H / 1236 apr. J.-C.) : la ville de <strong>Tunis</strong> a prospéré, l'agriculture s'est répandue, les marchés et les métiers se sont animés (comme le marché des parfumeurs et des forgerons), et les sciences ont prospéré, et parmi ses savants les plus éminents figure <strong>« Abd al-Rahman ibn Khaldoun »</strong>, auteur du livre <strong>« al-Ibar »</strong>, et ils ont construit <strong>« la mosquée Zitouna »</strong>, qui est considérée comme l'une des institutions éducatives les plus importantes.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi nous arrivons à la fin de cette leçon, où nous avons découvert les grands efforts déployés par les musulmans pour répandre l'islam au Maghreb et en Andalousie. Ces conquêtes ont été un pont de communication culturelle entre l'Orient et l'Occident, car elles ne se sont pas limitées à la diffusion de la foi islamique, mais ont également transféré la langue arabe, les sciences, les arts et l'architecture. L'étude de l'histoire de cette région nous prouve que la civilisation islamique était une civilisation de construction, de savoir et de coexistence. Je vous invite à réfléchir à ces réalisations, et à vous inspirer des valeurs de diligence et de persévérance dans vos études et vos vies.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et monuments des conquêtes et de la civilisation",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Termes et figures",
+                defMaghreb: "Le Maghreb",
+                defMaghrebDesc: "La région située en Afrique du Nord (la Tunisie, l'Algérie et le Maroc actuels).",
+                defAndalus: "L'Andalousie",
+                defAndalusDesc: "Le nom donné par les musulmans à la péninsule Ibérique (l'Espagne et le Portugal actuels).",
+                defIfriqiya: "L'Ifriqiya",
+                defIfriqiyaDesc: "Le nom historique de la partie orientale du Maghreb (la Tunisie et l'est de l'Algérie actuels).",
+                defKairouan: "Kairouan",
+                defKairouanDesc: "La ville fondée par Uqba ibn Nafi en 50 H / 670 apr. J.-C. pour être une base militaire et une capitale pour les musulmans de la région.",
+                defTangier: "Tanger",
+                defTangierDesc: "La ville que Musa ibn Nusayr a prise comme base militaire pour l'armée musulmane au Maghreb extrême.",
+                defCordoba: "Cordoue",
+                defCordobaDesc: "L'une des villes andalouses conquises par Tariq ibn Ziyad dans sa première campagne.",
+                defSeville: "Séville",
+                defSevilleDesc: "L'une des villes andalouses conquises par Tariq ibn Ziyad dans sa première campagne.",
+                defToledo: "Tolède",
+                defToledoDesc: "L'une des villes andalouses conquises par Tariq ibn Ziyad dans sa première campagne.",
+                defZaragoza: "Saragosse",
+                defZaragozaDesc: "L'une des villes andalouses dont Musa ibn Nusayr a achevé la conquête dans sa deuxième campagne.",
+                defMahdia: "Mahdia",
+                defMahdiaDesc: "La ville construite par les Fatimides pour être leur capitale, et ils ont pris soin d'y créer des installations.",
+                defTunis: "Tunis",
+                defTunisDesc: "La ville qui a prospéré à l'époque hafside, et dans laquelle se trouve la mosquée Zitouna, l'une des institutions éducatives les plus importantes.",
+                defRashidun: "Les califes bien guidés",
+                defRashidunDesc: "Les compagnons qui ont pris le califat après la mort du Prophète (PBSL) : Abu Bakr al-Siddiq, Umar ibn al-Khattab, Uthman ibn Affan et Ali ibn Abi Talib.",
+                defUmayyadState: "L'État omeyyade",
+                defUmayyadStateDesc: "L'État fondé par Muawiya ibn Abi Sufyan en 661 apr. J.-C. (40 H).",
+                defUqba: "Uqba ibn Nafi",
+                defUqbaDesc: "Le chef envoyé par Muawiya ibn Abi Sufyan pour conquérir l'Ifriqiya, qui a fondé la ville de Kairouan, et a été martyrisé aux mains de Kusayla.",
+                defKusayla: "Kusayla",
+                defKusaylaDesc: "Un chef berbère qui a mené une résistance contre les musulmans, aux mains duquel Uqba ibn Nafi a été martyrisé, et qui a ensuite été tué dans la campagne de Zuhayr ibn Qays al-Balawi.",
+                defKahina: "Al-Kahina",
+                defKahinaDesc: "Une reine berbère qui a mené une résistance contre les musulmans au Maghreb ; Hassan ibn al-Numan l'a vaincue et tuée.",
+                defHassan: "Hassan ibn al-Numan",
+                defHassanDesc: "Le chef qui a récupéré l'Ifriqiya des Byzantins, a vaincu et tué al-Kahina, ce qui a conduit à la stabilisation de la domination islamique dans la région.",
+                defMusaNusayr: "Musa ibn Nusayr",
+                defMusaNusayrDesc: "Le chef qui a conquis le Maghreb extrême et a pris Tanger comme base militaire, puis a dirigé la deuxième campagne pour conquérir l'Andalousie.",
+                defTariq: "Tariq ibn Ziyad",
+                defTariqDesc: "Le chef qui a dirigé la première campagne pour conquérir l'Andalousie en 92 H / 711 apr. J.-C., conquérant Cordoue, Séville et Tolède.",
+                defIbrahimAghlab: "Ibrahim ibn al-Aghlab",
+                defIbrahimAghlabDesc: "Le fondateur de l'État aghlabide avec Kairouan pour capitale, en l'an 184 H / 800 apr. J.-C.",
+                defBaytHikma: "La Maison de la Sagesse",
+                defBaytHikmaDesc: "Une institution construite par Ibrahim II en l'an 264 H à l'époque aghlabide.",
+                defFatimidState: "L'État fatimide",
+                defFatimidStateDesc: "L'État fondé en 296 H / 909 apr. J.-C. par Ubayd Allah al-Mahdi, qui a construit la ville de Mahdia comme capitale.",
+                defUbaydAllah: "Ubayd Allah al-Mahdi",
+                defUbaydAllahDesc: "Le fondateur de l'État fatimide en 296 H / 909 apr. J.-C.",
+                defHafsidState: "L'époque hafside",
+                defHafsidStateDesc: "L'époque où la ville de Tunis a prospéré (634 H / 1236 apr. J.-C.), pendant laquelle l'agriculture, les marchés, les métiers et les sciences se sont répandus.",
+                defIbnKhaldun: "Abd al-Rahman ibn Khaldoun",
+                defIbnKhaldunDesc: "L'un des savants les plus éminents de l'époque hafside, et l'auteur du livre « al-Ibar ».",
+                defZaytuna: "La mosquée Zitouna",
+                defZaytunaDesc: "L'une des institutions éducatives les plus importantes de Tunis, construite par les Hafsides.",
+                defUqbaMosque: "La mosquée d'Uqba ibn Nafi",
+                defUqbaMosqueDesc: "Le monument le plus important de Kairouan, où de grands savants tels qu'Asad ibn al-Furat et l'imam Sahnun ont étudié.",
+                defAsadIbnFurat: "Asad ibn al-Furat",
+                defAsadIbnFuratDesc: "L'un des grands savants qui ont étudié à la mosquée d'Uqba ibn Nafi à Kairouan.",
+                defImamSahnun: "L'imam Sahnun",
+                defImamSahnunDesc: "L'un des grands savants qui ont étudié à la mosquée d'Uqba ibn Nafi à Kairouan.",
+                summaryText: "À retenir : Après la mort du Prophète (PBSL), les califes bien guidés puis les Omeyyades ont pris en charge la diffusion de l'islam en dehors de la péninsule arabique. À l'époque omeyyade, Uqba ibn Nafi a été envoyé pour conquérir l'Ifriqiya et a fondé Kairouan (50 H / 670 apr. J.-C.), puis les campagnes de Zuhayr ibn Qays al-Balawi, Hassan ibn al-Numan et Musa ibn Nusayr ont suivi. En l'an 92 H / 711 apr. J.-C., Tariq ibn Ziyad a dirigé la première campagne pour conquérir l'Andalousie, et Musa ibn Nusayr l'a achevée en l'an 93 H. La civilisation islamique a prospéré à Kairouan, Tunis et Mahdia aux époques aghlabide, fatimide et hafside, et de grands savants ont émergé tels qu'Asad ibn al-Furat, l'imam Sahnun et Ibn Khaldoun, et des institutions ont été construites telles que la mosquée d'Uqba ibn Nafi, la mosquée Zitouna et la Maison de la Sagesse.",
+                galleryAlt1: "Carte de la conquête du Maghreb et de l'Andalousie",
+                galleryAlt2: "La mosquée d'Uqba ibn Nafi à Kairouan",
+                galleryAlt3: "Tariq ibn Ziyad traversant vers l'Andalousie",
+                galleryAlt4: "La mosquée Zitouna à Tunis",
+                galleryCap1: "Carte de la conquête du Maghreb et de l'Andalousie",
+                galleryCap2: "La mosquée d'Uqba ibn Nafi à Kairouan",
+                galleryCap3: "Tariq ibn Ziyad traversant vers l'Andalousie",
+                galleryCap4: "La mosquée Zitouna à Tunis",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / القيروان مركز إشعاع للحضارة العربيّة الإسلاميّة",
+                lessonTitleSample: "انتشار الإسلام في بلاد المغرب والأندلس",
+                sectionIntro: "مقدمة",
+                introText: "مرحباً بكم أبنائي التلاميذ في رحلة جديدة لاستكشاف فصل عظيم من فصول التاريخ الإسلامي. بعد وفاة الرسول (صلى الله عليه وسلم)، حمل الخلفاء الراشدون ثم الدولة الأموية راية نشر الإسلام خارج الجزيرة العربية. وفي هذا الدرس، سنتناول كيف وصل الإسلام إلى «بلاد المغرب» (شمال إفريقيا) و«الأندلس» (شبه الجزيرة الإيبيرية)، وكيف أسس المسلمون هناك حضارة عريقة ازدهرت بالعلم والعمران. سنتتبع مسار القادة والفاتحين، ونكتشف كيف تحولت هذه البقاع إلى مراكز إشعاع حضاري غيرت مجرى التاريخ.",
+                problematiqueText: "كيف انتشر الإسلام في بلاد المغرب؟ وما هي أهم الحملات والفتوحات؟ وكيف فُتحت الأندلس؟ وكيف ازدهرت الحضارة الإسلامية في المغرب والأندلس؟",
+                sectionPart1: "الفتوحات الإسلامية في بلاد المغرب",
+                caliphateTitle: "الخلافة والبداية في بلاد المغرب",
+                rashidunText: "بعد وفاة الرسول (ص) عام <strong>632م</strong> (11 هـ)، تولى الخلافة مجموعة من كبار الصحابة، وهم <strong>الخلفاء الراشدون</strong>: أبو بكر الصديق، وعمر بن الخطاب، وعثمان بن عفان، وعلي بن أبي طالب.",
+                umayyadText: "ثم أسس <strong>معاوية بن أبي سفيان</strong> <strong>الدولة الأموية</strong> عام <strong>661م</strong> (40 هـ).",
+                campaignsStartText: "في عهد الخلافة الأموية، بدأت الحملات الإسلامية تتجه نحو <strong>بلاد المغرب</strong> (شمال إفريقيا) لنشر الإسلام وتأمين حدود الدولة.",
+                uqbaSentText: "أرسل الخليفة معاوية بن أبي سفيان القائد <strong>عقبة بن نافع</strong> لفتح <strong>إفريقية</strong> (تونس الحالية) ونشر الإسلام فيها.",
+                campaignsTitle: "أهم الحملات وتأسيس القيروان",
+                uqbaCampaignText: "<strong>حملة عقبة بن نافع (سنة 50 هـ / 670 م):</strong> تمكن من فتح إفريقية وتأسيس مدينة <strong>«القيروان»</strong> لتكون قاعدة عسكرية وعاصمة للمسلمين في المنطقة. استشهد عقبة بن نافع لاحقاً على يد الزعيم البربري <strong>«كسيلة»</strong>.",
+                zuhayrCampaignText: "<strong>حملة زهير بن قيس البلوي (سنة 69 هـ):</strong> انتصر فيها المسلمون على البربر وتمكنوا من قتل زعيمهم كسيلة.",
+                hassanCampaignText: "<strong>حملة حسان بن النعمان (سنة 82 هـ):</strong> تمكن فيها من استعادة إفريقية من البيزنطيين، وهزم الملكة البربرية <strong>«الكاهنة»</strong> وقتلها، مما أدى إلى استقرار الحكم الإسلامي في المنطقة.",
+                musaCampaignText: "<strong>حملة موسى بن نصير (سنة 85 هـ):</strong> فتح <strong>المغرب الأقصى</strong> (المغرب الحالي)، واتخذ مدينة <strong>طنجة</strong> قاعدة عسكرية لجيش المسلمين.",
+                sectionPart2: "فتح الأندلس وازدهار الحضارة",
+                andalusTitle: "فتح الأندلس (شبه الجزيرة الإيبيرية)",
+                andalusAttentionText: "بعد استقرار المسلمين في بلاد المغرب، توجهت أنظارهم نحو <strong>«الأندلس»</strong> (إسبانيا والبرتغال حالياً).",
+                tariqCampaignText: "<strong>الحملة الأولى (سنة 92 هـ / 711 م):</strong> قادها القائد <strong>طارق بن زياد</strong>، وتمكن من عبور البحر وفتح عدة مدن منها <strong>قرطبة</strong> و<strong>إشبيلية</strong> و<strong>طليطلة</strong>.",
+                musaAndalusCampaignText: "<strong>الحملة الثانية (سنة 93 هـ / 714 م):</strong> قادها القائد <strong>موسى بن نصير</strong>، وأكمل فتح باقي مدن الأندلس مثل <strong>سرقسطة</strong>.",
+                andalusResultText: "بذلك أصبحت الأندلس جزءاً من الدولة الإسلامية، وازدهرت فيها العلوم والعمران لقرون عديدة.",
+                civilizationTitle: "ازدهار الحضارة في المغرب والأندلس",
+                kairouanCenterText: "أصبحت <strong>القيروان</strong> مركزاً هاماً لنشر علوم الدين واللغة العربية، وأهم معالمها <strong>«جامع عقبة بن نافع»</strong> الذي درس فيه علماء كبار مثل <strong>«أسد بن الفرات»</strong> و<strong>«الإمام سحنون»</strong>.",
+                aghlabidText: "في <strong>العهد الأغلبي</strong> (184 هـ / 800 م): أسس <strong>إبراهيم بن الأغلب</strong> الدولة الأغلبية وعاصمتها القيروان، وازدهرت الفلاحة والصناعة (مثل صناعة البلور والخزف والنسيج)، وبنى <strong>إبراهيم الثاني</strong> <strong>«بيت الحكمة»</strong> سنة 264 هـ.",
+                fatimidText: "تأسست <strong>الدولة الفاطمية</strong> (296 هـ / 909 م) على يد <strong>عبيد الله المهدي</strong>، وبنوا مدينة <strong>«المهدية»</strong> لتكون عاصمة لهم، واهتموا بإنشاء المرافق مثل الأسوار والمخازن والمساجد.",
+                hafsidText: "في <strong>العهد الحفصي</strong> (634 هـ / 1236 م): ازدهرت مدينة <strong>تونس</strong>، وانتشرت الزراعة، ونشطت الأسواق والحرف (مثل سوق العطارين والحدادين)، وازدهرت العلوم، ومن أبرز علمائها <strong>«عبد الرحمن بن خلدون»</strong> مؤلف كتاب <strong>«العبر»</strong>، وبنوا <strong>«جامع الزيتونة»</strong> الذي يعد من أهم المؤسسات التعليمية.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا نصل إلى نهاية هذا الدرس، حيث تعرفنا على الجهود العظيمة التي بذلها المسلمون لنشر الإسلام في بلاد المغرب والأندلس. لقد كانت هذه الفتوحات بمثابة جسر تواصل حضاري بين الشرق والغرب، حيث لم تقتصر على نشر العقيدة الإسلامية فحسب، بل نقلت اللغة العربية والعلوم والفنون والمعمار. إن دراسة تاريخ هذه المنطقة يثبت لنا أن الحضارة الإسلامية كانت حضارة بناء وعلم وتعايش. أدعوكم إلى التأمل في هذه الإنجازات، واستلهام قيم الاجتهاد والمثابرة في دراستكم وحياتكم.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق ومعالم من الفتوحات والحضارة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 مصطلحات وشخصيات",
+                defMaghreb: "بلاد المغرب",
+                defMaghrebDesc: "المنطقة الواقعة في شمال إفريقيا (تونس والجزائر والمغرب حالياً).",
+                defAndalus: "الأندلس",
+                defAndalusDesc: "الاسم الذي أطلقه المسلمون على شبه الجزيرة الإيبيرية (إسبانيا والبرتغال حالياً).",
+                defIfriqiya: "إفريقية",
+                defIfriqiyaDesc: "الاسم التاريخي للجزء الشرقي من بلاد المغرب (تونس وشرق الجزائر حالياً).",
+                defKairouan: "القيروان",
+                defKairouanDesc: "المدينة التي أسسها عقبة بن نافع سنة 50 هـ / 670 م لتكون قاعدة عسكرية وعاصمة للمسلمين في المنطقة.",
+                defTangier: "طنجة",
+                defTangierDesc: "المدينة التي اتخذها موسى بن نصير قاعدة عسكرية لجيش المسلمين في المغرب الأقصى.",
+                defCordoba: "قرطبة",
+                defCordobaDesc: "إحدى المدن الأندلسية التي فتحها طارق بن زياد في حملته الأولى.",
+                defSeville: "إشبيلية",
+                defSevilleDesc: "إحدى المدن الأندلسية التي فتحها طارق بن زياد في حملته الأولى.",
+                defToledo: "طليطلة",
+                defToledoDesc: "إحدى المدن الأندلسية التي فتحها طارق بن زياد في حملته الأولى.",
+                defZaragoza: "سرقسطة",
+                defZaragozaDesc: "إحدى المدن الأندلسية التي أكمل فتحها موسى بن نصير في حملته الثانية.",
+                defMahdia: "المهدية",
+                defMahdiaDesc: "المدينة التي بناها الفاطميون لتكون عاصمة لهم، واهتموا بإنشاء المرافق فيها.",
+                defTunis: "تونس",
+                defTunisDesc: "المدينة التي ازدهرت في العهد الحفصي، وفيها جامع الزيتونة أحد أهم المؤسسات التعليمية.",
+                defRashidun: "الخلفاء الراشدون",
+                defRashidunDesc: "الصحابة الذين تولوا الخلافة بعد وفاة الرسول (ص): أبو بكر الصديق، وعمر بن الخطاب، وعثمان بن عفان، وعلي بن أبي طالب.",
+                defUmayyadState: "الدولة الأموية",
+                defUmayyadStateDesc: "الدولة التي أسسها معاوية بن أبي سفيان عام 661م (40 هـ).",
+                defUqba: "عقبة بن نافع",
+                defUqbaDesc: "القائد الذي أرسله معاوية بن أبي سفيان لفتح إفريقية، وأسّس مدينة القيروان، واستشهد على يد كسيلة.",
+                defKusayla: "كسيلة",
+                defKusaylaDesc: "زعيم بربري قاد مقاومة ضد المسلمين، واستشهد على يده عقبة بن نافع، ثم قُتل في حملة زهير بن قيس البلوي.",
+                defKahina: "الكاهنة",
+                defKahinaDesc: "ملكة بربرية قادت مقاومة ضد المسلمين في بلاد المغرب، هزمها حسان بن النعمان وقتلها.",
+                defHassan: "حسان بن النعمان",
+                defHassanDesc: "القائد الذي استعاد إفريقية من البيزنطيين، وهزم الكاهنة وقتلها، مما أدى إلى استقرار الحكم الإسلامي في المنطقة.",
+                defMusaNusayr: "موسى بن نصير",
+                defMusaNusayrDesc: "القائد الذي فتح المغرب الأقصى واتخذ طنجة قاعدة عسكرية، ثم قاد الحملة الثانية لفتح الأندلس.",
+                defTariq: "طارق بن زياد",
+                defTariqDesc: "القائد الذي قاد الحملة الأولى لفتح الأندلس سنة 92 هـ / 711 م، ففتح قرطبة وإشبيلية وطليطلة.",
+                defIbrahimAghlab: "إبراهيم بن الأغلب",
+                defIbrahimAghlabDesc: "مؤسس الدولة الأغلبية وعاصمتها القيروان، في سنة 184 هـ / 800 م.",
+                defBaytHikma: "بيت الحكمة",
+                defBaytHikmaDesc: "مؤسسة بناها إبراهيم الثاني سنة 264 هـ في العهد الأغلبي.",
+                defFatimidState: "الدولة الفاطمية",
+                defFatimidStateDesc: "الدولة التي تأسست سنة 296 هـ / 909 م على يد عبيد الله المهدي، وبنوا مدينة المهدية عاصمة لهم.",
+                defUbaydAllah: "عبيد الله المهدي",
+                defUbaydAllahDesc: "مؤسس الدولة الفاطمية سنة 296 هـ / 909 م.",
+                defHafsidState: "العهد الحفصي",
+                defHafsidStateDesc: "العهد الذي ازدهرت فيه مدينة تونس (634 هـ / 1236 م)، وانتشرت فيه الزراعة والأسواق والحرف والعلوم.",
+                defIbnKhaldun: "عبد الرحمن بن خلدون",
+                defIbnKhaldunDesc: "من أبرز علماء العهد الحفصي، ومؤلف كتاب «العبر».",
+                defZaytuna: "جامع الزيتونة",
+                defZaytunaDesc: "من أهم المؤسسات التعليمية في تونس، بناه الحفصيون.",
+                defUqbaMosque: "جامع عقبة بن نافع",
+                defUqbaMosqueDesc: "أهم معالم القيروان، درس فيه علماء كبار مثل أسد بن الفرات والإمام سحنون.",
+                defAsadIbnFurat: "أسد بن الفرات",
+                defAsadIbnFuratDesc: "من العلماء الكبار الذين درسوا في جامع عقبة بن نافع بالقيروان.",
+                defImamSahnun: "الإمام سحنون",
+                defImamSahnunDesc: "من العلماء الكبار الذين درسوا في جامع عقبة بن نافع بالقيروان.",
+                summaryText: "خلاصة: بعد وفاة الرسول (ص) تولى الخلفاء الراشدون ثم الأمويون نشر الإسلام خارج الجزيرة العربية. في العهد الأموي أُرسل عقبة بن نافع لفتح إفريقية وأسّس القيروان (50 هـ / 670 م)، ثم توالت حملات زهير بن قيس البلوي وحسان بن النعمان وموسى بن نصير. وفي سنة 92 هـ / 711 م قاد طارق بن زياد الحملة الأولى لفتح الأندلس، وأكملها موسى بن نصير سنة 93 هـ. ازدهرت الحضارة الإسلامية في القيروان وتونس والمهدية في العهود الأغلبية والفاطمية والحفصية، وبرز علماء كبار مثل أسد بن الفرات والإمام سحنون وابن خلدون، وبُنيت مؤسسات مثل جامع عقبة بن نافع وجامع الزيتونة وبيت الحكمة.",
+                galleryAlt1: "خريطة فتح بلاد المغرب والأندلس",
+                galleryAlt2: "جامع عقبة بن نافع بالقيروان",
+                galleryAlt3: "عبور طارق بن زياد إلى الأندلس",
+                galleryAlt4: "جامع الزيتونة بتونس",
+                galleryCap1: "خريطة فتح بلاد المغرب والأندلس",
+                galleryCap2: "جامع عقبة بن نافع بالقيروان",
+                galleryCap3: "عبور طارق بن زياد إلى الأندلس",
+                galleryCap4: "جامع الزيتونة بتونس",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "The Maghreb", class: "key-location", i18n: "defMaghreb" },
+                { text: "Al-Andalus", class: "key-location", i18n: "defAndalus" },
+                { text: "Ifriqiya", class: "key-location", i18n: "defIfriqiya" },
+                { text: "Kairouan", class: "key-location", i18n: "defKairouan" },
+                { text: "Tangier", class: "key-location", i18n: "defTangier" },
+                { text: "Cordoba", class: "key-location", i18n: "defCordoba" },
+                { text: "Seville", class: "key-location", i18n: "defSeville" },
+                { text: "Toledo", class: "key-location", i18n: "defToledo" },
+                { text: "Zaragoza", class: "key-location", i18n: "defZaragoza" },
+                { text: "Mahdia", class: "key-location", i18n: "defMahdia" },
+                { text: "Tunis", class: "key-location", i18n: "defTunis" },
+                { text: "The Rightly Guided Caliphs", class: "key-other", i18n: "defRashidun" },
+                { text: "The Umayyad State", class: "key-other", i18n: "defUmayyadState" },
+                { text: "Uqba ibn Nafi", class: "key-other", i18n: "defUqba" },
+                { text: "Kusayla", class: "key-other", i18n: "defKusayla" },
+                { text: "Al-Kahina", class: "key-other", i18n: "defKahina" },
+                { text: "Hassan ibn al-Numan", class: "key-other", i18n: "defHassan" },
+                { text: "Musa ibn Nusayr", class: "key-other", i18n: "defMusaNusayr" },
+                { text: "Tariq ibn Ziyad", class: "key-other", i18n: "defTariq" },
+                { text: "Ibrahim ibn al-Aghlab", class: "key-other", i18n: "defIbrahimAghlab" },
+                { text: "The House of Wisdom", class: "key-other", i18n: "defBaytHikma" },
+                { text: "The Fatimid State", class: "key-other", i18n: "defFatimidState" },
+                { text: "Ubayd Allah al-Mahdi", class: "key-other", i18n: "defUbaydAllah" },
+                { text: "The Hafsid Era", class: "key-other", i18n: "defHafsidState" },
+                { text: "Abd al-Rahman ibn Khaldun", class: "key-other", i18n: "defIbnKhaldun" },
+                { text: "The Zaytuna Mosque", class: "key-other", i18n: "defZaytuna" },
+                { text: "The Mosque of Uqba ibn Nafi", class: "key-other", i18n: "defUqbaMosque" },
+                { text: "Asad ibn al-Furat", class: "key-other", i18n: "defAsadIbnFurat" },
+                { text: "Imam Sahnun", class: "key-other", i18n: "defImamSahnun" }
+            ],
+            fr: [
+                { text: "Le Maghreb", class: "key-location", i18n: "defMaghreb" },
+                { text: "L'Andalousie", class: "key-location", i18n: "defAndalus" },
+                { text: "L'Ifriqiya", class: "key-location", i18n: "defIfriqiya" },
+                { text: "Kairouan", class: "key-location", i18n: "defKairouan" },
+                { text: "Tanger", class: "key-location", i18n: "defTangier" },
+                { text: "Cordoue", class: "key-location", i18n: "defCordoba" },
+                { text: "Séville", class: "key-location", i18n: "defSeville" },
+                { text: "Tolède", class: "key-location", i18n: "defToledo" },
+                { text: "Saragosse", class: "key-location", i18n: "defZaragoza" },
+                { text: "Mahdia", class: "key-location", i18n: "defMahdia" },
+                { text: "Tunis", class: "key-location", i18n: "defTunis" },
+                { text: "Les califes bien guidés", class: "key-other", i18n: "defRashidun" },
+                { text: "L'État omeyyade", class: "key-other", i18n: "defUmayyadState" },
+                { text: "Uqba ibn Nafi", class: "key-other", i18n: "defUqba" },
+                { text: "Kusayla", class: "key-other", i18n: "defKusayla" },
+                { text: "Al-Kahina", class: "key-other", i18n: "defKahina" },
+                { text: "Hassan ibn al-Numan", class: "key-other", i18n: "defHassan" },
+                { text: "Musa ibn Nusayr", class: "key-other", i18n: "defMusaNusayr" },
+                { text: "Tariq ibn Ziyad", class: "key-other", i18n: "defTariq" },
+                { text: "Ibrahim ibn al-Aghlab", class: "key-other", i18n: "defIbrahimAghlab" },
+                { text: "La Maison de la Sagesse", class: "key-other", i18n: "defBaytHikma" },
+                { text: "L'État fatimide", class: "key-other", i18n: "defFatimidState" },
+                { text: "Ubayd Allah al-Mahdi", class: "key-other", i18n: "defUbaydAllah" },
+                { text: "L'époque hafside", class: "key-other", i18n: "defHafsidState" },
+                { text: "Abd al-Rahman ibn Khaldoun", class: "key-other", i18n: "defIbnKhaldun" },
+                { text: "La mosquée Zitouna", class: "key-other", i18n: "defZaytuna" },
+                { text: "La mosquée d'Uqba ibn Nafi", class: "key-other", i18n: "defUqbaMosque" },
+                { text: "Asad ibn al-Furat", class: "key-other", i18n: "defAsadIbnFurat" },
+                { text: "L'imam Sahnun", class: "key-other", i18n: "defImamSahnun" }
+            ],
+            ar: [
+                { text: "بلاد المغرب", class: "key-location", i18n: "defMaghreb" },
+                { text: "الأندلس", class: "key-location", i18n: "defAndalus" },
+                { text: "إفريقية", class: "key-location", i18n: "defIfriqiya" },
+                { text: "القيروان", class: "key-location", i18n: "defKairouan" },
+                { text: "طنجة", class: "key-location", i18n: "defTangier" },
+                { text: "قرطبة", class: "key-location", i18n: "defCordoba" },
+                { text: "إشبيلية", class: "key-location", i18n: "defSeville" },
+                { text: "طليطلة", class: "key-location", i18n: "defToledo" },
+                { text: "سرقسطة", class: "key-location", i18n: "defZaragoza" },
+                { text: "المهدية", class: "key-location", i18n: "defMahdia" },
+                { text: "تونس", class: "key-location", i18n: "defTunis" },
+                { text: "الخلفاء الراشدون", class: "key-other", i18n: "defRashidun" },
+                { text: "الدولة الأموية", class: "key-other", i18n: "defUmayyadState" },
+                { text: "عقبة بن نافع", class: "key-other", i18n: "defUqba" },
+                { text: "كسيلة", class: "key-other", i18n: "defKusayla" },
+                { text: "الكاهنة", class: "key-other", i18n: "defKahina" },
+                { text: "حسان بن النعمان", class: "key-other", i18n: "defHassan" },
+                { text: "موسى بن نصير", class: "key-other", i18n: "defMusaNusayr" },
+                { text: "طارق بن زياد", class: "key-other", i18n: "defTariq" },
+                { text: "إبراهيم بن الأغلب", class: "key-other", i18n: "defIbrahimAghlab" },
+                { text: "بيت الحكمة", class: "key-other", i18n: "defBaytHikma" },
+                { text: "الدولة الفاطمية", class: "key-other", i18n: "defFatimidState" },
+                { text: "عبيد الله المهدي", class: "key-other", i18n: "defUbaydAllah" },
+                { text: "العهد الحفصي", class: "key-other", i18n: "defHafsidState" },
+                { text: "عبد الرحمن بن خلدون", class: "key-other", i18n: "defIbnKhaldun" },
+                { text: "جامع الزيتونة", class: "key-other", i18n: "defZaytuna" },
+                { text: "جامع عقبة بن نافع", class: "key-other", i18n: "defUqbaMosque" },
+                { text: "أسد بن الفرات", class: "key-other", i18n: "defAsadIbnFurat" },
+                { text: "الإمام سحنون", class: "key-other", i18n: "defImamSahnun" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

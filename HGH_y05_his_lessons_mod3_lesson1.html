@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / القيروان مركز إشعاع للحضارة العربيّة الإسلاميّة</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">حياة الرسول (ص): الفترة المكّية</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">مرحباً بكم أبنائي التلاميذ في رحلة عبر الزمن لاستكشاف صفحة مشرقة من تاريخنا الإسلامي. في هذا الدرس، سنتناول بالدراسة «الفترة المكية» من حياة الرسول محمد (صلى الله عليه وسلم)، وهي المرحلة التأسيسية التي شهدت ولادته، ونشأته، ونزول الوحي عليه، وبداية دعوته، مروراً بالصعوبات التي واجهها، وصولاً إلى هجرته إلى المدينة المنورة. من خلال هذه الرحلة التاريخية، سنتعرف على القيم النبيلة، والصبر، والثبات في مواجهة التحديات.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">كيف كانت نشأة الرسول محمد (ص)؟ وكيف بدأ الوحي والدعوة؟ وما هي الصعوبات التي واجهها؟ وكيف هاجر إلى المدينة المنورة؟</p>
+            </div>
+
+            <!-- Part I : Upbringing and Beginning of Revelation -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">النشأة وبداية الوحي</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="birthTitle">المولد والنشأة</span>
+                </h4>
+                <p data-i18n="birthText">وُلد محمد بن عبد الله في <strong>مكة المكرمة</strong>، في الثاني عشر من شهر ربيع الأول، في <strong>«عام الفيل»</strong>. سُمي هذا العام بهذا الاسم نسبة إلى حملة أبرهة الأشرم (قائد عسكري من الحبشة) التي قصدت مكة لمهاجمة الكعبة، والتي انتهت بالفشل. ينتمي محمد إلى قبيلة قريش (فرع قصي)، ووالده عبد الله بن عبد المطلب (توفي قبل ولادته)، ووالدته آمنة بنت وهب (توفيت وهو في السادسة من عمره).</p>
+                <p data-i18n="nurturingText">أرضعته <strong>حليمة السعدية</strong> في بادية بني سعد، وكفله جده عبد المطلب ثم عمه أبو طالب.</p>
+                <p data-i18n="workText">عمل في رعي الغنم في صغره، ثم في التجارة مع عمه أبي طالب، ثم مع السيدة خديجة بنت خويلد. اتصف بالصدق والأمانة، ولُقّب قبل البعثة بـ <strong>«الصادق الأمين»</strong>.</p>
+                <p data-i18n="kaabaText">شارك في بناء الكعبة (وضع الحجر الأسود في مكانه) وساهم في حلّ النزاع بين قبائل قريش.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="revelationTitle">بداية الوحي والدعوة السرية</span>
+                </h4>
+                <p data-i18n="seclusionText">تذكر المصادر التاريخية الإسلامية أن محمداً بدأ يبتعد عن عادات قومه ويتأمل في خلق الله، وكان يختلي في <strong>«غار حراء»</strong> للتعبد.</p>
+                <p data-i18n="firstRevelationText">في سن الأربعين، وفي ليلة من ليالي شهر رمضان، تلقى أولى آيات القرآن الكريم في غار حراء. الآيات الأولى التي نزلت عليه هي مطلع سورة العلق: (اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ * خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ * اقْرَأْ وَرَبُّكَ الْأَكْرَمُ * الَّذِي عَلَّمَ بِالْقَلَمِ * عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ).</p>
+                <p data-i18n="nabuwwaText">عاد محمد إلى زوجته خديجة، ثم اصطحبته إلى ورقة بن نوفل (ابن عمها)، الذي أشار إلى أن ما رآه هو بداية النبوة.</p>
+                <p data-i18n="secretDawahText">استمرت <strong>الدعوة السرية</strong> ثلاث سنوات، دعا فيها محمد المقربين منه إلى الإسلام. أول من أسلم من الرجال: <strong>أبو بكر الصديق</strong>، وأول من أسلم من النساء: <strong>خديجة بنت خويلد</strong>، وأول من أسلم من الصبيان: <strong>علي بن أبي طالب</strong>.</p>
+            </div>
+
+            <!-- Part II : Public Preaching and Migration -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">الجهر بالدعوة والهجرة</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="publicDawahTitle">الدعوة الجهرية والصعوبات</span>
+                </h4>
+                <p data-i18n="publicDawahText">بعد نزول قوله تعالى: (وَأَنذِرْ عَشِيرَتَكَ الْأَقْرَبِينَ)، صعد محمد جبل الصفا ودعا قبائل قريش علناً إلى الإسلام.</p>
+                <p data-i18n="persecutionText">تعرض محمد وأتباعه للأذى والمضايقات من قبيلة قريش، وتفاقم الأذى بعد وفاة عمه أبي طالب (الذي كان يحميه).</p>
+                <p data-i18n="taifText">خرج محمد إلى <strong>الطائف</strong> (تبعد حوالي 70 كم عن مكة) لطلب الدعم من قبيلة ثقيف، لكنه لم ينجح في ذلك.</p>
+                <p data-i18n="abyssiniaText">أمر محمد أتباعه بالتفرق والهجرة إلى <strong>الحبشة</strong> لحمايتهم من بطش قريش.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="hijraTitle">الهجرة إلى المدينة المنورة</span>
+                </h4>
+                <p data-i18n="permissionText">أُذن لمحمد بالهجرة إلى <strong>يثرب</strong> (<strong>المدينة المنورة</strong> حالياً).</p>
+                <p data-i18n="companionText">رافقه في هجرته أبو بكر الصديق، واختبأ محمد وأبو بكر في <strong>«غار ثور»</strong> لمدة ثلاث ليال.</p>
+                <p data-i18n="aliRoleText">بقي علي بن أبي طالب في مكة ليعيد الأمانات إلى أهلها وينام في فراش محمد.</p>
+                <p data-i18n="hijraImportanceText">كانت <strong>الهجرة</strong> سنة 622 ميلادي، وهي بداية <strong>التقويم الهجري</strong>. وتعتبر الهجرة نهاية الفترة المكية وبداية مرحلة جديدة لتأسيس الدولة الإسلامية في المدينة.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا نصل إلى نهاية درسنا عن الفترة المكية من حياة الرسول (ص). لقد تعرفنا على مراحل نشأته، وكيف بدأ الوحي، والجهود العظيمة التي بذلها في نشر الدعوة، والصبر الجميل الذي تحلى به هو وأصحابه في مواجهة الصعوبات. إن الهجرة إلى المدينة لم تكن مجرد انتقال جغرافي، بل كانت نقطة تحول كبرى أسست لمرحلة جديدة من التاريخ الإنساني. أدعوكم إلى استخلاص العبر من هذه السيرة العطرة، والاقتداء بقيم الصدق، والأمانة، والصبر في حياتكم اليومية.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defMecca">مكة المكرمة</strong>: <span data-i18n="defMeccaDesc">المدينة التي وُلد فيها الرسول محمد (ص)، وفيها الكعبة المشرفة، وفيها بدأ الوحي والدعوة.</span></li>
+                        <li><strong class="key-location" data-i18n="defMedina">المدينة المنورة (يثرب)</strong>: <span data-i18n="defMedinaDesc">المدينة التي هاجر إليها الرسول (ص) سنة 622م، وفيها أسّس الدولة الإسلامية.</span></li>
+                        <li><strong class="key-location" data-i18n="defHira">غار حراء</strong>: <span data-i18n="defHiraDesc">الغار الذي كان يتعبد فيه محمد قبل البعثة، وفيه تلقى الوحي.</span></li>
+                        <li><strong class="key-location" data-i18n="defThawr">غار ثور</strong>: <span data-i18n="defThawrDesc">الغار الذي اختبأ فيه محمد وأبو بكر أثناء الهجرة.</span></li>
+                        <li><strong class="key-location" data-i18n="defTaif">الطائف</strong>: <span data-i18n="defTaifDesc">مدينة تبعد حوالي 70 كم عن مكة، خرج إليها الرسول (ص) لطلب الدعم من قبيلة ثقيف.</span></li>
+                        <li><strong class="key-location" data-i18n="defAbyssinia">الحبشة</strong>: <span data-i18n="defAbyssiniaDesc">البلد الذي هاجر إليه بعض المسلمين الأوائل لحمايتهم من بطش قريش.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 مصطلحات وشخصيات</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defYearElephant">عام الفيل</strong>: <span data-i18n="defYearElephantDesc">العام الذي وُلد فيه الرسول، وسُمي بذلك نسبة إلى حملة أبرهة التي استخدمت الفيلة لمهاجمة الكعبة.</span></li>
+                        <li><strong class="key-other" data-i18n="defWahy">الوحي</strong>: <span data-i18n="defWahyDesc">كلام الله المنزّل على أنبيائه ورسله، وقد نزل على محمد (ص) لأول مرة في غار حراء.</span></li>
+                        <li><strong class="key-other" data-i18n="defSadiqAmin">الصادق الأمين</strong>: <span data-i18n="defSadiqAminDesc">اللقب الذي عُرف به محمد (ص) قبل البعثة بسبب صدقه وأمانته.</span></li>
+                        <li><strong class="key-other" data-i18n="defSecretDawah">الدعوة السرية</strong>: <span data-i18n="defSecretDawahDesc">مرحلة الدعوة إلى الإسلام في السر، استمرت ثلاث سنوات، دعا فيها الرسول (ص) المقربين منه.</span></li>
+                        <li><strong class="key-other" data-i18n="defPublicDawah">الدعوة الجهرية</strong>: <span data-i18n="defPublicDawahDesc">مرحلة الدعوة إلى الإسلام علناً، بدأت بعد نزول قوله تعالى (وَأَنذِرْ عَشِيرَتَكَ الْأَقْرَبِينَ).</span></li>
+                        <li><strong class="key-other" data-i18n="defHijra">الهجرة</strong>: <span data-i18n="defHijraDesc">انتقال الرسول (ص) وأصحابه من مكة إلى المدينة المنورة سنة 622م، وهي بداية التقويم الهجري.</span></li>
+                        <li><strong class="key-other" data-i18n="defHijriCalendar">التقويم الهجري</strong>: <span data-i18n="defHijriCalendarDesc">التقويم الذي يبدأ من سنة الهجرة (622م).</span></li>
+                        <li><strong class="key-other" data-i18n="defAbuBakr">أبو بكر الصديق</strong>: <span data-i18n="defAbuBakrDesc">أول من أسلم من الرجال، ورافق الرسول (ص) في هجرته.</span></li>
+                        <li><strong class="key-other" data-i18n="defKhadija">خديجة بنت خويلد</strong>: <span data-i18n="defKhadijaDesc">أول من أسلم من النساء، ودعمت الرسول (ص) في بداية الدعوة.</span></li>
+                        <li><strong class="key-other" data-i18n="defAli">علي بن أبي طالب</strong>: <span data-i18n="defAliDesc">أول من أسلم من الصبيان، ونام في فراش الرسول (ص) ليلة الهجرة.</span></li>
+                        <li><strong class="key-other" data-i18n="defHalima">حليمة السعدية</strong>: <span data-i18n="defHalimaDesc">مرضعة الرسول (ص) في بادية بني سعد.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: وُلد الرسول محمد (ص) بمكة المكرمة في عام الفيل، ونشأ يتيماً فكفله جده ثم عمه، واتصف بالصدق والأمانة حتى لُقّب بـ«الصادق الأمين». في سن الأربعين نزل عليه الوحي بغار حراء، فبدأ بالدعوة السرية ثلاث سنوات، ثم جهر بالدعوة بعد نزول (وَأَنذِرْ عَشِيرَتَكَ الْأَقْرَبِينَ)، فتعرض هو وأصحابه للأذى، وهاجر بعضهم إلى الحبشة. وفي سنة 622م أُذن له بالهجرة إلى يثرب (المدينة المنورة) رفقة أبي بكر، فكانت بداية التقويم الهجري ونهاية الفترة المكية.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق ومعالم من السيرة النبويّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson1/kaaba_construction.jpg" alt="مشاركة الرسول (ص) في بناء الكعبة" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">مشاركة الرسول (ص) في بناء الكعبة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson1/cave_hira_revelation.jpg" alt="نزول الوحي في غار حراء" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">نزول الوحي في غار حراء</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson1/hijra_to_medina.jpg" alt="الهجرة إلى المدينة المنورة" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">الهجرة إلى المدينة المنورة</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit3/lesson1/al_masjid_an_nabawi.jpg" alt="المسجد النبوي بالمدينة المنورة" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">المسجد النبوي بالمدينة المنورة</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod3_lesson1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المصطلحات والأماكن والشخصيات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الوثائق والمعالم النبويّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Kairouan, a Center of Arab-Islamic Civilization",
+                lessonTitleSample: "Life of the Prophet (PBUH): The Meccan Period",
+                sectionIntro: "Introduction",
+                introText: "Welcome, dear students, on a journey through time to explore a bright page from our Islamic history. In this lesson, we will study the 'Meccan Period' of the life of the Prophet Muhammad (peace be upon him), the foundational stage that witnessed his birth, his upbringing, the descent of revelation upon him, and the beginning of his call, passing through the difficulties he faced, up to his migration to Medina. Through this historical journey, we will learn about noble values, patience, and steadfastness in the face of challenges.",
+                problematiqueText: "How was the upbringing of the Prophet Muhammad (PBUH)? How did the revelation and the call begin? What difficulties did he face? And how did he migrate to Medina?",
+                sectionPart1: "Upbringing and the Beginning of Revelation",
+                birthTitle: "Birth and Upbringing",
+                birthText: "Muhammad ibn Abdullah was born in <strong>Mecca</strong>, on the twelfth of the month of Rabi' al-Awwal, in the <strong>'Year of the Elephant'</strong>. This year was named after the campaign of Abraha al-Ashram (a military commander from Abyssinia) who headed towards Mecca to attack the Kaaba, and which ended in failure. Muhammad belongs to the tribe of Quraysh (the branch of Qusay); his father is Abdullah ibn Abd al-Muttalib (who died before his birth), and his mother is Amina bint Wahb (who died when he was six years old).",
+                nurturingText: "He was breastfed by <strong>Halima al-Sa'diyya</strong> in the desert of Banu Sa'd, and was cared for by his grandfather Abd al-Muttalib and then by his uncle Abu Talib.",
+                workText: "He worked as a shepherd in his youth, then in trade with his uncle Abu Talib, and then with Lady Khadija bint Khuwaylid. He was characterized by truthfulness and trustworthiness, and was nicknamed before prophethood <strong>'Al-Sadiq Al-Amin'</strong> (The Truthful, the Trustworthy).",
+                kaabaText: "He participated in the rebuilding of the Kaaba (placing the Black Stone in its place) and contributed to resolving the dispute between the Quraysh tribes.",
+                revelationTitle: "The Beginning of Revelation and the Secret Call",
+                seclusionText: "Islamic historical sources mention that Muhammad began to withdraw from the customs of his people and contemplate the creation of God, and he used to seclude himself in <strong>'the Cave of Hira'</strong> for worship.",
+                firstRevelationText: "At the age of forty, on one of the nights of the month of Ramadan, he received the first verses of the Holy Quran in the Cave of Hira. The first verses revealed to him are the opening of Surah Al-Alaq: (Read in the name of your Lord who created * created man from a clinging substance * Read, and your Lord is the most Generous * Who taught by the pen * taught man that which he knew not).",
+                nabuwwaText: "Muhammad returned to his wife Khadija, who then took him to Waraqa ibn Nawfal (her cousin), who indicated that what he had seen was the beginning of prophethood.",
+                secretDawahText: "<strong>The secret call</strong> lasted three years, during which Muhammad invited those close to him to Islam. The first man to embrace Islam was <strong>Abu Bakr al-Siddiq</strong>, the first woman was <strong>Khadija bint Khuwaylid</strong>, and the first boy was <strong>Ali ibn Abi Talib</strong>.",
+                sectionPart2: "The Public Call and the Migration",
+                publicDawahTitle: "The Public Call and the Difficulties",
+                publicDawahText: "After the revelation of the verse: (And warn your closest kindred), Muhammad ascended Mount Safa and publicly called the tribes of Quraysh to Islam.",
+                persecutionText: "Muhammad and his followers were subjected to harm and harassment from the tribe of Quraysh, and the harm intensified after the death of his uncle Abu Talib (who used to protect him).",
+                taifText: "Muhammad went out to <strong>Ta'if</strong> (about 70 km from Mecca) to seek support from the tribe of Thaqif, but he did not succeed in that.",
+                abyssiniaText: "Muhammad ordered his followers to disperse and migrate to <strong>Abyssinia</strong> to protect them from the oppression of Quraysh.",
+                hijraTitle: "The Migration to Medina",
+                permissionText: "Muhammad was granted permission to migrate to <strong>Yathrib</strong> (<strong>Medina</strong> today).",
+                companionText: "Abu Bakr al-Siddiq accompanied him on his migration, and Muhammad and Abu Bakr hid in <strong>'the Cave of Thawr'</strong> for three nights.",
+                aliRoleText: "Ali ibn Abi Talib remained in Mecca to return the trusts to their owners and to sleep in Muhammad's bed.",
+                hijraImportanceText: "<strong>The Hijra (Migration)</strong> took place in the year 622 AD, and it marks the beginning of the <strong>Hijri Calendar</strong>. The Hijra is considered the end of the Meccan period and the beginning of a new stage for the establishment of the Islamic state in Medina.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus we reach the end of our lesson on the Meccan period of the life of the Prophet (PBUH). We have learned about the stages of his upbringing, how the revelation began, the great efforts he made in spreading the call, and the beautiful patience he and his companions showed in the face of difficulties. The migration to Medina was not merely a geographical move, but a major turning point that founded a new stage in human history. I invite you to draw lessons from this fragrant biography, and to emulate the values of truthfulness, trustworthiness, and patience in your daily lives.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Monuments from the Prophetic Biography",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Terms and Figures",
+                defMecca: "Mecca",
+                defMeccaDesc: "The city where the Prophet Muhammad (PBUH) was born, where the Holy Kaaba is located, and where the revelation and the call began.",
+                defMedina: "Medina (Yathrib)",
+                defMedinaDesc: "The city to which the Prophet (PBUH) migrated in 622 AD, and in which he established the Islamic state.",
+                defHira: "The Cave of Hira",
+                defHiraDesc: "The cave where Muhammad used to worship before prophethood, and in which he received the revelation.",
+                defThawr: "The Cave of Thawr",
+                defThawrDesc: "The cave where Muhammad and Abu Bakr hid during the migration.",
+                defTaif: "Ta'if",
+                defTaifDesc: "A city about 70 km from Mecca, to which the Prophet (PBUH) went out to seek support from the tribe of Thaqif.",
+                defAbyssinia: "Abyssinia",
+                defAbyssiniaDesc: "The country to which some of the early Muslims migrated to protect them from the oppression of Quraysh.",
+                defYearElephant: "The Year of the Elephant",
+                defYearElephantDesc: "The year in which the Prophet was born, named after the campaign of Abraha who used elephants to attack the Kaaba.",
+                defWahy: "Revelation",
+                defWahyDesc: "The word of God revealed to His prophets and messengers; it descended upon Muhammad (PBUH) for the first time in the Cave of Hira.",
+                defSadiqAmin: "Al-Sadiq Al-Amin (The Truthful, the Trustworthy)",
+                defSadiqAminDesc: "The nickname by which Muhammad (PBUH) was known before prophethood because of his truthfulness and trustworthiness.",
+                defSecretDawah: "The Secret Call",
+                defSecretDawahDesc: "The stage of calling to Islam in secret, which lasted three years, during which the Prophet (PBUH) invited those close to him.",
+                defPublicDawah: "The Public Call",
+                defPublicDawahDesc: "The stage of calling to Islam openly, which began after the revelation of the verse: (And warn your closest kindred).",
+                defHijra: "The Hijra (Migration)",
+                defHijraDesc: "The move of the Prophet (PBUH) and his companions from Mecca to Medina in 622 AD, marking the beginning of the Hijri calendar.",
+                defHijriCalendar: "The Hijri Calendar",
+                defHijriCalendarDesc: "The calendar that begins from the year of the Hijra (622 AD).",
+                defAbuBakr: "Abu Bakr al-Siddiq",
+                defAbuBakrDesc: "The first man to embrace Islam, and the companion of the Prophet (PBUH) during his migration.",
+                defKhadija: "Khadija bint Khuwaylid",
+                defKhadijaDesc: "The first woman to embrace Islam, who supported the Prophet (PBUH) at the beginning of the call.",
+                defAli: "Ali ibn Abi Talib",
+                defAliDesc: "The first boy to embrace Islam, who slept in the bed of the Prophet (PBUH) on the night of the migration.",
+                defHalima: "Halima al-Sa'diyya",
+                defHalimaDesc: "The wet nurse of the Prophet (PBUH) in the desert of Banu Sa'd.",
+                summaryText: "Key takeaway: The Prophet Muhammad (PBUH) was born in Mecca in the Year of the Elephant, grew up as an orphan cared for by his grandfather and then his uncle, and was known for truthfulness and trustworthiness until he was nicknamed 'Al-Sadiq Al-Amin'. At the age of forty, the revelation descended upon him in the Cave of Hira, and he began the secret call for three years, then made the call public after the revelation of (And warn your closest kindred). He and his companions faced harm, and some of them migrated to Abyssinia. In 622 AD, he was granted permission to migrate to Yathrib (Medina) accompanied by Abu Bakr, marking the beginning of the Hijri calendar and the end of the Meccan period.",
+                galleryAlt1: "The Prophet's (PBUH) participation in rebuilding the Kaaba",
+                galleryAlt2: "The descent of revelation in the Cave of Hira",
+                galleryAlt3: "The migration to Medina",
+                galleryAlt4: "The Prophet's Mosque in Medina",
+                galleryCap1: "The Prophet's (PBUH) participation in rebuilding the Kaaba",
+                galleryCap2: "The descent of revelation in the Cave of Hira",
+                galleryCap3: "The migration to Medina",
+                galleryCap4: "The Prophet's Mosque in Medina",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / Kairouan, centre de rayonnement de la civilisation arabo-islamique",
+                lessonTitleSample: "Vie du Prophète (PBSL) : La période mecquoise",
+                sectionIntro: "Introduction",
+                introText: "Bienvenue, chers élèves, dans un voyage à travers le temps pour explorer une page lumineuse de notre histoire islamique. Dans cette leçon, nous étudierons « la période mecquoise » de la vie du Prophète Muhammad (paix et bénédiction sur lui), la phase fondatrice qui a vu sa naissance, son éducation, la descente de la révélation sur lui et le début de sa prédication, en passant par les difficultés qu'il a rencontrées, jusqu'à son émigration vers Médine. À travers ce voyage historique, nous découvrirons les valeurs nobles, la patience et la fermeté face aux défis.",
+                problematiqueText: "Comment s'est déroulée l'éducation du Prophète Muhammad (PBSL) ? Comment la révélation et la prédication ont-elles commencé ? Quelles difficultés a-t-il rencontrées ? Et comment a-t-il émigré vers Médine ?",
+                sectionPart1: "L'éducation et le début de la révélation",
+                birthTitle: "La naissance et l'éducation",
+                birthText: "Muhammad ibn Abdullah est né à <strong>La Mecque</strong>, le douze du mois de Rabi' al-Awwal, en <strong>« l'Année de l'Éléphant »</strong>. Cette année a été nommée d'après la campagne d'Abraha al-Ashram (un commandant militaire d'Abyssinie) qui se dirigea vers La Mecque pour attaquer la Kaaba, et qui se solda par un échec. Muhammad appartient à la tribu de Quraysh (la branche de Qusay) ; son père est Abdullah ibn Abd al-Muttalib (décédé avant sa naissance), et sa mère est Amina bint Wahb (décédée alors qu'il avait six ans).",
+                nurturingText: "Il fut allaité par <strong>Halima al-Sa'diyya</strong> dans la campagne de Banu Sa'd, et fut pris en charge par son grand-père Abd al-Muttalib puis par son oncle Abu Talib.",
+                workText: "Il travailla comme berger dans sa jeunesse, puis dans le commerce avec son oncle Abu Talib, puis avec Dame Khadija bint Khuwaylid. Il se caractérisait par la véracité et la fiabilité, et fut surnommé avant la prophétie <strong>« Al-Sadiq Al-Amine »</strong> (Le Véridique, Le Digne de confiance).",
+                kaabaText: "Il participa à la reconstruction de la Kaaba (placement de la Pierre Noire à sa place) et contribua à résoudre le différend entre les tribus de Quraysh.",
+                revelationTitle: "Le début de la révélation et la prédication secrète",
+                seclusionText: "Les sources historiques islamiques rapportent que Muhammad commença à s'écarter des coutumes de son peuple et à méditer sur la création de Dieu, et qu'il s'isolait dans <strong>« la grotte de Hira »</strong> pour adorer.",
+                firstRevelationText: "À l'âge de quarante ans, lors d'une nuit du mois de Ramadan, il reçut les premiers versets du Saint Coran dans la grotte de Hira. Les premiers versets qui lui furent révélés sont le début de la sourate Al-Alaq : (Lis au nom de ton Seigneur qui a créé * qui a créé l'homme d'une adhérence * Lis ! Ton Seigneur est le Très Noble * qui a enseigné par la plume * a enseigné à l'homme ce qu'il ne savait pas).",
+                nabuwwaText: "Muhammad retourna auprès de son épouse Khadija, qui le conduisit ensuite chez Waraqa ibn Nawfal (son cousin), qui indiqua que ce qu'il avait vu était le début de la prophétie.",
+                secretDawahText: "<strong>La prédication secrète</strong> dura trois ans, durant lesquels Muhammad appela à l'islam ceux qui lui étaient proches. Le premier homme à embrasser l'islam fut <strong>Abu Bakr al-Siddiq</strong>, la première femme fut <strong>Khadija bint Khuwaylid</strong>, et le premier enfant fut <strong>Ali ibn Abi Talib</strong>.",
+                sectionPart2: "La prédication publique et l'Hégire",
+                publicDawahTitle: "La prédication publique et les difficultés",
+                publicDawahText: "Après la révélation du verset : (Et avertis tes proches parents les plus proches), Muhammad monta sur le mont Safa et appela ouvertement les tribus de Quraysh à l'islam.",
+                persecutionText: "Muhammad et ses partisans furent exposés aux préjudices et au harcèlement de la tribu de Quraysh, et les préjudices s'intensifièrent après la mort de son oncle Abu Talib (qui le protégeait).",
+                taifText: "Muhammad se rendit à <strong>Taïf</strong> (à environ 70 km de La Mecque) pour demander le soutien de la tribu de Thaqif, mais il n'y réussit pas.",
+                abyssiniaText: "Muhammad ordonna à ses partisans de se disperser et d'émigrer en <strong>Abyssinie</strong> pour les protéger de l'oppression de Quraysh.",
+                hijraTitle: "L'Hégire vers Médine",
+                permissionText: "Muhammad fut autorisé à émigrer vers <strong>Yathrib</strong> (<strong>Médine</strong> aujourd'hui).",
+                companionText: "Abu Bakr al-Siddiq l'accompagna dans son émigration, et Muhammad et Abu Bakr se cachèrent dans <strong>« la grotte de Thawr »</strong> pendant trois nuits.",
+                aliRoleText: "Ali ibn Abi Talib resta à La Mecque pour rendre les dépôts à leurs propriétaires et pour dormir dans le lit de Muhammad.",
+                hijraImportanceText: "<strong>L'Hégire</strong> eut lieu en l'an 622 après Jésus-Christ, et elle marque le début du <strong>calendrier hégirien</strong>. L'Hégire est considérée comme la fin de la période mecquoise et le début d'une nouvelle étape pour l'établissement de l'État islamique à Médine.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi, nous arrivons à la fin de notre leçon sur la période mecquoise de la vie du Prophète (PBSL). Nous avons découvert les étapes de son éducation, comment la révélation a commencé, les grands efforts qu'il a déployés pour répandre la prédication, et la belle patience dont lui et ses compagnons ont fait preuve face aux difficultés. L'émigration vers Médine ne fut pas un simple déplacement géographique, mais un tournant majeur qui a fondé une nouvelle étape de l'histoire humaine. Je vous invite à tirer des leçons de cette biographie parfumée, et à suivre les valeurs de véracité, de fiabilité et de patience dans votre vie quotidienne.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et monuments de la biographie prophétique",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Termes et figures",
+                defMecca: "La Mecque",
+                defMeccaDesc: "La ville où est né le Prophète Muhammad (PBSL), où se trouve la Sainte Kaaba, et où la révélation et la prédication ont commencé.",
+                defMedina: "Médine (Yathrib)",
+                defMedinaDesc: "La ville vers laquelle le Prophète (PBSL) a émigré en 622 après Jésus-Christ, et où il a établi l'État islamique.",
+                defHira: "La grotte de Hira",
+                defHiraDesc: "La grotte où Muhammad adorait avant la prophétie, et où il a reçu la révélation.",
+                defThawr: "La grotte de Thawr",
+                defThawrDesc: "La grotte où Muhammad et Abu Bakr se sont cachés pendant l'émigration.",
+                defTaif: "Taïf",
+                defTaifDesc: "Une ville située à environ 70 km de La Mecque, où le Prophète (PBSL) s'est rendu pour demander le soutien de la tribu de Thaqif.",
+                defAbyssinia: "L'Abyssinie",
+                defAbyssiniaDesc: "Le pays vers lequel certains des premiers musulmans ont émigré pour les protéger de l'oppression de Quraysh.",
+                defYearElephant: "L'Année de l'Éléphant",
+                defYearElephantDesc: "L'année où le Prophète est né, nommée d'après la campagne d'Abraha qui utilisa des éléphants pour attaquer la Kaaba.",
+                defWahy: "La révélation",
+                defWahyDesc: "La parole de Dieu révélée à Ses prophètes et messagers ; elle est descendue sur Muhammad (PBSL) pour la première fois dans la grotte de Hira.",
+                defSadiqAmin: "Al-Sadiq Al-Amine (Le Véridique, Le Digne de confiance)",
+                defSadiqAminDesc: "Le surnom par lequel Muhammad (PBSL) était connu avant la prophétie en raison de sa véracité et de sa fiabilité.",
+                defSecretDawah: "La prédication secrète",
+                defSecretDawahDesc: "L'étape de l'appel à l'islam en secret, qui a duré trois ans, durant lesquels le Prophète (PBSL) a invité ceux qui lui étaient proches.",
+                defPublicDawah: "La prédication publique",
+                defPublicDawahDesc: "L'étape de l'appel à l'islam ouvertement, qui a commencé après la révélation du verset : (Et avertis tes proches parents les plus proches).",
+                defHijra: "L'Hégire",
+                defHijraDesc: "Le déplacement du Prophète (PBSL) et de ses compagnons de La Mecque à Médine en 622 après Jésus-Christ, marquant le début du calendrier hégirien.",
+                defHijriCalendar: "Le calendrier hégirien",
+                defHijriCalendarDesc: "Le calendrier qui commence à partir de l'année de l'Hégire (622 après Jésus-Christ).",
+                defAbuBakr: "Abu Bakr al-Siddiq",
+                defAbuBakrDesc: "Le premier homme à embrasser l'islam, et le compagnon du Prophète (PBSL) lors de son émigration.",
+                defKhadija: "Khadija bint Khuwaylid",
+                defKhadijaDesc: "La première femme à embrasser l'islam, qui a soutenu le Prophète (PBSL) au début de la prédication.",
+                defAli: "Ali ibn Abi Talib",
+                defAliDesc: "Le premier enfant à embrasser l'islam, qui a dormi dans le lit du Prophète (PBSL) la nuit de l'émigration.",
+                defHalima: "Halima al-Sa'diyya",
+                defHalimaDesc: "La nourrice du Prophète (PBSL) dans la campagne de Banu Sa'd.",
+                summaryText: "À retenir : Le Prophète Muhammad (PBSL) est né à La Mecque l'Année de l'Éléphant, a grandi orphelin pris en charge par son grand-père puis son oncle, et était connu pour sa véracité et sa fiabilité jusqu'à être surnommé « Al-Sadiq Al-Amine ». À l'âge de quarante ans, la révélation est descendue sur lui dans la grotte de Hira, et il a commencé la prédication secrète pendant trois ans, puis a rendu la prédication publique après la révélation de (Et avertis tes proches parents les plus proches). Lui et ses compagnons ont subi des préjudices, et certains d'entre eux ont émigré en Abyssinie. En 622 après Jésus-Christ, il a été autorisé à émigrer vers Yathrib (Médine) accompagné d'Abu Bakr, marquant le début du calendrier hégirien et la fin de la période mecquoise.",
+                galleryAlt1: "La participation du Prophète (PBSL) à la reconstruction de la Kaaba",
+                galleryAlt2: "La descente de la révélation dans la grotte de Hira",
+                galleryAlt3: "L'Hégire vers Médine",
+                galleryAlt4: "La mosquée du Prophète à Médine",
+                galleryCap1: "La participation du Prophète (PBSL) à la reconstruction de la Kaaba",
+                galleryCap2: "La descente de la révélation dans la grotte de Hira",
+                galleryCap3: "L'Hégire vers Médine",
+                galleryCap4: "La mosquée du Prophète à Médine",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / القيروان مركز إشعاع للحضارة العربيّة الإسلاميّة",
+                lessonTitleSample: "حياة الرسول (ص): الفترة المكّية",
+                sectionIntro: "مقدمة",
+                introText: "مرحباً بكم أبنائي التلاميذ في رحلة عبر الزمن لاستكشاف صفحة مشرقة من تاريخنا الإسلامي. في هذا الدرس، سنتناول بالدراسة «الفترة المكية» من حياة الرسول محمد (صلى الله عليه وسلم)، وهي المرحلة التأسيسية التي شهدت ولادته، ونشأته، ونزول الوحي عليه، وبداية دعوته، مروراً بالصعوبات التي واجهها، وصولاً إلى هجرته إلى المدينة المنورة. من خلال هذه الرحلة التاريخية، سنتعرف على القيم النبيلة، والصبر، والثبات في مواجهة التحديات.",
+                problematiqueText: "كيف كانت نشأة الرسول محمد (ص)؟ وكيف بدأ الوحي والدعوة؟ وما هي الصعوبات التي واجهها؟ وكيف هاجر إلى المدينة المنورة؟",
+                sectionPart1: "النشأة وبداية الوحي",
+                birthTitle: "المولد والنشأة",
+                birthText: "وُلد محمد بن عبد الله في <strong>مكة المكرمة</strong>، في الثاني عشر من شهر ربيع الأول، في <strong>«عام الفيل»</strong>. سُمي هذا العام بهذا الاسم نسبة إلى حملة أبرهة الأشرم (قائد عسكري من الحبشة) التي قصدت مكة لمهاجمة الكعبة، والتي انتهت بالفشل. ينتمي محمد إلى قبيلة قريش (فرع قصي)، ووالده عبد الله بن عبد المطلب (توفي قبل ولادته)، ووالدته آمنة بنت وهب (توفيت وهو في السادسة من عمره).",
+                nurturingText: "أرضعته <strong>حليمة السعدية</strong> في بادية بني سعد، وكفله جده عبد المطلب ثم عمه أبو طالب.",
+                workText: "عمل في رعي الغنم في صغره، ثم في التجارة مع عمه أبي طالب، ثم مع السيدة خديجة بنت خويلد. اتصف بالصدق والأمانة، ولُقّب قبل البعثة بـ <strong>«الصادق الأمين»</strong>.",
+                kaabaText: "شارك في بناء الكعبة (وضع الحجر الأسود في مكانه) وساهم في حلّ النزاع بين قبائل قريش.",
+                revelationTitle: "بداية الوحي والدعوة السرية",
+                seclusionText: "تذكر المصادر التاريخية الإسلامية أن محمداً بدأ يبتعد عن عادات قومه ويتأمل في خلق الله، وكان يختلي في <strong>«غار حراء»</strong> للتعبد.",
+                firstRevelationText: "في سن الأربعين، وفي ليلة من ليالي شهر رمضان، تلقى أولى آيات القرآن الكريم في غار حراء. الآيات الأولى التي نزلت عليه هي مطلع سورة العلق: (اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ * خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ * اقْرَأْ وَرَبُّكَ الْأَكْرَمُ * الَّذِي عَلَّمَ بِالْقَلَمِ * عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ).",
+                nabuwwaText: "عاد محمد إلى زوجته خديجة، ثم اصطحبته إلى ورقة بن نوفل (ابن عمها)، الذي أشار إلى أن ما رآه هو بداية النبوة.",
+                secretDawahText: "استمرت <strong>الدعوة السرية</strong> ثلاث سنوات، دعا فيها محمد المقربين منه إلى الإسلام. أول من أسلم من الرجال: <strong>أبو بكر الصديق</strong>، وأول من أسلم من النساء: <strong>خديجة بنت خويلد</strong>، وأول من أسلم من الصبيان: <strong>علي بن أبي طالب</strong>.",
+                sectionPart2: "الجهر بالدعوة والهجرة",
+                publicDawahTitle: "الدعوة الجهرية والصعوبات",
+                publicDawahText: "بعد نزول قوله تعالى: (وَأَنذِرْ عَشِيرَتَكَ الْأَقْرَبِينَ)، صعد محمد جبل الصفا ودعا قبائل قريش علناً إلى الإسلام.",
+                persecutionText: "تعرض محمد وأتباعه للأذى والمضايقات من قبيلة قريش، وتفاقم الأذى بعد وفاة عمه أبي طالب (الذي كان يحميه).",
+                taifText: "خرج محمد إلى <strong>الطائف</strong> (تبعد حوالي 70 كم عن مكة) لطلب الدعم من قبيلة ثقيف، لكنه لم ينجح في ذلك.",
+                abyssiniaText: "أمر محمد أتباعه بالتفرق والهجرة إلى <strong>الحبشة</strong> لحمايتهم من بطش قريش.",
+                hijraTitle: "الهجرة إلى المدينة المنورة",
+                permissionText: "أُذن لمحمد بالهجرة إلى <strong>يثرب</strong> (<strong>المدينة المنورة</strong> حالياً).",
+                companionText: "رافقه في هجرته أبو بكر الصديق، واختبأ محمد وأبو بكر في <strong>«غار ثور»</strong> لمدة ثلاث ليال.",
+                aliRoleText: "بقي علي بن أبي طالب في مكة ليعيد الأمانات إلى أهلها وينام في فراش محمد.",
+                hijraImportanceText: "كانت <strong>الهجرة</strong> سنة 622 ميلادي، وهي بداية <strong>التقويم الهجري</strong>. وتعتبر الهجرة نهاية الفترة المكية وبداية مرحلة جديدة لتأسيس الدولة الإسلامية في المدينة.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا نصل إلى نهاية درسنا عن الفترة المكية من حياة الرسول (ص). لقد تعرفنا على مراحل نشأته، وكيف بدأ الوحي، والجهود العظيمة التي بذلها في نشر الدعوة، والصبر الجميل الذي تحلى به هو وأصحابه في مواجهة الصعوبات. إن الهجرة إلى المدينة لم تكن مجرد انتقال جغرافي، بل كانت نقطة تحول كبرى أسست لمرحلة جديدة من التاريخ الإنساني. أدعوكم إلى استخلاص العبر من هذه السيرة العطرة، والاقتداء بقيم الصدق، والأمانة، والصبر في حياتكم اليومية.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق ومعالم من السيرة النبويّة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 مصطلحات وشخصيات",
+                defMecca: "مكة المكرمة",
+                defMeccaDesc: "المدينة التي وُلد فيها الرسول محمد (ص)، وفيها الكعبة المشرفة، وفيها بدأ الوحي والدعوة.",
+                defMedina: "المدينة المنورة (يثرب)",
+                defMedinaDesc: "المدينة التي هاجر إليها الرسول (ص) سنة 622م، وفيها أسّس الدولة الإسلامية.",
+                defHira: "غار حراء",
+                defHiraDesc: "الغار الذي كان يتعبد فيه محمد قبل البعثة، وفيه تلقى الوحي.",
+                defThawr: "غار ثور",
+                defThawrDesc: "الغار الذي اختبأ فيه محمد وأبو بكر أثناء الهجرة.",
+                defTaif: "الطائف",
+                defTaifDesc: "مدينة تبعد حوالي 70 كم عن مكة، خرج إليها الرسول (ص) لطلب الدعم من قبيلة ثقيف.",
+                defAbyssinia: "الحبشة",
+                defAbyssiniaDesc: "البلد الذي هاجر إليه بعض المسلمين الأوائل لحمايتهم من بطش قريش.",
+                defYearElephant: "عام الفيل",
+                defYearElephantDesc: "العام الذي وُلد فيه الرسول، وسُمي بذلك نسبة إلى حملة أبرهة التي استخدمت الفيلة لمهاجمة الكعبة.",
+                defWahy: "الوحي",
+                defWahyDesc: "كلام الله المنزّل على أنبيائه ورسله، وقد نزل على محمد (ص) لأول مرة في غار حراء.",
+                defSadiqAmin: "الصادق الأمين",
+                defSadiqAminDesc: "اللقب الذي عُرف به محمد (ص) قبل البعثة بسبب صدقه وأمانته.",
+                defSecretDawah: "الدعوة السرية",
+                defSecretDawahDesc: "مرحلة الدعوة إلى الإسلام في السر، استمرت ثلاث سنوات، دعا فيها الرسول (ص) المقربين منه.",
+                defPublicDawah: "الدعوة الجهرية",
+                defPublicDawahDesc: "مرحلة الدعوة إلى الإسلام علناً، بدأت بعد نزول قوله تعالى (وَأَنذِرْ عَشِيرَتَكَ الْأَقْرَبِينَ).",
+                defHijra: "الهجرة",
+                defHijraDesc: "انتقال الرسول (ص) وأصحابه من مكة إلى المدينة المنورة سنة 622م، وهي بداية التقويم الهجري.",
+                defHijriCalendar: "التقويم الهجري",
+                defHijriCalendarDesc: "التقويم الذي يبدأ من سنة الهجرة (622م).",
+                defAbuBakr: "أبو بكر الصديق",
+                defAbuBakrDesc: "أول من أسلم من الرجال، ورافق الرسول (ص) في هجرته.",
+                defKhadija: "خديجة بنت خويلد",
+                defKhadijaDesc: "أول من أسلم من النساء، ودعمت الرسول (ص) في بداية الدعوة.",
+                defAli: "علي بن أبي طالب",
+                defAliDesc: "أول من أسلم من الصبيان، ونام في فراش الرسول (ص) ليلة الهجرة.",
+                defHalima: "حليمة السعدية",
+                defHalimaDesc: "مرضعة الرسول (ص) في بادية بني سعد.",
+                summaryText: "خلاصة: وُلد الرسول محمد (ص) بمكة المكرمة في عام الفيل، ونشأ يتيماً فكفله جده ثم عمه، واتصف بالصدق والأمانة حتى لُقّب بـ«الصادق الأمين». في سن الأربعين نزل عليه الوحي بغار حراء، فبدأ بالدعوة السرية ثلاث سنوات، ثم جهر بالدعوة بعد نزول (وَأَنذِرْ عَشِيرَتَكَ الْأَقْرَبِينَ)، فتعرض هو وأصحابه للأذى، وهاجر بعضهم إلى الحبشة. وفي سنة 622م أُذن له بالهجرة إلى يثرب (المدينة المنورة) رفقة أبي بكر، فكانت بداية التقويم الهجري ونهاية الفترة المكية.",
+                galleryAlt1: "مشاركة الرسول (ص) في بناء الكعبة",
+                galleryAlt2: "نزول الوحي في غار حراء",
+                galleryAlt3: "الهجرة إلى المدينة المنورة",
+                galleryAlt4: "المسجد النبوي بالمدينة المنورة",
+                galleryCap1: "مشاركة الرسول (ص) في بناء الكعبة",
+                galleryCap2: "نزول الوحي في غار حراء",
+                galleryCap3: "الهجرة إلى المدينة المنورة",
+                galleryCap4: "المسجد النبوي بالمدينة المنورة",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Mecca", class: "key-location", i18n: "defMecca" },
+                { text: "Medina", class: "key-location", i18n: "defMedina" },
+                { text: "Yathrib", class: "key-location", i18n: "defMedina" },
+                { text: "The Cave of Hira", class: "key-location", i18n: "defHira" },
+                { text: "The Cave of Thawr", class: "key-location", i18n: "defThawr" },
+                { text: "Ta'if", class: "key-location", i18n: "defTaif" },
+                { text: "Abyssinia", class: "key-location", i18n: "defAbyssinia" },
+                { text: "The Year of the Elephant", class: "key-other", i18n: "defYearElephant" },
+                { text: "Al-Sadiq Al-Amin", class: "key-other", i18n: "defSadiqAmin" },
+                { text: "The Secret Call", class: "key-other", i18n: "defSecretDawah" },
+                { text: "The Public Call", class: "key-other", i18n: "defPublicDawah" },
+                { text: "The Hijri Calendar", class: "key-other", i18n: "defHijriCalendar" },
+                { text: "The Hijra", class: "key-other", i18n: "defHijra" },
+                { text: "Abu Bakr al-Siddiq", class: "key-other", i18n: "defAbuBakr" },
+                { text: "Khadija bint Khuwaylid", class: "key-other", i18n: "defKhadija" },
+                { text: "Ali ibn Abi Talib", class: "key-other", i18n: "defAli" },
+                { text: "Halima al-Sa'diyya", class: "key-other", i18n: "defHalima" }
+            ],
+            fr: [
+                { text: "La Mecque", class: "key-location", i18n: "defMecca" },
+                { text: "Médine", class: "key-location", i18n: "defMedina" },
+                { text: "Yathrib", class: "key-location", i18n: "defMedina" },
+                { text: "La grotte de Hira", class: "key-location", i18n: "defHira" },
+                { text: "La grotte de Thawr", class: "key-location", i18n: "defThawr" },
+                { text: "Taïf", class: "key-location", i18n: "defTaif" },
+                { text: "L'Abyssinie", class: "key-location", i18n: "defAbyssinia" },
+                { text: "L'Année de l'Éléphant", class: "key-other", i18n: "defYearElephant" },
+                { text: "Al-Sadiq Al-Amine", class: "key-other", i18n: "defSadiqAmin" },
+                { text: "La prédication secrète", class: "key-other", i18n: "defSecretDawah" },
+                { text: "La prédication publique", class: "key-other", i18n: "defPublicDawah" },
+                { text: "Le calendrier hégirien", class: "key-other", i18n: "defHijriCalendar" },
+                { text: "L'Hégire", class: "key-other", i18n: "defHijra" },
+                { text: "Abu Bakr al-Siddiq", class: "key-other", i18n: "defAbuBakr" },
+                { text: "Khadija bint Khuwaylid", class: "key-other", i18n: "defKhadija" },
+                { text: "Ali ibn Abi Talib", class: "key-other", i18n: "defAli" },
+                { text: "Halima al-Sa'diyya", class: "key-other", i18n: "defHalima" }
+            ],
+            ar: [
+                { text: "مكة المكرمة", class: "key-location", i18n: "defMecca" },
+                { text: "المدينة المنورة", class: "key-location", i18n: "defMedina" },
+                { text: "يثرب", class: "key-location", i18n: "defMedina" },
+                { text: "غار حراء", class: "key-location", i18n: "defHira" },
+                { text: "غار ثور", class: "key-location", i18n: "defThawr" },
+                { text: "الطائف", class: "key-location", i18n: "defTaif" },
+                { text: "الحبشة", class: "key-location", i18n: "defAbyssinia" },
+                { text: "عام الفيل", class: "key-other", i18n: "defYearElephant" },
+                { text: "الصادق الأمين", class: "key-other", i18n: "defSadiqAmin" },
+                { text: "الدعوة السرية", class: "key-other", i18n: "defSecretDawah" },
+                { text: "الدعوة الجهرية", class: "key-other", i18n: "defPublicDawah" },
+                { text: "التقويم الهجري", class: "key-other", i18n: "defHijriCalendar" },
+                { text: "الهجرة", class: "key-other", i18n: "defHijra" },
+                { text: "أبو بكر الصديق", class: "key-other", i18n: "defAbuBakr" },
+                { text: "خديجة بنت خويلد", class: "key-other", i18n: "defKhadija" },
+                { text: "علي بن أبي طالب", class: "key-other", i18n: "defAli" },
+                { text: "حليمة السعدية", class: "key-other", i18n: "defHalima" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

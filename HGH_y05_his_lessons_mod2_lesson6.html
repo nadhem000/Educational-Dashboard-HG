@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">مظاهر الازدهار الحضاري لأفريكا الرومانيّة: الازدهار الاقتصادي والثقافي</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">بعد أن اطّلعنا في الدرس السابق على ازدهار المدن في أفريكا الرومانيّة وما شهدته من عمران وتنظيم إداري وبلدي، نتناول في هذا الدرس جانباً آخر من مظاهر هذا الازدهار، يتعلّق بالاقتصاد والثقافة. فقد شهدت أفريكا الرومانيّة انتعاشاً فلاحياً كبيراً، انعكست آثاره إيجاباً على الصناعة والتجارة، كما ازدهرت فيها الفنون والثقافة، ولا سيّما المسرح والفسيفساء. في هذا الدرس، نستكشف مظاهر هذا الازدهار الاقتصادي والثقافي الذي جعل من أفريكا الرومانيّة إحدى أزهى ولايات الإمبراطورية الرومانية.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">ما هي مظاهر الازدهار الفلاحي في أفريكا الرومانيّة؟ وكيف انعكس ذلك على الصناعة والتجارة؟ وما هي أهمّ مظاهر الازدهار الثقافي في تلك الفترة؟</p>
+            </div>
+
+            <!-- Part I : Economic Prosperity -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">مظاهر الازدهار الاقتصادي لأفريكا الرومانيّة</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="agricultureTitle">الازدهار الفلاحي</span>
+                </h4>
+                <p data-i18n="agricultureText">نشط الرومانيون بشكل كبير في زراعة الأراضي، حيث اعتمدوا أساساً على زراعة <strong>الحبوب</strong> وغرس <strong>الأشجار المثمرة</strong> و<strong>أشجار الزيتون</strong>. بالإضافة إلى ذلك، قاموا برعاية الماشية. نتيجة للتنظيم الجيد للزراعة، تفتّحت فرص النموّ الزراعي في أفريقيا الرومانيّة.</p>
+                <p data-i18n="distributionText"><strong>توزيع المناطق الفلاحية:</strong> وُجّه الوسط والشمال الغربي لزراعة <strong>الحبوب</strong>، بينما تم تخصيص الوسط الشرقي لزراعة <strong>أشجار الزيتون</strong>.</p>
+                <p data-i18n="policiesText"><strong>الإجراءات المشجّعة:</strong> اتّخذ الرومانيون سلسلة من الإجراءات المهمّة التي ساهمت في ازدهار القطاع الزراعي، بما في ذلك <strong>إعفاء الفلاح الصغير</strong> الذي يستثمر أرضاً من دفع القسط المطلوب إلى المالك، طالما أنّ أشجار الزيتون التي غرسها لم تصل إلى فترة الإنتاج.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="industryTradeTitle">انعكاسات الازدهار الفلاحي على الصناعة والتجارة</span>
+                </h4>
+                <p data-i18n="industryTradeText">لم يقتصر الازدهار الزراعي فقط على الحقول والمزارع، بل تأثّرت <strong>الصناعة</strong> و<strong>التجارة</strong> أيضاً بتلك الحالة الرائجة.</p>
+                <p data-i18n="pressesText"><strong>المعاصر:</strong> ظهرت <strong>المعاصر</strong> التي تُستخدم لصناعة الزيت وتخزين المحاصيل الفلاحية.</p>
+                <p data-i18n="potteryText"><strong>الفخار:</strong> شهدت صناعة <strong>الفخار</strong> تطوراً لحفظ وتخزين المنتجات الزراعية.</p>
+                <p data-i18n="textileText"><strong>النسيج:</strong> انتعشت صناعة <strong>النسيج</strong>.</p>
+                <p data-i18n="portsText"><strong>الموانئ:</strong> شهدت <strong>الموانئ</strong> في أفريقيا الرومانيّة نشاطاً ملحوظاً في تصدير الحبوب والزيتون إلى الأسواق الخارجية.</p>
+            </div>
+
+            <!-- Part II : Cultural Prosperity -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">مظاهر الازدهار الثقافي لأفريكا الرومانيّة</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="theaterTitle">المسرح والعروض الفنيّة</span>
+                </h4>
+                <p data-i18n="theaterText">ازدهرت الفنون في أفريقيا الرومانيّة بشكل ملحوظ، حيث شهد <strong>المسرح</strong> تطوّراً كبيراً مع ظهور <strong>المسرح الإيمائي</strong>، و<strong>العروض البهلوانية</strong> و<strong>الكوميدية</strong>، وتقديم <strong>المحاضرات الفلسفية</strong>.</p>
+                <p data-i18n="theaterBuildingsText">وقد شُيّدت لهذه العروض مباني ضخمة كالمسارح والملاعب الدائرية، التي كانت تشهد إقبالاً جماهيرياً هائلاً، وتُعدّ شاهداً على ازدهار الحياة الثقافية والفنية في تلك الحقبة.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="mosaicTitle">فنون الفسيفساء</span>
+                </h4>
+                <p data-i18n="mosaicText">تألّقت فنون <strong>الفسيفساء</strong> التي أظهر فيها الرومانيون مهارات استثنائية. فقد كانت تُزيّن بها أرضيات المنازل الفخمة والمعابد والحمّامات، وتُصوّر مشاهد من الحياة اليومية، والأساطير، والصيد، والزراعة، مما يعكس ثراء الثقافة الرومانية في أفريقيا ومدى تقدّمها الفني.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا يتّضح أنّ أفريكا الرومانيّة لم تكن مجرّد ولاية تُدار من بعيد، بل كانت مجالاً حيّاً لازدهار اقتصادي وثقافي كبير. فقد انتعشت الفلاحة بفضل التنظيم الجيد والإجراءات المشجّعة، فانعكس ذلك على الصناعة والتجارة، من معاصر وفخار ونسيج وموانئ نشطة. كما ازدهرت الثقافة والفنون، ولا سيّما المسرح والفسيفساء، مما جعل من هذه الولاية إحدى أزهى ولايات الإمبراطورية الرومانية، وترك إرثاً حضارياً غنيّاً ما تزال آثاره شاهداً عليه إلى يومنا هذا.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defBeja">باجة</strong>: <span data-i18n="defBejaDesc">منطقة في شمال غرب تونس الحالية، اشتهرت في العهد الروماني بزراعة الحبوب.</span></li>
+                        <li><strong class="key-location" data-i18n="defHippo">هيبون</strong>: <span data-i18n="defHippoDesc">مدينة رومانية في شمال إفريقيا (عنابة حالياً بالجزائر)، من المدن التي ازدهرت في أفريكا الرومانيّة.</span></li>
+                        <li><strong class="key-location" data-i18n="defSabratha">صبراطة</strong>: <span data-i18n="defSabrathaDesc">مدينة رومانية على الساحل الليبي، من المدن التي عرفت ازدهاراً اقتصاديًا وثقافيًا في أفريكا الرومانيّة.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 مصطلحات ومفاهيم</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defGrains">الحبوب</strong>: <span data-i18n="defGrainsDesc">من أهمّ المحاصيل الزراعية في أفريكا الرومانيّة، وقد وُجّه الوسط والشمال الغربي من الولاية لزراعتها.</span></li>
+                        <li><strong class="key-other" data-i18n="defOliveTrees">أشجار الزيتون</strong>: <span data-i18n="defOliveTreesDesc">من أهمّ المحاصيل الزراعية في أفريكا الرومانيّة، وقد خُصّص الوسط الشرقي من الولاية لزراعتها، وشكّل زيتها مادة أساسية للتصدير.</span></li>
+                        <li><strong class="key-other" data-i18n="defFruitTrees">الأشجار المثمرة</strong>: <span data-i18n="defFruitTreesDesc">من المحاصيل التي اعتنى بها الرومانيون في أفريكا الرومانيّة إلى جانب الحبوب والزيتون.</span></li>
+                        <li><strong class="key-other" data-i18n="defPresses">المعاصر</strong>: <span data-i18n="defPressesDesc">منشآت ظهرت في أفريكا الرومانيّة لصناعة الزيت وتخزين المحاصيل الفلاحية، وهي من دلائل الازدهار الاقتصادي.</span></li>
+                        <li><strong class="key-other" data-i18n="defPottery">الفخار</strong>: <span data-i18n="defPotteryDesc">صناعة شهدت تطوراً في أفريكا الرومانيّة، استُخدمت لحفظ وتخزين ونقل المنتجات الزراعية.</span></li>
+                        <li><strong class="key-other" data-i18n="defPorts">الموانئ</strong>: <span data-i18n="defPortsDesc">منشآت بحرية شهدت نشاطاً ملحوظاً في أفريكا الرومانيّة، كانت تُصدَّر عبرها الحبوب والزيتون إلى الأسواق الخارجية.</span></li>
+                        <li><strong class="key-other" data-i18n="defTheater">المسرح</strong>: <span data-i18n="defTheaterDesc">من مظاهر الازدهار الثقافي في أفريكا الرومانيّة، شهد تطوّراً كبيراً مع ظهور المسرح الإيمائي والعروض البهلوانية والكوميدية والمحاضرات الفلسفية.</span></li>
+                        <li><strong class="key-other" data-i18n="defMimeTheater">المسرح الإيمائي</strong>: <span data-i18n="defMimeTheaterDesc">من أنواع المسرح الذي ظهر وازدهر في أفريكا الرومانيّة، يعتمد على الإيماء والحركة في الأداء.</span></li>
+                        <li><strong class="key-other" data-i18n="defMosaic">الفسيفساء</strong>: <span data-i18n="defMosaicDesc">من فنون الزخرفة الرومانية التي تألّقت في أفريكا الرومانيّة، تُزيَّن بها أرضيات المنازل الفخمة والمعابد والحمّامات، وتُصوّر مشاهد من الحياة اليومية والأساطير.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: شهدت أفريكا الرومانيّة ازدهاراً اقتصاديًا تجلّى في الفلاحة (الحبوب والأشجار المثمرة وأشجار الزيتون ورعاية الماشية)، مع توجيه الوسط والشمال الغربي للحبوب والوسط الشرقي للزيتون، وتشجيع الفلاح الصغير بإعفائه من الأقساط إلى حين إنتاج الزيتون. وانعكس ذلك على الصناعة (المعاصر، الفخار، النسيج) والتجارة (تصدير الحبوب والزيتون عبر الموانئ النشطة). كما ازدهر الجانب الثقافي، فبرز المسرح بأنواعه (الإيمائي، البهلواني، الكوميدي، والمحاضرات الفلسفية)، وتألّقت فنون الفسيفساء التي أظهر فيها الرومانيون مهارات استثنائية.</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق وصور من أفريكا الرومانيّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson6/agriculture_map.jpg" alt="خريطة المناطق الفلاحية بأفريقيا الرومانية" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">خريطة المناطق الفلاحية بأفريقيا الرومانية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson6/olive_pressing.jpg" alt="مراحل عصر الزيتون في العهد الروماني" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">مراحل عصر الزيتون في العهد الروماني</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson6/eljem_theater.jpg" alt="المسرح الروماني بالجم" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">المسرح الروماني بالجم</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit2/lesson6/mosaic_panel.jpg" alt="لوحة من الفسيفساء" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">لوحة من الفسيفساء</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod2_lesson6.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">المفاهيم والمصطلحات والأمكنة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الوثائق والصور التوضيحيّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Tunisia from Prehistory to the Roman Era",
+                lessonTitleSample: "Cultural Prosperity of Roman Africa: Economic and Cultural Prosperity",
+                sectionIntro: "Introduction",
+                introText: "Having explored in the previous lesson the urban prosperity of Roman Africa with its architecture and administrative and municipal organization, we examine in this lesson another aspect of this prosperity related to economy and culture. Roman Africa witnessed a major agricultural boom whose effects positively influenced industry and trade, and in which arts and culture flourished, especially theater and mosaics. In this lesson, we discover the aspects of this economic and cultural prosperity that made Roman Africa one of the most prosperous provinces of the Roman Empire.",
+                problematiqueText: "What are the aspects of agricultural prosperity in Roman Africa? How did this reflect on industry and trade? And what are the most important aspects of cultural prosperity in that period?",
+                sectionPart1: "Aspects of Economic Prosperity of Roman Africa",
+                agricultureTitle: "Agricultural Prosperity",
+                agricultureText: "The Romans were very active in cultivating the land, relying mainly on growing <strong>grains</strong>, planting <strong>fruit trees</strong> and <strong>olive trees</strong>. In addition, they raised livestock. Thanks to good agricultural organization, opportunities for agricultural growth opened up in Roman Africa.",
+                distributionText: "<strong>Distribution of agricultural regions:</strong> The central and northwest areas were dedicated to growing <strong>grains</strong>, while the eastern central area was dedicated to growing <strong>olive trees</strong>.",
+                policiesText: "<strong>Encouraging measures:</strong> The Romans took a series of important measures that contributed to the prosperity of the agricultural sector, including <strong>exempting the small farmer</strong> who invests a plot of land from paying the required installment to the owner, as long as the olive trees he planted have not yet reached their production period.",
+                industryTradeTitle: "The Impact of Agricultural Prosperity on Industry and Trade",
+                industryTradeText: "The agricultural prosperity was not limited to fields and farms; <strong>industry</strong> and <strong>trade</strong> were also affected by this thriving situation.",
+                pressesText: "<strong>The presses:</strong> <strong>Olive presses</strong> appeared, used for producing oil and storing agricultural crops.",
+                potteryText: "<strong>Pottery:</strong> The <strong>pottery</strong> industry developed to preserve and store agricultural products.",
+                textileText: "<strong>Textiles:</strong> The <strong>textile</strong> industry flourished.",
+                portsText: "<strong>The ports:</strong> The <strong>ports</strong> of Roman Africa witnessed notable activity in exporting grains and olives to external markets.",
+                sectionPart2: "Aspects of Cultural Prosperity of Roman Africa",
+                theaterTitle: "The Theater and Artistic Performances",
+                theaterText: "The arts flourished remarkably in Roman Africa, as the <strong>theater</strong> witnessed major development with the emergence of <strong>mime theater</strong>, <strong>acrobatic</strong> and <strong>comic</strong> shows, and the presentation of <strong>philosophical lectures</strong>.",
+                theaterBuildingsText: "Huge buildings were constructed for these performances, such as theaters and amphitheaters, which attracted massive audiences and bear witness to the flourishing cultural and artistic life of that era.",
+                mosaicTitle: "The Art of Mosaics",
+                mosaicText: "The art of <strong>mosaics</strong> shone brightly, in which the Romans displayed exceptional skills. They decorated the floors of luxurious houses, temples, and baths, and depicted scenes from daily life, legends, hunting, and agriculture, reflecting the richness of Roman culture in Africa and its advanced artistic level.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus it becomes clear that Roman Africa was not merely a province administered from afar, but a living space of great economic and cultural prosperity. Agriculture flourished thanks to good organization and encouraging measures, which reflected on industry and trade, from presses, pottery, and textiles to active ports. Culture and arts also flourished, especially theater and mosaics, making this province one of the most prosperous provinces of the Roman Empire, leaving a rich cultural legacy whose traces still bear witness to it today.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Images from Roman Africa",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Terms and Concepts",
+                defBeja: "Béja",
+                defBejaDesc: "A region in northwest present-day Tunisia, known in the Roman era for growing grains.",
+                defHippo: "Hippo",
+                defHippoDesc: "A Roman city in North Africa (present-day Annaba in Algeria), one of the cities that flourished in Roman Africa.",
+                defSabratha: "Sabratha",
+                defSabrathaDesc: "A Roman city on the Libyan coast, one of the cities that experienced economic and cultural prosperity in Roman Africa.",
+                defGrains: "Grains",
+                defGrainsDesc: "One of the most important agricultural crops in Roman Africa; the central and northwest areas of the province were dedicated to growing them.",
+                defOliveTrees: "Olive Trees",
+                defOliveTreesDesc: "One of the most important agricultural crops in Roman Africa; the eastern central area of the province was dedicated to growing them, and their oil was a key export product.",
+                defFruitTrees: "Fruit Trees",
+                defFruitTreesDesc: "One of the crops cultivated by the Romans in Roman Africa, alongside grains and olives.",
+                defPresses: "Olive Presses",
+                defPressesDesc: "Facilities that appeared in Roman Africa for making oil and storing agricultural crops, one of the signs of economic prosperity.",
+                defPottery: "Pottery",
+                defPotteryDesc: "An industry that developed in Roman Africa, used for preserving, storing, and transporting agricultural products.",
+                defPorts: "Ports",
+                defPortsDesc: "Maritime facilities that witnessed notable activity in Roman Africa, through which grains and olives were exported to external markets.",
+                defTheater: "The Theater",
+                defTheaterDesc: "One of the aspects of cultural prosperity in Roman Africa, witnessing major development with the emergence of mime theater, acrobatic and comic shows, and philosophical lectures.",
+                defMimeTheater: "Mime Theater",
+                defMimeTheaterDesc: "A type of theater that emerged and flourished in Roman Africa, relying on gesture and movement in performance.",
+                defMosaic: "Mosaics",
+                defMosaicDesc: "One of the Roman decorative arts that shone in Roman Africa, decorating the floors of luxurious houses, temples, and baths, and depicting scenes from daily life and legends.",
+                summaryText: "Key takeaway: Roman Africa witnessed economic prosperity manifested in agriculture (grains, fruit trees, olive trees, and livestock), with the central and northwest areas dedicated to grains and the eastern central area to olives, and encouraging the small farmer by exempting him from installments until the olives produce. This reflected on industry (presses, pottery, textiles) and trade (exporting grains and olives through active ports). Culture also flourished, with theater in its various forms (mime, acrobatic, comic, and philosophical lectures) and mosaics, in which the Romans displayed exceptional skills.",
+                galleryAlt1: "Map of agricultural regions in Roman Africa",
+                galleryAlt2: "Stages of olive pressing in the Roman era",
+                galleryAlt3: "The Roman theater of El Jem",
+                galleryAlt4: "A mosaic panel",
+                galleryCap1: "Map of agricultural regions in Roman Africa",
+                galleryCap2: "Stages of olive pressing in the Roman era",
+                galleryCap3: "The Roman theater of El Jem",
+                galleryCap4: "A mosaic panel",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / La Tunisie de la préhistoire à l'époque romaine",
+                lessonTitleSample: "Prospérité de l'Afrique romaine : essor économique et culturel",
+                sectionIntro: "Introduction",
+                introText: "Après avoir étudié dans la leçon précédente l'essor urbain de l'Afrique romaine et son organisation architecturale, administrative et municipale, nous abordons dans cette leçon un autre aspect de cette prospérité, lié à l'économie et à la culture. L'Afrique romaine a connu un grand essor agricole dont les effets ont eu une influence positive sur l'industrie et le commerce, et où les arts et la culture ont fleuri, notamment le théâtre et la mosaïque. Dans cette leçon, nous découvrons les aspects de cette prospérité économique et culturelle qui a fait de l'Afrique romaine l'une des provinces les plus prospères de l'Empire romain.",
+                problematiqueText: "Quels sont les aspects de la prospérité agricole en Afrique romaine ? Comment cela s'est-il répercuté sur l'industrie et le commerce ? Et quels sont les aspects les plus importants de la prospérité culturelle à cette époque ?",
+                sectionPart1: "Les aspects de la prospérité économique de l'Afrique romaine",
+                agricultureTitle: "La prospérité agricole",
+                agricultureText: "Les Romains furent très actifs dans la culture des terres, s'appuyant principalement sur la culture des <strong>céréales</strong>, la plantation d'<strong>arbres fruitiers</strong> et d'<strong>oliviers</strong>. En outre, ils élevaient du bétail. Grâce à une bonne organisation de l'agriculture, des opportunités de croissance agricole se sont ouvertes en Afrique romaine.",
+                distributionText: "<strong>Répartition des régions agricoles :</strong> Le centre et le nord-ouest étaient consacrés à la culture des <strong>céréales</strong>, tandis que le centre-est était consacré à la culture des <strong>oliviers</strong>.",
+                policiesText: "<strong>Mesures encourageantes :</strong> Les Romains prirent une série de mesures importantes qui ont contribué à la prospérité du secteur agricole, notamment <strong>l'exemption du petit agriculteur</strong> qui investit une terre du paiement de la redevance due au propriétaire, tant que les oliviers qu'il a plantés n'ont pas encore atteint leur période de production.",
+                industryTradeTitle: "Les répercussions de la prospérité agricole sur l'industrie et le commerce",
+                industryTradeText: "La prospérité agricole ne se limitait pas aux champs et aux fermes ; l'<strong>industrie</strong> et le <strong>commerce</strong> furent également touchés par cette situation florissante.",
+                pressesText: "<strong>Les pressoirs :</strong> Des <strong>pressoirs à huile</strong> sont apparus, utilisés pour la production d'huile et le stockage des récoltes agricoles.",
+                potteryText: "<strong>La poterie :</strong> L'industrie de la <strong>poterie</strong> s'est développée pour conserver et stocker les produits agricoles.",
+                textileText: "<strong>Le textile :</strong> L'industrie du <strong>textile</strong> a prospéré.",
+                portsText: "<strong>Les ports :</strong> Les <strong>ports</strong> de l'Afrique romaine ont connu une activité notable dans l'exportation des céréales et de l'huile d'olive vers les marchés extérieurs.",
+                sectionPart2: "Les aspects de la prospérité culturelle de l'Afrique romaine",
+                theaterTitle: "Le théâtre et les spectacles artistiques",
+                theaterText: "Les arts ont remarquablement fleuri en Afrique romaine, où le <strong>théâtre</strong> a connu un grand développement avec l'apparition du <strong>théâtre mimique</strong>, des spectacles <strong>acrobatiques</strong> et <strong>comiques</strong>, et la présentation de <strong>conférences philosophiques</strong>.",
+                theaterBuildingsText: "De grands édifices furent construits pour ces spectacles, comme les théâtres et les amphithéâtres, qui accueillaient une affluence populaire considérable et témoignent de l'effervescence de la vie culturelle et artistique de cette époque.",
+                mosaicTitle: "L'art de la mosaïque",
+                mosaicText: "L'art de la <strong>mosaïque</strong> a brillé avec éclat, où les Romains ont fait preuve de compétences exceptionnelles. On en décorait les sols des maisons luxueuses, des temples et des thermes, et on y représentait des scènes de la vie quotidienne, des légendes, de la chasse et de l'agriculture, reflétant la richesse de la culture romaine en Afrique et son niveau artistique avancé.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi, il devient clair que l'Afrique romaine n'était pas simplement une province administrée de loin, mais un espace vivant d'une grande prospérité économique et culturelle. L'agriculture a prospéré grâce à une bonne organisation et à des mesures encourageantes, ce qui s'est répercuté sur l'industrie et le commerce, des pressoirs à la poterie et au textile, jusqu'aux ports actifs. La culture et les arts ont également fleuri, notamment le théâtre et la mosaïque, faisant de cette province l'une des plus prospères de l'Empire romain, laissant un riche héritage culturel dont les traces en témoignent encore aujourd'hui.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et images de l'Afrique romaine",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Termes et concepts",
+                defBeja: "Béja",
+                defBejaDesc: "Une région du nord-ouest de l'actuelle Tunisie, connue à l'époque romaine pour la culture des céréales.",
+                defHippo: "Hippone",
+                defHippoDesc: "Une ville romaine d'Afrique du Nord (actuelle Annaba en Algérie), l'une des villes qui ont prospéré en Afrique romaine.",
+                defSabratha: "Sabratha",
+                defSabrathaDesc: "Une ville romaine de la côte libyenne, l'une des villes qui ont connu une prospérité économique et culturelle en Afrique romaine.",
+                defGrains: "Les céréales",
+                defGrainsDesc: "L'une des cultures agricoles les plus importantes de l'Afrique romaine ; le centre et le nord-ouest de la province y étaient consacrés.",
+                defOliveTrees: "Les oliviers",
+                defOliveTreesDesc: "L'une des cultures agricoles les plus importantes de l'Afrique romaine ; le centre-est de la province y était consacré, et leur huile constituait un produit d'exportation essentiel.",
+                defFruitTrees: "Les arbres fruitiers",
+                defFruitTreesDesc: "L'une des cultures dont les Romains prenaient soin en Afrique romaine, aux côtés des céréales et des oliviers.",
+                defPresses: "Les pressoirs",
+                defPressesDesc: "Des installations apparues en Afrique romaine pour la fabrication de l'huile et le stockage des récoltes agricoles, l'un des signes de la prospérité économique.",
+                defPottery: "La poterie",
+                defPotteryDesc: "Une industrie qui s'est développée en Afrique romaine, utilisée pour conserver, stocker et transporter les produits agricoles.",
+                defPorts: "Les ports",
+                defPortsDesc: "Des installations maritimes qui ont connu une activité notable en Afrique romaine, par lesquelles les céréales et l'huile d'olive étaient exportées vers les marchés extérieurs.",
+                defTheater: "Le théâtre",
+                defTheaterDesc: "L'un des aspects de la prospérité culturelle en Afrique romaine, ayant connu un grand développement avec l'apparition du théâtre mimique, des spectacles acrobatiques et comiques, et des conférences philosophiques.",
+                defMimeTheater: "Le théâtre mimique",
+                defMimeTheaterDesc: "Un type de théâtre qui est apparu et a fleuri en Afrique romaine, reposant sur le geste et le mouvement dans l'interprétation.",
+                defMosaic: "La mosaïque",
+                defMosaicDesc: "L'un des arts décoratifs romains qui a brillé en Afrique romaine, décorant les sols des maisons luxueuses, des temples et des thermes, et représentant des scènes de la vie quotidienne et des légendes.",
+                summaryText: "À retenir : L'Afrique romaine a connu une prospérité économique qui s'est manifestée dans l'agriculture (céréales, arbres fruitiers, oliviers et élevage), avec le centre et le nord-ouest consacrés aux céréales et le centre-est aux oliviers, et l'encouragement du petit agriculteur en l'exemptant des redevances jusqu'à la production des olives. Cela s'est répercuté sur l'industrie (pressoirs, poterie, textile) et le commerce (exportation de céréales et d'huile d'olive par les ports actifs). La culture a également fleuri, avec le théâtre sous ses diverses formes (mimique, acrobatique, comique et conférences philosophiques) et la mosaïque, où les Romains ont fait preuve de compétences exceptionnelles.",
+                galleryAlt1: "Carte des régions agricoles en Afrique romaine",
+                galleryAlt2: "Étapes du pressage des olives à l'époque romaine",
+                galleryAlt3: "Le théâtre romain d'El Jem",
+                galleryAlt4: "Un panneau de mosaïque",
+                galleryCap1: "Carte des régions agricoles en Afrique romaine",
+                galleryCap2: "Étapes du pressage des olives à l'époque romaine",
+                galleryCap3: "Le théâtre romain d'El Jem",
+                galleryCap4: "Un panneau de mosaïque",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / البلاد التونسيّة من عصور ما قبل التاريخ إلى العهد الروماني",
+                lessonTitleSample: "مظاهر الازدهار الحضاري لأفريكا الرومانيّة: الازدهار الاقتصادي والثقافي",
+                sectionIntro: "مقدمة",
+                introText: "بعد أن اطّلعنا في الدرس السابق على ازدهار المدن في أفريكا الرومانيّة وما شهدته من عمران وتنظيم إداري وبلدي، نتناول في هذا الدرس جانباً آخر من مظاهر هذا الازدهار، يتعلّق بالاقتصاد والثقافة. فقد شهدت أفريكا الرومانيّة انتعاشاً فلاحياً كبيراً، انعكست آثاره إيجاباً على الصناعة والتجارة، كما ازدهرت فيها الفنون والثقافة، ولا سيّما المسرح والفسيفساء. في هذا الدرس، نستكشف مظاهر هذا الازدهار الاقتصادي والثقافي الذي جعل من أفريكا الرومانيّة إحدى أزهى ولايات الإمبراطورية الرومانية.",
+                problematiqueText: "ما هي مظاهر الازدهار الفلاحي في أفريكا الرومانيّة؟ وكيف انعكس ذلك على الصناعة والتجارة؟ وما هي أهمّ مظاهر الازدهار الثقافي في تلك الفترة؟",
+                sectionPart1: "مظاهر الازدهار الاقتصادي لأفريكا الرومانيّة",
+                agricultureTitle: "الازدهار الفلاحي",
+                agricultureText: "نشط الرومانيون بشكل كبير في زراعة الأراضي، حيث اعتمدوا أساساً على زراعة <strong>الحبوب</strong> وغرس <strong>الأشجار المثمرة</strong> و<strong>أشجار الزيتون</strong>. بالإضافة إلى ذلك، قاموا برعاية الماشية. نتيجة للتنظيم الجيد للزراعة، تفتّحت فرص النموّ الزراعي في أفريقيا الرومانيّة.",
+                distributionText: "<strong>توزيع المناطق الفلاحية:</strong> وُجّه الوسط والشمال الغربي لزراعة <strong>الحبوب</strong>، بينما تم تخصيص الوسط الشرقي لزراعة <strong>أشجار الزيتون</strong>.",
+                policiesText: "<strong>الإجراءات المشجّعة:</strong> اتّخذ الرومانيون سلسلة من الإجراءات المهمّة التي ساهمت في ازدهار القطاع الزراعي، بما في ذلك <strong>إعفاء الفلاح الصغير</strong> الذي يستثمر أرضاً من دفع القسط المطلوب إلى المالك، طالما أنّ أشجار الزيتون التي غرسها لم تصل إلى فترة الإنتاج.",
+                industryTradeTitle: "انعكاسات الازدهار الفلاحي على الصناعة والتجارة",
+                industryTradeText: "لم يقتصر الازدهار الزراعي فقط على الحقول والمزارع، بل تأثّرت <strong>الصناعة</strong> و<strong>التجارة</strong> أيضاً بتلك الحالة الرائجة.",
+                pressesText: "<strong>المعاصر:</strong> ظهرت <strong>المعاصر</strong> التي تُستخدم لصناعة الزيت وتخزين المحاصيل الفلاحية.",
+                potteryText: "<strong>الفخار:</strong> شهدت صناعة <strong>الفخار</strong> تطوراً لحفظ وتخزين المنتجات الزراعية.",
+                textileText: "<strong>النسيج:</strong> انتعشت صناعة <strong>النسيج</strong>.",
+                portsText: "<strong>الموانئ:</strong> شهدت <strong>الموانئ</strong> في أفريقيا الرومانيّة نشاطاً ملحوظاً في تصدير الحبوب والزيتون إلى الأسواق الخارجية.",
+                sectionPart2: "مظاهر الازدهار الثقافي لأفريكا الرومانيّة",
+                theaterTitle: "المسرح والعروض الفنيّة",
+                theaterText: "ازدهرت الفنون في أفريقيا الرومانيّة بشكل ملحوظ، حيث شهد <strong>المسرح</strong> تطوّراً كبيراً مع ظهور <strong>المسرح الإيمائي</strong>، و<strong>العروض البهلوانية</strong> و<strong>الكوميدية</strong>، وتقديم <strong>المحاضرات الفلسفية</strong>.",
+                theaterBuildingsText: "وقد شُيّدت لهذه العروض مباني ضخمة كالمسارح والملاعب الدائرية، التي كانت تشهد إقبالاً جماهيرياً هائلاً، وتُعدّ شاهداً على ازدهار الحياة الثقافية والفنية في تلك الحقبة.",
+                mosaicTitle: "فنون الفسيفساء",
+                mosaicText: "تألّقت فنون <strong>الفسيفساء</strong> التي أظهر فيها الرومانيون مهارات استثنائية. فقد كانت تُزيّن بها أرضيات المنازل الفخمة والمعابد والحمّامات، وتُصوّر مشاهد من الحياة اليومية، والأساطير، والصيد، والزراعة، مما يعكس ثراء الثقافة الرومانية في أفريقيا ومدى تقدّمها الفني.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا يتّضح أنّ أفريكا الرومانيّة لم تكن مجرّد ولاية تُدار من بعيد، بل كانت مجالاً حيّاً لازدهار اقتصادي وثقافي كبير. فقد انتعشت الفلاحة بفضل التنظيم الجيد والإجراءات المشجّعة، فانعكس ذلك على الصناعة والتجارة، من معاصر وفخار ونسيج وموانئ نشطة. كما ازدهرت الثقافة والفنون، ولا سيّما المسرح والفسيفساء، مما جعل من هذه الولاية إحدى أزهى ولايات الإمبراطورية الرومانية، وترك إرثاً حضارياً غنيّاً ما تزال آثاره شاهداً عليه إلى يومنا هذا.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق وصور من أفريكا الرومانيّة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 مصطلحات ومفاهيم",
+                defBeja: "باجة",
+                defBejaDesc: "منطقة في شمال غرب تونس الحالية، اشتهرت في العهد الروماني بزراعة الحبوب.",
+                defHippo: "هيبون",
+                defHippoDesc: "مدينة رومانية في شمال إفريقيا (عنابة حالياً بالجزائر)، من المدن التي ازدهرت في أفريكا الرومانيّة.",
+                defSabratha: "صبراطة",
+                defSabrathaDesc: "مدينة رومانية على الساحل الليبي، من المدن التي عرفت ازدهاراً اقتصاديًا وثقافيًا في أفريكا الرومانيّة.",
+                defGrains: "الحبوب",
+                defGrainsDesc: "من أهمّ المحاصيل الزراعية في أفريكا الرومانيّة، وقد وُجّه الوسط والشمال الغربي من الولاية لزراعتها.",
+                defOliveTrees: "أشجار الزيتون",
+                defOliveTreesDesc: "من أهمّ المحاصيل الزراعية في أفريكا الرومانيّة، وقد خُصّص الوسط الشرقي من الولاية لزراعتها، وشكّل زيتها مادة أساسية للتصدير.",
+                defFruitTrees: "الأشجار المثمرة",
+                defFruitTreesDesc: "من المحاصيل التي اعتنى بها الرومانيون في أفريكا الرومانيّة إلى جانب الحبوب والزيتون.",
+                defPresses: "المعاصر",
+                defPressesDesc: "منشآت ظهرت في أفريكا الرومانيّة لصناعة الزيت وتخزين المحاصيل الفلاحية، وهي من دلائل الازدهار الاقتصادي.",
+                defPottery: "الفخار",
+                defPotteryDesc: "صناعة شهدت تطوراً في أفريكا الرومانيّة، استُخدمت لحفظ وتخزين ونقل المنتجات الزراعية.",
+                defPorts: "الموانئ",
+                defPortsDesc: "منشآت بحرية شهدت نشاطاً ملحوظاً في أفريكا الرومانيّة، كانت تُصدَّر عبرها الحبوب والزيتون إلى الأسواق الخارجية.",
+                defTheater: "المسرح",
+                defTheaterDesc: "من مظاهر الازدهار الثقافي في أفريكا الرومانيّة، شهد تطوّراً كبيراً مع ظهور المسرح الإيمائي والعروض البهلوانية والكوميدية والمحاضرات الفلسفية.",
+                defMimeTheater: "المسرح الإيمائي",
+                defMimeTheaterDesc: "من أنواع المسرح الذي ظهر وازدهر في أفريكا الرومانيّة، يعتمد على الإيماء والحركة في الأداء.",
+                defMosaic: "الفسيفساء",
+                defMosaicDesc: "من فنون الزخرفة الرومانية التي تألّقت في أفريكا الرومانيّة، تُزيَّن بها أرضيات المنازل الفخمة والمعابد والحمّامات، وتُصوّر مشاهد من الحياة اليومية والأساطير.",
+                summaryText: "خلاصة: شهدت أفريكا الرومانيّة ازدهاراً اقتصاديًا تجلّى في الفلاحة (الحبوب والأشجار المثمرة وأشجار الزيتون ورعاية الماشية)، مع توجيه الوسط والشمال الغربي للحبوب والوسط الشرقي للزيتون، وتشجيع الفلاح الصغير بإعفائه من الأقساط إلى حين إنتاج الزيتون. وانعكس ذلك على الصناعة (المعاصر، الفخار، النسيج) والتجارة (تصدير الحبوب والزيتون عبر الموانئ النشطة). كما ازدهر الجانب الثقافي، فبرز المسرح بأنواعه (الإيمائي، البهلواني، الكوميدي، والمحاضرات الفلسفية)، وتألّقت فنون الفسيفساء التي أظهر فيها الرومانيون مهارات استثنائية.",
+                galleryAlt1: "خريطة المناطق الفلاحية بأفريقيا الرومانية",
+                galleryAlt2: "مراحل عصر الزيتون في العهد الروماني",
+                galleryAlt3: "المسرح الروماني بالجم",
+                galleryAlt4: "لوحة من الفسيفساء",
+                galleryCap1: "خريطة المناطق الفلاحية بأفريقيا الرومانية",
+                galleryCap2: "مراحل عصر الزيتون في العهد الروماني",
+                galleryCap3: "المسرح الروماني بالجم",
+                galleryCap4: "لوحة من الفسيفساء",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Béja", class: "key-location", i18n: "defBeja" },
+                { text: "Hippo", class: "key-location", i18n: "defHippo" },
+                { text: "Sabratha", class: "key-location", i18n: "defSabratha" },
+                { text: "Grains", class: "key-other", i18n: "defGrains" },
+                { text: "Olive Trees", class: "key-other", i18n: "defOliveTrees" },
+                { text: "Fruit Trees", class: "key-other", i18n: "defFruitTrees" },
+                { text: "Olive Presses", class: "key-other", i18n: "defPresses" },
+                { text: "Pottery", class: "key-other", i18n: "defPottery" },
+                { text: "Ports", class: "key-other", i18n: "defPorts" },
+                { text: "The Theater", class: "key-other", i18n: "defTheater" },
+                { text: "Mime Theater", class: "key-other", i18n: "defMimeTheater" },
+                { text: "Mosaics", class: "key-other", i18n: "defMosaic" }
+            ],
+            fr: [
+                { text: "Béja", class: "key-location", i18n: "defBeja" },
+                { text: "Hippone", class: "key-location", i18n: "defHippo" },
+                { text: "Sabratha", class: "key-location", i18n: "defSabratha" },
+                { text: "Les céréales", class: "key-other", i18n: "defGrains" },
+                { text: "Les oliviers", class: "key-other", i18n: "defOliveTrees" },
+                { text: "Les arbres fruitiers", class: "key-other", i18n: "defFruitTrees" },
+                { text: "Les pressoirs", class: "key-other", i18n: "defPresses" },
+                { text: "La poterie", class: "key-other", i18n: "defPottery" },
+                { text: "Les ports", class: "key-other", i18n: "defPorts" },
+                { text: "Le théâtre", class: "key-other", i18n: "defTheater" },
+                { text: "Le théâtre mimique", class: "key-other", i18n: "defMimeTheater" },
+                { text: "La mosaïque", class: "key-other", i18n: "defMosaic" }
+            ],
+            ar: [
+                { text: "باجة", class: "key-location", i18n: "defBeja" },
+                { text: "هيبون", class: "key-location", i18n: "defHippo" },
+                { text: "صبراطة", class: "key-location", i18n: "defSabratha" },
+                { text: "الحبوب", class: "key-other", i18n: "defGrains" },
+                { text: "أشجار الزيتون", class: "key-other", i18n: "defOliveTrees" },
+                { text: "الأشجار المثمرة", class: "key-other", i18n: "defFruitTrees" },
+                { text: "المعاصر", class: "key-other", i18n: "defPresses" },
+                { text: "الفخار", class: "key-other", i18n: "defPottery" },
+                { text: "الموانئ", class: "key-other", i18n: "defPorts" },
+                { text: "المسرح", class: "key-other", i18n: "defTheater" },
+                { text: "المسرح الإيمائي", class: "key-other", i18n: "defMimeTheater" },
+                { text: "الفسيفساء", class: "key-other", i18n: "defMosaic" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>

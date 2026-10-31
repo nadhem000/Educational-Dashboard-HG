@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lessonPageTitle">درس – مركز التاريخ والجغرافيا</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/icon-96x96.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="ED-general-common.css">
+    <link rel="stylesheet" href="hgh-lessons.css">
+    <style>
+        :root {
+            --ED-General-color-bg: #f5f1eb; --ED-General-color-bg-secondary: #ede7df;
+            --ED-General-color-surface: #ffffff; --ED-General-color-surface-hover: #fafaf8;
+            --ED-General-color-text-primary: #1e293b; --ED-General-color-text-secondary: #5a6c7d;
+            --ED-General-color-text-tertiary: #8b9aab; --ED-General-color-border: #e2dcd4;
+            --ED-General-color-border-hover: #cbc3b8; --ED-General-color-shadow-rgb: 60, 50, 40;
+            --ED-General-color-accent-default: #4a7fd9; --ED-General-color-accent-light: #e8f1fb;
+            --ED-General-color-accent-soft: #f0f5fc;
+            --ED-General-color-header-gradient-start: #fefdfb;
+            --ED-General-color-header-gradient-mid1: #faf8f4;
+            --ED-General-color-header-gradient-mid2: #f6f3ee;
+            --ED-General-color-header-gradient-end: #f2efe8;
+            --ED-General-color-header-accent-gradient-stop: rgba(180, 160, 140, 0.5);
+            --ED-General-color-accent-rgb: 74, 127, 217; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #7b8cb0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(122, 143, 176, 0.35);
+            --ED-General-color-text-on-accent: #ffffff;
+            --ED-General-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+            --ED-General-transition-speed: 0.3s;
+            --lesson-accent-gradient: linear-gradient(135deg, #4a7fd9 0%, #6da0f0 50%, #3b6dc5 100%);
+            --lesson-card-radius: 18px;
+            --lesson-card-shadow: 0 2px 12px rgba(var(--ED-General-color-shadow-rgb), 0.05);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(var(--ED-General-color-shadow-rgb), 0.1);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+            --lesson-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --ED-General-color-bg: #171a20; --ED-General-color-bg-secondary: #1e2129;
+            --ED-General-color-surface: #23262f; --ED-General-color-surface-hover: #2a2e38;
+            --ED-General-color-text-primary: #e2e4ea; --ED-General-color-text-secondary: #b0b5c2;
+            --ED-General-color-text-tertiary: #7d8494; --ED-General-color-border: #32353e;
+            --ED-General-color-border-hover: #454952; --ED-General-color-shadow-rgb: 0, 0, 0;
+            --ED-General-color-accent-default: #7aafff; --ED-General-color-accent-light: #1e2d45;
+            --ED-General-color-accent-soft: #1a2535;
+            --ED-General-color-header-gradient-start: #1f222d;
+            --ED-General-color-header-gradient-mid1: #1c1f29;
+            --ED-General-color-header-gradient-mid2: #191c24;
+            --ED-General-color-header-gradient-end: #171a20;
+            --ED-General-color-header-accent-gradient-stop: rgba(160, 175, 200, 0.4);
+            --ED-General-color-accent-rgb: 122, 175, 255; --ED-General-color-icon-sun: #e8a840;
+            --ED-General-color-icon-moon: #c4d0f0; --ED-General-color-icon-sun-glow: rgba(232, 168, 64, 0.3);
+            --ED-General-color-icon-moon-glow: rgba(180, 195, 235, 0.35);
+            --ED-General-color-text-on-accent: #12151c;
+            --lesson-accent-gradient: linear-gradient(135deg, #7aafff 0%, #9dc7ff 50%, #5e95e8 100%);
+            --lesson-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            --lesson-card-shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.35);
+            --lesson-border-subtle: 1px solid var(--ED-General-color-border);
+        }
+    </style>
+</head>
+<body>
+    <div id="print-header" aria-hidden="true">
+        <div class="print-header-inner">
+            <img src="assets/icons/icon-96x96.png" alt="HGH" width="32" height="32">
+            <span class="print-title" data-i18n="printHeaderTitle">مركز التاريخ والجغرافيا – درس</span>
+        </div>
+    </div>
+    <header id="header-container"></header>
+    <main>
+        <div class="lesson-container">
+            <div class="lesson-year-section" data-print-section="lesson" data-i18n="yearSection">الخامسة أساسي</div>
+            <div class="lesson-module" data-print-section="lesson" data-i18n="moduleName">التاريخ / المهديّة وتونس مركز إشعاع للحضارة العربيّة الإسلاميّة</div>
+            <h1 class="lesson-title" data-print-section="lesson" data-i18n="lessonTitleSample">المهدية عاصمة الفاطميين بإفريقية</h1>
+
+            <!-- Introduction -->
+            <div class="lesson-intro" id="intro" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionIntro">مقدمة</h2>
+                <p data-i18n="introText">مرحباً بكم أبنائي التلاميذ في درس جديد من دروس التاريخ. بعد أن تعرفنا على دولة الأغالبة ومدينة القيروان، سنكتشف اليوم فصلاً جديداً من تاريخ بلادنا. سنتناول في هذا الدرس قيام «الدولة الفاطمية» التي حلت محل الدولة الأغلبية، ونتعرف على العاصمة الجديدة التي أسسوها وهي مدينة «المهدية». سنتحدث عن ظروف تأسيس هذه المدينة، وأهم معالمها العمرانية والدفاعية التي جعلت منها حصناً منيعاً ومركزاً حضارياً هاماً في ذلك العصر.</p>
+                <p class="lesson-problematique" data-i18n="problematiqueText">كيف نشأت الدولة الفاطمية؟ وكيف تأسست مدينة المهدية؟ وما هي أهم معالمها الدفاعية والدينية والاقتصادية؟</p>
+            </div>
+
+            <!-- Part I : Founding of the Fatimid State and Choice of Mahdia -->
+            <div class="lesson-part" id="part1" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">I</span> <span data-i18n="sectionPart1">تأسيس الدولة الفاطمية واختيار المهدية</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="fatimidOriginTitle">نشأة الدولة الفاطمية</span>
+                </h4>
+                <p data-i18n="lineageText">الفاطميون هم أحفاد <strong>علي بن أبي طالب</strong> و<strong>فاطمة بنت الرسول</strong> (صلى الله عليه وسلم)، وينتسبون إلى <strong>إسماعيل بن جعفر الصادق</strong>.</p>
+                <p data-i18n="stateFoundingText">قامت الدولة الفاطمية في <strong>القيروان</strong> على أنقاض الدولة الأغلبية في سنة <strong>296 هـ / 909 م</strong>.</p>
+                <p data-i18n="founderText">أسس هذه الدولة <strong>عبد الله المهدي</strong>، الذي تولى الخلافة وأخذ على عاتقه شؤون الحكم.</p>
+                <p data-i18n="transitionText">مثّل قيام هذه الدولة تحولاً هاماً في تاريخ المنطقة، حيث نشب خلاف بين الفاطميين وأتباعهم من جهة، وبين السنة الذين يتبعون الرسول (ص) من جهة أخرى.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="mahdiaFoundingTitle">تأسيس مدينة المهدية</span>
+                </h4>
+                <p data-i18n="raqqadaText">بدأ الفاطميون بالاستقرار في مدينة <strong>«رقادة»</strong> كعاصمة لهم سنة <strong>291 هـ / 904 م</strong>.</p>
+                <p data-i18n="mahdiaBuildingText">لاحقاً، أمر الخليفة ببناء مدينة جديدة ساحلية أطلق عليها اسم <strong>«المهدية»</strong> سنة <strong>303 هـ</strong>.</p>
+                <p data-i18n="mahdiaCapitalText">أصبحت المهدية هي المركز الرئيسي للخلافة الفاطمية، وانتقلت إليها قاعدة الملك.</p>
+                <p data-i18n="mahdiaLocationText">تميز موقع المهدية بكونه مطلاً على البحر، مما أعطاها أهمية استراتيجية وعسكرية كبرى.</p>
+            </div>
+
+            <!-- Part II : Monuments of Mahdia and Its Development -->
+            <div class="lesson-part" id="part2" data-print-section="lesson">
+                <h2 class="section-title">
+                    <span class="roman-number">II</span> <span data-i18n="sectionPart2">معالم المهدية ومظاهر تطورها</span>
+                </h2>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">1</span>.
+                    <span data-i18n="defensiveFacilitiesTitle">المنشآت الدفاعية والمائية</span>
+                </h4>
+                <p data-i18n="wallText"><strong>السور:</strong> بنى الفاطميون سوراً ضخماً حول المدينة لحمايتها من الهجمات الخارجية.</p>
+                <p data-i18n="portText"><strong>المرسى (الميناء):</strong> أنشأوا مرسى فريداً من نوعه؛ حيث حفروا الصخور ليشكلوا حائطاً دفاعياً للمراكب الحربية، واستخدموا سلسلة من الحديد ترتفع وتنخفض لمدخل الميناء لتأمينه. وتُعتبر هذه المنشأة من عجائب العالم في ذلك الوقت.</p>
+                <p data-i18n="cisternsText"><strong>الجباب (خزانات المياه):</strong> أقاموا الجباب في جانب المدينة لتخزين مياه الأمطار وحفظها لتلبية حاجات السكان.</p>
+
+                <h4 class="sub-alpha-title">
+                    <span class="alpha-number">2</span>.
+                    <span data-i18n="religiousEconomicTitle">المنشآت الدينية والاقتصادية</span>
+                </h4>
+                <p data-i18n="saqifaText"><strong>السقيفة الكحلاء:</strong> وهي حصن المهدية ومدخل الجامع الكبير، وتُعد من أهم المعالم المعمارية للمدينة.</p>
+                <p data-i18n="greatMosqueText"><strong>الجامع الكبير:</strong> أسسه الفاطميون ليكون مركزاً لتعليم العلوم الدينية وإقامة الشعائر.</p>
+                <p data-i18n="granariesText"><strong>الأهراء (المخازن):</strong> حفر الفاطميون مخازن أرضية مخصصة لخزن الحبوب، مما يدل على تنظيم اقتصادي وتأمين للمؤونة والغذاء للسكان.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="lesson-conclusion" id="conclusion" data-print-section="lesson">
+                <h2 class="section-title" data-i18n="sectionConclusion">خاتمة</h2>
+                <p data-i18n="conclusionText">وهكذا نصل إلى نهاية درسنا عن مدينة المهدية عاصمة الفاطميين. لقد تعرفنا على كيف أسس الفاطميون دولتهم وبنوا عاصمتهم الساحلية التي جمعت بين القوة العسكرية (الأسوار والمرسى المحصن) والتنظيم الاقتصادي (الأهراء والجباب)، والنهضة الدينية (الجامع الكبير). وتظل المهدية اليوم شاهداً حياً على عبقرية الأجداد في التخطيط العمراني والدفاعي. أدعوكم إلى الاعتزاز بهذا الإرث الحضاري العظيم، والاستفادة من قيم التنظيم والعمل الجماعي في حياتنا.</p>
+            </div>
+
+            <!-- Definitions -->
+            <div class="lesson-section" id="definitions" data-print-section="definitions">
+                <h2 class="section-title" data-i18n="sectionDefinitions">📖 تعريفات</h2>
+
+                <div class="definition-category key-locations">
+                    <h3 data-i18n="defLocations">🌍 أمكنة ومناطق</h3>
+                    <ul>
+                        <li><strong class="key-location" data-i18n="defMahdia">المهدية</strong>: <span data-i18n="defMahdiaDesc">المدينة الساحلية التي بناها الفاطميون سنة 303 هـ لتكون عاصمة لخلافتهم، وتميزت بموقعها المطل على البحر وبمنشآتها الدفاعية الفريدة.</span></li>
+                        <li><strong class="key-location" data-i18n="defRaqqada">رقادة</strong>: <span data-i18n="defRaqqadaDesc">المدينة الأولى التي استقر فيها الفاطميون كعاصمة لهم سنة 291 هـ / 904 م قبل بناء المهدية.</span></li>
+                        <li><strong class="key-location" data-i18n="defKairouan">القيروان</strong>: <span data-i18n="defKairouanDesc">المدينة التي قامت فيها الدولة الفاطمية على أنقاض الدولة الأغلبية سنة 296 هـ / 909 م.</span></li>
+                    </ul>
+                </div>
+
+                <div class="definition-category key-others">
+                    <h3 data-i18n="defOthers">📌 مصطلحات وشخصيات</h3>
+                    <ul>
+                        <li><strong class="key-other" data-i18n="defFatimidState">الدولة الفاطمية</strong>: <span data-i18n="defFatimidStateDesc">دولة إسلامية أسسها عبد الله المهدي سنة 296 هـ / 909 م، وتنسب نفسها إلى فاطمة الزهراء بنت الرسول (ص).</span></li>
+                        <li><strong class="key-other" data-i18n="defUbaydAllah">عبد الله المهدي (عبيد الله المهدي)</strong>: <span data-i18n="defUbaydAllahDesc">مؤسس الدولة الفاطمية سنة 296 هـ / 909 م، والذي تولى الخلافة وأمر ببناء مدينة المهدية سنة 303 هـ.</span></li>
+                        <li><strong class="key-other" data-i18n="defIsmail">إسماعيل بن جعفر الصادق</strong>: <span data-i18n="defIsmailDesc">الشخصية التي ينتسب إليها الفاطميون، وهم أحفاد علي بن أبي طالب وفاطمة بنت الرسول (ص).</span></li>
+                        <li><strong class="key-other" data-i18n="defPort">المرسى</strong>: <span data-i18n="defPortDesc">الميناء البحري الذي يتم فيه إرساء السفن والمراكب، وقد تميز مرسى المهدية بتحصيناته الفريدة وبسلسلة حديدية ترتفع وتنخفض لمدخله.</span></li>
+                        <li><strong class="key-other" data-i18n="defGranaries">الأهراء</strong>: <span data-i18n="defGranariesDesc">مخازن أرضية تُستخدم لخزن الحبوب والغلال، حفرها الفاطميون في المهدية لتنظيم الاقتصاد وتأمين الغذاء للسكان.</span></li>
+                        <li><strong class="key-other" data-i18n="defSaqifa">السقيفة الكحلاء</strong>: <span data-i18n="defSaqifaDesc">منشأة معمارية في المهدية، كانت تُستخدم كحصن ومدخل للجامع الكبير، وتُعد من أهم معالم المدينة.</span></li>
+                        <li><strong class="key-other" data-i18n="defGreatMosque">الجامع الكبير</strong>: <span data-i18n="defGreatMosqueDesc">الجامع الذي أسسه الفاطميون في المهدية ليكون مركزاً لتعليم العلوم الدينية وإقامة الشعائر.</span></li>
+                        <li><strong class="key-other" data-i18n="defCisterns">الجباب</strong>: <span data-i18n="defCisternsDesc">خزانات المياه التي أقامها الفاطميون في جانب المدينة لتخزين مياه الأمطار وحفظها لتلبية حاجات السكان.</span></li>
+                        <li><strong class="key-other" data-i18n="defWall">السور</strong>: <span data-i18n="defWallDesc">سور ضخم بناه الفاطميون حول المهدية لحمايتها من الهجمات الخارجية.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="summary-box" data-print-section="lesson" data-i18n="summaryText">خلاصة: قامت الدولة الفاطمية على يد عبد الله المهدي سنة 296 هـ / 909 م على أنقاض الدولة الأغلبية، ونسبت نفسها إلى فاطمة الزهراء بنت الرسول (ص). استقر الفاطميون أولاً في رقادة (291 هـ / 904 م)، ثم أمر الخليفة ببناء مدينة المهدية الساحلية سنة 303 هـ لتكون عاصمة الخلافة. تميزت المهدية بموقعها الاستراتيجي المطل على البحر، وبمنشآتها الدفاعية والمائية (السور، والمرسى المحصن بسلسلة حديدية، والجباب)، ومنشآتها الدينية والاقتصادية (السقيفة الكحلاء، والجامع الكبير، والأهراء لخزن الحبوب).</div>
+
+            <!-- Gallery -->
+            <div class="lesson-section" id="gallery" data-print-section="gallery">
+                <h2 class="section-title" data-i18n="sectionGallery">🗺️ وثائق ومعالم من المهدية الفاطميّة</h2>
+                <div class="gallery">
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit4/lesson1/mahdia_aerial_view.jpg" alt="منظر عام لمدينة المهدية" data-i18n-alt="galleryAlt1" loading="lazy">
+                        <figcaption data-i18n="galleryCap1">منظر عام لمدينة المهدية</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit4/lesson1/mahdia_port.jpg" alt="مرسى المهدية المحصّن" data-i18n-alt="galleryAlt2" loading="lazy">
+                        <figcaption data-i18n="galleryCap2">مرسى المهدية المحصّن</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit4/lesson1/saqifa_al_kahla.jpg" alt="السقيفة الكحلاء" data-i18n-alt="galleryAlt3" loading="lazy">
+                        <figcaption data-i18n="galleryCap3">السقيفة الكحلاء</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets5/lessons/history/unit4/lesson1/great_mosque_mahdia.jpg" alt="الجامع الكبير بالمهدية" data-i18n-alt="galleryAlt4" loading="lazy">
+                        <figcaption data-i18n="galleryCap4">الجامع الكبير بالمهدية</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <button class="print-button" onclick="openPrintModal();" data-i18n="printButton">🖨️ طباعة / حفظ PDF</button>
+            </div>
+            <div style="text-align:center;">
+                <a href="HGH_y05_his_exercisess_mod4_lesson1.html" class="go-link">
+                    📝 <span data-i18n="goToExercise">الذهاب إلى التمرين</span>
+                </a>
+                <a href="index.html" class="go-link return-main-link">
+                    🏠 <span data-i18n="returnMain">العودة إلى الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- PRINT SECTION SELECTION MODAL -->
+    <div id="print-modal" class="print-modal-overlay" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
+        <div class="print-modal-content">
+            <h3 class="print-modal-title" id="print-modal-title">اختر الأقسام للطباعة</h3>
+            <p class="print-modal-subtitle">حدد قسمًا واحدًا أو أكثر:</p>
+            <div class="print-modal-options">
+                <label class="print-option">
+                    <input type="checkbox" id="print-lesson" checked>
+                    <span class="print-option-label">📖 الدرس</span>
+                    <span class="print-option-desc">المقدمة، الأجزاء، الخاتمة والخلاصة</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-definitions" checked>
+                    <span class="print-option-label">📚 التعريفات</span>
+                    <span class="print-option-desc">الأماكن والمصطلحات والشخصيات</span>
+                </label>
+                <label class="print-option">
+                    <input type="checkbox" id="print-gallery" checked>
+                    <span class="print-option-label">🗺️ المعرض</span>
+                    <span class="print-option-desc">الوثائق والمعالم الفاطميّة</span>
+                </label>
+            </div>
+            <div class="print-modal-actions">
+                <button class="print-modal-cancel" id="print-modal-cancel">إلغاء</button>
+                <button class="print-modal-confirm" id="print-modal-confirm">🖨️ طباعة المحدد</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-container"></footer>
+    <div id="print-footer" aria-hidden="true">
+        <span data-i18n="printFooterText">© مركز التاريخ والجغرافيا</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ED-general-translations-data.js"></script>
+    <script src="ED-general-translation.js"></script>
+    <script src="ED-general-auth.js"></script>
+    <script src="ED-general-profile.js"></script>
+    <script src="ED-general-encrypted-backup.js"></script>
+    <script src="hgh-pwa.js"></script>
+    <script src="hgh-analytics.js"></script>
+    <script src="hgh-init.js"></script>
+    <script src="lesson-gallery-modal.js"></script>
+    <script>
+        /* ══════════ LESSON-SPECIFIC TRANSLATIONS ══════════ */
+        const HGH_UI_TEXT_LESSON = {
+            en: {
+                yearSection: "5th Basic",
+                moduleName: "History / Mahdia and Tunis, Centers of Arab-Islamic Civilization",
+                lessonTitleSample: "Mahdia, the Fatimid Capital in Ifriqiya",
+                sectionIntro: "Introduction",
+                introText: "Welcome, dear students, to a new history lesson. After having learned about the Aghlabid state and the city of Kairouan, we will discover today a new chapter from the history of our country. In this lesson, we will study the rise of 'the Fatimid State', which replaced the Aghlabid State, and learn about the new capital they founded, the city of 'Mahdia'. We will discuss the circumstances of the founding of this city and its most important architectural and defensive monuments, which made it an impregnable fortress and an important cultural center in that era.",
+                problematiqueText: "How did the Fatimid State arise? How was the city of Mahdia founded? And what are its most important defensive, religious, and economic monuments?",
+                sectionPart1: "The Founding of the Fatimid State and the Choice of Mahdia",
+                fatimidOriginTitle: "The Rise of the Fatimid State",
+                lineageText: "The Fatimids are descendants of <strong>Ali ibn Abi Talib</strong> and <strong>Fatima, the daughter of the Prophet</strong> (peace be upon him), and they trace their lineage to <strong>Ismail ibn Ja'far al-Sadiq</strong>.",
+                stateFoundingText: "The Fatimid State arose in <strong>Kairouan</strong> on the ruins of the Aghlabid State in the year <strong>296 AH / 909 AD</strong>.",
+                founderText: "<strong>Abdullah al-Mahdi</strong> founded this state; he took over the caliphate and assumed the affairs of governance.",
+                transitionText: "The rise of this state represented an important transformation in the history of the region, as a dispute arose between the Fatimids and their followers on the one hand, and the Sunnis who follow the Prophet (PBUH) on the other hand.",
+                mahdiaFoundingTitle: "The Founding of the City of Mahdia",
+                raqqadaText: "The Fatimids first settled in the city of <strong>'Raqqada'</strong> as their capital in the year <strong>291 AH / 904 AD</strong>.",
+                mahdiaBuildingText: "Later, the Caliph ordered the construction of a new coastal city, which he named <strong>'Mahdia'</strong>, in the year <strong>303 AH</strong>.",
+                mahdiaCapitalText: "Mahdia became the main center of the Fatimid caliphate, and the seat of power moved to it.",
+                mahdiaLocationText: "The site of Mahdia was distinguished by its overlooking the sea, which gave it great strategic and military importance.",
+                sectionPart2: "The Monuments of Mahdia and Its Development",
+                defensiveFacilitiesTitle: "Defensive and Water Facilities",
+                wallText: "<strong>The Wall:</strong> The Fatimids built a massive wall around the city to protect it from external attacks.",
+                portText: "<strong>The Port:</strong> They created a unique port; they carved the rocks to form a defensive wall for the warships, and used an iron chain that was raised and lowered at the entrance of the port to secure it. This facility is considered one of the wonders of the world at that time.",
+                cisternsText: "<strong>The Cisterns:</strong> They built cisterns on the side of the city to store and preserve rainwater to meet the needs of the inhabitants.",
+                religiousEconomicTitle: "Religious and Economic Facilities",
+                saqifaText: "<strong>The Saqifa al-Kahla:</strong> It is the fortress of Mahdia and the entrance to the Great Mosque, and is considered one of the most important architectural landmarks of the city.",
+                greatMosqueText: "<strong>The Great Mosque:</strong> The Fatimids founded it to be a center for teaching the sciences of religion and for performing rituals.",
+                granariesText: "<strong>The Granaries:</strong> The Fatimids dug underground storerooms dedicated to storing grain, which indicates economic organization and securing provisions and food for the inhabitants.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Thus we reach the end of our lesson on the city of Mahdia, the Fatimid capital. We have learned how the Fatimids founded their state and built their coastal capital, which combined military strength (the walls and the fortified port), economic organization (the granaries and cisterns), and religious renaissance (the Great Mosque). Mahdia remains today a living witness to the genius of our ancestors in urban and defensive planning. I invite you to take pride in this great cultural heritage, and to benefit from the values of organization and collective work in our lives.",
+                sectionDefinitions: "📖 Definitions",
+                sectionGallery: "🗺️ Documents and Monuments from Fatimid Mahdia",
+                defLocations: "🌍 Places and Regions",
+                defOthers: "📌 Terms and Figures",
+                defMahdia: "Mahdia",
+                defMahdiaDesc: "The coastal city built by the Fatimids in 303 AH to be the capital of their caliphate, distinguished by its location overlooking the sea and by its unique defensive structures.",
+                defRaqqada: "Raqqada",
+                defRaqqadaDesc: "The first city in which the Fatimids settled as their capital in 291 AH / 904 AD before the construction of Mahdia.",
+                defKairouan: "Kairouan",
+                defKairouanDesc: "The city where the Fatimid State arose on the ruins of the Aghlabid State in 296 AH / 909 AD.",
+                defFatimidState: "The Fatimid State",
+                defFatimidStateDesc: "An Islamic state founded by Abdullah al-Mahdi in 296 AH / 909 AD, tracing its lineage to Fatima al-Zahra, the daughter of the Prophet (PBUH).",
+                defUbaydAllah: "Abdullah al-Mahdi (Ubayd Allah al-Mahdi)",
+                defUbaydAllahDesc: "The founder of the Fatimid State in 296 AH / 909 AD, who took over the caliphate and ordered the construction of the city of Mahdia in 303 AH.",
+                defIsmail: "Ismail ibn Ja'far al-Sadiq",
+                defIsmailDesc: "The figure to whom the Fatimids trace their lineage; they are descendants of Ali ibn Abi Talib and Fatima, the daughter of the Prophet (PBUH).",
+                defPort: "The Port",
+                defPortDesc: "The maritime port where ships and vessels are anchored; the port of Mahdia was distinguished by its unique fortifications and by an iron chain that was raised and lowered at its entrance.",
+                defGranaries: "The Granaries",
+                defGranariesDesc: "Underground storerooms used to store grain and produce, dug by the Fatimids in Mahdia to organize the economy and secure food for the inhabitants.",
+                defSaqifa: "The Saqifa al-Kahla",
+                defSaqifaDesc: "An architectural structure in Mahdia used as a fortress and as the entrance to the Great Mosque; it is considered one of the most important landmarks of the city.",
+                defGreatMosque: "The Great Mosque",
+                defGreatMosqueDesc: "The mosque founded by the Fatimids in Mahdia to be a center for teaching the sciences of religion and for performing rituals.",
+                defCisterns: "The Cisterns",
+                defCisternsDesc: "The water reservoirs built by the Fatimids on the side of the city to store and preserve rainwater to meet the needs of the inhabitants.",
+                defWall: "The Wall",
+                defWallDesc: "A massive wall built by the Fatimids around Mahdia to protect it from external attacks.",
+                summaryText: "Key takeaway: The Fatimid State arose through Abdullah al-Mahdi in 296 AH / 909 AD on the ruins of the Aghlabid State, tracing its lineage to Fatima al-Zahra, the daughter of the Prophet (PBUH). The Fatimids first settled in Raqqada (291 AH / 904 AD), then the Caliph ordered the construction of the coastal city of Mahdia in 303 AH to be the capital of the caliphate. Mahdia was distinguished by its strategic location overlooking the sea and by its defensive and water facilities (the wall, the fortified port with an iron chain, and the cisterns), and by its religious and economic facilities (the Saqifa al-Kahla, the Great Mosque, and the granaries for storing grain).",
+                galleryAlt1: "General view of the city of Mahdia",
+                galleryAlt2: "The fortified port of Mahdia",
+                galleryAlt3: "The Saqifa al-Kahla",
+                galleryAlt4: "The Great Mosque of Mahdia",
+                galleryCap1: "General view of the city of Mahdia",
+                galleryCap2: "The fortified port of Mahdia",
+                galleryCap3: "The Saqifa al-Kahla",
+                galleryCap4: "The Great Mosque of Mahdia",
+                printButton: "🖨️ Print / Save as PDF",
+                printHeaderTitle: "History & Geography Hub – Lesson",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Go to Exercise",
+                returnMain: "Return to Main"
+            },
+            fr: {
+                yearSection: "5ème de base",
+                moduleName: "Histoire / Mahdia et Tunis, centres de rayonnement de la civilisation arabo-islamique",
+                lessonTitleSample: "Mahdia, capitale fatimide en Ifriqiya",
+                sectionIntro: "Introduction",
+                introText: "Bienvenue, chers élèves, dans une nouvelle leçon d'histoire. Après avoir découvert l'État aghlabide et la ville de Kairouan, nous découvrirons aujourd'hui un nouveau chapitre de l'histoire de notre pays. Dans cette leçon, nous étudierons l'avènement de « l'État fatimide », qui a remplacé l'État aghlabide, et nous découvrirons la nouvelle capitale qu'ils ont fondée, la ville de « Mahdia ». Nous parlerons des circonstances de la fondation de cette ville, et de ses monuments architecturaux et défensifs les plus importants, qui en ont fait une forteresse imprenable et un centre culturel important de cette époque.",
+                problematiqueText: "Comment l'État fatimide est-il né ? Comment la ville de Mahdia a-t-elle été fondée ? Et quels sont ses monuments défensifs, religieux et économiques les plus importants ?",
+                sectionPart1: "La fondation de l'État fatimide et le choix de Mahdia",
+                fatimidOriginTitle: "La naissance de l'État fatimide",
+                lineageText: "Les Fatimides sont les descendants d'<strong>Ali ibn Abi Talib</strong> et de <strong>Fatima, la fille du Prophète</strong> (paix et bénédiction sur lui), et ils rattachent leur lignée à <strong>Ismail ibn Ja'far al-Sadiq</strong>.",
+                stateFoundingText: "L'État fatimide s'est établi à <strong>Kairouan</strong> sur les ruines de l'État aghlabide en l'an <strong>296 H / 909 apr. J.-C.</strong>",
+                founderText: "<strong>Abdullah al-Mahdi</strong> a fondé cet État ; il a pris le califat et a assumé les affaires du pouvoir.",
+                transitionText: "L'avènement de cet État a représenté une transformation importante dans l'histoire de la région, car un différend est né entre les Fatimides et leurs partisans d'une part, et les Sunnites qui suivent le Prophète (PBSL) d'autre part.",
+                mahdiaFoundingTitle: "La fondation de la ville de Mahdia",
+                raqqadaText: "Les Fatimides se sont d'abord installés dans la ville de <strong>« Raqqada »</strong> comme capitale en l'an <strong>291 H / 904 apr. J.-C.</strong>",
+                mahdiaBuildingText: "Plus tard, le calife a ordonné la construction d'une nouvelle ville côtière qu'il a nommée <strong>« Mahdia »</strong>, en l'an <strong>303 H</strong>.",
+                mahdiaCapitalText: "Mahdia est devenue le centre principal du califat fatimide, et le siège du pouvoir y a été transféré.",
+                mahdiaLocationText: "Le site de Mahdia se distinguait par sa vue sur la mer, ce qui lui donnait une grande importance stratégique et militaire.",
+                sectionPart2: "Les monuments de Mahdia et les aspects de son développement",
+                defensiveFacilitiesTitle: "Les installations défensives et hydrauliques",
+                wallText: "<strong>La muraille :</strong> Les Fatimides ont construit une immense muraille autour de la ville pour la protéger des attaques extérieures.",
+                portText: "<strong>Le port :</strong> Ils ont créé un port unique en son genre ; ils ont taillé les rochers pour former un mur défensif pour les navires de guerre, et ont utilisé une chaîne en fer qui se levait et s'abaissait à l'entrée du port pour le sécuriser. Cette installation est considérée comme l'une des merveilles du monde à cette époque.",
+                cisternsText: "<strong>Les citernes :</strong> Ils ont construit des citernes sur le côté de la ville pour stocker et conserver l'eau de pluie afin de répondre aux besoins des habitants.",
+                religiousEconomicTitle: "Les installations religieuses et économiques",
+                saqifaText: "<strong>La Saqifa al-Kahla :</strong> C'est la forteresse de Mahdia et l'entrée de la Grande Mosquée, et elle est considérée comme l'un des monuments architecturaux les plus importants de la ville.",
+                greatMosqueText: "<strong>La Grande Mosquée :</strong> Les Fatimides l'ont fondée pour être un centre d'enseignement des sciences religieuses et d'accomplissement des rites.",
+                granariesText: "<strong>Les greniers :</strong> Les Fatimides ont creusé des entrepôts souterrains destinés au stockage des céréales, ce qui témoigne d'une organisation économique et d'une sécurisation des provisions et de la nourriture pour les habitants.",
+                sectionConclusion: "Conclusion",
+                conclusionText: "Ainsi nous arrivons à la fin de notre leçon sur la ville de Mahdia, capitale fatimide. Nous avons découvert comment les Fatimides ont fondé leur État et construit leur capitale côtière, qui alliait la force militaire (les murailles et le port fortifié), l'organisation économique (les greniers et les citernes), et la renaissance religieuse (la Grande Mosquée). Mahdia reste aujourd'hui un témoin vivant du génie de nos ancêtres dans l'aménagement urbain et défensif. Je vous invite à être fiers de ce grand patrimoine culturel, et à tirer profit des valeurs d'organisation et de travail collectif dans nos vies.",
+                sectionDefinitions: "📖 Définitions",
+                sectionGallery: "🗺️ Documents et monuments de la Mahdia fatimide",
+                defLocations: "🌍 Lieux et régions",
+                defOthers: "📌 Termes et figures",
+                defMahdia: "Mahdia",
+                defMahdiaDesc: "La ville côtière construite par les Fatimides en 303 H pour être la capitale de leur califat, distinguée par sa situation donnant sur la mer et par ses structures défensives uniques.",
+                defRaqqada: "Raqqada",
+                defRaqqadaDesc: "La première ville où les Fatimides se sont installés comme capitale en 291 H / 904 apr. J.-C. avant la construction de Mahdia.",
+                defKairouan: "Kairouan",
+                defKairouanDesc: "La ville où l'État fatimide s'est établi sur les ruines de l'État aghlabide en 296 H / 909 apr. J.-C.",
+                defFatimidState: "L'État fatimide",
+                defFatimidStateDesc: "Un État islamique fondé par Abdullah al-Mahdi en 296 H / 909 apr. J.-C., qui rattache sa lignée à Fatima al-Zahra, la fille du Prophète (PBSL).",
+                defUbaydAllah: "Abdullah al-Mahdi (Ubayd Allah al-Mahdi)",
+                defUbaydAllahDesc: "Le fondateur de l'État fatimide en 296 H / 909 apr. J.-C., qui a pris le califat et a ordonné la construction de la ville de Mahdia en 303 H.",
+                defIsmail: "Ismail ibn Ja'far al-Sadiq",
+                defIsmailDesc: "La figure à laquelle les Fatimides rattachent leur lignée ; ils sont les descendants d'Ali ibn Abi Talib et de Fatima, la fille du Prophète (PBSL).",
+                defPort: "Le port",
+                defPortDesc: "Le port maritime où les navires et les embarcations sont ancrés ; le port de Mahdia s'est distingué par ses fortifications uniques et par une chaîne en fer qui se levait et s'abaissait à son entrée.",
+                defGranaries: "Les greniers",
+                defGranariesDesc: "Des entrepôts souterrains utilisés pour stocker les céréales et les produits, creusés par les Fatimides à Mahdia pour organiser l'économie et sécuriser la nourriture des habitants.",
+                defSaqifa: "La Saqifa al-Kahla",
+                defSaqifaDesc: "Une structure architecturale à Mahdia, utilisée comme forteresse et comme entrée de la Grande Mosquée ; elle est considérée comme l'un des monuments les plus importants de la ville.",
+                defGreatMosque: "La Grande Mosquée",
+                defGreatMosqueDesc: "La mosquée fondée par les Fatimides à Mahdia pour être un centre d'enseignement des sciences religieuses et d'accomplissement des rites.",
+                defCisterns: "Les citernes",
+                defCisternsDesc: "Les réservoirs d'eau construits par les Fatimides sur le côté de la ville pour stocker et conserver l'eau de pluie afin de répondre aux besoins des habitants.",
+                defWall: "La muraille",
+                defWallDesc: "Une immense muraille construite par les Fatimides autour de Mahdia pour la protéger des attaques extérieures.",
+                summaryText: "À retenir : L'État fatimide est né grâce à Abdullah al-Mahdi en 296 H / 909 apr. J.-C. sur les ruines de l'État aghlabide, rattachant sa lignée à Fatima al-Zahra, la fille du Prophète (PBSL). Les Fatimides se sont d'abord installés à Raqqada (291 H / 904 apr. J.-C.), puis le calife a ordonné la construction de la ville côtière de Mahdia en 303 H pour être la capitale du califat. Mahdia s'est distinguée par sa situation stratégique donnant sur la mer et par ses installations défensives et hydrauliques (la muraille, le port fortifié avec une chaîne en fer, et les citernes), ainsi que par ses installations religieuses et économiques (la Saqifa al-Kahla, la Grande Mosquée, et les greniers pour stocker les céréales).",
+                galleryAlt1: "Vue générale de la ville de Mahdia",
+                galleryAlt2: "Le port fortifié de Mahdia",
+                galleryAlt3: "La Saqifa al-Kahla",
+                galleryAlt4: "La Grande Mosquée de Mahdia",
+                galleryCap1: "Vue générale de la ville de Mahdia",
+                galleryCap2: "Le port fortifié de Mahdia",
+                galleryCap3: "La Saqifa al-Kahla",
+                galleryCap4: "La Grande Mosquée de Mahdia",
+                printButton: "🖨️ Imprimer / Enregistrer en PDF",
+                printHeaderTitle: "History & Geography Hub – Leçon",
+                printFooterText: "© History & Geography Hub",
+                goToExercise: "Aller à l'exercice",
+                returnMain: "Retour à l'accueil"
+            },
+            ar: {
+                yearSection: "الخامسة أساسي",
+                moduleName: "التاريخ / المهديّة وتونس مركز إشعاع للحضارة العربيّة الإسلاميّة",
+                lessonTitleSample: "المهدية عاصمة الفاطميين بإفريقية",
+                sectionIntro: "مقدمة",
+                introText: "مرحباً بكم أبنائي التلاميذ في درس جديد من دروس التاريخ. بعد أن تعرفنا على دولة الأغالبة ومدينة القيروان، سنكتشف اليوم فصلاً جديداً من تاريخ بلادنا. سنتناول في هذا الدرس قيام «الدولة الفاطمية» التي حلت محل الدولة الأغلبية، ونتعرف على العاصمة الجديدة التي أسسوها وهي مدينة «المهدية». سنتحدث عن ظروف تأسيس هذه المدينة، وأهم معالمها العمرانية والدفاعية التي جعلت منها حصناً منيعاً ومركزاً حضارياً هاماً في ذلك العصر.",
+                problematiqueText: "كيف نشأت الدولة الفاطمية؟ وكيف تأسست مدينة المهدية؟ وما هي أهم معالمها الدفاعية والدينية والاقتصادية؟",
+                sectionPart1: "تأسيس الدولة الفاطمية واختيار المهدية",
+                fatimidOriginTitle: "نشأة الدولة الفاطمية",
+                lineageText: "الفاطميون هم أحفاد <strong>علي بن أبي طالب</strong> و<strong>فاطمة بنت الرسول</strong> (صلى الله عليه وسلم)، وينتسبون إلى <strong>إسماعيل بن جعفر الصادق</strong>.",
+                stateFoundingText: "قامت الدولة الفاطمية في <strong>القيروان</strong> على أنقاض الدولة الأغلبية في سنة <strong>296 هـ / 909 م</strong>.",
+                founderText: "أسس هذه الدولة <strong>عبد الله المهدي</strong>، الذي تولى الخلافة وأخذ على عاتقه شؤون الحكم.",
+                transitionText: "مثّل قيام هذه الدولة تحولاً هاماً في تاريخ المنطقة، حيث نشب خلاف بين الفاطميين وأتباعهم من جهة، وبين السنة الذين يتبعون الرسول (ص) من جهة أخرى.",
+                mahdiaFoundingTitle: "تأسيس مدينة المهدية",
+                raqqadaText: "بدأ الفاطميون بالاستقرار في مدينة <strong>«رقادة»</strong> كعاصمة لهم سنة <strong>291 هـ / 904 م</strong>.",
+                mahdiaBuildingText: "لاحقاً، أمر الخليفة ببناء مدينة جديدة ساحلية أطلق عليها اسم <strong>«المهدية»</strong> سنة <strong>303 هـ</strong>.",
+                mahdiaCapitalText: "أصبحت المهدية هي المركز الرئيسي للخلافة الفاطمية، وانتقلت إليها قاعدة الملك.",
+                mahdiaLocationText: "تميز موقع المهدية بكونه مطلاً على البحر، مما أعطاها أهمية استراتيجية وعسكرية كبرى.",
+                sectionPart2: "معالم المهدية ومظاهر تطورها",
+                defensiveFacilitiesTitle: "المنشآت الدفاعية والمائية",
+                wallText: "<strong>السور:</strong> بنى الفاطميون سوراً ضخماً حول المدينة لحمايتها من الهجمات الخارجية.",
+                portText: "<strong>المرسى (الميناء):</strong> أنشأوا مرسى فريداً من نوعه؛ حيث حفروا الصخور ليشكلوا حائطاً دفاعياً للمراكب الحربية، واستخدموا سلسلة من الحديد ترتفع وتنخفض لمدخل الميناء لتأمينه. وتُعتبر هذه المنشأة من عجائب العالم في ذلك الوقت.",
+                cisternsText: "<strong>الجباب (خزانات المياه):</strong> أقاموا الجباب في جانب المدينة لتخزين مياه الأمطار وحفظها لتلبية حاجات السكان.",
+                religiousEconomicTitle: "المنشآت الدينية والاقتصادية",
+                saqifaText: "<strong>السقيفة الكحلاء:</strong> وهي حصن المهدية ومدخل الجامع الكبير، وتُعد من أهم المعالم المعمارية للمدينة.",
+                greatMosqueText: "<strong>الجامع الكبير:</strong> أسسه الفاطميون ليكون مركزاً لتعليم العلوم الدينية وإقامة الشعائر.",
+                granariesText: "<strong>الأهراء (المخازن):</strong> حفر الفاطميون مخازن أرضية مخصصة لخزن الحبوب، مما يدل على تنظيم اقتصادي وتأمين للمؤونة والغذاء للسكان.",
+                sectionConclusion: "خاتمة",
+                conclusionText: "وهكذا نصل إلى نهاية درسنا عن مدينة المهدية عاصمة الفاطميين. لقد تعرفنا على كيف أسس الفاطميون دولتهم وبنوا عاصمتهم الساحلية التي جمعت بين القوة العسكرية (الأسوار والمرسى المحصن) والتنظيم الاقتصادي (الأهراء والجباب)، والنهضة الدينية (الجامع الكبير). وتظل المهدية اليوم شاهداً حياً على عبقرية الأجداد في التخطيط العمراني والدفاعي. أدعوكم إلى الاعتزاز بهذا الإرث الحضاري العظيم، والاستفادة من قيم التنظيم والعمل الجماعي في حياتنا.",
+                sectionDefinitions: "📖 تعريفات",
+                sectionGallery: "🗺️ وثائق ومعالم من المهدية الفاطميّة",
+                defLocations: "🌍 أمكنة ومناطق",
+                defOthers: "📌 مصطلحات وشخصيات",
+                defMahdia: "المهدية",
+                defMahdiaDesc: "المدينة الساحلية التي بناها الفاطميون سنة 303 هـ لتكون عاصمة لخلافتهم، وتميزت بموقعها المطل على البحر وبمنشآتها الدفاعية الفريدة.",
+                defRaqqada: "رقادة",
+                defRaqqadaDesc: "المدينة الأولى التي استقر فيها الفاطميون كعاصمة لهم سنة 291 هـ / 904 م قبل بناء المهدية.",
+                defKairouan: "القيروان",
+                defKairouanDesc: "المدينة التي قامت فيها الدولة الفاطمية على أنقاض الدولة الأغلبية سنة 296 هـ / 909 م.",
+                defFatimidState: "الدولة الفاطمية",
+                defFatimidStateDesc: "دولة إسلامية أسسها عبد الله المهدي سنة 296 هـ / 909 م، وتنسب نفسها إلى فاطمة الزهراء بنت الرسول (ص).",
+                defUbaydAllah: "عبد الله المهدي (عبيد الله المهدي)",
+                defUbaydAllahDesc: "مؤسس الدولة الفاطمية سنة 296 هـ / 909 م، والذي تولى الخلافة وأمر ببناء مدينة المهدية سنة 303 هـ.",
+                defIsmail: "إسماعيل بن جعفر الصادق",
+                defIsmailDesc: "الشخصية التي ينتسب إليها الفاطميون، وهم أحفاد علي بن أبي طالب وفاطمة بنت الرسول (ص).",
+                defPort: "المرسى",
+                defPortDesc: "الميناء البحري الذي يتم فيه إرساء السفن والمراكب، وقد تميز مرسى المهدية بتحصيناته الفريدة وبسلسلة حديدية ترتفع وتنخفض لمدخله.",
+                defGranaries: "الأهراء",
+                defGranariesDesc: "مخازن أرضية تُستخدم لخزن الحبوب والغلال، حفرها الفاطميون في المهدية لتنظيم الاقتصاد وتأمين الغذاء للسكان.",
+                defSaqifa: "السقيفة الكحلاء",
+                defSaqifaDesc: "منشأة معمارية في المهدية، كانت تُستخدم كحصن ومدخل للجامع الكبير، وتُعد من أهم معالم المدينة.",
+                defGreatMosque: "الجامع الكبير",
+                defGreatMosqueDesc: "الجامع الذي أسسه الفاطميون في المهدية ليكون مركزاً لتعليم العلوم الدينية وإقامة الشعائر.",
+                defCisterns: "الجباب",
+                defCisternsDesc: "خزانات المياه التي أقامها الفاطميون في جانب المدينة لتخزين مياه الأمطار وحفظها لتلبية حاجات السكان.",
+                defWall: "السور",
+                defWallDesc: "سور ضخم بناه الفاطميون حول المهدية لحمايتها من الهجمات الخارجية.",
+                summaryText: "خلاصة: قامت الدولة الفاطمية على يد عبد الله المهدي سنة 296 هـ / 909 م على أنقاض الدولة الأغلبية، ونسبت نفسها إلى فاطمة الزهراء بنت الرسول (ص). استقر الفاطميون أولاً في رقادة (291 هـ / 904 م)، ثم أمر الخليفة ببناء مدينة المهدية الساحلية سنة 303 هـ لتكون عاصمة الخلافة. تميزت المهدية بموقعها الاستراتيجي المطل على البحر، وبمنشآتها الدفاعية والمائية (السور، والمرسى المحصن بسلسلة حديدية، والجباب)، ومنشآتها الدينية والاقتصادية (السقيفة الكحلاء، والجامع الكبير، والأهراء لخزن الحبوب).",
+                galleryAlt1: "منظر عام لمدينة المهدية",
+                galleryAlt2: "مرسى المهدية المحصّن",
+                galleryAlt3: "السقيفة الكحلاء",
+                galleryAlt4: "الجامع الكبير بالمهدية",
+                galleryCap1: "منظر عام لمدينة المهدية",
+                galleryCap2: "مرسى المهدية المحصّن",
+                galleryCap3: "السقيفة الكحلاء",
+                galleryCap4: "الجامع الكبير بالمهدية",
+                printButton: "🖨️ طباعة / حفظ PDF",
+                printHeaderTitle: "مركز التاريخ والجغرافيا – درس",
+                printFooterText: "© مركز التاريخ والجغرافيا",
+                goToExercise: "الذهاب إلى التمرين",
+                returnMain: "العودة إلى الرئيسية"
+            }
+        };
+    </script>
+
+    <!-- ══════════ KEYWORD AUTO-WRAP MAP ══════════ -->
+    <script>
+        const keywordMap = {
+            en: [
+                { text: "Mahdia", class: "key-location", i18n: "defMahdia" },
+                { text: "Raqqada", class: "key-location", i18n: "defRaqqada" },
+                { text: "Kairouan", class: "key-location", i18n: "defKairouan" },
+                { text: "The Fatimid State", class: "key-other", i18n: "defFatimidState" },
+                { text: "Abdullah al-Mahdi", class: "key-other", i18n: "defUbaydAllah" },
+                { text: "Ubayd Allah al-Mahdi", class: "key-other", i18n: "defUbaydAllah" },
+                { text: "Ismail ibn Ja'far al-Sadiq", class: "key-other", i18n: "defIsmail" },
+                { text: "The Port", class: "key-other", i18n: "defPort" },
+                { text: "The Granaries", class: "key-other", i18n: "defGranaries" },
+                { text: "The Saqifa al-Kahla", class: "key-other", i18n: "defSaqifa" },
+                { text: "The Great Mosque", class: "key-other", i18n: "defGreatMosque" },
+                { text: "The Cisterns", class: "key-other", i18n: "defCisterns" },
+                { text: "The Wall", class: "key-other", i18n: "defWall" }
+            ],
+            fr: [
+                { text: "Mahdia", class: "key-location", i18n: "defMahdia" },
+                { text: "Raqqada", class: "key-location", i18n: "defRaqqada" },
+                { text: "Kairouan", class: "key-location", i18n: "defKairouan" },
+                { text: "L'État fatimide", class: "key-other", i18n: "defFatimidState" },
+                { text: "Abdullah al-Mahdi", class: "key-other", i18n: "defUbaydAllah" },
+                { text: "Ubayd Allah al-Mahdi", class: "key-other", i18n: "defUbaydAllah" },
+                { text: "Ismail ibn Ja'far al-Sadiq", class: "key-other", i18n: "defIsmail" },
+                { text: "Le port", class: "key-other", i18n: "defPort" },
+                { text: "Les greniers", class: "key-other", i18n: "defGranaries" },
+                { text: "La Saqifa al-Kahla", class: "key-other", i18n: "defSaqifa" },
+                { text: "La Grande Mosquée", class: "key-other", i18n: "defGreatMosque" },
+                { text: "Les citernes", class: "key-other", i18n: "defCisterns" },
+                { text: "La muraille", class: "key-other", i18n: "defWall" }
+            ],
+            ar: [
+                { text: "المهدية", class: "key-location", i18n: "defMahdia" },
+                { text: "رقادة", class: "key-location", i18n: "defRaqqada" },
+                { text: "القيروان", class: "key-location", i18n: "defKairouan" },
+                { text: "الدولة الفاطمية", class: "key-other", i18n: "defFatimidState" },
+                { text: "عبد الله المهدي", class: "key-other", i18n: "defUbaydAllah" },
+                { text: "عبيد الله المهدي", class: "key-other", i18n: "defUbaydAllah" },
+                { text: "إسماعيل بن جعفر الصادق", class: "key-other", i18n: "defIsmail" },
+                { text: "المرسى", class: "key-other", i18n: "defPort" },
+                { text: "الأهراء", class: "key-other", i18n: "defGranaries" },
+                { text: "السقيفة الكحلاء", class: "key-other", i18n: "defSaqifa" },
+                { text: "الجامع الكبير", class: "key-other", i18n: "defGreatMosque" },
+                { text: "الجباب", class: "key-other", i18n: "defCisterns" },
+                { text: "السور", class: "key-other", i18n: "defWall" }
+            ]
+        };
+    </script>
+    <script src="lessons-core.js"></script>
+</body>
+</html>
